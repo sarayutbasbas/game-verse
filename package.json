@@ -1,0 +1,33 @@
+{
+  "name": "gameverse",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server/index.ts",
+    "build": "tsc --noEmit && vite build && tsc -p tsconfig.server.json",
+    "start": "node build/server/index.js",
+    "test": "tsx --test tests/*.test.ts",
+    "test:e2e": "npm run build && playwright test",
+    "setup:env": "node scripts/setup-env.mjs"
+  },
+  "dependencies": {
+    "better-auth": "1.7.7",
+    "pg": "^8.23.1",
+    "qrcode": "^1.5.4",
+    "sharp": "0.35.5",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.23.1",
+    "@types/qrcode": "^1.5.5",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=24.18.0"
+  }
+}

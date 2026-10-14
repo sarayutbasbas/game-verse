@@ -1,0 +1,40 @@
+# Generated presentation artwork
+
+Generated with the built-in image_gen tool on 2026-10-14. Reference images were inspected for mood/composition; no source logos, scans or illustrations are shipped. Each asset was generated in a separate call. No CLI/API key or external paid service was used.
+
+Originals: assets/source/presentation/*.png. Runtime WebP files: public/art/covers/{camel-up,dracula}.webp and public/art/dracula/{roles,card-portraits,city,card-back,markers}.webp. Code renders all names, numerals, effects, suit icons and district/HP data. One shared card back for every hidden card.
+
+Role and marker PNGs have real alpha, verified by inspecting extrema and pixels. WebP conversion preserves alpha. The 4×2 portrait atlas was generated as a tall sheet; the asset preparation script extracts portrait windows at fixed cells and repacks them into 1020×680 to prevent distortion. This is a formatting crop, not a new illustration or rule. Originals remain intact. Marker atlas is padded to square before scaling so circles remain round.
+
+Generated source dimensions and output sizes are listed in public/art/presentation-manifest.json. Optional regeneration of WebP formatting: python3 scripts/prepare-presentation-art.py (requires Pillow). The running application does not require Python or Pillow.
+
+## Prompt set
+
+### Dracula cover
+
+Use case: stylized-concept. Generate original cover illustration for a digital board game gallery, Dracula versus Van Helsing. Portrait 2:3 composition, no text or letters anywhere; title will be rendered in code. Gothic illustrated printmaking, angular expressive shapes, etched cross-hatching, deep midnight ink navy, desaturated petroleum teal, wine crimson, ochre and aubergine. A gaunt aristocratic vampire with long black hair and high wine-red collar on the left faces a seasoned hunter with a broad brim hat, olive coat, silver hair and lantern on the right. Foggy coastal Victorian town, gothic abbey skyline and sailing ship behind, distressed paper grain. Reference mood: tactile illustrated gothic board games, but fully original faces, clothing, pose and composition; do not copy an existing game illustration, logo or packaging. Rich screenprint layers and excellent silhouette, intimate mysterious moonlit atmosphere. Edge to edge full bleed cover artwork; bottom 15% calm dark negative space for code typography. No mockup box, no UI, no watermarks.
+
+### Camel cover
+
+Use case: stylized-concept. Original digital board game cover artwork for Camel Up, portrait 2:3, no text no logo. Three exuberant racing camels improbably stacked on one another, blue camel bottom, yellow camel middle, purple camel on top, running along a sunlit desert race track. Sandy ochre dunes, Egyptian pyramid, palms and festive tiny banners behind. Tactile gouache and illustrated screenprinted board-game art, angular expressive silhouettes with paper grain and fine engraved detail, joyful movement, warm gold sand, deep turquoise shadows, cobalt and wine-purple accents. Fully original design, do not copy existing game artwork or packaging. Artwork full bleed portrait, calm lower 15% in deep turquoise for title added by code; no numbers, text, typography, mockup box or watermark.
+
+### Role cutouts
+
+Use case: stylized-concept. Original gothic board game portrait sprite atlas: two isolated bust portraits side by side, left vampire Dracula, right hunter Van Helsing, two equal columns on genuinely transparent background. Both heads and torsos entirely within their respective halves with generous transparent margins, no overlap. Dracula: slender pale aristocrat, long black hair, elegant dark wine-red collar, sharp angular face, subtle menacing smile, original clothing. Helsing: seasoned silver-haired hunter, broad dark olive brimmed hat, green wool cape, lantern and weathered determined face. Cohesive angular hand-painted screenprint/woodcut illustration, crosshatching, paper grain inside figures, teal midnight shadows, crimson, ochre and aubergine accents. 3/4 frontal portraits, strong silhouette. No frame, words, numbers, logos, labels, watermark, no background rectangle. Original designs, do not reproduce any existing illustrations.
+
+### Card illustration atlas
+
+Use case: stylized-concept. Original gothic board game card illustration ATLAS, exactly FOUR equal columns and TWO equal rows, eight self-contained portrait illustrations ordered left to right then next row. Each cell portrait 3:4, characters inside their cell with clear margin, no overlap, no frames no letters or numerals no symbols. Eight original Victorian gothic characters: top row pale aristocrat in crimson collar; lantern-bearing night watchman in teal cloak; mysterious veiled woman; red-haired noblewoman in violet velvet. Bottom row silver-haired messenger with windswept cape; dark-haired masked envoy; sinister scholar with ravens; weathered hunter with broad brim hat and olive coat. Bust/waist-up characters, no alternate cards or items. All eight have dark atmospheric etched-paper backdrops and bold angular hand-painted printmaking style, distressed crosshatching, midnight navy and deep teal shadows, wine red, warm ochre, violet; consistent lighting and material, board-game screenprint aesthetics. Use all cells equally, leave thin plain dark gutters exactly at quarter width and half height, each image has no typography. Original faces/compositions, not copied from existing game art.
+
+### City map
+
+Use case: stylized-concept. Original digital gothic board game city map background, landscape 3:2, strictly top-down flat illustrated cartographic view of a Victorian coastal town at night. Intricate small terraced rooftops, five broad neighborhoods loosely arranged side by side, winding pale ochre streets dividing urban blocks, plazas, abbey garden, harbor and small ship at upper edge. Deep petroleum teal, ink navy, muted wine rooftops, warm yellow window lights, worn ochre cobbles and paper print grain. Hand-painted angular woodcut/screenprint illustration with fine crosshatching, tactile illustrated board game material. Board fills entire image edge to edge, no perspective tilt, no frame, no sky or horizon. Buildings small so the overall map reads from above. NOT a gameplay screenshot, no tokens, cards, counters, circles, labels, numerals, letters or logos. Space in central neighborhoods for code-rendered pieces. Fully original map, do not copy a real game board.
+
+### Common card back
+
+Use case: stylized-concept. Original gothic board-game COMMON CARD BACK, portrait 2:3 full bleed, one symmetric back design for all secret cards. Fine etched midnight navy and petroleum teal, worn ochre inner frame, paired stylized ravens surrounding a central antique lantern, abbey silhouette and winding vines, subtle wine-red accents and grainy screenprinted paper. Angular Victorian gothic illustration, elegant decorative symmetry and readable silhouette. Do not copy an existing game back or logo. No text, letters, numerals, suit symbols, portraits, rankings or gameplay information. No UI or mockup. Card design fills full rectangular image; no outside background.
+
+### Marker atlas
+
+Use case: stylized-concept. Gothic board game marker sprite sheet, exactly TWO equal columns and TWO equal rows, four separate isolated cutout tokens on genuinely transparent background, generous equal transparent margin around each token, not touching. Top left: circular teal-rimmed cardboard human token with a warm original Victorian citizen face. Top right: circular wine-red-rimmed cardboard vampire token with the SAME citizen face now pale with subtle fangs and red eyes. Bottom left: separate carved wine-red heart shaped health token, small ochre flourish. Bottom right: small ochre wooden sailing ship round-marker token, three visible sails, seen slightly overhead. All in cohesive angular engraved woodcut/hand-painted screenprint board game illustration, deep navy/teal and aged ochre shadows, fine paper grain within objects, tangible material bevel. No written labels, no numerals, no logos or letters, no background rectangle, no extra objects, exact 2x2 grid.
+

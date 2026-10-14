@@ -1,0 +1,74 @@
+[
+  {
+    "name": "tile-blue",
+    "path": "public/art/azul/tile-blue.webp",
+    "width": 256,
+    "height": 256,
+    "bytes": 27572,
+    "transparent": true
+  },
+  {
+    "name": "tile-yellow",
+    "path": "public/art/azul/tile-yellow.webp",
+    "width": 256,
+    "height": 256,
+    "bytes": 31096,
+    "transparent": true
+  },
+  {
+    "name": "tile-red",
+    "path": "public/art/azul/tile-red.webp",
+    "width": 256,
+    "height": 256,
+    "bytes": 23698,
+    "transparent": true
+  },
+  {
+    "name": "tile-black",
+    "path": "public/art/azul/tile-black.webp",
+    "width": 256,
+    "height": 256,
+    "bytes": 34748,
+    "transparent": true
+  },
+  {
+    "name": "tile-white",
+    "path": "public/art/azul/tile-white.webp",
+    "width": 256,
+    "height": 256,
+    "bytes": 22338,
+    "transparent": true
+  },
+  {
+    "name": "board",
+    "path": "public/art/azul/board-paper.webp",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 175738,
+    "transparent": false
+  },
+  {
+    "name": "factory",
+    "path": "public/art/azul/factory.webp",
+    "width": 384,
+    "height": 384,
+    "bytes": 57084,
+    "transparent": true
+  },
+  {
+    "name": "marker",
+    "path": "public/art/azul/first-player.webp",
+    "width": 192,
+    "height": 192,
+    "bytes": 16298,
+    "transparent": true
+  },
+  {
+    "name": "cover",
+    "path": "public/art/azul/../covers/azul.webp",
+    "width": 640,
+    "height": 960,
+    "bytes": 173258,
+    "transparent": false
+  }
+]

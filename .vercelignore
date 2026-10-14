@@ -1,0 +1,10 @@
+.git
+.agents
+node_modules
+assets/source
+data
+test-results
+playwright-report
+.env
+.env.*
+.DS_Store

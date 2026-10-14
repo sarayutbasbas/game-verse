@@ -1,0 +1,48 @@
+[
+  {
+    "name": "blue",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-664fdb56-5274-49ac-bdc8-feba592f9545.png"
+  },
+  {
+    "name": "yellow",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-4a245757-8641-41a9-b471-deb1f777ccc6.png"
+  },
+  {
+    "name": "red",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-43a3ffce-773d-422b-bb90-b0a1e75cb4bb.png"
+  },
+  {
+    "name": "black",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-c4a88390-769f-4552-8088-cf314c5c7019.png"
+  },
+  {
+    "name": "white",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-eafcf73a-19a0-43ed-951a-5831991732a2.png"
+  },
+  {
+    "name": "board",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-a2b2d013-1581-4f91-af38-e7dfa0608a61.png"
+  },
+  {
+    "name": "factory",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-0c8b689a-ba2c-46a0-8ff8-ef1f6a00d6ea.png"
+  },
+  {
+    "name": "marker",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-1525dd2b-6d3a-40ad-af4c-0651c0afa328.png"
+  },
+  {
+    "name": "cover",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-a8045001-7423-4371-bedd-b22837c3b16f.png"
+  },
+  {
+    "name": "yellow",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-7ab51a39-da66-49ba-b788-cc495064be82.png",
+    "refinement": 2
+  },
+  {
+    "name": "black",
+    "path": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-0c3b898c-f526-4300-a666-b1b5b71ce746.png",
+    "refinement": 2
+  }
+]

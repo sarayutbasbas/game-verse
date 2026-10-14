@@ -1,6 +1,6 @@
 # GameVerse — เว็บบอร์ดเกมจอกลาง + มือถือ
 
-มี portal ให้เลือก **Camel Up Second Edition (3–8 คน)** หรือ **Dracula vs Van Helsing, Mandoo 2023 (2 คน)**. Camel Up ใช้ฉบับ 2018 / คู่มือพิมพ์ใหม่ 2024. UI ไทย, QR/รหัสห้อง, มือถือส่วนตัว, server ตัดสินกติกาและสุ่ม, reconnect ด้วย session เดิม. คนสร้างห้องเข้ามาเล่นด้วยมือถืออีกเครื่องได้
+มี portal ให้เลือก **Camel Up Second Edition (3–8 คน)**, **Dracula vs Van Helsing, Mandoo 2023 (2 คน)** และ **Azul ภาคหลัก ผนังสีมาตรฐาน (2–4 คน)**. Camel Up ใช้ฉบับ 2018 / คู่มือพิมพ์ใหม่ 2024. UI ไทย, QR/รหัสห้อง, มือถือส่วนตัว, server ตัดสินกติกาและสุ่ม, reconnect ด้วย session เดิม. คนสร้างห้องเข้ามาเล่นด้วยมือถืออีกเครื่องได้
 
 ## ติดตั้งและรัน
 
@@ -41,7 +41,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-- `npm test`: กติกาทั้งสองเกม, seeded complete games, actual WebSocket integration (พอร์ตสุ่ม), บทบาท/ความพร้อม/ห้องเต็ม/การ์ดลับ/atomic reveal และ retries/reconnect
+- `npm test`: กติกาทั้งสามเกม, seeded complete games, actual WebSocket integration (พอร์ตสุ่ม), บทบาท/ความพร้อม/ห้องเต็ม/การ์ดลับ/atomic reveal และ retries/reconnect
 - `npm run build`: typecheck, client bundle, server JS
 - `npm run test:e2e`: build แล้วเปิด production server port 3000; Chromium จอกลาง + มือถือ 3 browser contexts, เล่นจบเกม, หลุดกลับ, ทดสอบคำตอบคำสั่งหายแล้ว retry, payload privacy, animation unit/tile, duplicate/gap/resync, reduced motion และ viewport desktop/iPad/phone. หากมีห้องกำลังเล่นบน 3000 ใช้ `PLAYWRIGHT_PORT=3001 npm run test:e2e` เพื่อรักษาห้องเดิม
 - ภาพที่ทดสอบสร้างไว้ใน `test-results/` (ไม่ commit). ดูรายละเอียดผลที่รันจริงใน [docs/progress.md](docs/progress.md)
@@ -60,7 +60,11 @@ docker build -t games .
 docker run --rm -p 3000:3000 --env-file .env -v gameverse-data:/app/data games
 ```
 
-Dockerfile จัดเตรียมไว้ แต่ยังไม่ทดสอบ Docker build ในงานนี้. เลือก VM/container ที่รองรับ long-lived WebSocket แล้ว reverse proxy HTTPS/WSS พร้อมส่งต่อ Host และ Origin ให้ตรงกัน. ใช้ **หนึ่ง instance**; ห้ามเปิดหลาย replica เพราะ room coordinator อยู่ใน process เดียว. ไม่เหมาะกับ serverless request handlers ที่ตัด WebSocket. ยังไม่ได้เผยแพร่สาธารณะหรือสมัครบริการเสียเงิน; ต้องขออนุมัติก่อนทำ
+Dockerfile ตรวจ build สำเร็จแล้ว; runtime deployment ครั้งนี้ใช้ Vercel ตามรายละเอียดด้านล่าง. เลือก VM/container ที่รองรับ long-lived WebSocket แล้ว reverse proxy HTTPS/WSS พร้อมส่งต่อ Host และ Origin ให้ตรงกัน. ใช้ **หนึ่ง instance**; ห้ามเปิดหลาย replica เพราะ room coordinator อยู่ใน process เดียว. ไม่เหมาะกับ serverless request handlers ที่ตัด WebSocket. สำหรับ Vercel ใช้เส้นทาง Postgres ที่ระบุด้านล่าง; ไม่ใช้ SQLite บน disk ชั่วคราวของ Vercel
+
+## Vercel (production)
+
+เปิด **https://game-verse-psi.vercel.app**. ใช้ Vercel Fluid WebSockets + Neon Free Postgres สำหรับข้อมูลถาวรร่วมกัน; dev ยังคง SQLite. ตั้งค่า secrets, Google Console, migration, deploy และข้อจำกัด free quota ตาม [docs/vercel-deployment.md](docs/vercel-deployment.md). ไม่ใช้ disk ชั่วคราวของ Vercel เก็บห้องหรือบัญชี.
 
 ## ขอบเขตและข้อจำกัด
 
@@ -75,7 +79,8 @@ Dockerfile จัดเตรียมไว้ แต่ยังไม่ท�
 ## โครงสร้าง
 
 - `src/games/camel-up/`: engine อิสระ deterministic เมื่อ inject random
-- `src/shared/catalog.ts`: metadata/counts/search/status/version กลาง; `src/games/registry.ts`: server-only adapters สองเกม
+- `src/shared/catalog.ts`: metadata/counts/search/status/version กลาง; `src/games/registry.ts`: server-only adapters ทั้งสามเกม
+- `src/games/azul/`: atomic drafting, shared wall mapping, scoring/bonuses, conservation และ restore validation
 - `src/games/dracula-vs-van-helsing/`: state machine การ์ด/ความสามารถ/การตัดสินเขต และ public/private projections
 - `src/server/`: rooms, roles, credentials, revisions, receipts, transport, rate limits
 - `src/shared/`: DTO/type และชื่อสีที่ client ใช้ได้
@@ -120,11 +125,11 @@ Browser suite เพิ่มจอกลาง + มือถือ Dracula + �
 
 ## Portal, UI กลาง และภาพ Dracula
 
-- `/`: gallery หน้าปกใหม่ของสองเกม ไม่มี hero หรือเกมสมมติ คลิกปกเพื่อเลือกเกม
+- `/`: gallery หน้าปกทั้งสามเกม ไม่มี hero หรือเกมสมมติ คลิกปกเพื่อเลือกเกม
 - `/games/camel-up` หรือ `/games/dracula-vs-van-helsing`: สร้างห้องหรือใส่รหัส/ชื่อผ่าน UI กลางเดียวกัน
 - `/join`: หน้าเข้าห้องด้วยรหัส วางรหัสและกด Enter ได้ รหัส normalize เป็น uppercase และตัดช่องว่าง
 - `/play/<code>` จาก QR: ใส่ชื่อโดยไม่ต้องกรอกรหัสซ้ำ; session เดิมกลับเข้าอัตโนมัติ
-- ห้องรอทั้งสองเกมใช้ neutral platform theme. เมื่อเริ่มจึงใช้ theme เฉพาะเกม
+- ห้องรอทุกเกมใช้ neutral platform theme. เมื่อเริ่มจึงใช้ theme เฉพาะเกม
 
 Dracula ใช้ปก ตัวละคร การ์ด 8 แบบ แผนที่เมือง หลังการ์ดร่วมหนึ่งแบบ และ markers ที่สร้างใหม่ด้วย built-in image generation. ข้อความไทย เลข สี/สัญลักษณ์ และตำแหน่งเขตแสดงด้วยโค้ด. แผนที่เป็น artwork ตกแต่ง แยกจาก 5 เขต/ช่องการ์ดจริง. ไม่มีภาพอ้างอิงต้นฉบับหรือ screenshot เกมถูกใช้เป็นหน้าปก
 
@@ -140,7 +145,7 @@ Presentation ใช้ latest authoritative state ทันที. Server ส่
 
 Home มี search ภาษาไทย/อังกฤษ, filter “ตอนนี้มี N คน” ตามจำนวนที่รองรับจริง, active rooms เฉพาะสมาชิก/owner ที่ล็อกอิน และล่าสุดสูงสุด 3 เกมที่เริ่มจริง (ไม่ใช่คลิกปก/create). `/login`, `/profile`, `/admin` ใช้ neutral mobile-first theme; gameplay เก็บ artwork/theme เดิม. Noto Sans Thai 400/700 self-hosted ใน `public/fonts/` พร้อม SIL OFL license
 
-Profile ใช้ชื่อ/avatar ร่วมทั้งสองเกม; รับ upload PNG/JPEG/WebP ไม่เกิน 2 MiB และแปลง 256px WebP ที่ server. ชื่อ/รูปไม่เปลี่ยน playerId/cards/turn. Logout ปิด account realtime session และล้าง player credentials บน browser; ที่นั่งยังอยู่ให้บัญชีเดิมกลับมา
+Profile ใช้ชื่อ/avatar ร่วมทุกเกม; รับ upload PNG/JPEG/WebP ไม่เกิน 2 MiB และแปลง 256px WebP ที่ server. ชื่อ/รูปไม่เปลี่ยน playerId/cards/turn. Logout ปิด account realtime session และล้าง player credentials บน browser; ที่นั่งยังอยู่ให้บัญชีเดิมกลับมา
 
 ตั้ง admin ด้วย `GAMEVERSE_BOOTSTRAP_ADMIN_USER_ID` ของ account จริงใน `.env` แล้ว restart; ไม่มี hardcoded email. หน้า `/admin` พัก/เปิดการสร้างห้องและดู diagnostics ได้โดยไม่เห็น private cards/token. Maintenance ไม่หยุดเกมเดิม
 
@@ -148,3 +153,26 @@ Profile ใช้ชื่อ/avatar ร่วมทั้งสองเกม;
 
 คู่มือ: [Google Console URLs](docs/auth/google-oauth.md), [storage/rooms/backup/admin](docs/platform-storage.md), [เพิ่มเกมใหม่](docs/adding-a-game.md), [สถานะทดสอบ](docs/progress.md). ไม่ได้ deploy สาธารณะ, ไม่มี cloud billing และยังไม่ทดสอบ Docker/Safari/อุปกรณ์จริง
 # game-verse
+
+
+## Azul ภาคหลัก (2–4 คน)
+
+เปิด `/games/azul` → ล็อกอิน Google และสร้างห้อง. ผู้เล่นใช้ QR/รหัสห้องและ Google/Guest เดิม. Owner สามารถเข้าที่นั่งจากมือถือบัญชีของตนได้; จอกลางไม่กินที่นั่ง. ทุกคนกด **พร้อมเล่น** แล้ว owner เลือกผู้เริ่มหรือ **สุ่มที่ server** และกด **เริ่มเกม**. การเลือก/สุ่มแทนเกณฑ์ผู้ไปโปรตุเกสล่าสุดเป็นขั้นตอน setup สำหรับเว็บ.
+
+มือถือ: แตะโรงงานหรือกลางและสี → เลือกแถว 1–5 หรือพื้น → อ่าน preview จำนวนที่วาง/ล้นพื้น/ทิ้ง → **ยืนยันหยิบกระเบื้อง**. เปลี่ยนหรือยกเลิก preview ได้ก่อนยืนยัน. ปุ่มปลายทางมีเหตุผลเมื่อวางไม่ได้. กระดานทุกคนเป็นข้อมูลเปิดและดูด้วยแท็บผู้เล่นได้; จอกลางเห็นทุกคนพร้อมกัน. ลำดับในถุงไม่ส่งให้ client.
+
+เมื่อกระเบื้องในโรงงานและกลางหมด server ปูผนังบนลงล่างและคิดคะแนนทันทีครั้งเดียว. ช่วงดูผล **ผู้เล่นที่เชื่อมต่อคนใดหรือ owner กดเริ่มรอบถัดไปได้** ไม่ต้องรอคนที่หลุดกดพร้อม. ระหว่าง drafting ถ้าคนที่ถึงตาหลุด ยังรอให้กลับที่นั่งเดิมตามระบบห้องกลาง ไม่มีการเล่นแทนหรือข้ามตา. Restart server กู้ถุง/กระดาน/revision/receipts เดิมจาก SQLite ไม่สุ่มใหม่.
+
+จบหลังคิดผลทุกคนเมื่อมีผนังหนึ่งแถวครบ; แสดงโบนัส +2/+7/+10, คะแนน และผู้ชนะร่วมตาม tie-break. Owner กด **เล่นอีกครั้ง** ในห้องเดิมได้. ใช้เฉพาะกระดานผนังสีมาตรฐาน ไม่มีด้านว่าง/ภาคเสริม. กรณี floor เต็มแล้วรับ marker: ถือข้างกระดานและไม่เพิ่มค่าปรับเกิน 7 ช่อง ตามข้อวินิจฉัยเว็บที่ผู้ใช้ยืนยัน.
+
+กติกา/แหล่ง/ข้อวินิจฉัย: [docs/games/azul/rules.md](docs/games/azul/rules.md). ใช้ artwork เซรามิก 5 ลาย กรอบกระดาน แผ่นโรงงาน marker และปกที่สร้างใหม่เป็น WebP ภายในโปรเจกต์ รวมประมาณ 562 KB. Preview เส้นประแสดงจำนวนจาก server; เลือกแล้วดูคู่แข่งได้โดยไม่เสีย selection และเมื่อ revision เปลี่ยนจะยกเลิกพร้อมแจ้ง. ผลรอบแสดงพิกัดผนัง/คะแนน/ค่าปรับ; ผลเกมแสดงก่อนโบนัสและเหตุผลตัดสิน. Score track เลื่อนช่วงค่าจริง รองรับเกิน 100. รายละเอียดภาพและคำสั่งเตรียมไฟล์: [Azul assets](docs/presentation/azul-assets.md). ไม่มี animation เคลื่อนชิ้นตามเวลา; feedback เล็กน้อยรองรับ reduced motion.
+
+ทดสอบเฉพาะ Azul:
+
+```sh
+npx tsx --test tests/azul.test.ts tests/azul-rooms.test.ts
+npm run build
+PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/azul.spec.ts tests/browser/azul-presentation.spec.ts
+```
+
+ใช้พอร์ต 3001 แยกจากห้องที่เปิดเล่นบน 3000. Browser suite ใช้ Chromium และ fixture account เฉพาะ test ไม่ใช่การทดสอบ Google provider ใหม่. ดูผลที่รันจริงใน [docs/progress.md](docs/progress.md).

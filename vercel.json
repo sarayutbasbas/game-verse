@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "fluid": true,
+  "regions": ["sin1"],
+  "functions": {
+    "api/gameverse.ts": {
+      "maxDuration": 300,
+      "includeFiles": "{migrations/**,dist/index.html}"
+    }
+  },
+  "rewrites": [
+    { "source": "/ws", "destination": "/api/gameverse" },
+    { "source": "/health", "destination": "/api/gameverse" },
+    { "source": "/api/:path*", "destination": "/api/gameverse" },
+    { "source": "/avatars/:path*", "destination": "/api/gameverse" },
+    { "source": "/((?!assets/|art/|fonts/|icon.svg|manifest.webmanifest).*)", "destination": "/index.html" }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "tool": "built-in image_gen",
+  "generated": "2026-10-14",
+  "assets": [
+    {
+      "id": "camel-cover",
+      "source": "assets/source/presentation/camel-cover.png",
+      "url": "/art/covers/camel-up.webp",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "size": [
+        640,
+        960
+      ],
+      "alpha": false,
+      "bytes": 161652
+    },
+    {
+      "id": "dracula-cover",
+      "source": "assets/source/presentation/dracula-cover.png",
+      "url": "/art/covers/dracula.webp",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "size": [
+        640,
+        960
+      ],
+      "alpha": false,
+      "bytes": 154616
+    },
+    {
+      "id": "roles",
+      "source": "assets/source/presentation/roles.png",
+      "url": "/art/dracula/roles.webp",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "size": [
+        1280,
+        853
+      ],
+      "alpha": true,
+      "bytes": 322004
+    },
+    {
+      "id": "city",
+      "source": "assets/source/presentation/city.png",
+      "url": "/art/dracula/city.webp",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha": false,
+      "bytes": 655162
+    },
+    {
+      "id": "card-back",
+      "source": "assets/source/presentation/card-back.png",
+      "url": "/art/dracula/card-back.webp",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "size": [
+        400,
+        600
+      ],
+      "alpha": false,
+      "bytes": 86088
+    },
+    {
+      "id": "markers",
+      "source": "assets/source/presentation/markers.png",
+      "url": "/art/dracula/markers.webp",
+      "sourceSize": [
+        1278,
+        1230
+      ],
+      "size": [
+        900,
+        900
+      ],
+      "alpha": true,
+      "bytes": 262710
+    },
+    {
+      "id": "card-portraits",
+      "source": "assets/source/presentation/card-portraits.png",
+      "url": "/art/dracula/card-portraits.webp",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "size": [
+        1020,
+        680
+      ],
+      "alpha": false,
+      "bytes": 258104
+    }
+  ]
+}
