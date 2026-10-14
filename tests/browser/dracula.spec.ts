@@ -89,6 +89,9 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
     await expect(
       d.getByRole("button", { name: "จั่วการ์ด", exact: true }),
     ).toBeEnabled();
+    await d.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+    await d.locator(".room-code").click();
+    await expect.poll(() => d.evaluate(() => navigator.clipboard.readText())).toBe(new URL(`/play/${code}`, new URL(d.url()).origin).href);
     let v = await read(display);
     expect(v.racks!.dracula.every((c) => c === null)).toBeTruthy();
     expect(v.racks!.helsing.every((c) => c === null)).toBeTruthy();
@@ -235,6 +238,20 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
     ).toBeVisible();
     expect((await read(display)).hp).toBe(12);
     expect((await read(d)).me!.id).toBe(playerIds[0]);
+    await expect(display.locator('.district [data-card="hidden"]')).toHaveCount(10);
+    for (const phone of phones) {
+      const fresh = await read(phone);
+      expect(fresh.result).toBeUndefined();
+      expect(fresh.discard).toEqual([]);
+      expect(fresh.vampires).toEqual([0,0,0,0,0]);
+      expect(fresh.me!.drawn).toBeUndefined();
+      expect(fresh.me!.cards.every(c => !c.revealed)).toBeTruthy();
+      await expect(phone.locator('.district [data-card="hidden"]')).toHaveCount(5);
+      await expect(phone.locator('.round-outcome,.reveal-focus,.district-result')).toHaveCount(0);
+      const side = fresh.players.find(p => p.id === fresh.me!.id)!.character;
+      for(let slot=0;slot<5;slot++) await expect(phone.locator(`[data-district="${slot}"] [data-side="${side}"] .duel-value`)).toHaveText(String(fresh.me!.cards[slot].value));
+    }
+    await d.screenshot({path:"test-results/dracula-rematch-phone.png",fullPage:true});
     console.log(
       `Dracula complete: ${actions} actions, ${rounds + 1} rounds, winner ${v.winner}`,
     );
