@@ -38,6 +38,10 @@ export class DraculaMotion {
     this.cancel();
     this.previous = undefined;
     this.owner = undefined;
+    this.count = 0;
+    this.node.replaceChildren();
+    for (const key of Object.keys(this.node.dataset)) delete this.node.dataset[key];
+    this.node.dataset.motionState = "idle";
   }
   private cancel() {
     this.version++;

@@ -630,3 +630,9 @@ body.platform-theme {
   text-shadow: 0 1px 0 #fff9e8;
 }
 .platform-surface .game-cover[href="/games/azul"]:hover .cover-name { color: #0e8893; }
+.role-choices { display: flex; gap: 12px; margin: 16px 0; }
+.platform-surface .role-choices button { display: flex; flex: 1; flex-direction: column; align-items: center; gap: 6px; padding: 12px; border: 2px solid #cad6d4; border-radius: 8px; }
+.role-choices .role-portrait { width: 72px; height: 86px; }
+.role-choice-check { font-size: 11px; }
+.platform-surface .role-choices button[aria-pressed="true"] { border-color: #89712f; background: #f3eacb; color: #213c46; box-shadow: 0 0 0 2px #c8a64e; }
+.lobby-players .role-portrait { float: left; width: 40px; height: 48px; margin-right: 12px; }

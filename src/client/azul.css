@@ -249,3 +249,8 @@ body.azul-theme::before { background: repeating-linear-gradient(98deg, #ffffff12
   .display-surface .az-floor-cell { gap: 2px; }
 }
 @media (max-width: 600px) { .az-player { --az-row: 44px; } }
+@media (min-width:900px) and (max-width:1150px) {
+  main.display-surface.azul-surface { padding-top: 8px; }
+  main.display-surface.azul-surface > header.game-header { padding-bottom: 0; }
+  .display-surface.azul-surface .az-heading .room-code { min-height: 44px; flex-direction: row; }
+}

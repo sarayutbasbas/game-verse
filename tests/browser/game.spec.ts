@@ -80,7 +80,8 @@ test("จอกลาง + มือถือ 3 คน เล่นครบเ�
     .getByRole("button", { name: /เดิมพันรอบย่อย อูฐ/ })
     .first()
     .click();
-  await expect(players[1].locator(".notice")).toHaveText("ทำรายการแล้ว");
+  await expect(players[1].locator(".game-toast")).toBeVisible();
+  await expect(players[1].locator(".game-toast")).toContainText("ทำรายการแล้ว");
   await expect(
     players[1].locator(".players li").nth(1).locator(".tickets"),
   ).toHaveText("ฟ้า 5");

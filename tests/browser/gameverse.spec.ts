@@ -73,7 +73,7 @@ test("GameVerse Home filters, Google setup state, Guest/session, profile uploads
     await expect(page.locator(".profile-summary img")).toHaveCount(0);
     await page.getByRole("button", { name: "ออกจากระบบ", exact: true }).click();
     await expect(page).toHaveURL(/\/$/);
-    await expect(page.locator(".account-link")).toHaveText("ล็อกอิน");
+    await expect(page.locator(".account-link")).toHaveAttribute("aria-label", "ล็อกอิน");
     await page.goto("/games/camel-up");
     await expect(
       page.getByRole("button", { name: "สร้างห้องบนจอกลาง" }),

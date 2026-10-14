@@ -1,4 +1,4 @@
-import { avatar as profileAvatar } from "./account.js";
+import { roomCode } from "./ui.js";
 import {
   EFFECTS,
   ROLE_NAME,
@@ -65,8 +65,8 @@ export function renderDracula(
             : v.step === "effect"
               ? "เลือกเป้าหมายความสามารถ"
               : "จั่วการ์ดหรือขอจบรอบ";
-  root.innerHTML = `<div class="duel-room room-heading"><div><h1>Dracula <span>vs</span> Van Helsing</h1><p>${v.round ? `รอบ ${v.round}/5 • ` : ""}${phase}</p></div><div class="room-code"><span>รหัสห้อง</span><strong translate="no">${esc(v.code)}</strong></div></div>
-  <div class="duel-status">${v.players.map((p) => `<div class="duel-person ${p.id === v.turn && v.phase === "playing" ? "active" : ""}">${p.avatar ? profileAvatar(p) : p.character ? rolePortrait(p.character) : ""}<strong>${p.character ? ROLE_NAME[p.character] : "ยังไม่เลือกบทบาท"}</strong><span>${esc(p.name)}${p.id === mine?.id ? " (คุณ)" : ""}</span><small>${!p.connected ? "หลุด • รอกลับเข้าห้อง" : v.phase === "lobby" ? (p.ready ? "พร้อมแล้ว" : "ยังไม่พร้อม") : p.id === v.turn && v.phase === "playing" ? "กำลังเล่น" : "เชื่อมต่อแล้ว"}</small></div>`).join("")}${v.phase !== "lobby" ? `<div class="duel-health"><strong>${v.hp}/12</strong><span>พลังชีวิต Dracula</span></div>` : ""}</div>
+  root.innerHTML = `<div class="duel-room room-heading"><div><h1>Dracula <span>vs</span> Van Helsing</h1><p>${v.round ? `รอบ ${v.round}/5 • ` : ""}${phase}</p></div>${roomCode(v.code)}</div>
+  <div class="duel-status">${v.players.map((p) => `<div class="duel-person ${p.id === v.turn && v.phase === "playing" ? "active" : ""} ${p.id === mine?.id ? "is-you" : ""}">${p.character ? rolePortrait(p.character) : ""}<strong>${p.character ? ROLE_NAME[p.character] : "ยังไม่เลือกบทบาท"}</strong>${p.id === mine?.id ? '<b class="role-you">คุณ</b>' : ""}<span class="duel-player-name">${esc(p.name)}</span><small>${!p.connected ? "หลุด • รอกลับเข้าห้อง" : v.phase === "lobby" ? (p.ready ? "พร้อมแล้ว" : "ยังไม่พร้อม") : p.id === v.turn && v.phase === "playing" ? "กำลังเล่น" : "เชื่อมต่อแล้ว"}</small></div>`).join("")}${v.phase !== "lobby" ? `<div class="duel-health"><strong>${v.hp}/12</strong><span>พลังชีวิต Dracula</span></div>` : ""}</div>
   <section id="duel-controls" class="duel-controls"></section><section id="duel-board"></section>
   <details class="duel-help"><summary>วิธีเล่นและความสามารถการ์ด</summary><p>วางการ์ดตรงเขต 1–5 ห้ามจัดใหม่เอง ในตาของคุณจั่วหนึ่งใบ แล้วทิ้งใบที่จั่วหรือเปลี่ยนกับใบในเขต ความสามารถมาจากใบที่ทิ้ง และต้องทำถ้าทำได้</p><p>ทรัมป์ชนะสีอื่น ถ้าเหมือนกันใช้เลข เลขเท่ากันใช้ลำดับสี เปิดการ์ดคงเปิดแม้สลับตำแหน่ง</p><ol>${Object.entries(
     EFFECTS,
@@ -119,7 +119,7 @@ export function renderDracula(
     motion.bindControls(controls);
     return;
   }
-  controls.innerHTML = `<h2>${mine && v.turn === mine.id ? "ตาของคุณ" : `ตาของ ${esc(name(v.turn))}`}</h2><p>${esc(v.lastAction)}</p>${v.ending ? '<p class="duel-ending">มีคนขอจบรอบแล้ว นี่คือตาสุดท้าย (การ์ด 5 ต่อได้)</p>' : ""}<div id="duel-action-panel"></div>`;
+  controls.innerHTML = `<div class="controller-ranking" aria-label="ลำดับสีปัจจุบัน"><span>ทรัมป์</span>${v.ranking!.map((s,i)=>`<b class="suit-${s} ${i===0?"current-trump":""}" aria-label="${i===0?"สีทรัมป์ ":""}${SUIT_NAME[s]}">${i===0?SUIT_NAME[s]:SUIT_NAME[s].split(" ")[1]}</b>`).join("<span class=rank-arrow aria-hidden=true>›</span>")}</div><h2>${mine && v.turn === mine.id ? "ตาของคุณ" : `ตาของ ${esc(name(v.turn))}`}</h2><p>${esc(v.lastAction)}</p>${v.ending ? '<p class="duel-ending">มีคนขอจบรอบแล้ว นี่คือตาสุดท้าย (การ์ด 5 ต่อได้)</p>' : ""}<div id="duel-action-panel"></div>`;
   const panel = controls.querySelector<HTMLElement>("#duel-action-panel")!;
   if (!mine || v.turn !== mine.id) {
     panel.innerHTML = `<p>${mine ? "รอคู่แข่งเล่น การ์ดของคุณแสดงเฉพาะบนเครื่องนี้" : "เลือกการกระทำผ่านมือถือ จอกลางดูได้เฉพาะการ์ดที่เปิดแล้ว"}</p>`;
@@ -132,7 +132,7 @@ export function renderDracula(
     return;
   }
   if (v.step === "discard") {
-    panel.innerHTML = `<h3>ใบที่จั่วมา</h3>${card(mine.drawn!)}<p>เลือกทิ้งใบที่จั่ว หรือเลือกเขตเพื่อแทนที่แล้วทิ้งใบเดิม ความสามารถของใบที่ทิ้งจะทำงาน</p><div class="discard-choices">${[-1, 0, 1, 2, 3, 4].map((slot) => `<button class="discard-choice" data-slot="${slot}" aria-pressed="${selected[0] === slot}" ${!can({ type: "discard", slot }) ? "disabled" : ""}>${slot === -1 ? "ทิ้งใบที่จั่ว" : `แทนที่เขต ${slot + 1}`}${card(slot === -1 ? mine.drawn! : mine.cards[slot])}</button>`).join("")}</div><p id="selection-preview" role="status"></p><button id="confirm-discard" disabled>ยืนยันทิ้งการ์ด</button>`;
+    panel.innerHTML = `<h3>ใบที่จั่วมา</h3>${card(mine.drawn!)}<p>เลือกทิ้งใบที่จั่ว หรือเลือกเขตเพื่อแทนที่แล้วทิ้งใบเดิม ความสามารถของใบที่ทิ้งจะทำงาน</p><div class="discard-choices">${[-1, 0, 1, 2, 3, 4].map((slot) => `<button class="discard-choice" data-slot="${slot}" aria-pressed="${selected[0] === slot}" ${!can({ type: "discard", slot }) ? "disabled" : ""}>${slot === -1 ? "ทิ้งใบที่จั่ว" : `แทนที่เขต ${slot + 1}`}${card(slot === -1 ? mine.drawn! : mine.cards[slot])}</button>`).join("")}</div><div class="discard-confirm-bar" hidden><p id="selection-preview" role="status"></p><button id="confirm-discard" disabled>ยืนยันทิ้งการ์ด</button></div>`;
     panel.querySelectorAll<HTMLButtonElement>("[data-slot]").forEach((b) =>
       b.addEventListener("click", () => {
         selected = [Number(b.dataset.slot)];
@@ -157,6 +157,7 @@ export function renderDracula(
             String(Number(b.dataset.slot) === selected[0]),
           ),
         );
+      (panel.querySelector(".discard-confirm-bar") as HTMLElement).hidden = selected.length !== 1;
       const c = selected[0] === -1 ? mine!.drawn! : mine!.cards[selected[0]];
       panel.querySelector("#selection-preview")!.textContent = c
         ? `จะทิ้ง ${SUIT_NAME[c.suit]} ${c.value} • ${EFFECTS[c.value]}`
@@ -175,7 +176,7 @@ export function renderDracula(
   const choices = legal.filter(
     (a): a is Extract<DuelAction, { type: "effect" }> => a.type === "effect",
   );
-  panel.innerHTML = `<h3>ทำความสามารถ ${v.effect}: ${EFFECTS[v.effect!]}</h3><div class="effect-choices">${choices.map((a, i) => `<button data-effect="${i}" aria-pressed="${JSON.stringify(selected) === JSON.stringify(a.targets)}" ${blocked ? "disabled" : ""}>${v.effect === 7 ? `เปลี่ยนทรัมป์เป็น ${SUIT_NAME[v.ranking![a.targets[0]]]}` : a.targets.map((t) => `เขต ${t + 1}`).join(" ↔ ")}</button>`).join("")}</div><p id="effect-preview" role="status"></p><button id="confirm-effect" disabled>ยืนยันความสามารถ</button>`;
+  panel.innerHTML = `<h3>ทำความสามารถ ${v.effect}: ${EFFECTS[v.effect!]}</h3><div class="effect-choices ${v.effect === 7 ? "trump-choices" : ""}">${choices.map((a, i) => `<button data-effect="${i}" ${v.effect===7 ? `class="trump-choice suit-${v.ranking![a.targets[0]]}" aria-label="เปลี่ยนทรัมป์เป็น ${SUIT_NAME[v.ranking![a.targets[0]]]}"` : ""} aria-pressed="${JSON.stringify(selected) === JSON.stringify(a.targets)}" ${blocked ? "disabled" : ""}>${v.effect === 7 ? `<span aria-hidden="true">${SUIT_NAME[v.ranking![a.targets[0]]].split(" ")[1]}</span>` : a.targets.map((t) => `เขต ${t + 1}`).join(" ↔ ")}</button>`).join("")}</div><p id="effect-preview" role="status"></p><button id="confirm-effect" disabled>ยืนยันความสามารถ</button>`;
   function updateEffect() {
     panel
       .querySelectorAll<HTMLElement>("[data-effect]")

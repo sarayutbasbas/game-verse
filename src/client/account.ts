@@ -63,7 +63,7 @@ export function avatar(p: { name: string; avatar?: string | null }) {
 }
 export function accountNav() {
   const p = platform.profile;
-  return `<a class="account-link" href="${p ? "/profile" : "/login"}?returnTo=${encodeURIComponent(location.pathname)}">${p ? avatar(p) : ""}<span>${p ? esc(p.name) : "ล็อกอิน"}</span></a>`;
+  return `<a class="account-link" aria-label="${p ? "โปรไฟล์ของคุณ" : "ล็อกอิน"}" title="${p ? "โปรไฟล์ของคุณ" : "ล็อกอิน"}" href="${p ? "/profile" : "/login"}?returnTo=${encodeURIComponent(location.pathname)}">${p ? avatar(p) : '<span class="profile-avatar default-avatar" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 22v-2a8 8 0 0 1 16 0v2"/></svg></span>'}</a>`;
 }
 export function login(root: HTMLElement) {
   const googleHere =

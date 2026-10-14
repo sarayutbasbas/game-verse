@@ -1,3 +1,4 @@
+import { roomCode } from "./ui.js";
 import { TILE_NAMES, type TileColor, type AzulView } from "../games/azul/types.js";
 import type { RoomAction } from "../shared/types.js";
 import { azulArtState, preloadAzulArt } from "./azul-assets.js";
@@ -44,7 +45,7 @@ class AzulTable {
     const v = this.view!, name = (id?: string) => esc(v.players.find(p => p.id === id)?.name ?? "");
     this.node.dataset.players = String(v.players.length);
     this.node.dataset.presentationRevision = String(v.revision);
-    this.node.innerHTML = `<div class="az-heading"><div><h1 translate="no">Azul</h1><p>ผนังสีมาตรฐาน • รอบ ${v.round}</p></div><div class="room-code"><span>รหัสห้อง</span><strong translate="no">${v.code}</strong></div></div>
+    this.node.innerHTML = `<div class="az-heading"><div><h1 translate="no">Azul</h1><p>ผนังสีมาตรฐาน • รอบ ${v.round}</p></div>${roomCode(v.code)}</div>
       <section class="az-turn" role="status"><strong>${v.phase === "playing" ? `ตาของ ${name(v.turn)}` : v.phase === "finished" ? `${v.winners!.length > 1 ? "ผู้ชนะร่วม" : "ผู้ชนะ"}: ${v.winners!.map(name).join(" และ ")}` : `ผลรอบ ${v.round}`}</strong><p>${esc(v.lastAction)}</p></section>
       ${azulArtState.missing.length ? '<p class="az-art-warning" role="status">ภาพบางส่วนโหลดไม่ได้ ใช้สีและตัวอักษรสำรองได้ ลองโหลดหน้าใหม่เพื่อรับภาพครบ</p>' : ""}
       ${v.phase === "results" ? `<section class="az-results"><h2>สรุปการปูผนังรอบ ${v.round}</h2><p>ผู้เริ่มรอบหน้า: ${name(v.starter)} • ผู้เล่นคนใดหรือผู้สร้างห้องกดต่อได้ ไม่ต้องรอทุกคนพร้อม</p>${RoundSummary(v, v.settlements!.at(-1)!)}${v.me || this.host ? '<button id="az-next">เริ่มรอบถัดไป</button>' : '<p>รอผู้เล่นหรือผู้สร้างห้อง</p>'}</section>` : ""}

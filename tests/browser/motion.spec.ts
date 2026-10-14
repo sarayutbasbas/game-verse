@@ -192,7 +192,7 @@ test("authoritative unit path, tile landing, duplicate/gap/reconnect and desktop
     await display.evaluate(() => {
       for (const s of (window as any).__sockets) s.close();
     });
-    await expect(display.locator(".connection")).toContainText("เชื่อมต่อแล้ว");
+    await expect(display.locator(".connection")).toContainText("ออนไลน์");
     await idle(display, initial + 4);
     await comparePieces(display, room.game!.stacks);
     await expect(display.locator(".motion-fx")).toBeEmpty();

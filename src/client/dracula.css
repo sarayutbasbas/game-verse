@@ -1190,3 +1190,53 @@ main.duel-surface {
 .board-health strong { font-variant-numeric: tabular-nums; }
 
 .duel-card-size { display: block; width: 100%; height: 0; padding-top: 150%; }
+
+/* Controller hierarchy: cards first, compact faction identity and live trump. */
+.duel-room { margin: 10px 0; }
+.duel-room h1 { font-size: 25px; line-height: 1.15; }
+.duel-room p { font-size: 12px; margin: 4px 0 0; }
+.duel-status { gap: 8px; margin: 8px 0 10px; }
+.duel-status .duel-person { min-height: 58px; padding: 6px 8px; grid-template-columns: 36px minmax(0,1fr); column-gap: 8px; border: 1px solid #506864; border-radius: 5px; }
+.duel-status .duel-person .role-portrait { width: 36px; height: 44px; }
+.duel-status .duel-person strong { font-size: 14px; }
+.duel-status .duel-person .duel-player-name { font-size: 11px; }
+.duel-status .duel-person small { font-size: 10px; }
+.duel-status .duel-person.is-you { border: 2px solid #edce7d; background: #304749; }
+.role-you { position: absolute; right: 5px; top: -7px; padding: 0 5px; background: #edce7d; color: #172c33; border-radius: 3px; font: bold 10px/1.5 Tahoma,sans-serif; }
+.controller-ranking { display: flex; align-items: center; gap: 8px; margin: 0 0 9px; font-size: 12px; }
+.controller-ranking > b { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 28px; border-radius: 50%; font-size: 16px; }
+.controller-ranking > .current-trump { padding: 2px 10px; height: 30px; border: 1px solid currentColor; border-radius: 18px; font-size: 13px; }
+.rank-arrow { opacity: .6; }
+.duel-controls .trump-choices { display: flex; justify-content: center; gap: 16px; margin: 16px 0; }
+.duel-surface .trump-choice { display: inline-flex; justify-content: center; align-items: center; width: 56px; height: 56px; padding: 0; margin: 0; border-radius: 50%; border: 3px solid transparent; color: #fff; font-size: 26px; }
+.duel-surface .trump-choice.suit-red { background: #ac354b; }
+.duel-surface .trump-choice.suit-yellow { background: #d6b13c; color: #182c33; }
+.duel-surface .trump-choice.suit-green { background: #217c6f; }
+.duel-surface .trump-choice.suit-purple { background: #765299; }
+.duel-surface .trump-choice[aria-pressed="true"] { border-color: #fff2c5; outline: 2px solid #d7b657; outline-offset: 4px; }
+.discard-confirm-bar { position: fixed; bottom: max(12px,env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 30; width: min(440px,calc(100% - 24px)); padding: 8px 12px; text-align: center; background: #142d35f5; border: 1px solid #d7b657; border-radius: 10px; box-shadow: 0 4px 24px #0009; }
+.discard-confirm-bar[hidden] { display: none; }
+.discard-confirm-bar p { font-size: 12px; margin: 0 0 4px; line-height: 1.4; }
+.duel-surface .discard-confirm-bar button { display: block; margin: 0 auto; min-width: 200px; }
+.phone-surface.duel-surface { padding-bottom: 145px; }
+.discard-choice { scroll-margin-bottom: 150px; }
+@media(max-width:600px) {
+  .duel-status .duel-person { grid-template-columns: 30px minmax(0,1fr); min-height: 50px; gap: 3px 6px; padding: 5px 6px; }
+  .duel-status .duel-person .role-portrait { width: 30px; height: 38px; }
+  .duel-status .duel-person strong { font-size: 12px; white-space: nowrap; }
+  .duel-status .duel-player-name { display: none; }
+  .duel-room h1 { font-size: 22px; }
+  .duel-surface .room-code strong { font-size: 21px; }
+  .duel-surface .room-code { padding: 7px 12px; }
+  .duel-controls { padding: 12px; }
+}
+/* Keep suit identity while a pointer remains over the selected color. */
+.duel-surface .trump-choice.suit-red { --trump-paint: #ac354b; }
+.duel-surface .trump-choice.suit-yellow { --trump-paint: #d6b13c; }
+.duel-surface .trump-choice.suit-green { --trump-paint: #217c6f; }
+.duel-surface .trump-choice.suit-purple { --trump-paint: #765299; }
+.duel-surface button.trump-choice:hover:not(:disabled) { background: var(--trump-paint); }
+.controller-ranking .suit-red { color: #f19aa4; }
+.controller-ranking .suit-yellow { color: #edcd73; }
+.controller-ranking .suit-green { color: #8bd0bd; }
+.controller-ranking .suit-purple { color: #c6a6e5; }

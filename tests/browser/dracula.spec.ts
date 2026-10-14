@@ -118,7 +118,8 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
     const playerIds = await Promise.all(ids);
     await d.evaluate(() => ((window as any).__dropAck = true));
     await d.getByRole("button", { name: "จั่วการ์ด", exact: true }).click();
-    await expect(d.locator("#notice")).toHaveText("ทำรายการแล้ว");
+    await expect(d.locator(".game-toast")).toBeVisible();
+    await expect(d.locator(".game-toast")).toContainText("ทำรายการแล้ว");
     v = await read(display);
     await revision(h, v.revision);
     expect(v.drawn).toBeUndefined();
@@ -135,7 +136,7 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
     ).toBeVisible();
     await h.context().setOffline(false);
     await expect(
-      h.getByText("เชื่อมต่อแล้ว", { exact: true }).first(),
+      h.locator('.connection[data-online="true"]'),
     ).toBeVisible();
     await h.reload();
     await expect(h.locator(".district")).toHaveCount(5);
