@@ -77,8 +77,12 @@ for(const count of [2,3,4]) test(`Azul ${count} players: actual UI, ${count===2?
       await Promise.all([display,...phones].map(page=>revision(page,v.revision+1)));
       if(retried)await expect(p.locator("#notice")).not.toHaveText("กำลังตรวจรายการ…");
       moves++;
-      const current=await read(display);
-      for(const phone of phones){const {me,...publicPart}=await read(phone);expect(publicPart).toEqual(current);}
+      // Presence changes do not increment game revision and can reach instances
+      // a poll apart during the intentional dropped-ACK reconnect.
+      for(const phone of phones) await expect(async()=>{
+        const current=await read(display),{me,...publicPart}=await read(phone);
+        expect(publicPart).toEqual(current);
+      }).toPass({timeout:30000});
       if(!reconnected && moves>3){
         await phones[1].context().setOffline(true);await phones[1].evaluate(()=>(window as any).__sockets.at(-1).close());
         await expect(display.getByText("หลุด • รอกลับเข้าห้อง",{exact:false}).first()).toBeVisible();

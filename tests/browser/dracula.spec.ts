@@ -191,11 +191,12 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
       }
       actions++;
       await Promise.all([display, d, h].map((p) => revision(p, next)));
-      const pub = await read(display);
-      for (const phone of phones) {
-        const { me, ...publicPart } = await read(phone);
+      // Same game revision can temporarily carry different presence while a
+      // reconnect crosses instances. Require the entire public view to converge.
+      for (const phone of phones) await expect(async () => {
+        const pub = await read(display), { me, ...publicPart } = await read(phone);
         expect(publicPart).toEqual(pub);
-      }
+      }).toPass({ timeout: 30000 });
     }
     v = await read(display);
     expect(v.phase).toBe("finished");
