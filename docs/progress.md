@@ -299,3 +299,5 @@ Refresh `http://localhost:3000/games/azul` แล้วสร้าง/เข้
 ### ข้อจำกัดที่คงอยู่
 
 ใช้เฉพาะfree tiers ไม่อัปเกรด/เปิดpaid overage; quotaหมดอาจหยุดบริการ ไม่รับประกันฟรีไม่จำกัด. Vercel WS beta มีconnection durationสูงสุด300s; reconnectจำเป็น. Coordinatorserializeผ่านglobalDBlockเหมาะกลุ่มเล็ก ไม่อ้างรองรับโหลดจำนวนมาก. ความหน่วงข้ามinstanceประมาณรอบpoll1s. ยังไม่ได้ทดสอบSafari/iPhone/iPadจริง, network WANหลายเครื่อง, load/stress หรือbackup/restoreproduction. Local roomsไม่ย้ายขึ้นproductionและไม่ถูกreset. Googleใช้canonical originเท่านั้น; deploymentaliasesไม่ใช่URLสำหรับเล่น.
+
+ตรวจเพิ่มเติมก่อนส่งมอบ: เติมการ reconnect ของ DB worker เมื่อ managed database ปิด idle connection โดยไม่ reconnect เงียบ ๆ กลาง transaction. เพิ่ม actual `pg_terminate_backend` case ใน isolated Postgres suite แล้ว **1/1ผ่าน (46.7s)**: room/receipt เดิม, profile และ rematch ยังทำงาน. แก้ shutdown ไม่ให้ close handler เรียก DB ที่ปิดแล้ว. Cleanup production fixturesรอบแรก **5ห้อง/23testusers**, คงห้องผู้ใช้ที่ไม่ใช่fixtureไว้. Git production `1f369e3` READY และ functionอยู่sin1จริง; HTTPS/browserตรวจซ้ำบนcanonical URL.

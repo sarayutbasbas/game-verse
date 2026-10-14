@@ -14,14 +14,31 @@ export class PostgresDatabase {
       const {parentPort,workerData}=require('node:worker_threads');
       const {Client,types}=require(workerData.pg);
       types.setTypeParser(20, Number);
-      const client=new Client({connectionString:workerData.url,statement_timeout:12000,connectionTimeoutMillis:12000});
-      let ready=client.connect();
-      client.on('error',()=>{});
+      let client,broken=false,inTransaction=false;
+      function connect(){
+        broken=false;
+        client=new Client({connectionString:workerData.url,statement_timeout:12000,connectionTimeoutMillis:12000});
+        client.on('error',()=>{broken=true;});
+        return client.connect().catch(e=>{broken=true;throw e;});
+      }
+      let ready=connect();ready.catch(()=>{});
       parentPort.on('message',async ({sql,params})=>{
         const header=new Int32Array(workerData.buffer,0,2);
         let result;
-        try {await ready;const q=await client.query(sql,params);result={rows:q.rows??[],changes:q.rowCount??0};}
-        catch(e){result={error:e.code??'DATABASE_UNAVAILABLE'};}
+        try {
+          if(broken && inTransaction){
+            if(/^ROLLBACK$/i.test(sql)){inTransaction=false;result={rows:[],changes:0};}
+            else throw Object.assign(new Error(),{code:'CONNECTION_LOST_IN_TRANSACTION'});
+          }
+          if(!result){
+            if(broken){void client.end().catch(()=>{});ready=connect();}
+            await ready;const q=await client.query(sql,params);
+            if(/^BEGIN$/i.test(sql))inTransaction=true;
+            if(/^(COMMIT|ROLLBACK)$/i.test(sql))inTransaction=false;
+            result={rows:q.rows??[],changes:q.rowCount??0};
+          }
+        }
+        catch(e){if(!e.code || /^(08|57P|ECONN|EPIPE)/.test(e.code))broken=true;result={error:e.code??'DATABASE_UNAVAILABLE'};}
         const bytes=Buffer.from(JSON.stringify(result));
         if(bytes.length>workerData.buffer.byteLength-8){const b=Buffer.from('{"error":"RESULT_TOO_LARGE"}');new Uint8Array(workerData.buffer,8,b.length).set(b);Atomics.store(header,1,b.length);}
         else {new Uint8Array(workerData.buffer,8,bytes.length).set(bytes);Atomics.store(header,1,bytes.length);}

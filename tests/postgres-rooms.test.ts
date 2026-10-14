@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {randomUUID} from 'node:crypto';
 import {startServer} from '../src/server/index.js';
 import WebSocket from 'ws';
+import {Pool} from 'pg';
 const database=process.env.GAMEVERSE_TEST_POSTGRES;
 class Peer {
   ws!:WebSocket; messages:any[]=[];
@@ -41,6 +42,11 @@ test('Postgres two instances: shared rooms/presence, atomic race, dedup, full Az
       const {me,...pa}=a.view,{me:other,...pb}=b.view;assert.deepEqual(pa,pb);assert.deepEqual(pa,display.view);
     }
     assert.equal(a.view.phase,'finished');assert.equal(a.view.bonus.length,2);assert.equal(display.view.me,undefined);
+    // An idle backend connection can be closed by a managed database. The next
+    // transaction must reconnect without losing the committed room/receipts.
+    const backend=apps[0].store.db.prepare('SELECT pg_backend_pid() AS pid').get()!;
+    const killer=new Pool({connectionString:database,max:1});
+    await killer.query('SELECT pg_terminate_backend($1)',[backend.pid]);await killer.end();
     const result=a.view;const fourth=await startServer(0,'127.0.0.1',true,()=>.2,{storePath:database});apps.push(fourth);assert.equal(fourth.rooms.rooms.get(code)?.azul?.phase,'finished');await fourth.close();apps.pop();
     const profile=await fetch(urls[0]+'/api/profile',{method:'PATCH',headers:{Cookie:owner,Origin:urls[0],'Content-Type':'application/json'},body:JSON.stringify({name:'ชื่อใหม่'})});assert.equal(profile.status,200);await display.wait(m=>m.type==='state'&&m.view.players[0].name==='ชื่อใหม่');
     assert((await host.command({type:'restart'},result.revision)).ok);
