@@ -272,3 +272,30 @@ Refresh `http://localhost:3000/games/azul` แล้วสร้าง/เข้
 ตรวจบน Chromium จำลอง desktop/iPad landscape/mobile portrait; **ยังไม่ได้ตรวจ Safari/iPad/iPhone จริง**, กล้อง QR หรือ Wi-Fi หลายเครื่องในงานนี้. Browser เล่นครบเกม 2 คน ส่วน3–4คนจบหนึ่งรอบ; pure engine suite เดิมตรวจครบเกมทุกจำนวน. ผล/historyยาวเลื่อนอ่านได้ และชื่อยาวอาจเพิ่มความสูงกระดาน. UI ใช้ motion เบา ไม่มี animation เคลื่อนกระเบื้อง. ไม่มี public deployment/บริการเสียเงิน/เพิ่ม dependencies.
 
 หลัง full suite ปรับเฉพาะตำแหน่งชื่อบนปก Azul ให้กลาง cartouche ที่เว้นไว้ (CSS เจาะเฉพาะลิงก์เกม Azul ไม่เปลี่ยนธีม Home). Build ผ่าน และรัน Home/platform browser ซ้ำ **3/3 ผ่าน (5.3 วินาที)**; ตรวจ `portal.png`/`portal-mobile.png` ใหม่. เก็บ screenshot ของ full suite กลับไว้ร่วมกันโดยไม่ทับภาพล่าสุด.
+
+## Vercel production + Neon Free — 2026-10-14
+
+ผู้ใช้ขอ deploy ให้เล่นเหมือน dev และยืนยัน **ใช้เฉพาะบริการฟรี**. ไม่สร้าง Render/paid plan. ตรวจจริงพบ Git main เดิมมีเพียง README (`20aa708`) จึง deploy READY แต่หน้าแอป404. เชื่อม CLI เข้าทีม/โปรเจกต์เดิม `sarayuths-projects/game-verse`; CLI ใช้ได้แม้ MCP บาง scope อ่านไม่ได้. เพิ่ม source/assets ทั้งโปรเจกต์เข้า Git และ push main สำเร็จ (`831a8da`), Git integration สร้าง production deploymentจากcommitนี้ READY จริง.
+
+### Runtime ที่ส่งมอบ
+
+- Canonical URL **https://game-verse-psi.vercel.app**. Vite assets บน CDN, Node HTTP/WebSocket server เดิมผ่าน `api/gameverse.ts` โดยไม่ listen port เอง. `vercel.json` rewrites API/avatars/health/ws และ SPA deep links, Node24/Fluid/sin1/max300s. Vercel WebSockets เป็น beta; อ่าน docs ปัจจุบันจริง ไม่อ้างข้อจำกัดเก่าที่ว่า Vercel ไม่มี WS.
+- Neon Marketplace resource `gameverse` plan **free_v3**, region sin1, built-in Neon Authปิดเพื่อรักษา Better Auth เดิม. ตั้ง production server secrets/Googleผ่าน stdin โดยไม่พิมพ์ค่า. ผู้ใช้เพิ่ม Google origin/callback และ **ยืนยัน login บน URLจริงสำเร็จ**. ไม่ย้าย local DB/บัญชี/ห้อง/secret ไปสาธารณะ.
+- Optional Postgres adapter (`src/server/postgres.ts`, store/auth/index/rooms/platform) คง SQLite dev. Worker แยก network I/O เพื่อรักษา synchronous atomic coordinator; transaction advisory lock ครอบ reload/validate/apply/save ก่อน ACK. เก็บ auth/users/profiles/avatars/rooms/revisions/receipts ถาวรใน Postgres. ไม่มี client scoring/randomness หรือแก้ engine.
+- Presence connection lease15s + cross-instance refreshประมาณ1s, takeoverข้ามinstance, revocation/roomclose, snapshot/retry/resyncเดิม. ส่งเฉพาะ projection ที่อนุญาต. ไม่รอ animation และไม่ replay state เก่า. เปลี่ยน active connections ระหว่าง deploy กลับผ่าน authenticated resume.
+- Trust forwarding IP เฉพาะ managed Vercel runtime (`VERCEL=1`), validateเป็นIP; dev/VMไม่เชื่อclientheaders. ไม่ log IP/cookies/tokens. Worker bound/timeout fail closed. Optimize ไม่เขียนroomJSONเดิมซ้ำ และ clear quarantine diagnostics แต่ละreload.
+- Migration checked-in `migrations/002-postgres.sql`, `scripts/migrate-postgres.ts`; test cleanupเลือกเฉพาะ owner IDs ที่fixtureบันทึกไว้ ไม่มี broad delete/name matching. `.env*`, data/backups, test-results, .vercel ถูกignore; staged secret scan **172 files / 0 matches** ก่อน commit. [Deploy/runbook](vercel-deployment.md).
+
+### ทดสอบจริง
+
+- Docker buildของexisting imageผ่าน (ก่อนเพิ่มPostgres runtime); ไม่อ้างว่า Docker production runtimeถูกทดสอบ.
+- Final `npm run build` ผ่าน. `npm test`: **54 ผ่าน / 1 skipped / 0 failed**. ข้อskippedคือ opt-in Postgres integrationที่ต้องชี้ฐานทดสอบเอง; ไม่ถือskipเป็นpass.
+- Opt-in actual PostgreSQL/HTTP/auth/WS suiteบนDocker Postgres17 isolated: **1/1 ผ่าน (46.6s)**, server instances2ตัว, shared memberships/presence, wrong-turn/stale/duplicate, takeover, Azul **39 drafts / 5รอบจบ**, ทุกpublicviewตรง, anonymous/fixtureaccount/cookie, profileข้ามinstance, กู้finishedจากinstanceใหม่, rematch. รันอีกครั้งหลัง cache/lease/shutdown fixesผ่าน. ไม่ใช้production DBสำหรับrule fixtureนี้.
+- **Vercel HTTPSจริง**: `/`, `/games/azul`, `/health`, `/api/platform`200; WSSเชื่อมจริงและตอบroom validation. Browserจอกลาง+มือถือจริงแยกcontexts: Azul2คน **48 drafts / 5รอบจบ**, bonus/rematch, lostACK retry, offline/reload drafting/results, publicprivacy, desktop/iPad/mobileผ่าน **1/1 (45.5s)**.
+- **Vercel HTTPSจริง** regression: Dracula2คน **123 actions / 4รอบ / Draculaชนะ**, private draw/reveal/reconnect/rematchผ่าน; Camel3คน **21 rolls จบ** พร้อม reconnectผ่าน (**2 scenariosผ่าน**). พันธมิตร6คน runแรกtestกดมือถืออีกคนก่อนrevisionแรกส่งถึง จึงถูกstale guardปฏิเสธ; ปรับtestรอcommitted revisionทั้งสองเครื่อง แล้ว **1/1ผ่าน (22.6s)**. ไม่เปลี่ยนกติกาหรือผ่อนservervalidationเพื่อให้ผ่าน.
+- Browser hosted testsยกระดับเฉพาะ fresh Guest ที่สร้างเองผ่าน PostgreSQL fixture (ไม่มีproduction test endpoint); ไม่อ้างว่าเป็นการทำGoogle OAuthอัตโนมัติ. Google providerบนproductionผู้ใช้ยืนยันด้วยตัวเอง.
+- Runtime error log scan productionล่าสุด **0 error records** ในช่วงที่ตรวจ. ไม่มีdrain/monitoringบริการเสียเงินเพิ่ม. Screenshot pathsและหลักฐานexecutionอยู่test-results และ /tmp logsภายในเครื่อง (ไม่commit tokens/traces).
+
+### ข้อจำกัดที่คงอยู่
+
+ใช้เฉพาะfree tiers ไม่อัปเกรด/เปิดpaid overage; quotaหมดอาจหยุดบริการ ไม่รับประกันฟรีไม่จำกัด. Vercel WS beta มีconnection durationสูงสุด300s; reconnectจำเป็น. Coordinatorserializeผ่านglobalDBlockเหมาะกลุ่มเล็ก ไม่อ้างรองรับโหลดจำนวนมาก. ความหน่วงข้ามinstanceประมาณรอบpoll1s. ยังไม่ได้ทดสอบSafari/iPhone/iPadจริง, network WANหลายเครื่อง, load/stress หรือbackup/restoreproduction. Local roomsไม่ย้ายขึ้นproductionและไม่ถูกreset. Googleใช้canonical originเท่านั้น; deploymentaliasesไม่ใช่URLสำหรับเล่น.

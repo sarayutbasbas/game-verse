@@ -8,6 +8,7 @@ import { resolve, extname } from "node:path";
 import { pathToFileURL } from "node:url";
 import { WebSocketServer } from "ws";
 import { RoomService } from "./rooms.js";
+import { clientAddress } from "./client-address.js";
 export async function startServer(
   port = Number(process.env.PORT ?? 3000),
   host = "0.0.0.0",
@@ -86,7 +87,7 @@ export async function startServer(
   // Bounded IP quotas also apply across reconnects. No addresses or credentials are logged.
   const quotas = new Map<string, { time: number; count: number }>();
   server.on("upgrade", (req, socket, head) => {
-    const ip = req.socket.remoteAddress ?? "unknown",
+    const ip = clientAddress(req),
       now = Date.now();
     let q = quotas.get(ip);
     if (!q || now - q.time > 60000) {
@@ -132,7 +133,7 @@ export async function startServer(
             ws.close(1008, "rate limit");
             return;
           }
-          const ip = req.socket.remoteAddress ?? "unknown";
+          const ip = clientAddress(req);
           let q = quotas.get(ip);
           if (!q || now - q.time > 60000) {
             q = { time: now, count: 0 };

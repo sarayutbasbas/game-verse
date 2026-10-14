@@ -1008,6 +1008,7 @@ export class RoomService {
   }
   sweep(now = Date.now()): void {
     if (this.store?.distributed && !this.store.locked) return this.coordinate(() => this.sweep(now));
+    if (this.store?.distributed) this.store.db.prepare("DELETE FROM gv_presence WHERE expires_at<?").run(now);
     for (const [code, room] of this.rooms)
       if (
         ((!room.game && !room.duel && !room.azul) ||

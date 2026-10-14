@@ -252,9 +252,13 @@ test("วง 6 คน เลือกบัตรพันธมิตรบน�
       exact: true,
     }),
   ).toBeVisible();
+  const choiceRevision=Number(await players[0].locator("#main").getAttribute("data-revision"));
   await players[0]
     .getByRole("button", { name: "คัดลอกบัตรพีระมิด +1", exact: true })
     .click();
+  // On a deployed multi-instance server, the display may already show settling
+  // while the other phone still has the previous revision. Wait for commit.
+  for (const phone of players.slice(0,2)) await expect(phone.locator("#main")).toHaveAttribute("data-revision",String(choiceRevision+1));
   await expect(display.locator(".room-heading p")).toHaveText(
     "เลือกผลตอบแทนพันธมิตร",
   );

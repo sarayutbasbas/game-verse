@@ -52,3 +52,7 @@ Hosted fixture owner IDs are written privately under ignored `data/deploy-test-o
 ## Limits and costs
 
 Only free plan resources were authorized. Do not upgrade Neon/Vercel or enable paid overage. Free quotas can stop service when exhausted; this does not promise unlimited free hosting. Live WebSockets consume Vercel duration/memory allowance and keep database compute active. Public beta/platform time limits can disconnect transports; clients resume authenticated state. Snapshot/room loading is bounded and this coordinator targets small private groups. Large concurrency requires a separate design and budget approval. No SLA is implied.
+
+Trusted ingress: Vercel runtime uses validated `X-Forwarded-For` only when `VERCEL=1`; other runtimes use the socket peer. [Vercel request headers](https://vercel.com/docs/headers/request-headers). Platform capability references: [WebSockets beta](https://vercel.com/docs/functions/websockets), [SQLite storage constraints](https://vercel.com/kb/guide/is-sqlite-supported-in-vercel).
+
+After a hosted test run, `scripts/cleanup-deploy-fixtures.ts` removes only rooms owned by the recorded fresh fixture users and their non-provider test accounts. It never selects rooms by display name and preserves accounts with real provider records. Requires `GAMEVERSE_E2E_DATABASE_URL` injected securely.

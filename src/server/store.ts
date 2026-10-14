@@ -9,6 +9,7 @@ export class PlatformStore {
   readonly distributed: boolean;
   locked = false;
   private deferred: (() => void)[] = [];
+  private loadedRooms = new Map<string,string>();
   quarantined: { code: string; gameId: string; reason: string }[] = [];
   constructor(
     public path = process.env.GAMEVERSE_DATABASE_URL ?? process.env.GAMEVERSE_DB_PATH ?? "./data/gameverse.sqlite",
@@ -66,6 +67,8 @@ export class PlatformStore {
       "INSERT INTO gv_rooms VALUES(?,?,?,?,?,?,?) ON CONFLICT(code) DO UPDATE SET revision=excluded.revision,updated_at=excluded.updated_at,state=excluded.state",
     );
     for (const r of rooms) {
+      const state=JSON.stringify(r);
+      if (this.distributed && this.loadedRooms.get(r.code)===state) continue;
       const g = metadata(r.gameId)!;
       save.run(
         r.code,
@@ -74,11 +77,14 @@ export class PlatformStore {
         r.schemaVersion ?? g.stateSchemaVersion,
         r.revision,
         r.updated,
-        JSON.stringify(r),
+        state,
       );
+      if (this.distributed) this.loadedRooms.set(r.code,state);
     }
   }
   loadRooms(): any[] {
+    this.quarantined = [];
+    this.loadedRooms.clear();
     const rows = this.db.prepare("SELECT * FROM gv_rooms").all();
     return rows.flatMap((r) => {
       const g = metadata(String(r.game_id));
@@ -103,6 +109,7 @@ export class PlatformStore {
           !validateRoomRecord(x)
         )
           throw Error();
+        this.loadedRooms.set(x.code,String(r.state));
         return [x];
       } catch {
         this.quarantined.push({

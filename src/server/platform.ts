@@ -2,6 +2,7 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { fromNodeHeaders, toNodeHandler } from "better-auth/node";
 import { randomUUID } from "node:crypto";
 import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
+import { clientAddress } from "./client-address.js";
 import { resolve } from "node:path";
 import sharp from "sharp";
 import type { createAuth, Principal } from "./auth.js";
@@ -97,9 +98,9 @@ export function platformHandler(
         } else res.end(await readFile(resolve(uploadDir, path.slice(9))));
         return true;
       }
-      const ip = req.socket.remoteAddress ?? "unknown",
+      const ip = clientAddress(req),
         now = Date.now();
-      req.headers["x-gameverse-ip"] = ip; // Never trust caller-supplied forwarding headers.
+      req.headers["x-gameverse-ip"] = ip; // Caller-controlled auth header is always overwritten.
       if (quotas.size > 4096)
         for (const [k, v] of quotas) if (now - v.at > 60000) quotas.delete(k);
       let q = quotas.get(ip);

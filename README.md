@@ -71,7 +71,7 @@ Dockerfile ตรวจ build สำเร็จแล้ว; runtime deployment
 - ห้อง/engine state/revision/receipts เก็บ SQLite และกู้หลัง restart. ต้องรักษา `data/` และ auth secret เดิม; จำกัด 200 ห้อง. Lobby หมดอายุเมื่อไม่มี activity 24 ชั่วโมง, finished 30 วัน, เกมที่ยังเล่นไม่ลบตามเวลา. รายละเอียด [storage/recovery policy](docs/platform-storage.md)
 - player หลุดไม่ข้ามตา; ห้องพักไว้จนกลับมา. Owner account ปิดห้องได้และกลับจากอุปกรณ์อื่นได้ ไม่มี kick/โอน host/reset ระหว่างเล่น. Guest upgrade ใช้ verified provider hook; account ที่มีสองที่นั่งชนกันถูกปฏิเสธ ไม่รวมการ์ด/ที่นั่ง
 - เก็บ receipt คำสั่งล่าสุด 512 รายการต่อ session. Retry เดิมคืนผลเดิมก่อนตรวจ revision; คำสั่งเก่าที่พ้นหน้าต่างนี้ถูก revision ปฏิเสธ. Accepted transition synchronous/atomic ใน single process
-- จำกัด frame 8 KiB, message 40/10 วินาทีต่อ socket, connection/auth 120/นาทีต่อ IP. หลัง reverse proxy ค่า IP อาจเป็น proxy ร่วม ต้องกำหนด trusted proxy policy ก่อนใช้งานสาธารณะ; ยังไม่ใช้ `X-Forwarded-For` ที่ client ปลอมได้
+- จำกัด frame 8 KiB, message 40/10 วินาทีต่อ socket, connection/auth 120/นาทีต่อ IP. บน Vercel เชื่อ IP ที่ ingress ของ Vercel เขียนทับเฉพาะเมื่อ runtime ตั้ง `VERCEL=1`; dev/VM ไม่เชื่อ forwarding headers จาก client. VM ที่มี proxy อื่นต้องกำหนดนโยบายเอง
 - public projections ไม่มี finish cards, private bets, credentials หรือ future randomness. ตอนจบเปิด final cards ตามกติกา
 - ทดสอบ browser จำลองบน Chromium; ยังไม่ยืนยัน iPhone/Safari/iPad จริง, กล้องสแกน QR จริง, เครือข่ายภายนอก หรือ TLS proxy จริง
 - ใช้ artwork ที่สร้างใหม่ (อูฐ/พีระมิด/ไพ่/ลูกเต๋า/เหรียญ/ตัวละคร/texture) ไม่ใช้ emoji เป็นหมากหรือภาพกระดานกล่องเป็นพื้นหลัง. ทบทวนสิทธิ์ชื่อเกม/ทรัพย์สินก่อนเผยแพร่สาธารณะ
