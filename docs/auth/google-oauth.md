@@ -13,7 +13,7 @@ Origin ไม่มีpathหรือtrailing slash. Redirectต้องตร
 
 หากใช้ `http://127.0.0.1:3000` ให้เพิ่มoriginนั้นและredirect `http://127.0.0.1:3000/api/auth/callback/google` และตั้งbaseURLตรงกัน อย่าสลับoriginระหว่างflow
 
-Deployment: ยังไม่มีdomainที่อนุมัติ. เมื่อมี `https://<your-domain>` ใส่originเดียวกันและredirect `https://<your-domain>/api/auth/callback/google`, ตั้งBETTER_AUTH_URLตรงกัน. ห้ามใช้placeholderเป็นURLจริง. ต้องเป็นhostingที่รองรับpersistentWebSocketพร้อมdisk/SQLitebackup หรือเลือกDBก่อนหลายinstances
+Production: `https://games.basnana.com`; Authorized JavaScript origins = `https://games.basnana.com`; Authorized redirect URIs = `https://games.basnana.com/api/auth/callback/google`. ตั้ง `BETTER_AUTH_URL` ตรงกัน. ผู้ใช้ยืนยันเพิ่มแล้ว. คง localhost/โดเมน vercel.app เดิมไว้ได้; ดู runtime Vercel + Neon Free ใน docs/vercel-deployment.md.
 
 GuestมือถือบนWi-Fiใช้LAN-IPตามREADME. GoogleOAuthบนมือถือไม่ควรใช้localhostของมือถือหรือprivate-IPที่Googleไม่อนุญาตเป็นredirect; ใช้HTTPSdomainที่ลงทะเบียนและเข้าถึงserverได้. ไม่เปิดtunnel/เผยแพร่ให้โดยไม่มีอนุมัติ
 

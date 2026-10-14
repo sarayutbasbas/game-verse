@@ -1,6 +1,6 @@
 # Vercel deployment
 
-Production project: `sarayuths-projects/game-verse`; canonical origin `https://game-verse-psi.vercel.app`. Git remote `sarayutbasbas/game-verse`, branch main. Initially Git only held README and the deployment returned404. Source, assets and deployment configuration must be committed together.
+Production project: `sarayuths-projects/game-verse`; canonical origin `https://games.basnana.com`. Git remote `sarayutbasbas/game-verse`, branch main. Initially Git only held README and the deployment returned404. Source, assets and deployment configuration must be committed together.
 
 ## Runtime
 
@@ -14,12 +14,12 @@ Each session has one leased connection ID. Presence expires after15s, renews whi
 
 ## Secrets and Google
 
-Set **production only**: `GAMEVERSE_DATABASE_URL` (pooled Neon URL), `BETTER_AUTH_SECRET` (new stable random secret), `BETTER_AUTH_URL=https://game-verse-psi.vercel.app`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`. Neon also connects its provider environment values. Never set VITE-prefixed secrets, commit env files or copy private SQLite/backups into a deployment. Sensitive Vercel variables may pull as `[SENSITIVE]`; this is a redacted placeholder, not a usable credential. Preserve the actual configured production secret rather than generating it on every deployment.
+Set **production only**: `GAMEVERSE_DATABASE_URL` (pooled Neon URL), `BETTER_AUTH_SECRET` (new stable random secret), `BETTER_AUTH_URL=https://games.basnana.com`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`. Neon also connects its provider environment values. Never set VITE-prefixed secrets, commit env files or copy private SQLite/backups into a deployment. Sensitive Vercel variables may pull as `[SENSITIVE]`; this is a redacted placeholder, not a usable credential. Preserve the actual configured production secret rather than generating it on every deployment.
 
 Google Console:
 
-- Authorized JavaScript origins: `https://game-verse-psi.vercel.app`
-- Authorized redirect URIs: `https://game-verse-psi.vercel.app/api/auth/callback/google`
+- Authorized JavaScript origins: `https://games.basnana.com`
+- Authorized redirect URIs: `https://games.basnana.com/api/auth/callback/google`
 
 The user confirmed adding these. Localhost entries can stay. Use the canonical URL for login and room QR, not generated deployment aliases.
 
@@ -44,7 +44,7 @@ vercel promote <staged-production-url>
 # Isolated Postgres only, never use the production database for this rule/room suite:
 GAMEVERSE_TEST_POSTGRES=postgres://... BETTER_AUTH_SECRET=<test-secret> npx tsx --test tests/postgres-rooms.test.ts
 # Explicit deployed URL and its database; fixtures only upgrade newly-created test Guests:
-GAMEVERSE_E2E_URL=https://game-verse-psi.vercel.app GAMEVERSE_E2E_DATABASE_URL=<database-url> npx playwright test --config playwright.deploy.config.ts
+GAMEVERSE_E2E_URL=https://games.basnana.com GAMEVERSE_E2E_DATABASE_URL=<database-url> npx playwright test --config playwright.deploy.config.ts
 ```
 
 Hosted fixture owner IDs are written privately under ignored `data/deploy-test-owners.jsonl` for scoped cleanup. They do not bypass Google via a production endpoint. No test/debug login API is shipped. See progress.md for actual executed results, not just build status.
@@ -56,3 +56,9 @@ Only free plan resources were authorized. Do not upgrade Neon/Vercel or enable p
 Trusted ingress: Vercel runtime uses validated `X-Forwarded-For` only when `VERCEL=1`; other runtimes use the socket peer. [Vercel request headers](https://vercel.com/docs/headers/request-headers). Platform capability references: [WebSockets beta](https://vercel.com/docs/functions/websockets), [SQLite storage constraints](https://vercel.com/kb/guide/is-sqlite-supported-in-vercel).
 
 After a hosted test run, `scripts/cleanup-deploy-fixtures.ts` removes only rooms owned by the recorded fresh fixture users and their non-provider test accounts. It never selects rooms by display name and preserves accounts with real provider records. Requires `GAMEVERSE_E2E_DATABASE_URL` injected securely.
+
+## Custom domain (2026-10-14)
+
+`games.basnana.com` is attached to this project. Cloudflare CNAME `games` → `6e168d1d386e77a8.vercel-dns-017.com`, DNS only, TTL Auto (project-specific recommendation). Previous CNAME to `game-verse-psi.vercel.app` was also valid; HTTPS and API200 verified before switching auth. Nameservers stay with Cloudflare.
+
+Production `BETTER_AUTH_URL` and `GAMEVERSE_JOIN_ORIGIN` use `https://games.basnana.com`. `GAMEVERSE_TRUSTED_ORIGINS` retains `https://game-verse-psi.vercel.app` for existing tabs. Production auth secret, database and memberships are unchanged. Login on the new domain to establish its own cookie; browser storage/cookies are origin-scoped. Existing Google members can return to their seats with the same account. Keep previous Google OAuth entries alongside the new ones. User confirmed adding the custom-domain Google origin and callback before switching.

@@ -64,7 +64,7 @@ Dockerfile ตรวจ build สำเร็จแล้ว; runtime deployment
 
 ## Vercel (production)
 
-เปิด **https://game-verse-psi.vercel.app**. ใช้ Vercel Fluid WebSockets + Neon Free Postgres สำหรับข้อมูลถาวรร่วมกัน; dev ยังคง SQLite. ตั้งค่า secrets, Google Console, migration, deploy และข้อจำกัด free quota ตาม [docs/vercel-deployment.md](docs/vercel-deployment.md). ไม่ใช้ disk ชั่วคราวของ Vercel เก็บห้องหรือบัญชี.
+เปิด **https://games.basnana.com**. ใช้ Vercel Fluid WebSockets + Neon Free Postgres สำหรับข้อมูลถาวรร่วมกัน; dev ยังคง SQLite. ตั้งค่า secrets, Google Console, migration, deploy และข้อจำกัด free quota ตาม [docs/vercel-deployment.md](docs/vercel-deployment.md). ไม่ใช้ disk ชั่วคราวของ Vercel เก็บห้องหรือบัญชี.
 
 ## ขอบเขตและข้อจำกัด
 
