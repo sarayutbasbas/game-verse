@@ -60,3 +60,30 @@ test('Postgres two instances: shared rooms/presence, atomic race, dedup, full Az
     console.log('Postgres idle expiry deletes an active room durably across instances');
   } finally {for(const p of peers)p.ws.terminate();for(const app of apps)await app.close();}
 });
+
+
+test('Postgres worker timeout abandons transaction and recovers the next request without replay', {skip:!database,timeout:30000},async()=>{
+  const {PostgresDatabase}=await import('../src/server/postgres.js');
+  const db=new PostgresDatabase(database!);
+  try {
+    db.exec('CREATE TABLE IF NOT EXISTS gv_timeout_probe (id text PRIMARY KEY)');
+    db.exec('BEGIN');
+    const id=randomUUID();db.prepare('INSERT INTO gv_timeout_probe VALUES(?)').run(id);
+    // Exercise the actual Atomics timeout / worker termination with a shorter
+    // wait budget after connecting; pg_sleep is only used in this isolated DB.
+    (db as any).waitTimeoutMs=50;
+    assert.throws(()=>db.exec('SELECT pg_sleep(0.25)'),/timed out/);
+    (db as any).waitTimeoutMs=15000;
+    assert.throws(()=>db.exec('SELECT 1'),/rollback required/);
+    db.exec('ROLLBACK');
+    assert.equal(db.prepare('SELECT id FROM gv_timeout_probe WHERE id=?').get(id),undefined);
+    db.exec('BEGIN');db.prepare('INSERT INTO gv_timeout_probe VALUES(?)').run(id);db.exec('COMMIT');
+    assert.equal(db.prepare('SELECT id FROM gv_timeout_probe WHERE id=?').get(id)?.id,id);
+    db.prepare('DELETE FROM gv_timeout_probe WHERE id=?').run(id);
+    // A read outside a transaction can also time out without poisoning the process.
+    (db as any).waitTimeoutMs=50;
+    assert.throws(()=>db.exec('SELECT pg_sleep(0.25)'),/timed out/);
+    (db as any).waitTimeoutMs=15000;
+    assert.equal(db.prepare('SELECT 1 AS n').get()?.n,1);
+  } finally {db.close();}
+});

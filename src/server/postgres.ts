@@ -9,8 +9,16 @@ export class PostgresDatabase {
   private buffer = new SharedArrayBuffer(8 * 1024 * 1024);
   private worker: Worker;
   private failed = false;
-  constructor(connectionString: string) {
-    this.worker = new Worker(`
+  private closed = false;
+  private inTransaction = false;
+  private waitTimeoutMs = 15000;
+  constructor(private connectionString: string) {
+    this.worker = this.createWorker();
+  }
+  private createWorker() {
+    // A terminated worker may still finish writing: never reuse its reply buffer.
+    this.buffer = new SharedArrayBuffer(8 * 1024 * 1024);
+    const worker = new Worker(`
       const {parentPort,workerData}=require('node:worker_threads');
       const {Client,types}=require(workerData.pg);
       types.setTypeParser(20, Number);
@@ -44,8 +52,9 @@ export class PostgresDatabase {
         else {new Uint8Array(workerData.buffer,8,bytes.length).set(bytes);Atomics.store(header,1,bytes.length);}
         Atomics.store(header,0,1);Atomics.notify(header,0);
       });
-    `, { eval: true, execArgv: [], workerData: { url: connectionString, buffer: this.buffer, pg: createRequire(import.meta.url).resolve("pg") } });
-    this.worker.unref();
+    `, { eval: true, execArgv: [], workerData: { url: this.connectionString, buffer: this.buffer, pg: createRequire(import.meta.url).resolve("pg") } });
+    worker.unref();
+    return worker;
   }
   private sql(source: string) {
     let index = 0;
@@ -57,16 +66,29 @@ export class PostgresDatabase {
     return sql;
   }
   query(sql: string, params: unknown[] = []) {
-    if (this.failed) throw Error("Database connection unavailable");
+    if (this.closed) throw Error("Database connection closed");
+    if (this.failed) {
+      // The failed operation is never replayed. Abandon its transaction first;
+      // terminating the old connection rolls back any uncommitted work.
+      if (/^ROLLBACK$/i.test(sql)) {
+        this.inTransaction = false;
+        return { rows: [], changes: 0 };
+      }
+      if (this.inTransaction) throw Error("Database transaction lost; rollback required");
+      this.worker = this.createWorker();
+      this.failed = false;
+    }
     const header = new Int32Array(this.buffer, 0, 2);
     Atomics.store(header, 0, 0);
     this.worker.postMessage({ sql: this.sql(sql), params });
-    if (Atomics.wait(header, 0, 0, 15000) === "timed-out") {
+    if (Atomics.wait(header, 0, 0, this.waitTimeoutMs) === "timed-out") {
       this.failed = true; void this.worker.terminate();
       throw Error("Database operation timed out");
     }
     const value = JSON.parse(Buffer.from(new Uint8Array(this.buffer, 8, Atomics.load(header, 1))).toString());
     if (value.error) throw Error(`Database operation failed (${value.error})`);
+    if (/^BEGIN$/i.test(sql)) this.inTransaction = true;
+    if (/^(COMMIT|ROLLBACK)$/i.test(sql)) this.inTransaction = false;
     return value;
   }
   prepare(sql: string) {
@@ -77,7 +99,7 @@ export class PostgresDatabase {
     };
   }
   exec(sql: string) { this.query(sql); }
-  close() { void this.worker.terminate(); }
+  close() { this.closed = true; void this.worker.terminate(); }
 }
 
 export const postgresPool = (connectionString: string) => new Pool({ connectionString, max: 2, connectionTimeoutMillis: 12000, idleTimeoutMillis: 10000 });

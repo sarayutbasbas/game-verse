@@ -5,6 +5,8 @@ export default defineConfig({
   testMatch:['azul.spec.ts','dracula.spec.ts','game.spec.ts'],
   timeout:300000,
   workers:1,
-  use:{baseURL:process.env.GAMEVERSE_E2E_URL,headless:true,actionTimeout:15000},
+  // Bounded DB failure (15s) plus transport reconnect must be able to converge.
+  expect:{timeout:30000},
+  use:{baseURL:process.env.GAMEVERSE_E2E_URL,headless:true,actionTimeout:30000},
   reporter:'list',
 });
