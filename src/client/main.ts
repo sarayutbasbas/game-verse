@@ -30,9 +30,11 @@ import { renderAzul } from "./azul.js";
 import { metadata } from "../shared/catalog.js";
 import { renderDracula } from "./dracula.js";
 import { BoardRenderer } from "./board.js";
+import { TurnSound } from "./turn-sound.js";
 import { preloadArt, sprite, CAMEL_CELL, SYMBOL } from "./assets.js";
 const boardRenderer = new BoardRenderer(() => send({ type: "sync" }));
 const duelMotion = new DraculaMotion(() => send({ type: "sync" }));
+const turnSound = new TurnSound();
 let duelArtReady = false,
   duelArtLoading = false;
 let deliverySnapshot = false;
@@ -144,6 +146,7 @@ function connect() {
       entryPending = false;
       entryError = "";
       if (view?.code === m.view.code && m.view.revision < view.revision) return;
+      turnSound.accept(m.view, !!m.snapshot);
       view = m.view;
       if (view.gameId === "camel-up") loadCamelArt();
       deliverySnapshot = !!m.snapshot;
@@ -309,6 +312,7 @@ function render() {
 function renderContent() {
   main.innerHTML = `<header><a href="/" class="brand">GameVerse<span>บอร์ดเกมจอกลาง</span></a>${!view || view.phase === "lobby" ? `<nav aria-label="เมนูหลัก"><a href="/">เลือกเกม</a><a href="/join">เข้าห้อง</a>${accountNav()}</nav>` : `<nav aria-label="บัญชี">${accountNav()}</nav>`}<p class="connection" role="status">${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "กำลังเชื่อมต่อใหม่…"}</p></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (!connected ? "กำลังเชื่อมต่อ… รอให้พร้อมก่อนทำรายการ" : pending ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
   const content = main.querySelector<HTMLElement>("#content")!;
+  if (view) main.querySelector("header")!.append(turnSound.button);
   if (!view) {
     if (role === "login") {
       login(content);
@@ -410,7 +414,7 @@ function renderContent() {
   const v = view,
     isPlayer = session?.role === "player",
     mine = v.me;
-  content.innerHTML = `<div class="room-heading"><div><h1>${isPlayer ? escape(name(mine?.id)) : "กระดานวงอูฐ"}</h1><p>${v.phase === "finished" ? "จบการแข่งขัน" : v.phase === "settling" ? "เลือกผลตอบแทนพันธมิตร" : `รอบย่อย ${num(v.leg!)} • ตาของ ${escape(name(v.turn))}`}</p></div><div class="room-code"><span>รหัสห้อง</span><strong translate="no">${escape(v.code)}</strong></div></div><div class="game-layout ${isPlayer ? "controller" : ""}"><section id="play-area"></section><aside><h2>ผู้เล่น ${num(v.players.length)}/8</h2><ol class="players">${v.players.map((p) => `<li data-player="${p.id}" ${p.id === v.turn && v.phase === "playing" ? 'class="current"' : ""}><div>${avatar(p.id)}<strong>${escape(p.name)} ${p.id === mine?.id ? "(คุณ)" : ""}</strong><span>${p.connected ? "พร้อม" : "หลุด • รอกลับเข้า"}${p.partner ? ` • คู่กับ ${escape(name(p.partner))}` : ""}</span></div><b>${sprite("objects", 0)}${num(p.money)}<small>เหรียญ</small></b><p class="tickets">${p.tickets.map((t) => `<span class="mini-ticket">${sprite("camels", CAMEL_CELL[t.color])}<span>${NAMES[t.color]} ${t.value}</span></span>`).join(" / ")}${p.pyramids ? ` • พีระมิด ${p.pyramids}` : ""}</p></li>`).join("")}</ol>${v.phase !== "lobby" && v.phase !== "finished" ? `<section class="public-final-info"><h3>เดิมพันทั้งเกม</h3><p>ผู้ชนะ ${num(v.finalCounts?.winner ?? 0)} ใบ • ผู้แพ้ ${num(v.finalCounts?.loser ?? 0)} ใบ</p><p>ลงการ์ดคว่ำจากมือถือเมื่อถึงตา เปิดคิดเงินตอนจบการแข่งขัน</p><p>ถูกก่อนรับ +8 / +5 / +3 / +2 / +1<br>ทายผิด −1 เหรียญ</p><p class="round-help">รอบย่อยจบเมื่อทอยเต๋าครบ 5 ลูก</p></section>` : ""}<details><summary>วิธีเล่นและกติกาที่ใช้</summary><p>เลือก 1 การกระทำในตาของคุณ: ทอยเต๋า / เดิมพันรอบย่อย / วางป้าย / ทายผู้ชนะหรือผู้แพ้ทั้งเกม${v.players.length >= 6 ? " / จับคู่" : ""}</p><p>รอบย่อยจบเมื่อทอย 5 จาก 6 ลูก บัตรที่หนึ่งรับตามหน้า ที่สองรับ 1 อื่นเสีย 1 พีระมิดรับ 1 ต่อใบ เงินไม่ต่ำกว่า 0</p><p>ป้ายวางช่องว่าง 2–16 และไม่ติดป้ายอื่น อูฐซ้อนจากล่างขึ้นบน ตัวบนอันดับนำ อูฐบ้าเดิมพันไม่ได้</p><p>ทายผลทั้งเกมถูกตามลำดับรับ 8/5/3/2/1 ผิดเสีย 1 การ์ดที่ลงแล้วเอาคืนไม่ได้</p><p>หลุดแล้วกลับลิงก์เดิมบนเครื่องเดิมได้ อย่าล้างข้อมูลเว็บไซต์ ห้องหายเมื่อ server restart หรือไม่มีการเล่น 12 ชั่วโมง</p></details></aside></div>`;
+  content.innerHTML = `<div class="room-heading"><div><h1>${isPlayer ? escape(name(mine?.id)) : "กระดานวงอูฐ"}</h1><p>${v.phase === "finished" ? "จบการแข่งขัน" : v.phase === "settling" ? "เลือกผลตอบแทนพันธมิตร" : `รอบย่อย ${num(v.leg!)} • ตาของ ${escape(name(v.turn))}`}</p></div><div class="room-code"><span>รหัสห้อง</span><strong translate="no">${escape(v.code)}</strong></div></div><div class="game-layout ${isPlayer ? "controller" : ""}"><section id="play-area"></section><aside><h2>ผู้เล่น ${num(v.players.length)}/8</h2><ol class="players">${v.players.map((p) => `<li data-player="${p.id}" ${p.id === v.turn && v.phase === "playing" ? 'class="current"' : ""}><div>${avatar(p.id)}<strong>${escape(p.name)} ${p.id === mine?.id ? "(คุณ)" : ""}</strong><span>${p.connected ? "พร้อม" : "หลุด • รอกลับเข้า"}${p.partner ? ` • คู่กับ ${escape(name(p.partner))}` : ""}</span></div><b>${sprite("objects", 0)}${num(p.money)}<small>เหรียญ</small></b><p class="tickets">${p.tickets.map((t) => `<span class="mini-ticket">${sprite("camels", CAMEL_CELL[t.color])}<span>${NAMES[t.color]} ${t.value}</span></span>`).join(" / ")}${p.pyramids ? ` • พีระมิด ${p.pyramids}` : ""}</p></li>`).join("")}</ol>${v.phase !== "lobby" && v.phase !== "finished" ? `<section class="public-final-info"><h3>เดิมพันทั้งเกม</h3><p>ผู้ชนะ ${num(v.finalCounts?.winner ?? 0)} ใบ • ผู้แพ้ ${num(v.finalCounts?.loser ?? 0)} ใบ</p><p>ลงการ์ดคว่ำจากมือถือเมื่อถึงตา เปิดคิดเงินตอนจบการแข่งขัน</p><p>ถูกก่อนรับ +8 / +5 / +3 / +2 / +1<br>ทายผิด −1 เหรียญ</p><p class="round-help">รอบย่อยจบเมื่อทอยเต๋าครบ 5 ลูก</p></section>` : ""}<details><summary>วิธีเล่นและกติกาที่ใช้</summary><p>เลือก 1 การกระทำในตาของคุณ: ทอยเต๋า / เดิมพันรอบย่อย / วางป้าย / ทายผู้ชนะหรือผู้แพ้ทั้งเกม${v.players.length >= 6 ? " / จับคู่" : ""}</p><p>รอบย่อยจบเมื่อทอย 5 จาก 6 ลูก บัตรที่หนึ่งรับตามหน้า ที่สองรับ 1 อื่นเสีย 1 พีระมิดรับ 1 ต่อใบ เงินไม่ต่ำกว่า 0</p><p>ป้ายวางช่องว่าง 2–16 และไม่ติดป้ายอื่น อูฐซ้อนจากล่างขึ้นบน ตัวบนอันดับนำ อูฐบ้าเดิมพันไม่ได้</p><p>ทายผลทั้งเกมถูกตามลำดับรับ 8/5/3/2/1 ผิดเสีย 1 การ์ดที่ลงแล้วเอาคืนไม่ได้</p><p>หลุดแล้วกลับลิงก์เดิมบนเครื่องเดิมได้ อย่าล้างข้อมูลเว็บไซต์ ห้องเก็บข้าม server restart ได้ และหมดอายุเมื่อไม่มีการเข้าร่วมหรือทำรายการเกิน 10 ชั่วโมง</p></details></aside></div>`;
   const area = content.querySelector<HTMLElement>("#play-area")!;
   if (v.phase === "finished") {
     area.innerHTML = `<section class="results"><h2>ผู้ชนะ: ${v.winners!.map((id) => escape(name(id))).join(" และ ")}</h2><p>อันดับอูฐ: ${v

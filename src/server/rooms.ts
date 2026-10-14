@@ -31,6 +31,7 @@ import {
 import { metadata } from "../shared/catalog.js";
 import type { PlatformStore } from "./store.js";
 import type { Principal } from "./auth.js";
+export const ROOM_IDLE_MS = 10 * 60 * 60 * 1000;
 type Ack = Extract<ServerMessage, { type: "ack" }>;
 interface Session {
   userId?: string;
@@ -76,6 +77,7 @@ export class RoomService {
     this.store!.transaction(() => {
       this.restore(this.store!.loadRooms());
       this.presence = new Map(this.store!.db.prepare("SELECT token,connection_id FROM gv_presence WHERE expires_at>?").all(Date.now()).map(r => [String(r.token), String(r.connection_id)]));
+      this.expireRooms(Date.now());
       fn();
     });
   }
@@ -110,7 +112,7 @@ export class RoomService {
     private store?: PlatformStore,
     private requireAccount = false,
   ) {
-    if (store) this.restore(store.loadRooms());
+    if (store) { this.restore(store.loadRooms()); this.sweep(); }
   }
   exportRooms() {
     return [...this.rooms.values()].map((r) => ({
@@ -154,6 +156,7 @@ export class RoomService {
     }
   }
   handle(ws: WebSocket, raw: unknown, principal?: Principal): void {
+    if (!this.store?.distributed) this.expireRooms(Date.now());
     if (this.store?.distributed && !this.store.locked) {
       try { this.coordinate(() => this.handle(ws,raw,principal)); }
       catch { ws.close(1011,"storage unavailable; reconnect"); }
@@ -205,6 +208,7 @@ export class RoomService {
     }
   }
   active(userId: string) {
+    if (!this.store?.distributed) this.expireRooms(Date.now());
     if (this.store?.distributed && !this.store.locked) this.coordinate(() => {});
     return [...this.rooms.values()]
       .filter(
@@ -385,7 +389,6 @@ export class RoomService {
       this.store.db.prepare("INSERT INTO gv_presence VALUES(?,?,?) ON CONFLICT(token) DO UPDATE SET connection_id=excluded.connection_id,expires_at=excluded.expires_at").run(session.token,id,Date.now()+15000);
       this.presence.set(session.token,id);
     }
-    room.updated = Date.now();
     this.broadcast(room, true);
   }
   private projection(room: Room, session?: Session): RoomView {
@@ -774,6 +777,7 @@ export class RoomService {
           role: "player",
           playerId: p.id,
         });
+        room.updated = Date.now();
         this.attach(ws, room, s);
         return;
       }
@@ -1009,23 +1013,21 @@ export class RoomService {
   sweep(now = Date.now()): void {
     if (this.store?.distributed && !this.store.locked) return this.coordinate(() => this.sweep(now));
     if (this.store?.distributed) this.store.db.prepare("DELETE FROM gv_presence WHERE expires_at<?").run(now);
-    for (const [code, room] of this.rooms)
-      if (
-        ((!room.game && !room.duel && !room.azul) ||
-          (room.game?.phase ?? room.duel?.phase ?? room.azul?.phase) === "finished") &&
-        now - room.updated >
-          (!room.game && !room.duel && !room.azul ? 24 : 30 * 24) * 60 * 60 * 1000
-      ) {
-        this.store?.db.prepare("DELETE FROM gv_rooms WHERE code=?").run(code);
-        for (const ws of room.sockets.keys()) {
-          this.attached.delete(ws);
-          this.send(ws, {
-            type: "error",
-            error: "ห้องหมดอายุหลังไม่มีการใช้งาน กรุณาสร้างห้องใหม่",
-          });
-          ws.close();
-        }
-        this.rooms.delete(code);
+    this.expireRooms(now);
+  }
+  private expireRooms(now: number) {
+    for (const [code, room] of this.rooms) if (now - room.updated > ROOM_IDLE_MS) {
+      this.store?.db.prepare("DELETE FROM gv_rooms WHERE code=?").run(code);
+      if (this.store?.distributed) for (const session of room.sessions)
+        this.store.db.prepare("DELETE FROM gv_presence WHERE token=?").run(session.token);
+      for (const ws of room.sockets.keys()) {
+        this.attached.delete(ws);
+        this.connections.delete(ws);
+        this.send(ws, { type: "error", error: "ห้องหมดอายุหลังไม่มีการใช้งานเกิน 10 ชั่วโมง กรุณาสร้างห้องใหม่" });
+        const close = () => ws.close(4004, "room expired");
+        if (this.store) this.store.afterCommit(close); else close();
       }
+      this.rooms.delete(code);
+    }
   }
 }

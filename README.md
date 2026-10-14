@@ -68,7 +68,7 @@ Dockerfile ตรวจ build สำเร็จแล้ว; runtime deployment
 
 ## ขอบเขตและข้อจำกัด
 
-- ห้อง/engine state/revision/receipts เก็บ SQLite และกู้หลัง restart. ต้องรักษา `data/` และ auth secret เดิม; จำกัด 200 ห้อง. Lobby หมดอายุเมื่อไม่มี activity 24 ชั่วโมง, finished 30 วัน, เกมที่ยังเล่นไม่ลบตามเวลา. รายละเอียด [storage/recovery policy](docs/platform-storage.md)
+- ห้อง/engine state/revision/receipts เก็บ SQLite และกู้หลัง restart. ต้องรักษา `data/` และ auth secret เดิม; จำกัด 200 ห้อง. ทุกสถานะหมดอายุเมื่อไม่มีการเข้าร่วมหรือคำสั่งสำเร็จเกิน 10 ชั่วโมง; watch/resume/sync/heartbeat ไม่ต่ออายุห้อง. รายละเอียด [storage/recovery policy](docs/platform-storage.md)
 - player หลุดไม่ข้ามตา; ห้องพักไว้จนกลับมา. Owner account ปิดห้องได้และกลับจากอุปกรณ์อื่นได้ ไม่มี kick/โอน host/reset ระหว่างเล่น. Guest upgrade ใช้ verified provider hook; account ที่มีสองที่นั่งชนกันถูกปฏิเสธ ไม่รวมการ์ด/ที่นั่ง
 - เก็บ receipt คำสั่งล่าสุด 512 รายการต่อ session. Retry เดิมคืนผลเดิมก่อนตรวจ revision; คำสั่งเก่าที่พ้นหน้าต่างนี้ถูก revision ปฏิเสธ. Accepted transition synchronous/atomic ใน single process
 - จำกัด frame 8 KiB, message 40/10 วินาทีต่อ socket, connection/auth 120/นาทีต่อ IP. บน Vercel เชื่อ IP ที่ ingress ของ Vercel เขียนทับเฉพาะเมื่อ runtime ตั้ง `VERCEL=1`; dev/VM ไม่เชื่อ forwarding headers จาก client. VM ที่มี proxy อื่นต้องกำหนดนโยบายเอง
@@ -118,7 +118,7 @@ Event ซ้ำไม่เล่นซ้ำ. Gap/event ขาดจะส่�
 
 เมื่อจบรอบ server เปิดการ์ดทั้งสองฝ่ายและตัดสินเขตใน snapshot เดียว. หน้าผลแสดงเหตุผลแต่ละเขตและหยุดเขตที่เหลือหากเกิดชัยชนะก่อน. หากยังไม่จบ ทั้งคู่กด **พร้อมรอบถัดไป** จึงสับ/แจกใหม่. ขั้นตอนพักดูผลเป็น UX เพิ่มเติม. จบเกม host กด **เล่นอีกครั้ง** โดยใช้ห้อง/บทบาท/ผู้เล่นเดิม
 
-กติกาครบและแหล่งตรวจสอบ: [docs/games/dracula-vs-van-helsing/rules.md](docs/games/dracula-vs-van-helsing/rules.md) อิงคู่มือ Mandoo ©2023 และคู่มือทางการจาก Asmodee Italia; อ่านรีวิว Stronghold ประกอบ. เกมนี้ใช้ artwork ที่สร้างใหม่และ DOM/CSS + Web Animations API; ยังไม่มีเสียง
+กติกาครบและแหล่งตรวจสอบ: [docs/games/dracula-vs-van-helsing/rules.md](docs/games/dracula-vs-van-helsing/rules.md) อิงคู่มือ Mandoo ©2023 และคู่มือทางการจาก Asmodee Italia; อ่านรีวิว Stronghold ประกอบ. เกมนี้ใช้ artwork ที่สร้างใหม่และ DOM/CSS + Web Animations API และเสียงแจ้งจบตาที่ปิดได้
 
 Browser suite เพิ่มจอกลาง + มือถือ Dracula + มือถือ Helsing: เข้าผ่าน portal, เลือกบทบาท/พร้อม, เล่นจนชนะ, เปรียบเทียบ public state ทุกจอทุก action, ตรวจ payload การ์ดลับ, ACK หายแล้ว retry, หลุด/โหลดใหม่ระหว่างเล่นและผลรอบ, desktop/iPad/phone, เล่นอีกครั้ง. ภาพที่รันสร้างใน `test-results/dracula-*.png`. ยังไม่ได้ทดสอบ Safari หรืออุปกรณ์จริง
 
@@ -176,3 +176,7 @@ PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/azul.spec.ts tests/browse
 ```
 
 ใช้พอร์ต 3001 แยกจากห้องที่เปิดเล่นบน 3000. Browser suite ใช้ Chromium และ fixture account เฉพาะ test ไม่ใช่การทดสอบ Google provider ใหม่. ดูผลที่รันจริงใน [docs/progress.md](docs/progress.md).
+
+## เสียงแจ้งจบตาและจอกลาง TV
+
+ทุกเกมมีเสียงสั้นเมื่อ server ยืนยันว่าจบตาหรือจบรอบ. แตะ **เปิดเสียงแจ้งจบตา** หนึ่งครั้งบนจอกลาง/TV เพื่ออนุญาตเสียง แล้วใช้ปุ่ม **เสียงจบตา: เปิด/ปิด** ตั้งค่าเฉพาะเครื่อง (จำเมื่อ reload). การเชื่อมใหม่/snapshot/คำสั่งซ้ำไม่เล่นเสียงย้อนหลัง. Browser อาจระงับเสียงก่อน user gesture; ไม่ใช่เสียงจาก server. ไพ่ Dracula มี intrinsic size และ font/portrait fallbacks สำหรับ browser ที่ไม่มี aspect-ratio/cqw; ไพ่ลับบนจอกลางยังคว่ำตามกติกา.

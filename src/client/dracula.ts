@@ -28,8 +28,8 @@ const esc = (x: unknown) =>
   );
 const card = (c: Card | null, caption = "") =>
   c
-    ? `<span class="duel-card suit-${c.suit}" data-card="revealed"><span class="card-ink">${SUIT_NAME[c.suit]}</span><strong class="duel-value">${c.value}</strong>${effectIcon(c.value)}${portrait(c.value)}<small class="duel-effect">${EFFECTS[c.value]}</small><span class="visibility">${caption || (c.revealed ? "เปิดเผยแล้ว" : "เฉพาะคุณ")}</span></span>`
-    : `<span class="duel-card card-back" data-card="hidden"><span>การ์ดปิด</span></span>`;
+    ? `<span class="duel-card suit-${c.suit}" data-card="revealed"><span class="duel-card-size" aria-hidden="true"></span><span class="card-ink">${SUIT_NAME[c.suit]}</span><strong class="duel-value">${c.value}</strong>${effectIcon(c.value)}${portrait(c.value)}<small class="duel-effect">${EFFECTS[c.value]}</small><span class="visibility">${caption || (c.revealed ? "เปิดเผยแล้ว" : "เฉพาะคุณ")}</span></span>`
+    : `<span class="duel-card card-back" data-card="hidden"><span class="duel-card-size" aria-hidden="true"></span><span>การ์ดปิด</span></span>`;
 let selected: number[] = [];
 let selectionKey = "";
 export function renderDracula(

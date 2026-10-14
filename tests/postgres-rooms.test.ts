@@ -52,6 +52,11 @@ test('Postgres two instances: shared rooms/presence, atomic race, dedup, full Az
     assert((await host.command({type:'restart'},result.revision)).ok);
     console.log('Postgres distributed Azul complete:',moves,'drafts, round',result.round);
     // Test resources are isolated in the explicitly supplied test database.
-    apps[0].store.db.prepare('DELETE FROM gv_rooms WHERE code=?').run(code);
+    const aged=JSON.parse(String(apps[0].store.db.prepare('SELECT state FROM gv_rooms WHERE code=?').get(code)!.state));
+    aged.updated=Date.now()-10*3600000-1000;
+    apps[0].store.db.prepare('UPDATE gv_rooms SET updated_at=?,state=? WHERE code=?').run(aged.updated,JSON.stringify(aged),code);
+    apps[1].rooms.poll();
+    assert.equal(apps[1].rooms.rooms.has(code),false);assert.equal(apps[0].store.db.prepare('SELECT 1 FROM gv_rooms WHERE code=?').get(code),undefined);
+    console.log('Postgres idle expiry deletes an active room durably across instances');
   } finally {for(const p of peers)p.ws.terminate();for(const app of apps)await app.close();}
 });

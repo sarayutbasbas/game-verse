@@ -291,8 +291,8 @@ test("real HTTP/cookies/WS/SQLite: account owners, Guests, privacy, profile, lin
     const id = randomUUID(),
       accepted = await extra.command({ type: "roll" }, revision, id);
     assert.equal(accepted.ok, true);
-    app.rooms.sweep(Date.now() + 365 * 24 * 3600000);
-    assert.ok(app.rooms.rooms.has(h.code), "active games never swept");
+    app.rooms.sweep(Date.now() + 9 * 3600000);
+    assert.ok(app.rooms.rooms.has(h.code), "rooms remain available within the 10-hour idle window");
     // Verified callback link transfer is tested directly; OAuth provider is not faked.
     app.rooms.linkGuest(g1.id, other.id);
     assert.equal(

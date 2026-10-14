@@ -28,7 +28,7 @@ Display projection แสดง board, เงิน, leg tickets/pyramids, turn,
 
 การเชื่อมต่อหลุดไม่ reset หรือข้าม turn. WS heartbeat ทุก 30 วินาที ตรวจหลุดเงียบไม่เกินประมาณ 60 วินาที; client retry ทุก 1.5 วินาที. Bad frame/shape, payload >8 KiB, wrong turn/resources/role, unknown token และ stale revision ถูกปฏิเสธ. Origin ต้องตรง Host; bounded message/auth quotas ระบุใน README
 
-SQLite-backed 200 ห้อง; commit state/revision/receipts ก่อน ACK/broadcast และ restore หลัง restart. Lobby 24h/finished 30d inactivity; playing/settling/results เก็บแบบ paused ไม่ cleanup ตามอายุ. Unsupported rules/schema/state quarantine โดยไม่ลบ. หนึ่ง coordinator instance เท่านั้น. Authentication และ lifecycle เพิ่มเติมอยู่ใน docs/platform-storage.md
+SQLite-backed 200 ห้อง; commit state/revision/receipts ก่อน ACK/broadcast และ restore หลัง restart. ทุกสถานะใช้ idle TTL10h จาก join/accepted command; automatic resume/watch/sync ไม่ต่ออายุ. ตรวจล้างทั้ง cold restore และระหว่างใช้งาน. Unsupported rules/schema/state quarantine โดยไม่ลบ. หนึ่ง coordinator instance เท่านั้น. Authentication และ lifecycle เพิ่มเติมอยู่ใน docs/platform-storage.md
 
 ## Deploy direction
 

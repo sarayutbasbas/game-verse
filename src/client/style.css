@@ -1533,3 +1533,11 @@ body::before {
   display: inline-block;
   padding: 8px 0;
 }
+
+.turn-sound-button { min-height: 48px; width: 180px; flex-shrink: 0; padding: 6px 10px; font-size: 12px; line-height: 1.4; white-space: nowrap; }
+@media (max-width: 600px) {
+  main > header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+  main > header .brand { font-size: 22px; }
+  main > header > .connection { grid-column: 1; grid-row: 2; text-align: left; margin: 0; }
+  main > header > .turn-sound-button { grid-column: 2; grid-row: 2; margin: 0; }
+}
