@@ -106,6 +106,31 @@ test("all effects: reveal own/opponent/top; revealed identity follows draw and s
   assert.equal(s.turn, "d");
   assert.equal(s.step, "draw");
 });
+test("replacing an exposed slot with a private one stays hidden; discarded one reveals exactly one selected card", () => {
+  for (const exposedTop of [false, true]) {
+    let s=initial();
+    const first=s.deck.findIndex(c=>c.value===1);
+    [s.deck[0],s.deck[first]]=[s.deck[first],s.deck[0]];
+    if(s.players[0].cards[3].value!==1) {
+      const second=s.deck.findIndex((c,i)=>i>0 && c.value===1);
+      assert(second>0);
+      [s.players[0].cards[3],s.deck[second]]=[s.deck[second],s.players[0].cards[3]];
+    }
+    s.players[0].cards.forEach(c=>c.revealed=false);
+    s.players[0].cards[3].revealed=true;
+    s.deck[0].revealed=exposedTop;
+    s=action(s,{type:"draw"});
+    s=action(s,{type:"discard",slot:3});
+    assert.equal(s.effect,1);
+    assert.equal(s.players[0].cards[3].revealed,exposedTop);
+    assert.equal(s.players[0].cards.filter(c=>c.revealed).length,Number(exposedTop));
+    assert.equal(e.getDisplayView(s, "TEST", 1).racks?.dracula[3]!==null,exposedTop);
+    s=action(s,{type:"effect",targets:[0]});
+    assert.equal(s.players[0].cards[3].revealed,exposedTop);
+    assert(s.players[0].cards[0].revealed);
+    assert.equal(s.players[0].cards.filter(c=>c.revealed).length,Number(exposedTop)+1);
+  }
+});
 test("called final turn supports chained 5; 8 immediately ends; six prior discards required", () => {
   let s = initial();
   s.discard = Array.from({ length: 6 }, () => card(2));

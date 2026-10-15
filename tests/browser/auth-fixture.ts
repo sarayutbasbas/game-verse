@@ -1,4 +1,5 @@
 // Server-side fixtures only. These are NOT evidence of Google provider login.
+import { execFileSync } from "node:child_process";
 import { DatabaseSync } from "node:sqlite";
 import { Pool } from "pg";
 import { appendFileSync, mkdirSync } from "node:fs";
@@ -18,6 +19,10 @@ export async function testAccount(
   if (app) {
     const context = await app.auth.$context;
     await context.internalAdapter.updateUser(user.id, { isAnonymous: false });
+  } else if (process.env.GAMEVERSE_E2E_DOCKER === "1") {
+    if (url !== "http://localhost:5555") throw Error("Docker fixture is local-only");
+    execFileSync("docker", ["compose", "exec", "-T", "app", "node", "--input-type=module", "-e",
+      'import { DatabaseSync } from "node:sqlite"; const db = new DatabaseSync("/app/data/gameverse.sqlite"); const result=db.prepare("UPDATE user SET isAnonymous=0 WHERE id=? AND isAnonymous=1").run(process.argv[1]); db.close(); if(result.changes!==1)process.exit(1);', user.id], { stdio: "pipe" });
   } else if (process.env.GAMEVERSE_E2E_DATABASE_URL) {
     const pool=new Pool({connectionString:process.env.GAMEVERSE_E2E_DATABASE_URL,max:1});
     const changed=await pool.query('UPDATE "user" SET "isAnonymous"=false WHERE id=$1 AND "isAnonymous"=true RETURNING id',[user.id]);

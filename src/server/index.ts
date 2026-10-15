@@ -236,6 +236,9 @@ if (
   import.meta.url === pathToFileURL(process.argv[1]).href
 ) {
   if (existsSync(".env")) process.loadEnvFile(".env");
-  const { server } = await startServer();
-  console.log(`GameVerse listening on port ${(server.address() as any).port}`);
+  const app = await startServer();
+  console.log(`GameVerse listening on port ${(app.server.address() as any).port}`);
+  for (const signal of ["SIGINT", "SIGTERM"] as const) process.once(signal, () => {
+    void app.close().then(() => process.exit(0), () => process.exit(1));
+  });
 }

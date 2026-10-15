@@ -20,6 +20,16 @@ export interface GameMetadata {
 }
 // Public metadata only: importing this file never includes engine state or secrets.
 export const GAME_CATALOG: readonly GameMetadata[] = [
+ {id:"jaipur",name:"Jaipur",aliases:["jaipur","ชัยปุระ","ไจปูร์","จัยปูร์","ตลาด"],cover:"/art/covers/jaipur.webp",coverAlt:"ตลาดชัยปุระ สินค้าเครื่องประดับ ผ้าและอูฐ",minPlayers:2,maxPlayers:2,supportedCounts:[2],durationMinutes:30,category:"ค้าขายและแลกสินค้า",difficulty:null,metadataSource:"https://www.spacecowboys-games.com/game/jaipur/",status:"ready",rulesVersion:"space-cowboys-2019-v1",stateSchemaVersion:1,ui:"jaipur"},
+  {id:"seven-wonders-duel",name:"7 Wonders Duel",aliases:["7 wonders duel","seven wonders","ดูเอล","เจ็ดสิ่งมหัศจรรย์"],cover:"/art/covers/seven-wonders-duel.webp",coverAlt:"สองนครโบราณเหนืออ่าวยามอาทิตย์ตก",minPlayers:2,maxPlayers:2,supportedCounts:[2],durationMinutes:30,category:"สร้างอารยธรรมสำหรับสองคน",difficulty:null,metadataSource:"https://www.rprod.com/en/games/7-wonders-duel",status:"ready",rulesVersion:"base-2015-v1",stateSchemaVersion:1,ui:"seven-wonders-duel"},
+  {
+    id: "calico", name: "Calico", aliases: ["calico", "คาลิโก", "คาลิโก้", "คาลิโค", "แมว", "ผ้าห่ม"],
+    cover: "/art/covers/calico.webp", coverAlt: "แมวนอนบนผ้าควิลต์สีสด",
+    minPlayers: 1, maxPlayers: 4, supportedCounts: [1,2,3,4], durationMinutes: 45,
+    category: "ต่อผ้าห่มและสะสมแมว", difficulty: null,
+    metadataSource: "https://www.alderac.com/calico", status: "ready",
+    rulesVersion: "base-2020-one-to-four-v2", stateSchemaVersion: 2, ui: "calico",
+  },
   {
     id: "azul", name: "Azul", aliases: ["azul", "อาซูล", "อาซุล", "กระเบื้อง"],
     cover: "/art/covers/azul.webp", coverAlt: "Azul ภาคหลัก • กระดานผนังสีมาตรฐาน",

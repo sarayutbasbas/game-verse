@@ -1,3 +1,4 @@
+import { GAME_CATALOG } from "../../src/shared/catalog.js";
 import { testAccount } from "./auth-fixture.js";
 import { test, expect, type BrowserContext } from "@playwright/test";
 test("neutral cover gallery and common join UI: errors preserve drafts, pasted code, Enter, duplicate lock, full room, QR and resume", async ({
@@ -18,8 +19,8 @@ test("neutral cover gallery and common join UI: errors preserve drafts, pasted c
   try {
     const host = await make();
     await host.goto("/");
-    await expect(host.locator(".game-cover")).toHaveCount(3);
-    await expect(host.locator(".game-cover img")).toHaveCount(3);
+    await expect(host.locator(".game-cover")).toHaveCount(GAME_CATALOG.length);
+    await expect(host.locator(".game-cover img")).toHaveCount(GAME_CATALOG.length);
     expect(
       await host
         .locator(".game-cover img")

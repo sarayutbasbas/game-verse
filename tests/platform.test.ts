@@ -134,6 +134,14 @@ test("real HTTP/cookies/WS/SQLite: account owners, Guests, privacy, profile, lin
       g2 = await identity(),
       g3 = await identity(),
       other = await identity(true);
+    // First rename must preserve the provider image before any gv_profiles row exists.
+    const googleImage = "https://lh3.googleusercontent.com/fixture-avatar.png";
+    await (await app.auth.$context).internalAdapter.updateUser(owner.id, { image: googleImage });
+    assert.equal((await (await request("/api/platform", "GET", owner.cookie)).json()).profile.avatar, googleImage);
+    assert.equal((await request("/api/profile", "PATCH", owner.cookie, { name: "เจ้าของชื่อใหม่" })).status, 200);
+    const renamedGoogle = (await (await request("/api/platform", "GET", owner.cookie)).json()).profile;
+    assert.equal(renamedGoogle.avatar, googleImage);
+    assert.equal(renamedGoogle.avatarSource, "google");
     const guestPeer = await make(g1.cookie);
     assert.match(
       (await guestPeer.send({ type: "create" }, "error")).error,
@@ -223,6 +231,26 @@ test("real HTTP/cookies/WS/SQLite: account owners, Guests, privacy, profile, lin
     ).json();
     assert.match(profile.profile.avatar, /^\/avatars\/[\w-]+\.webp$/);
     assert.equal((await fetch(url + profile.profile.avatar)).status, 200);
+    assert.equal(profile.profile.name, "ชื่อใหม่");
+    const gameBeforeProfile = structuredClone(app.rooms.rooms.get(h.code)!.game);
+    assert.equal((await request("/api/profile", "PATCH", g1.cookie, { name: "ชื่อหลังอัปโหลด" })).status, 200);
+    const renamedUpload = (await (await request("/api/platform", "GET", g1.cookie)).json()).profile;
+    assert.equal(renamedUpload.avatar, profile.profile.avatar);
+    assert.equal(renamedUpload.avatarSource, "upload");
+    const concurrent = await Promise.all([
+      request("/api/profile", "PATCH", g1.cookie, { name: "ชื่อพร้อมเปลี่ยนรูป" }),
+      fetch(url + "/api/profile/avatar", { method: "PUT", headers: { Origin: url, Cookie: g1.cookie, "Content-Type": "image/png" }, body: new Uint8Array(image) }),
+    ]);
+    assert.deepEqual(concurrent.map(r => r.status), [200, 200]);
+    const independent = (await (await request("/api/platform", "GET", g1.cookie)).json()).profile;
+    assert.equal(independent.name, "ชื่อพร้อมเปลี่ยนรูป");
+    assert.match(independent.avatar, /^\/avatars\/[\w-]+\.webp$/);
+    await extra.send({ type: "sync" }, "state");
+    const member = extra.view.players.find((p: any) => p.id === same.playerId);
+    assert.equal(member.name, independent.name);
+    assert.equal(member.avatar, independent.avatar);
+    assert.deepEqual(app.rooms.rooms.get(h.code)!.game, gameBeforeProfile);
+
     assert.equal(
       (
         await fetch(url + "/api/profile/avatar", {

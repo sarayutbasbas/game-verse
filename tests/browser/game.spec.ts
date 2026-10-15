@@ -68,31 +68,30 @@ test("จอกลาง + มือถือ 3 คน เล่นครบเ�
   ).toBeVisible();
   await display.getByRole("button", { name: "เริ่มเกม", exact: true }).click();
   await expect(
-    players[0].getByRole("heading", { name: "ตาของคุณ เลือก 1 การกระทำ" }),
+    players[0].getByRole("heading", { name: "เลือก 1 การกระทำ" }),
   ).toBeVisible();
   // Private final bet through actual UI.
   await players[0].getByRole("button", { name: "ลงการ์ดลับ" }).click();
   await expect(
-    players[1].getByRole("heading", { name: "ตาของคุณ เลือก 1 การกระทำ" }),
+    players[1].getByRole("heading", { name: "เลือก 1 การกระทำ" }),
   ).toBeVisible();
   await players[1].evaluate(() => ((window as any).__dropOneAck = true));
   await players[1]
     .getByRole("button", { name: /เดิมพันรอบย่อย อูฐ/ })
     .first()
     .click();
-  await expect(players[1].locator(".game-toast")).toBeVisible();
-  await expect(players[1].locator(".game-toast")).toContainText("ทำรายการแล้ว");
+  await expect(players[1].locator(".game-toast")).toBeHidden();
   await expect(
     players[1].locator(".players li").nth(1).locator(".tickets"),
   ).toHaveText("ฟ้า 5");
   await expect(
-    players[2].getByRole("heading", { name: "ตาของคุณ เลือก 1 การกระทำ" }),
+    players[2].getByRole("heading", { name: "เลือก 1 การกระทำ" }),
   ).toBeVisible();
   await players[2]
     .getByRole("button", { name: "วางป้าย", exact: true })
     .click();
   await expect(
-    players[0].getByRole("heading", { name: "ตาของคุณ เลือก 1 การกระทำ" }),
+    players[0].getByRole("heading", { name: "เลือก 1 การกระทำ" }),
   ).toBeVisible();
   await display.screenshot({
     path: "test-results/display.png",
@@ -118,7 +117,7 @@ test("จอกลาง + มือถือ 3 คน เล่นครบเ�
     players[0].getByRole("heading", { name: "มือถือ 1", exact: true }),
   ).toBeVisible();
   await expect(
-    players[0].getByRole("heading", { name: "ตาของคุณ เลือก 1 การกระทำ" }),
+    players[0].getByRole("heading", { name: "เลือก 1 การกระทำ" }),
   ).toBeVisible();
   expect(await players[0].locator(".players li").allTextContents()).toEqual(
     before,
@@ -138,11 +137,11 @@ test("จอกลาง + มือถือ 3 คน เล่นครบเ�
     /* Pace below the production command quota. */ await new Promise((r) =>
       setTimeout(r, 150),
     );
-    const previous = await display.locator(".room-heading p").innerText();
+    const previous = await display.locator("#main").getAttribute("data-revision");
     await current
       .getByRole("button", { name: "ทอยเต๋า • รับบัตรพีระมิด", exact: true })
       .click();
-    await expect(display.locator(".room-heading p")).not.toHaveText(previous);
+    await expect(display.locator("#main")).not.toHaveAttribute("data-revision", previous!);
     moves++;
     if (!(await display.getByRole("heading", { name: /ผู้ชนะ:/ }).count()))
       await expect(

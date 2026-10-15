@@ -556,8 +556,8 @@ main.duel-surface {
   max-width: 170px;
 }
 .discard-choice:disabled .duel-card {
-  filter: saturate(0.25);
-  opacity: 0.6;
+  filter: none;
+  opacity: 1;
 }
 .duel-controls .discard-choice:hover:not(:disabled) {
   background: #304a4f;
@@ -1240,3 +1240,382 @@ main.duel-surface {
 .controller-ranking .suit-yellow { color: #edcd73; }
 .controller-ranking .suit-green { color: #8bd0bd; }
 .controller-ranking .suit-purple { color: #c6a6e5; }
+
+/* Suit assets use fixed paint, never OS-dependent emoji glyphs. */
+.duel-suit-icon { display: inline-block; width: 20px; height: 20px; flex: none; vertical-align: middle; }
+.card-ink, .duel-ranking b, .discard-list > span { display: inline-flex; align-items: center; gap: 4px; }
+.card-ink .duel-suit-icon { width: 14px; height: 14px; }
+.controller-ranking .duel-suit-icon { width: 20px; height: 20px; }
+.trump-choice .duel-suit-icon { width: 32px; height: 32px; }
+
+/* Five aligned card slots surround an irregular city with a central draw pile. */
+.duel-game-board .city-map { padding: 10px 8px; border-width: 6px; border-color: var(--city-trump, #61d7ae); }
+.duel-game-board [data-trump="red"] { --city-trump: #ef6475; }
+.duel-game-board [data-trump="yellow"] { --city-trump: #f5ce58; }
+.duel-game-board [data-trump="green"] { --city-trump: #61d7ae; }
+.duel-game-board [data-trump="purple"] { --city-trump: #c59af5; }
+.duel-game-board .district-map {
+  position: relative; isolation: isolate;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: auto clamp(260px, 32vw, 340px) auto auto;
+  gap: 8px 5px;
+}
+.duel-game-board .district { display: contents; }
+.duel-game-board .district-map .district > .district-side,
+.duel-game-board .district-map .district > .district-result { grid-column: var(--district-column); min-width: 0; }
+.duel-game-board .district-side { grid-row: 1; padding: 0; align-self: end; }
+.duel-game-board.own-dracula [data-side="dracula"],
+.duel-game-board.own-helsing [data-side="helsing"] { grid-row: 3; }
+.duel-game-board .district-side > span:first-child { display: none; }
+.duel-game-board .district-map .district-side .duel-card { width: 100%; max-width: 166px; transform-origin: center bottom; box-shadow: 2px 3px 5px #0009; }
+.duel-game-board .district-map::before, .duel-game-board .district-map::after { display: none; }
+.duel-game-board .city-terrain { grid-area: 2 / 1 / 3 / 6; background: url("/art/dracula/districts.svg") center / 100% 100% no-repeat; pointer-events: none; }
+.duel-game-board .district-territory { grid-area: 2 / 1 / 3 / 6; position: relative; pointer-events: none; }
+.duel-game-board .territory-content { position: absolute; left: var(--territory-x); top: var(--territory-y); transform: translate(-50%, -50%); text-align: center; width: 20%; }
+.duel-game-board [data-district="0"] { --territory-x: 12%; --territory-y: 27%; }
+.duel-game-board [data-district="1"] { --territory-x: 26%; --territory-y: 65%; }
+.duel-game-board [data-district="2"] { --territory-x: 50%; --territory-y: 85%; }
+.duel-game-board [data-district="3"] { --territory-x: 74%; --territory-y: 66%; }
+.duel-game-board [data-district="4"] { --territory-x: 88%; --territory-y: 26%; }
+.duel-game-board .district-map .district h2 { display: block; width: 100%; margin: 0 0 3px; padding: 0; font-size: 12px; letter-spacing: 0; line-height: 1.3; text-shadow: 0 1px 3px #000; }
+.duel-game-board .district-map .inhabitants { position: relative; display: block; width: 52px; max-width: 100%; height: 54px; min-height: 0; padding: 0; margin: 0 auto; background: transparent; }
+.duel-game-board .district-map .inhabitants > span { position: absolute; width: 23px; height: 23px; }
+.duel-game-board .district-map .inhabitants > span:nth-child(1) { left: 0; top: 0; }
+.duel-game-board .district-map .inhabitants > span:nth-child(2) { right: 0; top: 5px; }
+.duel-game-board .district-map .inhabitants > span:nth-child(3) { left: 4px; bottom: 0; }
+.duel-game-board .district-map .inhabitants > span:nth-child(4) { right: 0; bottom: 3px; }
+.duel-game-board [data-district="1"] .inhabitants > span:nth-child(1),
+.duel-game-board [data-district="3"] .inhabitants > span:nth-child(1) { top: 6px; }
+.duel-game-board .district-map .conversion-count { display: block; width: max-content; max-width: 100%; margin: 3px auto 0; padding: 1px 0; font-size: 10px; line-height: 1.3; white-space: nowrap; color: #fff0c8; background: #102630a6; }
+.duel-game-board .district-result { grid-row: 4; font-size: 11px; margin: 0; min-height: 0; padding: 4px 1px; overflow-wrap: anywhere; }
+.duel-game-board .reveal-active .district-side .duel-card,
+.duel-game-board .reveal-active .territory-content { outline: 2px solid #ffe29a; outline-offset: 1px; }
+.duel-game-board .city-draw {
+  grid-area: 2 / 1 / 3 / 6; width: 26%; max-width: 100px; min-width: 54px;
+  align-self: start; justify-self: center; z-index: 5; margin: 8px 0 0; padding: 4px;
+  display: block; background: #102730eb; border: 1px solid #a69570;
+  border-radius: 5px; box-shadow: 2px 4px 9px #0009; text-align: center;
+}
+.duel-game-board .city-draw small { display: block; font-size: 10px; line-height: 1.4; }
+.duel-surface .city-draw button, .duel-surface .city-draw button:hover:not(:disabled) { display: block; width: 100%; min-width: 0; min-height: 0; padding: 0; margin: 0; border: 0; background: transparent; color: #ffedc6; font-size: 11px; }
+.duel-game-board .city-draw .duel-card { width: 100%; }
+.duel-game-board .city-draw .card-ink .suit-word { display: none; }
+.duel-game-board .city-draw .duel-value { font-size: 26px; }
+.duel-game-board .city-draw .duel-effect { font-size: 9px; bottom: 7%; }
+.duel-game-board .city-draw .visibility { display: none; }
+.duel-game-board .city-draw .card-back > span:not(.duel-card-size) { display: none; }
+.duel-game-board .city-draw .center-deck-count { margin-top: 3px; }
+.duel-game-board .city-draw [aria-pressed="true"] .duel-card { outline: 3px solid #ffe29a; outline-offset: -3px; }
+#content[data-duel-waiting="true"] .duel-card { opacity: .55; }
+.duel-card { transition: opacity .16s ease; }
+@media (prefers-reduced-motion: reduce) { .duel-card { transition: none; } }
+@media (max-width: 600px) {
+  .duel-game-board .district-side .duel-card { border-width: 1px; border-radius: 4px; }
+  .duel-game-board .district-side .card-ink { left: 6%; top: 3%; }
+  .duel-game-board .district-side .card-ink .duel-suit-icon { width: 11px; height: 11px; }
+  .duel-game-board .district-side .suit-word, .duel-game-board .district-side .visibility { display: none; }
+  .duel-game-board .district-side .duel-effect { display: block; font-size: 7px; line-height: 1.2; bottom: 4%; left: 2%; right: 2%; padding: 2px 0; background: #0c1b27c9; }
+  .duel-game-board .district-side .duel-value { font-size: 20px; top: 20%; }
+  .duel-game-board .district-side .effect-icon { width: 25%; padding: 0; }
+  .duel-game-board .district-side .duel-portrait { inset: 22% 0 0; }
+  .duel-game-board .duel-ranking { gap: 4px; padding: 7px 0; flex-wrap: wrap; }
+  .duel-game-board .duel-ranking b { padding: 2px 3px; font-size: 11px; }
+  .duel-game-board .district-map .conversion-count { font-size: 8px; }
+  .duel-game-board .district-map .district h2 { font-size: 10px; }
+  .duel-game-board .district-map .inhabitants { height: 43px; }
+  .duel-game-board .district-map .inhabitants > span { width: 19px; height: 19px; }
+  .duel-game-board .board-public { padding: 8px 0; }
+  .duel-game-board .city-draw .card-ink { left: 4%; }
+  .duel-game-board .city-draw .card-ink .duel-suit-icon { width: 12px; height: 12px; }
+}
+@media (min-width: 1100px) {
+ .display-surface .revealing-round > #duel-controls { grid-column: 2; grid-row: 4; }
+ .display-surface .revealing-round > #duel-controls { grid-column: 2; grid-row: 5; }
+ .display-surface .revealing-round > .duel-piles { grid-row: 6; }
+}
+
+/* Pick directly from the five-card stand; only the incoming card is separate. */
+.duel-surface .rack-choice,
+.duel-surface .rack-choice:hover:not(:disabled) {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  touch-action: manipulation;
+}
+.duel-surface .rack-choice[aria-pressed="true"] .duel-card {
+  outline: 3px solid #ffe29a;
+  outline-offset: -3px;
+  box-shadow: 0 0 12px #e5bc5e;
+}
+.duel-surface .rack-choice:focus-visible { outline: 3px solid #ffe29a; outline-offset: 2px; }
+.duel-surface .rack-choice:disabled { cursor: not-allowed; }
+.duel-surface .rack-choice:disabled .duel-card { opacity: 1; }
+.drawn-choice { display: flex; justify-content: center; }
+.drawn-choice .discard-choice { width: 130px; max-width: 100%; }
+
+.duel-surface .rack-choice { scroll-margin-bottom: 150px; }
+
+/* Reset inherited TV sizing for the mapped token clusters. */
+@media (min-width: 601px) {
+ .display-surface.duel-surface .duel-game-board .district-side .duel-card { max-width: 110px; }
+ .display-surface.duel-surface .duel-game-board .district-map { grid-template-rows: auto 280px auto auto; }
+ .display-surface.duel-surface .duel-game-board .inhabitants { width: 64px; height: 60px; display: block; min-height: 0; padding: 0; margin: 0 auto; }
+ .display-surface.duel-surface .duel-game-board .inhabitants > span { width: 26px; height: 26px; }
+ .display-surface.duel-surface .duel-game-board .district h2 { display: block; margin: 0 0 3px; padding: 0; text-align: center; }
+ .display-surface.duel-surface .duel-game-board .conversion-count { margin: 3px auto 0; padding: 1px 0; font-size: 10px; }
+}
+@media (min-width: 601px) and (max-height: 850px) {
+ .display-surface.duel-surface .duel-game-board .district-side .duel-card { max-width: 80px; }
+ .display-surface.duel-surface .duel-game-board .district-map { grid-template-rows: auto 260px auto auto; }
+ .display-surface.duel-surface .duel-game-board .city-draw { max-width: 90px; }
+ .display-surface.duel-surface .duel-game-board .inhabitants { height: 54px; }
+ .display-surface.duel-surface .duel-game-board .inhabitants > span { width: 23px; height: 23px; }
+}
+
+/* Public-card status stays legible outside the waiting card's dimmed layer. */
+.rack-face { display: block; position: relative; }
+.rack-is-public { border-radius: 4px; outline: 2px solid #f2d67e; outline-offset: 1px; }
+.rack-public-badge {
+  position: absolute; left: 2px; right: 2px; bottom: 20%; z-index: 6;
+  display: block; padding: 1px 0; border: 1px solid #f8e9b8; border-radius: 2px;
+  background: #f2d67e; color: #162f35; font: 700 9px/1.35 "Noto Sans Thai", Tahoma, sans-serif;
+  text-align: center; white-space: nowrap; pointer-events: none;
+}
+.rack-reveal-summary { margin: 0; padding: 5px 8px; font-size: 12px; background: #153139; color: #f5e7c8; }
+.rack-reveal-summary b { color: #f2d67e; font-variant-numeric: tabular-nums; }
+@media (max-width: 600px) { .rack-public-badge { font-size: 7px; } .rack-reveal-summary { font-size: 11px; } }
+
+/* Thai result text uses the bundled Thai font, including dynamically revealed pairs. */
+.duel-surface .round-outcome h2,
+.duel-surface .reveal-focus h2,
+.duel-surface .reveal-verdict,
+.duel-surface .district-result { font-family: "Noto Sans Thai", Tahoma, "Leelawadee UI", sans-serif; }
+.duel-surface .round-summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px;
+}
+.round-summary-copy { min-width: 0; flex: 1; }
+.duel-surface .round-summary h2 { font-size: 22px; line-height: 1.4; }
+.round-summary-copy p { font-size: 13px; line-height: 1.5; margin: 4px 0 0; overflow-wrap: anywhere; }
+.round-summary-actions { flex: 0 0 auto; width: clamp(105px, 31vw, 180px); }
+.duel-surface .round-summary #duel-controls {
+  display: flex; flex-direction: column; gap: 4px; padding: 0; margin: 0; border: 0; background: transparent;
+}
+.duel-surface .round-summary button { width: 100%; min-height: 44px; padding: 7px 6px; margin: 0; font-family: inherit; font-size: 13px; }
+.round-summary #next-round { order: 0; }
+.round-summary .skip-reveal { order: 1; }
+.duel-surface .round-summary .skip-reveal { min-height: 32px; font-size: 11px; }
+.duel-surface .round-summary #duel-controls p { margin: 0; font-size: 11px; line-height: 1.45; }
+.round-summary .round-ready-status { order: 2; }
+.round-summary .reveal-control-status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+.duel-game-board .revealing-round .round-summary { display: flex; visibility: visible; }
+@media (max-width: 600px) {
+ .duel-surface .round-summary { gap: 8px; padding: 10px; }
+ .duel-surface .round-summary h2 { font-size: 18px; }
+ .duel-surface .round-summary button { font-size: 11px; }
+ .round-summary-copy p { font-size: 12px; }
+}
+@media (min-width: 1100px) {
+ .display-surface .revealing-round > .round-summary { grid-column: 1 / -1; grid-row: 1; }
+ .display-surface .revealing-round .reveal-focus { grid-row: 2 / 7; }
+ .display-surface .revealing-round > .board-public { grid-row: 2; }
+ .display-surface .revealing-round > .duel-ranking { grid-row: 3; }
+ .display-surface .revealing-round > .city-map { grid-row: 4; }
+ .display-surface .revealing-round > #duel-controls { grid-column: 2; grid-row: 5; }
+ .display-surface .revealing-round > .duel-piles { grid-row: 6; }
+}
+
+/* In-play actions live on the board; confirmation never occupies document flow. */
+body.duel-theme { overflow-anchor: none; }
+.duel-surface #duel-controls.board-controls { display: block; padding: 0; margin: 0; border: 0; min-height: 0; background: transparent; }
+.duel-surface .board-secondary { min-height: 52px; display: flex; justify-content: flex-end; align-items: center; }
+.duel-surface .board-secondary button { min-height: 44px; padding: 6px 12px; margin: 4px 0; font-size: 12px; }
+.duel-surface .effect-card { transition: transform .18s ease; }
+.duel-surface .effect-card[aria-pressed="true"] { transform: translateY(-10px); }
+.duel-surface .rack-choice[aria-pressed="true"] { transform: translateY(-10px); }
+.duel-game-board .board-turn strong { display: block; min-height: 2.8em; line-height: 1.4; }
+.duel-game-board .city-draw .center-step-status { min-height: 2.8em; font-size: 9px; line-height: 1.4; }
+.duel-game-board .city-draw.is-drawing { outline: 2px solid #f2d67e; }
+.duel-game-board .duel-ranking .trump-choice { width: 40px; height: 40px; min-height: 40px; margin: 0 2px; }
+.duel-game-board .duel-ranking .trump-choice .duel-suit-icon { width: 24px; height: 24px; }
+.reveal-verdict { min-height: 5.1em; }
+@media (prefers-reduced-motion: reduce) { .duel-surface .effect-card { transition: none; } }
+
+/* Tokens are mapped across the whole district area, not a four-token cluster. */
+.duel-game-board .district-map .territory-content { display: contents; }
+.duel-game-board .district-map .district .territory-content h2 {
+ position: absolute; left: var(--label-x); top: var(--label-y); width: auto; max-width: 24%;
+ transform: translate(-50%,-50%); margin: 0; padding: 1px 4px; background: #102630b8;
+}
+.duel-game-board .district-map .district .inhabitants { position: static; width: auto; max-width: none; height: 0; min-height: 0; padding: 0; margin: 0; }
+.duel-game-board .district-map .district .inhabitants > span {
+ right: auto; bottom: auto; transform: translate(-50%,-50%);
+}
+.duel-game-board .district-map .district .conversion-count {
+ position: absolute; left: var(--count-x); top: var(--count-y); transform: translate(-50%,-50%);
+ width: max-content; margin: 0; padding: 1px 3px;
+}
+.duel-game-board .reveal-active .territory-content h2 { outline: 2px solid #ffe29a; }
+.duel-game-board [data-district="0"] { --label-x: 12%; --label-y: 8%; --count-x: 11%; --count-y: 57%; }
+.duel-game-board .district-map [data-district="0"] .inhabitants > span:nth-child(1) { left: 7%; top: 17%; }
+.duel-game-board .district-map [data-district="0"] .inhabitants > span:nth-child(2) { left: 18%; top: 22%; }
+.duel-game-board .district-map [data-district="0"] .inhabitants > span:nth-child(3) { left: 7%; top: 42%; }
+.duel-game-board .district-map [data-district="0"] .inhabitants > span:nth-child(4) { left: 18%; top: 44%; }
+.duel-game-board [data-district="1"] { --label-x: 25%; --label-y: 52%; --count-x: 15%; --count-y: 96%; }
+.duel-game-board .district-map [data-district="1"] .inhabitants > span:nth-child(1) { left: 11%; top: 73%; }
+.duel-game-board .district-map [data-district="1"] .inhabitants > span:nth-child(2) { left: 22%; top: 63%; }
+.duel-game-board .district-map [data-district="1"] .inhabitants > span:nth-child(3) { left: 9%; top: 87%; }
+.duel-game-board .district-map [data-district="1"] .inhabitants > span:nth-child(4) { left: 29%; top: 86%; }
+.duel-game-board [data-district="2"] { --label-x: 50%; --label-y: 88%; --count-x: 50%; --count-y: 96%; }
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(1) { left: 40%; top: 78%; }
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(2) { left: 59%; top: 78%; }
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(3) { left: 38%; top: 93%; }
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(4) { left: 63%; top: 92%; }
+.duel-game-board [data-district="3"] { --label-x: 75%; --label-y: 53%; --count-x: 85%; --count-y: 96%; }
+.duel-game-board .district-map [data-district="3"] .inhabitants > span:nth-child(1) { left: 78%; top: 63%; }
+.duel-game-board .district-map [data-district="3"] .inhabitants > span:nth-child(2) { left: 89%; top: 73%; }
+.duel-game-board .district-map [data-district="3"] .inhabitants > span:nth-child(3) { left: 72%; top: 88%; }
+.duel-game-board .district-map [data-district="3"] .inhabitants > span:nth-child(4) { left: 91%; top: 89%; }
+.duel-game-board [data-district="4"] { --label-x: 88%; --label-y: 8%; --count-x: 89%; --count-y: 57%; }
+.duel-game-board .district-map [data-district="4"] .inhabitants > span:nth-child(1) { left: 82%; top: 22%; }
+.duel-game-board .district-map [data-district="4"] .inhabitants > span:nth-child(2) { left: 94%; top: 17%; }
+.duel-game-board .district-map [data-district="4"] .inhabitants > span:nth-child(3) { left: 82%; top: 44%; }
+.duel-game-board .district-map [data-district="4"] .inhabitants > span:nth-child(4) { left: 93%; top: 42%; }
+
+/* Stable button wrappers keep card art mounted while a target becomes actionable. */
+.duel-surface button.rack-item, .duel-surface button.rack-item:hover:not(:disabled) {
+ display: block; width: 100%; min-width: 0; min-height: 0; margin: 0; padding: 0;
+ border: 0; border-radius: 4px; background: transparent; color: inherit;
+ transition: transform .18s ease;
+}
+.duel-surface .rack-readonly { cursor: default; }
+@media (prefers-reduced-motion: reduce) { .duel-surface button.rack-item { transition: none; } }
+
+/* A disabled eight is still information the player needs to read. */
+.card-lock-badge {
+  position: absolute; left: 3px; right: 3px; top: 58%; z-index: 4;
+  padding: 2px; background: #f2d77c; color: #182c32;
+  font: 700 9px/1.4 "Noto Sans Thai", sans-serif; text-align: center;
+}
+/* Make the live city and the two player sides readable at board level. */
+.duel-game-board .district-map .inhabitants > span { width: 32px; height: 32px; }
+.duel-game-board .rack-side-label {
+  min-height: 26px; padding: 5px 2px; font-size: 11px; line-height: 1.7;
+  color: #d6dddb; text-align: left;
+}
+.duel-game-board .rack-label-bottom { text-align: right; }
+.duel-game-board .rack-side-label[data-active="true"] { color: #ffe29a; }
+.duel-game-board .rack-side-label b { margin-left: 5px; font-size: 10px; }
+.duel-game-board .rack-turn-frame {
+  grid-column: 1 / 6; grid-row: 1; align-self: stretch;
+  pointer-events: none; z-index: 2; border: 2px solid transparent;
+  border-radius: 5px; margin: -3px;
+}
+.duel-game-board .rack-frame-bottom { grid-row: 3; }
+.duel-game-board .rack-turn-frame[data-active="true"] {
+  border-color: #ffe29a; box-shadow: 0 0 0 1px #162d34, 0 0 10px #f2d77c55;
+}
+.duel-game-board .city-draw .center-health {
+  display: flex; flex-wrap: nowrap; justify-content: center; align-items: center;
+  gap: 3px; margin: 0 0 5px; padding: 2px 0; line-height: 1.5;
+}
+.duel-game-board .city-draw .center-health .duel-marker { width: 18px; height: 18px; flex: none; }
+.duel-game-board .city-draw .center-health strong { font-size: 17px; line-height: 1.5; }
+.duel-game-board .city-draw button > span:last-child {
+  display: block; overflow: visible; padding: 4px 0;
+  font-family: "Noto Sans Thai", sans-serif; font-size: 12px; line-height: 1.9;
+}
+.duel-game-board .city-draw[data-draw-cue="true"] { border: 2px solid #ffe29a; box-shadow: 0 0 16px #f2d77c77; }
+.duel-game-board .city-draw[data-draw-cue="true"] .board-draw > span:last-child { color: #ffe29a; font-weight: 700; }
+.duel-game-board .city-draw[data-draw-cue="true"] .board-draw .duel-card {
+  animation: duel-draw-invitation 1.5s ease-in-out infinite;
+}
+@keyframes duel-draw-invitation {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@media (max-width: 600px) {
+  .duel-game-board .district-map .inhabitants > span { width: 26px; height: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .duel-game-board .city-draw[data-draw-cue="true"] .board-draw .duel-card { animation: none; }
+}
+/* Leave a clear central corridor around the taller draw/health stack. */
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(1),
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(3) { left: 31%; }
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(2),
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(4) { left: 69%; }
+.duel-game-board .district-map { grid-template-rows: auto clamp(300px, 32vw, 340px) auto auto; }
+.duel-game-board .city-draw .center-discard > span:last-child { font-size: 10px; line-height: 1.6; padding: 2px 0; }
+
+/* Keep all faction information on its board edge, with HP beside Dracula. */
+.duel-game-board .rack-side-label { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 6px 2px; }
+.duel-game-board .rack-label-bottom { justify-content: flex-end; }
+.rack-person { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.rack-person > div { min-width: 0; }
+.duel-game-board .rack-person strong { font-size: 11px; line-height: 1.6; }
+.duel-game-board .rack-person small { display: block; font-size: 9px; line-height: 1.5; overflow-wrap: anywhere; }
+.duel-game-board .rack-person .role-portrait { width: 28px; height: 36px; flex: none; }
+.duel-game-board .rack-health { gap: 3px; flex: none; }
+.duel-game-board .rack-health .duel-marker { width: 20px; height: 20px; }
+.duel-game-board .rack-health strong { font-size: 17px; }
+.duel-game-board .board-public { justify-content: center; text-align: center; }
+.duel-game-board .board-turn { width: 100%; }
+.duel-game-board .board-turn > span { justify-content: center; margin-right: 0; }
+.duel-game-board .duel-ranking { justify-content: center; }
+.rank-arrow { font-size: 12px; color: #d7c7a4; }
+/* Each center lies within the corresponding SVG path. District3 starts below
+   the deck opening: do not push its people into neighboring districts. */
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(1) { left: 42%; top: 82%; }
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(2) { left: 58%; top: 82%; }
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(3) { left: 39%; top: 94%; }
+.duel-game-board .district-map [data-district="2"] .inhabitants > span:nth-child(4) { left: 61%; top: 94%; }
+.duel-game-board [data-district="2"] { --label-y: 90%; }
+.duel-game-board .district-map .district .territory-content h2 { padding-inline: 2px; }
+/* Settlement controls belong to the physical deck, never to the viewport. */
+.duel-game-board .city-map { position: relative; }
+.duel-game-board .has-round-result .city-map { opacity: 1; }
+.duel-game-board .has-round-result .district-map { opacity: 1; }
+.has-round-result .district-side .duel-card { opacity: .45; }
+.duel-game-board .city-draw .result-deck { opacity: .2; }
+.duel-surface .has-round-result .city-draw #duel-controls {
+ position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
+ gap: 4px; width: auto; margin: 0; padding: 2px; border: 0; background: transparent;
+ transform: none; box-shadow: none; text-align: center;
+}
+.duel-surface .has-round-result .city-draw #duel-controls button {
+ width: 100%; min-height: 44px; margin: 0; padding: 5px 2px; font-size: 11px; line-height: 1.6;
+}
+.duel-surface .has-round-result .city-draw #duel-controls p { margin: 0; font-size: 9px; line-height: 1.5; }
+.duel-surface .has-round-result .winner-seal { position: fixed; z-index: 34; top: 8px; left: 8px; right: 8px; margin: 0; }
+/* Paired reveals cover only the board and move with it when the page scrolls. */
+.board-reveal-layer {
+ position: absolute; z-index: 36; inset: 0; display: flex; flex-direction: column;
+ justify-content: center; align-items: center; padding: 12px;
+ background: #071922bd; -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+}
+.duel-surface .board-reveal-layer .reveal-focus {
+ position: static; width: min(100%, 360px); margin: 0; padding: 12px;
+ border: 1px solid #d7b657; background: #193039; box-sizing: border-box;
+}
+.board-reveal-layer .reveal-pair > div { width: min(38%, 115px); }
+.board-reveal-layer .reveal-verdict { font-size: 12px; }
+.duel-surface .board-reveal-layer > button { min-height: 44px; margin: 8px 0 0; }
+.duel-game-board .city-draw { position: relative; }
+.duel-game-board .district-map [data-district="0"] .inhabitants > span:nth-child(4) { left: 17%; }
+.duel-game-board .district-map [data-district="3"] .inhabitants > span:nth-child(3) { left: 75%; }
+.duel-game-board .district-map [data-district="4"] .inhabitants > span:nth-child(3) { left: 84%; }
+.duel-game-board .city-draw .drawn-public-note { margin: 2px 0; color: #ffe29a; font-size: 9px; line-height: 1.5; }
+.duel-surface .city-draw #duel-controls button:not(.skip-reveal) {
+ background: #1e7174; color: #fff2cb; border: 2px solid #f3d67c;
+ border-radius: 5px; padding: 6px 3px; font-weight: 700;
+}
+.duel-surface .city-draw #duel-controls button:disabled {
+ background: #273c43; color: #dcd8c8; border-color: #756949;
+}

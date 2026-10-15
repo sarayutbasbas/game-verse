@@ -1,5 +1,11 @@
+import { SUIT_NAME, type Suit } from "../games/dracula-vs-van-helsing/types.js";
 export const DUEL_ART = {
   map: "/art/dracula/city.webp",
+  districts: "/art/dracula/districts.svg",
+  red: "/art/dracula/suits/red.svg",
+  yellow: "/art/dracula/suits/yellow.svg",
+  green: "/art/dracula/suits/green.svg",
+  purple: "/art/dracula/suits/purple.svg",
   roles: "/art/dracula/roles.webp",
   cards: "/art/dracula/card-portraits.webp",
   back: "/art/dracula/card-back.webp",
@@ -41,4 +47,12 @@ export function effectIcon(value: number) {
     8: '<path d="M3 18h18l-4 4H7zM12 3v15M13 4l7 11h-7M10 6 4 15h6"/>',
   };
   return `<svg class="effect-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[value]}</svg>`;
+}
+
+/** Painted vector symbols bypass platform emoji/text glyph substitution. */
+export function suitIcon(suit: Suit) {
+  return `<img class="duel-suit-icon" src="${DUEL_ART[suit]}" width="24" height="24" alt="" aria-hidden="true">`;
+}
+export function suitLabel(suit: Suit) {
+  return `${suitIcon(suit)}<span class="suit-word">${SUIT_NAME[suit].split(" ")[0]}</span>`;
 }

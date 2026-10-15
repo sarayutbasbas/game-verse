@@ -132,7 +132,14 @@ test("authoritative reveal/motion: both hands same snapshot, dedup, gap sync, re
     await sendAndWait(phones[0], { type: "draw" });
     for (const p of all) await expect(p.locator(".public-draw")).toHaveCount(0);
     await sendAndWait(phones[0], { type: "discard", slot: -1 });
+    const drawsBefore = Number(await display.locator('.duel-table').getAttribute('data-draw-animation-count') ?? 0);
+    await display.evaluate(() => ((window as any).__duplicate = true));
     await sendAndWait(phones[1], { type: "draw" });
+    await expect(display.locator('.duel-table')).toHaveAttribute('data-draw-animation-count',String(drawsBefore+1));
+    for(const p of all) {
+      await expect(p.locator('.duel-table')).toHaveAttribute('data-draw-revision',String(room.revision));
+      await expect(p.locator('.city-draw')).toHaveAttribute('data-draw-state','held');
+    }
     for (const p of all) {
       await expect(p.locator(".public-draw .duel-value")).toHaveText("5");
       expect(await p.evaluate(() => (window as any).__view.drawn)).toEqual({ suit: "purple", value: 5, revealed: true });
@@ -173,6 +180,11 @@ test("authoritative reveal/motion: both hands same snapshot, dedup, gap sync, re
     const previous = room.revision;
     const beforeMotions = Number(await display.locator(".duel-table").getAttribute("data-animation-count"));
     const actor = phones.find((_, i) => room.players[i].id === s.turn)!;
+    const scrollPositions = await Promise.all(phones.map(p => p.evaluate(() => {
+      const city = document.querySelector('.city-map')!;
+      scrollTo(0, Math.max(0, city.getBoundingClientRect().top + scrollY - 20));
+      return scrollY;
+    })));
     await display.evaluate(() => ((window as any).__duplicate = true));
     await cmd(actor, final!);
     await expect(display.locator(".duel-table")).toHaveAttribute(
@@ -203,16 +215,38 @@ test("authoritative reveal/motion: both hands same snapshot, dedup, gap sync, re
         if (district === 0) {
           const hidden = await p.locator('[data-district="1"] .duel-value').evaluateAll((els) => els.every((el) => getComputedStyle(el).visibility === "hidden"));
           expect(hidden).toBeTruthy();
-          if (p !== display) await expect(p.getByRole("button", { name: "พร้อมรอบถัดไป" })).toBeDisabled();
+          const overlay=p.locator('.city-map > .board-reveal-layer');
+          await expect(overlay).toBeVisible();
+          await expect(p.locator('dialog')).toHaveCount(0);
+          const layer=(await overlay.boundingBox())!, board=(await p.locator('.city-map').boundingBox())!;
+          expect(Math.abs(layer.x-board.x)).toBeLessThan(8);
+          expect(layer.y).toBeGreaterThanOrEqual(board.y);
+          expect(await overlay.evaluate(n=>getComputedStyle(n).position)).toBe('absolute');
+          expect(await p.evaluate(()=>document.documentElement.style.overflow)).not.toBe('hidden');
+          if(p!==display) {
+            await expect(p.locator('.city-draw #next-round')).toBeDisabled();
+            expect(Math.abs(await p.evaluate(()=>scrollY)-scrollPositions[phones.indexOf(p)])).toBeLessThan(2);
+          }
         }
       }
       if (district === 0) {
-        await display.screenshot({ path: "test-results/dracula-reveal.png", fullPage: true });
-        await phones[0].screenshot({ path: "test-results/dracula-paired-reveal-phone.png", fullPage: true });
+        await display.screenshot({ path: "test-results/dracula-reveal.png", fullPage: false });
+        await phones[0].screenshot({ path: "test-results/dracula-paired-reveal-phone.png", fullPage: false });
       }
     }
     for (const p of [display, ...phones]) await expect(p.locator(".duel-table")).toHaveAttribute("data-motion-state", "idle", { timeout: 6000 });
     await expect(phones[0].getByRole("button", { name: "พร้อมรอบถัดไป" })).toBeEnabled();
+    for (const [i, p] of phones.entries()) {
+      expect(Math.abs(await p.evaluate(()=>scrollY) - scrollPositions[i])).toBeLessThan(2);
+      await expect(p.locator('#next-round')).toBeInViewport();
+      await expect(p.locator('dialog[open]')).toHaveCount(0);
+      expect(await p.evaluate(()=>document.documentElement.style.overflow)).not.toBe("hidden");
+      const ready=(await p.locator('#next-round').boundingBox())!, deck=(await p.locator('.city-draw').boundingBox())!;
+      expect(ready.x).toBeGreaterThanOrEqual(deck.x);
+      expect(ready.x+ready.width).toBeLessThanOrEqual(deck.x+deck.width);
+      expect(await p.locator('#duel-controls').evaluate(n=>getComputedStyle(n).position)).toBe('absolute');
+    }
+    await phones[0].screenshot({path:"test-results/dracula-centered-ready.png"});
     // Reloading a result snapshot never replays the completed district sequence.
     await display.reload();
     await expect(display.locator(".duel-table")).toHaveAttribute(

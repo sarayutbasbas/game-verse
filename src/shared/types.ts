@@ -1,3 +1,6 @@
+import type { JaipurAction, JaipurView } from "../games/jaipur/types.js";
+import type { WondersAction, WondersView } from "../games/seven-wonders-duel/types.js";
+import type { CalicoAction, CalicoView } from "../games/calico/types.js";
 import type {
   DuelAction,
   LobbyAction,
@@ -106,9 +109,9 @@ export interface View {
     legal: Action[];
   };
 }
-export type GameId = "camel-up" | "dracula-vs-van-helsing" | "azul";
-export type RoomView = View | DuelView | AzulView;
-export type RoomAction = Action | HostAction | DuelAction | LobbyAction | AzulAction;
+export type GameId = "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur";
+export type RoomView = View | DuelView | AzulView | CalicoView | WondersView | JaipurView;
+export type RoomAction = Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction;
 export type ClientMessage =
   | { type: "create"; gameId?: GameId }
   | { type: "join"; code: string; name: string }

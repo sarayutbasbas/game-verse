@@ -11,7 +11,7 @@ export function endedTurn(
     previous.gameId === next.gameId &&
     next.revision === previous.revision + 1 &&
     previous.phase === "playing" &&
-    (next.phase !== "playing" || next.turn !== previous.turn)
+    (next.phase !== "playing" || next.turn !== previous.turn || (next.gameId === "calico" && next.event?.kind === "calico-draft") || (next.gameId === "seven-wonders-duel" && !next.pending && !!next.event && ["build", "discard", "wonder", "wonders-decide"].includes(next.event.kind)))
   );
 }
 /** Notifications follow accepted state transitions, never renders or ACK retries. */
@@ -19,6 +19,8 @@ export class TurnSound {
   private previous?: RoomView;
   private context?: AudioContext;
   private enabled = true;
+  private compact = false;
+  setCompact(compact:boolean){this.compact=compact;this.paint();}
   private unlocked = false;
   readonly button = document.createElement("button");
   constructor() {
@@ -57,11 +59,14 @@ export class TurnSound {
     this.paint();
   }
   private paint() {
-    this.button.textContent = !this.enabled
+    const label = !this.enabled
       ? "เสียงจบตา: ปิด"
       : this.unlocked
         ? "เสียงจบตา: เปิด"
         : "เปิดเสียงแจ้งจบตา";
+    this.button.setAttribute("aria-label",label);
+    this.button.classList.toggle("sound-icon-only",this.compact);
+    if(this.compact)this.button.innerHTML=`<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9h4l5-4v14l-5-4H4z"/>${!this.enabled?'<path d="m16 8 5 8m0-8-5 8"/>':'<path d="M17 8q5 4 0 8m-1-6q2 2 0 4"/>'}</svg>`;else this.button.textContent=label;
     this.button.setAttribute(
       "aria-pressed",
       String(this.enabled && this.unlocked),

@@ -348,3 +348,368 @@ Screenshotตรวจจริงที่390px: lobbyภาพฝั่งเ�
 Canonical Vercel verification `fe05af5` READY: API200. Browser actual HTTPSจอกลาง+มือถือ2contextsเล่น Dracula **124actions / 5รอบ / Helsingชนะ / 1ผ่าน (2.2m)**. ผ่านprivate-draw checks/effects/public-view convergence, lostACK retry, offline/reloadระหว่างเล่น/results และ rematch. เพิ่ม actual Clipboard permission+write/read test: tapcodeได้canonical `/play/<code>` URLจริง ไม่ใช้mockในhostedcase. หลังrestartทั้งสองมือถือ ownhandค่าตรงboardทุกเขต/5backsของคู่แข่ง, public10backs, drawn/result/discardหาย, vampires0, HP12; ไม่มีwinner/reveal/district-result DOMเก่า. Production screenshot `data/qa-controller/production-rematch-phone.png` (ignored). ไม่มีการทดสอบGoogle providerใหม่เพราะauthไม่แก้; ownerfixtureยกระดับfresh Guestเฉพาะtestตามworkflowเดิม. Safari/โทรศัพท์/iPad/LG hardwareและclipboardบนเครื่องเหล่านั้นยังไม่ตรวจจริง.
 
 Cleanupหลังhostedcase: ลบเฉพาะfixture **1ห้อง / 3testusers** ที่owner IDบันทึกไว้ คงห้องผู้ใช้จริง. Final commitเพิ่มเติมมีเฉพาะtestassertions/สถานะ ไม่มีการเปลี่ยนruntimeหลังhostedverification.
+
+## 2026-10-14 — แยกชื่อ/รูปโปรไฟล์และ Docker local port 5555
+
+ตามคำสั่งล่าสุด เปลี่ยน workflow เป็น rebuild Docker หลังแก้โค้ด และรอคำสั่งใหม่ก่อน deploy Vercel/push linked main. บันทึกไว้ใน AGENTS.md; งานครั้งนี้ไม่เรียก deploy และไม่ push Git.
+
+แก้ต้นเหตุ rename ครั้งแรกของบัญชีที่มีรูป Google: INSERT profile เดิมไม่ได้เก็บ avatar จึงบดบัง provider image ด้วย null. การบันทึกชื่อเก็บรูป/source เดิม และแก้เฉพาะ name ใน room membership; upload/reset แก้เฉพาะ avatar จึงไม่ทับชื่อเมื่อสองคำสั่งมาพร้อมกัน. ไม่ย้าย/รีเซ็ตรูปเก่าที่อาจเป็นการตั้งค่าโดยผู้ใช้. หน้าโปรไฟล์แตะรูปเปิด native file picker; ชื่อและ “ยืนยัน” อยู่แถวเดียวกัน ปุ่ม disabled เมื่อไม่มีการแก้ไข/ชื่อว่าง/กำลังส่ง. การเปลี่ยนรูปเก็บ name draft ใน input โดยไม่บันทึกอัตโนมัติ. ตรวจ screenshot มือถือ390px และ iPad1024px ไม่มี overflow.
+
+เพิ่ม compose.yaml, Docker runtime port5555/nonroot/healthcheck, private .env.docker setup, npm scripts docker:rebuild/watch/stop, named SQLite/upload volume และ cookie prefix แยกจาก dev3000. Setup คัดลอกเฉพาะ OAuth credentials ไม่คัดลอก production DB/auth secret; เก็บ secret เดิมในการ rebuild. QR ใช้ LAN origin ที่ setup ตรวจพบ (แก้เมื่อ IP เปลี่ยน). Graceful SIGTERM ปิด connection/DB. พบระหว่างทดสอบว่าค่า GAMEVERSE_DATABASE_URL ว่างถูกเลือกแทน SQLite path ด้วย nullish fallback ทำให้ container crash; เปลี่ยนเป็น nonempty fallback พร้อม regression test. Container ล่าสุด healthy; ไม่แตะ service Docker อื่นหรือ data dev เดิม.
+
+ผลตรวจจริง: npm run build/typecheck ผ่าน; npm test **58ผ่าน/2skipped/0failed** (opt-in Postgres2ชุดไม่ได้รัน งานนี้ทดสอบ Docker SQLite). API/cookie/WebSocket/SQLite suite ตรวจ provider-image fixture ก่อนมี profile row, rename หลัง upload, race name+photo และ room/game state ไม่ถูกเปลี่ยนผิด. Browser port3001: gameverse+profile **3/3ผ่าน (4.7s)** รวม logout/shared identity/owner-phone/public display. Docker actual http://localhost:5555: Dracula+profile **2/2ผ่าน (1.8m)**; จอกลาง+มือถือ2contextsเล่น **141actions/4รอบ/Helsingชนะ**, lost ACK/retry, offline/reload, payload privacy, server state convergence และ rematch. Force recreate container ขณะมี drawn card แล้วกลับ player IDs/private cards/turn/step/racks เดิม ก่อนเล่นต่อจบ. Copy room URL ทดสอบเป็น LAN origin ที่ตั้งจริง ไม่บังคับ localhost. Browser owner ใช้ fresh Guest fixture ยกระดับผ่าน local SQLite เฉพาะ test ไม่มี debug endpoint; ไม่ถือเป็น Google provider login.
+
+ข้อจำกัด: ยังรอผู้ใช้เพิ่ม localhost:5555 origin/callback ใน Google Console และยืนยัน Google login บน port ใหม่นี้; ไม่มี Google session ให้ headless browser จบทดสอบ provider. ทดสอบ Chromium จำลอง ไม่ได้ทดสอบ Safari/โทรศัพท์/iPad/LG hardware หรือ Wi-Fi มือถือจริงในงานครั้งนี้. Docker local ใช้ข้อมูลแยก ไม่ sync ห้อง production. Watcher มีคำสั่งให้เปิด ไม่ได้เปิด watcher ค้างไว้; ตัวแอป Docker รันอยู่และใช้ docker:rebuild ทุกครั้งที่แก้. ผลตรวจรูปคงอยู่หลัง recreate และ final rebuild บันทึกต่อด้านล่าง.
+
+ตรวจเพิ่มหลัง final image: Docker profile suite **1/1ผ่าน (8.2s)** — อัปโหลดรูปผ่าน file chooser, เปลี่ยนชื่อ, force recreate container, reload ด้วย cookie เดิม แล้วชื่อ/รูปและ actual avatar HTTP200 คงอยู่; reset รูปไม่เปลี่ยนชื่อ. ภาพ `test-results/profile-mobile.png` และ `profile-ipad.png` ตรวจ layout จริง. Final rebuild ผ่านและ app healthy ที่5555; ยังไม่ได้ deploy/push. คำสั่งเปิด/rebuild/watch และ Google Console URLs อัปเดตใน README กับ docs/auth/google-oauth.md แล้ว.
+
+
+## 2026-10-14 — Docker Google credential diagnosis
+
+Copied only Google client ID/secret from private .env to .env.docker, preserving local auth secret, base URL and data volume. Rebuilt Docker successfully. Verified runtime credential equality without logging values. Actual browser Google sign-in from Docker returns Error400 redirect_uri_mismatch for http://localhost:5555/api/auth/callback/google. Production authorization request uses a DIFFERENT OAuth client from dev/Docker and does not show this mismatch. Production keys are Vercel Secrets: env pull returns placeholders, so these were never copied into Docker; removed the temporary pull file. Asked user to add callback to the client matching GOOGLE_CLIENT_ID in .env, or provide production client credentials directly in private .env.docker. Google provider login on Docker remains blocked by Console configuration; do not report it as passed. No production env changes, deployments, Git pushes, engine or room protocol changes.
+
+
+2026-10-14 follow-up: user confirmed adding the callback to the dev/Docker OAuth client. Re-tested actual Google sign-in from http://localhost:5555/login: authorization request uses http://localhost:5555/api/auth/callback/google; Google sign-in text appears and redirect_uri_mismatch/Error400/401/403 are no longer observed. No credential or runtime change/rebuild required for this external Console update. Account/provider login through the final callback still requires the user's Google session; do not report that final step as tested. No Vercel deployment.
+
+
+## 2026-10-14 — Docker mapped domain bn-games.basnana.com
+
+User had already exposed the Docker app at https://bn-games.basnana.com. Verified public /health and /api/platform returned the local Docker app, but configured Google origin was localhost:5555 and QR/join origin was the LAN IP. Changed only private .env.docker BETTER_AUTH_URL and GAMEVERSE_JOIN_ORIGIN to https://bn-games.basnana.com; added the HTTPS origin to trusted origins while retaining local origins. Preserved Google credentials, local auth secret and named data volume. Rebuilt Docker healthy; no Vercel deployment/push or tunnel/DNS change.
+
+Actual HTTPS browser smoke: public display plus two independent phone contexts, secure Guest sessions, owner fixture upgraded only freshly-created Guest in local Docker SQLite, ready/start/draw, private drawn card absent from opponent/public projections, reload same player identity. Passed; closed only the fixture room afterward. Public platform returns both googleOrigin/joinOrigin as the mapped domain. Local/public served client JavaScript hashes match (index-XKj8hlYi.js), ruling out the domain pointing at the previous Vercel client build. Screenshot paths data/qa-domain/display.png and phone.png (ignored). Google authorization request now uses https://bn-games.basnana.com/api/auth/callback/google; browser shows Google sign-in text without redirect_uri_mismatch or Error400/401/403 in this check. Final Google account/provider callback still requires human login; not claimed as passed. This was config/transport smoke rather than another complete game; previous Docker complete-game verification remains documented above.
+
+## 2026-10-15 — Calico phase 1: rules and engine (in progress)
+Read user attachment, AGENTS, README, architecture/storage and relevant five skills; fetched UI guidelines. Downloaded AEG 2020 official rulebook, extracted all16 pages and inspected setup/scoring diagrams. Added docs/games/calico/rules.md and axial data/initial engine. Scope two players, two publisher-illustrated quilt layouts, all10 base cats, standard/first-game preset. Awaiting user's visibility ruling for hand; do not claim public hand official. Generated original transparent ten-cat atlas; cover/cloth/buttons generation running. Registry/room integration in progress, not yet playable/verified. Existing uncommitted Docker/profile fixes preserved; no Vercel push/deploy.
+
+Calico phase2/3: initial engine tests7/7 then expanded10/10; HTTP/auth/WS/SQLite integration1/1 (28s) passed actual setup draft persistence, server restart between placement/draft, retries/stale/out-of-turn/third-player rejection and complete88actions. Both browser presets passed2/2 (1.3m) after removing empty private draft/options fields from lobby projections. User confirmed open hands; recorded explicit web ruling. Generated/cropped actual10cat cutouts,7buttons,cover,cloth, plus code-native fabric patterns/fallbacks (420KB Calico artwork + cover). Rechecked printed border diagram at higher resolution and corrected first board color/pattern transcription. Current UI review found invisible SVG strokes and inherited wood background; fixed. Expanded cat conditions to be visible without opening details, tile detail zoom, mobile market ordering/scroll and goal-label sizing. Full18-case browser regression running; final Docker verification still pending. No claim of completion yet.
+
+
+Calico verification update: full npm test 73total /71passed /2skipped /0failed (opt-in Postgres not run; deployment target remains Docker SQLite). Includes128 deterministic standard games with varied markets/hands/goals covering all10cats, incorrect connected shapes, awards using printed edges, tie-break by cats/buttons/shared victory, HTTP/WS privacy/retry/stale/third-player rejection, durable restart during setup and pending draft, corruption quarantine. Browser full regression18 cases:17passed/1failed due old gallery assertion expecting3covers. Updated expected4 and targeted platform scenario passed1/1. Actual previous games completed in regression: Azul2players45drafts5rounds plus3/4player rounds, Dracula and Camel complete-game suites passed; full log in ignored /tmp/calico-regression-browser.log for this session.
+
+Docker actual localhost:5555 Calico two presets:2/2passed (1.7m), each88actions/44placements, standard14/18points, first-game9/11points. Tested open hands, concealed goal drafts/options, player3 rejection, lostACK retry, reload mid-draft with same identity, final server score convergence, restart/rematch clears placements/awards, asset HTTP/image load checks, animation duplicates do not replay, correct actor board selected, and reduced-motion first-game scenario schedules0animations. Last minor renderer correction initializes event-sequence baseline at0 for first placement in a fresh first-game preset; final public-domain smoke follows. Artwork/layout screenshots checked on desktop/iPad/mobile. No real iOS/Safari/LG hardware or new Google provider end-to-end login checked. Current scope uses the two printed quilt layouts illustrated in publisher setup, not all four board-color layouts. No Vercel deploy/push.
+
+
+Final HTTPS smoke on https://bn-games.basnana.com passed: Portal shows4games/Calico ready, fresh owner fixture +2phones create/join/ready/start first-game preset; hands public; first placement animates exactly once on the actor board; reload during pending market selection restores identity/state without replay; market choice advances turn and all3screens converge on same revision. Took data/qa-calico/domain-desktop.png, domain-ipad.png, domain-phone.png and visually reviewed real UI. Closed only fixture room and deleted3fresh fixture user records, preserving real rooms/accounts. Public /api/platform200 returnsCalico ready and canonical Google/join origins unchanged. Last visual tweak enlarges the short ≠ goal symbol; no scoring/transport changes after verification. Final Docker rebuild passed and container is healthy after the last UI polish.
+
+
+Calico delivery status: ready on Docker localhost:5555 and https://bn-games.basnana.com/games/calico. Re-ran HTTPS smoke after enlarging the ≠ symbol: passed same three-context flow, first-placement animation and pending-draft reconnect; cleaned scoped fixture room/users. README commands/rules/design/asset mapping updated. Working tree retains earlier user-authorized profile/Docker changes; no reset, push or Vercel deployment. Remaining limits: only two quilt-board layouts from the official setup illustration, explicit user-approved open-hand visibility ruling, no actual Safari/iPad/phone/LG hardware verification, no opt-in Postgres test in this SQLite/Docker task.
+
+## 2026-10-15 — 7 Wonders Duel
+A: inspected existing registry, room authority, persistence and DOM/WAAPI rendering; read publisher 2015 base rulebook/helpsheet/FAQ. Added working rules document and visually transcribed 73-building catalog + 3 graph layouts. Wonder costs still under verification. B–F not complete; game not yet registered/playable. Preserve existing four games and Docker data. No Vercel deployment/push authorized.
+B: initial engine and cost optimizer implemented. Six deterministic tests passed including 256 full seeded games, exact deck/token/Wonder conservation, graph accessibility, payment/chain and public face-down privacy. Wonder costs now verified against official Asmodee USA all-12 product photo; prior question no longer blocks work. C/D: typed registry, room/projection/restore branches and initial Thai shared/mobile UI written; typecheck passed. More effect/transport/browser coverage and artwork pending.
+C/D/E: shared registry/projection/room lifecycle/restart/reconnect wired without new auth/storage services. UI has Wonder draft, three graph layouts, explicit card inspection/action/cost preview/confirmation, public cities, military track, Progress, public discard, secret Great Library decisions, final score breakdown and rematch. Original imagegen atlases generated and integrated:12 Wonder scenes,28 shared building/Guild scenes mapped to73 IDs,10 Progress + coin/pawn/loot; SVG Age backs. Artwork map/design docs added. First browser screenshot review moved mobile action detail directly below graph (previously below both cities), added resource legend and detailed generated markers. Event/revision motion dedup/reconnect/reduced-motion, explicit gap sync, extra-turn sound and asset preload added. No game-state timers.
+F ongoing: npm test latest completed run87 pass/2 opt-in Postgres skips. Targeted Chromium5/5 (portal + normal full three-Age game, military/science late-game fixtures and private Great Library refresh); broader22-test regression and stricter restore/private-choice restart checks running. Docker rebuild still pending final checks. No Vercel deployment/push.
+
+### Final verification — 7 Wonders Duel
+
+Implemented A–F and registered `seven-wonders-duel` as ready (base2015-v1/schema1, exactly2). Rules costs/effects verified against publisher rulebook/helpsheet/FAQ and Asmodee USA full12-Wonder photo; no house rules/expansions/promos/AI added. Source atlases and runtime assets exist, not prompts/placeholders. Server owns shuffle/decks/effects/payments/score; projector excludes hidden and setup-out cards, boxed tokens and buried identities. Pending Great Library selection survives real SQLite/server restart unchanged and never appears to opponent/display.
+
+Executed evidence:
+
+| Command / surface | Actual result |
+| --- | --- |
+| `npm test` | 90 tests:88 passed,0 failed,2 opt-in Postgres tests skipped. Includes15 Duel engine cases (256 seeded complete games; all73 buildings/12 Wonders/10 tokens; costs/flexible production/discounts/chain; every Wonder/Progress/Guild effect;7th Wonder; final ties; corruption guards), actual HTTP/auth/WS complete70-action game, wrong-turn/duplicate/stale commands, SQLite restart at Age selection and private Great Library, retry of final choice, plus other-game/platform suites. |
+| `npm run build` / Docker build | Typecheck, Vite and server compile passed; `git diff --check` clean. Build alone is not acceptance evidence. |
+| Full `PLAYWRIGHT_PORT=3001 npx playwright test` | 21/22 passed (6.2m). Only failure was old Home test hardcoding4 covers after adding fifth game. Fixed cover-count assertions to use shared catalog; targeted `gameverse.spec.ts` + `platform.spec.ts` then3/3 passed. No claim of a single final22/22 run. Previous four games completed their tested flows: Camel Up21 rolls +6-player settlement; Dracula173 actions/5 rounds; Azul2-player47 drafts/5 rounds and3/4-player round flow; Calico88 actions each preset. Profile/sound/TV fallback/motion tests passed. |
+| New Duel browser suite | 4/4 passed. Normal game uses real UI shared display +two independent phone contexts from room creation/Wonder draft to full three-Age civilian result, authoritative costs, lost ACK/retry, pending-choice refresh, third rejected, duplicate event, deliberately dropped state then sync, card-flight animation, public/private payload checks, image integrity, viewport overflow and clean rematch. Other3 tests use controlled late-game fixtures on isolated real HTTP/WS test servers for military/science victory and private Great Library refresh; science case reduced motion. Fixtures are test-only and do not ship an endpoint. |
+| `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts tests/browser/seven-wonders-duel.spec.ts` | 4/4 passed44.7s. Normal full-game flow runs on actual localhost5555 Docker; three targeted victory/Library fixtures run isolated test servers as above. Owner is a freshly created test Guest upgraded only by test fixture, not Google provider proof. |
+| Canonical HTTPS `https://bn-games.basnana.com` | Real Chromium shared display +two phone contexts:5-game portal, fresh fixture owner +Guest join/readiness,8 Wonder choices +60 card plays +2 next-Age choices =70 accepted actions, all3 Ages, refresh during pending starter, scores converged on all screens, civilian result and clean rematch. Closed fixture room and removed only its3 newly created fixture users (guard skips any Google-provider account). Actual Google provider login not retested. |
+
+Visual review: screenshots of all3 Ages on desktop/iPad layout, phone cost/confirm and final results inspected. Mobile detail moved before cities; resource legend/production summary added, touch actions remain explicit preview then confirmation. Final QA found generated token atlas spacing was not uniform: fixed crops with inspected alpha-component bounds (whole coin/pawn/token, no neighbouring fragments), regenerated WebP and rebuilt Docker. Cloudflare serves old unversioned images up to4h; runtime image URLs now carry artwork version2, and HTTPS-served coin bytes were checked equal to new local file. Screenshots/evidence retained in ignored `data/qa-wonders/`; no session tokens in artifacts/log summaries.
+
+Docker `npm run docker:rebuild` completed healthy at5555, preserved `gameverse-local_local-data` and canonical join/auth domain. No Vercel deploy, promotion or git push. Runtime assets total about2.6MB with preload/local fallback; generated original28 building scenes are shared across73 distinct card IDs, while all12 Wonders and10 Progress have distinct illustrations. SVG rules symbols/Thai labels/costs stay in code. All main-path image requests passed; fallback exists for failures and is not used as normal artwork.
+
+Remaining limits: browser verification is Chromium viewport simulation, not physical iPad/iPhone/Safari/LG TV; two Postgres multi-instance opt-in tests were skipped (Docker uses SQLite single instance); no actual Google provider end-to-end retest. Supremacy browser tests are late-game controlled fixtures, not naturally played full setup-to-supremacy games. Artwork reuse within building category is deliberate and documented. No outstanding blocker identified for two-player base-game play on Docker.
+
+## 2026-10-15 — Jaipur
+A: inspected existing five-game registry, shared auth/Guest/rooms/persistence and DOM/WAAPI renderer; fetched official Space Cowboys©2019 English rules and publisher component photo.55cards/38goods/18bonus/camel/seals, privacy of opponent herd, actions, end-of-round and match rules documented. User approved rare all-three-tiebreakers-equal ruling: drawn round/no seal/explicit starter selection. Exact bonus multiplicities still being cross-checked. B–F pending; game not yet registered/playable. Preserve Docker volume and do not deploy/push Vercel.
+B/C: Jaipur engine +12 deterministic tests passed, including256 full seeded matches; all finite components conserved, exchange mask offers, sales/bonus/minimum, deck-vs-refill ending, camel ties, all tie breakers, user-approved draw ruling and projections. Actual HTTP/auth/WS/SQLite full match test passed42.6s: third player rejected, wrong-turn/duplicate/stale, hidden hand/herd/bonus/public subtotal, restart after earned bonus with identical hand/deck/bonus and clean rematch. Ready for artwork phase after core/privacy gate. D initial controller/shared table next; E inventory/design documented before imagegen.
+
+D/E: implemented original generated artwork and 2D DOM/CSS/WAAPI shared/mobile UI with local take/exchange/sell previews, server-provided offers, grouped selectable hand, private tokens, explicit confirmation, result/next/rematch. First actual browser match passed:96 accepted actions,2 rounds,2 seals; display +2 independent phones +third rejected, earned-bonus reconnect, dropped ACK retry, duplicate event, revision-gap resync, reduced motion and all runtime images. Screenshots inspected at1440px desktop,1024px iPad and390px phones; corrected footer overlap found in screenshots with centered fixed confirmation shown only for a valid own-turn selection. Full unit/integration suite103 tests:101 passed,0 failed,2 opt-in Postgres skipped. Full browser regression and Docker checks in progress.
+
+### Final verification — Jaipur
+
+Implemented Jaipur base game, Space Cowboys ©2019, exactly2 players, first2 round seals. Original finite catalog55 cards/38 goods/18 bonus/1 camel token/3 stable-ID seals. The sole extra web ruling is the explicitly approved all-tiebreakers-equal drawn round: no seal and explicit agreed starter. Official rules and secondary component-value provenance are separate in `docs/games/jaipur/rules.md`.
+
+| Executed verification | Actual result |
+| --- | --- |
+| `npm run build`, `npx tsc --noEmit`, `git diff --check` | Passed. No new runtime dependencies. |
+| `npm test` |103 total:101 passed,0 failed,2 optional Postgres tests skipped. Includes12 Jaipur deterministic cases with256 full seeded matches, finite-component invariants after every accepted action, exact refill end, partial goods payout/bonus, all tie breakers/draw, both camel outcomes, invalid exchanges, private projections and corrupted restore checks. |
+| `npx tsx --test tests/jaipur.test.ts tests/jaipur-rooms.test.ts` after seal/lifecycle hardening |13 passed. Actual HTTP/auth/WS/SQLite full match: third rejected, wrong turn, duplicate ID applied once, stale revision rejected, restart after earned bonus restores identical hand/herd/deck/bonus, full match and clean rematch. Shared-screen next-round event uses a lifecycle actor rather than impersonating a player. |
+| `PLAYWRIGHT_PORT=3001 npx playwright test` |23 cases executed:22 passed,1 obsolete test assertion failed because it equated Dracula's five districts with the portal game count (now six). Corrected that assertion to five. Other complete-game regressions passed: Camel Up3 players, Dracula5 rounds, Azul2 players, Calico2 variants, Duel3 Ages and military/science/library paths; room/profile/motion/privacy tests passed. |
+| Targeted rerun: `PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/gameverse.spec.ts tests/browser/platform.spec.ts tests/browser/jaipur.spec.ts` |4/4 passed, including the corrected owner-on-phone/public-display test and complete Jaipur89 accepted actions/2 rounds. Initial Jaipur browser run96 actions/2 rounds; regression run87 actions/2 rounds. |
+| `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts tests/browser/jaipur.spec.ts` |Final run passed:83 accepted actions/2 rounds. Display +2 independent phones, third player full-room rejection, take/exchange/sell previews send zero commands before confirmation, sale preview matches server offer, earned-bonus reload retains identity/hand/herd/bonus, lost ACK retries once, duplicate event causes no new motion, omitted revision triggers sync, reduced motion, no opponent face in hand flights, no missing/fallback images, final score equality and complete rematch reset. Earlier successful Docker run96 actions/2 rounds. Fault-injection helper now drops all deliveries at the chosen missing revision so unrelated presence snapshots cannot accidentally fill the intended gap. |
+| Actual HTTPS `https://bn-games.basnana.com` using isolated browser identities |Full match130 accepted actions/3 rounds/first2 seals, display +2 phones, rejected third player, exchange/sale previews, ACK loss, duplicate/gap, earned-bonus reconnect, matching results, reduced motion, image checks and rematch reset passed. Closed only fixture room and removed only four fresh fixture users without provider accounts. Six registry games ready and canonical join origin confirmed. |
+
+Screenshots inspected: cover/entry, desktop1440×1000, iPad landscape1024×768, both390×844 phones, exchange selection, sell preview, round results and final match. Final HTTPS evidence kept locally in ignored `data/qa-jaipur/domain-*.png`; reproducible browser suite captures `test-results/jaipur-*.png`. Found and corrected overlapping sticky preview footer; valid own-turn selections now show centered confirmation at screen bottom with reserved content space. Hand grouping toggle preserves individual card selection and keyboard focus. Goods distinguished by illustration, Thai name, color and code symbols. Native buttons/select labels, focus-visible, safe areas, no required drag, reduced motion and dimensions on images checked against fetched Web Interface Guidelines.
+
+Delivery files: `src/games/jaipur/` engine/catalog/types/restore guard; `src/client/jaipur.ts` and `.css`; existing registry/shared protocol/room projection/lobby/main renderer integrations; `tests/jaipur*.test.ts` and `tests/browser/jaipur.spec.ts`; original PNGs in `assets/source/jaipur/`, WebP runtime in `public/art/jaipur/` and portal cover, crop script and asset map; README install/run/test instructions. Runtime artwork approximately1.1MB. All hidden bonuses share one common back; values, categories, Thai names and numbers are code, never generated text. No secret IDs/values select public artwork.
+
+Docker rebuilt healthy on5555, retaining named data volume and the user's auth/domain settings. No Vercel deploy, promotion or git push. Limitations: browser verification uses Chromium viewport emulation, not a physical iPad/LG TV; fresh Google-provider login was not re-tested (fixture owner + actual Guest/session flow used). Optional Postgres integration was not configured/run. No expansion, AI, accounts infrastructure changes or undo after new information is revealed. No required Jaipur implementation work remains.
+
+## 2026-10-15 — Calico 1–4 / Solo / mobile update
+
+A: re-read attachment, existing engine/rooms/renderer/README/rules and five project skills. Downloaded and read publisher2020 rulebook (current AEG2025 hosting), including p8 Solo and pp10–13 achievements/scenarios; attempted user YouTube link but tool could not open video, so no claim of watching it. Official Solo is take1, discard ONE remaining tile furthest from bag, slide survivor away, refill2 in order; user’s assumed discard2/refill3 is not the selected printed rule. No extra solo ranks invented: base Solo records normal score, scenario pass thresholds belong to optional scenarios outside this change. Clear yellow/green board component images cross-checked against user reference; original0/1 layouts preserved.
+
+B/C: expanded finite engine, catalog/filter, readiness/turn cycle and restore validation to1–4. New state mode derives once at start; Solo removed pile + authoritative conveyor event, 22 complete place/draft turns, including final printed step2 (59 tiles left,22 removed). Multiplayer shares one market, no Solo discard, total22×N placements. New stable award IDs/earning cells/sequence and rainbow anchor, existing scores unchanged. Existing two-player rooms accepted under explicit v1 version compatibility without rewriting their state/boards/setup/money; new games v2. Existing12 rule tests and actual2-player WS match passed, plus96 seeded full1–4 matches, everySolo pick index, conservation, legacy state/score and v1 SQLite record compatibility tests. Actual WS1/3/4 seat tests passed mode/readiness/full room/dup/stale/restart at conveyor boundary; Solo completed44 accepted actions. Two real browser2-player complete games88 actions each passed. New browserSolo44 actions/3-person12/4-person16 actions passed with short phone620px, QR room menu, icon sound, public market and reconnect. UI screenshot review found need to fit all4 boards on a shared screen and move confirmation into sticky market instead of covering quilt; improvements in progress with token overlay checks next.
+
+### Final verification — Calico update
+
+Completed1–4 support, official p8 Solo conveyor, compact controller market/confirmation dock, header room info QR/copy menu, icon sound, coordinate reward overlays and explicit backward compatibility. Existing artwork reused; no new runtime dependencies/services or whole-game rewrite.
+
+| Executed check | Observed result |
+| --- | --- |
+| `npm run build`, `npx tsc --noEmit`, `git diff --check` | Passed. |
+| `npm test` |111 tests:109 passed,0 failed,2 optional Postgres tests skipped. Calico includes16 unit cases: original128 seeded two-person games plus96 full1–4 games (24 seeds each), each Solo pick position, exact final-turn refill,108-tile conservation including removed pile, shared multiplayer market/modulo turn order, finite4 printed boards, score/tie/award-merge tests, legacy state score compatibility and v1 SQLite record load/v2 version persistence. Solo end-turn sound separately verified after draft despite unchanged actor; no sound on place/snapshot/duplicate/gap. |
+| `npx tsx --test tests/calico-rooms.test.ts` |4 passed: real HTTP/auth/WS/SQLite two-person complete game and1/3/4 seat flows, readiness and fifth-player rejection, idempotent retry/stale rejection, restore mid-placement/draft and after conveyor under different RNG, same identity and market/bag/removed/award state, no repeated refresh/payout. Solo44 accepted actions;3/4 multiplayer12/16 accepted actions cover two full turn cycles. |
+| `PLAYWRIGHT_PORT=3001 npx playwright test` |27/27 passed in7.8min. Includes Calico2-person standard and beginner complete games88 actions each, Solo complete44 actions,3/4-person12/16 actions, reward fixture; full Camel Up3 players, Dracula4 rounds, Azul2-person complete, Jaipur3-round match, Duel3 Ages plus military/science/private choice; common Home filters/profile/auth fixture/room controls/reconnect/privacy/motion and audio/TV fallback regressions. |
+| `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts tests/browser/calico.spec.ts` |6/6 passed in2.5min on actual port5555 Docker. Same complete Solo/two-person games and3/4 seat flows. Short390×620 phone, desktop1600×1000, iPad1024×768; room QR menu, icon sound, local preview/confirm, reconnect/retry, clean rematch, consistent public score and token rendering. |
+| Last targeted Docker rerun `--grep 'Calico 4 players\|reward overlays'` |2/2 passed13.8s after final layout/focus updates. Explicitly asserts all four quilts fit simultaneously inside the1024×768 viewport; each can expand/collapse with owner retained. Token fixture earns both cat/button from actual engine transitions, inspects conditions, fades overlays, reloads/resizes without changed award IDs/count/score, and checks no snapshot replay. |
+
+Screenshot review: Solo large quilt, two-person view, four-person desktop row/iPad row, short phone placement with market visible, room menu/QR, final Solo, multiple cat/button overlays and low-opacity mode. Latest screenshots locally in ignored `data/qa-calico-v2/`; repeatable paths `test-results/calico-v2-*.png`. Moved confirmation out of bottom-over-quilt position into sticky market; clip token hitboxes to their already occupied earning hex so empty neighbouring placement targets remain accessible. Preserved keyboard focus for hand/hex/market, expand/collapse and returning from token details. Shared score summaries and all four quilts fit iPad; detailed cat/design rules remain expandable or available below the overview.
+
+Compatibility is non-destructive: store accepts exactly the old Calico v1/version pair in addition to current metadata, validates actual state, and leaves an in-progress old two-person game's mode/setup/boards/bag/scores intact. No pixel-location backfill, re-awarding or live DB reset. Old rainbow with no recorded anchor remains in summary. New/restarted games persist v2 metadata; other games retain their versions. Original108 patch catalog and generated artwork remain in use. Rules/component-photo provenance and the unobtainable video are documented in `docs/games/calico/rules.md`; layout/overlay details in `design.md`; README scope and play/run/test commands updated.
+
+Docker rebuilt with original named volume preserved, localhost5555 and canonical `https://bn-games.basnana.com` health200. Canonical catalog confirms Calico supported counts[1,2,3,4], rules `base-2020-one-to-four-v2`, schema2. No Vercel deploy, promotion or git push. Limitations: Chromium viewport emulation, not physical iPad/LG TV or real mobile browsers; Google provider not re-tested (existing isolated owner fixture + actual Guest/session flow); Postgres opt-in tests not configured. User video could not be opened/watched. No optional campaign/scenarios/achievements, lower-variance/family rules, AI opponent or invented generic Solo score ladder. No required implementation work remains.
+
+Final motion hardening: reward elements now carry their earning hex so a newly awarded token animates at its own anchor, instead of selecting an older token of the same type. Actual Docker two-person beginner game rerun passed88 accepted actions/44 placements (43.1s), with instrumentation asserting every cat/button animation targets a coordinate/type included in the current authoritative event. Final score6/12 matched all screens; reconnect and rematch checks passed. Rebuild after documentation retains the same validated runtime code.
+
+## 2026-10-15 — Jaipur UX และแถบบนร่วมทุกเกม (ล่าสุด)
+
+ปรับตาม attachment `0a87ef57-5523-4c52-8601-7ad154aef2f1`: ใช้ artwork เดิมทั้งหมด ไม่เปลี่ยนกติกา/คะแนน/การจั่ว/ขอบเขตข้อมูลส่วนตัว และไม่เพิ่ม dependency runtime.
+
+### ส่งมอบ
+
+- `src/client/game-header.ts`, `game-header.css`, `turn-status.ts`, `main.ts`, `turn-sound.ts`: แถบบนทั้งหกเกมมีข้อมูลห้อง/รหัสกดคัดลอก/QR, สถานะตาคุณหรือตาผู้เล่นที่ตัดชื่อยาวด้วย ellipsis และ speaker icon44px. Lobby คงคำเชิญเดิม. แสดง simultaneous setup/settlement ตาม phase จริง. Live region อยู่นอก DOM เกม ประกาศครั้งเดียวต่อสถานะ/จบตาที่รับสำเร็จ รวม Solo/extra turns ไม่ประกาศใหม่เพราะ ACK/presence/local preview.
+- ลดข้อความเทิร์นซ้ำใน Camel Up, Dracula, Azul, Calico และ Duel โดยเก็บคำแนะนำการกระทำและผลเกมไว้.
+- `src/client/jaipur.ts`, `jaipur.css`: goods ทั้งหกแถวเดียวที่320/390px, ค่า/ขั้นต่ำจาก catalog/server, แตะดูค่าที่เหลือ, หมดกองคงช่องสีเทาและไม่มีเหรียญเก่า. โบนัส3/4/5+ และอูฐอยู่ใน bank เดียวก่อนตลาด. เอากองทิ้งออกเฉพาะ UI และขยายการ์ดตลาด ไม่ลบ state/discard logic.
+- กองอูฐคู่แข่งเหนือโต๊ะเป็นสัญลักษณ์สามใบคงที่ ไม่มีตัวเลขหรือจำนวนชั้นตามข้อมูลลับ; กองตัวเองใต้ตลาดมีจำนวนจริง/ที่ว่างขนาดคงที่. หน้าแลกใช้ภาพการ์ดอูฐ+badge และปุ่ม44×44pxกลมไม่ยืด/หด.
+- มือเรียงตาม GOODS เสมอด้วย stable card IDs. เลือกสินค้า1ใบเป็นหยิบ,2+ใบเป็นแลก,ลดเหลือ1ล้างรายการคืน; อูฐเป็นหยิบทั้งตลาดแยกกัน. ทุกอย่างเป็น preview จนยืนยัน และยังใช้ server offers/validation เดิม.
+- `src/client/dom-patch.ts`: patch โต๊ะ/มือ/การ์ด Jaipur ตาม keys เก็บ DOM/โฟกัส/ภาพเดิม ไม่ remount ทั้งหน้าเมื่อเปลี่ยนrevision. เอา scrollIntoView ออก. พบจากการทดสอบจริงว่าข้อความ pending เหนือโต๊ะเพิ่มความสูง34px จึงย้าย feedback รอไปที่ปุ่มยืนยัน ไม่ทำแถบบนเพิ่ม/หายทุกคำสั่ง.
+- `src/client/jaipur-results.ts`: native dialog แยกจาก game DOM ใช้ immutable settlement ตามลำดับที่นั่ง สินค้าทีละคน → โบนัสทีละคน → อูฐทีละคน → server totals/tie-break/winner. มีข้าม/reduced-motion/ตกลงเฉพาะจอ/เปิดดูอีกครั้ง. ตารางคะแนนหลักยังอยู่ ต้องกดเริ่มรอบถัดไปหรือเริ่มเกมใหม่เองผ่านสิทธิ์เดิม ไม่มี timer คิดคะแนน/แจกseal/เริ่มรอบ.
+- `types.ts`, `engine.ts`, `validation.ts` ของ Jaipur และ `server/rooms.ts`: เพิ่ม optional public match UUID ซึ่ง server สร้างตอน start/restart และเก็บใน state เดิม เพื่อ dedup ผลด้วยห้อง+match+round. ไม่เปลี่ยน RNG ของ engine หรือ rules/schema version; save เดิมไม่มี UUID ยังกู้ได้โดยใช้ immutable settlement เป็น fallback identity. อัปเดตตัวตรวจ optional metadata. Reconnect/reload แสดงยอดสุดท้าย; receipt snapshot ซ้ำไม่เริ่มหรือขัดจังหวะการนับ. เริ่ม match ใหม่ยกเลิก overlay เก่า.
+
+### ตรวจจริง
+
+- `npm test`: **113 tests:111ผ่าน,0ล้มเหลว,2ข้าม** (Postgres optional ไม่ได้ตั้งบริการ). รวมกติกา/WS/SQLite/privacy/retry/reconnect และ shared turn-status/sound สำหรับทั้งหกเกม.
+- `npm run build`: typecheck + client/server build ผ่าน.
+- `npm run docker:rebuild`: container `gameverse-local-app-1` healthy, ใช้ named volume/SQLite/Google config เดิม ไม่ reset DB. `/health` ผ่านทั้ง `http://localhost:5555` และ `https://bn-games.basnana.com`.
+- `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-jaipur-docker tests/browser/jaipur.spec.ts`: **ผ่าน1/1**, เล่นจริงบนDockerด้วยจอกลาง+มือถือสองidentity **129 accepted actions,3รอบ** จบการแข่งขันและเริ่มเกมใหม่. ตรวจภาพ/ไม่มีartหาย, market auto-mode, circular stepper, stable DOM และ ความต่าง scroll <3px, ข้อมูลลับ/preview, lost ACK, revision gap→sync, eventซ้ำ, reconnectมือเดิม, reconnectระหว่างนับแล้วข้ามยอดสุดท้าย, reduced motion, ปิดเฉพาะจอ/เปิดดูอีกครั้ง, ลำดับนับตามserverและmatch IDเปลี่ยนหลังrestart.
+- รอบ regression แรกพบ2รายการ: test Camel ยังหา heading เก่า และ scroll pending34px. แก้ selector ตาม heading ใหม่และแก้สาเหตุ layout shift แล้ว; ไม่มีการผ่อนเกณฑ์ scroll. Dockerยืนยันหลังแก้แล้ว. รอบสุดท้ายผ่าน26/27; กรณีที่เหลือเป็นตัวทดสอบ Camel อ่านการเปลี่ยนตาจากข้อความ “รอบย่อย” ซึ่งหลังย้ายเทิร์นไป header ข้อความรอบย่อยไม่เปลี่ยนทุกตา จึงแก้ให้อ่าน authoritative revision แล้วรันซ้ำผ่าน1/1 (29 roll actions และ reconnect). รวมครบ27สถานการณ์ผ่านหลังแก้ ไม่อ้างว่า full invocation เดียวผ่าน27/27.
+- Browser screenshots เก็บที่ `test-results/jaipur-*.png` และสำเนาที่ `data/qa-jaipur-ui/` (ignored). ตรวจ popup มือถือจริงจาก screenshot แล้ว ตารางคะแนน/ปุ่มตกลงอ่านได้ใน390×844px. มี viewport320/390, iPad1024×768 และdesktop1440×1000; เป็น Chromium emulation ไม่ใช่อุปกรณ์จริง.
+
+### ข้อจำกัด
+
+ยังไม่ได้ตรวจบน iPad/Safari หรือ LG TV เครื่องจริง และไม่ได้ทดสอบ Google provider flow ใหม่ในรอบงานนี้ (ใช้ authenticated test identities เท่านั้น). Postgres2กรณีถูกข้ามตามข้างต้น. ไม่ deploy/push Vercel และไม่เพิ่มบริการ/ค่าใช้จ่าย. ข้อวินิจฉัยกติกา Jaipur กรณีเสมอทั้งหมดคงตามที่ผู้ใช้อนุมัติ ไม่เพิ่มกติกาใหม่.
+
+
+### ผลตรวจรับสุดท้าย
+
+- `PLAYWRIGHT_PORT=3001 npx playwright test`: **26ผ่าน/27**, ข้อที่เหลือเป็น selector/wait ของ Camel ตามรายละเอียดข้างต้น. แก้ test ให้ตรวจ revision ไม่ใช่ข้อความที่ถูกย้ายออก แล้วรัน `PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/game.spec.ts --grep 'จอกลาง' --output=data/qa-camel-regression`: **ผ่าน1/1**, 29 roll actions, ผู้เล่นสามคนและ reconnect. ทั้ง27สถานการณ์เดิมจึงผ่านหลังแก้ครบ โดยไม่จำเป็นต้องรันเกมอื่นซ้ำอีกรอบ.
+- Jaipur ใน regression ล่าสุด **145 accepted actions/3รอบ** ผ่านครบ รวมตรวจ console error/request failure และ art responses, ลำดับนับจริงจนจบ `0:goods → 1:goods → 0:bonus → 1:bonus → 0:camel → 1:camel → final`, duplicate ไม่เปลี่ยน dialog node, socket reconnect และ reload กลางนับไปยอดสุดท้าย, ปิดเฉพาะclient/เปิดดูใหม่, พร้อม reset match UUID/history/seals.
+- Docker Jaipur **129 actions/3รอบ** ผ่านแยกจาก server3001. ตรวจ capture เพิ่มจากแอป Docker จริงที่320/390px, desktop1440×1000 และiPad1024×768 โดยรอ toast หายก่อนถ่าย; QR/linkชี้ `https://bn-games.basnana.com/play/<code>` ตาม canonical origin. ปิดเฉพาะห้อง fixture ที่สร้างหลัง capture ไม่แตะห้องผู้ใช้.
+- Screenshot ที่เปิดดูจริง: `data/qa-jaipur-ui/jaipur-clean-320.png`, `jaipur-clean-390.png`, `jaipur-clean-ipad.png`, `jaipur-phone-result.png`, `jaipur-result-popup.png`. แถบบน/ไพ่/โทเคนอ่านได้ ไม่มี horizontal overflow, ของหมดไม่มีภาพเหรียญเก่า และ profile/เสียงไม่ทับกัน. Browser screenshots เป็นหลักฐานภาพ emulation ไม่อ้างว่าได้จับอุปกรณ์จริง.
+- เก็บ logs การรันจริงที่ `data/qa-jaipur-ui/`: unit, full browser, Camel rerun, Docker Jaipur และ clean capture. `git diff --check` ผ่าน. Dockerสุดท้าย running/healthy บน5555; health URLทั้งlocal/canonicalผ่าน. ไม่มีการ push หรือ deploy Vercel.
+
+## 2026-10-15 — Jaipur เปิดจำนวนอูฐและย่อพื้นที่เล่น (คำขอถัดจากงาน UX)
+
+**สถานะ: เสร็จและ rebuild Docker แล้ว**. ใช้ skills frontend-design, board-game-engine, realtime-rooms, multiplayer-testing และตรวจ UI ตาม web-design-guidelines ที่ fetch ใหม่. ไม่สร้าง assets/dependency/service ใหม่.
+
+- Server projector ส่ง `PublicTrader.herdCount` ของทั้งสองคนให้ display/มือถือเสมอ; lobbyเป็น0. นี่เป็น **รูปแบบข้อมูลเปิดที่ผู้ใช้ขอโดยชัดแจ้ง** ต่างจากสิทธิ์รู้จำนวนฝูงคู่แข่งในคู่มือ ไม่อ้างเป็นกติกาทางการ. ยังไม่เปิด hand/herd card IDs ของคู่แข่ง โบนัสส่วนตัว/เงินระหว่างรอบ หรือกองจั่วล่วงหน้า. State, shuffle, exchange validation, scoring, persistence และ rematch policy เดิม ไม่ต้อง migrate/reset ห้อง.
+- อูฐซ้อนตามจำนวนจริง สูง36×44px สูงสุด10ภาพ; ถ้ามี11ใบ แสดง `+1` บนใบสุดท้าย. มีเลขรวมทั้งสองฝั่งและช่องว่าง `0 ใบ`. เอาคำว่า “ไม่ใช่ปุ่มหยิบ” ออก. จอกลางก็ใช้จำนวนเดียวกันจาก server.
+- เลือกสินค้า2+ใบเปลี่ยนเป็นแลกพร้อม default คืนอูฐ `min(จำนวนที่มี, จำนวนรับ-ไพ่คืนที่เลือก)` เฉพาะ preview. ลด/เพิ่มด้วยปุ่มเดิมและเลือกไพ่คืนแทนได้; ยังต้องผ่าน offers/hand limit/validation ของ server และกดยืนยัน. กลับเป็นหยิบ1ใบล้างรายการคืนเหมือนเดิม.
+- ปุ่มยกเลิกเหลือ “ยกเลิก”. มือถือเอากองจั่วออกจาก layout ให้การ์ดตลาด5ใบใช้เต็มแถว. เอาข้อความใต้หน้าการ์ดออกทั้งตลาด/มือ/preview; ขั้นต่ำขายยังอยู่ที่ bank และเหตุผล validation.
+- Display แสดง goods6ชนิดในผัง3คอลัมน์2แถว แต่ละช่องแสดงทุกโทเคนที่เหลือพร้อมค่าตามserver ซ้อนในบรรทัดเดียวไม่wrap. มือถือคงbankหกชนิดแถวเดียว. กองหมดไม่มีเหรียญ/ค่าเก่าตามเดิม.
+- เฉพาะ Jaipur เอาข้อความเทิร์นใน shared header ออก ใช้กรอบเต็มรอบที่นั่งปัจจุบัน พร้อมaccessible turn announcementเดิม. เกมอื่นคง headerเดิม. Seal/countย้ายขวาล่างในแถวเดียวกับกองไพ่/โทเคนที่ได้รับ. ปรับเลขไพ่ไม่ให้ภาพซ้อนบัง. หยิบ/แลก/ขายเป็นปุ่ม44pxขนาดกระชับด้านขวาของหัวข้อการกระทำ.
+
+ไฟล์หลัก: `src/client/jaipur.ts`, `jaipur.css`, `game-header.ts`, `game-header.css`; `src/games/jaipur/types.ts`, `engine.ts`; lobby projectionใน`src/server/rooms.ts`. อัปเดต unit/rooms/browser privacy assertions ให้จำนวนอูฐเป็นpublic โดยยังห้ามarray/valuesส่วนตัว. README, rules และ designบันทึกข้อแตกต่างและหน้าจอปัจจุบัน.
+
+ผลที่ทดสอบจริงหลังแก้:
+
+- `npm run build` ผ่าน; `npm test` **113รายการ:111ผ่าน,0ล้มเหลว,2ข้าม** (optional Postgres ไม่ได้ตั้งบริการ).
+- `PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/jaipur.spec.ts tests/browser/sound-tv.spec.ts`: **3/3ผ่าน**. Jaipurเล่นครบ **147 accepted actions/3รอบ**, reconnect/duplicate/gap/privacy/settlement/rematchเดิม. เพิ่มfixtureอูฐครบ11ใบแบบรักษา55การ์ดและผ่านstate validator: แสดง10ภาพ+1ทุกจอ, bankทุกค่าตรงserver/3×2/แต่ละกองบรรทัดเดียว, มือถือ320/390ไม่มีoverflow/ไม่มีกองจั่ว, autoคืน2อูฐ→ลดเหลือ1แล้วปิดยืนยัน→เพิ่มกลับแล้วแลกจริง เหลือ9และreloadยัง9. Shared sound/TV fallback regression (Camel/Dracula/Azul) ผ่าน.
+- `npm run docker:rebuild` ผ่านและ container healthy โดยเก็บ volume/บัญชี/ห้องเดิม. `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-jaipur-v2-docker tests/browser/jaipur.spec.ts`: **2/2ผ่าน**. กรณีแรกเล่นบนDocker5555จริง **94 accepted actions/2รอบ** จบและเริ่มใหม่; กรณีที่สองเป็น internal isolated fixtureสำหรับ11อูฐตามข้างต้น ไม่ใช่endpointทดสอบในแอป.
+- ถ่ายและเปิดดู screenshotจริงหลังแก้เลขจำนวนไพ่: `data/qa-jaipur-v2/jaipur-clean-320.png`, `jaipur-clean-390.png`, `jaipur-clean-ipad.png`, `jaipur-v2-display.png`, `jaipur-v2-390.png`. Clean captureมาจากDocker5555จริง ใช้desktop1440×1000/iPad1024×768/phone320และ390×844 และเช็กลิงก์ชวนเป็นcanonical `https://bn-games.basnana.com/play/<code>`. ปิดเฉพาะห้องfixtureที่สร้างเอง. logsอยู่โฟลเดอร์เดียวกัน (ignored).
+- `git diff --check` และ local `/health` ผ่าน. ไม่มีการpush/deploy Vercel.
+
+ข้อจำกัด: ตรวจหน้าจอด้วยChromium emulation ไม่ใช่iPad/LG TVเครื่องจริง; ไม่ได้ทดสอบGoogle providerใหม่เพราะไม่ได้แก้auth. กรณีPostgres2รายการไม่ได้รัน. การเปิดจำนวนอูฐใช้ทั้งห้องเดิมและห้องใหม่ ไม่มีตัวเลือกปิดแยกรายห้องตามคำขอให้เปิดเสมอ.
+
+## 2026-10-15 — Jaipur จัดข้อมูลข้างโต๊ะและแยกผู้ชนะชื่อซ้ำ (ล่าสุด)
+
+ปรับต่อจากคำขอ open-herd โดยคง engine/projection/กติกาเดิมทั้งหมด:
+
+- แสดงภาพอูฐครบตามจำนวนจริง รวม11ใบ ไม่จำกัด10และไม่มี+1. ขนาดการ์ด36×44pxและการซ้อนเดิม.
+- ยกเลิก profile/คะแนนสองกล่องเหนือbank. แถบคู่แข่งอยู่เหนือสนาม profile/statsทางซ้ายและอูฐทางขวา; แถบของคุณอยู่ใต้สนาม อูฐทางซ้ายและprofile/statsทางขวา พร้อมavatar38pxใหญ่กว่าคู่แข่ง30pxและกรอบตาปัจจุบันรอบทั้งแถบ. Displayไม่มี“เรา” ใช้ที่นั่ง1เหนือและที่นั่ง2ใต้. Motionยังหาแหล่ง/ปลายทางกองไพ่ด้วยplayer IDได้.
+- มุมสนามทุกมุมโค้งเท่ากัน10pxบนจอใหญ่/8pxบนมือถือ แทนส่วนโค้งใหญ่ด้านบน.
+- Tokenมือถือ: จำนวนเหลืออยู่บรรทัดแรก ตามด้วยเหรียญ/ชื่อสินค้า และขั้นต่ำขายอยู่ล่างสุด10pxเล็กที่สุด พร้อมแถบสีแบ่งชนิดหนา8px. Displayคงbank3×2และโทเคนทุกชิ้นในบรรทัดเดียว.
+- หน้าผลมีกรอบทอง/มงกุฎSVGที่ผู้ชนะ ทั้งportraitในpopupและแถวตารางหลังปิด. กำหนดจากserver player ID ไม่ใช้ชื่อ พร้อมป้ายเลขที่นั่งคงที่และ“คุณ”เพื่อแยกกรณีชื่อซ้ำ. เปิดกรอบportrait/มงกุฎหลังนับจบหรือเมื่อรับfinal snapshot; ไม่เปลี่ยนคะแนน/ตราชนะ/ผลเกม. รอบเสมอไม่มีมงกุฎ.
+
+ไฟล์: `src/client/jaipur.ts`, `jaipur.css`, `jaipur-results.ts`, ใหม่ `jaipur-identity.ts`; อัปเดตREADME/design และ `tests/browser/jaipur.spec.ts`. ใช้frontend-design, realtime-rooms, multiplayer-testingและตรวจตามweb-design-guidelinesที่fetchใหม่. Assetsเดิม+SVGมงกุฎ ไม่มีdependency/serviceใหม่. ไม่แตะaccount/authหรือstore/engine.
+
+ผลตรวจเบื้องต้น: `npm run build` ผ่าน; `npx tsx --test tests/jaipur.test.ts tests/turn-status.test.ts` **14/14ผ่าน**. Browserบนserver3001 **2/2ผ่าน**, เกมจริง94accepted actions/2รอบพร้อมreconnect/rematch และfixture11อูฐ/จัดแถบ/token. Fixtureชื่อ“Bas”เหมือนกันทั้งคู่ใช้engineเล่นถึงfinishedก่อนbroadcastsnapshot แล้วตรวจมงกุฎเฉพาะwinner ID บนจอกลางและมือถือทั้งสอง ตลอดจนตารางหลังปิดpopup; ไม่ใช่mock scoreหรือpublic debug endpoint. เพิ่มassertขนาดavatarownใหญ่กว่าคู่แข่งหลังแก้selectorให้ตรงsharedclassจริง. Dockerrebuildสุดท้ายhealthyโดยเก็บvolumeเดิม; ผลบนDockerสุดท้ายและภาพcleanจะบันทึกต่อด้านล่าง.
+
+ผลตรวจรับสุดท้าย:
+
+- `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-jaipur-v3-docker tests/browser/jaipur.spec.ts`: **2/2ผ่าน** หลังแก้ขนาดavatar. กรณีแรกจอกลาง+มือถือสองคนบนDocker5555เล่นจริง **92 accepted actions/2รอบ** รวมreconnect, retry, duplicate/gap, settlementและrematch. กรณีที่สองเป็นinternal isolated fixtureสำหรับ11อูฐ/การจัดตำแหน่ง/ขนาดรูป/ชื่อซ้ำตามข้างต้น ไม่เพิ่มendpointทดสอบในแอป.
+- ยืนยันอูฐ11ภาพจริงไม่มีoverflowbadge, มุมทั้งสี่เท่ากัน, tokenremainingอยู่เหนือcoin/minimumอยู่ล่างและเล็กกว่า/countbar8px, profileฝ่ายตรงข้ามซ้าย-อูฐขวา/ฝั่งเรากลับด้านและavatarใหญ่กว่า. Popupชื่อBasทั้งสองฝั่งยังให้กรอบ/มงกุฎแก่winner IDเดียวกันทุกclient และตารางหลักคงกรอบกับมงกุฎหลังdismiss.
+- เก็บและเปิดดูภาพจริงที่ `data/qa-jaipur-v3/jaipur-clean-390.png`, `jaipur-clean-320.png`, `jaipur-v3-winner-own.png`, `jaipur-v3-winner-display.png` และภาพiPad/desktopในโฟลเดอร์เดียวกัน (ignored); logsunit/browser/Dockerอยู่ข้างกัน. Clean captureมาจากDockerจริง โดยเช็กลิงก์joincanonicalและปิดเฉพาะห้องfixture. เคยชนSQLite lockในfixtureเขียนบัญชีทดสอบเมื่อรันcaptureพร้อมE2E จึงรอE2Eจบแล้วcaptureแบบserialสำเร็จ ไม่แก้storageหรือDBผู้ใช้.
+- Dockerสุดท้ายhealthy; local `/health` ผ่าน. `git diff --check` ผ่าน. ไม่มีpush/deployVercel. คงข้อมูลห้อง/auth/volumeเดิม.
+
+ข้อจำกัด: เป็นChromiumพร้อมviewportจำลอง320/390,1024×768และ1440×1000 ไม่ได้จับiPad/LG TVจริง และไม่ได้ทดสอบGoogle providerใหม่ (ไม่ได้แก้auth). ไม่มีการอ้างว่ารันunitทั้ง113ใหม่ในงานUIครั้งนี้; ทดสอบกติกาที่เกี่ยวข้อง14รายการรวม256seededmatchesและbrowserครบเกมตามข้างต้น.
+
+## 2026-10-15 — Jaipur dim ระหว่างรอและจัดโปรไฟล์ให้อ่านชัด (ล่าสุด)
+
+**ส่งมอบ:** `src/client/jaipur.ts`, `jaipur.css` และ regressionใน`tests/browser/jaipur.spec.ts`; อัปเดตREADME/design. ใช้frontend-design, web-design-guidelines(fetchใหม่) และmultiplayer-testing. ไม่มีแก้engine,กติกา,projection,auth,storage,assetหรือdependency.
+
+- มือถือในphaseเล่นที่ `server turn !== me.id` เพิ่มclass `jp-waiting`; ไพ่ทุกใบมีopacity.55และกลับเป็น1เมื่อถึงตาตนเอง. จอกลางไม่dim; ผลเกมไม่ค้างdim. คำแนะนำรอตาและกรอบผู้เล่นยังอยู่ และยังยืนยันคำสั่งได้เฉพาะสิทธิ์/ตาจากserverเหมือนเดิม. Reduced motionใช้กฎเดิมข้ามtransition.
+- ออกแบบโปรไฟล์ผู้เล่นรอบโต๊ะใหม่: headerรูป/ชื่อที่ตัดคำยาว/เลขที่นั่ง/คุณ/จุดออนไลน์ ตามด้วยช่องไพ่ สินค้า โบนัส และชนะ ที่แยกกันชัดเจน. ใช้card-back iconเดียว+จำนวน แทนกองไพ่ย่อที่ซ้อนกับabsolute counter. ไม่เพิ่มข้อมูลลับ.
+- ช่องข้อมูลใช้normal flowและgrid2/4คอลัมน์ตามความกว้างจริงของprofile มีfallback2คอลัมน์สำหรับbrowserไม่มีcontainer queries. แม้อูฐ11ใบเบียดพื้นที่บนจอ320px ตัวเลขยังอยู่ในช่องและไม่ทับกัน. ฝั่งตนเองยังรูปใหญ่กว่า กรอบตาปัจจุบันและตำแหน่งอูฐซ้าย/ขวาเดิม.
+- แก้สาเหตุCSSซ้อนอีกจุด: selectorเดิม `.jp-own-herd b` ไปใส่พื้น/ระยะpaddingของป้ายอูฐให้เลขในprofileทุกตัวด้วย จึงจำกัดให้ตรงcamel badgeเท่านั้น. ย่อcaptionอูฐไม่ทวนชื่อที่อยู่ข้างกัน.
+
+**ตรวจจริง:** `npm run build` ผ่าน. `PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/jaipur.spec.ts` **2/2ผ่าน**, เล่นจริง138accepted actions/3รอบ รวมreconnect/privacy/retry/gap/result/rematch. เพิ่มassertไพ่waiting=.55/own=1/display=1 และสลับdimถูกต้องหลังส่งคำสั่ง/refresh; ตรวจbounding boxesของheader/stat cells/ตัวเลขที่320/390pxไม่ชนกันหรือเลยช่อง รวมfixture11อูฐและชื่อซ้ำ/มงกุฎเดิม.
+
+`npm run docker:rebuild` ผ่านโดยรักษาvolume/ข้อมูลเดิม. `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-jaipur-v4-docker tests/browser/jaipur.spec.ts` **2/2ผ่าน**: เกมจริงบน5555 **127accepted actions/3รอบ**; อีกกรณีเป็นisolated internal fixtureสำหรับ11อูฐ/layout/winner IDs ไม่ใช่debugendpointในแอป. Dockerhealthyและlocalhealthผ่าน. ไม่push/deployVercel.
+
+ภาพที่ตรวจและlogsเก็บใน `data/qa-jaipur-v4/` (ignored): ภาพตนเอง/รอตา, phone320/390, desktopและiPad รวมfixture11อูฐและผลชื่อซ้ำ. ตรวจด้วยChromium/emulated viewport ไม่ใช่โทรศัพท์/iPad/LGเครื่องจริง. ไม่ได้รันunitทั้งชุดใหม่เพราะไม่มีเปลี่ยนengine; ใช้เกมเต็มผ่านUI/WSและregressionที่เกี่ยวข้องตามข้างต้น. ไม่ได้ทดสอบGoogle providerใหม่เพราะไม่ได้แก้auth.
+
+## Jaipur — fixed profile / herd halves (2026-10-15)
+
+คำขอ: แยกฝูงอูฐกับโปรไฟล์เป็นพื้นที่คงที่50/50 ไม่ให้จำนวนอูฐดันความกว้างโปรไฟล์. ใช้frontend-designและmultiplayer-testing อ่านREADME/design/AGENTSก่อนแก้.
+
+แก้ `src/client/jaipur.css`: ทั้งสองแถบเป็นgridสองคอลัมน์เท่ากัน พร้อมwidth100%และยกเลิกmax-widthของprofile. คู่แข่งprofileซ้าย/อูฐขวา ของตนเองอูฐซ้าย/profileขวาเหมือนเดิม. บนจอ320pxลดระยะซ้อนอูฐเป็น9pxเพื่อให้ครบ11ใบอยู่ในครึ่งของตนเอง; ยังคงการ์ด36×44px. ไม่แก้engine,network,identity,ข้อมูลลับ,คะแนนหรือกติกา. READMEและdesignระบุการแบ่งพื้นที่คงที่แล้ว.
+
+ตรวจจริง: `npm run build` ผ่าน; `PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/jaipur.spec.ts --grep 'compact table'` 1/1ผ่าน เพิ่มassertความกว้างprofileกับherdเท่ากันและกองอูฐไม่ล้นที่320/390px ทั้งฝูง0/11ใบ. ตรวจภาพจริงทั้งสองขนาดแล้ว. `npm run docker:rebuild` ผ่าน รักษาvolumeเดิม containerhealthy. `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-jaipur-v5-docker tests/browser/jaipur.spec.ts` 2/2ผ่าน: เกมจริงบนDocker5555จอกลาง+2มือถือ เล่นจบ93accepted actions/2รอบ รวมreconnect/privacy/retry/resync/result/rematch; อีกกรณีเป็นisolated internal fixtureสำหรับ11อูฐ/layout/ชื่อซ้ำ ไม่ใช่debugendpointในDocker. Healthทั้งhttp://localhost:5555และhttps://bn-games.basnana.comผ่าน.
+
+ภาพQAเก็บใน `data/qa-jaipur-v5/` (ignored). ตรวจด้วยChromiumและviewportจำลอง ไม่ใช่อุปกรณ์จริง. ไม่รันunitทั้งชุดใหม่เนื่องจากCSS-only ไม่มีเปลี่ยนกติกา. ไม่pushหรือdeployVercel.
+
+## Jaipur — one compact resource panel / single row (2026-10-15)
+
+รวมข้อมูลไพ่ สินค้า โบนัส และจำนวนรอบที่ชนะใต้ชื่อเป็นกล่องเดียว แสดงทั้งสี่ค่าในแถวเดียวทุกขนาดจอ แทนกล่อง2×2เดิม. ใช้เส้นแบ่งบางภายใน ไม่มีกรอบแยกแต่ละค่า. กล่องสูง42px คงพื้นที่โปรไฟล์/อูฐ50/50 ชื่อ/รูป/สถานะและกรอบตาปัจจุบันเดิม. ไม่เปลี่ยนกติกา engine projection หรือnetwork.
+
+ไฟล์: `src/client/jaipur.css`, `tests/browser/jaipur.spec.ts`, README และ `docs/games/jaipur/design.md`. อ่านAGENTS/README/design ใช้frontend-designและmultiplayer-testingจากsessionนี้. Browserfixtureเพิ่มassertว่าทุกช่องอยู่แถวเดียว กล่องสูงไม่เกิน44px รวมตรวจตัวเลขไม่ล้น/ไม่ทับที่320/390px พร้อม11อูฐและกรณี0ใบ.
+
+ตรวจจริง: `npm run build` ผ่าน. `PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/jaipur.spec.ts --grep 'compact table'` 1/1ผ่าน ครอบคลุมlayout/11อูฐ/แลกอูฐเริ่มต้นและแก้จำนวน/reload/winner ID. `npm run docker:rebuild` ผ่านโดยรักษาvolumeเดิม containerhealthy; health5555และbn-games.basnana.comผ่าน. เปิดDockerจริงด้วยจอกลางและ2browserผู้เล่น สร้างห้อง/เข้าร่วม/เริ่มเกม ตรวจภาพ320/390,desktop1440และiPad1024 พร้อมcanonical QRผ่านด้วย `GAMEVERSE_E2E_DOCKER=1 npx tsx data/qa-jaipur-v6-capture.ts`. ภาพและสคริปต์ignoredอยู่ `data/qa-jaipur-v6/`. ตรวจภาพ320/390จริงแล้ว.
+
+ข้อจำกัด: ตรวจด้วยChromium/viewportจำลอง ไม่ใช่อุปกรณ์จริง. รอบนี้เป็นCSS-only จึงไม่รันunitหรือเกมเต็มซ้ำ (เกมเต็มบนDockerล่าสุดผ่านในรอบfixed-halvesก่อนหน้านี้ ไม่อ้างเป็นผลของรอบนี้). ไม่push/deployVercel.
+
+## Dracula — colored suit assets and five-card stands (2026-10-15)
+
+อ่านAGENTS/README/architecture/Dracula UI และใช้frontend-design, web-design-guidelines (fetch source ใหม่), realtime-rooms และmultiplayer-testing. คงengine/กติกา/private projection/storageเดิม.
+
+- สร้างSVG4ไฟล์จริงใน `public/art/dracula/suits/` พร้อมสีแน่นอนและรูปทรงเพชร/อาทิตย์/ดอกจิก/ดาว. ใช้ในหัวไพ่ ลำดับสี กองทิ้ง ไพ่เปิดที่จั่ว และปุ่มเปลี่ยนทรัมป์; preloadพร้อมartเดิม. เป็นvectorที่เขียนด้วยโค้ด ไม่ใช่ภาพrasterจากimage-generation.
+- มือถือแสดงคู่แข่ง5ใบเหนือเขต1–5 และของตน5ใบใต้เขต สลับตามบทบาทจริง. ไพ่ปิดยังรับเป็นnullจากserver ไม่เผยเพิ่ม. คงdata-district/data-sideเพื่อให้reveal/swap/resyncเดิมทำงาน.
+- เพิ่มแท่นวางต่อเนื่องสีเข้มทั้งสองแถวตามภาพอ้างอิง พร้อมขอบ/หน้าราง/เงา เป็นCSS ไม่มีpointer eventsหรือการคำนวณเกม.
+- เมื่อถึงขั้นทิ้ง แตะไพ่บนแท่นของตนเพื่อเลือกแทนที่ แล้วใช้ปุ่มยืนยันstickyเดิม. ตัดรายการไพ่5ใบซ้ำด้านล่างออก เหลือเฉพาะตัวเลือกทิ้งใบที่เพิ่งจั่ว. Nativebuttonsมีselected/focus/disabledและใช้legal actionsเดิม; ยังไม่ส่งคำสั่งจนยืนยัน.
+- ไพ่จาง55%เฉพาะมือถือที่กำลังรออีกฝ่ายในphaseเล่น; จอกลาง/ผลรอบชัดตามเดิม รองรับreducedmotion. ACKจั่วสำเร็จเฉพาะDraculaไม่แสดงtoast; errorและactionอื่นยังแสดง.
+
+ไฟล์หลัก `src/client/dracula.ts`, `dracula.css`, `dracula-assets.ts`, `main.ts`, SVGใหม่, browser tests และREADME/Dracula UI docs. ตรวจภาพ320/390ทั้งสองบทบาทที่ `data/qa-dracula-racks/` (ignored).
+
+ตรวจแล้ว: `npm run build` ผ่าน. `npx tsx --test tests/dracula.test.ts tests/dracula-rooms.test.ts tests/dracula-motion.test.ts` **12/12ผ่าน**. Browserก่อนเพิ่มแท่น **3/3ผ่าน** (controller/motion/เกมเต็ม113actions4รอบ). หลังเพิ่มแท่นและเลือกบนแท่น: controller+motion **2/2ผ่าน**; เพิ่มกรณีเลือกจากแท่นแล้วกดยืนยันให้serverแทนที่ไพ่จริง จากนั้นรันcontrollerซ้ำ **1/1ผ่าน**. ตรวจ5ไพ่ต่อแถว/ตำแหน่งคู่แข่งบนตนล่างทั้ง2บทบาทที่320/390px, railsสองแถว, waitingopacity, ไม่มีtoastจั่ว, ปุ่มทรัมป์ใช้SVG, stickyconfirm, reset/reconnect และreveal duplicate/gap/reducedmotion.
+
+`npm run docker:rebuild` ผ่านโดยรักษาvolumeเดิม. Dockerเกมเต็มรอบแท่นก่อนตัดรายการไพ่ซ้ำ **1/1ผ่าน164actions5รอบ** รวมlostACK/recreatecontainer/reconnectและrematch. หลังเปลี่ยนให้เลือกจากแท่นโดยตรง รัน `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-dracula-racks-docker-final tests/browser/dracula.spec.ts` **1/1ผ่าน101actions4รอบ** จอกลาง+2มือถือ เล่นครบเกม ตรวจprivatepayload/stateตรงกัน, lostACK, recreatecontainer, reconnectไพ่/ผู้เล่นเดิมและrematch. Health5555และbn-games.basnana.comผ่านหลังrebuild. รูปเกมจริงล่าสุดและภาพเลือกจากแท่นอยู่ `data/qa-dracula-racks/`.
+
+ข้อจำกัด: browserตรวจด้วยChromium/viewportจำลอง ยังไม่ได้ทดสอบiPhone/Safari/LGเครื่องจริง. SVGกำหนดสีเองแก้สาเหตุการใช้glyphของระบบ แต่ไม่อ้างว่าได้ตรวจiPhoneจริง. ไม่มีservice/dependencyใหม่ ไม่push/deployVercel.
+
+## Dracula — irregular city / central draw / trump border (2026-10-15 follow-up)
+
+ตามภาพอ้างอิงล่าสุด เอาแถบรางที่บังไพ่ทั้งสองฝั่งออก และเปิดข้อความความสามารถแบบย่อบนไพ่ในแถวทั้ง5ใบ. การเลือกไพ่ยังมีข้อความความสามารถเต็มในpreview/accessible label. คงไพ่คู่แข่งบน/ตนเองล่างและเขต1–5เดิม.
+
+เพิ่ม `public/art/dracula/districts.svg` เป็นvectorที่เขียนด้วยโค้ด: ถนนโค้งเว้าแบ่ง5เขตขนาดไม่เท่ากันรอบช่องกลาง ใช้เหนือcityartเดิม ไม่ใช้ภาพreferenceเป็นพื้นหลัง. ป้ายเขต/คนทั้ง4ในแต่ละเขต/จำนวนแวมไพร์ยังเป็นDOMจากserver วางเป็นกลุ่มกระจายตามพิกัดpresentation. กรอบเมืองทั้งpublic/playerเปลี่ยนสีจากranking[0]ที่serverส่งเท่านั้น.
+
+ปุ่มจั่วอยู่บนกองกลางกระดาน. ไพ่ที่จั่วแสดงบนตำแหน่งเดียวกัน: ใช้me.drawnเฉพาะเจ้าของ หรือpublicdraw/deckTopที่ได้รับอนุญาตเท่านั้น. ไพ่ทั่วไปไม่ปรากฏต่ออีกฝ่ายหรือจอกลาง; ไพ่ที่เปิดด้วยeffect2ยังเปิดตามเดิม. แตะใบกลางเพื่อเลือกทิ้ง หรือเลือกไพ่ตนเองแทนที่ แล้วยืนยันด้วยstickyเดิม ไม่มีไพ่ที่จั่วซ้ำในpanelล่าง. แผงเลือกการกระทำย้ายมาก่อนข้อมูลกองจั่ว/กองทิ้ง. ล้างcontrolDOMเก่าก่อนย้ายcontrolใหม่เข้าmotiontableเพื่อไม่ให้ACK/presence/reconnectมีID/ปุ่มซ้ำ; retainedbuttonsรีเฟรชdisabled/handlersตามpending/legalเดิม. ไม่เปลี่ยนengine/rules/network/projection/storage.
+
+ไฟล์: `src/client/dracula.ts`, `dracula.css`, `dracula-assets.ts`, SVGใหม่, `tests/browser/dracula-controller.spec.ts`, README และDracula UI docs. อ่านAGENTS/README/docs ใช้frontend-design/realtime-rooms/multiplayer-testing และfetchweb-design-guidelinesใหม่. เพิ่มCSSเฉพาะpublicเพื่อแก้ขนาดหมาก/ระยะที่ถูกกฎTVเดิมoverrideจนซ้อนกัน.
+
+ตรวจจริง:
+
+- `npm run build` ผ่าน รวมTypeScriptและproductionassets.
+- `npx tsx --test tests/dracula.test.ts tests/dracula-rooms.test.ts tests/dracula-motion.test.ts` **12/12ผ่าน**.
+- Browsercontroller+motion หลังงานเมืองและหลังแก้publicspacing **2/2ผ่าน**. ตรวจ320/390ทั้งสองบทบาทว่าไพ่5ใบต่อแถว เขตอยู่ต่างระดับ คน4ตัวต่อเขต ป้าย/คนไม่ชนกองกลาง ไพ่privateไม่ขึ้นที่อีกฝ่าย ความสามารถไม่ถูกซ่อน กรอบตรงกับทรัมป์/เปลี่ยนสีได้ และcontrolsอยู่ก่อนpiles. ตรวจpublic1366×1024,1024×768,768×1024ว่าหมากไม่ทับกัน พร้อมภาพจริง. ครอบคลุมเลือกไพ่กลาง/แทนที่บนบอร์ด ยืนยันกับserver, sticky, rematch, effect2 public/reveal, duplicate/gap/reconnect/reducedmotion.
+- `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-dracula-city-docker tests/browser/dracula.spec.ts` **1/1ผ่าน205actions5รอบ** จอกลาง+2มือถือ เกมจบผลตรงกัน รวมlostACK/recreatecontainer/reconnect/privatepayload/rematch. หลังเกมเต็ม ปรับเฉพาะCSSpublicspacingจากภาพที่พบหมากซ้อน แล้วrebuildและตรวจtargetedbrowser2/2ข้างต้น.
+- `npm run docker:rebuild` ล่าสุดผ่าน รักษาvolume/ข้อมูลเดิม. `GAMEVERSE_E2E_DOCKER=1 npx tsx data/qa-dracula-city-capture.ts` เปิดDockerล่าสุดจริงด้วยจอกลาง+2ผู้เล่น สร้าง/เข้า/เริ่มเกม กดจั่วกลางเมือง ตรวจเฉพาะเจ้าของเห็นไพ่ ไม่มีtoastสำเร็จ และreloadยังเห็นไพ่/5ช่องเดิมผ่าน พร้อมภาพdesktop/iPad/phone320/390. Health5555และbn-games.basnana.comผ่าน.
+
+ภาพและสคริปต์QA ignoredใน `data/qa-dracula-city/`. ข้อจำกัด: Chromium/viewportจำลอง ยังไม่ทดสอบSafari/iPhone/iPad/LGเครื่องจริง หรือGoogle providerใหม่. ไม่push/deployVercel ไม่มีค่าใช้จ่าย/dependencyใหม่.
+
+## Dracula — visible exposure state / Thai round font / header readiness (2026-10-15)
+
+คำขอ: ดูออกว่าไพ่เราถูกเปิดกี่ใบและเขตใดแม้กำลังรอตา, แก้ฟอนต์สรุปรอบ, และย้ายพร้อมรอบถัดไปไปขวาของกล่องเปิดการ์ดรอบ.
+
+แก้ `src/client/dracula.ts`, `dracula.css`, `dracula-motion.ts` และbrowsercontroller/motiontests; อัปเดตREADME/Dracula UI. อ่านAGENTS/README/เกี่ยวข้อง ใช้frontend-design, multiplayer-testing, realtime-rooms และfetchweb-design-guidelinesใหม่. ไม่เปลี่ยนengine/rules/projection/storage/dependency.
+
+- Own rack wrapperแสดงกรอบทองและป้าย“เปิดแล้ว”เมื่อservercard.revealed=true ระหว่างplaying. Badgeอยู่คนละชั้นกับduel-cardที่dim จึงไม่จางและไม่บังคำอธิบายความสามารถด้านล่าง. มีจำนวนx/5ใบและเลขเขตเหนือเมือง. ใช้flagsของไพ่จริงจึงตามไพ่ที่สลับ/แทนที่/reconnect และล้างจากstateใหม่เมื่อแจก/เล่นใหม่. ไพ่ลับไม่ถูกเปิดเพิ่ม.
+- พบหัวข้อผลรอบมีGeorgia font shorthandต่างจากฟอนต์ไทยหลัก จึงกำหนดNoto Sans Thaiที่bundleอยู่แล้วให้หัวข้อผล/เฉลยและข้อความผลเขต. ไม่เพิ่มหรือดาวน์โหลดฟอนต์ใหม่.
+- กล่องสรุปรอบมีหัวข้อ/เหตุผลซ้ายและready/skip/statusขวา. ย้ายfreshcontrolsเข้าheaderทุกrenderรวมACK; headerไม่ถูกซ่อนขณะเฉลย และpairrevealอยู่ถัดจากheader. ปุ่มreadyยังdisabledจนจบpresentationหรือกดข้าม ตามmotionเดิม. Finished/rematchใช้controlsตำแหน่งเดิม.
+- ตรวจพบdesktop reveal gridให้cityกับfinishedcontrolsใช้row4เดียวกัน ทำให้ปุ่มข้าม/เล่นใหม่ถูกกระดานทับ แก้ให้controlsกับpilesมีrowแยก. การทดสอบcontrollerเคยค้างที่คลิกskip จึงแก้layoutและรันทดสอบจนผ่าน; testยอมรับเมื่อrevealจบเองก่อนคลิกskipด้วย.
+
+ตรวจจริง: `npm run build` ผ่าน รวมtestsTypeScript. `PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/dracula-controller.spec.ts tests/browser/dracula-motion.spec.ts --timeout=45000` **2/2ผ่าน**. Fixtureเพิ่มserver-revealedไพ่เราเขต1/3ขณะturnคู่แข่ง ตรวจbadge2ใบ/counter2จาก5/เลขเขต/opacitybadge1และcard.55, reloadยังครบ, rematchเหลือ0/5ไม่มีbadge. ตรวจNoto Sans Thaiในcomputedstyleและfontfaceโหลดพร้อม, readyอยู่ขวาcopyและheaderอยู่เหนือreveal ทั้งก่อนและหลังack/เฉลย. รวมfullmove/duplicate/gap/reconnect/reducedmotionเดิม. ตรวจภาพจริงที่ `data/qa-dracula-status/` (ignored).
+
+`npm run docker:rebuild` ล่าสุดผ่านโดยรักษาvolumeเดิม. `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-dracula-status-docker tests/browser/dracula.spec.ts` **1/1ผ่าน83actions4รอบ** จอกลาง+2มือถือ เล่นจบเกมพร้อมปุ่มพร้อมในheaderทุกช่วงresults รวมlostACK/recreatecontainer/reconnect/privatepayload/rematch. Containerhealthy; health5555และbn-games.basnana.comผ่าน. รอบนี้ไม่รันunitทั้งชุดใหม่เพราะไม่เปลี่ยนengine.
+
+ข้อจำกัด: Chromium/viewportจำลอง ไม่ใช่Safari/iPhone/iPad/LGเครื่องจริง. ไม่ตรวจGoogle providerใหม่ ไม่push/deployVercel.
+
+## Dracula — direct board targeting / stable scroll / distinct draw animation (2026-10-15)
+
+อ่านAGENTS/README/Dracula UI และใช้frontend-design, realtime-rooms, multiplayer-testing และfetchweb-design-guidelinesใหม่. ไม่เปลี่ยนengine/rules/server projections/protocol/storage/assets/dependency.
+
+- แก้ต้นเหตุการเลื่อน/กระตุก: `main.ts` เก็บshell/header/contentของDraculaระหว่างเล่น; `dracula.ts` ใช้patchHTMLและpreservedboard; `dracula-motion.ts` patchchildrenแทนinnerHTMLล้างทั้งtable. Keyedcardbuttonwrappersอยู่ต่อเนื่องทั้งก่อนและหลังเปิดการเลือกเป้าหมาย จึงไม่สร้างภาพใหม่ทั้งกระดาน. รอACKไม่เพิ่มnoticeแถวชั่วคราวเหนือboard. ปิดscrollanchoringเฉพาะthemeนี้ และไม่มีscrollTo/scrollIntoViewในcodegameplay. focusเดิมใช้preventScroll.
+- ยกเลิกกล่องเลือกการกระทำระหว่างเล่น. เปิดไพ่เลือกบนไพ่เรา/คู่แข่งตามlegalactionsที่serverเสนอ; สลับของเราเลือกสองใบ; แลกข้ามฝั่งเลือกเขตใดก็ได้แล้วไพ่คู่ยกพร้อมกัน. Selectedbuttonยก10px พร้อมกรอบและaria-pressed. Floatingconfirmแสดงpreviewและdisabledจนเลือกครบตามserveroffer; ไม่ส่งcommandก่อนยืนยัน. เปลี่ยนทรัมป์เลือกวงกลมที่rankingบนboard. ปุ่มขอจบรอบอยู่ใต้เมืองพร้อมเหตุผลถ้ากดยังไม่ได้. Resultsheader/readyและfinished/rematchคงflowเดิม.
+- Drawanimation520msตรวจจากcontiguous authoritative step draw→discard และdeckCountลด1 ไม่เทียบเพียงหน้าการ์ด จึงยังเห็นแอนิเมชันแม้การ์ด2เปิดใบบนสุดไว้แล้ว. มีข้อความจั่วแล้ว/ยังไม่ได้จั่วและheld/deckstateจากviewปัจจุบัน. Duplicateไม่เพิ่มdrawanimationซ้ำ snapshot/reconnect/reducedmotionไม่เล่นย้อนหลัง gapยังresync. เปิดไพ่ใหม่ใช้transformflip และเว้นพื้นที่verdictเพื่อลดการเปลี่ยนความสูงทีละคู่.
+- กระจายคนทั้ง4ด้วยพิกัดเปอร์เซ็นต์ทั่วพื้นที่แต่ละเขต แทนclusterเล็กกลางเขต ไม่เปลี่ยนจำนวน/การแปลงคน/ลำดับเขต. ไพ่ลับยังส่งเฉพาะเจ้าของ.
+
+ไฟล์หลัก: `src/client/main.ts`, `dracula.ts`, `dracula-motion.ts`, `dracula.css`; browsercontroller/motion/fullgame tests; READMEและDracula UI docs. ใช้dom-patchเดิมโดยไม่เปลี่ยนmoduleกลาง.
+
+ตรวจจริง: `npm run build` ผ่าน. `npx tsx --test tests/dracula.test.ts tests/dracula-rooms.test.ts tests/dracula-motion.test.ts` **12/12ผ่าน**. `PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/dracula-controller.spec.ts tests/browser/dracula-motion.spec.ts --timeout=60000` **2/2ผ่าน**. เพิ่มassertcityและcardDOMเป็นnodeเดิมหลังdraw, scrollYไม่เปลี่ยนเกิน2pxหลังdraw/discard/ยืนยันeffect. Fixtureกดจริงบนboardสำหรับeffect1/3/4/6 ตรวจเลือกย้อนลำดับได้/เลือกเพียง1ของswapยังยืนยันไม่ได้/คู่แลกยกทั้งสองฝ่าย/stickyอยู่ในviewportและserverให้ผลตรงกับintentที่เลือก. Effect2-publicdrawพร้อมduplicateตรวจdrawanimationเพิ่มเพียง1และdrawrevisionตรงserverทุกจอ. รวมreveal/reconnect/gap/reducedmotion/readiness/rematchเดิม. ตรวจภาพ320/390และpublicdesktop/iPadจากtestsแล้ว.
+
+`npm run docker:rebuild` ผ่าน รักษาvolumeเดิม. `GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts --output=data/qa-dracula-direct-docker tests/browser/dracula.spec.ts` **1/1ผ่าน130actions4รอบ** จอกลาง+2มือถือ เล่นครบเกมด้วยboardtargetsใหม่ รวมlostACK/recreatecontainer/reconnect/privatepayload/ready/rematch. BotUIของeffect4แก้ให้เลือกไพ่สองใบจริงก่อนยืนยัน. Dockerhealthyและhealth5555/bn-games.basnana.comผ่าน.
+
+ภาพQAอยู่ `data/qa-dracula-direct/` (ignored): เปิดเรา/คู่แข่ง, swapสองใบ, exchangeคู่, publicdrawและเกมจริงบนDocker. ข้อจำกัด: Chromium/viewportจำลอง ยังไม่ตรวจSafari/iPhone/iPad/LGเครื่องจริงหรือวัดFPSบนhardwareเหล่านั้น; ไม่อ้างว่าลื่น100%บนทุกเครื่อง. ไม่ตรวจGoogle providerใหม่ ไม่push/deployVercel.
+
+## 2026-10-15 — Dracula: จบรอบไม่เลื่อนจอ / ไพ่ 8 ยังเห็นสี
+
+ลบ state-message callback ที่ยังเรียก scrollIntoView หลัง discard/rematch. บนมือถือย้าย result header พร้อมปุ่มพร้อมรอบถัดไปเป็นแถบลอยล่าง และ paired reveal เป็นแผงลอย ไม่แทรกความสูงเหนือกระดาน; คงความสูงเดิมของ table ระหว่างผลรอบเพื่อไม่ให้ browser บีบ scroll position เมื่อ controls หาย. จบเกมมี controls ลอยล่างเช่นกัน จอกลางยังใช้ layout เดิม. Ready/restart ยังรอ reveal หรือ skip และใช้สิทธิ์/กติกาเดิม.
+
+ไพ่ 8 ที่ยังทิ้งไม่ได้แสดงสี/ภาพเต็ม ไม่ลด saturation/opacity; ไพ่ในมือมีป้าย “ทิ้งไม่ได้” ส่วนใบกลางอธิบายว่ากองทิ้งยังไม่ครบ 6 ใบ. ยัง disabled และ validate ด้วย legal actions ของ server. การ dim ระหว่างรอตาคู่แข่งคงเดิม.
+
+ตรวจ `npm run build` ผ่าน และ browser controller/motion 2/2 ผ่าน: ไพ่ 8 ทั้งกลาง/มือ, scrollY คงเดิมเมื่อจบรอบและจบเกม, ready อยู่ใน viewport, paired reveals, reconnect/gap/reduced motion และ rematch. `npm run docker:rebuild` ผ่าน ใช้ volume เดิม. ภาพ QA อยู่ data/qa-dracula-results/ (ignored). ไม่ deploy Vercel. ยังไม่ได้ทดสอบบน iPhone/LG เครื่องจริง.
+
+Docker browser ตรวจเล่นครบเกมผ่าน 1/1: 117 actions, 4 รอบ จอกลาง+2มือถือ รวม private draws, lost ACK, recreate/reconnect, สรุปรอบ และ rematch. Health ทั้ง localhost:5555 และ https://bn-games.basnana.com ตอบ ok หลังทดสอบ.
+
+## 2026-10-15 — Dracula: default เป้าหมายทุกความสามารถ / modal เฉลยกลางจอ
+
+ยืนยันกับผู้ใช้ว่าเลขที่เปิดคู่แข่งคือไพ่ 3 (ไพ่ 2 ยังเปิดใบบนสุดกองจั่วตามเดิม). ทุก effect ที่ต้องเลือกเป้าหมายใช้ชุด targets แรกจาก legal actions ของ server เป็น default: เปิดเรา/คู่แข่ง, สลับสองใบ, แลกข้ามฝั่งเขตเดียวกัน, เปลี่ยนทรัมป์. Highlight และ sticky preview แสดงฝั่งทันที เปลี่ยนหรือยกเลิกได้และต้องกดยืนยันก่อนส่ง command. ไม่เปลี่ยน engine หรือกติกา.
+
+เฉลยทั้งจอกลาง/มือถือใช้ native modal dialog กลาง viewport พร้อม blur/dim backdrop, background inert และ root overflow lock. Skip/Escape/reduced-motion/reconnect/ออกห้อง cleanup modal คืน overflow และ focus แบบ preventScroll. จบการเฉลยแล้ว dim บอร์ดและแสดง panel พร้อมรอบถัดไปตรงกลาง; จบเกมจริงใช้เล่นอีกครั้ง/รอ host ตามสิทธิ์เดิม. Screenshot modal ใช้ viewport เพราะ full-page capture เปลี่ยน viewport และการจัดวาง dialog.
+
+ตรวจ npm run build ผ่าน; browser controller/motion 2/2 ผ่าน (26s): default effect1/3/4/6/7, เปลี่ยน default ได้, ยืนยันแล้วตรง engine, modal centered, backdrop blur, wheel ไม่เลื่อนด้านหลัง, ปิดแล้ว scrollY คงเดิม/ปลด lock, ready กลางจอ, reconnect/gap/ACK/reduced-motion/rematch. ตรวจภาพ modal/ready/default ที่ data/qa-dracula-modal/ แล้ว. Docker rebuild healthy รักษา volume เดิม; ไม่ deploy Vercel. ยังไม่ได้ทดสอบ iPhone/LG เครื่องจริง.
+
+Docker E2E ผ่าน 1/1: 122 actions, 5 รอบ เล่นครบเกมด้วย default effect confirmations รวมจอกลาง+2มือถือ, private projection, lost ACK, recreate/reconnect และ rematch. Health localhost:5555 และ bn-games.basnana.com ตอบ ok หลังทดสอบ.
+
+## 2026-10-15 — Dracula: ตัวละครใหญ่ / คิวจั่ว / HP กลางบอร์ด / ป้ายฝั่ง
+
+ขยาย inhabitant markers เป็น26pxมือถือ/32pxจอใหญ่. เว้น corridor เขต3 ให้กองจั่วและเพิ่มขั้นต่ำพื้นที่เมืองเป็น300px เพื่อไม่ให้ label/คน/กองกลางทับกันที่320/390. ย้าย HP Dracula จากหัวบอร์ดมาเหนือไพ่จั่ว และใช้ node เดิมใน sequential resource reveal.
+
+เฉพาะ player ที่ถึงตาจั่วและไม่ pending จะมีกองกลางกรอบทองพร้อม animation ไพ่ขยับซ้ำและข้อความตาคุณ; อีกฝั่งบอกว่ารอใครจั่ว. หยุด cue เมื่อจั่วแล้ว/เปลี่ยนตา และ reduced-motion ใช้กรอบ/ข้อความโดยไม่ animation. Caption จั่วการ์ดเพิ่ม Thai line-height/padding เพื่อไม่ตัดสระ. เพิ่มป้ายฝ่ายบนซ้ายเหนือไพ่คู่แข่ง/ล่างขวาใต้ไพ่เรา และกรอบทองครอบแถวไพ่ทั้ง5ของคนที่กำลังเล่น. สีทรัมป์ยังเป็นกรอบเมืองเดิม.
+
+เอา generic toast “ทำรายการแล้ว” ออกทุกเกม โดยไม่เปลี่ยน ACK/retry/pending และยังแสดง errors กับ copy-link feedback. แก้ browser expectation ของ Camel Up ให้ตรงพฤติกรรมใหม่.
+
+ตรวจ npm run build ผ่าน. Browser controller/motion/Camel Up4/4ผ่าน40.7s รวมคิวจั่ว/กรอบสลับฝั่ง/reduced motion/HPอยู่เหนือไพ่,320/390และจอกลางtokenไม่ทับกัน, modal/reconnect/rematch, Camel Upเต็มเกม37rollsและวง6คน. ภาพที่ data/qa-dracula-cues/ ตรวจแล้ว. Docker rebuild healthy รักษา volume เดิม. ไม่ deploy Vercel. ไม่ได้ตรวจ Safari/iPhone/LG เครื่องจริง.
+
+Docker E2Eผ่าน1/1 (1.9min):134actions5รอบ จอกลาง+2มือถือ รวม private draws, ACKหาย, recreate/reconnect และ rematch. Health localhost5555/bn-games.basnana.com ตอบokหลังทดสอบ.
+
+## 2026-10-15 — Dracula: ประชากรตรงเขต / ข้อมูลฝ่ายบนบอร์ด / ผลรอบยึดกองจั่ว
+
+ย้ายประชากรเขต3ลงมาและกลับเข้า path เขต3 จริง (การขยับออกข้างครั้งก่อนทำให้เข้าเขต2/4). ตำแหน่งใหม่42/58%@82% และ39/61%@94%; ป้ายเขต3ที่90%. ปรับ token ใกล้ขอบอีก3จุด. Browserตรวจ centerและcardinalpointsของtokenกับSVGpathของเขตตนด้วยisPointInFillที่320/390px ร่วมกับdeckcollision/overlapเดิม.
+
+ถอดข้อมูลฝ่ายซ้ำเหนือบอร์ด แล้วย้าย originalroleicon/ฝ่าย/ชื่อ/สถานะมาไว้แถวเดียวที่ขอบบนคู่แข่งและขอบล่างเรา. HPอยู่หน้าแถวDraculaตามบทบาท จึงอยู่บนเมื่อเป็นคู่แข่ง/ล่างเมื่อเป็นเรา. จัดactionheaderกลาง และrankingแสดง4สีคั่นลูกศรเท่านั้น.
+
+เปลี่ยนเฉลยเป็นabsolute layerในcity-map ยึดกับกระดาน ไม่ใช่native dialog/fixed viewport. ใช้blurเฉพาะบอร์ดระหว่างเฉลย. หลังเฉลยปุ่มพร้อม/เล่นอีกครั้งกับข้อความรออยู่บนdeckcardกลาง ไม่บังประชากร; winnerbannerยังfixedด้านบนตามผู้ใช้ขอ. รักษาskip/Escape/reducedmotion/gap/reconnect/readinessเดิม.
+
+ตรวจเหตุการณ์ไพ่1กับengineและคู่มือMandoo2023ทางการ Asmodee Italia (downloadPDFและextractด้วยPDFKitหน้า8–9): effectของใบที่ทิ้ง เปิดเองหนึ่งใบ; สถานะเปิดตามตัวไพ่ ไม่ใช่ช่อง; ไพ่เปิดบนกองจากeffect2ยังเปิดเมื่อจั่ว/แทนที่. เพิ่มregression private/public incoming1แทนช่องที่เคยเปิด ตรวจทั้งflag/จำนวนเปิด/projection และหลังเลือกeffectมีเปิดเพิ่มเพียง1. ไม่เปลี่ยนกติกา/engine. เพิ่มข้อความกลาง “เปิดจากกองจั่วแล้ว” ให้เห็นที่มาของสถานะเปิด.
+
+npm run buildผ่าน. Browsercontroller/motion2/2ผ่าน25.8s รวมgeometry/HPตามฝ่าย/ป้ายเดียว/overlayยึดบอร์ด/controlอยู่ในdeck/reveal/resources/reconnect/reducedmotion/rematch. ภาพQA data/qa-dracula-board/ ตรวจแล้ว. Dockerrebuildhealthyรักษาvolumeเดิม ไม่deployVercel. ไม่ได้ตรวจiPhone/LGจริง.
+
+ผลตรวจรุ่นสุดท้าย: unit/rules/WS/motion13/13ผ่าน (รวมcard1regression). Browsercontroller/motion2/2ผ่าน25.7s. พบpresence/nameในrowใหม่ต้องrefreshนอกmotionเมื่อrevisionเกมไม่เปลี่ยน จึงแก้ให้สถานะหลุด/ออนไลน์ไม่ค้างและไม่ตัดreveal. DockerE2E1/1ผ่าน154actions4รอบ (1.9min), จอกลาง+2มือถือ, lostACK/recreate/reconnect/privatepayload/ready/rematch. ใช้locatorสถานะในrowใหม่แทนpanelเดิม. Healthlocalhost5555และbn-games.basnana.comตอบokหลังทดสอบ.
+
+เก็บข้อความcenter-step-statusไม่ให้แสดงคิวจั่วค้างในresults/finished หลังตรวจภาพจบเกม; เป็นการปรับcopyตามphase ไม่เปลี่ยนเกม/transport. Build/browser/Dockerตรวจซ้ำหลังเก็บรายละเอียดนี้.
+
+หลังเก็บcopyสุดท้าย: buildผ่าน, browser2/2ผ่าน28.3s, Dockerrebuildhealthy และhealthทั้งสองURLตอบok. FullDockerเกม154actions4รอบผ่านก่อนการเก็บcopyphaseเพียงอย่างเดียว.

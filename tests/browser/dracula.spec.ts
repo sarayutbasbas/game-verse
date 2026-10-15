@@ -1,3 +1,5 @@
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { testAccount } from "./auth-fixture.js";
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
 import type { DuelView } from "../../src/games/dracula-vs-van-helsing/types.js";
@@ -90,8 +92,11 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
       d.getByRole("button", { name: "จั่วการ์ด", exact: true }),
     ).toBeEnabled();
     await d.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+    await d.locator(".shared-room-menu summary").click();
     await d.locator(".room-code").click();
-    await expect.poll(() => d.evaluate(() => navigator.clipboard.readText())).toBe(new URL(`/play/${code}`, new URL(d.url()).origin).href);
+    const joinOrigin = (await (await d.request.get("/api/platform")).json()).joinOrigin ?? new URL(d.url()).origin;
+    await expect.poll(() => d.evaluate(() => navigator.clipboard.readText())).toBe(new URL(`/play/${code}`, joinOrigin).href);
+    await d.locator(".shared-room-menu summary").click();
     let v = await read(display);
     expect(v.racks!.dracula.every((c) => c === null)).toBeTruthy();
     expect(v.racks!.helsing.every((c) => c === null)).toBeTruthy();
@@ -121,8 +126,8 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
     const playerIds = await Promise.all(ids);
     await d.evaluate(() => ((window as any).__dropAck = true));
     await d.getByRole("button", { name: "จั่วการ์ด", exact: true }).click();
-    await expect(d.locator(".game-toast")).toBeVisible();
-    await expect(d.locator(".game-toast")).toContainText("ทำรายการแล้ว");
+    await expect(d.locator('[data-slot="-1"]')).toBeVisible();
+    await expect(d.locator(".game-toast")).toBeHidden();
     v = await read(display);
     await revision(h, v.revision);
     expect(v.drawn).toBeUndefined();
@@ -132,10 +137,28 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
       path: "test-results/dracula-mobile.png",
       fullPage: true,
     });
+    if (process.env.GAMEVERSE_E2E_DOCKER === "1") {
+      const ownBeforeRestart = (await read(d)).me!;
+      const stateBeforeRestart = await read(display);
+      // Recreate only this local service; its named data volume and auth secret stay intact.
+      await promisify(execFile)("docker", ["compose", "up", "--detach", "--force-recreate", "--wait", "app"], { timeout: 90000 });
+      for (const p of [display, d, h]) {
+        await expect(p.locator('.connection[data-online="true"]')).toBeVisible();
+        await p.reload();
+        await expect(p.locator(".district")).toHaveCount(5);
+      }
+      const ownAfterRestart = (await read(d)).me!;
+      expect(ownAfterRestart.id).toBe(ownBeforeRestart.id);
+      expect(ownAfterRestart.drawn).toEqual(ownBeforeRestart.drawn);
+      expect(ownAfterRestart.cards).toEqual(ownBeforeRestart.cards);
+      expect((await read(display)).turn).toBe(stateBeforeRestart.turn);
+      expect((await read(display)).step).toBe(stateBeforeRestart.step);
+      expect((await read(display)).racks).toEqual(stateBeforeRestart.racks);
+    }
     await h.context().setOffline(true);
     await h.evaluate(() => (window as any).__sockets.at(-1).close());
     await expect(
-      display.getByText("หลุด • รอกลับเข้าห้อง", { exact: true }),
+      display.locator('.rack-side-label[data-character="helsing"] small').filter({hasText:"หลุด"}),
     ).toBeVisible();
     await h.context().setOffline(false);
     await expect(
@@ -156,7 +179,7 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
         expect(v.event!.reveal).toEqual(v.result);
         await display.screenshot({
           path: "test-results/dracula-round.png",
-          fullPage: true,
+          fullPage: false,
         });
         if (!resultReconnect) {
           const before = await read(d);
@@ -190,7 +213,7 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
         await expect(p.locator("#selection-preview")).not.toHaveText("");
         await p.getByRole("button", { name: "ยืนยันทิ้งการ์ด" }).click();
       } else {
-        await p.locator("[data-effect]").first().click();
+        await expect(p.locator("#confirm-effect")).toBeEnabled();
         await p.getByRole("button", { name: "ยืนยันความสามารถ" }).click();
       }
       actions++;

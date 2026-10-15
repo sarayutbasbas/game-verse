@@ -11,3 +11,6 @@ playwright-report
 !.env.example
 data
 *.sqlite*
+
+.vercel
+assets/source

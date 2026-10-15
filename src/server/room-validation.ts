@@ -1,7 +1,11 @@
+import { validateJaipurState } from "../games/jaipur/validation.js";
+import { validateWondersState } from "../games/seven-wonders-duel/validation.js";
+import { validateCalicoState } from "../games/calico/validation.js";
 import { metadata, supportsPlayers } from "../shared/catalog.js";
 import { validateAzulState } from "../games/azul/validation.js";
 export function validateRoomRecord(r: any): boolean {
   const g = metadata(r?.gameId);
+  if(r?.calicoPreset!==undefined && !["standard","first"].includes(r.calicoPreset))return false;
   if (
     !g ||
     !/^[A-Z2-9]{6}$/.test(r.code) ||
@@ -28,8 +32,8 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
-  if ([r.game, r.duel, r.azul].filter(Boolean).length > 1) return false;
-  const s = r.game ?? r.duel ?? r.azul;
+  if ([r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur].filter(Boolean).length > 1) return false;
+  const s = r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur;
   if (!s) return true;
   if (
     !supportsPlayers(g, r.players.length) ||
@@ -41,6 +45,9 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
+  if(r.jaipur)return r.gameId==="jaipur"&&validateJaipurState(s);
+  if (r.wonders) return r.gameId === "seven-wonders-duel" && validateWondersState(s);
+  if (r.calico) return r.gameId === "calico" && validateCalicoState(s);
   if (r.azul) return r.gameId === "azul" && validateAzulState(s);
   if (r.game) {
     if (

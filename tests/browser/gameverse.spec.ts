@@ -1,3 +1,4 @@
+import { GAME_CATALOG } from "../../src/shared/catalog.js";
 import { test, expect } from "@playwright/test";
 import { testAccount } from "./auth-fixture.js";
 test("GameVerse Home filters, Google setup state, Guest/session, profile uploads, shared identity and logout", async ({
@@ -25,7 +26,7 @@ test("GameVerse Home filters, Google setup state, Guest/session, profile uploads
       page.getByText("ไม่พบเกมที่ตรงกัน", { exact: false }),
     ).toBeVisible();
     await page.getByRole("link", { name: "ล้างตัวกรอง", exact: true }).click();
-    await expect(page.locator(".game-cover")).toHaveCount(3);
+    await expect(page.locator(".game-cover")).toHaveCount(GAME_CATALOG.length);
     await page.screenshot({
       path: "test-results/gameverse-home-mobile.png",
       fullPage: true,
@@ -49,14 +50,14 @@ test("GameVerse Home filters, Google setup state, Guest/session, profile uploads
     await page
       .getByRole("textbox", { name: "ชื่อที่แสดง" })
       .fill("นักเล่น GameVerse");
-    await page.getByRole("button", { name: "บันทึกชื่อ" }).click();
+    await page.getByRole("button", { name: "ยืนยัน" }).click();
     await expect(page.locator("#profile-status")).toHaveText("บันทึกแล้ว");
     await page.reload();
     await expect(
       page.getByRole("textbox", { name: "ชื่อที่แสดง" }),
     ).toHaveValue("นักเล่น GameVerse");
     const chooser = page.waitForEvent("filechooser");
-    await page.getByRole("button", { name: "เลือกรูปจากเครื่อง" }).click();
+    await page.getByRole("button", { name: "เปลี่ยนรูปโปรไฟล์" }).click();
     await (await chooser).setFiles("test-results/gameverse-home-mobile.png");
     await expect(page.locator("#profile-status")).toHaveText("บันทึกแล้ว");
     await expect(page.locator(".profile-summary img")).toBeVisible();

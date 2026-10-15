@@ -1,0 +1,2091 @@
+body.jaipur-theme {
+  background: #edc16c;
+  color: #292844;
+  color-scheme: light;
+}
+body.jaipur-theme::before {
+  opacity: 1;
+  background:
+    linear-gradient(#fff2d6f5, #edc16cf0),
+    url("/art/jaipur/table.webp?v=1") center/600px;
+}
+.jaipur-theme main {
+  max-width: 1500px;
+}
+.jaipur-theme .game-header {
+  border-color: #97744566;
+}
+.jaipur-theme .brand,
+.jaipur-theme a {
+  color: #31304f;
+}
+.jaipur-theme .connection {
+  color: #31574a;
+}
+.jp-root {
+  --jp-paper: #fff0ce;
+  --jp-ink: #25294b;
+  --jp-teal: #116b6d;
+  --jp-gold: #c28c3c;
+  padding: 0 12px calc(24px + env(safe-area-inset-bottom));
+  font-variant-numeric: tabular-nums;
+  --jp-ruby: #b73344;
+}
+.jp-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 10px 0 14px;
+}
+.jp-heading h1 {
+  font:
+    700 clamp(38px, 5vw, 58px)/1 Georgia,
+    serif;
+  color: #9c304b;
+  margin: 0;
+  text-shadow: 0 1px #fff9;
+}
+.jp-heading p {
+  font-size: 16px;
+  margin: 9px 0 0;
+}
+.jaipur-theme .room-code {
+  background: #116b6d;
+  color: #fff0ce;
+}
+.jp-players {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.jp-public-player {
+  border-top: 3px solid #a88a5c;
+  padding: 10px 14px;
+  background: #fff3d8a8;
+  box-shadow: 0 3px 10px #74532016;
+  min-width: 0;
+}
+.jp-current {
+  border-top-color: #137a70;
+  background: #fff7e8;
+}
+.jp-player-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.jp-player-name .profile-avatar {
+  width: 36px;
+  height: 36px;
+  flex: none;
+}
+.jp-player-name > div:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+.jp-player-name h2 {
+  font-size: 17px;
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: #312c49;
+}
+.jp-player-name small {
+  font-size: 11px;
+  color: #556355;
+}
+.jp-seals {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.jp-seals img {
+  object-fit: contain;
+}
+.jp-empty-seal {
+  opacity: 0.23;
+  filter: grayscale(1);
+}
+.jp-player-stash {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+.jp-handbacks {
+  display: flex;
+  position: relative;
+  align-items: center;
+  min-height: 45px;
+  padding-right: 10px;
+}
+.jp-handbacks .jp-card {
+  width: 30px;
+  height: 43px;
+  margin-right: -19px;
+  box-shadow: none;
+  transform: rotate(-4deg);
+}
+.jp-handbacks .jp-card:last-of-type {
+  margin-right: 3px;
+}
+.jp-handbacks > span:last-child:not(.jp-card) {
+  font-size: 11px;
+  white-space: nowrap;
+  margin-left: 7px;
+}
+.jp-herd-public {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #645444;
+  font-size: 10px;
+  line-height: 1.4;
+}
+.jp-herd-public img {
+  object-fit: cover;
+  border-radius: 5px;
+  height: 42px;
+  width: 34px;
+}
+.jp-player-stash p {
+  font-size: 11px;
+  max-width: 130px;
+  color: #5e5360;
+  margin: 0;
+}
+.jp-prices {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+.jp-price {
+  border-bottom: 2px solid var(--jp-color);
+  padding: 8px 7px;
+  background: #fff6e1;
+  min-width: 0;
+}
+.jp-price-name {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.jp-price h3 {
+  font-size: 16px;
+  margin: 0;
+  color: var(--jp-color);
+  min-width: 0;
+}
+.jp-price small {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
+  color: #66584c;
+}
+.jp-token {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  display: inline-grid;
+  place-items: center;
+  vertical-align: middle;
+  flex: none;
+}
+.jp-token img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.jp-token > b {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 24px;
+  min-height: 24px;
+  padding: 2px 3px;
+  line-height: 1.1;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff8df;
+  background: #25294bf0;
+  text-align: center;
+  box-shadow: 0 1px 3px #0003;
+}
+.jp-price-values {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  justify-content: center;
+}
+.jp-price-values span {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #b99c72;
+  background: #f3dfaf;
+  color: #3d3540;
+  font-size: 13px;
+  font-weight: bold;
+}
+.jp-price-values span:first-child {
+  background: var(--jp-color);
+  color: white;
+  border-color: transparent;
+}
+.jp-diamond {
+  --jp-color: #ae2b43;
+}
+.jp-gold {
+  --jp-color: #8d5b0c;
+}
+.jp-silver {
+  --jp-color: #326d94;
+}
+.jp-cloth {
+  --jp-color: #764688;
+}
+.jp-spice {
+  --jp-color: #32754c;
+}
+.jp-leather {
+  --jp-color: #855235;
+}
+.jp-camel {
+  --jp-color: #277e83;
+}
+.jp-market-table {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) 70px;
+  gap: 20px;
+  align-items: center;
+  padding: 24px 22px;
+  background:
+    linear-gradient(#176c70e6, #115d65f2),
+    url("/art/jaipur/table.webp?v=1") center/cover;
+  border: 4px double #cf9d4e;
+  border-radius: 70px 70px 10px 10px;
+  max-width: 1100px;
+  margin: auto;
+  box-shadow: 0 7px 20px #7a532329;
+}
+.jp-market {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  align-items: center;
+  min-height: 190px;
+}
+.jp-root button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: #116b6d33;
+  font: inherit;
+  cursor: pointer;
+}
+.jp-root button:focus-visible,
+.jp-root summary:focus-visible,
+.jp-root select:focus-visible {
+  outline: 3px solid #a32450;
+  outline-offset: 3px;
+}
+.jp-root button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+.jp-root button:not(:disabled):hover {
+  filter: brightness(1.06);
+}
+.jp-market button,
+.jp-hand button {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 7px;
+  min-width: 0;
+  color: inherit;
+}
+.jp-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  background: #fff5de;
+  border: 3px solid #f8de9c;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px #231a1f66;
+  height: 100%;
+  min-width: 0;
+  text-align: left;
+  color: #302d3b;
+}
+.jp-card-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  background: var(--jp-color, #286c70);
+  color: #fff7df;
+  font-size: 17px;
+  padding: 6px 8px;
+  line-height: 1.2;
+}
+.jp-card-label b {
+  font-size: 0.75em;
+  border: 1px solid #ffffff90;
+  min-width: 18px;
+  text-align: center;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.jp-card > img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 160px;
+  min-height: 0;
+  flex: 1;
+}
+.jp-card-foot {
+  background: #fff0ce;
+  color: #51404b;
+  font-size: 10px;
+  text-align: center;
+  padding: 4px 2px;
+  line-height: 1.3;
+  min-height: 19px;
+}
+.jp-market .jp-card {
+  height: 245px;
+}
+.jp-market button[aria-pressed="true"] .jp-card,
+.jp-hand button[aria-pressed="true"] .jp-card {
+  border-color: #b51e54;
+  box-shadow:
+    0 0 0 3px #fff0ce,
+    0 0 0 5px #b51e54;
+  transform: translateY(-5px);
+}
+.jp-back {
+  border: 3px solid #d1aa6d;
+}
+.jp-back img {
+  height: 100%;
+  object-fit: cover;
+}
+.jp-deck,
+.jp-discard {
+  min-width: 0;
+  text-align: center;
+  color: #fff0ce;
+  font-size: 11px;
+}
+.jp-deck > .jp-card,
+.jp-discard > .jp-card,
+.jp-empty-discard {
+  width: 100%;
+  height: 112px;
+  display: flex;
+}
+.jp-discard > .jp-card .jp-card-label,
+.jp-discard > .jp-card .jp-card-foot {
+  display: none;
+}
+.jp-deck > span:last-child,
+.jp-discard > span:last-child {
+  display: block;
+  margin-top: 9px;
+}
+.jp-empty-discard {
+  border: 1px dashed #eddaa588;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  color: #f4dfac;
+}
+.jp-bonus-bank {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 13px 10px;
+  max-width: 800px;
+  margin: auto;
+}
+.jp-bonus-bank > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.jp-bonus-bank p {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0;
+}
+.jp-bonus-bank small {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
+}
+.jp-controller-area {
+  max-width: 850px;
+  margin: 16px auto;
+  background: #fff5df;
+  border: 1px solid #bd9653;
+  box-shadow: 0 4px 14px #7a532322;
+  padding: 18px;
+}
+.jp-own-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.jp-own-heading h2 {
+  font-size: 21px;
+  margin: 0;
+}
+.jp-own-heading h2 small {
+  font-size: 14px;
+  font-weight: normal;
+}
+.jp-own-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+}
+.jp-own-heading > span img {
+  object-fit: cover;
+  border-radius: 5px;
+}
+.jp-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin: 12px 0 9px;
+}
+.jp-modes button {
+  min-height: 48px;
+  border: 1px solid #767184;
+  color: #25294b;
+  background: #fffaf0;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.jp-modes button[aria-pressed="true"] {
+  background: #116b6d;
+  color: white;
+  border-color: #116b6d;
+}
+.jp-action-help {
+  font-size: 13px;
+  margin: 6px 0 13px;
+  color: #635363;
+  min-height: 20px;
+}
+.jp-hand {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+  min-height: 120px;
+}
+.jp-hand .jp-card {
+  height: 162px;
+}
+.jp-hand .jp-card-label {
+  font-size: 12px;
+  padding: 4px;
+}
+.jp-hand .jp-card-foot {
+  font-size: 8px;
+}
+.jp-hand > p {
+  grid-column: 1/-1;
+  text-align: center;
+  color: #74656b;
+  margin: 25px;
+}
+.jp-preview {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #b4a789;
+  background: #fff9ed;
+  scroll-margin-top: 12px;
+  scroll-margin-bottom: 100px;
+}
+.jp-preview h3 {
+  font-size: 20px;
+  margin: 0 0 12px;
+  color: #17575a;
+}
+.jp-preview h4 {
+  font-size: 17px;
+  margin: 0 0 9px;
+}
+.jp-take-detail,
+.jp-sale-detail {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.jp-large {
+  width: 140px;
+  height: 190px;
+}
+.jp-large .jp-card-label {
+  font-size: 14px;
+}
+.jp-preview p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.jp-exchange-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.jp-exchange-pair > div {
+  min-width: 0;
+  background: #f2e8d3;
+  padding: 12px;
+  border-top: 3px solid #356f72;
+}
+.jp-exchange-pair > div + div {
+  border-color: #9b4465;
+}
+.jp-exchange-pair > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-height: 65px;
+  font-size: 12px;
+}
+.jp-exchange-pair .jp-card {
+  width: 65px;
+  height: 94px;
+}
+.jp-exchange-pair .jp-card-label {
+  font-size: 9px;
+  padding: 3px;
+}
+.jp-exchange-pair .jp-card-label b,
+.jp-exchange-pair .jp-card-foot {
+  display: none;
+}
+.jp-camel-return {
+  position: relative;
+}
+.jp-camel-return > b {
+  position: absolute;
+  right: 3px;
+  bottom: 5px;
+  background: #fff1ce;
+  font-size: 14px;
+  padding: 2px;
+}
+.jp-stepper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+.jp-stepper button {
+  width: 44px;
+  min-height: 44px;
+  border: 1px solid #7d757f;
+  color: #25294b;
+  background: white;
+  border-radius: 50%;
+  font-size: 23px;
+}
+.jp-stepper b {
+  font-size: 18px;
+}
+.jp-preview .jp-preview-reason {
+  font-size: 13px;
+  color: #67455a;
+  min-height: 24px;
+  margin: 12px 0;
+}
+.jp-confirm-bar {
+  position: static;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  background: #fff0cedf;
+  padding: 10px;
+  z-index: 20;
+  border-top: 1px solid #c5ac76;
+  backdrop-filter: blur(5px);
+}
+.jp-confirm-bar button {
+  min-height: 48px;
+  border: 1px solid #9a7e57;
+  padding: 10px 18px;
+  border-radius: 6px;
+  background: #fffaf1;
+  color: #31304b;
+  font-size: 15px;
+}
+.jp-confirm-bar #jp-confirm {
+  background: #116b6d;
+  color: white;
+  min-width: 150px;
+  font-weight: bold;
+}
+.jp-private-tokens {
+  margin-top: 15px;
+  font-size: 13px;
+}
+.jp-private-tokens summary {
+  padding: 9px 0;
+  cursor: pointer;
+}
+.jp-private-tokens > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 100px;
+}
+.jp-private-tokens .jp-token {
+  width: 48px;
+  height: 48px;
+}
+.jp-private-tokens .jp-token b {
+  font-size: 14px;
+  min-width: 21px;
+  min-height: 21px;
+}
+.jp-last-action {
+  min-height: 24px;
+  text-align: center;
+  font-size: 14px;
+  margin: 12px 0;
+  color: #655063;
+}
+.jp-results {
+  background: #fff8e9;
+  border: 4px double #a37930;
+  padding: 22px;
+  margin: 15px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px #80552a22;
+}
+.jp-results h2 {
+  font-size: 25px;
+  color: #8f2d4d;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.jp-results p {
+  font-size: 14px;
+  margin: 9px 0;
+}
+.jp-results button {
+  min-height: 48px;
+  padding: 10px 22px;
+  border: 1px solid #116b6d;
+  background: #116b6d;
+  color: white;
+  border-radius: 5px;
+  margin: 6px;
+}
+.jp-results select {
+  min-height: 44px;
+  padding: 6px 10px;
+  background: white;
+  color: #25294b;
+  border: 1px solid #8d7d76;
+  margin: 8px;
+}
+.jp-score-scroll {
+  overflow: auto;
+  max-width: 800px;
+  margin: 12px auto;
+}
+.jp-results table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 380px;
+}
+.jp-results th,
+.jp-results td {
+  padding: 9px;
+  border-bottom: 1px solid #c9b381;
+  font-size: 16px;
+  text-align: center;
+}
+.jp-results th {
+  font-size: 14px;
+}
+.jp-results th small {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
+}
+.jp-results thead {
+  background: #116b6d;
+  color: white;
+}
+.jp-results td:last-child {
+  font-size: 23px;
+  color: #952f4d;
+}
+.jp-history,
+.jp-help {
+  max-width: 1000px;
+  margin: 8px auto;
+  font-size: 13px;
+}
+.jp-history summary,
+.jp-help summary {
+  cursor: pointer;
+  padding: 10px 0;
+}
+.jp-flight .jp-card {
+  height: 100%;
+  width: 100%;
+}
+.jp-loading {
+  min-height: 50vh;
+  display: grid;
+  place-items: center;
+  color: #392b49;
+  font-size: 18px;
+}
+@media (max-width: 1100px) {
+  .jp-market-table {
+    padding: 18px;
+    gap: 14px;
+    grid-template-columns: 55px minmax(0, 1fr) 55px;
+  }
+  .jp-market .jp-card {
+    height: 210px;
+  }
+  .jp-market {
+    gap: 9px;
+    min-height: 160px;
+  }
+  .jp-card-label {
+    font-size: 14px;
+  }
+  .jp-prices {
+    gap: 7px;
+  }
+  .jp-price h3 {
+    font-size: 13px;
+  }
+  .jp-price .jp-token {
+    width: 42px;
+    height: 42px;
+  }
+  .jp-price .jp-token > b {
+    font-size: 14px;
+    min-width: 20px;
+    min-height: 20px;
+  }
+  .jp-price small {
+    font-size: 9px;
+  }
+  .jp-price-values {
+    gap: 2px;
+  }
+  .jp-price-values span {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+  }
+  .jp-player-stash p {
+    font-size: 10px;
+    max-width: 90px;
+  }
+}
+@media (max-width: 680px) {
+  .jp-root {
+    padding: 0 0 calc(20px + env(safe-area-inset-bottom));
+  }
+  .jp-heading {
+    gap: 10px;
+  }
+  .jp-heading h1 {
+    font-size: 38px;
+  }
+  .jp-heading p {
+    font-size: 12px;
+  }
+  .jp-heading .room-code {
+    font-size: 14px;
+  }
+  .jp-players {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .jp-public-player {
+    padding: 8px;
+  }
+  .jp-player-name {
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .jp-player-name .profile-avatar {
+    width: 27px;
+    height: 27px;
+  }
+  .jp-player-name h2 {
+    font-size: 12px;
+  }
+  .jp-player-name small {
+    font-size: 9px;
+  }
+  .jp-seals {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 2px;
+    height: 23px;
+    font-size: 11px;
+  }
+  .jp-seals img {
+    width: 23px;
+    height: 23px;
+  }
+  .jp-player-stash {
+    gap: 3px;
+    flex-wrap: wrap;
+    margin-top: 3px;
+  }
+  .jp-handbacks {
+    min-height: 30px;
+    max-width: 100%;
+    padding-right: 0;
+  }
+  .jp-handbacks .jp-card {
+    width: 19px;
+    height: 29px;
+    margin-right: -13px;
+    border-width: 1px;
+  }
+  .jp-handbacks > span:last-child:not(.jp-card) {
+    font-size: 10px;
+    margin-left: 3px;
+  }
+  .jp-herd-public {
+    font-size: 8px;
+    gap: 3px;
+  }
+  .jp-herd-public img {
+    width: 24px;
+    height: 27px;
+  }
+  .jp-player-stash p {
+    width: 100%;
+    max-width: none;
+    font-size: 9px;
+    margin-top: 3px;
+  }
+  .jp-prices {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .jp-price {
+    padding: 5px;
+  }
+  .jp-price-name {
+    gap: 4px;
+  }
+  .jp-price h3 {
+    font-size: 12px;
+  }
+  .jp-price .jp-token {
+    width: 32px;
+    height: 32px;
+  }
+  .jp-price .jp-token > b {
+    font-size: 11px;
+    min-width: 17px;
+    min-height: 17px;
+    padding: 2px;
+  }
+  .jp-price small {
+    font-size: 8px;
+  }
+  .jp-price-values {
+    margin-top: 3px;
+    gap: 2px;
+  }
+  .jp-price-values span {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+  .jp-market-table {
+    grid-template-columns: 30px minmax(0, 1fr) 30px;
+    gap: 6px;
+    padding: 15px 9px;
+    border-width: 3px;
+    border-radius: 32px 32px 8px 8px;
+  }
+  .jp-market {
+    gap: 5px;
+    min-height: 105px;
+  }
+  .jp-market .jp-card {
+    height: 120px;
+    border-width: 2px;
+  }
+  .jp-card-label {
+    font-size: 10px;
+    gap: 2px;
+    padding: 3px 2px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .jp-card-label b {
+    font-size: 8px;
+    min-width: 12px;
+    padding: 0 1px;
+  }
+  .jp-card-foot {
+    font-size: 7px;
+    padding: 2px 0;
+    min-height: 13px;
+  }
+  .jp-deck > .jp-card,
+  .jp-discard > .jp-card,
+  .jp-empty-discard {
+    height: 60px;
+    border-width: 2px;
+  }
+  .jp-deck,
+  .jp-discard {
+    font-size: 8px;
+  }
+  .jp-deck > span:last-child,
+  .jp-discard > span:last-child {
+    margin-top: 5px;
+  }
+  .jp-bonus-bank {
+    gap: 7px;
+    justify-content: space-around;
+    padding: 9px 0;
+  }
+  .jp-bonus-bank > div {
+    gap: 2px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .jp-bonus-bank .jp-token {
+    width: 37px;
+    height: 37px;
+  }
+  .jp-bonus-bank .jp-token > b {
+    font-size: 12px;
+    min-height: 18px;
+    min-width: 18px;
+  }
+  .jp-bonus-bank p {
+    font-size: 10px;
+  }
+  .jp-bonus-bank small {
+    font-size: 8px;
+  }
+  .jp-controller-area {
+    padding: 12px 10px;
+    margin-top: 7px;
+  }
+  .jp-own-heading h2 {
+    font-size: 18px;
+  }
+  .jp-own-heading h2 small {
+    font-size: 12px;
+  }
+  .jp-own-heading > span {
+    font-size: 11px;
+  }
+  .jp-own-heading > span img {
+    width: 27px;
+    height: 31px;
+  }
+  .jp-modes {
+    gap: 6px;
+    margin-top: 9px;
+  }
+  .jp-modes button {
+    font-size: 15px;
+  }
+  .jp-action-help {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .jp-hand {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    min-height: 50px;
+  }
+  .jp-hand .jp-card {
+    height: 119px;
+    border-width: 2px;
+  }
+  .jp-hand .jp-card-label {
+    font-size: 10px;
+    padding: 3px;
+  }
+  .jp-hand .jp-card-foot {
+    font-size: 7px;
+  }
+  .jp-preview {
+    padding: 11px;
+    margin-top: 14px;
+  }
+  .jp-preview h3 {
+    font-size: 18px;
+  }
+  .jp-take-detail,
+  .jp-sale-detail {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .jp-large {
+    width: 100px;
+    height: 148px;
+  }
+  .jp-large .jp-card-label {
+    font-size: 12px;
+  }
+  .jp-preview p {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .jp-exchange-pair {
+    gap: 8px;
+  }
+  .jp-exchange-pair > div {
+    padding: 7px;
+  }
+  .jp-exchange-pair h4 {
+    font-size: 15px;
+  }
+  .jp-exchange-pair .jp-card {
+    width: 48px;
+    height: 70px;
+    border-width: 2px;
+  }
+  .jp-stepper {
+    gap: 9px;
+    font-size: 13px;
+  }
+  .jp-stepper button {
+    width: 42px;
+    min-height: 42px;
+  }
+  .jp-confirm-bar {
+    padding: 8px 2px;
+    gap: 6px;
+  }
+  .jp-confirm-bar button {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .jp-confirm-bar #jp-confirm {
+    min-width: 120px;
+  }
+  .jp-results {
+    padding: 12px 8px;
+  }
+  .jp-results h2 {
+    font-size: 21px;
+  }
+  .jp-results table {
+    min-width: 310px;
+  }
+  .jp-results th,
+  .jp-results td {
+    padding: 7px 4px;
+    font-size: 14px;
+  }
+  .jp-results th small {
+    font-size: 8px;
+  }
+  .jp-last-action {
+    font-size: 12px;
+  }
+  .jp-help,
+  .jp-history {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jp-root * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.jp-confirm-ready {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(8px + env(safe-area-inset-bottom));
+  width: min(360px, calc(100vw - 36px));
+  box-shadow: 0 4px 24px #26254540;
+  border: 1px solid #c5ac76;
+  border-radius: 8px;
+}
+.jp-preview.jp-has-confirm {
+  padding-bottom: 88px;
+}
+#jp-sort-hand {
+  font-size: 12px;
+  padding: 8px 12px;
+  min-height: 40px;
+  margin-bottom: 10px;
+  background: #fff4dc;
+  color: #31304b;
+  border: 1px solid #9a7e57;
+  border-radius: 5px;
+}
+#jp-sort-hand[aria-pressed="true"] {
+  background: #146d6b;
+  color: white;
+}
+
+.jp-root button {
+  scroll-margin-block: 100px;
+}
+
+/* Compact token bank and permanent herd places. All six goods retain their slot. */
+.jp-bank {
+  max-width: 1100px;
+  margin: 12px auto;
+  background: #fff5dfba;
+  border: 1px solid #bd965366;
+  border-radius: 12px;
+  padding: 8px;
+}
+.jp-bank .jp-prices {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0;
+}
+.jp-bank .jp-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0;
+  border-bottom: 2px solid var(--jp-color);
+  border-radius: 8px 8px 0 0;
+  padding: 5px 0;
+  background: transparent;
+  min-height: 104px;
+  line-height: 1.5;
+}
+.jp-bank .jp-price .jp-token {
+  width: clamp(36px, 8vw, 62px);
+  height: clamp(36px, 8vw, 62px);
+}
+.jp-bank .jp-price .jp-token b {
+  font-size: 16px;
+  min-width: 20px;
+  min-height: 20px;
+}
+.jp-bank .jp-price small {
+  font-size: 12px;
+  white-space: normal;
+}
+.jp-good-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--jp-color);
+}
+.jp-token-empty {
+  border-radius: 50%;
+  background: #e0dfd9;
+  border: 2px dashed #999b96;
+  color: #555;
+  font-size: 12px;
+}
+.jp-bank .jp-bonus-bank {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding: 8px 0 0;
+  border-top: 1px solid #bd965344;
+  margin-top: 8px;
+  max-width: none;
+}
+.jp-bank .jp-bonus-bank > div {
+  justify-content: center;
+  gap: 5px;
+}
+.jp-bank .jp-bonus-bank p,
+.jp-bank .jp-bonus-bank small {
+  font-size: 12px;
+}
+.jp-bank .jp-bonus-bank .jp-token {
+  width: 42px;
+  height: 42px;
+}
+.jp-market-table {
+  grid-template-columns: 55px minmax(0, 1fr);
+}
+.jp-table-herds {
+  max-width: 1100px;
+  margin: 8px auto;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  min-height: 66px;
+}
+.jp-table-herds > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  min-width: 0;
+}
+.jp-table-herds small {
+  display: block;
+  color: #655849;
+  font-size: 12px;
+}
+.jp-herd-stack {
+  display: block;
+  position: relative;
+  width: 88px;
+  height: 76px;
+  flex: none;
+}
+.jp-herd-stack .jp-card {
+  position: absolute;
+  width: 51px;
+  height: 70px;
+  left: 0;
+  top: 0;
+  transform: rotate(-6deg);
+}
+.jp-herd-stack .jp-card:nth-child(2) {
+  left: 12px;
+  top: 2px;
+  transform: rotate(0deg);
+}
+.jp-herd-stack .jp-card:nth-child(3) {
+  left: 24px;
+  top: 4px;
+  transform: rotate(6deg);
+}
+.jp-herd-stack .jp-card-label,
+.jp-herd-stack .jp-card-foot {
+  display: none;
+}
+.jp-opponent-herd .jp-herd-stack {
+  width: 68px;
+  height: 52px;
+}
+.jp-opponent-herd .jp-card {
+  width: 35px;
+  height: 48px;
+}
+.jp-herd-empty {
+  display: grid;
+  place-items: center;
+  border: 1px dashed #b19b78;
+  border-radius: 7px;
+  background: #fff3d2;
+  color: #6a5c4b;
+}
+.jp-own-herd [data-herd-player] > span:last-child > b {
+  background: #116b6d;
+  color: #fff4d9;
+  border-radius: 20px;
+  padding: 2px 9px;
+  margin-left: 4px;
+}
+.jp-stepper button {
+  box-sizing: border-box;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 44px;
+  max-height: 44px;
+  aspect-ratio: 1;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.jp-stepper button:disabled {
+  background: #e0e1d9;
+  border-color: #ccc;
+  opacity: 0.65;
+}
+.jp-camel-return > b {
+  border-radius: 12px;
+  background: #116b6d;
+  color: white;
+  padding: 3px 7px;
+}
+.jp-result-dialog {
+  width: min(690px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  padding: 0;
+  border: 3px double #a37930;
+  border-radius: 16px;
+  background: #fff7e5;
+  color: #25294b;
+  box-shadow: 0 15px 80px #24182d66;
+  overscroll-behavior: contain;
+}
+.jp-result-dialog::backdrop {
+  background: #142e38bf;
+  backdrop-filter: blur(3px);
+}
+.jp-result-paper {
+  padding: 24px;
+  text-align: center;
+}
+.jp-result-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: #866527;
+}
+.jp-result-paper h2 {
+  font-size: 25px;
+  color: #9c304b;
+  margin: 8px 0;
+}
+.jp-count-label {
+  min-height: 26px;
+  font-size: 14px;
+  color: #175e62;
+}
+.jp-result-portraits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.jp-result-portraits > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+.jp-result-portraits strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jp-result-portraits .profile-avatar {
+  width: 36px;
+  height: 36px;
+  flex: none;
+}
+.jp-result-dialog table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  table-layout: fixed;
+}
+.jp-result-dialog td,
+.jp-result-dialog th {
+  padding: 12px 4px;
+  border-bottom: 1px solid #cebd98;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.jp-result-dialog td {
+  font-size: 23px;
+}
+.jp-result-dialog th:first-child {
+  width: 32%;
+}
+.jp-result-dialog thead {
+  background: #116b6d;
+  color: #fff5df;
+}
+.jp-result-verdict {
+  font-weight: 700;
+  font-size: 19px;
+  color: #9c304b;
+}
+.jp-result-verdict small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #5f5360;
+  margin-top: 8px;
+}
+.jp-token-breakdown {
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.8;
+}
+.jp-result-actions {
+  display: flex;
+  justify-content: center;
+}
+.jp-result-actions button {
+  min-height: 48px;
+  min-width: 140px;
+  padding: 10px 18px;
+  background: #116b6d;
+  color: white;
+  border: 1px solid #116b6d;
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+}
+.jp-result-dialog [hidden] {
+  display: none;
+}
+.jp-result-dialog button:focus-visible {
+  outline: 3px solid #a32450;
+  outline-offset: 3px;
+}
+@media (max-width: 680px) {
+  .jp-market-table {
+    grid-template-columns: 25px minmax(0, 1fr);
+    padding: 14px 7px;
+    gap: 7px;
+  }
+  .jp-market .jp-card {
+    height: 140px;
+  }
+  .jp-bank {
+    padding: 5px 2px;
+  }
+  .jp-bank .jp-price {
+    min-height: 104px;
+  }
+  .jp-bank .jp-bonus-bank > div {
+    flex-direction: column;
+    gap: 0;
+  }
+  .jp-bank .jp-bonus-bank p {
+    font-size: 12px;
+    text-align: center;
+  }
+  .jp-bank .jp-bonus-bank small {
+    font-size: 11px;
+  }
+  .jp-result-paper {
+    padding: 16px 10px;
+  }
+  .jp-results table {
+    min-width: 0;
+    table-layout: fixed;
+  }
+  .jp-results th,
+  .jp-results td {
+    overflow-wrap: anywhere;
+    font-size: 12px;
+  }
+  .jp-results th small {
+    font-size: 11px;
+  }
+}
+
+/* Jaipur compact table: open herds, seat borders and presentation-only defaults. */
+.jp-public-player {
+  border: 2px solid #b9986555;
+  border-top: 2px solid #b9986555;
+  padding: 8px;
+}
+.jp-public-player.jp-current {
+  border: 2px solid #116b6d;
+  box-shadow: 0 0 0 2px #116b6d33;
+}
+.jp-player-name {
+  flex-wrap: nowrap;
+}
+.jp-player-name h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.jp-player-name .profile-avatar {
+  width: 30px;
+  height: 30px;
+}
+.jp-player-stash {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  margin-top: 5px;
+}
+.jp-player-stash p {
+  max-width: none;
+  width: auto;
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 0;
+  white-space: nowrap;
+}
+.jp-player-stash .jp-seals {
+  width: auto;
+  justify-content: flex-end;
+  height: auto;
+  gap: 3px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.jp-seals img {
+  width: 22px;
+  height: 22px;
+}
+.jp-handbacks {
+  padding-right: 0;
+  min-height: 32px;
+}
+.jp-table-herds {
+  min-height: 46px;
+  margin: 6px auto;
+}
+.jp-table-herds > div {
+  gap: 10px;
+  min-width: 0;
+}
+.jp-table-herds > div > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.jp-table-herds .jp-herd-stack {
+  --herd-step: 12px;
+  width: calc(36px + (var(--herd-size) - 1) * var(--herd-step));
+  height: 44px;
+}
+.jp-table-herds .jp-herd-stack .jp-card {
+  left: calc(var(--herd-index) * var(--herd-step));
+  top: 0;
+  width: 36px;
+  height: 44px;
+  transform: none;
+  border-width: 2px;
+}
+.jp-herd-overflow {
+  position: absolute;
+  right: -3px;
+  bottom: -2px;
+  background: #116b6d;
+  color: white;
+  border: 1px solid #fff1ce;
+  border-radius: 8px;
+  padding: 1px 4px;
+  font-size: 12px;
+  z-index: 2;
+}
+.jp-own-herd [data-herd-player] > span:last-child > b {
+  padding: 1px 6px;
+}
+.jp-market .jp-card-foot {
+  display: none;
+}
+.jp-token-stack {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  vertical-align: middle;
+}
+.jp-token-stack > span {
+  display: inline-flex;
+  flex: none;
+}
+.jp-display .jp-bank .jp-prices {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.jp-display .jp-price {
+  padding: 8px;
+  min-height: 108px;
+  overflow: hidden;
+}
+.jp-display .jp-token-stack {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 50px;
+  justify-content: flex-start;
+  padding-block: 2px;
+}
+.jp-display .jp-token-stack > span {
+  flex: 0 0 26px;
+  width: 26px;
+}
+.jp-display .jp-token-stack > span:last-child {
+  flex-basis: 44px;
+}
+.jp-display .jp-price .jp-token {
+  width: 44px;
+  height: 44px;
+}
+.jp-own-heading {
+  align-items: center;
+  gap: 6px;
+}
+.jp-own-heading h2 {
+  font-size: 17px;
+  min-width: 0;
+  line-height: 1.4;
+}
+.jp-own-heading h2 small {
+  font-size: 12px;
+  display: block;
+}
+.jp-own-heading .jp-modes {
+  flex: none;
+  display: flex;
+  gap: 4px;
+  margin: 0;
+}
+.jp-own-heading .jp-modes button {
+  width: 46px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 5px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+@media (max-width: 680px) {
+  .jp-player-name h2 {
+    font-size: 12px;
+  }
+  .jp-player-stash {
+    gap: 4px;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+  }
+  .jp-player-stash p {
+    font-size: 10px;
+  }
+  .jp-player-stash .jp-seals {
+    gap: 1px;
+    font-size: 10px;
+  }
+  .jp-player-stash .jp-seals img {
+    width: 16px;
+    height: 16px;
+  }
+  .jp-handbacks .jp-card {
+    width: 17px;
+    height: 26px;
+    margin-right: -13px;
+  }
+  .jp-handbacks > span:last-child:not(.jp-card) {
+    font-size: 10px;
+    margin-left: 2px;
+  }
+  .jp-table-herds {
+    font-size: 12px;
+  }
+  .jp-table-herds > div {
+    font-size: 12px;
+    gap: 6px;
+  }
+  .jp-market-table {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px 8px;
+  }
+  .jp-market-table .jp-deck {
+    display: none;
+  }
+  .jp-market .jp-card {
+    height: 135px;
+  }
+  .jp-market .jp-card-label b {
+    display: none;
+  }
+  .jp-own-heading h2 {
+    font-size: 16px;
+  }
+}
+.jp-player-stash .jp-handbacks {
+  overflow: hidden;
+  padding-right: 25px;
+}
+.jp-player-stash .jp-handbacks > span:last-child:not(.jp-card) {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  min-width: 22px;
+  padding-left: 3px;
+  margin: 0;
+  background: #fff3d8;
+  font-size: 11px;
+}
+.jp-herd-empty > span {
+  font-size: 11px;
+  white-space: nowrap;
+}
+@media (max-width: 680px) {
+  .jp-player-stash .jp-handbacks .jp-card {
+    width: 13px;
+    height: 22px;
+    margin-right: -11px;
+  }
+}
+
+/* Seats now belong to the table: opponent above, own larger row below. */
+.jp-table-herds {
+  display: block;
+  max-width: 1100px;
+  margin: 8px auto;
+}
+.jp-seat-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 2px solid #b9986555;
+  background: #fff3d8a8;
+  min-width: 0;
+}
+.jp-seat-strip.jp-current {
+  border-color: #116b6d;
+  background: #fff7e8;
+  box-shadow: 0 0 0 2px #116b6d33;
+}
+.jp-seat-strip.jp-seat-bottom {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.jp-seat-strip .jp-public-player {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  min-width: 0;
+}
+.jp-seat-strip [data-herd-player] {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+  font-size: 11px;
+}
+.jp-seat-strip [data-herd-player] > span:last-child {
+  font-size: 11px;
+  max-width: 168px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jp-seat-strip .jp-player-name small {
+  font-size: 11px;
+}
+.jp-seat-bottom .jp-public-player {
+  justify-self: end;
+  width: 100%;
+  max-width: none;
+}
+.jp-seat-top .jp-public-player {
+  max-width: none;
+}
+.jp-controller .jp-seat-bottom {
+  padding-block: 12px;
+  min-height: 92px;
+}
+.jp-controller .jp-seat-bottom .jp-player-name .profile-avatar {
+  width: 38px;
+  height: 38px;
+}
+.jp-controller .jp-seat-bottom .jp-player-name h2 {
+  font-size: 15px;
+}
+.jp-market-table {
+  border-radius: 10px;
+}
+.jp-price .jp-remaining {
+  order: 0;
+}
+.jp-price .jp-token-stack,
+.jp-price > .jp-token {
+  order: 1;
+}
+.jp-price .jp-good-name {
+  order: 2;
+}
+.jp-price .jp-minimum {
+  order: 3;
+}
+.jp-display .jp-price .jp-token-stack,
+.jp-display .jp-price > .jp-token {
+  order: 0;
+}
+.jp-display .jp-price .jp-good-name {
+  order: 1;
+}
+.jp-display .jp-price .jp-remaining {
+  order: 2;
+}
+.jp-display .jp-price .jp-minimum {
+  order: 3;
+}
+.jp-results tr.jp-winner {
+  outline: 2px solid #ae7f19;
+  outline-offset: -2px;
+  background: #ffedbb;
+}
+.jp-results th .profile-avatar {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+.jp-crown {
+  display: inline-block;
+  vertical-align: middle;
+  flex: none;
+}
+.jp-result-portraits > div {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 10px 5px;
+}
+.jp-result-portraits > div > span {
+  min-width: 0;
+}
+.jp-result-portraits strong {
+  display: block;
+}
+.jp-result-portraits small,
+.jp-result-dialog th small {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+}
+.jp-result-portraits .jp-crown {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.jp-result-dialog:not([data-stage="final"]) .jp-crown {
+  visibility: hidden;
+}
+.jp-result-dialog[data-stage="final"] .jp-result-portraits > .jp-winner {
+  border-color: #ae7f19;
+  background: #ffedbb;
+}
+.jp-result-dialog[data-stage="final"] tr.jp-winner {
+  outline: 2px solid #ae7f19;
+  outline-offset: -2px;
+  background: #fff0c9;
+}
+@media (max-width: 680px) {
+  .jp-market-table {
+    border-radius: 8px;
+  }
+  .jp-seat-strip {
+    gap: 8px;
+    padding: 7px;
+  }
+  .jp-seat-strip .jp-player-name {
+    gap: 5px;
+  }
+  .jp-seat-strip .jp-player-name h2 {
+    font-size: 12px;
+  }
+  .jp-seat-strip .jp-player-name small {
+    font-size: 10px;
+  }
+  .jp-seat-strip .jp-player-stash {
+    gap: 3px;
+  }
+  .jp-controller .jp-seat-bottom .jp-player-name h2 {
+    font-size: 14px;
+  }
+  .jp-bank .jp-price {
+    border-bottom-width: 8px;
+  }
+  .jp-bank .jp-price .jp-minimum {
+    font-size: 10px;
+    line-height: 1.4;
+    margin-top: 2px;
+  }
+  .jp-bank .jp-price .jp-remaining {
+    font-size: 12px;
+  }
+}
+
+/* Merchant resources share one compact panel beneath the identity. */
+.jp-seat-strip .jp-player-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.jp-seat-strip .jp-player-name .profile-avatar {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  min-width: 0;
+}
+.jp-controller .jp-seat-bottom .jp-player-name .profile-avatar {
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+}
+.jp-seat-strip .jp-identity-copy {
+  flex: 1;
+  min-width: 0;
+}
+.jp-seat-strip .jp-player-name h2 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.jp-controller .jp-seat-bottom .jp-player-name h2 {
+  font-size: 15px;
+}
+.jp-seat-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  margin-top: 2px;
+}
+.jp-seat-strip .jp-seat-meta small {
+  font-size: 10px;
+  line-height: 1.4;
+  color: #625951;
+}
+.jp-seat-connection {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+.jp-seat-connection i {
+  width: 5px;
+  height: 5px;
+  background: #a54c4c;
+  border-radius: 50%;
+}
+.jp-seat-connection[data-online="true"] i {
+  background: #268c70;
+}
+.jp-seat-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 6px;
+  padding: 4px 2px;
+  background: #fff9eabf;
+  border: 1px solid #cbb58b88;
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.jp-seat-stat,
+.jp-seat-stats .jp-handbacks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 32px;
+  padding: 0 1px;
+  position: static;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  gap: 2px;
+}
+.jp-seat-stat + .jp-seat-stat {
+  border-left: 1px solid #cbb58b66;
+}
+.jp-seat-stat > small,
+.jp-seat-stat .jp-stat-label small {
+  font-size: 9px;
+  line-height: 1.3;
+  font-weight: normal;
+  color: #695b50;
+}
+.jp-seat-stat > b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #25294b;
+  white-space: nowrap;
+}
+.jp-seat-wins > b {
+  color: #815b1c;
+}
+.jp-seat-wins img {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  object-fit: contain;
+}
+.jp-stat-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.jp-stat-art {
+  display: block;
+  width: 10px;
+  height: 14px;
+  flex: none;
+}
+.jp-seat-strip .jp-seat-stats .jp-handbacks .jp-card {
+  width: 10px;
+  height: 14px;
+  margin: 0;
+  transform: none;
+  border-width: 1px;
+  border-radius: 2px;
+  box-shadow: none;
+}
+.jp-seat-strip [data-herd-player] > span:last-child {
+  max-width: none;
+  font-size: 11px;
+}
+.jp-card {
+  transition: opacity 0.16s ease;
+}
+.jp-controller.jp-waiting .jp-card {
+  opacity: 0.55;
+}
+
+/* All eleven camels fit their fixed half even on a 320px phone. */
+@media (max-width: 360px) {
+  .jp-table-herds .jp-herd-stack {
+    --herd-step: 9px;
+  }
+}

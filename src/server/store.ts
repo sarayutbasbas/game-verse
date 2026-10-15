@@ -12,7 +12,7 @@ export class PlatformStore {
   private loadedRooms = new Map<string,string>();
   quarantined: { code: string; gameId: string; reason: string }[] = [];
   constructor(
-    public path = process.env.GAMEVERSE_DATABASE_URL ?? process.env.GAMEVERSE_DB_PATH ?? "./data/gameverse.sqlite",
+    public path = process.env.GAMEVERSE_DATABASE_URL || process.env.GAMEVERSE_DB_PATH || "./data/gameverse.sqlite",
   ) {
     this.distributed = /^postgres(?:ql)?:/.test(path);
     if (this.distributed) {
@@ -64,7 +64,7 @@ export class PlatformStore {
   }
   saveRooms(rooms: any[]) {
     const save = this.db.prepare(
-      "INSERT INTO gv_rooms VALUES(?,?,?,?,?,?,?) ON CONFLICT(code) DO UPDATE SET revision=excluded.revision,updated_at=excluded.updated_at,state=excluded.state",
+      "INSERT INTO gv_rooms VALUES(?,?,?,?,?,?,?) ON CONFLICT(code) DO UPDATE SET rules_version=excluded.rules_version,schema_version=excluded.schema_version,revision=excluded.revision,updated_at=excluded.updated_at,state=excluded.state",
     );
     for (const r of rooms) {
       const state=JSON.stringify(r);
@@ -90,8 +90,7 @@ export class PlatformStore {
       const g = metadata(String(r.game_id));
       if (
         !g ||
-        r.rules_version !== g.rulesVersion ||
-        r.schema_version !== g.stateSchemaVersion
+        ((r.rules_version !== g.rulesVersion || r.schema_version !== g.stateSchemaVersion)&&!(r.game_id==="calico"&&r.rules_version==="base-2020-two-player-v1"&&r.schema_version===1))
       ) {
         this.quarantined.push({
           code: String(r.code),

@@ -102,7 +102,7 @@ test("authoritative unit path, tile landing, duplicate/gap/reconnect and desktop
       .getByRole("button", { name: "เริ่มเกม", exact: true })
       .click();
     await expect(
-      players[0].getByRole("heading", { name: "ตาของคุณ เลือก 1 การกระทำ" }),
+      players[0].getByRole("heading", { name: "เลือก 1 การกระทำ" }),
     ).toBeVisible();
     const room = app.rooms.rooms.get(code)!;
     const initial = room.revision;
@@ -170,7 +170,7 @@ test("authoritative unit path, tile landing, duplicate/gap/reconnect and desktop
       .getByRole("button", { name: /เดิมพันรอบย่อย อูฐฟ้า/ })
       .click();
     await expect(
-      players[2].getByRole("heading", { name: "ตาของคุณ เลือก 1 การกระทำ" }),
+      players[2].getByRole("heading", { name: "เลือก 1 การกระทำ" }),
     ).toBeVisible();
     await players[2]
       .getByRole("button", { name: /เดิมพันรอบย่อย อูฐเหลือง/ })
@@ -374,7 +374,7 @@ test("เดิมพันผู้ชนะและผู้แพ้ทั�
       .click();
     for (const p of [display, ...players]) {
       await expect(p.getByRole("heading", { name: /ผู้ชนะ:/ })).toHaveCount(0);
-      await expect(p.locator(".room-code strong")).toHaveText(code);
+      await expect(p.locator(".shared-room-menu .room-code strong")).toHaveText(code);
       for (let i = 0; i < 3; i++)
         await expect(
           p.locator(".players li").nth(i).locator("b"),
@@ -403,7 +403,7 @@ test("เดิมพันผู้ชนะและผู้แพ้ทั�
       players[1].getByRole("heading", { name: "เดิมพัน 2", exact: true }),
     ).toBeVisible();
     await expect(
-      players[2].getByRole("heading", { name: "ตาของคุณ เลือก 1 การกระทำ" }),
+      players[2].getByRole("heading", { name: "เลือก 1 การกระทำ" }),
     ).toBeVisible();
     await display.screenshot({
       path: "test-results/rematch-display.png",

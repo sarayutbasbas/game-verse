@@ -79,7 +79,7 @@ test("Azul presentation: real artwork, score beyond 100, server overflow preview
     expect(room.azul.winners).toHaveLength(2);await expect(display.getByText("ชนะร่วม • คะแนนรวมและจำนวนแถวครบเท่ากัน")).toBeVisible();
     await expect(display.getByText("ก่อนโบนัส",{exact:true})).toHaveCount(2);
     await display.screenshot({path:"test-results/azul-tied-final.png",fullPage:true});
-    await display.getByRole("button",{name:"เล่นอีกครั้ง"}).click();await expect(display.locator(".az-turn strong")).toContainText("ตาของ");
+    await display.getByRole("button",{name:"เล่นอีกครั้ง"}).click();await expect(display.locator(".shared-turn")).toContainText("ตา");
     const fallback=await make(true,cookies);await fallback.route("**/art/azul/tile-red.webp",route=>route.abort());
     await fallback.goto(url+`/play/${code}`);await fallback.getByRole("button",{name:"เข้าห้อง",exact:true}).click();
     await expect(fallback.locator(".az-art-warning")).toContainText("สีและตัวอักษรสำรอง");

@@ -1,3 +1,4 @@
+import { patchHTML } from "./dom-patch.js";
 import { marker } from "./dracula-assets.js";
 import { ROLE_NAME } from "../games/dracula-vs-van-helsing/types.js";
 import type { DuelView } from "../games/dracula-vs-van-helsing/types.js";
@@ -27,18 +28,21 @@ export class DraculaMotion {
   private controls?: HTMLElement;
   private gated: { button: HTMLButtonElement; disabled: boolean }[] = [];
   private revealing = false;
+  private dialog?: HTMLElement;
+  private previousFocus?: HTMLElement;
   constructor(private sync: () => void) {
     this.node.className = "duel-table";
     this.reduced.addEventListener("change", () => this.cancel());
   }
   mount(parent: HTMLElement) {
-    parent.append(this.node);
+    if (this.node.parentNode !== parent) parent.append(this.node);
   }
   reset() {
     this.cancel();
     this.previous = undefined;
     this.owner = undefined;
     this.count = 0;
+    this.node.style.minHeight = "";
     this.node.replaceChildren();
     for (const key of Object.keys(this.node.dataset)) delete this.node.dataset[key];
     this.node.dataset.motionState = "idle";
@@ -48,6 +52,7 @@ export class DraculaMotion {
     for (const a of this.animations) a.cancel();
     this.animations = [];
     this.node.dataset.motionState = "idle";
+    this.node.querySelector(".is-drawing")?.classList.remove("is-drawing");
     this.finishReveal();
   }
   // Local presentation controls never alter the authoritative state.
@@ -70,7 +75,7 @@ export class DraculaMotion {
     const status = this.controls?.querySelector<HTMLElement>(".reveal-control-status");
     if (status) status.textContent = this.revealing ? "กำลังเฉลยทีละเขต • รอดูผล หรือกดแสดงผลทั้งหมด" : "";
     const skip = this.controls?.querySelector<HTMLElement>(".skip-reveal");
-    if (skip) skip.hidden = !this.revealing;
+    if (skip) skip.hidden = true; // The modal owns the skip control while open.
   }
   private paintResources(hp: number, vampires: number[]) {
     const health = this.node.querySelector(".board-health strong");
@@ -93,7 +98,13 @@ export class DraculaMotion {
     this.node.querySelectorAll(".reveal-pending, .reveal-active").forEach((el) =>
       el.classList.remove("reveal-pending", "reveal-active"));
     this.node.querySelectorAll(".district-side, .district-result").forEach((el) => el.removeAttribute("aria-hidden"));
-    this.node.querySelector(".reveal-focus")?.remove();
+    if (this.dialog) {
+      // The reveal stays within the board; restoring focus must not move it.
+      this.dialog.remove();
+      this.dialog = undefined;
+      this.previousFocus?.focus({preventScroll:true});
+      this.previousFocus = undefined;
+    }
     delete this.node.dataset.revealDistrict;
     if (this.previous?.result) this.paintResources(this.previous.hp!, this.previous.vampires!);
     this.updateControls();
@@ -106,7 +117,20 @@ export class DraculaMotion {
     const focus = document.createElement("section");
     focus.className = "reveal-focus";
     focus.setAttribute("aria-label", "เฉลยการ์ดทีละเขต");
-    this.node.prepend(focus);
+    const dialog = document.createElement("div");
+    dialog.className = "board-reveal-layer duel-surface";
+    dialog.setAttribute("role", "dialog");
+    dialog.setAttribute("aria-label", "เฉลยผลรอบทีละเขต");
+    const close = document.createElement("button");
+    close.className = "skip-reveal";
+    close.textContent = "แสดงผลทั้งหมด";
+    close.onclick = () => this.cancel();
+    dialog.addEventListener("keydown", e => { if (e.key === "Escape") this.cancel(); });
+    dialog.append(focus, close);
+    this.dialog = dialog;
+    this.previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
+    this.node.querySelector(".city-map")!.append(dialog);
+    close.focus({preventScroll:true});
     const vampires = [...old.vampires!];
     this.paintResources(old.hp!, vampires);
     this.updateControls();
@@ -166,8 +190,14 @@ export class DraculaMotion {
       this.node.dataset.revealRevision = String(view.revision);
       return;
     }
+    // Keep the document tall enough when end-of-round controls replace the
+    // discard panel. Otherwise the browser clamps scrollY at the new bottom.
+    if (old?.phase === "playing" && view.result && this.node.closest(".phone-surface"))
+      this.node.style.minHeight = `${this.node.getBoundingClientRect().height}px`;
+    else if (view.phase === "playing") this.node.style.minHeight = "";
     this.cancel();
-    this.node.innerHTML = html;
+    patchHTML(this.node, html);
+    this.node.classList.toggle("has-round-result", !!view.result);
     this.node.dataset.presentationRevision = String(view.revision);
     this.node.dataset.revealRevision = view.result ? String(view.revision) : "";
     this.node.dataset.animationCount = String(this.count);
@@ -199,6 +229,21 @@ export class DraculaMotion {
             }),
           ),
         );
+    if (view.phase === "playing" && old.step === "draw" && view.step === "discard" && view.deckCount === old.deckCount! - 1) {
+      this.node.dataset.drawRevision = String(view.revision);
+      this.node.dataset.drawAnimationCount = String(Number(this.node.dataset.drawAnimationCount ?? 0) + 1);
+      const pile = this.node.querySelector(".city-draw");
+      pile?.classList.add("is-drawing");
+      animate(".city-draw .duel-card", [
+        {transform:"translate(24px,-24px) rotate(8deg) scale(.92)"},
+        {transform:"translate(0,0) rotate(0) scale(1)"},
+      ], 520);
+    }
+    if (!old.deckTop && view.deckTop && view.step !== "discard")
+      animate(".city-draw .duel-card", [
+        {transform:"perspective(700px) rotateY(-80deg)"},
+        {transform:"perspective(700px) rotateY(0)"},
+      ], 340);
     const revealed =
       !!view.result && (!old.result || old.result.round !== view.result.round);
     if (revealed) {
@@ -234,9 +279,12 @@ export class DraculaMotion {
           )
             animate(
               `[data-district="${i}"] [data-side="${side}"] .duel-card`,
-              [
-                { transform: "translateY(-10px)", opacity: 0.5 },
-                { transform: "translateY(0)", opacity: 1 },
+              !before && after ? [
+                { transform: "perspective(700px) rotateY(-80deg)" },
+                { transform: "perspective(700px) rotateY(0)" },
+              ] : [
+                { transform: "translateY(-6px)" },
+                { transform: "translateY(0)" },
               ],
               340,
             );
@@ -258,7 +306,10 @@ export class DraculaMotion {
         500,
       );
     Promise.allSettled(this.animations.map((a) => a.finished)).then(() => {
-      if (this.version === version) this.node.dataset.motionState = "idle";
+      if (this.version === version) {
+        this.node.dataset.motionState = "idle";
+        this.node.querySelector(".is-drawing")?.classList.remove("is-drawing");
+      }
     });
   }
 }

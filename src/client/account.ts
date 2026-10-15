@@ -109,29 +109,46 @@ export function profilePage(root: HTMLElement) {
     login(root);
     return;
   }
-  root.innerHTML = `<section class="account-page"><h1>โปรไฟล์ของคุณ</h1>${target !== "/profile" ? `<a href="${esc(target)}">กลับ${target.startsWith("/play/") ? "ไปเล่น" : target.startsWith("/display/") ? "ไปจอกลาง" : "ไปเลือกเกม"}</a>` : ""}<div class="profile-summary">${avatar(p)}<div><strong>${esc(p.name)}</strong><p>${p.guest ? "Guest • ใช้ได้บนเครื่องนี้" : "บัญชี Google"}</p></div></div><form id="profile-form"><label for="profile-name">ชื่อที่แสดง</label><input id="profile-name" name="profile-name" value="${esc(p.name)}" maxlength="24" required autocomplete="nickname"><button>บันทึกชื่อ</button></form><label id="avatar-label" for="avatar-file">เปลี่ยนรูป (PNG, JPEG, WebP ไม่เกิน 2 MB)</label><input id="avatar-file" name="avatar-file" type="file" accept="image/png,image/jpeg,image/webp" hidden><button id="select-avatar" aria-describedby="avatar-label">เลือกรูปจากเครื่อง</button><button id="reset-avatar">ใช้รูปเริ่มต้น</button><p id="profile-status" role="status"></p>${p.guest ? `<a href="/login?returnTo=${encodeURIComponent(target)}">เชื่อมกับ Google เพื่อเก็บที่นั่งและประวัติ</a>` : ""}${p.admin ? '<a href="/admin">จัดการเกมและห้อง</a>' : ""}<button id="logout">ออกจากระบบ</button><p class="privacy-copy">Guest ใช้เซสชันใน browser นี้ อย่าล้างข้อมูลระหว่างเล่น บัญชี Google กลับเข้าห้องบนเครื่องอื่นได้ การออกจากระบบตัดสิทธิ์มือถือ แต่ไม่ลบเกมหรือที่นั่ง Guest ที่ออกจากระบบจะกลับที่นั่งเดิมไม่ได้ ควรเชื่อม Google ก่อน</p></section>`;
-  const run = async (fn: () => Promise<void>) => {
+  root.innerHTML = `<section class="account-page"><h1>โปรไฟล์ของคุณ</h1>${target !== "/profile" ? `<a href="${esc(target)}">กลับ${target.startsWith("/play/") ? "ไปเล่น" : target.startsWith("/display/") ? "ไปจอกลาง" : "ไปเลือกเกม"}</a>` : ""}<div class="profile-summary"><button id="select-avatar" type="button" class="profile-avatar-picker" aria-label="เปลี่ยนรูปโปรไฟล์" aria-describedby="avatar-label">${avatar(p)}<span class="avatar-edit-mark" aria-hidden="true">✎</span></button><div><strong>${esc(p.name)}</strong><p>${p.guest ? "Guest • ใช้ได้บนเครื่องนี้" : "บัญชี Google"}</p></div></div><form id="profile-form"><label for="profile-name">ชื่อที่แสดง</label><div class="profile-name-row"><input id="profile-name" name="profile-name" value="${esc(p.name)}" maxlength="24" required autocomplete="nickname"><button id="confirm-name" type="submit" disabled>ยืนยัน</button></div></form><p id="avatar-label">แตะรูปเพื่อเปลี่ยน • PNG, JPEG, WebP ไม่เกิน 2 MB</p><input id="avatar-file" name="avatar-file" type="file" accept="image/png,image/jpeg,image/webp" hidden><button id="reset-avatar">ใช้รูปเริ่มต้น</button><p id="profile-status" role="status"></p>${p.guest ? `<a href="/login?returnTo=${encodeURIComponent(target)}">เชื่อมกับ Google เพื่อเก็บที่นั่งและประวัติ</a>` : ""}${p.admin ? '<a href="/admin">จัดการเกมและห้อง</a>' : ""}<button id="logout">ออกจากระบบ</button><p class="privacy-copy">Guest ใช้เซสชันใน browser นี้ อย่าล้างข้อมูลระหว่างเล่น บัญชี Google กลับเข้าห้องบนเครื่องอื่นได้ การออกจากระบบตัดสิทธิ์มือถือ แต่ไม่ลบเกมหรือที่นั่ง Guest ที่ออกจากระบบจะกลับที่นั่งเดิมไม่ได้ ควรเชื่อม Google ก่อน</p></section>`;
+  const nameInput = root.querySelector<HTMLInputElement>("#profile-name")!;
+  const confirmName = root.querySelector<HTMLButtonElement>("#confirm-name")!;
+  let busy = false;
+  const syncName = () => { confirmName.disabled = busy || !nameInput.value.trim() || !nameInput.validity.valid || nameInput.value.trim() === p.name; };
+  nameInput.addEventListener("input", syncName);
+  syncName();
+  const run = async (fn: () => Promise<void>, nameSaved = false) => {
+    const draft = nameInput.value;
+    busy = true; nameInput.disabled = true;
     const buttons = [...root.querySelectorAll<HTMLButtonElement>("button")];
     buttons.forEach((b) => (b.disabled = true));
     try {
       await fn();
       await refreshAccount();
       profilePage(root);
-      root.querySelector("#profile-status")!.textContent = "บันทึกแล้ว";
+      if (!nameSaved) {
+        const input = root.querySelector<HTMLInputElement>("#profile-name")!;
+        if (input) { input.value = draft; input.dispatchEvent(new Event("input")); }
+      }
+      const status = root.querySelector("#profile-status");
+      if (status) status.textContent = "บันทึกแล้ว";
     } catch (e) {
-      root.querySelector("#profile-status")!.textContent = (e as Error).message;
+      const status = root.querySelector("#profile-status");
+      if (status) status.textContent = (e as Error).message;
+      busy = false; nameInput.disabled = false;
       buttons.forEach((b) => (b.disabled = false));
+      syncName();
     }
   };
   root.querySelector<HTMLFormElement>("#profile-form")!.onsubmit = (e) => {
     e.preventDefault();
+    if (confirmName.disabled) return;
     void run(async () => {
       await api("/api/profile", "PATCH", {
         name: root
           .querySelector<HTMLInputElement>("#profile-name")!
           .value.trim(),
       });
-    });
+    }, true);
   };
   root.querySelector("#select-avatar")!.addEventListener("click", () => {
     const input = root.querySelector<HTMLInputElement>("#avatar-file")!;

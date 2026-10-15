@@ -1,6 +1,6 @@
 # GameVerse — เว็บบอร์ดเกมจอกลาง + มือถือ
 
-มี portal ให้เลือก **Camel Up Second Edition (3–8 คน)**, **Dracula vs Van Helsing, Mandoo 2023 (2 คน)** และ **Azul ภาคหลัก ผนังสีมาตรฐาน (2–4 คน)**. Camel Up ใช้ฉบับ 2018 / คู่มือพิมพ์ใหม่ 2024. UI ไทย, QR/รหัสห้อง, มือถือส่วนตัว, server ตัดสินกติกาและสุ่ม, reconnect ด้วย session เดิม. คนสร้างห้องเข้ามาเล่นด้วยมือถืออีกเครื่องได้
+มี portal ให้เลือก **Jaipur ภาคหลัก (2 คน)**, **7 Wonders Duel ภาคหลัก (2 คน)**, **Camel Up Second Edition (3–8 คน)**, **Dracula vs Van Helsing, Mandoo 2023 (2 คน)**, **Azul ภาคหลัก ผนังสีมาตรฐาน (2–4 คน)** และ **Calico ภาคหลัก (1–4 คน)**. Camel Up ใช้ฉบับ 2018 / คู่มือพิมพ์ใหม่ 2024. UI ไทย, QR/รหัสห้อง, มือถือส่วนตัว, server ตัดสินกติกาและสุ่ม, reconnect ด้วย session เดิม. คนสร้างห้องเข้ามาเล่นด้วยมือถืออีกเครื่องได้
 
 ## ติดตั้งและรัน
 
@@ -41,7 +41,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-- `npm test`: กติกาทั้งสามเกม, seeded complete games, actual WebSocket integration (พอร์ตสุ่ม), บทบาท/ความพร้อม/ห้องเต็ม/การ์ดลับ/atomic reveal และ retries/reconnect
+- `npm test`: กติกาทั้งหกเกม, seeded complete games, actual WebSocket integration (พอร์ตสุ่ม), บทบาท/ความพร้อม/ห้องเต็ม/การ์ดลับ/atomic reveal และ retries/reconnect
 - `npm run build`: typecheck, client bundle, server JS
 - `npm run test:e2e`: build แล้วเปิด production server port 3000; Chromium จอกลาง + มือถือ 3 browser contexts, เล่นจบเกม, หลุดกลับ, ทดสอบคำตอบคำสั่งหายแล้ว retry, payload privacy, animation unit/tile, duplicate/gap/resync, reduced motion และ viewport desktop/iPad/phone. หากมีห้องกำลังเล่นบน 3000 ใช้ `PLAYWRIGHT_PORT=3001 npm run test:e2e` เพื่อรักษาห้องเดิม
 - ภาพที่ทดสอบสร้างไว้ใน `test-results/` (ไม่ commit). ดูรายละเอียดผลที่รันจริงใน [docs/progress.md](docs/progress.md)
@@ -53,14 +53,47 @@ npm run build
 npm start
 ```
 
-`npm start` ใช้ server JS ที่ compile แล้วและ `dist/`; ไม่ต้องมี Vite ระหว่างรัน. `/health` ใช้ตรวจ process. มี Dockerfile สำหรับ single process:
+`npm start` ใช้ server JS ที่ compile แล้วและ `dist/`; ไม่ต้องมี Vite ระหว่างรัน. `/health` ใช้ตรวจ process.
+
+## Docker บนเครื่องตัวเอง — port 5555
+
+เปิด Docker Desktop แล้วรันจาก project root (ต้องมี Node.js 24.18+ สำหรับ setup script):
 
 ```sh
-docker build -t games .
-docker run --rm -p 3000:3000 --env-file .env -v gameverse-data:/app/data games
+npm run docker:rebuild
 ```
 
-Dockerfile ตรวจ build สำเร็จแล้ว; runtime deployment ครั้งนี้ใช้ Vercel ตามรายละเอียดด้านล่าง. เลือก VM/container ที่รองรับ long-lived WebSocket แล้ว reverse proxy HTTPS/WSS พร้อมส่งต่อ Host และ Origin ให้ตรงกัน. ใช้ **หนึ่ง instance**; ห้ามเปิดหลาย replica เพราะ room coordinator อยู่ใน process เดียว. ไม่เหมาะกับ serverless request handlers ที่ตัด WebSocket. สำหรับ Vercel ใช้เส้นทาง Postgres ที่ระบุด้านล่าง; ไม่ใช้ SQLite บน disk ชั่วคราวของ Vercel
+เปิด **http://localhost:5555**. คำสั่งนี้ build, เริ่ม container และรอ health check. ครั้งแรกสร้าง private `.env.docker` โดยคัดลอกเฉพาะ Google credentials จาก `.env` พร้อมสร้าง auth secret ใหม่; ครั้งถัดไปเก็บค่าเดิม. ถ้ายังไม่มี credentials ให้ใส่ใน `.env.docker` แล้ว rebuild. ห้าม commit หรือส่งไฟล์นี้ในแชต.
+
+เครื่องนี้เชื่อม Docker ผ่าน **https://bn-games.basnana.com** แล้ว และตั้ง `BETTER_AUTH_URL` / `GAMEVERSE_JOIN_ORIGIN` ใน `.env.docker` เป็นโดเมนนี้. ใช้โดเมนนี้สำหรับ Google login และ QR เข้าห้อง; `localhost:5555` ยังเปิดแอปได้ แต่ Google login ใช้ URL หลักที่ตั้งไว้. การแมป DNS/tunnel อย่างเดียวไม่เปลี่ยน URL ภายในแอป. หากเปลี่ยนโดเมน แก้สองค่านี้และเพิ่มโดเมนใน `GAMEVERSE_TRUSTED_ORIGINS` แล้ว rebuild.
+
+สำหรับโดเมน Docker ให้เพิ่มใน OAuth client ตัวเดียวกับ `.env.docker`: origin `https://bn-games.basnana.com` และ redirect `https://bn-games.basnana.com/api/auth/callback/google`. คง localhost ไว้หากจะสลับกลับไปรัน local โดยตรง.
+
+เพิ่มใน Google OAuth client ที่ Client ID ตรงกับ `GOOGLE_CLIENT_ID` ใน `.env.docker` โดยคง URL เก่าไว้ (dev กับเว็บจริงอาจใช้คนละ client):
+
+- Authorized JavaScript origins: `http://localhost:5555`
+- Authorized redirect URIs: `http://localhost:5555/api/auth/callback/google`
+
+ล็อกอิน Google บนคอมเพื่อสร้างห้อง. มือถือบน Wi-Fi เดียวกันสแกน QR แล้วเข้าเป็น Guest ได้. Setup เลือก LAN IP ของคอมสำหรับ QR; หาก IP เปลี่ยน แก้ `GAMEVERSE_JOIN_ORIGIN` และ `GAMEVERSE_TRUSTED_ORIGINS` ใน `.env.docker` เป็น `http://<LAN-IP>:5555` แล้ว rebuild. เปิด firewall port 5555 หากมือถือเข้าถึงไม่ได้. Google login ผ่าน LAN IP ของมือถือยังต้องใช้ HTTPS domain ตามข้อจำกัดด้านบน.
+
+```sh
+npm run docker:rebuild  # หลังแก้โค้ด: build และอัปเดต container
+npm run docker:watch    # หรือเปิด watcher ให้ rebuild เมื่อ src/public/config เปลี่ยน (Compose 2.22+)
+npm run docker:stop     # หยุดโดยเก็บข้อมูลไว้
+```
+
+ใช้ SQLite ใน named volume `gameverse-local_local-data` และ cookie prefix แยกจาก dev port 3000. ห้อง/บัญชี/รูปที่อัปโหลดอยู่ใน volume; rebuild ไม่ล้างข้อมูล. ห้ามใช้ `docker compose down -v` หากต้องการรักษาห้องและบัญชี. Docker local มีข้อมูลแยกจาก dev และ Vercel ไม่ได้ย้ายหรือ sync ห้องเดิม. รันเพียงหนึ่ง instance สำหรับ SQLite. `SIGTERM` ปิด server/ฐานข้อมูลอย่างเรียบร้อยก่อน recreate.
+
+ตรวจแอป Docker จริงด้วย Chromium (สร้างบัญชีเจ้าของแบบ fixture ใน SQLite เฉพาะ fresh Guest ไม่ใช่การทดสอบ Google provider):
+
+```sh
+npx playwright install chromium
+GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts
+```
+
+ชุดนี้ตรวจ native file picker/ชื่อ/รูป และเล่น Dracula ด้วยจอกลาง+มือถือสองคนจนจบ รวม recreate container ระหว่างเกมแล้ว reconnect ด้วย session/ไพ่เดิม. ใช้เฉพาะ Docker local ที่ localhost:5555 และจะ restart container หนึ่งครั้ง; ไม่ลบ volume. ผลจริงและข้อจำกัดอยู่ใน [docs/progress.md](docs/progress.md).
+
+ตามความต้องการล่าสุด **ไม่ deploy Vercel หรือ push branch ที่เชื่อม auto-deploy จนกว่าจะสั่งใหม่**. การแก้แต่ละครั้งตรวจและ rebuild Docker local ก่อน.
 
 ## Vercel (production)
 
@@ -79,7 +112,7 @@ Dockerfile ตรวจ build สำเร็จแล้ว; runtime deployment
 ## โครงสร้าง
 
 - `src/games/camel-up/`: engine อิสระ deterministic เมื่อ inject random
-- `src/shared/catalog.ts`: metadata/counts/search/status/version กลาง; `src/games/registry.ts`: server-only adapters ทั้งสามเกม
+- `src/shared/catalog.ts`: metadata/counts/search/status/version กลาง; `src/games/registry.ts`: server-only adapters ทั้งหกเกม
 - `src/games/azul/`: atomic drafting, shared wall mapping, scoring/bonuses, conservation และ restore validation
 - `src/games/dracula-vs-van-helsing/`: state machine การ์ด/ความสามารถ/การตัดสินเขต และ public/private projections
 - `src/server/`: rooms, roles, credentials, revisions, receipts, transport, rate limits
@@ -151,7 +184,7 @@ Profile ใช้ชื่อ/avatar ร่วมทุกเกม; รับ u
 
 คำสั่ง build/test ด้านบนยังใช้ได้. Browser tests ใช้ account fixtures ผ่าน DB/library adapter เฉพาะ test และ Guest cookie จริง **ไม่ถือว่า Google provider E2E ผ่าน**. Google login/callback จริงได้รับการยืนยันจากผู้ใช้ว่ากลับเข้าเกมได้ และตรวจพบ Google account พร้อม session ใน server แล้ว. Headless browser ตรวจได้ถึงหน้า Google sign-in; การ cancel และ Guest upgrade ผ่าน provider จริงยังไม่ได้ทดสอบ. Node tests เพิ่ม HTTP/WS auth/profile/permission/SQLite failure/restart/log-out/version recovery
 
-คู่มือ: [Google Console URLs](docs/auth/google-oauth.md), [storage/rooms/backup/admin](docs/platform-storage.md), [เพิ่มเกมใหม่](docs/adding-a-game.md), [สถานะทดสอบ](docs/progress.md). ไม่ได้ deploy สาธารณะ, ไม่มี cloud billing และยังไม่ทดสอบ Docker/Safari/อุปกรณ์จริง
+คู่มือ: [Google Console URLs](docs/auth/google-oauth.md), [storage/rooms/backup/admin](docs/platform-storage.md), [เพิ่มเกมใหม่](docs/adding-a-game.md), [สถานะทดสอบ](docs/progress.md). สถานะ deploy และผลทดสอบล่าสุดดูใน docs/progress.md; Docker local มี flow ทดสอบแยกตามหัวข้อข้างต้น และยังไม่ได้ทดสอบ Safari/อุปกรณ์จริง
 # game-verse
 
 
@@ -183,6 +216,101 @@ PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/azul.spec.ts tests/browse
 
 ## Dracula บนมือถือ
 
+ไพ่ของเราที่เปิดเผยต่อคู่แข่งมีกรอบทองและป้าย **เปิดแล้ว** ซึ่งไม่จางตามหน้าไพ่ขณะรอตา พร้อมจำนวนใบและเลขเขตที่เปิดอยู่เหนือเมือง สถานะนี้ยึดข้อมูลไพ่จาก server และคงอยู่หลัง reconnect หน้าสรุปรอบใช้ฟอนต์ไทยหลัก และปุ่ม **พร้อมรอบถัดไป** อยู่ด้านขวาของกล่องเปิดการ์ดรอบ โดยรอเฉลยจบหรือกดแสดงผลทั้งหมดก่อนกดพร้อมได้
+
+หน้าเล่นแสดงไพ่คู่แข่ง 5 ใบเหนือเขตทั้ง 5 และไพ่ของคุณ 5 ใบใต้กระดาน โดยสลับตำแหน่งตามบทบาท เมืองมีเขตเว้าขนาดต่างกันและคนกระจายทั่วแต่ละเขต กดจั่วบนกระดานได้เลย ไพ่ที่จั่วปรากฏตรงกลางเฉพาะเจ้าของ เว้นแต่เปิดเผยตามกติกา มีแอนิเมชันและข้อความ **จั่วแล้ว** แยกจากใบบนสุดที่เปิดด้วยการ์ด 2 จั่วและทิ้งแล้วไม่เลื่อนหน้าอัตโนมัติ
+
+เลือกเป้าหมายโดยแตะไพ่บนกระดานโดยตรง ไม่มีแผงเลือกการกระทำแยก ไพ่ที่เลือกยกขึ้นและมีปุ่มยืนยันลอยด้านล่าง เปิดไพ่เลือกหนึ่งใบ สลับไพ่เราเลือกสองใบ แลกข้ามฝั่งเลือกเขตแล้วไพ่คู่ยกพร้อมกัน เลือกสีทรัมป์จากแถวสีบนกระดาน กรอบเมืองเปลี่ยนตามสีทรัมป์จาก server ไพ่ลับของคู่แข่งยังคว่ำ ไอคอนสีเป็น SVG ไพ่จางเมื่อรอตา และไม่มี toast เมื่อจั่วสำเร็จ (ข้อผิดพลาดยังแจ้งตามปกติ)
+
 รูปบัญชีอยู่ขวาบนพร้อมจุดออนไลน์/หลุด ส่วนฝั่งเกมใช้ภาพ Dracula / Van Helsing เดิมและกรอบทองบอกฝั่งของคุณ. สีทรัมป์ล่าสุดอยู่เหนือปุ่มกระทำ; การ์ด 7 เลือกวงกลมสีและสัญลักษณ์แล้วกดยืนยัน. เลือกการ์ดที่จะทิ้งแล้วใช้ปุ่มยืนยันที่ติดด้านล่างจอ. แตะรหัสห้องเพื่อคัดลอกลิงก์ชวนเพื่อน; ผลคำสั่งแสดงเป็น toast. เล่นอีกครั้งใช้ห้อง/ผู้เล่น/บทบาทเดิม แจกการ์ดใหม่และล้างผลกับภาพเกมเก่า.
 
 ทดสอบ flow และ rematch แบบเจาะจง: `npm run build && PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/dracula-controller.spec.ts` (แยกจาก dev ที่ port3000). รูปหลังรันอยู่ `test-results/dracula-controller-*.png`.
+
+
+## Calico ภาคหลัก (1–4 คน)
+
+เปิด `/games/calico` หรือเลือก Calico บน Portal. ใช้ Profile/Login/Guest/QR/Lobby และ reconnect กลางเดิม. จอกลางไม่กินที่นั่ง; ผู้เล่น 1–4 คนกดพร้อม (หนึ่งคนเป็น Solo) ผู้สร้างเลือกคนลูบแมวล่าสุดเป็นผู้เริ่มและเลือกการจัดเกม:
+
+- **มาตรฐาน**: server สุ่มแมวตาม dot groups และลายให้แมว; แต่ละคนเลือก/จัด goals 3 จาก 4 ชิ้นบนมือถือ ยืนยันครบทุกคนจึงเริ่ม. Draft เก็บฝั่ง server และกลับมาเลือกต่อได้หลัง refresh.
+- **เกมแรก**: แมว Millie/Tibbit/Coconut และเป้าหมายตามภาพ setup ในคู่มือ ไม่ใช่ house rule/family variant.
+
+แต่ละตาแตะผ้าในมือ → แตะช่องว่างเพื่อ preview → ยืนยันวาง → เลือกผ้าจากตลาด → ยืนยันเลือก. ตลาดอยู่ด้านบนและปุ่มยืนยันอยู่ในแถบตลาดบนมือถือ รหัส/QR อยู่ในเมนู “ข้อมูลห้อง” ระหว่างเล่น เสียงใช้ icon ที่ปิดได้ แมวและกระดุมผูกกับช่องที่ได้รับ แตะดูที่มา/ลดความทึบได้. มือเปิดให้ทุกคนรวมจอกลางเห็นตามข้อวินิจฉัยที่ผู้ใช้ยืนยัน (คู่มือไม่ได้ระบุข้อความเรื่อง visibility ชัดเจน). ถุง108ชิ้นมีจำนวนจำกัดจริงและลำดับไม่ส่งให้ client. วางคนละ22ตา แล้วคิด goals/แมว/ปุ่มพร้อม tie-break. รองรับแมวพื้นฐานทั้ง10ตัว กระดาน4ผืน และ Solo ภาคหลัก; ไม่รวม lower-variance/family/scenarios/achievements/expansions/AI.
+
+Solo: หลังหยิบตลาดหนึ่งชิ้น ทิ้งอีก **1 ชิ้นที่ไกลถุงที่สุด** เลื่อนชิ้นที่เหลือไปช่อง1 เติมช่อง2และ3ตามลำดับ รวมจั่ว2ชิ้น/ตา ตามคู่มือหน้า8 ไม่ใช่ทิ้งตลาดที่เหลือทั้งสองชิ้น. เล่นครบ22ตาพร้อมขั้นตอนเลือก/เติมในตาสุดท้าย แล้วสรุปคะแนนปกติ ไม่มี AI หรือเกณฑ์ระดับ Solo ที่เว็บแต่งเพิ่ม. Multiplayer2–4เติมเฉพาะช่องที่หยิบ ไม่มีการทิ้งแบบ Solo. ห้องสองคนเดิมกู้กลับด้วยกติกา/กระดานเดิม ไม่ reset ระหว่างเกม
+
+ภาพปก/แมว10ตัว/ปุ่ม7แบบ/linen texture สร้างด้วย imagegen และเชื่อมแอปจริง; ลายผ้าเชิงกติกาเป็น SVG คงที่พร้อมรหัส1–6/A–F. มี tile detail, market/placement preview และยืนยันก่อนcommit, motionตามserverrevision/eventsequence, reduced-motion และเสียงจบตา/muteเดิม. หลุดหลังวางกลับมาเลือกตลาดต่อได้; เล่นอีกครั้งเก็บห้อง/ผู้เล่นแต่เริ่มผ้าห่มใหม่.
+
+กติกาและข้อวินิจฉัย: [rules.md](docs/games/calico/rules.md). พิกัด/ภาพ/asset mapping: [design.md](docs/games/calico/design.md). ผลทดสอบจริงและข้อจำกัด: [progress.md](docs/progress.md).
+
+```sh
+npm test
+npm run build
+PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/calico.spec.ts
+npm run docker:rebuild
+GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts tests/browser/calico.spec.ts
+```
+
+Docker ใช้ข้อมูลใน volume เดิมที่ port5555 และโดเมนที่ตั้งใน .env.docker (เครื่องนี้ https://bn-games.basnana.com). คำสั่ง browser สร้างเจ้าของแบบ isolated fixture ไม่ใช่การทดสอบ Google provider และปิดเฉพาะห้องทดสอบเมื่อจบ. ไม่ deploy/push Vercel จนกว่าจะสั่ง.
+
+
+## 7 Wonders Duel — ภาคหลัก 2015 (2 คน)
+
+เปิด **https://bn-games.basnana.com/games/seven-wonders-duel** หรือ **http://localhost:5555/games/seven-wonders-duel** หลังรัน Docker. เจ้าของล็อกอินสร้างห้อง ผู้เล่นสองคนเข้าด้วย Guest/Google และกดพร้อม จากจอกลางเลือกผู้เริ่มแล้วเริ่มเกม จากมือถือเลือก Wonders คนละสี่ใบ ตามลำดับ 1/2/1 แล้วกลับฝ่ายในชุดที่สอง
+
+แต่ละตาแตะการ์ดจากผังเพื่ออ่านรายละเอียด เลือกสร้างอาคาร / ทิ้งรับเหรียญ / ใช้สร้าง Wonder ตรวจราคาที่ server คำนวณ แล้วกดยืนยัน. ไพ่ที่ยังถูกบังดูรายละเอียดได้เฉพาะใบหงาย แต่หยิบไม่ได้. มือถือเลือก Progress / เป้าทำลาย / กองทิ้ง / ผู้เริ่มยุคเมื่อมีผลนั้น. Great Library เปิดตัวเลือกสามชิ้นเฉพาะผู้เลือก. ชนะได้ทั้งทหาร วิทยาศาสตร์ หรือคะแนนหลังสามยุค. เล่นอีกครั้งล้างเกมโดยเก็บห้อง/ที่นั่ง/เซสชันเดิม
+
+ใช้ catalog อาคาร73ใบ Wonders12ใบ Progress10ชิ้น และผังสามยุคจากคู่มือ ไม่รวมภาคเสริม/promos/AI. ภาพสร้างใหม่ในโปรเจกต์: Wonders แยก12ภาพ, อาคารและ Guilds ใช้28ฉากร่วมตามประเภทพร้อมชื่อ/ราคา/สัญลักษณ์จากโค้ด, Progress10ภาพ พื้นกระดานและชิ้นส่วน. ไม่มีภาพลับระบุที่หน้าไพ่คว่ำหรือใน payload. ขนาดภาพรวมเกมประมาณ2.6MB พร้อม preload/cache และ fallback ในเครื่อง
+
+กติกาและแหล่งอ้างอิง: [rules.md](docs/games/seven-wonders-duel/rules.md). แนวภาพ/asset mapping: [design.md](docs/games/seven-wonders-duel/design.md), [asset-map.json](docs/games/seven-wonders-duel/asset-map.json). ผลตรวจจริง: [progress.md](docs/progress.md)
+
+```sh
+npm test
+npm run build
+PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/seven-wonders-duel.spec.ts
+npm run docker:rebuild
+GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts tests/browser/seven-wonders-duel.spec.ts
+# Optional: regenerate WebP assets from the three source atlases already in assets/source/
+npx tsx scripts/prepare-wonders-art.ts
+```
+
+Browser tests ใช้บัญชีเจ้าของแบบ fixture เฉพาะการทดสอบ ไม่ใช่หลักฐานการล็อกอิน Google provider. เส้นทางเล่นปกติเล่นตั้งแต่ setup ครบสามยุค; ชนะทหาร/วิทยาศาสตร์และ Great Library ใช้สถานการณ์ท้ายเกมควบคุมใน test server เพื่อเจาะผลเฉพาะ ไม่ได้เพิ่ม debug endpoint. ทดสอบ Chromium desktop/iPad/mobile จำลอง; ยังไม่ตรวจ Safari, iPad และ LG TV จริง. ไม่ deploy Vercel/push จนกว่าจะสั่งใหม่
+
+
+## Jaipur — Space Cowboys 2019 ภาคหลัก (2 คน)
+
+เปิด **https://bn-games.basnana.com/games/jaipur** หรือ **http://localhost:5555/games/jaipur**. เจ้าของล็อกอินสร้างห้อง จอกลางไม่กินที่นั่ง ผู้เล่นสองคนเข้าด้วย QR/รหัสห้อง กดพร้อม แล้วเจ้าของเลือกผู้เริ่มและเริ่มเกม. มือถือเลือกสินค้าเพื่อหยิบ หรือเลือก “แลก” เพื่อรับสินค้าอย่างน้อยสองใบและคืนไพ่/อูฐเท่ากัน หรือเลือก “ขาย” แล้วแตะไพ่ชนิดเดียว/ปรับจำนวน ตรวจราคาและกดยืนยัน. ตัวเลือกเป็นส่วนตัวจนยืนยัน ส่งคำสั่งและตัดสินผลที่ server เท่านั้น
+
+มือไม่เกินเจ็ดใบ อูฐอยู่ในฝูงแยก เพชร/ทอง/เงินขายขั้นต่ำสองใบ ขายสาม/สี่/ห้าใบขึ้นไปได้โบนัสหมวดนั้นถ้ายังเหลือ. คู่แข่งและจอกลางไม่เห็นมือ จำนวนอูฐ มูลค่าโบนัส หรือเงินรวมระหว่างรอบ. ตอนจบรอบเปิดคะแนน แจกตราชนะ ผู้แพ้เริ่มรอบถัดไป ชนะสองรอบจบแมตช์. กรณีคะแนน จำนวนโบนัส และจำนวนโทเคนเท่ากันทั้งหมด ใช้ข้อวินิจฉัยที่ผู้ใช้อนุมัติ: รอบเสมอ ไม่แจกตรา และตกลงเลือกผู้เริ่มใหม่. ปุ่มเล่นอีกครั้งล้างตลาด มือ กองจั่ว โทเคน ประวัติ และตรา โดยเก็บห้อง/ที่นั่ง/เซสชันเดิม
+
+กติกา/ฉบับ/จำนวนชิ้นส่วนและแหล่งอ้างอิง: [rules.md](docs/games/jaipur/rules.md). ภาพและ motion: [design.md](docs/games/jaipur/design.md), [asset-map.json](docs/games/jaipur/asset-map.json). ภาพสร้างใหม่สินค้าเจ็ดประเภท หลังไพ่ โทเคน ปกและผ้าปูโต๊ะประมาณ1.1MB; ตัวเลขและข้อความไทย render ด้วยโค้ด. ไม่มี AI/ภาคเสริม/undo หลังเปิดข้อมูลใหม่
+
+```sh
+npm install
+npm run dev                        # http://localhost:3000
+npm test
+npm run build
+PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/jaipur.spec.ts
+npm run docker:rebuild             # http://localhost:5555, preserves volume
+GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts tests/browser/jaipur.spec.ts
+node scripts/prepare-jaipur-art.mjs # regenerate WebP crops from saved original artwork
+```
+
+Browser tests use isolated fixture accounts, not a live Google provider login. ดูผลทดสอบจริงและข้อจำกัดใน [progress.md](docs/progress.md). ไม่ deploy/push Vercel จนกว่าจะสั่ง
+
+
+### Jaipur: โต๊ะกระชับและสรุปผลคะแนน
+
+ระหว่างเล่นทุกเกม รหัสห้อง/คัดลอกลิงก์/QR อยู่ในเมนู **ข้อมูลห้อง** ด้านบน พร้อมปุ่มลำโพงปิดเสียงได้. Jaipur ใช้กรอบรอบผู้เล่นปัจจุบันแทนข้อความเทิร์นด้านบน ส่วนเกมอื่นคงสถานะ **ตาคุณ / ตา [ชื่อ]**. ห้องรอยังคงแสดงคำเชิญเดิม.
+
+Jaipur บนมือถือแสดงกองสินค้าทั้งหกในแถวเดียว ส่วน Display แสดงแถวละสามกองและโทเคน/ค่าทั้งกองซ้อนในบรรทัดเดียว แตะดูราคาเพิ่มเติมได้ โบนัสกับรางวัลอูฐอยู่ก่อนตลาด ข้อมูลคู่แข่งอยู่เหนือโต๊ะทางซ้ายคู่กับฝูงอูฐทางขวา ส่วนข้อมูลของคุณอยู่ใต้โต๊ะทางขวาคู่กับอูฐทางซ้ายและมีขนาดใหญ่กว่า เปิดจำนวนอูฐทั้งสองฝ่ายตามรูปแบบเว็บที่ผู้ใช้ขอ (ต่างจากสิทธิ์ดูจำนวนในคู่มือ) กองอูฐเตี้ยลงและซ้อนตามจำนวน แสดงครบทุกใบ รวมสิบเอ็ดใบโดยไม่มี +1. มือเรียงตามสินค้าเสมอ เลือกสินค้า 1 ใบเพื่อหยิบ หรือ 2+ ใบเพื่อแลก แล้วตรวจรับ/คืนก่อนยืนยัน โดยเติมอูฐที่มีให้เป็นค่าเริ่มต้นและยังปรับลด/คืนไพ่แทนได้; แตะอูฐเพื่อเลือกอูฐทั้งหมด. การเลือก/ยืนยันไม่สั่งเลื่อนหน้าจอ. ระหว่างรอตาผู้เล่นอื่น ไพ่บนมือถือจางลงและกลับมาชัดเมื่อถึงตาคุณ; จอกลางไม่จาง. แถบผู้เล่นแบ่งพื้นที่โปรไฟล์กับฝูงอูฐคงที่ 50/50 ทั้งสองฝ่าย จำนวนอูฐไม่เปลี่ยนความกว้างช่อง; บนจอเล็กซ้อนอูฐให้ครบในครึ่งของตนเอง. โปรไฟล์แสดงรูป/ชื่อ/สถานะ ตามด้วยกล่องข้อมูลเดียวที่รวมไพ่ สินค้า โบนัส และรอบที่ชนะในแถวเดียว เพื่อลดความสูงโดยไม่วางตัวเลขทับภาพ.
+
+จบรอบมี popup นับสินค้า → โบนัส → อูฐ → รวม จากผล server ทั้งจอกลางและมือถือ. กด **ข้ามการนับ** หรือ **ตกลง** เฉพาะจอของคุณ คะแนนยังอยู่และเปิดดูอีกครั้งได้. ต้องกด **เริ่มรอบถัดไป** เอง; จบการแข่งขันผู้มีสิทธิ์กด **เริ่มเกมใหม่** ในห้องเดิม. Reconnect ไม่เริ่มนับใหม่และไม่เพิ่มตราชนะซ้ำ.
+
+```sh
+npm run build
+PLAYWRIGHT_PORT=3001 npx playwright test tests/browser/jaipur.spec.ts
+npm run docker:rebuild
+GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts tests/browser/jaipur.spec.ts
+```
+
+ผลการทดสอบ/ข้อจำกัดล่าสุดอยู่ใน [docs/progress.md](docs/progress.md). Docker ใช้ port5555 และ volume เดิม; ไม่ deploy Vercel อัตโนมัติ.

@@ -1,0 +1,1412 @@
+/* Quiet linen, indigo binding and raspberry stitches. Color encodes patches only. */
+body.calico-theme {
+  background: #e6e5db;
+  color: #293d45;
+  background-image: url("/art/calico/cloth.webp");
+  color-scheme: light;
+}
+.calico-surface {
+  max-width: 1600px;
+  padding: 16px 24px 100px;
+  color: #293d45;
+}
+.calico-surface .game-header {
+  border-color: #8fa0a2;
+}
+.calico-surface .brand {
+  color: #294d63;
+}
+.calico-surface button {
+  background: #365b6e;
+  color: #fff;
+  border: 1px solid #365b6e;
+  min-height: 44px;
+  border-radius: 6px;
+  font: inherit;
+  padding: 10px 16px;
+  touch-action: manipulation;
+}
+.calico-surface button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+.calico-surface button:focus-visible,
+.calico-surface summary:focus-visible {
+  outline: 3px solid #bd416a;
+  outline-offset: 4px;
+}
+.calico-surface button:not(:disabled):hover {
+  filter: brightness(1.08);
+}
+.calico-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 12px 0 18px;
+}
+.calico-heading h1 {
+  font-family: Georgia, serif;
+  font-size: 38px;
+  letter-spacing: -1px;
+  margin: 0;
+  color: #244359;
+}
+.calico-heading h1 span {
+  font-family: inherit;
+  font-size: 18px;
+  letter-spacing: 0;
+  font-weight: normal;
+  margin-left: 12px;
+}
+.calico-heading p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+.calico-heading .room-code {
+  background: #edf0e7;
+  color: #294d63;
+}
+.calico-defs {
+  position: absolute;
+  pointer-events: none;
+}
+.calico-table {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.sewing-tray {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(400px, 1.5fr);
+  gap: 20px;
+  align-items: start;
+  background: #f4f3eb;
+  border: 1px solid #aab5b2;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 3px 0 #c0c8c2;
+}
+.market-tray h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+.market-tray h2 small {
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 12px;
+}
+.market-tray p {
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.calico-market,
+.calico-hand {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+.calico-market > button,
+.calico-hand > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: 2px solid transparent;
+  background: transparent;
+  color: #293d45;
+  min-width: 0;
+  flex: 1;
+  padding: 2px 4px 8px;
+  border-radius: 8px;
+}
+.calico-market > button:disabled,
+.calico-hand > button:disabled {
+  opacity: 1;
+}
+.calico-market > button span:not(.fabric):not(.fabric-code),
+.calico-hand > button span:not(.fabric):not(.fabric-code) {
+  font-size: 12px;
+}
+.calico-surface [aria-pressed="true"] {
+  border-color: #b33968 !important;
+  box-shadow: 0 0 0 2px #f1c7d5;
+}
+.fabric {
+  position: relative;
+  display: block;
+  width: 76px;
+  height: 84px;
+  background-color: var(--patch);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  overflow: hidden;
+  isolation: isolate;
+}
+.fabric:after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  clip-path: inherit;
+  background: transparent;
+  border: 1px dashed #ffffff85;
+  pointer-events: none;
+}
+.fabric svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff9df;
+  stroke: #fff9df;
+  opacity: 0.72;
+}
+.fabric-code {
+  position: absolute;
+  right: 18%;
+  bottom: 8%;
+  font-size: 10px;
+  line-height: 1.3;
+  background: #fffbe9;
+  color: #182d37;
+  border-radius: 3px;
+  padding: 0 3px;
+  font-weight: bold;
+  z-index: 1;
+}
+.fabric-small {
+  width: 42px;
+  height: 48px;
+}
+.fabric-small .fabric-code {
+  font-size: 8px;
+}
+.cat-contracts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.cat-contract {
+  background: #e8ecdf;
+  border: 1px dashed #789288;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.cat-contract summary {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 6px;
+  text-align: center;
+}
+.cat-contract summary img {
+  width: 110px;
+  max-width: 100%;
+  height: 74px;
+  object-fit: contain;
+}
+.cat-contract summary span {
+  font-size: 14px;
+}
+.cat-contract summary strong {
+  display: block;
+  font-size: 12px;
+  color: #305363;
+}
+.cat-requirement {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-top: 1px dashed #8ba295;
+}
+.cat-size {
+  font:
+    30px Georgia,
+    serif;
+}
+.cat-shape {
+  width: 110px;
+  height: 64px;
+  fill: #fdf9e8;
+  stroke: #34555e;
+  stroke-width: 1.2;
+}
+.cat-patterns {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  text-align: center;
+}
+.cat-patterns small {
+  display: block;
+  font-size: 11px;
+}
+.cat-requirement p {
+  line-height: 1.6;
+  margin: 8px 0 0;
+}
+.quilt-players {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.quilt-player {
+  min-width: 0;
+  background: #f5f2e8b3;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid #9faea6;
+}
+.quilt-player.active-quilter {
+  border-color: #537f8b;
+}
+.quilter-name {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.quilter-name .profile-avatar {
+  width: 38px;
+  height: 38px;
+  flex-basis: 38px;
+}
+.quilter-name h2 {
+  font-size: 18px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.quilter-name p {
+  font-size: 12px;
+  margin: 3px 0;
+}
+.quilter-name small {
+  font-size: 12px;
+  color: #416a77;
+}
+.quilt {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 400/480;
+  border-radius: 10px;
+  background: #e5e3cf url("/art/calico/cloth.webp");
+  box-shadow:
+    inset 0 0 0 5px #47677c,
+    inset 0 0 0 8px #e5e7d5,
+    0 4px 9px #2e49482b;
+  overflow: hidden;
+}
+.quilt-stitch {
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed #47677c;
+  pointer-events: none;
+}
+.quilt-cell {
+  position: absolute;
+  width: 17.5%;
+  height: 12.63%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+.calico-surface button.quilt-cell {
+  padding: 1px;
+  border: none;
+  background: #f7f1df;
+  color: #596e6f;
+  min-height: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+.calico-surface button.quilt-cell:disabled {
+  opacity: 1;
+}
+.quilt-cell .fabric {
+  width: 100%;
+  height: 100%;
+}
+.printed {
+  filter: saturate(0.8);
+}
+.printed .fabric {
+  opacity: 0.85;
+}
+.patch-cell:not(.placed):not(.preview) {
+  background: #faf5e6;
+  background-image: linear-gradient(30deg, #e1d8bd33 12%, transparent 12%);
+}
+.patch-cell:not(.placed):after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  clip-path: inherit;
+  box-shadow: inset 0 0 0 1px #71807b44;
+}
+.empty-stitch {
+  font-size: 16px;
+  color: #607b73;
+}
+.calico-surface button.preview {
+  background: #b33968;
+  box-shadow: inset 0 0 0 4px #b33968;
+}
+.preview .fabric {
+  opacity: 0.65;
+}
+.goal-cell {
+  background: #e8d6af;
+  color: #354e56;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: inset 0 0 12px #887c5860;
+}
+.goal-letter {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: clamp(9px, 1.3vw, 20px);
+  text-align: center;
+}
+.goal-values {
+  font-size: 12px;
+}
+.goal-values b {
+  color: #7d3970;
+}
+.award-cat {
+  position: absolute;
+  width: 56%;
+  height: 58%;
+  object-fit: contain;
+  left: 25%;
+  top: 23%;
+  z-index: 3;
+  filter: drop-shadow(0 2px 2px #1d303966);
+}
+.award-button {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  object-fit: contain;
+  left: 8%;
+  bottom: 8%;
+  z-index: 4;
+}
+.public-hand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.score-breakdown {
+  margin-top: 12px;
+  border-top: 1px dashed #8eaaa1;
+  padding-top: 8px;
+}
+.score-breakdown h3 {
+  font-size: 14px;
+  margin: 0;
+}
+.score-breakdown h3 > b {
+  float: right;
+  font-size: 22px;
+  color: #294f62;
+}
+.score-breakdown summary {
+  font-size: 13px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.score-breakdown ul {
+  padding-left: 18px;
+  font-size: 13px;
+}
+.score-breakdown li {
+  margin: 6px 0;
+}
+.score-breakdown li > strong {
+  float: right;
+}
+.token-line {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.token-line > span {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.token-line img {
+  object-fit: contain;
+}
+#calico-controls {
+  max-width: 500px;
+  margin: 0 auto 18px;
+  padding: 14px 20px;
+  background: #eef0e4;
+  border: 1px dashed #69888b;
+  border-radius: 10px;
+  scroll-margin-top: 12px;
+}
+.calico-turn h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #244e66;
+}
+.calico-turn p {
+  font-size: 13px;
+  margin: 5px 0 12px;
+}
+.calico-hand > button {
+  flex: 0 1 160px;
+}
+.calico-confirm {
+  position: fixed;
+  bottom: max(10px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+  background: #f9f6ec;
+  border: 2px solid #b33968;
+  box-shadow: 0 3px 20px #263f4540;
+  border-radius: 10px;
+  padding: 8px 12px;
+  max-width: calc(100vw - 20px);
+  white-space: nowrap;
+}
+.calico-confirm > span {
+  font-size: 12px;
+}
+.calico-confirm button {
+  font-size: 14px;
+}
+.goal-setup {
+  max-width: 660px;
+  background: #edf0df;
+  border: 1px dashed #71928a;
+  border-radius: 10px;
+  padding: 18px;
+  margin: 0 auto 20px;
+}
+.goal-setup h2 {
+  margin: 0;
+  font-size: 23px;
+}
+.goal-setup p {
+  font-size: 13px;
+}
+.goal-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.goal-options button {
+  background: #e8d6af;
+  color: #354e56;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 4px;
+}
+.goal-options .goal-letter {
+  font-size: 16px;
+}
+.goal-options small {
+  font-size: 11px;
+}
+.setup-wait {
+  text-align: center;
+  padding: 16px;
+  border: 1px dashed #9ba997;
+}
+.calico-finish {
+  padding: 22px;
+  text-align: center;
+  border: 2px dashed #648a83;
+  background: #eef0df;
+  margin-bottom: 20px;
+}
+.calico-finish h2 {
+  font-family: Georgia, serif;
+  color: #244e66;
+}
+@media (min-width: 1100px) {
+  .calico-table:not(.phone-quilts) {
+    display: grid;
+    grid-template-columns: minmax(190px, 250px) minmax(0, 1fr);
+    align-items: start;
+  }
+  .calico-table:not(.phone-quilts) .sewing-tray {
+    grid-template-columns: 1fr;
+  }
+  .calico-table:not(.phone-quilts) .cat-contracts {
+    grid-template-columns: 1fr;
+  }
+  .calico-table:not(.phone-quilts) .cat-contract summary {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .calico-table:not(.phone-quilts) .cat-contract summary img {
+    width: 85px;
+    height: 65px;
+  }
+  .calico-table:not(.phone-quilts) .fabric {
+    width: 58px;
+    height: 64px;
+  }
+  .calico-table:not(.phone-quilts) .quilt .fabric {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (max-width: 700px) {
+  .calico-surface {
+    padding: 8px 12px 110px;
+  }
+  .calico-heading {
+    gap: 8px;
+  }
+  .calico-heading h1 {
+    font-size: 29px;
+  }
+  .calico-heading h1 span {
+    display: none;
+  }
+  .calico-heading .room-code {
+    padding: 7px 10px;
+    min-height: 50px;
+  }
+  .calico-heading .room-code strong {
+    font-size: 19px;
+  }
+  .quilt-players {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .sewing-tray {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 14px;
+  }
+  .quilt-player {
+    padding: 10px;
+  }
+  .quilt .goal-letter {
+    font-size: 12px;
+  }
+  .quilt .goal-values {
+    font-size: 10px;
+  }
+  .cat-contract summary img {
+    height: 56px;
+  }
+  .cat-contract summary b {
+    font-size: 12px;
+  }
+  .cat-requirement {
+    padding: 6px;
+  }
+  .cat-patterns {
+    gap: 6px;
+  }
+  .cat-patterns .fabric {
+    width: 30px;
+    height: 36px;
+  }
+  .goal-options {
+    gap: 6px;
+  }
+  .goal-options .goal-letter {
+    font-size: 12px;
+  }
+  .calico-confirm {
+    flex-wrap: wrap;
+    width: calc(100vw - 24px);
+    white-space: normal;
+  }
+  .calico-confirm > span {
+    width: 100%;
+    text-align: center;
+  }
+  .phone-quilts .sewing-tray {
+    order: 1;
+  }
+  .phone-quilts .quilt-players {
+    order: 0;
+  }
+  .calico-market .fabric {
+    width: 68px;
+    height: 76px;
+  }
+  .goal-cell {
+    gap: 1px;
+  }
+  .quilter-name h2 {
+    font-size: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .calico-surface * {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (max-width: 700px) {
+  .phone-quilts .quilt-players {
+    display: contents;
+  }
+  .phone-quilts .quilt-player {
+    order: 3;
+  }
+  .phone-quilts .quilt-player:first-child {
+    order: 0;
+  }
+  .phone-quilts .sewing-tray {
+    order: 1;
+  }
+}
+body.calico-theme::before {
+  background: #e6e5db url("/art/calico/cloth.webp");
+}
+.calico-heading .room-code strong {
+  color: #294d63;
+}
+.calico-surface .calico-market > button,
+.calico-surface .calico-hand > button {
+  background: transparent;
+  color: #293d45;
+  border-color: transparent;
+}
+.fabric::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/art/calico/cloth.webp");
+  mix-blend-mode: multiply;
+  opacity: 0.18;
+  pointer-events: none;
+}
+.goal-cell .goal-letter {
+  white-space: nowrap;
+  font-size: clamp(7px, 1.05vw, 13px);
+}
+@media (max-width: 700px) {
+  .quilt .goal-letter {
+    font-size: 8px;
+    white-space: nowrap;
+  }
+  .quilt .goal-values {
+    font-size: 9px;
+  }
+}
+@media (min-width: 701px) {
+  .public-table .quilt {
+    width: min(100%, max(260px, calc(83.3vh - 341px)));
+    margin: auto;
+  }
+  .public-table .quilter-name {
+    margin-bottom: 4px;
+  }
+  .public-table .quilter-name h2 {
+    font-size: 16px;
+  }
+  .public-table .quilt-player {
+    padding: 9px;
+  }
+  .public-table .score-breakdown {
+    margin-top: 6px;
+    padding-top: 5px;
+  }
+  .public-table .public-hand {
+    margin-top: 4px;
+  }
+  .public-table .public-hand .fabric {
+    width: 28px;
+    height: 32px;
+  }
+  .public-table .token-line {
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .public-table .token-line img {
+    max-width: 36px;
+    height: 28px;
+  }
+}
+@media (min-width: 701px) and (max-width: 1099px) {
+  .public-table .sewing-tray {
+    padding: 10px;
+  }
+  .public-table .cat-contract summary img {
+    height: 48px;
+  }
+  .public-table .calico-market .fabric {
+    width: 50px;
+    height: 56px;
+  }
+  .public-table .market-tray p {
+    font-size: 11px;
+  }
+  .public-table .market-tray h2 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .public-table .sewing-tray {
+    gap: 12px;
+  }
+  .public-table .cat-contracts {
+    gap: 8px;
+  }
+  .public-table .calico-table {
+    gap: 12px;
+  }
+}
+.quilt {
+  container-type: inline-size;
+}
+.goal-cell .goal-letter {
+  font-size: 8px;
+  font-size: clamp(7px, 2.5cqw, 12px);
+}
+body.calico-theme .connection {
+  color: #365b6e;
+}
+.calico-surface button.quilt-cell:not(:disabled):focus-visible {
+  outline: 0;
+  filter: drop-shadow(0 0 3px #b33968);
+  background: #b33968;
+}
+.cat-mini-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 10px;
+}
+.cat-mini-rule .cat-shape {
+  width: 56px;
+  height: 24px;
+}
+.cat-mini-rule .cat-size {
+  font-size: 22px;
+}
+.cat-mini-patterns {
+  display: flex;
+  gap: 6px;
+  margin-top: 5px;
+}
+.cat-mini-patterns .fabric {
+  width: 26px;
+  height: 29px;
+  --patch: #334854 !important;
+}
+.cat-mini-patterns .fabric-code {
+  display: none;
+}
+.cat-patterns .fabric {
+  --patch: #334854 !important;
+}
+.tile-detail {
+  max-width: 500px;
+  margin: 0 auto 14px;
+  background: #f3f1e7;
+  border: 1px dashed #80978f;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+.tile-detail summary {
+  cursor: pointer;
+  font-size: 13px;
+}
+.tile-detail > .fabric {
+  width: 128px;
+  height: 112px;
+  margin: 12px auto;
+}
+.tile-detail > strong {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+}
+@media (min-width: 1100px) {
+  .public-table .cat-contract summary {
+    flex-wrap: wrap;
+  }
+  .public-table .cat-mini-rule {
+    width: 100%;
+  }
+  .public-table .cat-mini-patterns {
+    margin: 4px auto;
+  }
+}
+.calico-score-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 14px;
+}
+.calico-score-table caption {
+  text-align: left;
+  font-weight: bold;
+  padding-bottom: 6px;
+}
+.calico-score-table th,
+.calico-score-table td {
+  padding: 5px 8px;
+  border-bottom: 1px dashed #a2b3a8;
+  text-align: right;
+}
+.calico-score-table th:first-child {
+  text-align: left;
+}
+.calico-finish label {
+  display: block;
+  max-width: 340px;
+  margin: 10px auto;
+  font-size: 14px;
+}
+.calico-finish select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  color: #294d63;
+  background: #faf7eb;
+  font: inherit;
+  min-height: 44px;
+}
+
+.goal-cell .goal-different {
+  font-size: 20px;
+  line-height: 1.1;
+}
+.goal-cell .goal-values {
+  line-height: 1.2;
+}
+/* 1–4 player update: shared market before hands, coordinate-linked reward layer. */
+.calico-heading {
+  margin: 6px 0 10px;
+}
+.calico-heading h1 {
+  font-size: 28px;
+}
+.calico-heading h1 span {
+  font-size: 15px;
+}
+.calico-heading p {
+  font-size: 12px;
+}
+.calico-market-dock {
+  max-width: 900px;
+  margin: 0 auto 12px;
+  background: #f4f3eb;
+  border: 1px solid #aab5b2;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+.calico-market-dock:empty {
+  display: none;
+}
+.market-phase {
+  font-size: 12px;
+  font-style: normal;
+  color: #345c66;
+  display: block;
+}
+.calico-market-dock .market-tray h2 {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 0 6px;
+}
+.calico-market-dock .calico-market {
+  gap: 12px;
+}
+.calico-market-dock .fabric {
+  width: 62px;
+  height: 64px;
+}
+.calico-market-dock .calico-market button {
+  padding: 0 6px 4px;
+}
+.calico-market-dock .market-tray p {
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 4px 0 0;
+}
+.calico-cycle-note {
+  max-width: 640px;
+  margin: 8px auto;
+  font-size: 12px;
+}
+.sewing-tray {
+  display: flex;
+  flex-direction: column;
+}
+.quilt-players {
+  width: 100%;
+}
+.calico-count-1 .quilt-players {
+  grid-template-columns: minmax(0, 640px);
+  justify-content: center;
+}
+.calico-count-3 .quilt-players,
+.calico-count-4 .quilt-players {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.quilt-players.has-expanded {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+.quilt-players.has-expanded .quilt-player:not(.expanded) {
+  display: none;
+}
+.quilter-name button {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 6px;
+  min-width: 44px;
+}
+.quilt-awards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.calico-surface .quilt-award {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  min-height: 44px;
+}
+.quilt-award img {
+  position: static;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px #253d4577);
+}
+.quilt-award.award-slot-0 {
+  margin-left: -8px;
+  margin-top: 8px;
+  width: 34px;
+}
+.quilt-award.award-slot-1 {
+  margin-left: 7px;
+  margin-top: -4px;
+}
+.quilt-award.award-slot-2 {
+  margin-top: 15px;
+  margin-left: 10px;
+  width: 30px;
+}
+.tokens-muted img {
+  opacity: 0.18;
+}
+.calico-token-detail {
+  position: fixed;
+  left: 50%;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 45;
+  background: #fff9e9;
+  border: 2px solid #365b6e;
+  padding: 14px;
+  width: min(440px, calc(100vw - 28px));
+  box-shadow: 0 4px 28px #294d6340;
+}
+.calico-token-detail p {
+  font-size: 13px;
+}
+.calico-room-menu {
+  font-size: 12px;
+  position: relative;
+}
+.calico-room-menu summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+.calico-room-menu > div {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 60;
+  width: 245px;
+  padding: 16px;
+  background: #fff9e9;
+  color: #294d63;
+  box-shadow: 0 5px 28px #294d6340;
+  border: 1px solid #7f9696;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+.calico-room-menu a {
+  color: #294d63;
+}
+.calico-room-menu small {
+  font-size: 11px;
+}
+.calico-theme .turn-sound-button.sound-icon-only {
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calico-theme .header-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.calico-theme .game-header {
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+}
+.calico-theme .brand {
+  font-size: 18px;
+}
+.calico-surface .quilt-cell {
+  scroll-margin-top: 170px;
+  scroll-margin-bottom: 110px;
+}
+@media (max-width: 700px) {
+  .calico-heading h1 {
+    font-size: 23px;
+  }
+  .calico-heading h1 span {
+    display: none;
+  }
+  .calico-heading {
+    margin: 4px 0 8px;
+  }
+  .calico-market-dock {
+    position: sticky;
+    top: 0;
+    z-index: 22;
+    padding: 6px 10px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 3px 8px #294d6320;
+    margin: 0 0 8px;
+  }
+  .calico-market-dock .fabric {
+    width: 52px;
+    height: 53px;
+  }
+  .calico-market-dock .calico-market {
+    gap: 6px;
+  }
+  .calico-market-dock .calico-market button {
+    min-height: 70px;
+    gap: 2px;
+  }
+  .calico-market-dock .calico-market button > span:not(.fabric) {
+    font-size: 10px;
+  }
+  .calico-market-dock .market-tray h2 {
+    font-size: 14px;
+    gap: 5px;
+    margin: 0;
+  }
+  .calico-market-dock .market-tray h2 small {
+    font-size: 10px;
+    margin-left: auto;
+  }
+  .calico-market-dock .market-phase {
+    font-size: 10px;
+  }
+  .calico-market-dock .market-tray p {
+    font-size: 9px;
+  }
+  #calico-controls {
+    padding: 8px 10px;
+    margin: 0 0 8px;
+    scroll-margin-top: 152px;
+  }
+  .calico-turn h2 {
+    font-size: 16px;
+  }
+  .calico-turn p {
+    margin: 3px 0 6px;
+    font-size: 11px;
+  }
+  .calico-hand .fabric {
+    width: 54px;
+    height: 58px;
+  }
+  .calico-hand > button {
+    gap: 2px;
+    padding: 2px 4px;
+  }
+  .calico-hand > button > span:not(.fabric) {
+    font-size: 10px;
+  }
+  .phone-quilts .sewing-tray {
+    order: 2;
+  }
+  .calico-count-3 .quilt-players,
+  .calico-count-4 .quilt-players {
+    grid-template-columns: 1fr;
+  }
+  .quilter-name {
+    margin-bottom: 6px;
+  }
+  .quilter-name h2 {
+    font-size: 15px;
+  }
+  .calico-theme .header-account {
+    margin-left: auto;
+  }
+}
+@media (max-height: 650px) and (max-width: 700px) {
+  .calico-market-dock .fabric {
+    width: 46px;
+    height: 48px;
+  }
+  .calico-market-dock .market-tray p {
+    display: none;
+  }
+  .calico-market-dock .calico-market button {
+    min-height: 60px;
+  }
+}
+.quilt-award-group {
+  position: absolute;
+  width: 17.5%;
+  height: 12.63%;
+  transform: translate(-50%, -50%);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  pointer-events: none;
+}
+.calico-surface .quilt-award-group .quilt-award {
+  left: 50%;
+  top: 50%;
+}
+.calico-market-dock .calico-confirm {
+  position: static;
+  transform: none;
+  margin: 6px 0 0;
+  padding: 5px 6px;
+  max-width: none;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #b4c2ba;
+  border-radius: 0;
+  box-shadow: none;
+  background: #f4f3eb;
+  white-space: normal;
+}
+.calico-market-dock .calico-confirm button {
+  padding: 5px 12px;
+  min-height: 42px;
+  font-size: 12px;
+}
+.calico-market-dock .calico-confirm > span {
+  font-size: 10px;
+}
+.public-table.calico-count-1 .quilt {
+  max-width: min(540px, calc((100dvh - 280px) * 0.8333));
+  margin-inline: auto;
+}
+@media (min-width: 1200px) {
+  .public-table.calico-count-3 .calico-table,
+  .public-table.calico-count-4 .calico-table {
+    display: flex;
+    flex-direction: column;
+  }
+  .public-table.calico-count-3 .quilt-players {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .public-table.calico-count-4 .quilt-players {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .public-table.calico-count-3 .sewing-tray,
+  .public-table.calico-count-4 .sewing-tray {
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+  }
+  .public-table.calico-count-3 .cat-contracts,
+  .public-table.calico-count-4 .cat-contracts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    flex: 1;
+  }
+  .public-table.calico-count-3 .token-line,
+  .public-table.calico-count-4 .token-line {
+    display: none;
+  }
+  .public-table.calico-count-3 .quilt-player,
+  .public-table.calico-count-4 .quilt-player {
+    padding: 10px;
+  }
+  .public-table.calico-count-3 .quilter-name h2,
+  .public-table.calico-count-4 .quilter-name h2 {
+    font-size: 15px;
+  }
+  .public-table.calico-count-3 .score-breakdown h3,
+  .public-table.calico-count-4 .score-breakdown h3 {
+    font-size: 13px;
+  }
+  .public-table.calico-count-3 .quilt-players.has-expanded,
+  .public-table.calico-count-4 .quilt-players.has-expanded {
+    grid-template-columns: minmax(0, 650px);
+  }
+}
+@media (min-width: 701px) and (max-width: 1199px) {
+  .public-table.calico-count-3 .calico-table,
+  .public-table.calico-count-4 .calico-table {
+    display: flex;
+    flex-direction: column;
+  }
+  .public-table.calico-count-3 .sewing-tray,
+  .public-table.calico-count-4 .sewing-tray {
+    order: 2;
+  }
+  .public-table.calico-count-3 .quilt,
+  .public-table.calico-count-4 .quilt {
+    width: auto;
+    height: clamp(170px, calc((100dvh - 240px) / 2 - 85px), 340px);
+    aspect-ratio: 400/480;
+    max-width: 100%;
+    margin: auto;
+  }
+  .public-table.calico-count-3 .quilt-player,
+  .public-table.calico-count-4 .quilt-player {
+    padding: 6px;
+  }
+  .public-table.calico-count-3 .quilter-name,
+  .public-table.calico-count-4 .quilter-name {
+    margin-bottom: 3px;
+  }
+  .public-table.calico-count-3 .quilter-name h2,
+  .public-table.calico-count-4 .quilter-name h2 {
+    font-size: 13px;
+  }
+  .public-table.calico-count-3 .quilter-name p,
+  .public-table.calico-count-4 .quilter-name p {
+    font-size: 10px;
+    margin: 0;
+  }
+  .public-table.calico-count-3 .score-breakdown,
+  .public-table.calico-count-4 .score-breakdown {
+    margin-top: 4px;
+    padding-top: 3px;
+  }
+  .public-table.calico-count-3 .score-breakdown h3,
+  .public-table.calico-count-4 .score-breakdown h3 {
+    font-size: 12px;
+    margin: 0;
+  }
+  .public-table.calico-count-3 .token-line,
+  .public-table.calico-count-4 .token-line {
+    display: none;
+  }
+  .public-table.calico-count-3 .score-breakdown > details,
+  .public-table.calico-count-4 .score-breakdown > details {
+    display: none;
+  }
+  .public-table .quilt-players.has-expanded .quilt {
+    height: auto;
+    width: 100%;
+    max-width: 490px;
+  }
+}
+.calico-room:not(.public-table) .calico-market-dock {
+  position: sticky;
+  top: 0;
+  z-index: 22;
+}
+@media (min-width: 701px) and (max-width: 1199px) {
+  .public-table.calico-count-3 .calico-market-dock,
+  .public-table.calico-count-4 .calico-market-dock {
+    padding: 5px 10px;
+    margin-bottom: 8px;
+  }
+  .public-table.calico-count-3 .calico-market-dock .fabric,
+  .public-table.calico-count-4 .calico-market-dock .fabric {
+    width: 40px;
+    height: 43px;
+  }
+  .public-table.calico-count-3 .calico-market-dock h2,
+  .public-table.calico-count-4 .calico-market-dock h2 {
+    font-size: 13px;
+    margin: 0;
+  }
+  .public-table.calico-count-3 .calico-market-dock button,
+  .public-table.calico-count-4 .calico-market-dock button {
+    gap: 0;
+    padding: 0;
+  }
+  .public-table.calico-count-3 .calico-market-dock p,
+  .public-table.calico-count-4 .calico-market-dock p {
+    display: none;
+  }
+  .public-table.calico-count-3 .public-hand,
+  .public-table.calico-count-4 .public-hand {
+    margin-top: 2px;
+    gap: 6px;
+    font-size: 10px;
+  }
+  .public-table.calico-count-3 .public-hand .fabric,
+  .public-table.calico-count-4 .public-hand .fabric {
+    width: 20px;
+    height: 22px;
+  }
+  .public-table.calico-count-3 .calico-heading,
+  .public-table.calico-count-4 .calico-heading {
+    margin: 0 0 6px;
+  }
+  .public-table.calico-count-3 .calico-heading h1,
+  .public-table.calico-count-4 .calico-heading h1 {
+    font-size: 21px;
+  }
+  .public-table.calico-count-3 .quilt-players,
+  .public-table.calico-count-4 .quilt-players {
+    gap: 12px;
+  }
+}
+.active-quilter .quilter-name h2:after {
+  content: " · กำลังเล่น";
+  color: #1f6571;
+  font-size: 11px;
+  font-family: inherit;
+}
+@media(min-width:900px) and (max-width:1199px){
+ .public-table.calico-count-3 .quilt-players {grid-template-columns:repeat(3,minmax(0,1fr));}
+ .public-table.calico-count-4 .quilt-players {grid-template-columns:repeat(4,minmax(0,1fr));}
+ .public-table.calico-count-3 .quilt,.public-table.calico-count-4 .quilt {width:100%;height:auto;aspect-ratio:400/480;}
+ .public-table.calico-count-3 .quilter-name,.public-table.calico-count-4 .quilter-name {gap:4px;flex-wrap:wrap;}
+ .public-table.calico-count-3 .quilter-name .profile-avatar,.public-table.calico-count-4 .quilter-name .profile-avatar {width:24px;height:24px;flex-basis:24px;}
+ .public-table.calico-count-3 .quilt-players.has-expanded,.public-table.calico-count-4 .quilt-players.has-expanded {grid-template-columns:minmax(0,600px);}
+ .public-table .expanded .score-breakdown>details {display:block;}
+}

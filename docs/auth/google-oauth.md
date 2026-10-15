@@ -7,6 +7,19 @@
 | Authorized JavaScript origins | `http://localhost:3000` |
 | Authorized redirect URIs | `http://localhost:3000/api/auth/callback/google` |
 
+Docker local ใช้ URL แยกที่ **http://localhost:5555**. เพิ่มสองรายการนี้ใน OAuth client เดิม โดยคง dev/production เดิมไว้:
+
+เครื่องนี้ตั้ง Docker ผ่าน **https://bn-games.basnana.com** แล้ว: `BETTER_AUTH_URL` และ `GAMEVERSE_JOIN_ORIGIN` ใช้โดเมนนี้. เพิ่ม origin `https://bn-games.basnana.com` และ redirect `https://bn-games.basnana.com/api/auth/callback/google` ใน OAuth client ที่ตรงกับ `.env.docker`. Google login ให้เปิดผ่านโดเมนนี้; ไม่สลับไป localhost ระหว่าง flow. ตรวจ browser ล่าสุด authorization request ใช้ callback ของโดเมนใหม่และไม่พบ redirect mismatch; การเข้าบัญชีจนกลับเข้าเกมยังต้องให้ผู้ใช้ยืนยัน.
+
+| Google Console field | ใส่ค่าเพิ่มเติม |
+|---|---|
+| Authorized JavaScript origins | `http://localhost:5555` |
+| Authorized redirect URIs | `http://localhost:5555/api/auth/callback/google` |
+
+`npm run docker:rebuild` สร้าง `.env.docker` ส่วนตัวครั้งแรกจากเฉพาะ Google credentials ใน `.env` และ secret ใหม่. ครั้งต่อไปไม่เปลี่ยน secret; ใช้ฐานข้อมูล/คุกกี้แยกจาก dev. การล็อกอิน Google ต้องใช้ origin ให้ตรงกับ `BETTER_AUTH_URL` ใน Docker (ค่าเริ่มต้น localhost:5555; เครื่องนี้เปลี่ยนเป็น bn-games.basnana.com แล้ว) ไม่สลับไป LAN IP ระหว่าง flow. Browser fixture ไม่ถือว่าผ่าน provider จริง.
+
+เพิ่ม callback ใน OAuth client ที่ Client ID ตรงกับ `GOOGLE_CLIENT_ID` ใน `.env.docker`. ตรวจเมื่อ 2026-10-14 พบว่า dev/Docker ใช้คนละ client กับ production และ Docker ยังได้รับ `redirect_uri_mismatch` แม้ผู้ใช้เพิ่ม callback แล้ว. Production credentials เป็น Vercel Secret ที่อ่านคืนไม่ได้; ไม่คัดลอก placeholder แทน key จริง. หากต้องการใช้ client ของ production ให้ใส่ key ของ client นั้นโดยตรงใน private `.env.docker` แล้ว rebuild โดยไม่ส่ง secret ในแชต.
+
 Origin ไม่มีpathหรือtrailing slash. Redirectต้องตรงทั้งscheme/domain/port/path. ไม่ต้องเลือก “Use this client for an AI-powered agent” สำหรับloginGameVerse
 
 รัน `npm run setup:env` แล้วแก้ในserver `.env` (อย่าส่งsecretในแชต): `BETTER_AUTH_URL=http://localhost:3000`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `BETTER_AUTH_SECRET`สุ่มอย่างน้อย32bytes. Clientbundleไม่มีsecret. ช่วงTestingเพิ่มGoogleaccountที่จะลองในtestusers/consentscreen

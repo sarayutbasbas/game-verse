@@ -108,7 +108,8 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
       await display
         .getByRole("button", { name: "เริ่มเกม", exact: true })
         .click();
-      await expect(display.locator(".turn-sound-button")).toHaveText(
+      await expect(display.locator(".turn-sound-button")).toHaveAttribute(
+        "aria-label",
         "เสียงจบตา: เปิด",
       );
       await expect
@@ -196,14 +197,16 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
         );
         w.__socket.send(JSON.stringify({ type: "sync" }));
       });
-      await expect(display.locator(".turn-sound-button")).toHaveText(
+      await expect(display.locator(".turn-sound-button")).toHaveAttribute(
+        "aria-label",
         "เสียงจบตา: เปิด",
       );
       expect(await display.evaluate(() => (window as any).__tones)).toBe(
         initial + 2,
       );
       await display.locator(".turn-sound-button").click();
-      await expect(display.locator(".turn-sound-button")).toHaveText(
+      await expect(display.locator(".turn-sound-button")).toHaveAttribute(
+        "aria-label",
         "เสียงจบตา: ปิด",
       );
       await turn();
@@ -211,12 +214,14 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
         initial + 2,
       );
       await display.reload();
-      await expect(display.locator(".turn-sound-button")).toHaveText(
+      await expect(display.locator(".turn-sound-button")).toHaveAttribute(
+        "aria-label",
         "เสียงจบตา: ปิด",
       );
       expect(await display.evaluate(() => (window as any).__tones)).toBe(0);
       await display.locator(".turn-sound-button").click();
-      await expect(display.locator(".turn-sound-button")).toHaveText(
+      await expect(display.locator(".turn-sound-button")).toHaveAttribute(
+        "aria-label",
         "เสียงจบตา: เปิด",
       );
       expect(await display.evaluate(() => (window as any).__tones)).toBe(2);

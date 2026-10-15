@@ -1,3 +1,8 @@
+import { completeJaipurCounting } from "./jaipur-results.js";
+import { updateGameHeader } from "./game-header.js";
+import {renderJaipur,captureJaipurMotion} from "./jaipur.js";
+import { renderWonders, captureWondersMotion } from "./seven-wonders-duel.js";
+import { renderCalico } from "./calico.js";
 import { roomCode, bindRoomLinks, showToast, clearToast } from "./ui.js";
 import {
   NAMES,
@@ -39,6 +44,7 @@ const turnSound = new TurnSound();
 let duelArtReady = false,
   duelArtLoading = false;
 let deliverySnapshot = false;
+let reconnectPresentation = false;
 let artReady = false,
   artError = "",
   artLoading = false;
@@ -124,6 +130,7 @@ function connect() {
     `${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/ws`,
   );
   ws.onopen = () => {
+    reconnectPresentation = !!view;
     connected = true;
     if (session)
       send({ type: "resume", code: session.code, token: session.token });
@@ -149,23 +156,17 @@ function connect() {
       entryError = "";
       if (view?.code === m.view.code && m.view.revision < view.revision) return;
       const restartingDuel = view?.gameId === "dracula-vs-van-helsing" && view.phase === "finished" && m.view.phase === "playing";
-      const revealController = session?.role === "player" && m.view.gameId === "dracula-vs-van-helsing" &&
-        (restartingDuel || (view?.gameId === "dracula-vs-van-helsing" && view.me?.id === view.turn &&
-          view.step === "discard" && m.view.step !== "discard" && m.view.phase === "playing"));
       if (restartingDuel) duelMotion.reset();
-      turnSound.accept(m.view, !!m.snapshot);
+      const wondersGap=view?.gameId==="seven-wonders-duel" && m.view.gameId==="seven-wonders-duel" && view.code===m.view.code && !m.snapshot && (m.view.revision>view.revision+1 || (view.sequence!==undefined && m.view.sequence!==undefined && m.view.sequence>view.sequence+1));
+      const jaipurGap=view?.gameId==="jaipur"&&m.view.gameId==="jaipur"&&view.code===m.view.code&&!m.snapshot&&(m.view.revision>view.revision+1||(view.sequence!==undefined&&m.view.sequence!==undefined&&m.view.sequence>view.sequence+1));
+      turnSound.accept(m.view, !!m.snapshot || !!wondersGap || !!jaipurGap);
       view = m.view;
       if (view.gameId === "camel-up") loadCamelArt();
-      deliverySnapshot = !!m.snapshot;
+      deliverySnapshot = !!m.snapshot || !!wondersGap || !!jaipurGap;
+      if(wondersGap||jaipurGap)send({type:"sync"});
       render();
-      if (revealController) {
-        const revision = m.view.revision;
-        requestAnimationFrame(() => {
-          if (view?.revision === revision) main.querySelector("#duel-controls")?.scrollIntoView({
-            block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-          });
-        });
-      }
+      if(reconnectPresentation && view.gameId === "jaipur") completeJaipurCounting();
+      reconnectPresentation = false;
       deliverySnapshot = false;
       if (artReady && view.gameId === "camel-up")
         boardRenderer.update(view, !!m.snapshot);
@@ -178,7 +179,7 @@ function connect() {
         localStorage.removeItem(`${key()}:pending`);
       }
       notice = m.ok ? "" : (m.error ?? "");
-      if (ownAck) showToast(m.ok ? "ทำรายการแล้ว" : (m.error ?? "ทำรายการไม่สำเร็จ"), !m.ok);
+      if (ownAck && !m.ok) showToast(m.error ?? "ทำรายการไม่สำเร็จ", true);
       render();
     }
     if (m.type === "error") {
@@ -265,6 +266,11 @@ function render() {
   const platformTheme = !view || view.phase === "lobby";
   const duelTheme = !platformTheme && view?.gameId === "dracula-vs-van-helsing";
   const azulTheme = !platformTheme && view?.gameId === "azul";
+  document.body.classList.toggle("jaipur-theme",!platformTheme&&view?.gameId==="jaipur");
+  document.body.classList.toggle("wonders-theme",!platformTheme && view?.gameId === "seven-wonders-duel");
+  const calicoTheme = !platformTheme && view?.gameId === "calico";
+  main.classList.toggle("calico-surface", calicoTheme);
+  document.body.classList.toggle("calico-theme", calicoTheme);
   main.classList.toggle("azul-surface", azulTheme);
   document.body.classList.toggle("azul-theme", azulTheme);
   main.classList.toggle("platform-surface", platformTheme);
@@ -276,7 +282,7 @@ function render() {
     'meta[name="theme-color"]',
   );
   if (themeMeta)
-    themeMeta.content = azulTheme ? "#e4ddcf" : platformTheme
+    themeMeta.content = view?.gameId === "jaipur" ? "#efc36a" : view?.gameId === "seven-wonders-duel" ? "#183b3d" : azulTheme ? "#e4ddcf" : platformTheme
       ? "#f0f3f5"
       : duelTheme
         ? "#101f2a"
@@ -328,9 +334,20 @@ function render() {
   }
 }
 function renderContent() {
-  main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse">GameVerse</a>${!view || view.phase === "lobby" ? '<nav class="header-links" aria-label="เมนูหลัก"><a href="/">เลือกเกม</a><a href="/join">เข้าห้อง</a></nav>' : ""}</div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
+  if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
+  if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
+  if ((view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
+    const banner=main.querySelector<HTMLElement>('#notice')!;
+    banner.textContent=notice;
+    const connection=main.querySelector<HTMLElement>('.connection')!;
+    connection.dataset.online=String(connected);
+    connection.setAttribute('aria-label',connected?'เชื่อมต่อแล้ว':'หลุด กำลังเชื่อมต่อใหม่');
+    connection.innerHTML='<i aria-hidden="true"></i>'+(connected?'ออนไลน์':'หลุด');
+  } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse">GameVerse</a>${!view || view.phase === "lobby" ? '<nav class="header-links" aria-label="เมนูหลัก"><a href="/">เลือกเกม</a><a href="/join">เข้าห้อง</a></nav>' : ""}</div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "jaipur" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
   const content = main.querySelector<HTMLElement>("#content")!;
+  turnSound.setCompact(!!view);
   if (view) main.querySelector("header")!.append(turnSound.button);
+  updateGameHeader(main, view, platform.joinOrigin ?? location.origin);
   if (!view) {
     if (role === "login") {
       login(content);
@@ -425,6 +442,14 @@ function renderContent() {
     );
     return;
   }
+  if(view.gameId==="jaipur"){renderJaipur(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
+  if (view.gameId === "seven-wonders-duel") {
+    renderWonders(content,view,session?.role === "host" || !!view.me?.canManage,!!pending || !connected,command,deliverySnapshot);return;
+  }
+  if (view.gameId === "calico") {
+    renderCalico(content, view, session?.role === "host" || !!view.me?.canManage, !!pending || !connected, command, deliverySnapshot);
+    return;
+  }
   if (view.gameId === "azul") {
     renderAzul(content, view, session?.role === "host" || !!view.me?.canManage, !!pending || !connected, command);
     return;
@@ -432,7 +457,7 @@ function renderContent() {
   const v = view,
     isPlayer = session?.role === "player",
     mine = v.me;
-  content.innerHTML = `<div class="room-heading"><div><h1>${isPlayer ? escape(name(mine?.id)) : "กระดานวงอูฐ"}</h1><p>${v.phase === "finished" ? "จบการแข่งขัน" : v.phase === "settling" ? "เลือกผลตอบแทนพันธมิตร" : `รอบย่อย ${num(v.leg!)} • ตาของ ${escape(name(v.turn))}`}</p></div>${roomCode(v.code)}</div><div class="game-layout ${isPlayer ? "controller" : ""}"><section id="play-area"></section><aside><h2>ผู้เล่น ${num(v.players.length)}/8</h2><ol class="players">${v.players.map((p) => `<li data-player="${p.id}" ${p.id === v.turn && v.phase === "playing" ? 'class="current"' : ""}><div>${avatar(p.id)}<strong>${escape(p.name)} ${p.id === mine?.id ? "(คุณ)" : ""}</strong><span>${p.connected ? "พร้อม" : "หลุด • รอกลับเข้า"}${p.partner ? ` • คู่กับ ${escape(name(p.partner))}` : ""}</span></div><b>${sprite("objects", 0)}${num(p.money)}<small>เหรียญ</small></b><p class="tickets">${p.tickets.map((t) => `<span class="mini-ticket">${sprite("camels", CAMEL_CELL[t.color])}<span>${NAMES[t.color]} ${t.value}</span></span>`).join(" / ")}${p.pyramids ? ` • พีระมิด ${p.pyramids}` : ""}</p></li>`).join("")}</ol>${v.phase !== "lobby" && v.phase !== "finished" ? `<section class="public-final-info"><h3>เดิมพันทั้งเกม</h3><p>ผู้ชนะ ${num(v.finalCounts?.winner ?? 0)} ใบ • ผู้แพ้ ${num(v.finalCounts?.loser ?? 0)} ใบ</p><p>ลงการ์ดคว่ำจากมือถือเมื่อถึงตา เปิดคิดเงินตอนจบการแข่งขัน</p><p>ถูกก่อนรับ +8 / +5 / +3 / +2 / +1<br>ทายผิด −1 เหรียญ</p><p class="round-help">รอบย่อยจบเมื่อทอยเต๋าครบ 5 ลูก</p></section>` : ""}<details><summary>วิธีเล่นและกติกาที่ใช้</summary><p>เลือก 1 การกระทำในตาของคุณ: ทอยเต๋า / เดิมพันรอบย่อย / วางป้าย / ทายผู้ชนะหรือผู้แพ้ทั้งเกม${v.players.length >= 6 ? " / จับคู่" : ""}</p><p>รอบย่อยจบเมื่อทอย 5 จาก 6 ลูก บัตรที่หนึ่งรับตามหน้า ที่สองรับ 1 อื่นเสีย 1 พีระมิดรับ 1 ต่อใบ เงินไม่ต่ำกว่า 0</p><p>ป้ายวางช่องว่าง 2–16 และไม่ติดป้ายอื่น อูฐซ้อนจากล่างขึ้นบน ตัวบนอันดับนำ อูฐบ้าเดิมพันไม่ได้</p><p>ทายผลทั้งเกมถูกตามลำดับรับ 8/5/3/2/1 ผิดเสีย 1 การ์ดที่ลงแล้วเอาคืนไม่ได้</p><p>หลุดแล้วกลับลิงก์เดิมบนเครื่องเดิมได้ อย่าล้างข้อมูลเว็บไซต์ ห้องเก็บข้าม server restart ได้ และหมดอายุเมื่อไม่มีการเข้าร่วมหรือทำรายการเกิน 10 ชั่วโมง</p></details></aside></div>`;
+  content.innerHTML = `<div class="room-heading"><div><h1>${isPlayer ? escape(name(mine?.id)) : "กระดานวงอูฐ"}</h1><p>${v.phase === "finished" ? "จบการแข่งขัน" : v.phase === "settling" ? "เลือกผลตอบแทนพันธมิตร" : `รอบย่อย ${num(v.leg!)}`}</p></div></div><div class="game-layout ${isPlayer ? "controller" : ""}"><section id="play-area"></section><aside><h2>ผู้เล่น ${num(v.players.length)}/8</h2><ol class="players">${v.players.map((p) => `<li data-player="${p.id}" ${p.id === v.turn && v.phase === "playing" ? 'class="current"' : ""}><div>${avatar(p.id)}<strong>${escape(p.name)} ${p.id === mine?.id ? "(คุณ)" : ""}</strong><span>${p.connected ? "พร้อม" : "หลุด • รอกลับเข้า"}${p.partner ? ` • คู่กับ ${escape(name(p.partner))}` : ""}</span></div><b>${sprite("objects", 0)}${num(p.money)}<small>เหรียญ</small></b><p class="tickets">${p.tickets.map((t) => `<span class="mini-ticket">${sprite("camels", CAMEL_CELL[t.color])}<span>${NAMES[t.color]} ${t.value}</span></span>`).join(" / ")}${p.pyramids ? ` • พีระมิด ${p.pyramids}` : ""}</p></li>`).join("")}</ol>${v.phase !== "lobby" && v.phase !== "finished" ? `<section class="public-final-info"><h3>เดิมพันทั้งเกม</h3><p>ผู้ชนะ ${num(v.finalCounts?.winner ?? 0)} ใบ • ผู้แพ้ ${num(v.finalCounts?.loser ?? 0)} ใบ</p><p>ลงการ์ดคว่ำจากมือถือเมื่อถึงตา เปิดคิดเงินตอนจบการแข่งขัน</p><p>ถูกก่อนรับ +8 / +5 / +3 / +2 / +1<br>ทายผิด −1 เหรียญ</p><p class="round-help">รอบย่อยจบเมื่อทอยเต๋าครบ 5 ลูก</p></section>` : ""}<details><summary>วิธีเล่นและกติกาที่ใช้</summary><p>เลือก 1 การกระทำในตาของคุณ: ทอยเต๋า / เดิมพันรอบย่อย / วางป้าย / ทายผู้ชนะหรือผู้แพ้ทั้งเกม${v.players.length >= 6 ? " / จับคู่" : ""}</p><p>รอบย่อยจบเมื่อทอย 5 จาก 6 ลูก บัตรที่หนึ่งรับตามหน้า ที่สองรับ 1 อื่นเสีย 1 พีระมิดรับ 1 ต่อใบ เงินไม่ต่ำกว่า 0</p><p>ป้ายวางช่องว่าง 2–16 และไม่ติดป้ายอื่น อูฐซ้อนจากล่างขึ้นบน ตัวบนอันดับนำ อูฐบ้าเดิมพันไม่ได้</p><p>ทายผลทั้งเกมถูกตามลำดับรับ 8/5/3/2/1 ผิดเสีย 1 การ์ดที่ลงแล้วเอาคืนไม่ได้</p><p>หลุดแล้วกลับลิงก์เดิมบนเครื่องเดิมได้ อย่าล้างข้อมูลเว็บไซต์ ห้องเก็บข้าม server restart ได้ และหมดอายุเมื่อไม่มีการเข้าร่วมหรือทำรายการเกิน 10 ชั่วโมง</p></details></aside></div>`;
   const area = content.querySelector<HTMLElement>("#play-area")!;
   if (v.phase === "finished") {
     area.innerHTML = `<section class="results"><h2>ผู้ชนะ: ${v.winners!.map((id) => escape(name(id))).join(" และ ")}</h2><p>อันดับอูฐ: ${v
@@ -460,7 +485,7 @@ function renderContent() {
         legal = mine.legal;
       const blocked = pending || !connected || !artReady;
       const mePlayer = v.players.find((p) => p.id === mine.id)!;
-      actions.innerHTML = `<div class="character-card">${avatar(mine.id)}<div><strong>${escape(mePlayer.name)}</strong><span>${v.turn === mine.id ? "ตาของคุณ" : "รอเพื่อนเล่น"}</span></div><b>${sprite("objects", 0)}${num(mePlayer.money)}</b></div><h2>${v.phase === "settling" ? "เลือกคัดลอกจากคู่ของคุณ" : v.turn === mine.id ? "ตาของคุณ เลือก 1 การกระทำ" : "รอตาของคุณ"}</h2><div id="action-buttons"></div><details class="private"><summary>การ์ดส่วนตัวของคุณ</summary><p>ยังมี: ${mine.cards.map((c) => NAMES[c]).join(" / ") || "ใช้หมดแล้ว"}</p><p>ลงไว้แล้ว: ${mine.bets.map((b) => `${b.side === "winner" ? "ผู้ชนะ" : "ผู้แพ้"} ${NAMES[b.color]}`).join(" / ") || "ยังไม่ได้ลง"}</p></details>`;
+      actions.innerHTML = `<div class="character-card">${avatar(mine.id)}<div><strong>${escape(mePlayer.name)}</strong><span>ผู้เล่นของคุณ</span></div><b>${sprite("objects", 0)}${num(mePlayer.money)}</b></div><h2>${v.phase === "settling" ? "เลือกคัดลอกจากคู่ของคุณ" : v.turn === mine.id ? "เลือก 1 การกระทำ" : "เตรียมตัวเลือกสำหรับตาถัดไป"}</h2><div id="action-buttons"></div><details class="private"><summary>การ์ดส่วนตัวของคุณ</summary><p>ยังมี: ${mine.cards.map((c) => NAMES[c]).join(" / ") || "ใช้หมดแล้ว"}</p><p>ลงไว้แล้ว: ${mine.bets.map((b) => `${b.side === "winner" ? "ผู้ชนะ" : "ผู้แพ้"} ${NAMES[b.color]}`).join(" / ") || "ยังไม่ได้ลง"}</p></details>`;
       const container = actions.querySelector<HTMLElement>("#action-buttons")!;
       function add(label: string, a: Action) {
         const b = document.createElement("button");

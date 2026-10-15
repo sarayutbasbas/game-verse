@@ -8,7 +8,10 @@
     "start": "node build/server/index.js",
     "test": "tsx --test tests/*.test.ts",
     "test:e2e": "npm run build && playwright test",
-    "setup:env": "node scripts/setup-env.mjs"
+    "setup:env": "node scripts/setup-env.mjs",
+    "docker:rebuild": "node scripts/docker-local.mjs",
+    "docker:watch": "node scripts/docker-local.mjs --watch",
+    "docker:stop": "docker compose stop"
   },
   "dependencies": {
     "better-auth": "1.7.7",

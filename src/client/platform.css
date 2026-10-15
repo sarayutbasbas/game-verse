@@ -636,3 +636,10 @@ body.platform-theme {
 .role-choice-check { font-size: 11px; }
 .platform-surface .role-choices button[aria-pressed="true"] { border-color: #89712f; background: #f3eacb; color: #213c46; box-shadow: 0 0 0 2px #c8a64e; }
 .lobby-players .role-portrait { float: left; width: 40px; height: 48px; margin-right: 12px; }
+.profile-name-row { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 8px; }
+.profile-name-row input, .profile-name-row button { margin: 0; min-height: 48px; }
+.profile-name-row input { width: 100%; min-width: 0; }
+.profile-name-row button { padding: 10px 16px; }
+.platform-surface button.profile-avatar-picker { position: relative; display: inline-flex; flex: none; padding: 0; width: 80px; height: 80px; border-radius: 50%; border: 2px solid #317e8b; background: transparent; }
+.profile-avatar-picker .profile-avatar { width: 76px; height: 76px; flex-basis: 76px; }
+.avatar-edit-mark { position: absolute; bottom: -2px; right: -2px; width: 24px; height: 24px; border-radius: 50%; background: #215c69; color: white; display: grid; place-items: center; font-size: 16px; }

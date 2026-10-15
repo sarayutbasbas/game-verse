@@ -1,8 +1,17 @@
+import * as jaipur from "./jaipur/engine.js";
+import type { JaipurState, JaipurAction } from "./jaipur/types.js";
+import * as wonders from "./seven-wonders-duel/engine.js";
+import type { WondersState, WondersAction } from "./seven-wonders-duel/types.js";
+import * as calico from "./calico/engine.js";
+import type { CalicoState, CalicoAction } from "./calico/types.js";
 import * as camelUp from "./camel-up/engine.js";
 import * as dracula from "./dracula-vs-van-helsing/engine.js";
 import * as azul from "./azul/engine.js";
 import type { AzulState, AzulAction } from "./azul/types.js";
 export const games = {
+ jaipur,
+  "seven-wonders-duel": wonders,
+  calico,
   azul,
   "camel-up": camelUp,
   "dracula-vs-van-helsing": dracula,
@@ -37,6 +46,24 @@ function common(id: string) {
   };
 }
 export const gameAdapters = {
+ jaipur:{...common("jaipur"),start(seats,random,starter){this.validatePlayers(seats);return jaipur.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>jaipur.applyAction(s,id,a as JaipurAction,random),publicView:jaipur.getDisplayView,privateView:jaipur.getPlayerView,isFinished:jaipur.isFinished,summary:s=>({winners:s.winners,seals:s.players.map(p=>({id:p.id,seals:p.seals})),rounds:s.history})} satisfies GameAdapter<JaipurState,ReturnType<typeof jaipur.getPlayerView>>,
+
+  "seven-wonders-duel": {
+    ...common("seven-wonders-duel"),
+    start(seats,random,starter){this.validatePlayers(seats);return wonders.createInitialState(seats,random,starter);},
+    apply:(s,id,a,random)=>wonders.applyAction(s,id,a as WondersAction,random),
+    publicView:wonders.getDisplayView,privateView:wonders.getPlayerView,isFinished:wonders.isFinished,
+    summary:s=>({winners:s.winners,victory:s.victory,scores:s.players.map(p=>wonders.scorePlayer(s,p))}),
+  } satisfies GameAdapter<WondersState,ReturnType<typeof wonders.getPlayerView>>,
+
+  calico: {
+    ...common("calico"),
+    start(seats, random, starter) { this.validatePlayers(seats); return calico.createInitialState(seats, random, starter); },
+    apply: (s, id, a, random) => calico.applyAction(s, id, a as CalicoAction, random),
+    publicView: calico.getDisplayView, privateView: calico.getPlayerView,
+    isFinished: calico.isFinished,
+    summary: s => ({winners:s.winners,scores:s.players.map(p=>({id:p.id,...calico.scorePlayer(s,p)}))}),
+  } satisfies GameAdapter<CalicoState, ReturnType<typeof calico.getPlayerView>>,
   azul: {
     ...common("azul"),
     start(seats, random, starter) { this.validatePlayers(seats); return azul.createInitialState(seats, random, starter); },

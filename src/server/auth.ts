@@ -106,6 +106,7 @@ export async function createAuth(
       }),
     ],
     advanced: {
+      cookiePrefix: process.env.GAMEVERSE_COOKIE_PREFIX || "better-auth",
       ipAddress: { ipAddressHeaders: ["x-gameverse-ip"] },
       defaultCookieAttributes: {
         sameSite: "lax",

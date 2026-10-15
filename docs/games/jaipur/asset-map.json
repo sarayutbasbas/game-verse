@@ -1,0 +1,30 @@
+{
+  "generated": "2026-10-15",
+  "source": "assets/source/jaipur",
+  "prepare": "node scripts/prepare-jaipur-art.mjs",
+  "assets": {
+    "diamond": "/art/jaipur/diamond.webp?v=1",
+    "gold": "/art/jaipur/gold.webp?v=1",
+    "silver": "/art/jaipur/silver.webp?v=1",
+    "cloth": "/art/jaipur/cloth.webp?v=1",
+    "spice": "/art/jaipur/spice.webp?v=1",
+    "leather": "/art/jaipur/leather.webp?v=1",
+    "camel": "/art/jaipur/camel.webp?v=1",
+    "card-back": "/art/jaipur/card-back.webp?v=1",
+    "token-diamond": "/art/jaipur/token-diamond.webp?v=1",
+    "token-gold": "/art/jaipur/token-gold.webp?v=1",
+    "token-silver": "/art/jaipur/token-silver.webp?v=1",
+    "token-cloth": "/art/jaipur/token-cloth.webp?v=1",
+    "token-spice": "/art/jaipur/token-spice.webp?v=1",
+    "token-leather": "/art/jaipur/token-leather.webp?v=1",
+    "token-bonus-back": "/art/jaipur/token-bonus-back.webp?v=1",
+    "token-bonus-front": "/art/jaipur/token-bonus-front.webp?v=1",
+    "token-camel": "/art/jaipur/token-camel.webp?v=1",
+    "seal": "/art/jaipur/seal.webp?v=1",
+    "cover": "/art/jaipur/cover.webp?v=1",
+    "table": "/art/jaipur/table.webp?v=1"
+  },
+  "portal": "/art/covers/jaipur.webp",
+  "fallback": "/art/jaipur/fallback.svg",
+  "privacy": "All hidden bonus values share one back; category and revealed value rendered with code. Opponent-hand flights always card backs."
+}

@@ -23,3 +23,8 @@ Build a browser-based collection of shared-screen board games. Camel Up is the f
 - board-game-engine: game state, rules, actions, scoring, and randomness.
 - realtime-rooms: room lifecycle, server protocol, identity, projections, reconnect.
 - multiplayer-testing: rule and multi-device integration verification.
+
+## Local verification and deployment (user preference)
+- After completing code changes, rebuild and start the local Docker app with `npm run docker:rebuild`, then verify it at `http://localhost:5555`.
+- Keep Docker data and auth cookies separate from the existing port-3000 dev app. Never replace a database or delete a data volume to rebuild.
+- Vercel deployment requires a new explicit user instruction. Do not deploy, promote, or push to the linked `main` branch automatically: a push triggers Vercel deployment. Local commits are allowed.

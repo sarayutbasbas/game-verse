@@ -1,0 +1,126 @@
+/* Shared in-game chrome. Lobby retains its full code/QR invitation. */
+main.in-game > header.game-header {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) minmax(0, 1.5fr) 44px 44px;
+  align-items: center;
+  gap: 8px;
+  padding-block: 8px;
+}
+main.in-game > header.game-header .header-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+}
+main.in-game > header.game-header .brand {
+  font-size: 16px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+main.in-game > header.game-header .header-account {
+  grid-column: 4;
+  grid-row: 1;
+  min-width: 0;
+}
+main.in-game > header.game-header .turn-sound-button.sound-icon-only {
+  grid-column: 3;
+  grid-row: 1;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+}
+.shared-turn {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 8px;
+  border: 1px solid #879c9b;
+  border-radius: 9px;
+  background: #f4edda;
+  color: #263e46;
+}
+.shared-turn[data-own="true"] {
+  background: #116b6d;
+  color: #fff6df;
+  border-color: #116b6d;
+}
+.shared-room-menu {
+  position: relative;
+  font-size: 12px;
+}
+.shared-room-menu summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.shared-room-menu > div {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: min(245px, calc(100vw - 40px));
+  padding: 16px;
+  background: #fff9e9;
+  color: #294d63;
+  border: 1px solid #7f9696;
+  box-shadow: 0 5px 28px #294d6340;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.shared-room-menu a {
+  color: #294d63;
+}
+.shared-room-menu small {
+  font-size: 12px;
+}
+.in-game #content .room-code {
+  display: none;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 360px) {
+  main.in-game > header.game-header {
+    grid-template-columns: 92px minmax(0, 1fr) 44px 36px;
+    gap: 4px;
+  }
+  main.in-game > header.game-header .brand {
+    font-size: 16px;
+  }
+  .shared-turn {
+    font-size: 13px;
+    padding-inline: 5px;
+  }
+}
+main.in-game > header.game-header.jaipur-header {
+  grid-template-columns: minmax(0, 1fr) 44px 44px;
+}
+main.in-game > header.game-header.jaipur-header .turn-sound-button {
+  grid-column: 2;
+}
+main.in-game > header.game-header.jaipur-header .header-account {
+  grid-column: 3;
+}

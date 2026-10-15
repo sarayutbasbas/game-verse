@@ -210,12 +210,12 @@ export function platformHandler(
           /[\p{C}]/u.test(data.name)
         )
           throw Error("ใช้ชื่อ 1–24 ตัวอักษร ไม่มีอักขระควบคุม");
-        rooms.updateProfile(p.id, data.name.trim(), p.avatar, () =>
+        rooms.updateProfile(p.id, data.name.trim(), undefined, () =>
           store.db
             .prepare(
-              "INSERT INTO gv_profiles(user_id,name) VALUES(?,?) ON CONFLICT(user_id) DO UPDATE SET name=excluded.name",
+              "INSERT INTO gv_profiles(user_id,name,avatar,avatar_source) VALUES(?,?,?,?) ON CONFLICT(user_id) DO UPDATE SET name=excluded.name",
             )
-            .run(p.id, data.name.trim()),
+            .run(p.id, data.name.trim(), p.avatar, p.avatar?.startsWith("/avatars/") ? "upload" : p.avatar ? "google" : "default"),
         );
         json(res, 200, { ok: true });
         return true;
@@ -264,7 +264,7 @@ export function platformHandler(
         const old = current ? current.avatar : p.avatar;
         const currentName = current ? String(current.name) : p.name;
         try {
-          rooms.updateProfile(p.id, currentName, url, () =>
+          rooms.updateProfile(p.id, undefined, url, () =>
             store.db
               .prepare(
                 "INSERT INTO gv_profiles VALUES(?,?,?,?) ON CONFLICT(user_id) DO UPDATE SET avatar=excluded.avatar,avatar_source=excluded.avatar_source",

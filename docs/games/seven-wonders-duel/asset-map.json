@@ -1,0 +1,396 @@
+{
+  "buildingIllustrations": {
+    "lumber-yard": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 0
+    },
+    "logging-camp": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 0
+    },
+    "clay-pool": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 2
+    },
+    "clay-pit": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 2
+    },
+    "quarry": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 1
+    },
+    "stone-pit": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 1
+    },
+    "glassworks": {
+      "source": "buildings.png",
+      "column": 1,
+      "row": 0
+    },
+    "press": {
+      "source": "buildings.png",
+      "column": 1,
+      "row": 1
+    },
+    "guard-tower": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 0
+    },
+    "stable": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 1
+    },
+    "garrison": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 2
+    },
+    "palisade": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 3
+    },
+    "workshop": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 0
+    },
+    "apothecary": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 1
+    },
+    "scriptorium": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 2
+    },
+    "pharmacist": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 3
+    },
+    "stone-reserve": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 0
+    },
+    "clay-reserve": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 1
+    },
+    "wood-reserve": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 2
+    },
+    "theater": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 0
+    },
+    "altar": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 1
+    },
+    "baths": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 2
+    },
+    "tavern": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 3
+    },
+    "sawmill": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 3
+    },
+    "brickyard": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 2
+    },
+    "shelf-quarry": {
+      "source": "buildings.png",
+      "column": 0,
+      "row": 1
+    },
+    "glass-blower": {
+      "source": "buildings.png",
+      "column": 1,
+      "row": 0
+    },
+    "drying-room": {
+      "source": "buildings.png",
+      "column": 1,
+      "row": 1
+    },
+    "walls": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 0
+    },
+    "horse-breeders": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 1
+    },
+    "barracks": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 2
+    },
+    "archery-range": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 3
+    },
+    "parade-ground": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 0
+    },
+    "library": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 0
+    },
+    "dispensary": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 1
+    },
+    "school": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 2
+    },
+    "laboratory": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 3
+    },
+    "statue": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 3
+    },
+    "temple": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 0
+    },
+    "aqueduct": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 1
+    },
+    "rostrum": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 2
+    },
+    "forum": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 0
+    },
+    "caravansery": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 1
+    },
+    "customs-house": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 2
+    },
+    "brewery": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 3
+    },
+    "courthouse": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 3
+    },
+    "arsenal": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 1
+    },
+    "pretorium": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 2
+    },
+    "fortifications": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 3
+    },
+    "siege-workshop": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 0
+    },
+    "circus": {
+      "source": "buildings.png",
+      "column": 5,
+      "row": 1
+    },
+    "academy": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 0
+    },
+    "study": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 1
+    },
+    "university": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 2
+    },
+    "observatory": {
+      "source": "buildings.png",
+      "column": 3,
+      "row": 3
+    },
+    "palace": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 0
+    },
+    "town-hall": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 1
+    },
+    "obelisk": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 2
+    },
+    "gardens": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 3
+    },
+    "pantheon": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 0
+    },
+    "senate": {
+      "source": "buildings.png",
+      "column": 2,
+      "row": 1
+    },
+    "chamber-of-commerce": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 0
+    },
+    "port": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 1
+    },
+    "armory": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 2
+    },
+    "lighthouse": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 3
+    },
+    "arena": {
+      "source": "buildings.png",
+      "column": 4,
+      "row": 0
+    },
+    "merchants-guild": {
+      "source": "buildings.png",
+      "column": 6,
+      "row": 0
+    },
+    "shipowners-guild": {
+      "source": "buildings.png",
+      "column": 6,
+      "row": 1
+    },
+    "builders-guild": {
+      "source": "buildings.png",
+      "column": 6,
+      "row": 2
+    },
+    "magistrates-guild": {
+      "source": "buildings.png",
+      "column": 6,
+      "row": 3
+    },
+    "scientists-guild": {
+      "source": "buildings.png",
+      "column": 6,
+      "row": 0
+    },
+    "moneylenders-guild": {
+      "source": "buildings.png",
+      "column": 6,
+      "row": 1
+    },
+    "tacticians-guild": {
+      "source": "buildings.png",
+      "column": 6,
+      "row": 2
+    }
+  },
+  "wonders": [
+    "piraeus",
+    "circus-maximus",
+    "great-lighthouse",
+    "temple-of-artemis",
+    "appian-way",
+    "colossus",
+    "great-library",
+    "hanging-gardens",
+    "statue-of-zeus",
+    "mausoleum",
+    "pyramids",
+    "sphinx"
+  ],
+  "progress": [
+    "agriculture",
+    "architecture",
+    "economy",
+    "law",
+    "masonry",
+    "mathematics",
+    "philosophy",
+    "strategy",
+    "theology",
+    "urbanism"
+  ],
+  "note": "Original imagegen atlases. Buildings within a category share scene art; identity, names, costs and effects are code, not the image."
+}

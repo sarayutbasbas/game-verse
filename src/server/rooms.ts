@@ -1,3 +1,9 @@
+import * as jaipurRules from "../games/jaipur/engine.js";
+import type {JaipurState,JaipurAction,JaipurView} from "../games/jaipur/types.js";
+import * as wondersRules from "../games/seven-wonders-duel/engine.js";
+import type { WondersState, WondersAction, WondersView } from "../games/seven-wonders-duel/types.js";
+import * as calicoRules from "../games/calico/engine.js";
+import type { CalicoState, CalicoView, CalicoAction } from "../games/calico/types.js";
 import {
   randomBytes,
   randomInt,
@@ -50,6 +56,10 @@ interface Room {
   gameId: GameId;
   duel?: DuelState;
   azul?: AzulState;
+  calico?: CalicoState;
+  wonders?: WondersState;
+  jaipur?: JaipurState;
+  calicoPreset?: "standard" | "first";
   revision: number;
   players: {
     id: string;
@@ -191,7 +201,7 @@ export class RoomService {
           correlationId: randomUUID(),
           gameId: r?.gameId,
           rulesVersion: r?.rulesVersion,
-          phase: r?.game?.phase ?? r?.duel?.phase ?? r?.azul?.phase ?? "lobby",
+          phase: r?.game?.phase ?? r?.duel?.phase ?? r?.azul?.phase ?? r?.calico?.phase ?? r?.wonders?.phase ?? r?.jaipur?.phase ?? "lobby",
           revision: r?.revision,
         }),
       );
@@ -218,7 +228,7 @@ export class RoomService {
       .map((r) => ({
         code: r.code,
         gameId: r.gameId,
-        phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? "lobby",
+        phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? "lobby",
         owner: r.ownerId === userId,
         player: r.players.some((p) => p.userId === userId),
       }));
@@ -232,8 +242,8 @@ export class RoomService {
   }
   updateProfile(
     userId: string,
-    name: string,
-    avatar: string | null,
+    name: string | undefined,
+    avatar: string | null | undefined,
     write?: () => void,
   ): void {
     if (this.store?.distributed && !this.store.locked) return this.coordinate(() => this.updateProfile(userId,name,avatar,write));
@@ -244,8 +254,8 @@ export class RoomService {
         for (const r of this.rooms.values())
           for (const p of r.players)
             if (p.userId === userId) {
-              p.name = name;
-              p.avatar = avatar;
+              if (name !== undefined) p.name = name;
+              if (avatar !== undefined) p.avatar = avatar;
             }
         this.store!.saveRooms(this.exportRooms());
       });
@@ -309,7 +319,7 @@ export class RoomService {
     if (!r) throw Error("ไม่พบห้อง");
     if (close && r.ownerId !== userId)
       throw Error("ผู้สร้างห้องเท่านั้นที่ปิดห้องได้");
-    if (!close && (r.game || r.duel || r.azul))
+    if (!close && (r.game || r.duel || r.azul || r.calico || r.wonders || r.jaipur))
       throw Error(
         "เกมเริ่มแล้ว ที่นั่งยังเก็บไว้ให้กลับมาเล่น ออกถาวรได้ในห้องรอ",
       );
@@ -395,6 +405,28 @@ export class RoomService {
     const connected = new Set(
       this.store?.distributed ? room.sessions.filter(s => this.presence.has(s.token)).map(s => s.playerId) : [...room.sockets.values()].map((s) => s?.playerId),
     );
+    if(room.gameId==="jaipur"){
+      const base:JaipurView=room.jaipur?jaipurRules.getDisplayView(room.jaipur,room.code,room.revision):{gameId:"jaipur",code:room.code,revision:room.revision,phase:"lobby",players:room.players.map(p=>({id:p.id,name:p.name,handCount:0,herdCount:0,goodsCount:0,bonusCount:0,seals:0,ready:!!p.ready}))};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(session?.role==="player")base.me=room.jaipur?jaipurRules.getPlayerView(room.jaipur,session.playerId!):{id:session.playerId!,hand:[],herd:[],goods:[],bonus:[],subtotal:0,exchanges:[],sell:[],take:[],legal:[{type:"ready",ready:!room.players.find(p=>p.id===session.playerId)?.ready}]};
+      if(base.me)base.me.canManage=this.canManage(room,session!);return base;
+    }
+    if (room.gameId === "seven-wonders-duel") {
+      const base: WondersView=room.wonders?wondersRules.getDisplayView(room.wonders,room.code,room.revision):{gameId:"seven-wonders-duel",code:room.code,revision:room.revision,phase:"lobby",players:room.players.map(p=>({...wondersRules.emptyPlayer(p.id,p.name),ready:!!p.ready}))};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(session?.role==="player")base.me=room.wonders?wondersRules.getPlayerView(room.wonders,session.playerId!):{id:session.playerId!,offers:[],legal:[{type:"ready",ready:!room.players.find(p=>p.id===session.playerId)?.ready}]};
+      if(base.me)base.me.canManage=this.canManage(room,session!);return base;
+    }
+    if (room.gameId === "calico") {
+      const base: CalicoView = room.calico ? calicoRules.getDisplayView(room.calico, room.code, room.revision) : {
+        gameId:"calico",code:room.code,revision:room.revision,phase:"lobby",preset:room.calicoPreset??"standard",
+        players:room.players.map((p,i)=>{const {options:_,draft:__,...publicPlayer}=calicoRules.emptyPlayer(p.id,p.name,i);return {...publicPlayer,ready:!!p.ready,connected:false};}),
+      };
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(session?.role==="player")base.me=room.calico?calicoRules.getPlayerView(room.calico,session.playerId!):{id:session.playerId!,options:[],draft:[],legal:[{type:"ready",ready:!room.players.find(p=>p.id===session.playerId)?.ready}]};
+      if(base.me)base.me.canManage=this.canManage(room,session!);
+      return base;
+    }
     if (room.gameId === "azul") {
       const base: AzulView = room.azul ? azulEngine.publicView(room.azul, room.code, room.revision) : {
         gameId: "azul", code: room.code, revision: room.revision, phase: "lobby",
@@ -728,7 +760,7 @@ export class RoomService {
         const maxPlayers = metadata(room.gameId)!.maxPlayers;
         if (room.players.length >= maxPlayers)
           throw Error(`ห้องเต็ม มีผู้เล่นครบ ${maxPlayers} คนแล้ว`);
-        if (room.game || room.duel || room.azul)
+        if (room.game || room.duel || room.azul || room.calico || room.wonders || room.jaipur)
           throw Error("เกมเริ่มแล้ว เข้าร่วมเกมใหม่เมื่อสร้างห้องใหม่");
         if (
           typeof m.name !== "string" ||
@@ -815,7 +847,12 @@ export class RoomService {
           throw Error("สถานะเปลี่ยนแล้ว กรุณาดูตาปัจจุบันแล้วเลือกใหม่");
         if (!m.action || typeof m.action !== "object")
           throw Error("เลือกการกระทำก่อน");
-        if (room.gameId === "azul") {
+        if(room.gameId==="jaipur"){this.jaipurCommand(room,s,m.action);
+        } else if (room.gameId === "seven-wonders-duel") {
+          this.wondersCommand(room,s,m.action);
+        } else if (room.gameId === "calico") {
+          this.calicoCommand(room, s, m.action);
+        } else if (room.gameId === "azul") {
           this.azulCommand(room, s, m.action);
         } else if (room.gameId === "dracula-vs-van-helsing") {
           this.duelCommand(room, s, m.action);
@@ -917,6 +954,53 @@ export class RoomService {
       session.role === "host" ||
       (!!session.userId && session.userId === room.ownerId)
     );
+  }
+  private jaipurCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+ const keys=Object.keys(action).sort().join(",");
+ if(action.type==="ready"){const own=room.players.find(p=>p.id===session.playerId);if(session.role!=="player"||!own||room.jaipur||keys!=="ready,type"||typeof action.ready!=="boolean")throw Error("กดพร้อมได้ในห้องรอจากมือถือ");own.ready=action.ready;return;}
+ if(action.type==="start"||action.type==="restart"){
+ if(!["type","startingPlayerId,type"].includes(keys)||(action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=="string")||!this.canManage(room,session))throw Error("เริ่มเกมได้โดยผู้สร้างห้องเท่านั้น");
+ if(action.type==="start"&&room.jaipur||action.type==="restart"&&room.jaipur?.phase!=="finished")throw Error("เกมยังไม่พร้อมเริ่มใหม่");
+ if(room.players.length!==2||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error("รอผู้เล่น 2 คนเชื่อมต่อและกดพร้อม");room.jaipur=jaipurRules.createInitialState(room.players,this.random,action.startingPlayerId);room.jaipur.matchId=randomUUID();return;}
+ if(action.type==="jaipur-next"&&this.canManage(room,session)&&room.jaipur){room.jaipur=jaipurRules.nextRound(room.jaipur,action,this.random,session.role==="host"?"host":session.playerId!);return;}
+ if(session.role!=="player"||!room.jaipur)throw Error("ใช้มือถือผู้เล่นหลังเริ่มเกม");room.jaipur=jaipurRules.applyAction(room.jaipur,session.playerId!,action as JaipurAction,this.random);
+ }
+  private wondersCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+    const keys=Object.keys(action).sort().join(",");
+    if(action.type==="ready"){
+      const own=room.players.find(p=>p.id===session.playerId);
+      if(session.role!=="player"||!own||room.wonders||keys!=="ready,type"||typeof action.ready!=="boolean")throw Error("กดพร้อมได้ในห้องรอจากมือถือ");
+      own.ready=action.ready;return;
+    }
+    if(action.type==="start"||action.type==="restart"){
+      if(!["type","startingPlayerId,type"].includes(keys)||(action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=="string")||!this.canManage(room,session))throw Error("เริ่มเกมได้โดยผู้สร้างห้องเท่านั้น");
+      if(action.type==="start"&&room.wonders||action.type==="restart"&&room.wonders?.phase!=="finished")throw Error("เกมยังไม่พร้อมเริ่มใหม่");
+      if(room.players.length!==2||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error("รอผู้เล่น 2 คนเชื่อมต่อและกดพร้อม");
+      room.wonders=wondersRules.createInitialState(room.players,this.random,action.startingPlayerId);return;
+    }
+    if(session.role!=="player"||!room.wonders)throw Error("ใช้มือถือผู้เล่นหลังเริ่มเกม");
+    room.wonders=wondersRules.applyAction(room.wonders,session.playerId!,action as WondersAction,this.random);
+  }
+  private calicoCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+    const keys=Object.keys(action).sort().join(",");
+    if(action.type==="calico-preset"){
+      if(!this.canManage(room,session)||room.calico||keys!=="preset,type"||!["standard","first"].includes(action.preset))throw Error("เลือกโหมดได้โดยผู้สร้างในห้องรอ");
+      room.calicoPreset=action.preset;return;
+    }
+    if(action.type==="ready"){
+      const own=room.players.find(p=>p.id===session.playerId);
+      if(session.role!=="player"||!own||room.calico||keys!=="ready,type"||typeof action.ready!=="boolean")throw Error("กดพร้อมได้จากมือถือในห้องรอ");
+      own.ready=action.ready;return;
+    }
+    if(action.type==="start"||action.type==="restart"){
+      if(!["type","startingPlayerId,type"].includes(keys)||(action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=="string")||!this.canManage(room,session))throw Error("เริ่มเกมได้โดยผู้สร้างห้องเท่านั้น");
+      if(action.type==="start"&&room.calico||action.type==="restart"&&room.calico?.phase!=="finished")throw Error("เกมยังไม่พร้อมเริ่มใหม่");
+      if(room.players.length<1||room.players.length>4||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error("รอผู้เล่น 1–4 คนเชื่อมต่อและกดพร้อม");
+      room.rulesVersion=metadata("calico")!.rulesVersion;room.schemaVersion=metadata("calico")!.stateSchemaVersion;
+      room.calico=calicoRules.createInitialState(room.players,this.random,action.startingPlayerId,room.calicoPreset??"standard");return;
+    }
+    if(session.role!=="player"||!room.calico)throw Error("ใช้มือถือผู้เล่นหลังเริ่มเกม");
+    room.calico=calicoRules.applyAction(room.calico,session.playerId!,action as CalicoAction,this.random);
   }
   private azulCommand(room: Room, session: Session, action: import("../shared/types.js").RoomAction) {
     const keys = Object.keys(action).sort().join(",");
