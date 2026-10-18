@@ -643,3 +643,24 @@ body.platform-theme {
 .platform-surface button.profile-avatar-picker { position: relative; display: inline-flex; flex: none; padding: 0; width: 80px; height: 80px; border-radius: 50%; border: 2px solid #317e8b; background: transparent; }
 .profile-avatar-picker .profile-avatar { width: 76px; height: 76px; flex-basis: 76px; }
 .avatar-edit-mark { position: absolute; bottom: -2px; right: -2px; width: 24px; height: 24px; border-radius: 50%; background: #215c69; color: white; display: grid; place-items: center; font-size: 16px; }
+
+/* Critter Kitchen pregame choices explain the actual base-game modules. */
+.ck-setup{margin:18px 0;text-align:left;color:#214c44;font-family:'Noto Sans Thai',sans-serif}
+.ck-setup h3{font-size:23px;line-height:1.5;margin:0 0 8px;color:#155a61}
+.ck-setup p{font-size:14px;line-height:1.85;margin:9px 0}
+.ck-setup-option{padding:16px;margin:14px 0;border:1px solid #aec9b4;border-radius:15px;background:#fffbed}
+.ck-setup-option>label{display:flex!important;gap:12px;align-items:flex-start;cursor:pointer;margin:0!important;line-height:1.6;font-size:18px;font-weight:700}
+.ck-setup-option input[type=checkbox]{appearance:auto;flex:0 0 24px;width:24px;height:24px;min-height:24px;margin:3px 0;accent-color:#155a61;padding:0}
+.ck-setup-option label small{display:block;font-size:12px;font-weight:500;color:#647c66}
+.ck-setup-option:has(input:checked){background:#eff5e4;border-color:#387b61;box-shadow:inset 4px 0 #387b61}
+.ck-setup dl{margin:12px 0;display:grid;gap:10px}
+.ck-setup dl>div{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:start}
+.ck-setup dt{font-size:13px;font-weight:700;color:#155a61;padding-top:2px}
+.ck-setup dd{margin:0;font-size:14px;line-height:1.8}
+.ck-setup details{border-top:1px solid #d5dec4;padding-top:10px;font-size:14px;line-height:1.8}
+.ck-setup summary{cursor:pointer;font-weight:700;min-height:32px}
+.ck-setup ul{padding-left:20px}.ck-setup li{margin:7px 0}
+.ck-setup .ck-setup-tip{padding:12px;background:#f2e5b8;border-radius:9px;color:#65532e}
+.ck-setup .ck-setup-scope{font-size:12px;color:#5b7564}
+@media(max-width:450px){.ck-setup-option{padding:13px}.ck-setup-option>label{font-size:17px}.ck-setup dl>div{grid-template-columns:1fr;gap:1px}}
+.platform-lobby:has(.ck-setup) .lobby-grid>aside{align-self:start}

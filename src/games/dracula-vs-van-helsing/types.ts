@@ -32,6 +32,7 @@ export type DuelAction =
   | { type: "end-round" }
   | { type: "discard"; slot: number } // -1 = drawn card, otherwise rack slot 0–4
   | { type: "effect"; targets: number[] } // districts, or ranking index for effect 7
+  | { type: "reveal-result"; slot: number; round: number }
   | { type: "next-round" };
 export type LobbyAction =
   | { type: "choose-role"; character: Character }
@@ -72,9 +73,14 @@ export interface DuelState {
   effect?: number;
   ending?: string;
   result?: RoundResult;
+  reveals?: Record<Character, boolean[]>;
+  revealStart?: { hp: number; vampires: number[] };
   acknowledged: string[];
   winner?: Character;
   reason?: string;
+  actionSerial?: number;
+  lastEvent?: string;
+  lastExchange?: {round:number;serial:number;actor:string;slot:number;cards:Record<Character,Card>};
   lastAction?: string;
 }
 export interface DuelView {
@@ -103,7 +109,9 @@ export interface DuelView {
   drawn?: Card;
   effect?: number;
   ending?: string;
-  result?: RoundResult;
+  result?: Omit<RoundResult, "cards"> & { cards: Record<Character, (Card | null)[]> };
+  revealPending?: boolean;
+  revealedCount?: number;
   acknowledged?: string[];
   winner?: Character;
   reason?: string;
@@ -112,13 +120,15 @@ export interface DuelView {
     revision: number;
     round: number;
     kind: string;
-    reveal?: RoundResult;
+    serial?: number;
+    reveal?: DuelView["result"];
   };
   me?: {
     canManage?: boolean;
     id: string;
     cards: Card[];
     drawn?: Card;
+    exchange?: {round:number;serial:number;initiated:boolean;slot:number;gave:Card;received:Card};
     legal: (DuelAction | LobbyAction)[];
   };
 }

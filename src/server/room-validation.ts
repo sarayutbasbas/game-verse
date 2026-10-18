@@ -1,3 +1,8 @@
+import {validateLocusState} from "../games/locus/validation.js";
+import {validateCKState} from "../games/critter-kitchen/validation.js";
+import {validateSkyState} from "../games/sky-team/validation.js";
+import {validateHarmoniesState} from "../games/harmonies/validation.js";
+import {validatePixiesState} from "../games/pixies/validation.js";
 import { validateJaipurState } from "../games/jaipur/validation.js";
 import { validateWondersState } from "../games/seven-wonders-duel/validation.js";
 import { validateCalicoState } from "../games/calico/validation.js";
@@ -7,7 +12,7 @@ export function validateRoomRecord(r: any): boolean {
   const g = metadata(r?.gameId);
   if(r?.calicoPreset!==undefined && !["standard","first"].includes(r.calicoPreset))return false;
   if (
-    !g ||
+    !g || g.playMode === "local" ||
     !/^[A-Z2-9]{6}$/.test(r.code) ||
     !Number.isSafeInteger(r.revision) ||
     r.revision < 0 ||
@@ -32,8 +37,11 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
-  if ([r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur].filter(Boolean).length > 1) return false;
-  const s = r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur;
+  if ([r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus].filter(Boolean).length > 1) return false;
+  const s = r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus;
+  if(r.locusMode!==undefined&&!["shared-table","full-mobile"].includes(r.locusMode))return false;
+  if(r.harmoniesMode!==undefined&&!["shared-table","full-mobile"].includes(r.harmoniesMode))return false;
+  if(r.ckMode!==undefined&&!["shared-table","full-mobile"].includes(r.ckMode))return false;
   if (!s) return true;
   if (
     !supportsPlayers(g, r.players.length) ||
@@ -45,6 +53,11 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
+  if(r.locus)return r.gameId==="locus"&&validateLocusState(s);
+  if(r.ck)return r.gameId==="critter-kitchen"&&validateCKState(s);
+  if(r.sky)return r.gameId==="sky-team"&&validateSkyState(s);
+  if(r.harmonies)return r.gameId==="harmonies"&&validateHarmoniesState(s);
+  if(r.pixies)return r.gameId==="pixies"&&validatePixiesState(s);
   if(r.jaipur)return r.gameId==="jaipur"&&validateJaipurState(s);
   if (r.wonders) return r.gameId === "seven-wonders-duel" && validateWondersState(s);
   if (r.calico) return r.gameId === "calico" && validateCalicoState(s);
@@ -112,6 +125,9 @@ export function validateRoomRecord(r: any): boolean {
     s.vampires.some((n: any) => !Number.isSafeInteger(n) || n < 0 || n > 4)
   )
     return false;
+  if(s.reveals!==undefined && (!s.result || !["dracula","helsing"].every(role=>Array.isArray(s.reveals[role]) && s.reveals[role].length===5 && s.reveals[role].every((v:any)=>typeof v==="boolean"))))return false;
+  if(s.revealStart!==undefined && (!Number.isSafeInteger(s.revealStart.hp)||s.revealStart.hp<0||s.revealStart.hp>12||!Array.isArray(s.revealStart.vampires)||s.revealStart.vampires.length!==5||s.revealStart.vampires.some((n:any)=>!Number.isInteger(n)||n<0||n>4)))return false;
+  if(s.lastExchange!==undefined){const x=s.lastExchange;if(!x||x.round!==s.round||!Number.isSafeInteger(x.serial)||x.serial<1||!Number.isSafeInteger(s.actionSerial)||x.serial>s.actionSerial||!s.players.some((p:any)=>p.id===x.actor)||!Number.isInteger(x.slot)||x.slot<0||x.slot>4||!x.cards||!["dracula","helsing"].every(role=>{const c=x.cards[role];return c&&["red","green","purple","yellow"].includes(c.suit)&&Number.isInteger(c.value)&&c.value>=1&&c.value<=8&&typeof c.revealed==="boolean";}))return false;}
   const cards = [
     ...s.deck,
     ...s.discard,

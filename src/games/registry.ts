@@ -1,3 +1,16 @@
+import * as locus from "./locus/engine.js";
+import type {LocusState,LocusAction} from "./locus/types.js";
+import {scorePlayer as scoreLocus} from "./locus/scoring.js";
+import * as nameIt from "./name-it/engine.js";
+export const localGames={"name-it":nameIt} as const;
+import * as critter from "./critter-kitchen/engine.js";
+import type {CKState,CKAction} from "./critter-kitchen/types.js";
+import * as sky from "./sky-team/engine.js";
+import type {SkyState,SkyAction} from "./sky-team/types.js";
+import * as harmonies from "./harmonies/engine.js";
+import type {HarmoniesState,HarmoniesAction} from "./harmonies/types.js";
+import * as pixies from "./pixies/engine.js";
+import type {PixiesState,PixiesAction} from "./pixies/types.js";
 import * as jaipur from "./jaipur/engine.js";
 import type { JaipurState, JaipurAction } from "./jaipur/types.js";
 import * as wonders from "./seven-wonders-duel/engine.js";
@@ -9,6 +22,11 @@ import * as dracula from "./dracula-vs-van-helsing/engine.js";
 import * as azul from "./azul/engine.js";
 import type { AzulState, AzulAction } from "./azul/types.js";
 export const games = {
+ locus,
+ "critter-kitchen":critter,
+ "sky-team":sky,
+ harmonies,
+ pixies,
  jaipur,
   "seven-wonders-duel": wonders,
   calico,
@@ -46,6 +64,11 @@ function common(id: string) {
   };
 }
 export const gameAdapters = {
+ locus:{...common("locus"),start(seats,random,starter){this.validatePlayers(seats);return locus.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>locus.applyAction(s,id,a as LocusAction,random),publicView:locus.getDisplayView,privateView:locus.getPlayerView,isFinished:locus.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,...scoreLocus(p)}))})} satisfies GameAdapter<LocusState,ReturnType<typeof locus.getPlayerView>>,
+ "critter-kitchen":{...common("critter-kitchen"),start(seats,random){this.validatePlayers(seats);return critter.createInitialState(seats,random);},apply:(s,id,a,random)=>critter.applyAction(s,id,a as CKAction,random),publicView:critter.getDisplayView,privateView:critter.getPlayerView,isFinished:critter.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score}))})} satisfies GameAdapter<CKState,ReturnType<typeof critter.getPlayerView>>,
+ "sky-team":{...common("sky-team"),start(seats,random){this.validatePlayers(seats);return sky.createInitialState(seats,random);},apply:(s,id,a,random)=>sky.applyAction(s,id,a as SkyAction,random),publicView:sky.getDisplayView,privateView:sky.getPlayerView,isFinished:sky.isFinished,summary:s=>({result:s.result,round:s.round})} satisfies GameAdapter<SkyState,ReturnType<typeof sky.getPlayerView>>,
+ harmonies:{...common("harmonies"),start(seats,random,starter){this.validatePlayers(seats);return harmonies.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>harmonies.applyAction(s,id,a as HarmoniesAction,random),publicView:harmonies.getDisplayView,privateView:harmonies.getPlayerView,isFinished:harmonies.isFinished,summary:s=>({winners:s.winners,side:s.side,scores:s.scores})} satisfies GameAdapter<HarmoniesState,ReturnType<typeof harmonies.getPlayerView>>,
+ pixies:{...common("pixies"),start(seats,random,starter){this.validatePlayers(seats);return pixies.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>pixies.applyAction(s,id,a as PixiesAction,random),publicView:pixies.getDisplayView,privateView:pixies.getPlayerView,isFinished:pixies.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,rounds:p.scores}))})} satisfies GameAdapter<PixiesState,ReturnType<typeof pixies.getPlayerView>>,
  jaipur:{...common("jaipur"),start(seats,random,starter){this.validatePlayers(seats);return jaipur.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>jaipur.applyAction(s,id,a as JaipurAction,random),publicView:jaipur.getDisplayView,privateView:jaipur.getPlayerView,isFinished:jaipur.isFinished,summary:s=>({winners:s.winners,seals:s.players.map(p=>({id:p.id,seals:p.seals})),rounds:s.history})} satisfies GameAdapter<JaipurState,ReturnType<typeof jaipur.getPlayerView>>,
 
   "seven-wonders-duel": {

@@ -2,6 +2,7 @@ import type { GameId } from "./types.js";
 export type GameStatus = "ready" | "beta" | "maintenance" | "coming-soon";
 export interface GameMetadata {
   id: GameId;
+  playMode?: "room" | "local";
   name: string;
   aliases: readonly string[];
   cover: string;
@@ -20,6 +21,11 @@ export interface GameMetadata {
 }
 // Public metadata only: importing this file never includes engine state or secrets.
 export const GAME_CATALOG: readonly GameMetadata[] = [
+ {id:"critter-kitchen",name:"Critter Kitchen",aliases:["critter kitchen","คริตเตอร์","ครัวสัตว์","เชฟ"],cover:"/art/covers/critter-kitchen.webp",coverAlt:"เหล่าเชฟสัตว์ในเมืองร้านอาหารริมคลอง",minPlayers:2,maxPlayers:5,supportedCounts:[2,3,4,5],durationMinutes:60,category:"วางแผนลับและปรุงอาหาร",difficulty:null,metadataSource:"https://cardboardalchemy.com/critter-kitchen/",status:"beta",rulesVersion:"cardboard-alchemy-base-2024-v1",stateSchemaVersion:1,ui:"critter-kitchen"},
+ {id:"locus",name:"Locus",aliases:["locus","โลคัส","กากบาท","flip write"],cover:"/art/locus/cover.webp",coverAlt:"กระดาษและดินสอห้าสีบนโต๊ะปริศนา",minPlayers:2,maxPlayers:5,supportedCounts:[2,3,4,5],durationMinutes:30,category:"พลิกการ์ด กากบาท และต่อคอมโบ",difficulty:null,metadataSource:"https://www.tuckersfunfactory.nl/1009/webshop/kaartspellen/TFF-482108",status:"ready",rulesVersion:"tucker-base-2024-en-v1",stateSchemaVersion:1,ui:"locus"},
+ {id:"sky-team",name:"Sky Team",aliases:["sky team","สกายทีม","เครื่องบิน","ลงจอด"],cover:"/art/covers/sky-team.webp",coverAlt:"เครื่องบินโดยสารเข้าใกล้รันเวย์ยามเช้า",minPlayers:2,maxPlayers:2,supportedCounts:[2],durationMinutes:20,category:"ร่วมมือลงจอดเครื่องบิน",difficulty:null,metadataSource:"https://www.scorpionmasque.com/en/sky-team",status:"ready",rulesVersion:"base-2023-yul-intro-v1",stateSchemaVersion:1,ui:"sky-team"},
+ {id:"harmonies",name:"Harmonies",aliases:["harmonies","ฮาร์โมนี","ฮาร์โมนีส์","ธรรมชาติ","สัตว์"],cover:"/art/harmonies/reference/cover.webp",coverAlt:"สัตว์น้อยในโลกธรรมชาติและชิ้นไม้หลากสี",minPlayers:2,maxPlayers:4,supportedCounts:[2,3,4],durationMinutes:30,category:"สร้างภูมิประเทศและถิ่นอาศัยสัตว์",difficulty:null,metadataSource:"https://www.libellud.com/game/harmonies/",status:"ready",rulesVersion:"libellud-base-2024-A-B-v1",stateSchemaVersion:1,ui:"harmonies"},
+ {id:"pixies",name:"Pixies — ภูตจิ๋วจอมป่วน",aliases:["pixies","พิกซี","พิกซี่","ภูตจิ๋ว","ภูต"],cover:"/art/covers/pixies.webp",coverAlt:"ภูตเมล็ดพืชตัวจิ๋วในป่ามอส",minPlayers:2,maxPlayers:5,supportedCounts:[2,3,4,5],durationMinutes:30,category:"เลือกไพ่และจัดสวนภูต 3×3",difficulty:null,metadataSource:"https://studiobombyx.com/jeu/pixies/",status:"ready",rulesVersion:"bombyx-base-2024-v1",stateSchemaVersion:1,ui:"pixies"},
  {id:"jaipur",name:"Jaipur",aliases:["jaipur","ชัยปุระ","ไจปูร์","จัยปูร์","ตลาด"],cover:"/art/covers/jaipur.webp",coverAlt:"ตลาดชัยปุระ สินค้าเครื่องประดับ ผ้าและอูฐ",minPlayers:2,maxPlayers:2,supportedCounts:[2],durationMinutes:30,category:"ค้าขายและแลกสินค้า",difficulty:null,metadataSource:"https://www.spacecowboys-games.com/game/jaipur/",status:"ready",rulesVersion:"space-cowboys-2019-v1",stateSchemaVersion:1,ui:"jaipur"},
   {id:"seven-wonders-duel",name:"7 Wonders Duel",aliases:["7 wonders duel","seven wonders","ดูเอล","เจ็ดสิ่งมหัศจรรย์"],cover:"/art/covers/seven-wonders-duel.webp",coverAlt:"สองนครโบราณเหนืออ่าวยามอาทิตย์ตก",minPlayers:2,maxPlayers:2,supportedCounts:[2],durationMinutes:30,category:"สร้างอารยธรรมสำหรับสองคน",difficulty:null,metadataSource:"https://www.rprod.com/en/games/7-wonders-duel",status:"ready",rulesVersion:"base-2015-v1",stateSchemaVersion:1,ui:"seven-wonders-duel"},
   {
@@ -73,6 +79,7 @@ export const GAME_CATALOG: readonly GameMetadata[] = [
     stateSchemaVersion: 1,
     ui: "dracula-vs-van-helsing",
   },
+ {id:"name-it",playMode:"local",name:"Name It! — มหึหมา",aliases:["name it","name it!","มหึหมา","หมา","จำชื่อ"],cover:"/art/name-it/c00.webp",coverAlt:"น้องหมาขี้เล่นในสวนสีสดใส",minPlayers:2,maxPlayers:6,supportedCounts:[2,3,4,5,6],durationMinutes:15,category:"ปาร์ตี้และความจำ เล่นบนเครื่องเดียว",difficulty:null,metadataSource:"user-provided-rules",status:"beta",rulesVersion:"user-request-web-69-v1",stateSchemaVersion:1,ui:"name-it"},
 ];
 export const metadata = (id: string) => GAME_CATALOG.find((g) => g.id === id);
 export const supportsPlayers = (g: GameMetadata, n: number) =>

@@ -1619,3 +1619,8 @@ body.duel-theme { overflow-anchor: none; }
 .duel-surface .city-draw #duel-controls button:disabled {
  background: #273c43; color: #dcd8c8; border-color: #756949;
 }
+.result-reveal-card { position: relative; cursor: pointer; }
+.result-reveal-card .tap-reveal { position: absolute; inset: auto 1px 10px; padding: 3px 0; color: #142d35; background: #f3d67c; font-size: 10px; line-height: 1.7; }
+.has-round-result .result-reveal-card .duel-card { opacity: 1; outline: 2px solid #f3d67c; outline-offset: -2px; }
+.has-round-result .district-side .duel-card[data-card="revealed"] { opacity: 1; }
+.duel-exchange-note {padding:8px 10px;border:1px solid #d2b966;background:#29464b;color:#fff1c8;font-size:13px;line-height:1.8;margin:6px 0;}

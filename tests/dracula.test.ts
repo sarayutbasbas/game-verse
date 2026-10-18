@@ -197,6 +197,7 @@ test("round acknowledgement does not redeal until both; reshuffle all cards; ret
     vampires = [...s.vampires],
     rank = [...s.ranking],
     cards = structuredClone(s.players[0].cards);
+  for(const p of s.players)for(const a of e.getLegalActions(s,p.id))if(a.type==="reveal-result")s=action(s,a,p.id);
   s = action(s, { type: "next-round" }, "d");
   assert.equal(s.round, 1);
   assert.deepEqual(s.players[0].cards, cards);
@@ -224,13 +225,17 @@ test("public projection filters hidden cards including draw, owner sees own only
   assert(!("cards" in v.players[0]));
   s.players[0].cards[0].revealed = true;
   assert(e.getDisplayView(s, "ABC234", 6).racks!.dracula[0]);
-  const result = resolveFixture(initial()),
-    pub = e.getDisplayView(result, "ABC234", 10);
-  assert(pub.result?.cards.dracula.every((c) => c.revealed));
-  assert(pub.racks!.dracula.every((c) => c?.revealed));
-  assert(e.getPlayerView(result, "d").cards.every((c) => c.revealed));
-  pub.result!.cards.dracula[0].value = 99;
-  assert.notEqual(result.result!.cards.dracula[0].value, 99);
+  let result = resolveFixture(initial());
+  const hidden=e.getDisplayView(result,"ABC234",10);
+  assert(hidden.result?.cards.dracula.every(c=>c===null));
+  assert(hidden.racks!.dracula.every(c=>c===null));
+  assert(e.getPlayerView(result,"d").cards.every(c=>!c.revealed));
+  assert.throws(()=>action(result,{type:"next-round"},"d"));
+  for(const p of result.players)for(const a of e.getLegalActions(result,p.id))if(a.type==="reveal-result")result=action(result,a,p.id);
+  const pub=e.getDisplayView(result,"ABC234",20);
+  assert(pub.result?.cards.dracula.every(c=>c?.revealed));
+  pub.result!.cards.dracula[0]!.value=99;
+  assert.notEqual(result.result!.cards.dracula[0].value,99);
 });
 test("seeded legal play completes full games with conservation, rack identities and no negative resources", () => {
   for (let seed = 1; seed <= 30; seed++) {
@@ -243,8 +248,8 @@ test("seeded legal play completes full games with conservation, rack identities 
       steps = 0;
     while (!e.isFinished(s) && steps++ < 500) {
       const id =
-        s.phase === "results"
-          ? s.players.find((p) => !s.acknowledged.includes(p.id))!.id
+        s.phase !== "playing"
+          ? s.players.find((p) => e.getLegalActions(s,p.id).length)!.id
           : s.turn;
       const legal = e.getLegalActions(s, id);
       assert(legal.length);
@@ -292,4 +297,35 @@ test("effect 2 stays public through draw, rack placement and swaps; ordinary dra
   const placed = action(hidden, { type: "discard", slot: 3 });
   assert(!placed.lastAction!.includes("วางไพ่เปิดเผย"));
   assert.equal(e.getDisplayView(placed, "ABC234", 6).racks!.dracula[3], null);
+});
+
+test('manual settlement: own cards only, arbitrary reveal order, prefix scoring, round guards and restart completion',()=>{
+ let s=resolveFixture(initial());
+ const open=(id:string,slot:number)=>{s=action(s,{type:'reveal-result',slot,round:s.round},id);};
+ let v=e.getDisplayView(s,'ABC234',1);
+ assert(v.revealPending);assert.equal(v.revealedCount,0);assert.equal(v.hp,12);assert.deepEqual(v.result!.districts,[]);
+ assert.throws(()=>action(s,{type:'next-round'},'d'));
+ assert.throws(()=>action(s,{type:'reveal-result',slot:4,round:s.round-1},'d'));
+ assert.throws(()=>action(s,{type:'reveal-result',slot:4,round:s.round,character:'helsing'} as any,'d'));
+ open('d',4);v=e.getDisplayView(s,'ABC234',2);
+ assert(v.racks!.dracula[4]);assert.equal(v.racks!.helsing[4],null);assert.equal(v.result!.cards.helsing[4],null);
+ assert.throws(()=>action(s,{type:'reveal-result',slot:4,round:s.round},'d'));
+ open('h',4);v=e.getDisplayView(s,'ABC234',3);assert.equal(v.hp,12);assert.deepEqual(v.result!.districts,[]);
+ open('d',0);open('h',0);v=e.getDisplayView(s,'ABC234',5);assert.equal(v.result!.districts.length,1);assert.equal(v.hp,s.result!.districts[0].hp);
+ for(const p of s.players)for(const a of e.getLegalActions(s,p.id))if(a.type==='reveal-result')s=action(s,a,p.id);
+ assert(!e.getDisplayView(s,'ABC234',20).revealPending);assert.equal(e.getDisplayView(s,'ABC234',20).revealedCount,10);
+ s=initial();s.hp=1;s.ranking=[...SUITS];s.players[0].cards=[1,1,1,1,1].map(()=>card(1,'yellow'));s.players[1].cards=[2,2,2,2,2].map(()=>card(2,'red'));
+ s=resolveFixture(s);assert.equal(s.phase,'finished');assert(!e.isFinished(s));assert.equal(e.getDisplayView(s,'ABC234',1).winner,undefined);
+ for(const p of s.players)for(const a of e.getLegalActions(s,p.id))if(a.type==='reveal-result')s=action(s,a,p.id);
+ assert(e.isFinished(s));assert.equal(e.getDisplayView(s,'ABC234',20).winner,'helsing');
+});
+test('cross-player exchange keeps an owner-only receipt of the cards sent and received',()=>{
+ let s=discarded(6);const gaveD={...s.players[0].cards[2]},gaveH={...s.players[1].cards[2]};
+ s=action(s,{type:'effect',targets:[2]});
+ const d=e.getPlayerView(s,'d'),h=e.getPlayerView(s,'h'),publicView=e.getDisplayView(s,'ABCDEF',10);
+ assert.deepEqual(d.exchange?.gave,gaveD);assert.deepEqual(d.exchange?.received,gaveH);assert.equal(d.exchange?.initiated,true);
+ assert.deepEqual(h.exchange?.gave,gaveH);assert.deepEqual(h.exchange?.received,gaveD);assert.equal(h.exchange?.initiated,false);
+ assert.equal(d.exchange?.slot,2);assert.equal((publicView as any).exchange,undefined);assert.equal((publicView as any).lastExchange,undefined);
+ assert.equal(publicView.racks!.dracula[2],gaveH.revealed?publicView.racks!.dracula[2]:null);
+ d.exchange!.gave.value=99;assert.equal(e.getPlayerView(s,'d').exchange!.gave.value,gaveD.value);
 });

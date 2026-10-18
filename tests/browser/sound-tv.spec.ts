@@ -70,7 +70,7 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
       await ctx.route("**/*.css", async (route) => {
         const r = await route.fetch();
         const text = (await r.text())
-          .replace(/(?:aspect-ratio|container-type|inset)\s*:[^;}]+;?/g, "")
+          .replace(/(?<=[{;])\s*(?:aspect-ratio|container-type|inset)\s*:[^;}]+;?/g, "")
           .replace(/[^{};]+:[^{};]*cqw[^{};]*;?/g, "");
         await route.fulfill({ response: r, body: text });
       });
@@ -110,7 +110,7 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
         .click();
       await expect(display.locator(".turn-sound-button")).toHaveAttribute(
         "aria-label",
-        "เสียงจบตา: เปิด",
+        "เสียงเอฟเฟกต์: เปิด",
       );
       await expect
         .poll(async () => (await view(display))?.phase)
@@ -118,6 +118,7 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
       let v = await view(display);
       const room = app.rooms.rooms.get(code)!;
       if (game === "dracula-vs-van-helsing") {
+        await expect(display.locator(".duel-table")).toHaveAttribute("data-motion-state","idle");
         for (const el of await display
           .locator(".district-side .duel-card")
           .all()) {
@@ -185,11 +186,12 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
           String((await view(p)).revision),
         );
       };
+      const increment=game==="dracula-vs-van-helsing"?4:2;
       const initial = await display.evaluate(() => (window as any).__tones);
       await turn();
       await expect
         .poll(() => display.evaluate(() => (window as any).__tones))
-        .toBe(initial + 2);
+        .toBe(initial + increment);
       await display.evaluate(() => {
         const w = window as any;
         w.__socket.dispatchEvent(
@@ -199,32 +201,54 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
       });
       await expect(display.locator(".turn-sound-button")).toHaveAttribute(
         "aria-label",
-        "เสียงจบตา: เปิด",
+        "เสียงเอฟเฟกต์: เปิด",
       );
       expect(await display.evaluate(() => (window as any).__tones)).toBe(
-        initial + 2,
+        initial + increment,
       );
+      if(!await display.locator(".audio-settings").evaluate(n=>(n as HTMLDetailsElement).open))await display.locator(".audio-settings summary").click();
       await display.locator(".turn-sound-button").click();
       await expect(display.locator(".turn-sound-button")).toHaveAttribute(
         "aria-label",
-        "เสียงจบตา: ปิด",
+        "เสียงเอฟเฟกต์: ปิด",
       );
       await turn();
       expect(await display.evaluate(() => (window as any).__tones)).toBe(
-        initial + 2,
+        initial + increment,
       );
       await display.reload();
       await expect(display.locator(".turn-sound-button")).toHaveAttribute(
         "aria-label",
-        "เสียงจบตา: ปิด",
+        "เสียงเอฟเฟกต์: ปิด",
       );
       expect(await display.evaluate(() => (window as any).__tones)).toBe(0);
+      if(!await display.locator(".audio-settings").evaluate(n=>(n as HTMLDetailsElement).open))await display.locator(".audio-settings summary").click();
       await display.locator(".turn-sound-button").click();
       await expect(display.locator(".turn-sound-button")).toHaveAttribute(
         "aria-label",
-        "เสียงจบตา: เปิด",
+        "เสียงเอฟเฟกต์: เปิด",
       );
       expect(await display.evaluate(() => (window as any).__tones)).toBe(2);
+      if(game==="dracula-vs-van-helsing") {
+        await display.locator('.music-sound-button').click();
+        await expect(display.locator('.audio-settings')).toHaveAttribute('data-music-playing','true');
+        await display.locator('.turn-sound-button').click();
+        await expect(display.locator('.turn-sound-button')).toHaveAttribute('aria-pressed','false');
+        await expect(display.locator('.music-sound-button')).toHaveAttribute('aria-pressed','true');
+        const fx=await display.locator('.audio-settings').getAttribute('data-fx-count');
+        await turn();
+        expect(await display.locator('.audio-settings').getAttribute('data-fx-count')).toBe(fx);
+        await expect(display.locator('.audio-settings')).toHaveAttribute('data-music-playing','true');
+        await display.reload();
+        await expect(display.locator('.turn-sound-button')).toHaveText('เสียงเอฟเฟกต์: ปิด');
+        await expect(display.locator('.music-sound-button')).toHaveText('เสียงพื้นหลัง: เปิด');
+        await display.locator('.audio-settings summary').click();
+        await expect(display.locator('.audio-settings')).toHaveAttribute('data-music-playing','true');
+        await display.locator('.music-sound-button').click();
+        await expect(display.locator('.audio-settings')).toHaveAttribute('data-music-playing','false');
+        await expect(display.locator('.turn-sound-button')).toHaveAttribute('aria-pressed','false');
+        await display.screenshot({path:'test-results/dracula-audio-settings.png'});
+      }
       for (const p of [display, ...phones]) {
         expect(
           await p.evaluate(

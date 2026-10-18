@@ -1,3 +1,12 @@
+import {renderLocus} from "./locus.js";
+import {mountNameIt} from "./name-it.js";
+import {renderCK,closeCK} from "./critter-kitchen.js";
+import {renderSky} from "./sky-team.js";
+let harmoniesModule:typeof import('./harmonies.js')|undefined;
+let harmoniesLoading:Promise<unknown>|undefined;
+let harmoniesFirstMount=true,harmoniesLoadError=false;
+function closeHarmonies(){harmoniesModule?.closeHarmonies();}
+import {renderPixies,closePixiesResults} from "./pixies.js";
 import { completeJaipurCounting } from "./jaipur-results.js";
 import { updateGameHeader } from "./game-header.js";
 import {renderJaipur,captureJaipurMotion} from "./jaipur.js";
@@ -155,14 +164,20 @@ function connect() {
       entryPending = false;
       entryError = "";
       if (view?.code === m.view.code && m.view.revision < view.revision) return;
+      const startingLocus=m.view.gameId==="locus"&&m.view.phase==="playing"&&m.view.sequence===0&&view?.gameId==="locus"&&["lobby","finished"].includes(view.phase)&&!reconnectPresentation;
+      const startingHarmonies=m.view.gameId==="harmonies"&&m.view.phase==="playing"&&m.view.sequence===0&&view?.gameId==="harmonies"&&["lobby","finished"].includes(view.phase)&&!reconnectPresentation;
+      const startingPixies=m.view.gameId==="pixies"&&m.view.phase==="playing"&&m.view.sequence===0&&m.view.event?.kind==="deal"&&view?.gameId==="pixies"&&["lobby","finished"].includes(view.phase)&&!reconnectPresentation;
       const restartingDuel = view?.gameId === "dracula-vs-van-helsing" && view.phase === "finished" && m.view.phase === "playing";
       if (restartingDuel) duelMotion.reset();
+      if(m.view.gameId==="dracula-vs-van-helsing" && m.view.phase==="playing" &&
+        (restartingDuel && !reconnectPresentation || view?.gameId==="dracula-vs-van-helsing" && view.phase==="lobby"))
+        duelMotion.queueDeal(m.view.revision);
       const wondersGap=view?.gameId==="seven-wonders-duel" && m.view.gameId==="seven-wonders-duel" && view.code===m.view.code && !m.snapshot && (m.view.revision>view.revision+1 || (view.sequence!==undefined && m.view.sequence!==undefined && m.view.sequence>view.sequence+1));
       const jaipurGap=view?.gameId==="jaipur"&&m.view.gameId==="jaipur"&&view.code===m.view.code&&!m.snapshot&&(m.view.revision>view.revision+1||(view.sequence!==undefined&&m.view.sequence!==undefined&&m.view.sequence>view.sequence+1));
-      turnSound.accept(m.view, !!m.snapshot || !!wondersGap || !!jaipurGap);
+      turnSound.accept(m.view, (!!m.snapshot || !!wondersGap || !!jaipurGap)&&!startingPixies&&!startingHarmonies&&!startingLocus, !!restartingDuel && !reconnectPresentation);
       view = m.view;
       if (view.gameId === "camel-up") loadCamelArt();
-      deliverySnapshot = !!m.snapshot || !!wondersGap || !!jaipurGap;
+      deliverySnapshot = (!!m.snapshot || !!wondersGap || !!jaipurGap)&&!startingPixies&&!startingHarmonies;
       if(wondersGap||jaipurGap)send({type:"sync"});
       render();
       if(reconnectPresentation && view.gameId === "jaipur") completeJaipurCounting();
@@ -238,6 +253,7 @@ function board(_v: View) {
   return `<section class="tabletop" aria-label="กระดานการแข่งขัน"><div data-board-mount>${artReady ? "" : `<p role="status">${escape(artError || "กำลังเตรียมตัวหมากและกระดาน…")}</p>`}</div><p class="board-instructions">อูฐแข่งเดินตามเข็มนาฬิกา • กองเรียงล่างขึ้นบน • ตัวบนอยู่อันดับนำ</p></section>`;
 }
 function render() {
+  if(role==="games"&&route[1]==="name-it"){mountNameIt(main,turnSound);return;}
   // Broadcasts can arrive while someone is typing or choosing a card. Preserve
   // their draft and keyboard focus whenever the same control still exists.
   const active = document.activeElement as HTMLElement | null;
@@ -266,6 +282,15 @@ function render() {
   const platformTheme = !view || view.phase === "lobby";
   const duelTheme = !platformTheme && view?.gameId === "dracula-vs-van-helsing";
   const azulTheme = !platformTheme && view?.gameId === "azul";
+  const critterTheme=!platformTheme&&view?.gameId==='critter-kitchen';
+  document.documentElement.classList.toggle('critter-document',critterTheme);
+  document.body.classList.toggle('critter-theme',critterTheme);
+  if(!critterTheme)closeCK();
+  document.documentElement.classList.toggle("harmonies-document",!platformTheme&&view?.gameId==="harmonies");
+  document.body.classList.toggle("harmonies-theme",!platformTheme&&view?.gameId==="harmonies");
+  if(view?.gameId!=="harmonies")closeHarmonies();
+  document.body.classList.toggle("pixies-theme",!platformTheme&&view?.gameId==="pixies");
+  if(view?.gameId!=="pixies")closePixiesResults();
   document.body.classList.toggle("jaipur-theme",!platformTheme&&view?.gameId==="jaipur");
   document.body.classList.toggle("wonders-theme",!platformTheme && view?.gameId === "seven-wonders-duel");
   const calicoTheme = !platformTheme && view?.gameId === "calico";
@@ -282,7 +307,7 @@ function render() {
     'meta[name="theme-color"]',
   );
   if (themeMeta)
-    themeMeta.content = view?.gameId === "jaipur" ? "#efc36a" : view?.gameId === "seven-wonders-duel" ? "#183b3d" : azulTheme ? "#e4ddcf" : platformTheme
+    themeMeta.content = view?.gameId === "pixies" ? "#143c34" : view?.gameId === "jaipur" ? "#efc36a" : view?.gameId === "seven-wonders-duel" ? "#183b3d" : azulTheme ? "#e4ddcf" : platformTheme
       ? "#f0f3f5"
       : duelTheme
         ? "#101f2a"
@@ -336,17 +361,18 @@ function render() {
 function renderContent() {
   if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
   if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
-  if ((view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
+  if ((view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
     const banner=main.querySelector<HTMLElement>('#notice')!;
     banner.textContent=notice;
     const connection=main.querySelector<HTMLElement>('.connection')!;
     connection.dataset.online=String(connected);
     connection.setAttribute('aria-label',connected?'เชื่อมต่อแล้ว':'หลุด กำลังเชื่อมต่อใหม่');
     connection.innerHTML='<i aria-hidden="true"></i>'+(connected?'ออนไลน์':'หลุด');
-  } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse">GameVerse</a>${!view || view.phase === "lobby" ? '<nav class="header-links" aria-label="เมนูหลัก"><a href="/">เลือกเกม</a><a href="/join">เข้าห้อง</a></nav>' : ""}</div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "jaipur" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
+  } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse">GameVerse</a>${!view || view.phase === "lobby" ? '<nav class="header-links" aria-label="เมนูหลัก"><a href="/">เลือกเกม</a><a href="/join">เข้าห้อง</a></nav>' : ""}</div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "locus" && view?.gameId !== "critter-kitchen" && view?.gameId !== "sky-team" && view?.gameId !== "harmonies" && view?.gameId !== "jaipur" && view?.gameId !== "pixies" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
   const content = main.querySelector<HTMLElement>("#content")!;
   turnSound.setCompact(!!view);
-  if (view) main.querySelector("header")!.append(turnSound.button);
+  turnSound.setActive(!!view && view.phase!=="lobby");
+  if (view) main.querySelector("header")!.append(turnSound.controls);
   updateGameHeader(main, view, platform.joinOrigin ?? location.origin);
   if (!view) {
     if (role === "login") {
@@ -389,12 +415,12 @@ function renderContent() {
         void enterWithIdentity({ type: "join", code: joinCode, name });
         render();
       },
-      (gameId) => {
+      (gameId,displayMode) => {
         if (entryPending) return;
         entryPending = true;
         entryError = "";
         notice = "";
-        send({ type: "create", gameId });
+        send({ type: "create", gameId,...displayMode?{displayMode}:{} });
         render();
       },
     );
@@ -442,6 +468,17 @@ function renderContent() {
     );
     return;
   }
+  if(view.gameId==="locus"){renderLocus(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot,kind=>turnSound.playLocal(kind));return;}
+  if(view.gameId==="critter-kitchen"){renderCK(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
+  if(view.gameId==="sky-team"){renderSky(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
+  if(view.gameId==="harmonies"){
+    if(!harmoniesModule){
+      if(harmoniesLoadError){content.innerHTML='<p role="alert">โหลดสวนไม่สำเร็จ กรุณาโหลดหน้าใหม่</p><button id="hm-load-retry">โหลดใหม่</button>';content.querySelector('#hm-load-retry')!.addEventListener('click',()=>location.reload());return;}
+      content.innerHTML='<p role="status">กำลังเตรียมสวน…</p>';harmoniesLoading??=import('./harmonies.js').then(module=>{harmoniesModule=module;render();}).catch(()=>{harmoniesLoadError=true;render();});return;
+    }
+    harmoniesModule.renderHarmonies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot||harmoniesFirstMount);harmoniesFirstMount=false;return;
+  }
+  if(view.gameId==="pixies"){renderPixies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="jaipur"){renderJaipur(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if (view.gameId === "seven-wonders-duel") {
     renderWonders(content,view,session?.role === "host" || !!view.me?.canManage,!!pending || !connected,command,deliverySnapshot);return;
@@ -666,6 +703,6 @@ void refreshAccount()
     notice = "โหลดข้อมูลบัญชีไม่ได้ กรุณาโหลดหน้าใหม่";
   })
   .finally(() => {
-    connect();
+    if(!(role==="games"&&route[1]==="name-it"))connect();
     render();
   });

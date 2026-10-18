@@ -2,7 +2,7 @@ import { test, expect, type Page, type BrowserContext } from "@playwright/test";
 import { startServer } from "../../src/server/index.js";
 import { testAccount } from "./auth-fixture.js";
 import * as duel from "../../src/games/dracula-vs-van-helsing/engine.js";
-import type { DuelAction } from "../../src/games/dracula-vs-van-helsing/types.js";
+import { SUIT_NAME, type DuelAction } from "../../src/games/dracula-vs-van-helsing/types.js";
 const view = (p: Page) => p.evaluate(() => (window as any).__view);
 test("compact controller: original factions, copy join URL, live trump, sticky discard, toast and complete rematch reset", async ({
   browser,
@@ -368,6 +368,7 @@ test("compact controller: original factions, copy join URL, live trump, sticky d
         await expect(d.locator(".effect-confirm-bar")).toBeVisible();
         if (effect===4 && j===0) await expect(d.locator("#confirm-effect")).toBeDisabled();
       }
+      if(effect===6) await expect(d.locator("#effect-preview")).toContainText(`จะส่ง ${SUIT_NAME[before.players[0].cards[action.targets[0]].suit]} ${before.players[0].cards[action.targets[0]].value}`);
       if(effect===6) await expect(d.locator(`[data-target="${action.targets[0]}"][aria-pressed="true"]`)).toHaveCount(2);
       await expect(d.locator("#confirm-effect")).toBeInViewport();
       await expect(d.locator("#confirm-effect")).toBeEnabled();
@@ -376,6 +377,7 @@ test("compact controller: original factions, copy join URL, live trump, sticky d
       await d.locator("#confirm-effect").click();
       await expect(d.locator("#main")).toHaveAttribute("data-revision",String(revision+1));
       expect(room.duel.players).toEqual(duel.applyAction(before,actor,action,()=>.42).players);
+      if(effect===6){await expect(h.locator('.duel-exchange-note')).toContainText('คู่แข่งแลกไพ่ของคุณ');await expect(d.locator('.duel-exchange-note')).toContainText('คุณแลกไพ่');expect((await view(display)).me).toBeUndefined();expect((await view(h)).me.exchange.gave).toEqual(before.players[1].cards[action.targets[0]]);await h.screenshot({path:'test-results/dracula-exchange-receipt.png',fullPage:true});}
       expect(Math.abs(await d.evaluate(()=>scrollY)-y)).toBeLessThan(2);
     }
     // Play rules in the isolated engine up to the final legal command, then let
@@ -389,6 +391,7 @@ test("compact controller: original factions, copy join URL, live trump, sticky d
       if (next.phase === "finished") final = a;
       else if (next.phase === "results") {
         s = next;
+        for(const p of s.players)for(const a of duel.getLegalActions(s,p.id))if(a.type==="reveal-result")s=duel.applyAction(s,p.id,a,()=>.42);
         for (const p of s.players)
           s = duel.applyAction(s, p.id, { type: "next-round" }, () => 0.42);
       } else s = next;
@@ -419,6 +422,12 @@ test("compact controller: original factions, copy join URL, live trump, sticky d
         }),
       );
     }, final!);
+    await expect.poll(async () => !!(await view(display)).result).toBe(true);
+    for(const [i,p] of phones.entries())expect(Math.abs(await p.evaluate(()=>scrollY)-endScroll[i])).toBeLessThan(2);
+    for(const phone of phones)while(await phone.locator('[data-result-slot]').count()) {
+      const rev=room.revision;await phone.locator('[data-result-slot]').first().click();
+      await expect(phone.locator('#main')).toHaveAttribute('data-revision',String(rev+1));
+    }
     await expect.poll(async () => (await view(display)).phase).toBe("finished");
     for (const p of all) {
       const skip = p.getByRole("button", { name: "แสดงผลทั้งหมด", exact: true });
@@ -426,8 +435,9 @@ test("compact controller: original factions, copy join URL, live trump, sticky d
       await expect(p.locator(".duel-table")).toHaveAttribute("data-motion-state", "idle", {timeout:16000});
     }
     for (const [i,p] of phones.entries()) {
-      expect(Math.abs(await p.evaluate(()=>scrollY)-endScroll[i])).toBeLessThan(2);
-      await expect(p.locator('#duel-controls')).toBeInViewport();
+      const controlsBox=(await p.locator('#duel-controls').boundingBox())!, deckBox=(await p.locator('.city-draw').boundingBox())!;
+      expect(controlsBox.y).toBeGreaterThanOrEqual(deckBox.y);
+      expect(controlsBox.x).toBeGreaterThanOrEqual(deckBox.x);
     }
     const finishedFrame = await display.evaluate(() => (window as any).__frame);
     await display

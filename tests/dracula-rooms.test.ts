@@ -237,6 +237,17 @@ test("Dracula real WS: lobby, roles, full-room resume, authorisation, projection
     await d.wait((m) => m.type === "state");
     assert.deepEqual(d.view.result, result);
     assert.equal(d.view.round, round);
+    assert.equal((await d.command("too-early-ready",{type:"next-round"})).ok,false);
+    assert.equal((await host.command("host-reveal-forbidden",{type:"reveal-result",slot:0})).ok,false);
+    let revealIndex=0;
+    for(const client of [d,h]) {
+      for(const a of client.view.me!.legal.filter((a:any)=>a.type==="reveal-result")) {
+        const target=host.view.revision+1;
+        assert.equal((await client.command(`manual-${revealIndex++}`,a)).ok,true);
+        await Promise.all([host,d,h].map(c=>c.wait(m=>m.type==="state"&&m.view.revision===target)));
+      }
+    }
+    assert.equal(host.view.revealedCount,10);
     const revision = d.view.revision;
     await d.command("round-ready-d", { type: "next-round" });
     await h.wait((m) => m.type === "state" && m.view.revision === revision + 1);

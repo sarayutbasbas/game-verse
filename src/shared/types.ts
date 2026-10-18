@@ -1,3 +1,8 @@
+import type {LocusAction,LocusView} from "../games/locus/types.js";
+import type {CKAction,CKView,DisplayMode} from "../games/critter-kitchen/types.js";
+import type {SkyAction,SkyView} from "../games/sky-team/types.js";
+import type {HarmoniesAction,HarmoniesView} from "../games/harmonies/types.js";
+import type {PixiesAction,PixiesView} from "../games/pixies/types.js";
 import type { JaipurAction, JaipurView } from "../games/jaipur/types.js";
 import type { WondersAction, WondersView } from "../games/seven-wonders-duel/types.js";
 import type { CalicoAction, CalicoView } from "../games/calico/types.js";
@@ -29,6 +34,9 @@ export type Action =
 export type HostAction = {
   type: "start" | "restart";
   startingPlayerId?: string;
+  boardSide?: "A"|"B";
+  restaurateurs?:boolean;
+  tutorial?:boolean;
 };
 export interface Ticket {
   color: Color;
@@ -109,11 +117,11 @@ export interface View {
     legal: Action[];
   };
 }
-export type GameId = "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur";
-export type RoomView = View | DuelView | AzulView | CalicoView | WondersView | JaipurView;
-export type RoomAction = Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction;
+export type GameId = "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
+export type RoomView = LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView;
+export type RoomAction = {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
 export type ClientMessage =
-  | { type: "create"; gameId?: GameId }
+  | { type: "create"; gameId?: GameId; displayMode?:DisplayMode }
   | { type: "join"; code: string; name: string }
   | { type: "resume"; code: string; token: string }
   | { type: "watch"; code: string }

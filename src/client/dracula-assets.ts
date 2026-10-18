@@ -1,3 +1,4 @@
+export const DEAL_GAP_MS = 130;
 import { SUIT_NAME, type Suit } from "../games/dracula-vs-van-helsing/types.js";
 export const DUEL_ART = {
   map: "/art/dracula/city.webp",

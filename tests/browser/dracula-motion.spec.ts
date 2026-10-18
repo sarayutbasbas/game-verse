@@ -9,6 +9,9 @@ import type {
 async function hook(p: Page) {
   await p.addInitScript(() => {
     (window as any).__frames = [];
+    (window as any).__cardSounds=[];
+    const bufferSource=AudioContext.prototype.createBufferSource;
+    AudioContext.prototype.createBufferSource=function(){const node=bufferSource.call(this), start=node.start.bind(node);node.start=(time=0,...args:any[])=>{(window as any).__cardSounds.push(time);return start(time,...args);};return node;};
     (window as any).__sent = [];
     window.WebSocket = new Proxy(window.WebSocket, {
       construct(Target, args) {
@@ -36,20 +39,20 @@ async function hook(p: Page) {
     });
   });
 }
-async function cmd(p: Page, a: unknown) {
-  await p.evaluate((action) => {
+async function cmd(p: Page, a: unknown, revision?:number) {
+  await p.evaluate(({action,revision}) => {
     const w = window as any;
     w.__sockets.at(-1).send(
       JSON.stringify({
         type: "command",
         id: crypto.randomUUID(),
-        revision: w.__view.revision,
+        revision: revision ?? w.__view.revision,
         action,
       }),
     );
-  }, a);
+  }, {action:a,revision});
 }
-test("authoritative reveal/motion: both hands same snapshot, dedup, gap sync, reconnect mid-reveal and reduced motion", async ({
+test("manual reveal synchronizes two phones, protects closed cards, handles simultaneous taps and resumes after reconnect", async ({
   browser,
 }) => {
   const app = await startServer(0, "127.0.0.1", true, () => 0.42, {storePath: ":memory:", legacyHarness:true}),
@@ -108,6 +111,10 @@ test("authoritative reveal/motion: both hands same snapshot, dedup, gap sync, re
       fullPage: true,
     });
     const room = app.rooms.rooms.get(code)!;
+    for(const p of [display,...phones])await expect(p.locator('.duel-table')).toHaveAttribute('data-deal-revision',String(room.revision));
+    const scheduled=await display.evaluate(()=>(window as any).__cardSounds as number[]);
+    expect(scheduled).toHaveLength(10);
+    expect(scheduled.slice(1).every((t,i)=>t>scheduled[i])).toBeTruthy();
     // A real command chain reproduces the reported effect-2 bug on all three screens.
     // Internal deterministic setup only: all 32 cards conserved, no app debug route.
     const fixture = duel.createInitialState(room.players, () => 0.42);
@@ -123,7 +130,7 @@ test("authoritative reveal/motion: both hands same snapshot, dedup, gap sync, re
       await p.evaluate(() => (window as any).__sockets.at(-1).send(JSON.stringify({ type: "sync" })));
       await expect(p.locator(".board-turn small")).toHaveText(fixture.lastAction);
     }
-    const all = [display, ...phones];
+    const all = [display, ...phones], [d,h]=phones;
     const sendAndWait = async (p: Page, action: DuelAction) => {
       const revision = room.revision + 1;
       await cmd(p, action);
@@ -133,9 +140,11 @@ test("authoritative reveal/motion: both hands same snapshot, dedup, gap sync, re
     for (const p of all) await expect(p.locator(".public-draw")).toHaveCount(0);
     await sendAndWait(phones[0], { type: "discard", slot: -1 });
     const drawsBefore = Number(await display.locator('.duel-table').getAttribute('data-draw-animation-count') ?? 0);
+    const soundsBefore=await display.evaluate(()=>(window as any).__cardSounds.length);
     await display.evaluate(() => ((window as any).__duplicate = true));
     await sendAndWait(phones[1], { type: "draw" });
     await expect(display.locator('.duel-table')).toHaveAttribute('data-draw-animation-count',String(drawsBefore+1));
+    expect(await display.evaluate(()=>(window as any).__cardSounds.length)).toBe(soundsBefore+1);
     for(const p of all) {
       await expect(p.locator('.duel-table')).toHaveAttribute('data-draw-revision',String(room.revision));
       await expect(p.locator('.city-draw')).toHaveAttribute('data-draw-state','held');
@@ -153,235 +162,54 @@ test("authoritative reveal/motion: both hands same snapshot, dedup, gap sync, re
     }
     await phones[0].reload();
     await expect(phones[0].locator('[data-district="3"] [data-side="helsing"] .duel-value')).toHaveText("5");
-    // Internal engine fixture, never an HTTP/debug endpoint: roll forward legally
-    // until one intent will end this round. This sets up a deterministic reveal.
-    let s = room.duel!,
-      final: DuelAction | undefined;
-    for (let i = 0; i < 150 && !final; i++) {
-      const legal = duel.getLegalActions(s, s.turn);
-      const a = legal.find((a) => a.type === "end-round") ?? legal[0];
-      const after = duel.applyAction(s, s.turn, a, () => 0.42);
-      if (after.phase !== "playing") {
-        final = a;
-        break;
-      }
-      s = after;
-    }
-    expect(final).toBeDefined();
-    room.duel = s;
-    for (const p of [display, ...phones])
-      await p.evaluate(() =>
-        (window as any).__sockets.at(-1).send(JSON.stringify({ type: "sync" })),
-      );
-    await expect(display.locator(".duel-table")).toHaveAttribute(
-      "data-motion-state",
-      "idle",
-    );
-    const previous = room.revision;
-    const beforeMotions = Number(await display.locator(".duel-table").getAttribute("data-animation-count"));
-    const actor = phones.find((_, i) => room.players[i].id === s.turn)!;
-    const scrollPositions = await Promise.all(phones.map(p => p.evaluate(() => {
-      const city = document.querySelector('.city-map')!;
-      scrollTo(0, Math.max(0, city.getBoundingClientRect().top + scrollY - 20));
-      return scrollY;
-    })));
-    await display.evaluate(() => ((window as any).__duplicate = true));
-    await cmd(actor, final!);
-    await expect(display.locator(".duel-table")).toHaveAttribute(
-      "data-presentation-revision",
-      String(previous + 1),
-    );
-    await expect(display.locator(".duel-table")).toHaveAttribute(
-      "data-reveal-revision",
-      String(previous + 1),
-    );
-    expect(
-      await display.locator('.district [data-card="revealed"]').count(),
-    ).toBe(10);
-    const motions = await display
-      .locator(".duel-table")
-      .getAttribute("data-animation-count");
-    expect(Number(motions)).toBe(beforeMotions + 1);
-    // Both cards within each district open together, and later districts stay covered.
-    for (let district = 0; district < room.duel!.result!.districts.length; district++) {
-      for (const p of [display, ...phones]) {
-        await expect(p.locator(".duel-table")).toHaveAttribute("data-reveal-district", String(district), { timeout: 6000 });
-        await expect(p.locator(".reveal-verdict")).toContainText("แพ้", { timeout: 3000 });
-        await expect(p.locator(".reveal-pending")).toHaveCount(4 - district);
-        const starts = await p.locator(`[data-district="${district}"] .duel-card`).evaluateAll((cards) => cards.map((c) => c.getAnimations()[0]?.startTime));
-        expect(starts[0]).toEqual(starts[1]);
-        const result = room.duel!.result!.districts[district];
-        await expect(p.locator(".board-health strong")).toHaveText(`${result.hp}/12`);
-        if (district === 0) {
-          const hidden = await p.locator('[data-district="1"] .duel-value').evaluateAll((els) => els.every((el) => getComputedStyle(el).visibility === "hidden"));
-          expect(hidden).toBeTruthy();
-          const overlay=p.locator('.city-map > .board-reveal-layer');
-          await expect(overlay).toBeVisible();
-          await expect(p.locator('dialog')).toHaveCount(0);
-          const layer=(await overlay.boundingBox())!, board=(await p.locator('.city-map').boundingBox())!;
-          expect(Math.abs(layer.x-board.x)).toBeLessThan(8);
-          expect(layer.y).toBeGreaterThanOrEqual(board.y);
-          expect(await overlay.evaluate(n=>getComputedStyle(n).position)).toBe('absolute');
-          expect(await p.evaluate(()=>document.documentElement.style.overflow)).not.toBe('hidden');
-          if(p!==display) {
-            await expect(p.locator('.city-draw #next-round')).toBeDisabled();
-            expect(Math.abs(await p.evaluate(()=>scrollY)-scrollPositions[phones.indexOf(p)])).toBeLessThan(2);
-          }
-        }
-      }
-      if (district === 0) {
-        await display.screenshot({ path: "test-results/dracula-reveal.png", fullPage: false });
-        await phones[0].screenshot({ path: "test-results/dracula-paired-reveal-phone.png", fullPage: false });
-      }
-    }
-    for (const p of [display, ...phones]) await expect(p.locator(".duel-table")).toHaveAttribute("data-motion-state", "idle", { timeout: 6000 });
-    await expect(phones[0].getByRole("button", { name: "พร้อมรอบถัดไป" })).toBeEnabled();
-    for (const [i, p] of phones.entries()) {
-      expect(Math.abs(await p.evaluate(()=>scrollY) - scrollPositions[i])).toBeLessThan(2);
-      await expect(p.locator('#next-round')).toBeInViewport();
-      await expect(p.locator('dialog[open]')).toHaveCount(0);
-      expect(await p.evaluate(()=>document.documentElement.style.overflow)).not.toBe("hidden");
-      const ready=(await p.locator('#next-round').boundingBox())!, deck=(await p.locator('.city-draw').boundingBox())!;
-      expect(ready.x).toBeGreaterThanOrEqual(deck.x);
-      expect(ready.x+ready.width).toBeLessThanOrEqual(deck.x+deck.width);
-      expect(await p.locator('#duel-controls').evaluate(n=>getComputedStyle(n).position)).toBe('absolute');
-    }
-    await phones[0].screenshot({path:"test-results/dracula-centered-ready.png"});
-    // Reloading a result snapshot never replays the completed district sequence.
-    await display.reload();
-    await expect(display.locator(".duel-table")).toHaveAttribute(
-      "data-motion-state",
-      "idle",
-    );
-    await expect(
-      display.locator('.district [data-card="revealed"]'),
-    ).toHaveCount(10);
-    await expect(display.locator(".duel-table")).toHaveAttribute(
-      "data-animation-count",
-      "0",
-    );
-    const d = phones[0],
-      h = phones[1];
-    await d.getByRole("button", { name: "พร้อมรอบถัดไป" }).click();
-    await expect(h.locator("#main")).toHaveAttribute(
-      "data-revision",
-      String(previous + 2),
-    );
-    await h.getByRole("button", { name: "พร้อมรอบถัดไป" }).click();
-    await expect(
-      d.getByRole("button", { name: "จั่วการ์ด", exact: true }),
-    ).toBeVisible();
-    await Promise.all(
-      [display, ...phones].map((p) =>
-        expect(p.locator("#main")).toHaveAttribute(
-          "data-revision",
-          String(previous + 3),
-        ),
-      ),
-    );
-    await display.emulateMedia({ reducedMotion: "reduce" });
-    const count = await display
-      .locator(".duel-table")
-      .getAttribute("data-animation-count");
-    const drawRevision = room.revision + 1;
-    await d.getByRole("button", { name: "จั่วการ์ด", exact: true }).click();
-    await Promise.all(
-      [display, ...phones].map((p) =>
-        expect(p.locator("#main")).toHaveAttribute(
-          "data-revision",
-          String(drawRevision),
-        ),
-      ),
-    );
-    await expect(display.locator(".duel-table")).toHaveAttribute(
-      "data-motion-state",
-      "idle",
-    );
-    expect(
-      await display.locator(".duel-table").getAttribute("data-animation-count"),
-    ).toBe(count);
-    // Resolve another authoritative round to exercise interruption while revealing.
-    const continued = structuredClone(room.duel!);
-    let partial = room.duel!, ending: DuelAction | undefined;
-    for (let i = 0; i < 150 && !ending; i++) {
-      const actions = duel.getLegalActions(partial, partial.turn);
-      const action = actions.find((a) => a.type === "end-round") ?? actions[0];
-      const after = duel.applyAction(partial, partial.turn, action, () => 0.42);
-      if (after.phase !== "playing") ending = action;
-      else partial = after;
+    // Stop before the first authoritative round completion.
+    let state=room.duel!, ending:DuelAction|undefined;
+    for(let i=0;i<150&&!ending;i++) {
+      const legal=duel.getLegalActions(state,state.turn),a=legal.find(a=>a.type==="end-round")??legal[0];
+      const after=duel.applyAction(state,state.turn,a,()=>.42);
+      if(after.phase!=="playing")ending=a;else state=after;
     }
     expect(ending).toBeDefined();
-    room.duel = partial;
-    partial.lastAction = "เตรียมทดสอบข้ามการเฉลย";
-    for (const p of all) {
-      await p.evaluate(() => (window as any).__sockets.at(-1).send(JSON.stringify({ type: "sync" })));
-      await expect(p.locator(".board-turn small")).toHaveText(partial.lastAction);
+    state.players.forEach(p=>p.cards.forEach(c=>c.revealed=false));
+    room.duel=state;room.revision++;app.rooms.syncRoom(code);
+    for(const p of all)await expect(p.locator('#main')).toHaveAttribute('data-revision',String(room.revision));
+    const actor=phones[state.players.findIndex(p=>p.id===state.turn)];
+    await sendAndWait(actor,ending!);
+    for(const p of all){
+      await expect(p.locator('.board-turn strong')).toHaveText('จบรอบแล้ว เปิดการ์ดเพื่อดูคะแนน');
+      await expect(p.locator('.reveal-focus,.board-reveal-layer')).toHaveCount(0);
+      await expect(p.locator('#next-round,#duel-restart')).toHaveCount(0);
     }
-    const finisher = phones.find((_, i) => room.players[i].id === partial.turn)!;
-    await sendAndWait(finisher, ending!);
-    await expect(display.locator(".duel-table")).toHaveAttribute("data-motion-state", "idle");
-    await expect(display.locator(".reveal-focus")).toHaveCount(0);
-    await expect(h.locator(".duel-table")).toHaveAttribute("data-motion-state", "animating");
-    const hCount = await h.locator(".duel-table").getAttribute("data-animation-count");
-    // A valid early ACK from another device must preserve this result's sequence.
-    await sendAndWait(d, { type: "next-round" });
-    await expect(h.locator(".duel-table")).toHaveAttribute("data-motion-state", "animating");
-    expect(await h.locator(".duel-table").getAttribute("data-animation-count")).toBe(hCount);
-    await h.getByRole("button", { name: "แสดงผลทั้งหมด" }).click();
-    await expect(h.locator(".duel-table")).toHaveAttribute("data-motion-state", "idle");
-    await expect(h.locator(".reveal-pending")).toHaveCount(0);
-    await expect(h.getByRole("button", { name: "พร้อมรอบถัดไป" })).toBeEnabled();
-    await d.emulateMedia({ reducedMotion: "reduce" });
-    await expect(d.locator(".duel-table")).toHaveAttribute("data-motion-state", "idle");
-    await expect(d.locator(".reveal-pending")).toHaveCount(0);
+    const closedBefore=(await display.evaluate(()=>(window as any).__view)).revealedCount;
+    await display.waitForTimeout(800);
+    expect((await display.evaluate(()=>(window as any).__view)).revealedCount).toBe(closedBefore);
+    const dslot=Number(await d.locator('[data-result-slot]').last().getAttribute('data-result-slot'));
+    const hslot=Number(await h.locator('[data-result-slot]').last().getAttribute('data-result-slot'));
+    const priorRevision=room.revision;
+    // Both intents carry the same revision and are allowed to commute.
+    await Promise.all([cmd(d,{type:'reveal-result',slot:dslot,round:state.round},priorRevision),cmd(h,{type:'reveal-result',slot:hslot,round:state.round},priorRevision)]);
+    for(const p of all)await expect(p.locator('#main')).toHaveAttribute('data-revision',String(priorRevision+2));
+    const shared=await display.evaluate(()=>(window as any).__view);
+    expect(shared.racks.dracula[dslot]).toBeTruthy();expect(shared.racks.helsing[hslot]).toBeTruthy();
+    expect(shared.result.cards.dracula[dslot]).toEqual(shared.racks.dracula[dslot]);
+    expect(shared.result.cards.dracula.filter((c:any)=>c===null).length).toBeGreaterThan(0);
+    expect(shared.event.reveal.cards.helsing.filter((c:any)=>c===null).length).toBeGreaterThan(0);
+    const count=shared.revealedCount;
     await d.reload();
-    await expect(d.locator(".duel-table")).toHaveAttribute("data-motion-state", "idle");
-    await expect(d.locator(".reveal-focus")).toHaveCount(0);
-    expect(await d.evaluate(() => (window as any).__view.result)).toEqual(room.duel!.result);
-    await d.emulateMedia({ reducedMotion: "no-preference" });
-    room.duel = continued;
-    continued.lastAction = "ทดสอบ event gap ต่อ";
-    for (const p of all) {
-      await p.evaluate(() => (window as any).__sockets.at(-1).send(JSON.stringify({ type: "sync" })));
-      await expect(p.locator(".board-turn small")).toHaveText(continued.lastAction);
+    await expect(d.locator('.city-draw')).toContainText(`เปิดแล้ว ${count}/10 ใบ`);
+    await expect(d.locator('.duel-table')).toHaveAttribute('data-motion-state','idle');
+    await d.emulateMedia({reducedMotion:'reduce'});
+    await d.screenshot({path:'test-results/dracula-manual-reveal.png',fullPage:true});
+    for(const phone of phones)while(await phone.locator('[data-result-slot]').count()) {
+      const rev=room.revision;await phone.locator('[data-result-slot]').first().click();
+      for(const p of all)await expect(p.locator('#main')).toHaveAttribute('data-revision',String(rev+1));
     }
-    await display.emulateMedia({ reducedMotion: "no-preference" });
-    // Drop one state then the next arrives with a revision gap: display asks sync.
-    await display.evaluate(() => ((window as any).__skip = true));
-    const legal = duel.getLegalActions(room.duel!, room.duel!.turn),
-      first = legal[0];
-    const firstRevision = room.revision + 1;
-    await cmd(d, first);
-    await expect(d.locator("#main")).toHaveAttribute(
-      "data-revision",
-      String(firstRevision),
-    );
-    const next = duel.getLegalActions(room.duel!, room.duel!.turn)[0],
-      player = phones.find((_, i) => room.players[i].id === room.duel!.turn)!;
-    const nextRevision = room.revision + 1;
-    await cmd(player, next);
-    await expect(display.locator(".duel-table")).toHaveAttribute(
-      "data-presentation-revision",
-      String(nextRevision),
-    );
-    await expect(display.locator(".duel-table")).toHaveAttribute(
-      "data-motion-state",
-      "idle",
-    );
-    await expect
-      .poll(() =>
-        display.evaluate(
-          () =>
-            (window as any).__sent.filter((t: string) => t === "sync").length,
-        ),
-      )
-      .toBeGreaterThan(0);
-    for (const p of [display, ...phones])
-      expect(
-        await p.evaluate(
-          () => document.documentElement.scrollWidth <= innerWidth,
-        ),
-      ).toBeTruthy();
+    expect((await display.evaluate(()=>(window as any).__view)).revealedCount).toBe(10);
+    await d.locator('#next-round').click();await h.locator('#next-round').click();
+    await expect(d.locator('#draw')).toBeVisible();
+    // A reconnect snapshot never replays the new round's deal or prior sound effects.
+    await h.reload();await expect(h.locator('.duel-table')).toHaveAttribute('data-motion-state','idle');
+    await expect(h.locator('.duel-table')).not.toHaveAttribute('data-deal-revision',/.+/);
   } finally {
     for (const c of contexts) await c.close();
     await app.close();

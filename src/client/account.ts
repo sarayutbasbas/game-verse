@@ -59,7 +59,7 @@ export const returnPath = (input: string | null) =>
 export function avatar(p: { name: string; avatar?: string | null }) {
   return p.avatar
     ? `<img class="profile-avatar" src="${esc(p.avatar)}" alt="" width="48" height="48" referrerpolicy="no-referrer">`
-    : `<span class="profile-avatar default-avatar" aria-hidden="true">${esc([...p.name][0] ?? "G")}</span>`;
+    : `<span class="profile-avatar default-avatar" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M3 23v-3a9 9 0 0 1 18 0v3z"/></svg></span>`;
 }
 export function accountNav() {
   const p = platform.profile;

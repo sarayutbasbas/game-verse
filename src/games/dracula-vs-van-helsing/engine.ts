@@ -42,6 +42,10 @@ function deal(s: DuelState, random: () => number) {
   s.step = "draw";
   s.phase = "playing";
   s.acknowledged = [];
+  s.lastEvent = "deal";
+  s.lastExchange = undefined;
+  s.reveals = undefined;
+  s.revealStart = undefined;
 }
 export function createInitialState(
   players: { id: string; name: string; character?: Character }[],
@@ -91,7 +95,12 @@ export function compareCards(
     reason: "เลขเท่ากัน สีอันดับสูงกว่าชนะ",
   };
 }
+export function revealsComplete(s: DuelState) {
+  return !s.reveals || ROLES.every(role=>s.reveals![role].every(Boolean));
+}
 function resolve(s: DuelState, cause: string) {
+  s.revealStart={hp:s.hp,vampires:[...s.vampires]};
+  s.reveals=Object.fromEntries(s.players.map(p=>[p.character,p.cards.map(c=>c.revealed)])) as Record<Character,boolean[]>;
   const cards = Object.fromEntries(
     s.players.map((p) => [
       p.character,
@@ -172,8 +181,11 @@ function effectChoices(s: DuelState, actor: string): DuelAction[] {
   }
 }
 export function getLegalActions(s: DuelState, actor: string): DuelAction[] {
-  if (!s.players.some((p) => p.id === actor) || s.phase === "finished")
-    return [];
+  const player=s.players.find(p=>p.id===actor);
+  if (!player) return [];
+  if(s.phase!=="playing" && !revealsComplete(s))
+    return s.reveals![player.character].flatMap((open,slot)=>open?[]:[{type:"reveal-result" as const,slot,round:s.round}]);
+  if(s.phase==="finished") return [];
   if (s.phase === "results")
     return s.acknowledged.includes(actor) ? [] : [{ type: "next-round" }];
   if (s.turn !== actor) return [];
@@ -205,6 +217,13 @@ export function applyAction(
   const s = structuredClone(state),
     p = s.players.find((p) => p.id === actor)!,
     other = s.players.find((p) => p.id !== actor)!;
+  s.actionSerial=(s.actionSerial??0)+1;
+  s.lastEvent=action.type==="discard" ? (action.slot>=0 ? "replace" : "discard") : action.type==="effect" ? ([4,6,7].includes(s.effect!)?"swap":"reveal") : action.type;
+  if(action.type === "reveal-result") {
+    s.reveals![p.character][action.slot]=true;
+    s.lastAction=`${ROLE_NAME[p.character]} เปิดไพ่เขต ${action.slot+1}`;
+    return s;
+  }
   if (action.type === "next-round") {
     s.acknowledged.push(actor);
     if (s.acknowledged.length === 2) {
@@ -266,6 +285,7 @@ export function applyAction(
       [p.cards[a], p.cards[b]] = [p.cards[b], p.cards[a]];
       break;
     case 6:
+      s.lastExchange={round:s.round,serial:s.actionSerial!,actor,slot:a,cards:{[p.character]:{...p.cards[a]},[other.character]:{...other.cards[a]}} as Record<Character,Card>};
       [p.cards[a], other.cards[a]] = [other.cards[a], p.cards[a]];
       break;
     case 7:
@@ -294,11 +314,25 @@ export function getDisplayView(
   revision: number,
 ): DuelView {
   const exposed = s.phase !== "playing";
+  const pending=exposed && !revealsComplete(s);
+  const open=(role:Character,i:number)=>exposed ? (s.reveals?.[role][i] ?? true) : !!s.players.find(p=>p.character===role)!.cards[i].revealed;
+  let hp=s.hp, vampires=[...s.vampires];
+  let result: DuelView["result"];
+  if(s.result) {
+    let prefix=0;
+    while(prefix<5 && ROLES.every(role=>open(role,prefix)))prefix++;
+    const districts=s.result.districts.filter(r=>r.district<prefix);
+    if(s.revealStart) {
+      hp=s.revealStart.hp; vampires=[...s.revealStart.vampires];
+      for(const r of districts){hp=r.hp;vampires[r.district]=r.vampires;}
+    }
+    result={...structuredClone(s.result),districts,cards:Object.fromEntries(ROLES.map(role=>[role,s.result!.cards[role].map((c,i)=>open(role,i)?{...c}:null)])) as NonNullable<DuelView["result"]>["cards"]};
+  }
   return {
     gameId: "dracula-vs-van-helsing",
     code,
     revision,
-    phase: s.phase,
+    phase: pending ? "results" : s.phase,
     step: s.step,
     players: s.players.map((p) => ({
       id: p.id,
@@ -309,14 +343,14 @@ export function getDisplayView(
     })),
     turn: s.turn,
     round: s.round,
-    hp: s.hp,
-    vampires: [...s.vampires],
+    hp,
+    vampires,
     ranking: [...s.ranking],
     racks: Object.fromEntries(
       s.players.map((p) => [
         p.character,
-        p.cards.map((c) =>
-          exposed || c.revealed ? { ...c, revealed: true } : null,
+        p.cards.map((c,i) =>
+          open(p.character,i) ? { ...c, revealed: true } : null,
         ),
       ]),
     ) as DuelView["racks"],
@@ -326,10 +360,12 @@ export function getDisplayView(
     drawn: s.drawn?.revealed ? { ...s.drawn } : undefined,
     effect: s.step === "effect" ? s.effect : undefined,
     ending: s.ending,
-    result: s.result ? structuredClone(s.result) : undefined,
+    result,
+    revealPending: pending,
+    revealedCount: exposed ? ROLES.flatMap(role=>s.players.find(p=>p.character===role)!.cards.map((_,i)=>open(role,i))).filter(Boolean).length : undefined,
     acknowledged: [...s.acknowledged],
-    winner: s.winner,
-    reason: s.reason,
+    winner: pending ? undefined : s.winner,
+    reason: pending ? undefined : s.reason,
     lastAction: s.lastAction,
   };
 }
@@ -341,14 +377,15 @@ export function getPlayerView(
   if (!p) throw Error("ไม่พบผู้เล่น");
   return {
     id: actor,
-    cards: p.cards.map((c) => ({
+    cards: p.cards.map((c,i) => ({
       ...c,
-      revealed: s.phase !== "playing" || c.revealed,
+      revealed: s.phase === "playing" ? c.revealed : (s.reveals?.[p.character][i] ?? true),
     })),
     drawn: s.turn === actor && s.drawn ? { ...s.drawn } : undefined,
+    exchange:s.lastExchange?{round:s.lastExchange.round,serial:s.lastExchange.serial,initiated:s.lastExchange.actor===actor,slot:s.lastExchange.slot,gave:{...s.lastExchange.cards[p.character]},received:{...s.lastExchange.cards[p.character==="dracula"?"helsing":"dracula"]}}:undefined,
     legal: getLegalActions(s, actor),
   };
 }
 export function isFinished(s: DuelState) {
-  return s.phase === "finished";
+  return s.phase === "finished" && revealsComplete(s);
 }

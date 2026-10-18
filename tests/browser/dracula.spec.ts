@@ -169,9 +169,27 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
     expect((await read(h)).me!.id).toBe(playerIds[1]);
     let rounds = 0,
       actions = 0,
-      resultReconnect = false;
+      resultReconnect = false, manualReconnect = false;
     while ((v = await read(display)).phase !== "finished" && actions < 320) {
       const next = v.revision + 1;
+      if(v.revealPending) {
+        let opened=false;
+        for(const phone of phones) {
+          const closed=phone.locator('[data-result-slot]').first();
+          if(await closed.count()) {await closed.click();await Promise.all([display,d,h].map(page=>revision(page,next)));opened=true;break;}
+        }
+        expect(opened).toBeTruthy();actions++;
+        if(process.env.GAMEVERSE_E2E_DOCKER==="1"&&!manualReconnect){
+          const pending=await read(display);
+          await promisify(execFile)("docker",["compose","up","--detach","--force-recreate","--wait","app"],{timeout:90000});
+          for(const page of [display,d,h]){await page.reload();await expect(page.locator('.district')).toHaveCount(5);}
+          expect((await read(display)).racks).toEqual(pending.racks);
+          expect((await read(display)).revealedCount).toBe(pending.revealedCount);
+          expect((await read(d)).me!.id).toBe(playerIds[0]);expect((await read(h)).me!.id).toBe(playerIds[1]);
+          manualReconnect=true;
+        }
+        continue;
+      }
       if (v.phase === "results") {
         rounds++;
         expect(v.result!.cards.dracula.length).toBe(5);
