@@ -1,0 +1,5 @@
+# Presentation boundary
+
+No engine, scoring, state schema, room commands, sessions or persistence shape changed. All board cells, public stacks/cubes, cards, remaining hand and scores still arrive in HarmoniesView. Only the authenticated owner receives legal intents/habitat candidates. Future bag/deck order is never sent. Device mode/camera/menu/ghost/score dialog remain local. Shared display has no player capability and cannot place a terrain/cube. New imagery is decorative and keyed to catalog IDs, never used for hit testing or scoring.
+
+Compact revision: client presentation omits running total/leaderboard markup entirely while playing, including other-player board headers. Printed card point tracks remain public. Final totals/breakdowns still use the authoritative finished HarmoniesView snapshot. Selection and cell-anchored confirmation are local to the authenticated player; no preview command or preview image is broadcast. CSS3D voxel instances retain original cube/card IDs and occupancy. Device camera/mode changes neither commit nor clear a pending preview. Completed animal cards remain accessible separately from the four active slots.

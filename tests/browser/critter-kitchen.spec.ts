@@ -1,0 +1,1008 @@
+import { test, expect, type Page, type BrowserContext, type Locator } from '@playwright/test';
+import { mkdtemp, rm, mkdir } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { startServer } from '../../src/server/index.js';
+import { testAccount } from './auth-fixture.js';
+import type { CKView, Meal } from '../../src/games/critter-kitchen/types.js';
+import { FOODS, TOKEN, CHALLENGE } from '../../src/games/critter-kitchen/data.js';
+import { emptyMeal, mealQuality } from '../../src/games/critter-kitchen/scoring.js';
+import { seeded } from '../critter-kitchen-fixtures.js';
+const read = (p: Page): Promise<CKView> => p.evaluate(() => (window as any).__view);
+async function capture(p: Page) { await p.addInitScript(() => { (window as any).__frames = []; window.WebSocket = new Proxy(window.WebSocket, { construct(T, args) { const ws = new T(args[0], args[1]); ws.addEventListener('message', e => { const m = JSON.parse(e.data); (window as any).__frames.push(m); if (m.type === 'state')
+        (window as any).__view = m.view; }); return ws; } }); }); }
+async function confirmButton(p:Page, button:Locator) {
+    await button.click();
+    await expect(p.locator('.ck-choice-dialog')).toBeVisible();
+    expect(await p.evaluate(()=>document.activeElement?.id)).not.toMatch(/ck-choice-(cancel|confirm)/);
+    await p.locator('#ck-choice-confirm').evaluate((button:HTMLButtonElement)=>{button.click();button.click();});
+    await expect(p.locator('.ck-choice-dialog')).toHaveCount(0);
+}
+async function clearPlate(p:Page){
+    for(let guard=0;guard<150;guard++){const remove=p.locator('[data-remove],[data-remove-broth]').first();if(!await remove.count())break;await remove.click();}
+    await expect(p.locator('.ck-dish-item')).toHaveCount(0);
+}
+async function inspectChefAndClose(p:Page,id:string){
+    await p.locator(`[data-chef="${id}"]`).click();
+    await expect(p.locator('.ck-chef-detail')).toBeVisible();
+    await expect(p.locator('.ck-chef-detail')).toContainText('ถือได้');
+    const spacing=await p.locator('.ck-chef-description').evaluate(el=>{const a=el.querySelector('span')!.getBoundingClientRect(),b=el.querySelector('p')!.getBoundingClientRect();return b.top-a.bottom;});expect(spacing).toBeLessThanOrEqual(8);
+    await expect.poll(()=>p.locator('.ck-chef-detail img').evaluate((e:HTMLImageElement)=>e.naturalWidth)).toBeGreaterThan(0);
+    await expect(p.locator('.ck-close')).toHaveCSS('background-color','rgb(255, 251, 237)');await expect(p.locator('.ck-close')).toHaveCSS('border-top-width','2px');await expect(p.locator('.ck-close')).toHaveCSS('border-radius','50%');
+    await p.keyboard.press('Escape');await expect(p.locator('.ck-dialog')).toHaveCount(0);
+}
+async function dragChefTo(p:Page,id:string,location:string){
+    await p.locator('.ck-route-planner').scrollIntoViewIfNeeded();
+    const target=p.locator(`[data-destination="${location}"]`);await target.scrollIntoViewIfNeeded();
+    const from=await p.locator(`[data-chef="${id}"]`).boundingBox(),to=await target.boundingBox();
+    await p.mouse.move(from!.x+from!.width/2,from!.y+from!.height/2);await p.mouse.down();await p.mouse.move(to!.x+to!.width*.75,to!.y+to!.height/2,{steps:8});await p.mouse.up();
+    await expect(target.locator('.ck-placed-chef')).toHaveAttribute('data-placed-chef',id);await expect(p.locator('.ck-dialog')).toHaveCount(0);
+}
+async function startMarket(p:Page){
+    const before=Date.now();await p.locator('[data-action="ck-run"]').click();
+    await expect(p.locator('.ck-market-departure')).toBeVisible();await expect(p.locator('.ck-market-departure .ck-runner')).toHaveCount(3);
+    await expect(p.locator('.ck-market-departure')).toHaveCount(0,{timeout:5000});expect(Date.now()-before).toBeGreaterThanOrEqual(1850);
+}
+const revision = async (p: Page, n: number) => expect(p.locator('#main')).toHaveAttribute('data-revision', String(n));
+function dishes(v: CKView) {
+    const me = v.me!, p = v.players.find(p => p.id === me.id)!, ctx = { critic: v.critic, round: v.round, challenges: v.challenges.map(c => c.id ?? '') }, owner = { storage: me.storage, soup: me.soup, bisque: me.bisque, known: me.rumorTokens, restaurateur: p.restaurateur };
+    let pool = [...me.storage], soup = me.soup, bisque = me.bisque;
+    const meals: Meal[] = [];
+    for (let i = 0; i < 3; i++) {
+        const req = CHALLENGE[ctx.challenges[(v.round === 3 ? 0 : 3) + i]].foods.slice(0, i === 2 ? 2 : 3), m = emptyMeal(), ids: string[] = [];
+        for (const f of req) {
+            const id = pool.filter(t => TOKEN[t].kind === 'ingredient' && TOKEN[t].food === f).sort((a, b) => TOKEN[b].value! - TOKEN[a].value!)[0];
+            if (id) {
+                m.items.push({ token: id, as: f });
+                ids.push(id);
+                pool = pool.filter(t => t !== id);
+            }
+        }
+        let ok = !!m.items.length;
+        const missing = req.filter(f => !m.items.some(a => a.as === f)).length;
+        for (let k = 0; k < missing; k++) {
+            if (m.soup < soup)
+                m.soup++;
+            else if (m.bisque < bisque)
+                m.bisque++;
+            else
+                ok = false;
+        }
+        while (ok && mealQuality(ctx, owner, m, true) < 6) {
+            if (m.soup < soup)
+                m.soup++;
+            else if (m.bisque < bisque)
+                m.bisque++;
+            else
+                ok = false;
+        }
+        if (ok) {
+            soup -= m.soup;
+            bisque -= m.bisque;
+            meals.push(m);
+        }
+        else {
+            pool.push(...ids);
+            meals.push(emptyMeal());
+        }
+    }
+    return meals;
+}
+for (const count of [2, 3])
+    test(`Critter Kitchen ${count} players: real mobile actions through seven rounds, both modes, privacy and summary`, async ({ browser }) => {
+        test.setTimeout(600000);
+        const dir = await mkdtemp(join(tmpdir(), 'ck-browser-')), app = await startServer(0, '127.0.0.1', true, seeded(752 + count), { storePath: join(dir, 'rooms.sqlite') }), url = `http://localhost:${(app.server.address() as any).port}`, contexts: BrowserContext[] = [], errors: string[] = [];
+        await mkdir('data/qa-critter-kitchen', { recursive: true });
+        const make = async (mobile = false) => { const c = await browser.newContext({ viewport: mobile ? { width: 390, height: 844 } : { width: 1440, height: 1000 }, isMobile: mobile, hasTouch: mobile }); contexts.push(c); const p = await c.newPage(); p.setDefaultTimeout(12000); await capture(p); p.on('pageerror', e => errors.push(e.message)); return p; };
+        const times = new Map<Page, number[]>(),previewStars=new Map<string,number>();
+        const pace = async (p: Page) => { const t = Date.now(), a = (times.get(p) ?? []).filter(n => n > t - 10000); if (a.length >= 27)
+            await p.waitForTimeout(a[0] + 10010 - t); a.push(Date.now()); times.set(p, a); };
+        try {
+            let host = await make();
+            await host.goto(url + '/games/critter-kitchen');
+            await testAccount(host, app);
+            await host.locator('#ck-entry-mode').selectOption(count === 2 ? 'shared-table' : 'full-mobile');
+            await host.getByRole('button', { name: 'สร้างห้องบนจอกลาง' }).click();
+            await expect(host.locator('#qr')).toBeVisible();
+            const code = await host.locator('.room-code strong').innerText(), phones: Page[] = [];
+            for (let i = 0; i < count; i++) {
+                const p = await make(true);
+                phones.push(p);
+                await p.goto(url + '/play/' + code);
+                await p.getByRole('textbox', { name: 'ชื่อของคุณ' }).fill('เชฟ ' + i);
+                await p.getByRole('button', { name: 'เข้าห้อง', exact: true }).click();
+                await p.getByRole('button', { name: 'พร้อมเล่น', exact: true }).click();
+            }
+            await host.locator('#ck-tutorial').check();
+            await host.locator('#ck-restaurateurs').check();
+            await host.locator('#start').click();
+            await expect(host.locator('.ck-root')).toHaveAttribute('data-phase', 'restaurateurs');
+            for (const p of phones)
+                await confirmButton(p, p.locator('[data-rest]').first());
+            await expect(host.locator('.ck-root')).toHaveAttribute('data-phase', 'planning');
+            expect((await read(host)).me).toBeUndefined();
+            for (const size of [{width:1440,height:1000},{width:1024,height:768}]) {
+                await host.setViewportSize(size);
+                expect(await host.evaluate(()=>document.documentElement.scrollHeight)).toBeLessThanOrEqual(size.height+2);
+            }
+            await host.setViewportSize({width:1440,height:1000});
+            const ui=phones[0];
+            for(const size of [{width:390,height:844},{width:390,height:620},{width:320,height:568}]){
+                await ui.setViewportSize(size);
+                expect(await ui.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(size.width);
+                if(count===2)expect(await ui.evaluate(()=>document.documentElement.scrollHeight)).toBeLessThanOrEqual(size.height+2);
+            }
+            await ui.setViewportSize({width:390,height:844});
+            await ui.locator('#ck-help-button').click();await expect(ui.locator('.ck-dialog')).toContainText('การนับคะแนน');await ui.mouse.click(1,1);await expect(ui.locator('.ck-dialog')).toHaveCount(0);
+            await ui.locator('.ck-menu > summary').click();await expect(ui.locator('#ck-mode')).toBeVisible();await ui.mouse.click(2,400);await expect(ui.locator('#ck-mode')).not.toBeVisible();
+            const home=ui.locator('[data-tab="kitchen"]'),market=ui.locator('[data-tab="board"]');
+            await expect(home).toHaveAttribute('aria-label','ครัวของคุณ');await expect(market).toHaveAttribute('aria-label','ตลาดกลาง');
+            const navSize=await home.boundingBox();expect(navSize!.height).toBe(navSize!.width);
+            await market.click();await expect(market).toHaveAttribute('aria-pressed','true');await expect(ui.locator('.ck-board')).toBeVisible();await expect(ui.locator('.ck-board .ck-location-caption>strong').first()).toHaveCSS('background-color','rgba(0, 0, 0, 0)');await expect(ui.locator('.ck-market-tabs')).toHaveCount(0);await expect(ui.locator('.ck-board .ck-location:visible')).toHaveCount((await read(ui)).config.locations.length);const destinations=await ui.locator('.ck-board .ck-location').evaluateAll(es=>es.map(e=>e.getBoundingClientRect()));expect(destinations.every((r,i)=>i===0||r.top>=destinations[i-1].bottom)).toBe(true);await expect(ui.locator('.ck-board .ck-market-stock .ck-token').first()).toHaveCSS('height','114px');await expect(ui.locator('.ck-board .ck-queues')).toHaveCount(0);await expect(ui.locator('.ck-board .ck-location>header').first()).toHaveCSS('height','68px');await expect(ui.locator('.ck-board')).toHaveCSS('overflow-y','visible');await ui.locator('.ck-board .ck-location').last().scrollIntoViewIfNeeded();expect(await ui.evaluate(()=>scrollY)).toBeGreaterThan(0);expect(await ui.locator('.ck-board').evaluate(e=>e.scrollTop)).toBe(0);await ui.screenshot({path:'data/qa-critter-kitchen/market-icon-nav.png',fullPage:true});await home.click();
+            await ui.screenshot({path:'data/qa-critter-kitchen/compact-planning.png'});
+            if(count===2){
+                const own=await read(ui),locs=own.config.locations;
+                const drag=async(id:string,loc:string,touch=false,placed=false)=>{
+                    const a=await ui.locator(placed?`.ck-route-planner [data-placed-chef="${id}"]`:`.ck-route-planner [data-chef="${id}"]`).boundingBox(),b=await ui.locator(`.ck-route-planner [data-destination="${loc}"]`).boundingBox();
+                    expect(a).toBeTruthy();expect(b).toBeTruthy();const x=a!.x+a!.width/2,y=a!.y+a!.height/2,tx=b!.x+b!.width/2,ty=b!.y+b!.height/2;
+                    const visibleGhost=async()=>{
+                        const geometry=await ui.locator('.ck-chef-ghost').evaluate(e=>({outer:e.getBoundingClientRect().height,face:e.querySelector('.ck-chef-face')!.getBoundingClientRect().height,portrait:e.querySelector('.ck-chef-portrait')!.getBoundingClientRect().height,opacity:getComputedStyle(e).opacity}));
+                        expect(geometry.face,JSON.stringify(geometry)).toBeGreaterThan(geometry.outer*.85);expect(geometry.portrait,JSON.stringify(geometry)).toBeGreaterThan(geometry.outer*.35);expect(geometry.opacity).toBe('1');
+                        await expect.poll(()=>ui.locator('.ck-chef-ghost img').evaluate((e:HTMLImageElement)=>e.naturalWidth)).toBeGreaterThan(0);
+                        await expect.poll(()=>ui.locator('.ck-chef-ghost').evaluate((e,{tx,ty})=>Math.max(Math.abs(parseFloat((e as HTMLElement).style.left)-tx),Math.abs(parseFloat((e as HTMLElement).style.top)-ty)),{tx,ty})).toBeLessThan(1);
+                        await ui.screenshot({path:`data/qa-critter-kitchen/drag-ghost-${placed?'placed':'hand'}-${touch?'touch':'mouse'}.png`});
+                    };
+                    if(touch){const cdp=await ui.context().newCDPSession(ui);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});for(let i=1;i<=8;i++)await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+(tx-x)*i/8,y:y+(ty-y)*i/8}]});expect(await ui.locator('.ck-chef-ghost').evaluate(e=>parseFloat((e as HTMLElement).style.height))).toBeGreaterThan(a!.height-(placed?5:0));await visibleGhost();await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await cdp.detach();}
+                    else{await ui.mouse.move(x,y);await ui.mouse.down();await ui.mouse.move(tx,ty,{steps:10});expect(await ui.locator('.ck-chef-ghost').evaluate(e=>parseFloat((e as HTMLElement).style.height))).toBeGreaterThan(a!.height-(placed?5:0));await visibleGhost();await ui.mouse.up();}
+                    await expect(ui.locator(`[data-destination="${loc}"] .ck-placed-chef b`)).toHaveCount(1);await expect(ui.locator('.ck-dialog')).toHaveCount(0);await expect(ui.locator('.ck-chef-ghost')).toHaveCount(0);
+                };
+                const rev=own.revision;
+                await inspectChefAndClose(ui,own.me!.chefIds[0]);expect((await read(ui)).revision).toBe(rev);
+                await ui.locator(`[data-destination="${locs[0].id}"]`).click();await expect(ui.locator('.ck-placed-chef')).toHaveCount(0);await expect(ui.locator('#ck-commit')).toBeDisabled();
+
+                await drag(own.me!.chefIds[0],locs[0].id,true);
+                await drag(own.me!.chefIds[1],locs[1].id);
+                await drag(own.me!.chefIds[0],locs[1].id); // occupied destination swaps assignments
+                await ui.locator(`[data-destination="${locs[1].id}"] .ck-route-name`).click();await expect(ui.locator(`[data-destination="${locs[1].id}"] .ck-placed-chef`)).toHaveAttribute('data-placed-chef',own.me!.chefIds[0]);await expect(ui.locator(`[data-destination="${locs[0].id}"] .ck-placed-chef`)).toHaveAttribute('data-placed-chef',own.me!.chefIds[1]);
+
+                await expect(ui.locator(`[data-destination="${locs[0].id}"] .ck-placed-chef b`)).toHaveText('เชฟกิ้งก่า');
+                await drag(own.me!.chefIds[2],locs[2].id);
+                await drag(own.me!.chefIds[2],locs[3].id,true,true);await expect(ui.locator(`[data-destination="${locs[2].id}"] .ck-placed-chef`)).toHaveCount(0);
+                await drag(own.me!.chefIds[2],locs[2].id,false,true);await expect(ui.locator(`[data-destination="${locs[3].id}"] .ck-placed-chef`)).toHaveCount(0);
+                await expect(ui.locator(`[data-destination="${locs[2].id}"] .ck-placed-chef`)).not.toHaveCSS('box-shadow','none');
+                await ui.locator(`[data-destination="${locs[2].id}"] .ck-placed-chef`).click();await expect(ui.locator('.ck-chef-detail')).toBeVisible();await expect(ui.locator('.ck-chef-detail')).toContainText('เชฟหมูป่า');await expect.poll(()=>ui.locator('.ck-chef-detail img').evaluate((e:HTMLImageElement)=>e.naturalWidth)).toBeGreaterThan(0);await ui.screenshot({path:'data/qa-critter-kitchen/chef-tap-detail.png'});await ui.keyboard.press('Escape');await expect(ui.locator(`[data-destination="${locs[2].id}"] .ck-placed-chef b`)).toHaveText('เชฟหมูป่า');
+
+                expect((await read(ui)).revision).toBe(rev);expect((await read(ui)).me!.plan).toBeNull();
+                await ui.locator('#ck-commit').click();await expect(ui.locator('.ck-choice-dialog')).toBeVisible();
+                await expect(ui.locator('.ck-review-route')).toHaveCount(3);
+                await expect(ui.locator('.ck-review-route .ck-chef-portrait')).toHaveCount(3);
+                await expect(ui.locator('.ck-review-route .ck-review-destination b')).toHaveText([locs[1].name,locs[0].name,locs[2].name]);
+                await ui.screenshot({path:'data/qa-critter-kitchen/chef-route-confirm.png'});
+                await ui.setViewportSize({width:320,height:568});
+                const review=await ui.locator('.ck-choice-dialog .ck-dialog-body').evaluate(e=>({scroll:e.scrollHeight,client:e.clientHeight}));expect(review.scroll).toBeLessThanOrEqual(review.client+2);
+                const portraits=await ui.locator('.ck-review-route .ck-chef-face').evaluateAll(es=>es.map(e=>({face:e.getBoundingClientRect().height,portrait:e.querySelector('.ck-chef-portrait')!.getBoundingClientRect().height})));expect(portraits.every(r=>r.portrait>r.face*.45)).toBe(true);
+                await ui.screenshot({path:'data/qa-critter-kitchen/chef-route-confirm-320.png'});
+                await ui.setViewportSize({width:390,height:844});await ui.locator('#ck-choice-cancel').click();
+                await ui.screenshot({path:'data/qa-critter-kitchen/chef-drag-mobile.png'});
+                await ui.locator('#ck-clear-plan').click();await expect(ui.locator('.ck-placed-chef')).toHaveCount(0);await expect(ui.locator('#ck-commit')).toBeDisabled();
+                await host.screenshot({path:'data/qa-critter-kitchen/chef-locations-display.png'});
+            }
+
+
+            const display = host;
+            if (count === 3) {
+                await display.goto(url + '/');
+                host = phones[0];
+            }
+            let actions = 0, recovered = false, scored = false, fridge = false, spiceChecked=false, rumorChecked=0;
+            while ((await read(host)).phase !== 'finished' && actions++ < 1000) {
+                const v = await read(host);
+                let p: Page;
+                if (v.phase === 'planning') {
+                    p = phones.find((_p, i) => !v.players[i].committed)!;
+                    await pace(p);
+                    await revision(p, v.revision);
+                    const own = await read(p);
+                    const locs = own.config.locations.map(l => l.id), offset = (v.round + v.players.findIndex(x => x.id === own.me!.id)) % locs.length;
+                    for (const [i, id] of own.me!.chefIds.entries()) {
+                        await inspectChefAndClose(p,id);
+                        await dragChefTo(p,id,locs[(i+offset)%locs.length]);
+                    }
+                    const rev = v.revision;
+                    expect((await read(host)).revision).toBe(rev);
+                    await confirmButton(p, p.locator('#ck-commit'));
+                    if (!recovered) {
+                        await revision(p, rev + 1);
+                        const previous = await read(p);
+                        await p.reload();
+                        await expect(p.locator('.ck-root')).toHaveAttribute('data-phase', 'planning');
+                        expect((await read(p)).me!.plan).toEqual(previous.me!.plan);
+                        recovered = true;
+                        await p.screenshot({ path: `data/qa-critter-kitchen/planning-${count}-mobile.png`, fullPage: true });
+                    }
+                }
+                else if (v.phase === 'running') {
+                    p = host;
+                    await pace(p);
+                    await startMarket(p);
+                }
+                else if (v.phase === 'shopping') {
+                    p = phones[v.players.findIndex(x => x.id === v.turn)];
+                    await revision(p, v.revision);
+                    await pace(p);
+                    const own = await read(p);
+                    if (v.decision?.kind === 'rumor'){
+                        rumorChecked++;
+                        await expect(p.locator('[data-rumor]')).toHaveCount(3);
+                        for(let i=0;i<3;i++){const option=p.locator(`[data-rumor="${i}"]`);await expect(option.locator('img')).toHaveAttribute('src',/back-rumor\.webp$/);if(!own.me!.rumorChoices.includes(i)){await expect(option).toBeDisabled();await expect(option).toHaveCSS('filter','grayscale(1)');}}
+                        const layout=await p.locator('.ck-rumor-slot').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().toJSON()));
+                        expect(Math.abs(layout[0].y-layout[1].y)).toBeLessThan(2);expect(layout[2].y).toBeGreaterThan(layout[0].bottom);
+                        expect(Math.abs(layout[2].x+layout[2].width/2-(layout[0].x+layout[1].right)/2)).toBeLessThan(2);
+                        await p.screenshot({path:`data/qa-critter-kitchen/rumor-options-${count}.png`});
+                        await expect(p.locator('[data-rumor-buy]')).toHaveCount(own.me!.rumorChoices.length);
+                        await confirmButton(p,p.locator(`[data-rumor-buy="${own.me!.rumorChoices[0]}"]`));
+                    }
+                    else if (v.decision?.kind === 'consolation')
+                        await confirmButton(p, p.locator('[data-reward="soup"]'));
+                    else {
+                        for(const unavailable of await p.locator('.ck-picks .ck-rumor-unavailable').all()){
+                            await expect(unavailable.locator('.ck-rumor-face')).toHaveCSS('filter','grayscale(1)');
+                            await expect(unavailable.locator('[data-buy]')).toHaveCount(0);
+                        }
+                        await expect(p.locator('[data-tab="board"]')).toBeDisabled();
+                        await expect(p.locator('.ck-picks')).toHaveCSS('display','grid');
+                        if(await p.locator('.ck-picks .ck-pick-card').count()>=5)await expect(p.locator('.ck-picks')).toHaveAttribute('data-rows','2');
+                        const marketCells=await p.locator('.ck-picks .ck-pick-card').evaluateAll(els=>els.map(el=>({row:Number((el as HTMLElement).style.gridRow),column:Number((el as HTMLElement).style.gridColumn)})));
+                        const topCount=marketCells.filter(cell=>cell.row===1).length,bottomCount=marketCells.filter(cell=>cell.row===2).length;
+                        expect(topCount).toBeGreaterThanOrEqual(bottomCount);if(marketCells.length===5)await p.screenshot({path:`data/qa-critter-kitchen/five-offers-${count}.png`});if(marketCells.length>=5&&marketCells.length<=8){expect(topCount).toBe(4);expect(bottomCount).toBe(marketCells.length-4);}else if(bottomCount)expect(topCount-bottomCount).toBeLessThanOrEqual(1);
+                        await expect(p.locator('.ck-pick-toolbar')).toHaveCount(0);
+                        if(actions<25){
+                            for(const size of [{width:320,height:568},{width:390,height:844}]){
+                                await p.setViewportSize(size);
+                                await expect.poll(()=>p.locator('.ck-action').evaluate(el=>el.scrollHeight<=el.clientHeight+1)).toBe(true);
+                                await expect.poll(()=>p.locator('.ck-kitchen').evaluate(el=>el.getBoundingClientRect().bottom<=innerHeight+1)).toBe(true);
+                            }
+                            await p.screenshot({path:`data/qa-critter-kitchen/shop-fit-${count}.png`});
+                        }
+                        const ingredients=p.locator('.ck-picks .ingredient>img'),spices=p.locator('.ck-picks .spice>img');
+                        if(await ingredients.count()&&await spices.count()){const a=await ingredients.first().boundingBox(),b=await spices.first().boundingBox();expect(Math.abs(a!.width-b!.width)).toBeLessThan(1);expect(Math.abs(a!.height-b!.height)).toBeLessThan(1);spiceChecked=true;}
+                        const specificSpice=own.me!.choices.find(id=>TOKEN[id]?.kind==='spice'&&TOKEN[id].food!=='all');
+                        if(specificSpice){const spice=p.locator(`.ck-picks [data-pick="${specificSpice}"]`);await expect(spice.locator('.ck-resource-heading')).toHaveCSS('font-size','19px');await expect(spice.locator('.ck-spice-badge')).toHaveCSS('width','32px');await expect(spice.locator('img.ck-resource-icon')).toHaveAttribute('src',new RegExp(`ingredient-${TOKEN[specificSpice].food}\\.webp$`));await expect(spice.locator('.ck-spice-badge img')).toBeVisible();}
+                        const rumorPriority=count===3?(own.me!.choices.find(id=>TOKEN[id]?.kind==='rumor'&&(own.me!.known.some(Boolean)?TOKEN[id].rumor===3:TOKEN[id].rumor!==3))??own.me!.choices.find(id=>TOKEN[id]?.kind==='rumor')):undefined;
+                        const id = rumorPriority ?? own.me!.choices.find(id => id.startsWith('zous:')) ?? own.me!.choices.filter(id => TOKEN[id]?.kind === 'ingredient').sort((a, b) => TOKEN[b].value! - TOKEN[a].value!)[0] ?? own.me!.choices[0];
+                        if(id.startsWith('zous:')){const offer=p.locator(`.ck-picks [data-pick="${id}"]`);await expect(offer.locator('.ck-chef-offer-face strong')).toBeVisible();await expect(offer.locator('img')).toHaveCSS('object-fit','cover');await offer.click();await expect(p.locator('.ck-chef-detail')).toBeVisible();expect((await read(host)).revision).toBe(v.revision);await p.keyboard.press('Escape');}
+                        const offerOrder=await p.locator('.ck-picks [data-pick]').evaluateAll(es=>es.map(e=>(e as HTMLElement).dataset.pick));
+                        await confirmButton(p,p.locator(`.ck-picks [data-buy="${id}"]`));
+                        await revision(p,v.revision+1);const afterPick=await read(p);if(afterPick.phase==='shopping'&&afterPick.decision?.loc===own.decision?.loc&&afterPick.decision?.kind==='pick')expect(await p.locator('.ck-picks [data-pick]').evaluateAll(es=>es.map(e=>(e as HTMLElement).dataset.pick))).toEqual(offerOrder);
+                    }
+                }
+                else if (v.phase === 'challenge') {
+                    p = phones[v.players.findIndex(x => !x.committed)];
+                    await revision(p, v.revision);
+                    await pace(p);
+                    const own = await read(p), meals = dishes(own);
+                    await expect(p.locator('#ck-action>h2')).toHaveCount(0);
+                    await expect(p.locator('#ck-restore-meals')).toHaveCount(0);
+                    await expect(p.locator('.ck-dish-rail')).toHaveCSS('border-radius','14px');
+                    await expect(p.locator('.ck-dish-rail')).toHaveCSS('align-items','center');
+                    await expect(p.locator('.ck-dish-rail')).toHaveCSS('justify-content','flex-start');
+                    await expect(p.locator('.ck-plate-tabs [data-plate]')).toHaveCount(3);
+                    await expect(p.locator('.ck-workspace-heading>h2')).toHaveText('เสิร์ฟอาหาร');
+                    await expect(p.locator('.ck-workspace-heading .ck-plate-tabs [data-plate]')).toHaveCount(0);
+                    await expect(p.locator('.ck-cooking .ck-plate-tabs')).toHaveCount(1);
+                    await expect(p.locator('.ck-plate-tabs [data-plate-ready="true"]')).toHaveCount(0);
+                    await expect(p.locator('.ck-dish-heading>h3')).toHaveText('เมนูที่ต้องเสิร์ฟ');await expect(p.locator('.ck-score-guide')).toContainText('6+');await expect(p.locator('.ck-score-guide')).toContainText('12+');await expect(p.locator('.ck-score-guide')).toContainText('21+');await expect(p.locator('.ck-score-guide>span strong')).toHaveText(['1','2','4']);
+                    await expect(p.locator('.ck-required-food small').first()).toBeVisible();
+                    await expect(p.locator('.ck-plate-number').first()).toHaveCSS('background-image',/serving-plate/);
+                    const cookingGeometry=await p.evaluate(()=>{
+                        const size=(selector:string)=>document.querySelector(selector)!.getBoundingClientRect();
+                        const card=size('.ck-cook-source .ck-token');
+                        const plates=size('.ck-cooking .ck-plate-tabs'),plate=size('.ck-cooking [data-plate]'),cook=size('.ck-cooking');
+                        return {cardHeight:card.height,plateWidth:plate.width,plateHeight:plate.height,centerOffset:Math.abs(plates.x+plates.width/2-cook.x-cook.width/2)};
+                    });
+                    expect(cookingGeometry.cardHeight).toBe(114);expect(cookingGeometry.plateWidth).toBe(58);expect(cookingGeometry.plateHeight).toBe(58);expect(cookingGeometry.centerOffset).toBeLessThan(1);
+                    await expect(p.locator('.ck-recipe-picture').first()).toHaveCSS('width','44px');
+                    await expect(p.locator('.ck-recipe-picture').first()).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
+                    await expect(p.locator('.ck-recipe-picture').first()).toHaveCSS('box-shadow','none');
+                    const ingredientCounts=new Map<string,number>();
+                    for(const id of own.me!.storage){const t=TOKEN[id];if(t.kind==='ingredient'){const key=`ingredient:${t.food}:${t.value}`;ingredientCounts.set(key,(ingredientCounts.get(key)??0)+1);}}
+                    await expect(p.locator('[data-stock-group]')).toHaveCount(ingredientCounts.size);
+                    for(const [key,quantity] of ingredientCounts){const badge=p.locator(`[data-stock-quantity="${key}"]`);await expect(badge).toHaveText(`×${quantity}`);if(quantity<2)await expect(badge).toBeHidden();else{await expect(badge).toBeVisible();await expect(badge).toHaveCSS('width','24px');}}
+                    const duplicate=[...ingredientCounts].find(([,quantity])=>quantity>1);
+                    if(duplicate){
+                        const [key,quantity]=duplicate,group=p.locator(`[data-stock-group="${key}"]`);
+                        await group.locator('[data-add]').click();await group.locator('[data-add]').click();
+                        await expect(p.locator('.ck-dish-item')).toHaveCount(1);await expect(p.locator('.ck-ingredient-quantity')).toHaveText('×2');
+                        await expect(group.locator('[data-stock-quantity]')).toHaveText(`×${quantity-2}`);
+                        await p.locator('[data-remove]').click();await expect(p.locator('.ck-ingredient-quantity')).toBeHidden();await expect(group.locator('[data-stock-quantity]')).toHaveText(`×${quantity-1}`);
+                        await clearPlate(p);await expect(group.locator('[data-stock-quantity]')).toHaveText(`×${quantity}`);
+                        expect((await read(host)).revision).toBe(v.revision);
+                    }
+
+                    await expect(p.locator('.ck-broth-stepper')).toHaveCount(0);
+                    await expect(p.locator('.ck-cook-source>.ck-pick-card').nth(0).locator('[data-resource="soup"]')).toHaveCount(1);
+                    await expect(p.locator('.ck-cook-source>.ck-pick-card').nth(1).locator('[data-resource="bisque"]')).toHaveCount(1);
+                    for(const kind of ['soup','bisque'] as const){
+                        const stock=p.locator(`[data-remaining="${kind}"]`),add=p.locator(`[data-broth="${kind}"]`);
+                        await expect(stock).toHaveText(`×${own.me![kind]}`);
+                        if(own.me![kind]){
+                            await add.click();await expect(stock).toHaveText(`×${own.me![kind]-1}`);await expect(p.locator('.ck-dish-quantity')).toBeHidden();
+                            const ingredient=p.locator('.ck-cook-source [data-add]').first();
+                            if(await ingredient.count()){
+                                await ingredient.click();
+                                const tops=await p.locator('.ck-dish-rail .ck-token').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().top));
+                                expect(Math.max(...tops)-Math.min(...tops)).toBeLessThan(1);
+                                await p.locator('[data-remove]').click();
+                            }
+
+                            await p.locator('[data-plate="1"]').click();await expect(stock).toHaveText(`×${own.me![kind]-1}`);await expect(p.locator(`[data-remove-broth="${kind}"]`)).toHaveCount(0);
+                            await p.locator('[data-plate="0"]').click();await p.locator(`[data-remove-broth="${kind}"]`).click();await expect(stock).toHaveText(`×${own.me![kind]}`);
+                        }else await expect(add).toHaveCount(0);
+                    }
+                    const stockIds=await p.locator('.ck-cook-source [data-add]').evaluateAll(els=>els.map(el=>(el as HTMLElement).dataset.add!));
+                    for(let i=1;i<stockIds.length;i++)if(TOKEN[stockIds[i-1]].food===TOKEN[stockIds[i]].food)expect(TOKEN[stockIds[i-1]].value!).toBeGreaterThanOrEqual(TOKEN[stockIds[i]].value!);
+
+                    await expect(p.locator('#ck-serve')).toHaveCSS('border-radius','50%');
+                    const source=p.locator('.ck-cook-source');
+                    await expect.poll(()=>source.evaluate(rail=>{
+                        rail.scrollLeft=0;
+                        if(rail.scrollWidth<=rail.clientWidth+1)return true;
+                        const edge=rail.getBoundingClientRect().right;
+                        const next=[...rail.querySelectorAll('.ck-pick-card')].map(el=>el.getBoundingClientRect()).find(r=>r.left<edge&&r.right>edge+1);
+                        return !!next&&(edge-next.left)/next.width>.38&&(edge-next.left)/next.width<.42;
+                    })).toBe(true);
+                    const firstFood=p.locator('.ck-cook-source [data-add]').first();
+                    if(await firstFood.count()){
+                        const food=await firstFood.getAttribute('data-add');
+                        await p.locator('.ck-cook-source [data-token-detail]').first().click();
+                        await expect(p.locator('.ck-dialog .ck-token-preview')).toBeVisible();await p.keyboard.press('Escape');
+                        expect((await read(host)).revision).toBe(v.revision);
+                        await firstFood.click();
+                        await expect(p.locator('.ck-dish-item')).toHaveCount(1);
+                        await expect(p.locator(`.ck-cook-source [data-add="${food}"]`)).toHaveCount(0);
+                        if(!await p.locator('.ck-serve-ready').count())await expect(p.locator('#ck-serve')).toBeDisabled();
+                        const spice=p.locator('[data-toggle-spice]').first();
+                        if(await spice.isEnabled()){await spice.check();await expect(spice).toBeChecked();await spice.uncheck();}
+                        await p.locator('[data-remove]').click();await expect(p.locator('.ck-dish-item')).toHaveCount(0);await expect(p.locator(`.ck-cook-source [data-add="${food}"]`)).toBeVisible();
+                        await p.locator(`.ck-cook-source [data-add="${food}"]`).click();
+                        await clearPlate(p);await expect(p.locator('.ck-dish-item')).toHaveCount(0);
+                        expect((await read(host)).revision).toBe(v.revision);
+                    }
+
+                    for (const [i, m] of meals.entries()) {
+                        await p.locator(`[data-plate="${i}"]`).click();
+                        for (const a of m.items)
+                            await p.locator(`[data-add="${a.token}"]`).click();
+                        for(const kind of ['soup','bisque'] as const)for(let n=0;n<m[kind];n++)await p.locator(`[data-broth="${kind}"][data-delta="1"]`).click();
+                        await expect(p.locator(`[data-plate="${i}"]`)).toHaveAttribute('data-plate-ready',String(m.items.length>0));
+                        if(m.items.length){await expect(p.locator(`[data-plate="${i}"] svg`)).toBeVisible();await expect(p.locator(`[data-plate="${i}"] .ck-plate-quality`)).toHaveText(/^\d+$/);await expect(p.locator(`[data-plate="${i}"] .ck-plate-quality`)).toHaveCSS('color','rgb(255, 255, 255)');}else await expect(p.locator(`[data-plate="${i}"] .ck-plate-number`)).toHaveText(String(i+1));
+                    }
+                    const removeTarget=p.locator('.ck-dish-row .ck-remove-food').first();
+                    if(await removeTarget.count())expect(await removeTarget.evaluate(el=>{const r=el.getBoundingClientRect();return document.elementFromPoint(r.x+r.width/2,r.y+4)?.closest('button')===el;})).toBe(true);
+                    for(const viewport of [{width:320,height:568},{width:390,height:844}]){
+                        await p.setViewportSize(viewport);
+                        await expect.poll(()=>p.locator('#ck-action').evaluate(frame=>{
+                            frame.scrollTop=30;
+                            const cooking=frame.querySelector('.ck-cooking')!,rail=frame.querySelector('.ck-dish-rail')!,stock=frame.querySelector('.ck-cook-source')!;
+                            const box=frame.getBoundingClientRect(),end=frame.querySelector('#ck-serve')!.getBoundingClientRect();
+                            return getComputedStyle(frame).overflowY==='hidden'&&frame.scrollTop===0&&cooking.scrollHeight<=cooking.clientHeight+1&&end.bottom<=box.bottom+1&&stock.getBoundingClientRect().bottom<=box.bottom+1&&getComputedStyle(rail.querySelector('.ck-dish-row')??rail).overflowY==='hidden';
+                        })).toBe(true);
+                        if(viewport.width===320)await p.screenshot({path:`data/qa-critter-kitchen/cooking-fixed-small-${count}.png`});
+                    }
+                    await expect(p.locator('#ck-serve')).toBeEnabled();
+                    if (!scored) {
+                        await p.screenshot({ path: `data/qa-critter-kitchen/challenge-${count}.png`, fullPage: true });
+                        scored = true;
+                    }
+                    await p.locator('#ck-serve').click();
+                    await expect(p.locator('.ck-meal-review>section')).toHaveCount(3);
+                    await expect(p.locator('.ck-review-plate-icon')).toHaveCount(0);
+                    await expect(p.locator('.ck-review-plate-label').first()).toContainText('จานที่ 1');
+                    const totalStars=Number(await p.locator('.ck-meal-total').getAttribute('data-preview-stars'));await expect(p.locator('.ck-meal-total .ck-star-piece')).toHaveCount(1);await expect(p.locator('.ck-meal-total strong')).toContainText(String(totalStars));
+                    for(const viewport of [{width:320,height:568},{width:390,height:844}]){
+                        await p.setViewportSize(viewport);
+                        await expect.poll(()=>p.locator('.ck-serving-dialog').evaluate(dialog=>{
+                            const body=dialog.querySelector('.ck-dialog-body')!,preview=dialog.querySelector('.ck-choice-preview')!,sections=[...dialog.querySelectorAll('.ck-meal-review>section')].map(el=>el.getBoundingClientRect());
+                            const footer=dialog.querySelector('.ck-choice-actions')!.getBoundingClientRect();
+                            return body.scrollHeight<=body.clientHeight+1&&preview.scrollHeight<=preview.clientHeight+1&&dialog.scrollHeight<=dialog.clientHeight+1&&Math.max(...sections.map(s=>s.height))-Math.min(...sections.map(s=>s.height))<1&&sections.every(s=>s.bottom<=footer.top+1);
+                        })).toBe(true);
+                        await expect(p.locator('.ck-meal-total>small')).toHaveCount(0);
+                        await expect(p.locator('.ck-serving-dialog #ck-choice-confirm')).toBeVisible();
+                        if(viewport.width===320)await p.screenshot({path:`data/qa-critter-kitchen/meal-confirm-fit-small-${count}.png`});
+                    }
+                    for(const [index,meal] of meals.entries())if(!meal.items.length&&!meal.soup&&!meal.bisque){await expect(p.locator('.ck-meal-review>section').nth(index).locator('.ck-empty-plate')).toBeVisible();await expect(p.locator('.ck-meal-review>section').nth(index).locator('.ck-empty-caption')).toHaveText('ไม่เสิร์ฟจานนี้');}
+
+                    previewStars.set(own.me!.id,Number(await p.locator('.ck-meal-total').getAttribute('data-preview-stars')));
+                    for(const [index,meal] of meals.entries()){
+                        const section=p.locator('.ck-meal-review>section').nth(index);
+                        for(const kind of ['soup','bisque'] as const){
+                            await expect(section.locator(`[data-resource="${kind}"]`)).toHaveCount(meal[kind]?1:0);
+                            if(meal[kind]>1)await expect(section.locator('.ck-review-resource').filter({has:p.locator(`[data-resource="${kind}"]`)}).locator('.ck-review-quantity')).toHaveText(`×${meal[kind]}`);
+                        }
+                    }
+                    for(const rail of await p.locator('.ck-meal-rail').all())await expect.poll(()=>rail.evaluate(el=>{
+                        if(el.scrollWidth<=el.clientWidth+1)return true;
+                        const edge=el.getBoundingClientRect().right;
+                        const next=[...el.children].map(item=>item.getBoundingClientRect()).find(r=>r.left<edge&&r.right>edge+1);
+                        return !!next&&(edge-next.left)/next.width>.38&&(edge-next.left)/next.width<.42;
+                    })).toBe(true);
+                    const reviewToken=p.locator('.ck-meal-rail .ck-token').first();if(await reviewToken.count())await expect(reviewToken).toHaveCSS('height','114px');
+                    expect(await p.locator('.ck-review-quantity').evaluateAll(els=>els.every(el=>Number(el.textContent!.replace('×',''))>=2))).toBe(true);
+                    await p.screenshot({path:`data/qa-critter-kitchen/meal-confirm-${count}.png`});
+                    expect((await read(host)).revision).toBe(v.revision);
+                    await p.locator('#ck-choice-cancel').click();
+                    await confirmButton(p, p.locator('#ck-serve'));
+                    await revision(host,v.revision+1);await revision(p,v.revision+1);
+                    if((await read(host)).phase==='challenge'){await expect(p.locator('.ck-serving-wait')).toContainText('รอ');await expect(p.locator('.ck-serving-wait img')).toBeVisible();await p.screenshot({path:`data/qa-critter-kitchen/serving-wait-${count}.png`});}
+                }
+                else if (v.phase === 'challenge-results') {
+                    if(v.resultsRevealed===false){
+                        await expect(host.locator('.ck-result-player')).toHaveCount(0);
+                        const revealer=phones[0];await revision(revealer,v.revision);await revealer.locator('[data-action="ck-reveal-results"]').click();await revision(host,v.revision+1);
+                        for(const phone of phones){await revision(phone,v.revision+1);expect((await read(phone)).resultsRevealed).toBe(true);}
+                        continue;
+                    }
+                    for(const player of v.players)expect(previewStars.get(player.id)).toBe(v.challengeResults![player.id].reduce((total,dish)=>total+dish.stars,0));
+                    previewStars.clear();
+                    const resultPhone=phones[0];await revision(resultPhone,v.revision);
+                    await expect(resultPhone.locator('.ck-result-player')).toHaveCount(count);
+                    await expect(resultPhone.locator('.ck-result-dish')).toHaveCount(count*3);
+                    const resultScores=await resultPhone.locator('.ck-result-player').evaluateAll(els=>els.map(el=>Number((el as HTMLElement).dataset.resultStars)));
+                    expect(resultScores).toEqual([...resultScores].sort((a,b)=>b-a));
+                    await expect(resultPhone.locator('.ck-next-fridge svg')).toBeVisible();
+                    await expect(resultPhone.locator('.ck-title')).toBeHidden();
+                    for(const size of [{width:390,height:844},{width:320,height:568}]){
+                        await resultPhone.setViewportSize(size);
+                        await expect.poll(()=>resultPhone.locator('.ck-kitchen').evaluate(el=>el.getBoundingClientRect().bottom<=innerHeight+1)).toBe(true);
+                        if(count===2){
+                            const paired=await resultPhone.locator('.ck-result-player').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return {top:r.top,width:r.width};}));
+                            expect(Math.abs(paired[0].top-paired[1].top)).toBeLessThan(1);
+                            expect(Math.abs(paired[0].width-paired[1].width)).toBeLessThan(1);
+                        }else{
+                            await expect.poll(()=>resultPhone.locator('.ck-results-rail').evaluate(el=>{
+                                const edge=el.getBoundingClientRect().right;
+                                const next=[...el.children].map(item=>item.getBoundingClientRect()).find(r=>r.left<edge&&r.right>edge+1);
+                                return !!next&&(edge-next.left)/next.width>.38&&(edge-next.left)/next.width<.42;
+                            })).toBe(true);
+                        }
+                        await resultPhone.screenshot({path:`data/qa-critter-kitchen/results-${count}-${size.width}.png`});
+                    }
+                    await resultPhone.setViewportSize({width:390,height:844});
+                    p = host;
+                    await pace(p);
+                    await host.screenshot({ path: `data/qa-critter-kitchen/challenge-results-${count}.png`, fullPage: true });
+                    await confirmButton(host, host.locator('[data-action="ck-next"]'));
+                }
+                else if (v.phase === 'refrigeration') {
+                    p = phones[v.players.findIndex(x => !x.fridgeReady)];
+                    await revision(p, v.revision);
+                    await pace(p);
+                    const own = await read(p), limit = v.round === 3 ? 5 : 10;
+                    await expect(p.locator('#ck-fridge')).toBeDisabled();
+                    const counted=own.me!.storage.filter(id=>!(v.critic==='raccoon'&&TOKEN[id].kind==='ingredient'&&TOKEN[id].value===2));
+                    for (const id of counted.slice(0,limit))await p.locator(`[data-keep="${id}"]`).click();
+                    await expect(p.locator('#ck-fridge')).toBeEnabled();
+                    await expect(p.locator('.ck-fridge-grid .ck-will-discard').first()).toHaveCSS('outline-style','none');
+                    const fridgeRows=await p.locator('.ck-fridge-grid>[data-keep]').evaluateAll(es=>es.map(e=>e.getBoundingClientRect()));
+                    if(fridgeRows.length>4){expect(Math.abs(fridgeRows[0].top-fridgeRows[3].top)).toBeLessThan(1);expect(fridgeRows[4].top).toBeGreaterThan(fridgeRows[0].bottom);}
+                    await p.locator('#ck-fridge').click();await expect(p.locator('.ck-fridge-review')).toBeVisible();await expect(p.locator('.ck-fridge-review .ck-token')).toHaveCount(await p.locator('.ck-kept').count());await p.screenshot({path:`data/qa-critter-kitchen/fridge-confirm-${count}.png`});await p.locator('#ck-choice-cancel').click();
+                    await p.screenshot({ path: `data/qa-critter-kitchen/fridge-${count}.png`, fullPage: true });
+                    fridge = true;
+                    await confirmButton(p, p.locator('#ck-fridge'));
+                }
+                else if (v.phase === 'critic') {
+                    p = phones[v.players.findIndex(x => !x.committed)];
+                    await revision(p, v.revision);
+                    await pace(p);
+                    const own = await read(p);
+                    await expect(p.locator('.ck-final-cooking .ck-dish-rail')).toHaveCount(0);
+                    const ordered=await p.locator('.ck-final-cooking .ck-cook-source [data-stock-group]').evaluateAll(es=>es.map(e=>({food:(e as HTMLElement).dataset.food!,quality:Number((e as HTMLElement).dataset.quality)})));
+                    for(let j=1;j<ordered.length;j++){const prev=FOODS.indexOf(ordered[j-1].food as any),next=FOODS.indexOf(ordered[j].food as any);expect(next).toBeGreaterThanOrEqual(prev);if(prev===next)expect(ordered[j].quality).toBeLessThanOrEqual(ordered[j-1].quality);}
+                    const first=own.me!.storage.find(id=>TOKEN[id].kind==='ingredient');if(first){await p.locator(`[data-add="${first}"]`).click();const tile=p.locator('.ck-final-selected').filter({has:p.locator(`[data-token-detail="${first}"]`)});await expect(tile.locator('.ck-final-crown')).toBeVisible();await tile.locator('[data-final-remove]').click();await expect(p.locator(`[data-add="${first}"]`)).toBeVisible();}
+                    for (const f of FOODS) {
+                        const id = own.me!.storage.filter(id => TOKEN[id].kind === 'ingredient' && TOKEN[id].food === f).sort((a, b) => TOKEN[b].value! - TOKEN[a].value!)[0];
+                        if (id)
+                            await p.locator(`[data-add="${id}"]`).click();
+                    }
+                    await p.screenshot({path:`data/qa-critter-kitchen/final-meal-page-${count}.png`,fullPage:true});
+                    await expect(p.locator('#ck-serve')).toBeEnabled();
+                    await expect(p.locator('.ck-course-tabs,[data-spice]')).toHaveCount(0);
+                    await expect.poll(()=>p.locator('.ck-final-cooking').evaluate(el=>el.scrollWidth<=el.clientWidth+2)).toBe(true);
+                    await expect(p.locator('.ck-final-cooking .ck-cook-source')).toHaveCSS('flex-wrap','wrap');
+                    await p.locator('#ck-serve').click();await expect(p.locator('.ck-final-serving-dialog')).toBeVisible();
+                    const finalBox=await p.locator('.ck-final-serving-dialog').boundingBox();expect(finalBox!.x+finalBox!.width).toBeLessThanOrEqual(p.viewportSize()!.width+1);
+                    await expect(p.locator('.ck-final-serving-dialog .ck-final-review-grid')).toHaveCSS('flex-wrap','wrap');await expect(p.locator('.ck-final-serving-dialog .ck-meal-review')).toHaveCount(0);expect(finalBox!.height).toBeLessThan(p.viewportSize()!.height*.91);
+                    const reviewed=await p.locator('.ck-final-review-grid .ck-review-resource').evaluateAll(es=>es.map(e=>e.getBoundingClientRect()));if(reviewed.length>=5){expect(Math.abs(reviewed[0].top-reviewed[3].top)).toBeLessThan(1);expect(reviewed[4].top).toBeGreaterThan(reviewed[0].bottom);}
+                    await p.screenshot({path:`data/qa-critter-kitchen/final-meal-review-${count}.png`});
+                    await p.locator('#ck-choice-confirm').click();
+                }
+                else
+                    throw Error('Unexpected phase ' + v.phase);
+                await revision(host, v.revision + 1);
+                if(count===2&&v.phase==='shopping'){
+                    await revision(p,v.revision+1);
+                    const pantry=p.locator('.ck-kitchen .ck-inventory:visible');
+                    if(await pantry.count()){
+                        const rail=p.locator('.ck-kitchen .ck-inventory');
+                        const measurements=await rail.evaluate(e=>({count:e.children.length,width:e.scrollWidth,client:e.clientWidth}));
+                        if(measurements.count>=8){
+                            expect(measurements.width).toBeGreaterThan(measurements.client);
+                            await rail.evaluate(e=>e.scrollLeft=e.scrollWidth);
+                            const last=rail.locator('button').last();
+                            const r=await last.boundingBox(),a=await rail.boundingBox();expect(r!.x+r!.width).toBeLessThanOrEqual(a!.x+a!.width+1);
+                            await p.screenshot({path:'data/qa-critter-kitchen/pantry-many.png'});
+                        }
+                    }
+                }
+                if (actions === 8) {
+                    const kitchen=phones[0];
+                    await kitchen.locator('[data-pantry="cards"]').click();
+                    const owned=kitchen.locator('.ck-pantry-cards [data-detail]').first();
+                    await expect(owned.locator('strong')).toBeVisible();
+                    expect((await owned.boundingBox())!.height).toBeGreaterThan(110);
+                    await kitchen.screenshot({path:`data/qa-critter-kitchen/named-pantry-cards-${count}.png`});
+                    await owned.click();
+                    for(const size of [{width:320,height:568},{width:390,height:844}]){
+                        await kitchen.setViewportSize(size);
+                        const geometry=await kitchen.locator('.ck-detail-fit').evaluate(e=>{const b=e.querySelector('.ck-dialog-body')!;return{scroll:b.scrollHeight,client:b.clientHeight,height:e.getBoundingClientRect().height}});
+                        expect(geometry.scroll).toBeLessThanOrEqual(geometry.client+2);expect(geometry.height).toBeLessThan(size.height-8);
+                        await expect(kitchen.locator('.ck-close svg')).toHaveCount(1);
+                    }
+                    await kitchen.screenshot({path:`data/qa-critter-kitchen/card-fit-${count}.png`});
+                    await kitchen.keyboard.press('Escape');await kitchen.locator('[data-pantry="stock"]').click();
+                    await expect(kitchen.locator('.ck-inventory [data-token-detail="soup"] .ck-token')).toBeVisible();
+                    const rail=kitchen.locator('.ck-kitchen .ck-inventory');
+                    const bounds=await rail.evaluate(e=>{const k=e.closest('.ck-kitchen')!.getBoundingClientRect(),r=e.getBoundingClientRect();return{bottom:r.bottom,kitchen:k.bottom}});
+                    expect(bounds.bottom).toBeLessThanOrEqual(bounds.kitchen+1);
+                    await kitchen.screenshot({path:`data/qa-critter-kitchen/pantry-rail-${count}.png`});
+                    await host.screenshot({ path: `data/qa-critter-kitchen/market-${count}-desktop.png`, fullPage: true });
+                    await host.setViewportSize({ width: 1024, height: 768 });
+                    await host.screenshot({ path: `data/qa-critter-kitchen/market-${count}-ipad.png`, fullPage: true });
+                    await host.setViewportSize(count === 3 ? { width: 390, height: 844 } : { width: 1440, height: 1000 });
+                    await phones[0].locator('.ck-menu > summary').click();
+                    await phones[0].locator('#ck-mode').selectOption('full-mobile');
+                    await phones[0].locator('#ck-menu-close').click();
+                    await phones[0].setViewportSize({ width: 320, height: 740 });
+                    expect(await phones[0].evaluate(() => document.documentElement.scrollWidth),JSON.stringify(await phones[0].evaluate(()=>[...document.querySelectorAll('.ck-root *')].filter(e=>{const r=e.getBoundingClientRect();return r.right>321&&r.width>0}).slice(0,8).map(e=>({tag:e.tagName,cls:e.className,width:e.getBoundingClientRect().width}))))).toBeLessThanOrEqual(320);
+                    await phones[0].screenshot({ path: `data/qa-critter-kitchen/full-mobile-${count}.png`, fullPage: true });
+                    await phones[0].setViewportSize({ width: 390, height: 844 });
+                    await phones[0].locator('.ck-menu > summary').click();
+                    await phones[0].locator('#ck-mode').selectOption('shared-table');
+                    await phones[0].locator('#ck-menu-close').click();
+                }
+            }
+            if (count === 3) {
+                await display.goBack();
+                await expect(display.locator('.ck-root')).toHaveAttribute('data-phase', 'finished');
+                host = display;
+            }
+            let end = await read(host);
+            expect(end.phase).toBe('finished');
+            expect(end.round).toBe(7);
+            expect(scored).toBeTruthy();
+            expect(recovered).toBeTruthy();
+            await expect(host.locator('.ck-dialog')).toHaveCount(0);
+            await phones[0].locator('[data-action="ck-reveal-results"]').click();await revision(host,end.revision+1);end=await read(host);
+            await expect(host.locator('.ck-final-result-dialog')).toBeVisible();
+            await expect(host.locator('.ck-dialog [data-winner=true]')).toHaveCount(1);
+            await host.locator('#ck-skip-count').click();for(const player of end.players)await expect(host.locator(`.ck-dialog [data-total="${player.score!.total}"]`).first()).toHaveText(String(player.score!.total));await host.screenshot({ path: `data/qa-critter-kitchen/final-${count}.png` });
+            for(const size of [{width:390,height:844},{width:320,height:568}]){
+                await host.setViewportSize(size);
+                await expect.poll(()=>host.locator('.ck-final-result-dialog').evaluate(el=>el.scrollHeight<=el.clientHeight+1)).toBe(true);
+                await expect.poll(()=>host.locator('.ck-final-result-dialog .ck-dialog-body').evaluate(el=>el.scrollHeight<=el.clientHeight+1)).toBe(true);
+                await expect(host.locator('.ck-final-result-dialog .ck-close')).toHaveCSS('background-color','rgb(255, 251, 237)');
+                const headers=await host.locator('.ck-final-results .ck-result-player>header').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().bottom));
+                expect(Math.max(...headers)-Math.min(...headers)).toBeLessThan(1);
+                const rows=await host.locator('.ck-final-results .ck-result-player').evaluateAll(els=>els.map(el=>[...el.querySelectorAll('.ck-score-step')].map(row=>row.getBoundingClientRect().top)));
+                for(let row=0;row<7;row++)expect(Math.max(...rows.map(r=>r[row]))-Math.min(...rows.map(r=>r[row]))).toBeLessThan(1);
+                if(count>2)await expect.poll(()=>host.locator('.ck-final-results').evaluate(el=>{const edge=el.getBoundingClientRect().right;const next=[...el.children].map(c=>c.getBoundingClientRect()).find(r=>r.left<edge&&r.right>edge+1);return !!next&&(edge-next.left)/next.width>.38&&(edge-next.left)/next.width<.42;})).toBe(true);
+                await host.screenshot({path:`data/qa-critter-kitchen/final-fit-${count}-${size.width}.png`});
+            }
+            await host.locator('.ck-close').click();
+            await expect(host.locator('.ck-dialog')).toHaveCount(0);
+            await expect(host.locator('.ck-kitchen,.ck-workspace-heading')).toHaveCount(0);
+            await expect(host.locator('.ck-title')).toBeHidden();
+            await expect(host.locator('.ck-finished-art img')).toBeVisible();
+            await expect.poll(()=>host.locator('.ck-action').evaluate(el=>el.scrollHeight<=el.clientHeight+1)).toBe(true);
+            await host.screenshot({path:`data/qa-critter-kitchen/finished-hub-${count}.png`});
+            await host.locator('#ck-show-result').click();
+            await expect(host.locator('.ck-dialog')).toBeVisible();
+            for (const [i, p] of [host, ...phones].entries()) {
+                const frames = await p.evaluate(() => (window as any).__frames.filter((m: any) => m.type === 'state'));
+                for (const { view: w } of frames) {
+                    expect(w.bag).toBeUndefined();
+                    expect(w.tasks).toBeUndefined();
+                    expect(w.unusedRumors).toBeUndefined();
+                    if (i === 0)
+                        expect(w.me).toBeUndefined();
+                    for (const who of w.players) {
+                        expect(who.storage).toBeUndefined();
+                        expect(who.soup).toBeUndefined();
+                        if (w.phase === 'planning')
+                            expect(who.plan).toBeNull();
+                    }
+                }
+            }
+            expect(spiceChecked).toBe(true);
+            expect(errors).toEqual([]);
+            if(count===3)expect(rumorChecked).toBeGreaterThan(0);
+            console.log(`CK ${count} complete: ${actions} actions, refrigerator=${fridge}`);
+            await confirmButton(host, host.locator('#ck-result-restart'));
+            await expect(host.locator('.ck-root')).toHaveAttribute('data-phase', 'planning');
+        }
+        finally {
+            for (const c of contexts)
+                await c.close();
+            await app.close();
+            await rm(dir, { recursive: true, force: true });
+        }
+    });
+test('Critter Kitchen actual Docker: portal, mode, public board, secret plan, stable pickup and asset files', async ({ browser, baseURL }) => {
+    test.skip(process.env.GAMEVERSE_E2E_DOCKER !== '1', 'Requires rebuilt local Docker app and its separate auth fixture');
+    test.setTimeout(120000);
+    const contexts: BrowserContext[] = [], errors: string[] = [];
+    let host: Page | undefined, code = '';
+    const make = async (mobile = false) => { const c = await browser.newContext({ viewport: mobile ? { width: 390, height: 844 } : { width: 1440, height: 1000 }, isMobile: mobile, hasTouch: mobile }); contexts.push(c); const p = await c.newPage(); p.setDefaultTimeout(12000); await capture(p); p.on('pageerror', e => errors.push(e.message)); p.on('response', r => { if (new URL(r.url()).pathname.startsWith('/art/critter-kitchen/') && r.status() >= 400)
+        errors.push('missing ' + r.url()); }); return p; };
+    try {
+        host = await make();
+        await host.goto('/');
+        await expect(host.locator('img[src="/art/covers/critter-kitchen.webp"]')).toBeVisible();
+        await host.screenshot({ path: 'data/qa-critter-kitchen/portal-local.png', fullPage: true });
+        await host.goto('/games/critter-kitchen');
+        await testAccount(host);
+        await host.locator('#ck-entry-mode').selectOption('full-mobile');
+        await host.getByRole('button', { name: 'สร้างห้องบนจอกลาง' }).click();
+        await expect(host.locator('#qr')).toBeVisible();
+        code = await host.locator('.room-code strong').innerText();await host.locator('#ck-tutorial').check();await expect(host.locator('.ck-setup')).toContainText('เมื่อเปิด');await expect(host.locator('.ck-setup')).toContainText('เมื่อปิด');await expect(host.locator('.ck-setup')).toContainText('ไม่ใช่ส่วนขยาย');await host.locator('.ck-setup details summary').click();await host.screenshot({path:'data/qa-critter-kitchen/setup-explained.png',fullPage:true});
+        const phones: Page[] = [];
+        for (let i = 0; i < 2; i++) {
+            const p = await make(true);
+            phones.push(p);
+            await p.goto('/play/' + code);
+            await p.getByRole('textbox', { name: 'ชื่อของคุณ' }).fill('เชฟทดสอบ ' + i);
+            await p.getByRole('button', { name: 'เข้าห้อง', exact: true }).click();
+            await p.getByRole('button', { name: 'พร้อมเล่น', exact: true }).click();
+        }
+        await expect(host.locator('#ck-tutorial')).toBeChecked();
+        await host.locator('#start').click();
+        await expect(host.locator('.ck-root')).toHaveAttribute('data-phase', 'planning');expect((await read(host)).critic).toBe('mouse');
+        const mobileHeadingTops=[];for(const workspace of ['kitchen','board','information']){await phones[0].locator(`[data-tab="${workspace}"]`).dispatchEvent('click');mobileHeadingTops.push(await phones[0].locator('.ck-workspace-heading').evaluate(e=>e.getBoundingClientRect().top+scrollY));}expect(Math.max(...mobileHeadingTops)-Math.min(...mobileHeadingTops)).toBeLessThanOrEqual(1);const toolbarHeights=[];for(const workspace of ['kitchen','board','information']){await phones[0].locator(`[data-tab="${workspace}"]`).dispatchEvent('click');toolbarHeights.push((await phones[0].locator('.ck-workspace-heading').boundingBox())!.height);}expect(toolbarHeights).toEqual([42,42,42]);
+        await phones[0].locator('[data-tab="board"]').click();
+        await expect(phones[0].locator('.ck-market-tabs')).toHaveCount(0);await expect(phones[0].locator('.ck-action')).not.toBeVisible();
+        await expect(phones[0].locator('.ck-board .ck-location:visible')).toHaveCount((await read(host)).config.locations.length);await expect(phones[0].locator('.ck-kitchen')).toBeVisible();await expect(phones[0].locator('.ck-board')).toHaveCSS('background-image','none');
+        await expect(phones[0].locator('.ck-board .ck-market-stock .ck-token').first()).toHaveCSS('height','114px');
+        await expect(phones[0].locator('.ck-location-caption').first()).toContainText('ซุปไม่จำกัด');
+        await phones[0].screenshot({path:'data/qa-critter-kitchen/market-all-docker.png'});
+        const lowerFace=phones[0].locator('.ck-board .ck-market-face').last();await lowerFace.scrollIntoViewIfNeeded();const lowerBefore=await lowerFace.boundingBox(),lowerScroll=await phones[0].evaluate(()=>scrollY);expect(lowerScroll).toBeGreaterThan(0);await lowerFace.click();await expect(phones[0].locator('.ck-dialog')).toBeVisible();expect(await lowerFace.boundingBox()).toEqual(lowerBefore);expect(await phones[0].evaluate(()=>scrollY)).toBe(lowerScroll);await phones[0].keyboard.press('Escape');expect(await phones[0].evaluate(()=>scrollY)).toBe(lowerScroll);await phones[0].screenshot({path:'data/qa-critter-kitchen/market-long-scroll-docker.png'});
+        await phones[0].locator('[data-tab="kitchen"]').click();
+        for (const p of phones) {
+            await revision(p,(await read(host)).revision);const v = await read(p);
+            await expect(p.locator('#ck-mode')).toHaveValue('full-mobile');await p.setViewportSize({width:320,height:568});expect(await p.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);await p.screenshot({path:'data/qa-critter-kitchen/planning-320.png',fullPage:true});await p.setViewportSize({width:390,height:844});
+            for (const [chef, loc] of [['mouse', 'garden'], ['lizard', 'soup'], ['boar', 'academy']]) {
+                await inspectChefAndClose(p,chef);
+                await dragChefTo(p,chef,loc);
+            }
+            if(p===phones[0]){await p.locator('#ck-commit').click();await expect(p.locator('.ck-choice-dialog')).toBeVisible();expect((await read(host!)).revision).toBe(v.revision);await expect(p.locator('.ck-choice-preview .ck-review-plan>div')).toHaveCount(3);await p.screenshot({path:'data/qa-critter-kitchen/confirm-plan.png'});await p.locator('#ck-choice-cancel').click();expect((await read(host!)).revision).toBe(v.revision);await expect(p.locator('#ck-commit')).toBeEnabled();}
+            await confirmButton(p, p.locator('#ck-commit'));
+            await revision(host, v.revision + 1);
+        }
+        await host.screenshot({ path: 'data/qa-critter-kitchen/board-two-player-local.png', fullPage: true });
+        await expect(host.locator('.ck-title')).not.toContainText('เปิดแผนพร้อมกัน');
+        await expect(host.locator('.ck-market-start')).toHaveText('เริ่ม');
+        await phones[0].locator('.ck-menu > summary').click();await phones[0].locator('#ck-mode').selectOption('shared-table');await phones[0].locator('#ck-menu-close').click();await phones[0].screenshot({path:'data/qa-critter-kitchen/ready-no-tabs-mobile.png'});
+        for(const phone of phones){await expect(phone.locator('.ck-root')).toHaveAttribute('data-phase','running');await expect(phone.locator('.ck-workspace-heading')).toHaveCount(0);await expect(phone.locator('[data-tab]')).toHaveCount(0);}
+        await host.screenshot({path:'data/qa-critter-kitchen/market-ready.png'});
+        await phones[1].emulateMedia({reducedMotion:'reduce'});
+        const runRevision=(await read(host)).revision,started=Date.now();
+        await host.locator('[data-action="ck-run"]').evaluate((b:HTMLButtonElement)=>{b.click();b.click();});
+        for(const page of [host,...phones]){await expect(page.locator('.ck-market-departure')).toBeVisible();await expect(page.locator('.ck-runner')).toHaveCount(3);}
+        await expect(phones[1].locator('.ck-running-pack')).toHaveCSS('animation-name','none');
+        for(const page of [host,...phones]){const runners=await page.locator('.ck-runner').evaluateAll(es=>es.map(e=>({animal:(e as HTMLElement).dataset.animal,box:e.getBoundingClientRect().toJSON()})));expect(runners.map(r=>r.animal)).toEqual(['mouse','lizard','boar']);expect(runners[0].box.height/runners[2].box.height).toBeCloseTo(.4,2);expect(runners[1].box.height/runners[2].box.height).toBeCloseTo(.7,2);expect(runners[0].box.bottom).toBeCloseTo(runners[2].box.bottom,0);expect(runners[1].box.bottom).toBeCloseTo(runners[2].box.bottom,0);}
+
+        for(const page of [host,phones[0]])await expect.poll(()=>page.locator('.ck-runner img').evaluateAll(es=>es.length===3&&es.every(e=>{const img=e as HTMLImageElement,r=e.getBoundingClientRect();return img.naturalWidth>0&&r.x>=0&&r.right<=innerWidth+1&&r.height>20;}))).toBe(true);
+
+        await host.screenshot({path:'data/qa-critter-kitchen/market-departure.png'});
+        await phones[0].screenshot({path:'data/qa-critter-kitchen/market-departure-mobile.png'});
+        await phones[1].reload();await expect(phones[1].locator('.ck-root')).toHaveAttribute('data-phase','shopping');await expect(phones[1].locator('.ck-market-departure')).toHaveCount(0);
+        await expect(host.locator('.ck-market-departure')).toHaveCount(0,{timeout:5000});expect(Date.now()-started).toBeGreaterThanOrEqual(1850);expect((await read(host)).revision).toBe(runRevision+1);
+        await expect(host.locator('.ck-root')).toHaveAttribute('data-phase', 'shopping');
+        for(const phone of phones){const view=await read(phone);if(view.me?.id===view.turn)await expect(phone.locator('[data-tab="kitchen"]')).toBeVisible();else{await expect(phone.locator('[data-tab="kitchen"]')).toBeEnabled();await expect(phone.locator('[data-tab="board"]')).toBeDisabled();}}
+        await phones[0].locator('.ck-menu > summary').click();await phones[0].locator('#ck-mode').selectOption('full-mobile');await phones[0].locator('#ck-menu-close').click();
+        const v = await read(host), p = phones[v.players.findIndex(p => p.id === v.turn)];
+        await revision(p, v.revision);
+        await p.locator('[data-tab="information"]').click();
+        await p.locator('.ck-reference [data-detail="critic:mouse"]').click();
+        await expect(p.locator('.ck-dialog')).toBeVisible();
+        await expect(p.locator('.ck-dialog .ck-close')).toHaveCSS('background-color','rgb(255, 251, 237)');
+        await expect(p.locator('.ck-dialog .ck-close')).toHaveCSS('border-top-width','2px');await expect(p.locator('.ck-dialog .ck-close')).toHaveCSS('border-radius','50%');
+        expect(await p.evaluate(() => getComputedStyle(document.body).overflow)).toBe('hidden');
+        await p.mouse.click(1, 1);
+        await expect(p.locator('.ck-dialog')).toHaveCount(0);
+        if(await p.locator('.ck-menu').evaluate(el=>el.hasAttribute('open')))await p.locator('#ck-menu-close').click();
+        await expect(p.locator('[data-tab="board"]')).toBeDisabled();
+        await p.locator('[data-tab="kitchen"]').click();
+        const before = (await read(host)).revision;
+        const sceneBefore=await p.locator('.ck-picks').boundingBox();const scrollBefore=await p.evaluate(()=>({x:scrollX,y:scrollY}));
+        await p.locator('.ck-picks [data-pick]:enabled').first().click();
+        const sceneOpen=await p.locator('.ck-picks').boundingBox();expect(sceneOpen).toEqual(sceneBefore);expect(await p.evaluate(()=>({x:scrollX,y:scrollY}))).toEqual(scrollBefore);expect(await p.evaluate(()=>document.activeElement?.classList.contains('ck-close'))).toBe(false);
+
+        expect((await read(host)).revision).toBe(before);
+        await expect(p.locator('.ck-token-preview')).toBeVisible();
+        await expect(p.locator('.ck-choice-dialog')).toHaveCount(0);
+        await p.keyboard.press('Escape');
+        const picking=await read(host);
+        await expect(p.locator('.ck-shopping-scene')).toContainText(picking.config.locations.find(l=>l.id===picking.decision?.loc)!.name);
+        await expect(p.locator('.ck-shopping-scene .ck-chef-face')).toBeVisible();
+        await p.locator('.ck-shopping-chef').click();
+        await expect(p.locator('.ck-chef-detail')).toContainText('ถือได้');
+    const spacing=await p.locator('.ck-chef-description').evaluate(el=>{const a=el.querySelector('span')!.getBoundingClientRect(),b=el.querySelector('p')!.getBoundingClientRect();return b.top-a.bottom;});expect(spacing).toBeLessThanOrEqual(8);
+        await expect.poll(()=>p.locator('.ck-chef-detail img').evaluate((el:HTMLImageElement)=>el.naturalWidth)).toBeGreaterThan(0);
+        await p.keyboard.press('Escape');
+        await expect(p.locator('.ck-dialog')).toHaveCount(0);
+        await expect(p.locator('.ck-picks [data-buy]').first()).toBeEnabled();
+        expect((await read(host)).revision).toBe(before);
+        expect((await p.locator('.ck-shopping-scene .ck-chef-portrait').boundingBox())!.height).toBeGreaterThan(35);
+        await expect(p.getByText('คุณเลือกของได้แล้ว',{exact:true})).toHaveCount(0);
+        await expect(p.locator('.ck-picks [data-buy]').first()).toBeVisible();
+        await expect(p.locator('.ck-title>strong')).toBeHidden();
+        await expect(p.locator('#ck-action>h2')).toHaveCount(0);
+        await expect(p.locator('.ck-picks [data-buy]').first()).toHaveCSS('border-radius','50%');
+        await expect(p.locator('.ck-picks [data-buy] svg').first()).toBeVisible();
+        const headers=await p.locator('.ck-kitchen .ck-resource-heading').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().height));
+        expect(headers.every(height=>height===24)).toBe(true);
+        await expect(p.locator('.ck-kitchen .ck-resource-icon').first()).toHaveCSS('width','64px');
+        const pickupIcon=p.locator('.ck-picks img.ck-resource-icon').first(),pantryIcon=p.locator('.ck-kitchen img.ck-resource-icon').first();
+        const pickupBox=await pickupIcon.boundingBox(),pantryBox=await pantryIcon.boundingBox();
+        expect(Math.abs(pickupBox!.width-pantryBox!.width)).toBeLessThan(1);expect(Math.abs(pickupBox!.height-pantryBox!.height)).toBeLessThan(1);
+        await expect(p.locator('.ck-kitchen .ck-token-name').first()).toHaveCSS('font-size','12px');
+        const personal=await read(p);
+        for(const kind of ['soup','bisque'] as const)if(!personal.me![kind])await expect(p.locator(`.ck-kitchen .ck-broth-card [data-resource="${kind}"]`)).toHaveCSS('opacity','0.4');
+        await expect(p.locator('.ck-pantry-heading h2')).toContainText(`(${personal.me!.storage.length+personal.me!.soup+personal.me!.bisque} อย่าง)`);
+        await expect(p.locator('.ck-pantry-heading h2')).toHaveCSS('font-size','16px');
+        await expect(p.locator('.ck-stock-counts')).toHaveCount(0);
+        for(const pane of ['stock','cards']){const button=p.locator(`[data-pantry="${pane}"]`);await expect(button).toHaveCSS('border-radius','50%');await expect(button.locator('svg')).toBeVisible();}
+        const brothStyles=await p.locator('.ck-broth-card .ck-token').evaluateAll(els=>els.map(el=>getComputedStyle(el).backgroundImage));
+        expect(brothStyles[0]).not.toBe(brothStyles[1]);
+        const quantity=p.locator('.ck-pantry-quantity').first();
+        await expect(quantity).toHaveCSS('border-radius','50%');
+        await expect(quantity).toHaveCSS('width','24px');await expect(quantity).toHaveCSS('height','24px');
+        for(const scope of ['.ck-picks','.ck-kitchen'])await expect(p.locator(`${scope} .ck-resource-heading`).first()).toHaveCSS('justify-items','start');
+        if(personal.me!.soup<2)await expect(quantity).toBeHidden();else await expect(quantity).toBeVisible();
+
+        const actionRect=await p.locator('.ck-action').boundingBox(),coverRect=await p.locator('.ck-shopping-scene').boundingBox();
+        expect(Math.abs(coverRect!.y-actionRect!.y)).toBeLessThanOrEqual(2);expect(Math.abs(coverRect!.x-actionRect!.x)).toBeLessThanOrEqual(2);
+        const selected=p.locator('.ck-picks .ck-pick-card').first();
+        await expect(selected.locator('.ck-token')).toHaveCSS('transform','none');
+        await expect(selected.locator('.ck-token')).toHaveCSS('border-radius','10px');
+        const waiting=phones.find(phone=>phone!==p)!;
+        await expect(waiting.locator('.ck-waiting,.ck-pick-toolbar')).toHaveCount(0);
+        await expect(waiting.locator('.ck-market-loading>svg')).toHaveCSS('width','64px');
+        await expect(waiting.locator('.ck-market-loading')).toBeVisible();
+        await expect(waiting.locator('.ck-market-loading')).toHaveCSS('pointer-events','none');
+        await expect(waiting.locator('.ck-workspace-heading')).toBeVisible();
+        await expect(waiting.locator('[data-tab="board"]')).toBeDisabled();await waiting.locator('[data-tab="information"]').click();await expect(waiting.locator('[data-tab="kitchen"]')).toBeEnabled();await waiting.locator('[data-tab="kitchen"]').click();await expect(waiting.locator('.ck-root')).toHaveAttribute('data-workspace','kitchen');
+        await expect(waiting.locator('.ck-shopping-scene')).toBeVisible();
+        expect((await waiting.locator('.ck-shopping-scene').boundingBox())!.width).toBeGreaterThan((await waiting.locator('#ck-action').boundingBox())!.width*.85);
+        expect(await waiting.locator('.ck-picks [data-pick]').count()).toBeGreaterThan(0);
+        await expect(waiting.locator('.ck-picks [data-buy]')).toHaveCount(0);
+        await waiting.screenshot({path:'data/qa-critter-kitchen/waiting-opponent.png'});
+        await p.screenshot({path:'data/qa-critter-kitchen/inline-pick.png'});
+        const buy=p.locator('.ck-picks [data-buy]').first();
+        await buy.click();await expect(p.locator('.ck-choice-dialog')).toBeVisible();
+        expect((await read(host)).revision).toBe(before);
+        await p.screenshot({path:'data/qa-critter-kitchen/buy-confirm.png'});
+        await p.locator('#ck-choice-cancel').click();
+        expect((await read(host)).revision).toBe(before);
+        const cardBefore=await p.locator('.ck-picks .ck-pick-card').first().boundingBox();
+        await confirmButton(p,buy);
+        await revision(host, before + 1);
+        const stamped=await read(host);expect(stamped.pickups!.length).toBeGreaterThan(0);
+        const lastPickup=stamped.pickups!.at(-1)!;
+        for(const phone of phones){await revision(phone,stamped.revision);if(lastPickup.item==='soup'||lastPickup.item==='bisque'){await expect(phone.locator('.ck-picks .ck-pick-stamp')).toHaveCount(0);continue;}const stamp=phone.locator(`.ck-picks .ck-pick-stamp[data-owner="${lastPickup.actor}"]`).first();await expect(stamp).toBeVisible();await expect(stamp.locator('img')).toHaveAttribute('src',new RegExp(`/teams-v2/${stamped.teamColors![lastPickup.actor]}/${lastPickup.chef}\\.webp$`));}
+        await revision(p,stamped.revision);
+        const cardAfter=await p.locator('.ck-picks .ck-pick-card').first().boundingBox();
+        expect(Math.abs(cardAfter!.y-cardBefore!.y)).toBeLessThan(1);
+        await expect(p.locator('.ck-picks')).toHaveCSS('align-items','center');
+        const pickedVisit=stamped.visits.find(visit=>visit.actor===lastPickup.actor&&visit.chef===lastPickup.chef&&visit.loc===lastPickup.loc)!;
+        for(const phone of phones){
+            if(lastPickup.item==='soup'||lastPickup.item==='bisque')continue;
+            const marked=phone.locator('.ck-picks .ck-pick-card').filter({has:phone.locator(`[data-pick="${lastPickup.item}"]`)});
+            if(await marked.evaluate(el=>el.classList.contains('ck-exhausted'))){await expect(marked.locator('.ck-sold-ribbon')).toHaveText('หมด');await expect(marked.locator('[data-pick]')).toHaveCSS('outline-width','2px');}
+            const seal=marked.locator(`.ck-pick-stamp[data-owner="${lastPickup.actor}"]`).last();
+            await expect(seal.locator('small')).toHaveText(`${pickedVisit.used}/${pickedVisit.limit}`);
+            const cardBox=(await marked.boundingBox())!,sealBox=(await seal.boundingBox())!;
+            expect(sealBox.width).toEqual(sealBox.height);
+            expect(sealBox.width).toBe(36);expect(sealBox.y).toBeCloseTo(cardBox.y-10,0);
+            await expect(seal.locator('img')).toHaveAttribute('loading','eager');
+            expect(sealBox.y).toBeLessThan(cardBox.y);
+            expect(sealBox.x+sealBox.width).toBeGreaterThan(cardBox.x+cardBox.width-2);
+            const ownWaiting=phone===p&&(await read(phone)).turn!==lastPickup.actor;
+            await expect(marked.locator('[data-pick] .ck-token')).toHaveCSS('filter',ownWaiting?'none':'grayscale(1)');
+            if(ownWaiting){
+                await expect(marked.locator('[data-pick]')).toHaveCSS('opacity','0.55');
+                const other=phone.locator('.ck-picks .ck-pick-card:not(.ck-owned) [data-pick]').first();
+                if(await other.count())await expect(other).toHaveCSS('opacity','0.35');
+            }
+        }
+        await phones.find(phone=>phone!==p)!.reload();await revision(phones.find(phone=>phone!==p)!,stamped.revision);if(lastPickup.item!=='soup'&&lastPickup.item!=='bisque')await expect(phones.find(phone=>phone!==p)!.locator('.ck-picks .ck-pick-stamp').first()).toBeVisible();
+        await p.screenshot({path:'data/qa-critter-kitchen/market-stamps.png'});
+        const railCheck=await p.evaluate(()=>{const picked=document.querySelector('.ck-picks .ck-token')?.getBoundingClientRect(),stored=document.querySelector('.ck-kitchen .ck-token')?.getBoundingClientRect(),rail=document.querySelector('.ck-kitchen .ck-inventory')?.getBoundingClientRect(),kitchen=document.querySelector('.ck-kitchen')?.getBoundingClientRect();return {picked:picked&&{w:picked.width,h:picked.height},stored:stored&&{w:stored.width,h:stored.height},inside:!!stored&&!!rail&&!!kitchen&&stored.bottom<=Math.min(rail.bottom,kitchen.bottom)+1};});
+        if(railCheck.picked&&railCheck.stored){expect(railCheck.stored.h).toBe(114);expect(railCheck.picked.h).toBeLessThanOrEqual(114);}
+        if(railCheck.stored)expect(railCheck.inside).toBe(true);
+        const stored=p.locator('.ck-kitchen [data-token-detail]').first();if(await stored.count()){await stored.click();await expect(p.locator('.ck-dialog .ck-token-preview')).toBeVisible();await expect(p.locator('.ck-dialog .ck-token-preview .ck-token')).toHaveCSS('width','154px');await expect(p.locator('.ck-dialog .ck-resource-card')).toBeVisible();await expect(p.locator('.ck-dialog .ck-resource-heading')).toHaveCSS('height','36px');await expect(p.locator('.ck-dialog .ck-token-name')).toBeVisible();await expect(p.locator('.ck-dialog .ck-token-name')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');const image=p.locator('.ck-dialog .ck-token-preview img');if(await image.count()){expect(await image.getAttribute('src')).not.toContain('/thumbs/');await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.naturalWidth)).toBeGreaterThan(0);expect((await image.boundingBox())!.height).toBeGreaterThan(80);}await p.screenshot({path:'data/qa-critter-kitchen/ingredient-detail.png'});await p.keyboard.press('Escape');}
+        for(const size of [{width:320,height:568},{width:390,height:844}]){
+            await p.setViewportSize(size);
+            await p.screenshot({path:`data/qa-critter-kitchen/shop-docker-${size.width}.png`});
+            await expect.poll(()=>p.locator('.ck-action').evaluate(el=>el.scrollHeight<=el.clientHeight+1)).toBe(true);
+            await expect.poll(()=>p.locator('.ck-kitchen').evaluate(el=>el.getBoundingClientRect().bottom<=innerHeight+1)).toBe(true);
+            await p.screenshot({path:`data/qa-critter-kitchen/shop-docker-${size.width}.png`});
+        }
+        await p.locator('[data-pantry="cards"]').click();
+        for(let index=0;index<3;index++)await expect(p.locator('.ck-private-rumors > *').nth(index).locator('strong')).toHaveText(`ข่าวลือ ใบที่ ${index+1}`);
+        const namedCard=p.locator('.ck-pantry-cards [data-detail]').first();
+        if(await namedCard.count())await expect(namedCard.locator('strong')).toBeVisible();
+        for(const back of await p.locator('.ck-pantry-cards .ck-unknown-card>.ck-art').all())await expect(back).toHaveCSS('filter','grayscale(1)');
+        const ownedCard=p.locator('.ck-pantry-cards .ck-card,.ck-pantry-cards .ck-unknown-card').first();
+        const cardBox=await ownedCard.boundingBox(),cardRail=await p.locator('.ck-pantry-cards').boundingBox();
+        expect(cardBox!.height).toBeGreaterThan(110);
+        expect(cardBox!.height).toBeLessThan(190);
+        const kitchenBox=await p.locator('.ck-kitchen').boundingBox();
+        expect(cardRail!.y+cardRail!.height).toBeLessThanOrEqual(kitchenBox!.y+kitchenBox!.height+1);
+        expect(cardBox!.height/cardBox!.width).toBeCloseTo(4/3,2);expect(cardBox!.y+cardBox!.height).toBeLessThanOrEqual(cardRail!.y+cardRail!.height-8);
+        const readPeek=()=>p.locator('.ck-pantry-cards').evaluate(rail=>{const edge=rail.getBoundingClientRect().right;const next=[...rail.querySelectorAll('.ck-card,.ck-unknown-card')].map(el=>el.getBoundingClientRect()).find(r=>r.left<edge&&r.right>edge+1);return next?(edge-next.left)/next.width:null;});
+        await expect.poll(async()=>{const overflow=await p.locator('.ck-pantry-cards').evaluate(rail=>rail.scrollWidth>rail.clientWidth+1);const peek=await readPeek();return !overflow||peek!==null&&peek>.38&&peek<.42;}).toBe(true);
+        await p.screenshot({path:'data/qa-critter-kitchen/pantry-full-cards.png'});
+        await p.locator('[data-pantry="stock"]').click();
+        await expect(p.locator('.ck-kitchen .ck-art').first()).toHaveAttribute('src',/\/thumbs\//);
+        await p.screenshot({ path: 'data/qa-critter-kitchen/resolution-local-mobile.png', fullPage: true });
+        await host.screenshot({ path: 'data/qa-critter-kitchen/board-local-desktop.png', fullPage: true });
+        const { readFile } = await import('node:fs/promises'), manifest = JSON.parse(await readFile('docs/games/critter-kitchen/asset-manifest.json', 'utf8'));
+        expect(manifest.assets).toHaveLength(99);
+        const plateAsset=await host.request.get(baseURL+'/art/critter-kitchen/thumbs/serving-plate.webp');expect(plateAsset.ok()).toBe(true);expect(plateAsset.headers()['content-type']).toContain('image/webp');
+        const menuAsset=await host.request.get(baseURL+'/art/critter-kitchen/thumbs/service-menu-paper.webp');expect(menuAsset.ok()).toBe(true);expect(menuAsset.headers()['content-type']).toContain('image/webp');
+        for (const a of manifest.assets) {
+            expect(a.status).toBe('generated');
+            const r = await host.request.get(baseURL + a.path);
+            expect(r.ok(), a.path).toBe(true);
+            expect(r.headers()['content-type']).toContain('image/webp');
+        }
+        let chefOfferChecked=false;
+        for(let step=0;step<24&&!chefOfferChecked;step++){
+            const current=await read(host);if(current.phase!=='shopping')break;
+            const actor=phones[current.players.findIndex(player=>player.id===current.turn)];await revision(actor,current.revision);const own=await read(actor);
+            const hired=own.me!.choices.find(id=>id.startsWith('zous:'));
+            if(hired){
+                const face=actor.locator(`.ck-picks [data-pick="${hired}"]`);await expect(face.locator('strong')).toBeVisible();const faceBox=await face.boundingBox();expect(faceBox!.height).toBeGreaterThan(faceBox!.width);expect(faceBox!.height).toBeLessThanOrEqual(114);const peerBox=await actor.locator('.ck-picks .ck-pick-card:not(.ck-chef-offer-card) [data-pick]').first().boundingBox();if(peerBox){expect(Math.abs(peerBox.height-faceBox!.height)).toBeLessThan(1);expect(Math.abs(peerBox.width-faceBox!.width)).toBeLessThan(1);}await face.screenshot({path:'data/qa-critter-kitchen/chef-offer-card.png'});await expect(face.locator('img')).toHaveCSS('object-fit','cover');
+                await face.click();await expect(actor.locator('.ck-chef-detail')).toBeVisible();await actor.keyboard.press('Escape');
+                await actor.locator(`.ck-picks [data-buy="${hired}"]`).click();await expect(actor.locator('.ck-buy-chef-preview')).toBeVisible();await expect(actor.locator('.ck-buy-chef-preview img')).toHaveCSS('object-fit','cover');
+                await expect.poll(()=>actor.locator('.ck-buy-chef-preview img').evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBeGreaterThan(0);
+                await actor.screenshot({path:'data/qa-critter-kitchen/chef-buy-confirm.png'});await actor.locator('#ck-choice-cancel').click();expect((await read(host)).revision).toBe(current.revision);chefOfferChecked=true;
+            }else if(current.decision?.kind==='rumor')await confirmButton(actor,actor.locator(`[data-rumor="${own.me!.rumorChoices[0]}"]`));
+            else if(current.decision?.kind==='consolation')await confirmButton(actor,actor.locator('[data-reward="soup"]'));
+            else await confirmButton(actor,actor.locator(`.ck-picks [data-buy="${own.me!.choices[0]}"]`));
+            if(!chefOfferChecked)await revision(host,current.revision+1);
+        }
+        expect(chefOfferChecked).toBe(true);
+        const publicChef=host.locator('.ck-board [data-pick^="zous:"]').first();
+        if(await publicChef.count()){await publicChef.click();await expect(host.locator('.ck-chef-detail')).toBeVisible();await host.keyboard.press('Escape');}
+        const marketOwners=host.locator('.ck-board .ck-market-token .ck-market-owner-name');
+        expect(await marketOwners.count()).toBeGreaterThan(0);
+        await expect(marketOwners.first()).toContainText('เชฟทดสอบ');
+        const ownedProduct=host.locator('.ck-board .ck-market-owned .ck-market-face').first();await ownedProduct.scrollIntoViewIfNeeded();await expect(ownedProduct.locator('.ck-token')).toBeVisible();await expect.poll(()=>ownedProduct.locator('img').first().evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0&&img.getBoundingClientRect().height>30)).toBe(true);await ownedProduct.locator('.ck-token').screenshot({path:'data/qa-critter-kitchen/market-purchased-product.png'});for(const tile of await host.locator('.ck-board .ck-market-owned').all()){await tile.scrollIntoViewIfNeeded();await expect(tile.locator('.ck-market-face .ck-token')).toBeVisible();await expect.poll(()=>tile.locator('.ck-market-face img').first().evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0&&img.getBoundingClientRect().height>30)).toBe(true);await expect(tile.locator('.ck-pick-stamp').first()).toBeVisible();}await expect(host.locator('.ck-board .ck-queues')).toHaveCount(0);
+        await host.screenshot({path:'data/qa-critter-kitchen/market-owners-docker.png'});
+
+        const teams=JSON.parse(await readFile('docs/games/critter-kitchen/team-avatar-assets.json','utf8'));
+        expect(teams.paths).toHaveLength(75);
+        for(const path of teams.paths){const response=await host.request.get(baseURL+path);expect(response.ok(),path).toBe(true);}
+        expect(errors).toEqual([]);
+    }
+    finally {
+        if (host && code)
+            await host.request.post('/api/rooms/leave', { data: { code, close: true } }).catch(() => { });
+        for (const c of contexts)
+            await c.close();
+    }
+});
+
+test('Critter Kitchen dense planning: vertical chef hand stays visible, enlarged placements and bounded panorama list',async({browser})=>{
+    test.setTimeout(90000);
+    const dir=await mkdtemp(join(tmpdir(),'ck-panorama-')),app=await startServer(0,'127.0.0.1',true,seeded(910),{storePath:join(dir,'rooms.sqlite')}),url=`http://localhost:${(app.server.address() as any).port}`,contexts:BrowserContext[]=[];
+    try{
+        const hc=await browser.newContext({viewport:{width:1440,height:1000}});contexts.push(hc);const host=await hc.newPage();
+        await capture(host);await host.goto(url+'/games/critter-kitchen');await testAccount(host,app);await host.locator('#ck-entry-mode').selectOption('shared-table');await host.getByRole('button',{name:'สร้างห้องบนจอกลาง'}).click();await expect(host.locator('#qr')).toBeVisible();const code=await host.locator('.room-code strong').innerText(),phones:Page[]=[];
+        for(let i=0;i<5;i++){const c=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});contexts.push(c);const p=await c.newPage();await capture(p);phones.push(p);await p.goto(url+'/play/'+code);await p.getByRole('textbox',{name:'ชื่อของคุณ'}).fill('เชฟ '+i);await p.getByRole('button',{name:'เข้าห้อง',exact:true}).click();await p.getByRole('button',{name:'พร้อมเล่น',exact:true}).click();}
+        await host.locator('#start').click();const p=phones[0];await expect(p.locator('.ck-route-planner')).toBeVisible();await expect(p.locator('.ck-title')).not.toContainText('วางแผนลับ');await expect(p.locator('.ck-route-planner [data-destination]')).toHaveCount(8);
+        const five=await read(host);expect(new Set(Object.values(five.teamColors!)).size).toBe(5);
+        for(const phone of phones){const own=await read(phone);expect(own.teamColors).toEqual(five.teamColors);const color=own.teamColors![own.me!.id];await expect(phone.locator('[data-chef="mouse"] img')).toHaveAttribute('src',`/art/critter-kitchen/thumbs/teams-v2/${color}/mouse.webp`);expect((await phone.request.get(url+`/art/critter-kitchen/thumbs/teams-v2/${color}/mouse.webp`)).ok()).toBe(true);}
+
+        for(const size of [{width:320,height:568},{width:390,height:620},{width:390,height:844}]){
+            await p.setViewportSize(size);const rows=await p.locator('.ck-route-planner [data-destination]').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height,b:r.bottom}}));
+            expect(new Set(rows.map(r=>r.x)).size).toBe(1);expect(rows.every(r=>r.w>r.h*2&&r.h>=86)).toBe(true);
+            const list=p.locator('.ck-route-planner .ck-destinations');await list.evaluate(e=>e.scrollTop=e.scrollHeight);const last=await p.locator('.ck-route-planner [data-destination]').last().boundingBox();expect(last!.y+last!.height).toBeLessThan(size.height);await list.evaluate(e=>e.scrollTop=0);
+            const area=await p.locator('#ck-action').evaluate(e=>({scroll:e.scrollHeight,client:e.clientHeight}));expect(area.scroll).toBeLessThanOrEqual(area.client+2);
+            expect(await p.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(size.width);
+            await inspectChefAndClose(p,'mouse');await dragChefTo(p,'mouse','garden');
+            const inHand=await p.locator('[data-chef="mouse"] .ck-chef-face').boundingBox(),onBoard=await p.locator('[data-destination="garden"] .ck-chef-face').boundingBox();expect(onBoard!.height).toBeGreaterThan(inHand!.height);
+            const handCards=await p.locator('.ck-route-planner [data-chef]').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().x));expect(new Set(handCards).size).toBe(1);
+            await p.screenshot({path:`data/qa-critter-kitchen/panorama-8-${size.height}.png`});
+        }
+        await inspectChefAndClose(p,'mouse');await dragChefTo(p,'mouse','garden');
+        const hand=await p.locator('[data-chef="mouse"] .ck-chef-face').boundingBox(),placed=await p.locator('[data-destination="garden"] .ck-chef-face').boundingBox();expect(placed!.height).toBeGreaterThan(hand!.height);expect(placed!.width).toBeGreaterThan(hand!.width);
+        const slot=await p.locator('[data-destination="garden"] .ck-route-slot').boundingBox(),name=await p.locator('[data-destination="garden"] .ck-route-name').boundingBox(),destination=await p.locator('[data-destination="garden"]').boundingBox();expect(slot!.x-destination!.x).toBeLessThan(10);expect(name!.x-(slot!.x+slot!.width)).toBeGreaterThanOrEqual(10);expect(slot!.height/destination!.height).toBeGreaterThan(.85);expect(slot!.height-placed!.height).toBeLessThanOrEqual(5);
+    }finally{for(const c of contexts)await c.close();await app.close();await rm(dir,{recursive:true,force:true});}
+});
+
+test('Critter Kitchen refrigeration: ten-card review, four-column selection and waiting market navigation',async({browser})=>{
+    test.setTimeout(45000);
+    const dir=await mkdtemp(join(tmpdir(),'ck-fridge-')),app=await startServer(0,'127.0.0.1',true,seeded(910),{storePath:join(dir,'rooms.sqlite')}),url=`http://localhost:${(app.server.address() as any).port}`,contexts:BrowserContext[]=[];
+    try{
+        const hc=await browser.newContext({viewport:{width:1440,height:1000}});contexts.push(hc);const host=await hc.newPage();await capture(host);await host.goto(url+'/games/critter-kitchen');await testAccount(host,app);await host.getByRole('button',{name:'สร้างห้องบนจอกลาง'}).click();await expect(host.locator('#qr')).toBeVisible();const code=await host.locator('.room-code strong').innerText(),phones:Page[]=[];
+        for(let i=0;i<2;i++){const c=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});contexts.push(c);const p=await c.newPage();await capture(p);phones.push(p);await p.goto(url+'/play/'+code);await p.getByRole('textbox',{name:'ชื่อของคุณ'}).fill('เชฟตู้เย็น '+i);await p.getByRole('button',{name:'เข้าห้อง',exact:true}).click();await p.getByRole('button',{name:'พร้อมเล่น',exact:true}).click();}
+        await host.locator('#start').click();await expect(host.locator('.ck-root')).toHaveAttribute('data-phase','planning');
+        const room=app.rooms.rooms.get(code)!,state=room.ck!;
+        const learner=phones[0],other=phones[1];
+        for(const p of phones)await revision(p,room.revision);
+        await learner.locator('[data-tab="board"]').click();
+        const emptyMarket=learner.locator('.ck-location').filter({has:learner.locator('.ck-market-empty')}).first();await expect(emptyMarket.locator('header')).toHaveCSS('filter','grayscale(1)');expect((await emptyMarket.locator('.ck-market-stock').boundingBox())!.height).toBeLessThan(110);
+        await learner.locator('.ck-location-caption>strong').first().click();await expect(learner.locator('.ck-dialog[open]')).toHaveCount(0);
+        for(const p of phones){await p.locator('[data-tab="information"]').click();await expect(p.locator('.ck-root')).toHaveAttribute('data-workspace','information');await expect(p.locator('.ck-reference-section')).toHaveCount(3);await expect(p.locator('.ck-reference-grid').first().locator('.ck-reference-slot')).toHaveCount(6);await expect(p.locator('.ck-reference-grid').last().locator('.ck-reference-slot')).toHaveCount(3);await expect(p.locator('.ck-layout')).not.toBeVisible();await expect(p.locator('.ck-menu-cards')).toHaveCount(0);}
+        const challengeBoxes=await learner.locator('.ck-reference-grid').first().locator('.ck-reference-slot').evaluateAll(es=>es.map(e=>e.getBoundingClientRect()));expect(challengeBoxes[0].top).toBe(challengeBoxes[2].top);expect(challengeBoxes[3].top).toBeGreaterThan(challengeBoxes[0].bottom);
+        const marketLoc=state.config.locations.find(loc=>loc.slots>0)!.id,marketTokens=state.bag.filter(id=>TOKEN[id].kind==='ingredient').slice(0,12);state.bag=state.bag.filter(id=>!marketTokens.includes(id));state.locations[marketLoc].push(...marketTokens);
+        state.players[0].known[0]=state.rumors[0];state.revealed=3;room.revision++;(app.rooms as any).broadcast(room,true);for(const p of phones)await revision(p,room.revision);
+        await expect(learner.locator(`.ck-reference [data-detail="rumor:${state.rumors[0]}"]`)).toHaveCount(1);await expect(other.locator(`.ck-reference [data-detail="rumor:${state.rumors[0]}"]`)).toHaveCount(0);await expect(other.locator('.ck-reference-grid').last().locator('.ck-reference-back')).toHaveCount(3);
+        await learner.locator('.ck-reference-grid').last().scrollIntoViewIfNeeded();expect(await learner.evaluate(()=>scrollY)).toBeGreaterThan(0);expect(await learner.locator('.ck-reference').evaluate(e=>e.scrollHeight<=e.clientHeight+1)).toBe(true);
+        const referenceScroll=await learner.evaluate(()=>{(window as any).__referenceImages=[...document.querySelectorAll('.ck-reference .ck-card>.ck-art')];return scrollY;});
+        const criticBox=await learner.locator('.ck-reference-critic .ck-card').boundingBox(),challengeBox=await learner.locator('.ck-reference-grid .ck-card').first().boundingBox();expect(criticBox!.width).toBeCloseTo(challengeBox!.width,0);expect(criticBox!.height).toBeCloseTo(challengeBox!.height,0);
+        await expect(learner.locator('.ck-reference-back').first()).toHaveCSS('filter','grayscale(1)');await expect(learner.locator('.ck-reference-foods img').first()).toHaveCSS('filter','none');await expect(learner.locator('.ck-reference-foods>span').first()).toHaveCSS('border-radius','50%');await expect(learner.locator('.ck-reference-caption .ck-reference-hold')).toHaveCount(2);await expect(learner.locator('.ck-reference-slot>.ck-reference-note')).toHaveCount(0);
+        const criticText=await learner.locator('.ck-reference-critic>p').boundingBox();expect(criticText!.x).toBeGreaterThan(criticBox!.x+criticBox!.width);await expect(learner.locator('.ck-reference-critic>p')).not.toBeEmpty();
+        await expect(learner.locator('.ck-reference-index')).toHaveCount(9);expect(await learner.locator('.ck-reference-index').allTextContents()).toEqual(['Challenge 1','Challenge 2','Challenge 3','Challenge 4','Challenge 5','Challenge 6','ข่าวลือ 1','ข่าวลือ 2','ข่าวลือ 3']);const topIndices=await learner.locator('.ck-reference-index').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect(),card=e.parentElement!.getBoundingClientRect();return Math.abs(r.top-card.top)<=2&&Math.abs(r.left+r.width/2-card.left-card.width/2)<1;}));expect(topIndices.every(Boolean)).toBe(true);await expect(learner.locator('.ck-reference-slot>h3')).toHaveCount(0);const circles=await learner.locator('.ck-reference-foods>span').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return Math.abs(r.width-r.height)<1;}));expect(circles.every(Boolean)).toBe(true);
+        await expect(learner.locator('.ck-reference-foods')).toHaveCount(3);await expect(learner.locator('.ck-reference-caption>strong').first()).toHaveCSS('color','rgb(255, 251, 238)');
+        await learner.locator('[data-tab="board"]').dispatchEvent('click');const marketRail=learner.locator(`[data-location-card="${marketLoc}"] .ck-market-stock`);
+        await expect.poll(()=>marketRail.evaluate(e=>e.scrollWidth>e.clientWidth)).toBe(true);await expect.poll(()=>marketRail.evaluate(e=>(e as HTMLElement).style.getPropertyValue('--ck-resource-width'))).not.toBe('');const marketFit=await marketRail.evaluate(e=>{e.scrollLeft=80;(window as any).__marketImage=e.querySelector('img');return {left:e.scrollLeft,width:e.querySelector('.ck-market-token')!.getBoundingClientRect().width};});
+        const marketSpacing=await marketRail.evaluate(e=>{const r=e.getBoundingClientRect(),item=e.firstElementChild!.getBoundingClientRect();return Math.abs((item.top-r.top)-(r.top+e.clientHeight-item.bottom));});expect(marketSpacing).toBeLessThanOrEqual(1);
+        for(const workspace of ['kitchen','board','information']){await learner.locator(`[data-tab="${workspace}"]`).dispatchEvent('click');const gap=await learner.evaluate((workspace)=>{const root=document.querySelector('.ck-root')!,heading=root.querySelector('.ck-workspace-heading')!,panel=root.querySelector(workspace==='board'?'.ck-board':workspace==='information'?'.ck-reference':'.ck-action')!;return panel.getBoundingClientRect().top-heading.getBoundingClientRect().bottom;},workspace);expect(gap).toBeCloseTo(8,0);}
+        expect(await learner.evaluate(()=>scrollY)).toBe(referenceScroll);
+        expect(await learner.evaluate(()=>(window as any).__referenceImages.every((img:Element,i:number)=>img===document.querySelectorAll('.ck-reference .ck-card>.ck-art')[i]))).toBe(true);
+        await learner.locator('[data-tab="board"]').dispatchEvent('click');expect(await marketRail.evaluate(e=>({left:e.scrollLeft,width:e.querySelector('.ck-market-token')!.getBoundingClientRect().width}))).toEqual(marketFit);expect(await marketRail.evaluate(e=>(window as any).__marketImage===e.querySelector('img'))).toBe(true);
+        const headingTops=[];for(const workspace of ['kitchen','board','information']){await learner.locator(`[data-tab="${workspace}"]`).dispatchEvent('click');headingTops.push(await learner.locator('.ck-workspace-heading').evaluate(e=>e.getBoundingClientRect().top+scrollY));}expect(Math.max(...headingTops)-Math.min(...headingTops)).toBeLessThanOrEqual(1);
+        await learner.locator('[data-tab="information"]').dispatchEvent('click');await learner.evaluate(()=>scrollTo(0,0));await learner.screenshot({path:'data/qa-critter-kitchen/reference-album.png',fullPage:true});await learner.locator('.ck-reference-critic [data-detail]').click();await expect(learner.locator('.ck-dialog')).toBeVisible();await learner.keyboard.press('Escape');
+        await learner.locator('.ck-reference-grid [data-detail^="challenge:"]').first().click();await expect.poll(()=>learner.locator('.ck-challenge-detail>.ck-art').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);await expect(learner.locator('.ck-challenge-detail-foods>span')).toHaveCount(3);await expect(learner.locator('.ck-challenge-detail-foods strong')).toHaveCount(3);await expect(learner.locator('.ck-dialog-body>.ck-foods,.ck-dialog-body>p')).toHaveCount(0);const detailImage=await learner.locator('.ck-challenge-detail>.ck-art').boundingBox(),detailFoods=await learner.locator('.ck-challenge-detail-foods').boundingBox();expect(detailFoods!.x).toBeGreaterThan(detailImage!.x+detailImage!.width);await learner.screenshot({path:'data/qa-critter-kitchen/reference-challenge-detail.png'});await learner.keyboard.press('Escape');
+        state.phase='running';room.revision++;(app.rooms as any).broadcast(room,true);for(const p of phones){await revision(p,room.revision);await expect(p.locator('.ck-root')).toHaveAttribute('data-workspace','kitchen');await expect(p.locator('.ck-reference')).not.toBeVisible();}
+        state.phase='refrigeration';state.round=6;state.critic='mouse';state.pending=null;state.tasks=[];state.players.forEach(p=>{p.meals=null;p.fridgeReady=true;});
+        // Isolated UI fixture: move physical tokens out of the bag, preserving ownership.
+        const stock=state.bag.filter(id=>TOKEN[id].kind==='ingredient').slice(0,14);state.bag=state.bag.filter(id=>!stock.includes(id));state.players[0].storage.push(...stock);state.players[0].fridgeReady=false;room.revision++;(app.rooms as any).broadcast(room,true);
+        const actor=phones[0],waiting=phones[1];for(const p of phones)await revision(p,room.revision);
+        await expect(actor.locator('#ck-fridge')).toBeDisabled();await expect(actor.locator('.ck-title>strong')).toBeEmpty();await expect(waiting.locator('.ck-wait-scene')).toContainText('รอเพื่อนจัดตู้เย็น');await expect(waiting.locator('.ck-action')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
+        await expect.poll(()=>waiting.locator('.ck-wait-scene img').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);await waiting.screenshot({path:'data/qa-critter-kitchen/fridge-wait.png'});
+        await waiting.locator('[data-tab="board"]').click();await expect(waiting.locator('.ck-board')).toBeVisible();await expect(waiting.locator('.ck-wait-scene')).not.toBeVisible();await waiting.locator('[data-tab="kitchen"]').click();await expect(waiting.locator('.ck-wait-scene')).toBeVisible();
+        for(const id of stock.slice(0,9))await actor.locator(`[data-keep="${id}"]`).click();await expect(actor.locator('#ck-fridge')).toBeDisabled();await actor.locator(`[data-keep="${stock[9]}"]`).click();await expect(actor.locator('#ck-fridge')).toBeEnabled();await expect(actor.locator('.ck-fridge-grid .ck-will-discard')).toHaveCount(4);await expect(actor.locator('.ck-will-discard .ck-token').first()).toHaveCSS('filter','grayscale(1)');
+        await actor.locator('#ck-fridge').click();const cards=actor.locator('.ck-fridge-review .ck-token');await expect(cards).toHaveCount(10);const boxes=await cards.evaluateAll(es=>es.map(e=>e.getBoundingClientRect()));expect(boxes[4].top).toBe(boxes[0].top);expect(boxes[5].top).toBeGreaterThan(boxes[0].bottom);expect(boxes[9].top).toBe(boxes[5].top);expect(await actor.locator('.ck-fridge-review').evaluate(e=>e.scrollWidth<=e.clientWidth+1)).toBe(true);await actor.screenshot({path:'data/qa-critter-kitchen/fridge-ten-review.png'});
+        for(const motion of ['reduce','no-preference'] as const){await waiting.emulateMedia({reducedMotion:motion});await expect.poll(()=>waiting.locator('.ck-wait-scene img').evaluate((img:HTMLImageElement)=>img.currentSrc)).toContain(motion==='reduce'?'wait-chef-poster.webp':'wait-chef.webp');}
+        await actor.locator('#ck-choice-cancel').click();state.phase='challenge';state.players[0].meals=[emptyMeal(),emptyMeal(),emptyMeal()];state.players[1].meals=null;room.revision++;(app.rooms as any).broadcast(room,true);await revision(actor,room.revision);await expect(actor.locator('.ck-serving-wait img')).toBeVisible();expect((await actor.locator('.ck-title').boundingBox())!.height).toBe(0);await expect(actor.locator('.ck-action')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');await actor.screenshot({path:'data/qa-critter-kitchen/serving-wait-final.png'});
+        const choose=(food:string,value:number,kind='ingredient')=>Object.keys(TOKEN).find(id=>TOKEN[id].food===food&&TOKEN[id].value===value&&TOKEN[id].kind===kind)!;
+        const fishHigh=choose('fish',5),fishLow=choose('fish',2),mushroom=choose('mushroom',4),spice=Object.keys(TOKEN).find(id=>TOKEN[id].kind==='spice'&&TOKEN[id].food==='fish')!;
+        const finalStock=[fishLow,mushroom,fishHigh,spice];expect(finalStock.every(Boolean)).toBe(true);state.bag=state.bag.filter(id=>!finalStock.includes(id));for(const ids of Object.values(state.locations))for(const id of finalStock){const at=ids.indexOf(id);if(at>=0)ids.splice(at,1);}state.discard.push(...state.players[0].storage.filter(id=>!finalStock.includes(id)));state.players[0].storage=finalStock;state.players[0].meals=null;state.phase='critic';state.round=7;state.critic='badger';room.revision++;(app.rooms as any).broadcast(room,true);await revision(actor,room.revision);
+        await actor.locator(`[data-add="${fishHigh}"]`).click();await expect(actor.locator(`[data-add="${fishLow}"]`)).toHaveCount(0);await expect(actor.locator('.ck-in-dish').filter({has:actor.locator(`[data-token-detail="${fishLow}"]`)}).locator('[data-token-detail]')).toHaveCSS('filter','grayscale(1)');
+        await actor.locator('.ck-final-selected [data-toggle-spice]').check();await actor.locator('.ck-final-crown').click();await expect(actor.locator(`[data-add="${fishLow}"]`)).toBeVisible();await actor.locator(`[data-add="${fishHigh}"]`).click();await actor.locator(`[data-add="${mushroom}"]`).click();await actor.locator('[data-as]').selectOption('carrot');await expect(actor.locator('#ck-serve')).toBeEnabled();await expect(actor.locator('.ck-dish-rail')).toHaveCount(0);await actor.locator('#ck-serve').click();await expect(actor.locator('.ck-final-review-grid .ck-review-resource')).toHaveCount(2);await expect(actor.locator('.ck-final-serving-dialog .ck-meal-review')).toHaveCount(0);expect((await actor.locator('.ck-final-serving-dialog').boundingBox())!.height).toBeLessThan(500);await actor.screenshot({path:'data/qa-critter-kitchen/final-direct-small-review.png'});await actor.locator('#ck-choice-cancel').click();await actor.screenshot({path:'data/qa-critter-kitchen/final-direct-crowns.png'});
+        // A full pantry must fit without moving the page or hiding the serve button.
+        while(await actor.locator('.ck-final-crown').count())await actor.locator('.ck-final-crown').first().click();
+        state.players[0].storage=FOODS.flatMap(food=>Object.keys(TOKEN).filter(id=>TOKEN[id].kind==='ingredient'&&TOKEN[id].food===food).slice(0,3)).slice(0,19);
+        room.revision++;(app.rooms as any).broadcast(room,true);await revision(actor,room.revision);
+        for(const viewport of [{width:390,height:844},{width:320,height:568}]){
+            await actor.setViewportSize(viewport);
+            if(!await actor.locator('.ck-final-crown').count())await actor.locator('.ck-final-cooking [data-add]').first().click();
+            await expect(actor.locator('.ck-final-crown')).toBeVisible();
+            await expect.poll(()=>actor.evaluate(()=>{
+                const root=document.querySelector('.ck-root')!,source=root.querySelector('.ck-cook-source')!,footer=root.querySelector('.ck-serve-footer')!,heading=root.querySelector('.ck-workspace-heading')!,action=root.querySelector('.ck-action')!;
+                return document.documentElement.scrollHeight<=innerHeight+1&&source.scrollHeight<=source.clientHeight+1&&footer.getBoundingClientRect().bottom<=innerHeight&&action.getBoundingClientRect().top-heading.getBoundingClientRect().bottom>=7;
+            })).toBe(true);
+            const circles=await actor.locator('.ck-final-cooking .ck-buy-button').evaluateAll(buttons=>buttons.map(button=>{
+                const b=button.getBoundingClientRect(),s=button.querySelector('svg')!.getBoundingClientRect();
+                return Math.abs(b.left+b.width/2-s.left-s.width/2)<1&&Math.abs(b.top+b.height/2-s.top-s.height/2)<1;
+            }));expect(circles.length).toBeGreaterThan(0);expect(circles.every(Boolean)).toBe(true);
+            await actor.screenshot({path:`data/qa-critter-kitchen/final-fit-${viewport.width}.png`});
+        }
+
+    }finally{for(const c of contexts)await c.close();await app.close();await rm(dir,{recursive:true,force:true});}
+});

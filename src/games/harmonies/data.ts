@@ -1,0 +1,16 @@
+import catalog from './catalog.json' with {type:'json'};
+import type {Animal,Terrain} from './types.js';
+export const ANIMALS=catalog as Animal[];
+export const ANIMAL=Object.fromEntries(ANIMALS.map(c=>[c.id,c]));
+export const TERRAINS:Terrain[]=['water','rock','wood','leaf','field','building'];
+export const COUNTS:Record<Terrain,number>={water:23,rock:23,wood:21,leaf:19,field:19,building:15};
+export const NAMES:Record<Terrain,string>={water:'น้ำ',rock:'หิน',wood:'ลำต้น',leaf:'พุ่มไม้',field:'ทุ่งดอกไม้',building:'อาคาร'};
+export const PALETTE:Record<Terrain,string>={water:'#238eaa',rock:'#858a90',wood:'#a96c45',leaf:'#82a342',field:'#e9be39',building:'#d34d65'};
+export const TOKENS=TERRAINS.flatMap(t=>Array.from({length:COUNTS[t]},(_,i)=>`${t}-${String(i+1).padStart(2,'0')}`));
+export const terrain=(id:string)=>id.split('-')[0] as Terrain;
+export const COORDS=Array.from({length:5},(_,q)=>Array.from({length:q%2?4:5},(_,row)=>({q,r:row-Math.floor(q/2)}))).flat();
+export const DIRECTIONS=[[1,0],[0,1],[-1,1],[-1,0],[0,-1],[1,-1]] as const;
+export const cellAt=(q:number,r:number)=>COORDS.findIndex(c=>c.q===q&&c.r===r);
+export const neighbors=(i:number)=>DIRECTIONS.map(([q,r])=>cellAt(COORDS[i].q+q,COORDS[i].r+r)).filter(i=>i>=0);
+export function rotate(q:number,r:number,n:number){for(let i=0;i<n;i++)[q,r]=[-r,q+r];return {q,r};}
+export const CUBE_COUNT=ANIMALS.reduce((n,c)=>n+c.points.length,0);

@@ -1,0 +1,60 @@
+{
+  "note": "Original generated decorative art. No scanned rulebook or publisher artwork shipped. Exact shapes/sheet/symbols are code-native.",
+  "assets": [
+    {
+      "id": "back",
+      "prompt": "Original portrait card-back texture for an abstract family puzzle game. Deep navy paper with a subtle indigo and cyan nebula-like pigment cloud, fine paper grain and tiny restrained star-like specks. A delicate continuous border of loose colored-pencil strokes in yellow, cyan, coral, purple and green around the outer edge, identical repeated back suitable for every card. No words, lettering, numbers, logos, grid, playable shape or recognizable symbol. Flat front-on view, sharp rounded-corner-friendly edges, attractive quiet center.",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-a6ad35da-dcb6-4d6f-81b1-ca458b9df3a7.png",
+      "status": "generated",
+      "runtime": "public/art/locus/back.webp",
+      "width": 400,
+      "height": 560,
+      "bytes": 62428,
+      "sha256": "012b73289d1f58738ecbc88c1e92312d936e1b0e578cbf28753766c41f214853"
+    },
+    {
+      "id": "cover",
+      "prompt": "Original editorial board-game cover illustration, portrait 2:3 composition. A tactile abstract flip-and-write puzzle night: bright yellow, cyan blue, coral red, plum purple and leaf green paper strips and wooden colored pencils arranged around a large empty white paper surface on a subtle deep indigo star-speckled tabletop. Playful refined stationery photography mixed with hand-painted material texture, warm pencil grain, crisp paper edges, soft natural shadows. Colors and materials should suggest logical spatial puzzles without drawing any actual playable grid or game card. Strong simple composition readable as a small catalog cover. No words, letters, numbers, branding, logos, score sheet, exact polyomino shapes or watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-8f9d8f27-3f02-4ad0-a7e0-513e30be1291.png",
+      "status": "generated",
+      "runtime": "public/art/locus/cover.webp",
+      "width": 720,
+      "height": 1080,
+      "bytes": 96238,
+      "sha256": "a53af350892c49f78f4966aad0b4d505b73893237cff9ea4996e834b00124cdf"
+    },
+    {
+      "id": "paper",
+      "prompt": "Seamless-looking flat overhead ivory-white uncoated drawing paper texture, subtle fine natural fibers and faint graphite smudges only at the outermost edges, very light almost white center that preserves legibility of overlaid colored grids and small black text. Even diffuse lighting, no folds or shadows through center. Portrait paper surface only. No text, handwriting, lines, grid, objects, symbols or logos.",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-b0dca652-d274-448d-a20f-799524f8a263.png",
+      "status": "generated",
+      "runtime": "public/art/locus/paper.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 144504,
+      "sha256": "47f3ecf134103ed8d64326f7b5166e5b9fadc4a8aae09052e664f7672e8f5cc4"
+    },
+    {
+      "id": "results",
+      "prompt": "Original wide overhead celebratory still life for the border of an abstract pencil puzzle game's score summary. Five colored pencils (yellow, cyan blue, coral red, plum purple, leaf green), tiny paper scraps and pencil shavings loosely framing a large empty white paper center. Friendly hand-painted paper textures, soft realistic shadows, bright clean readable center left entirely blank for score UI. No words, numbers, charts, grids, logos, scores, trophies or watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-e6225537-12a9-45e8-a14c-bab9699ff1b9.png",
+      "status": "generated",
+      "runtime": "public/art/locus/results.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 68680,
+      "sha256": "9edbc011d8cbcd4e557ea8a47bb268c18950dc19d82119e164dfcc3da9d3ae7d"
+    },
+    {
+      "id": "table",
+      "prompt": "Original flat overhead tabletop background for a colorful pencil puzzle game: muted blue-gray artist's workbench, subtle fine grain and a few soft graphite and colored-pencil dust flecks near edges, very quiet clear center, diffuse lighting. Wide landscape surface with no perspective distortion, no text, no objects, no grids, no cards, no logos. Tactile and welcoming, restrained rather than busy.",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-4d6ed74f-c7c0-4157-b91b-00cf9ecb05cb.png",
+      "status": "generated",
+      "runtime": "public/art/locus/table.webp",
+      "width": 1200,
+      "height": 800,
+      "bytes": 174264,
+      "sha256": "37f8137ace77bd9f84e10eb9aaf2c96824685e347aecc214fb61565f33219689"
+    }
+  ]
+}

@@ -1,0 +1,1603 @@
+.ck-root{--teal:#155a61;--orange:#d85c29;--ink:#143f44;color:var(--ink);font-family:'Noto Sans Thai',sans-serif;max-width:1600px;margin:auto;background:#e8f4ef;padding:14px;border-radius:12px}.ck-root button,.ck-root select,.ck-root input{font:inherit}.ck-root button{cursor:pointer;min-height:44px;border:1px solid #367c80;background:#fffdf3;color:#194e54;border-radius:8px;padding:8px 12px;font-weight:700}.ck-root button:disabled{cursor:default;opacity:.55}.ck-root button.selected,.ck-root .selected{outline:3px solid #e98228;outline-offset:1px}.ck-root button:focus-visible,.ck-root select:focus-visible{outline:3px solid #af398e;outline-offset:3px}.ck-root h1{font-size:clamp(24px,3vw,38px);line-height:1.2;margin:0;color:#b54619}.ck-root h2{font-size:20px;margin:0 0 8px}.ck-root h3{font-size:15px;margin:5px 0}.ck-root p{font-size:14px;line-height:1.65}.ck-title{display:flex;justify-content:space-between;align-items:center;gap:12px}.ck-title label{font-size:12px;display:grid;gap:3px}.ck-root select{max-width:100%;min-height:38px;background:white;border:1px solid #74a2a1;border-radius:5px;padding:5px;color:var(--ink)}.ck-priority{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.ck-priority>span{display:grid;grid-template-columns:34px 1fr;gap:0 6px;padding:7px;background:#d1e8e3;border:2px solid transparent;border-radius:8px;min-width:110px}.ck-priority>span.active{border-color:#d76a26;background:#fff5cf}.ck-root .profile-avatar{width:32px;height:32px;min-width:32px;max-width:32px;flex:0 0 32px;aspect-ratio:1;border-radius:50%;object-fit:cover}.ck-priority .profile-avatar{grid-row:span 2}.ck-priority b{font-size:13px}.ck-priority small{font-size:11px}.ck-tabs{display:flex;gap:6px;margin-bottom:10px}.ck-layout{display:flex;flex-direction:column;gap:12px}.ck-board{background:#83c5bf var(--board) center/cover;padding:12px;border:3px solid #397c7d;border-radius:10px}.ck-board[hidden]{display:none}.ck-information{display:grid;grid-template-columns:110px 1fr 200px;gap:10px;background:#f5f5dfed;padding:10px;border-radius:6px}.ck-challenges{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}.ck-rumors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.ck-card{display:flex;flex-direction:column;text-align:left;width:100%;overflow:hidden;padding:0!important;background:#fffdf2!important;min-width:0}.ck-card>.ck-art{width:100%;aspect-ratio:4/3;object-fit:cover;height:auto}.ck-card strong,.ck-card>span{padding:6px;font-size:13px}.ck-card.small strong{font-size:11px;line-height:1.3}.ck-foods{display:flex;gap:3px;flex-wrap:wrap}.ck-foods i{font-size:10px;font-style:normal;border-bottom:3px solid var(--food)}.ck-card-back{position:relative;min-width:0;background:#346f72;color:#fff8d7;border-radius:6px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;text-align:center;font-size:12px}.ck-card-back img{width:100%;aspect-ratio:3/4;object-fit:cover;max-height:125px}.ck-card-back b,.ck-card-back small{padding:3px}.ck-market{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:14px}.ck-location{overflow:hidden;border-radius:6px;background:#f6f3dfed;border:3px solid #c4d9cd;box-shadow:0 3px 0 #2a676c66}.ck-location.active{border-color:#e56d20}.ck-location header{background:linear-gradient(#174e5788,#174e57d9),var(--loc) center/cover;color:white;min-height:85px;display:flex;justify-content:space-between;align-items:flex-end;gap:4px;padding:8px}.ck-location header button{background:#fff8d9;color:#194c51;padding:5px 8px}.ck-location header small{font-size:10px;max-width:65px}.ck-stock{display:flex;gap:5px;flex-wrap:wrap;padding:9px;min-height:85px}.ck-stock>button,.ck-picks>button,.ck-inventory>button{padding:3px!important;background:transparent!important;border-color:transparent!important}.ck-queues{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:5px;background:#dbded1}.ck-queues>div{display:flex;flex-direction:column;gap:4px;min-width:0}.ck-queues b{font-size:10px}.ck-queues span{font-size:10px;padding:4px;background:#fff8dd;border-left:5px solid var(--player);overflow-wrap:anywhere}.ck-queues .done{opacity:.5}.ck-queues .active{box-shadow:inset 0 0 0 2px #df772c}.ck-private{display:grid;gap:12px}.ck-action,.ck-kitchen{padding:15px;background:#fffdf0;border:1px solid #83aca4;border-radius:8px}.ck-action>button{margin:5px}.ck-chefs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0}.ck-chefs button{display:flex;flex-direction:column;text-align:center;padding:6px}.ck-chefs img{width:100%;max-height:100px;object-fit:contain}.ck-chefs b{font-size:13px}.ck-chefs small{font-size:11px;line-height:1.5}.ck-destinations{display:flex;gap:7px;flex-wrap:wrap}.ck-plan-summary{display:flex;flex-direction:column;font-size:13px;padding:8px;border-left:3px solid #62a29c;gap:5px;margin:10px 0}.ck-token{display:inline-flex;flex-direction:column;align-items:center;justify-content:space-between;width:54px;height:82px;border-radius:26px 26px 20px 20px;background:#fffefa;box-shadow:0 2px 2px #344b4538;overflow:hidden;border-bottom:5px solid var(--food,#cf9b4d);vertical-align:middle;position:relative;color:#143f44}.ck-token b{background:#213d3b;color:white;min-width:100%;font-size:22px;line-height:1.4;text-align:center}.ck-token img{width:100%;height:48px;object-fit:contain}.ck-token.spice b,.ck-token.rumor b{font-size:12px;padding:5px 0}.ck-token.rumor>span{font-size:11px;text-align:center;margin:auto}.ck-token.special{font-size:12px;justify-content:center;text-align:center;background:#fff0ba;white-space:normal}.ck-spice{font-size:35px;color:var(--food)}.ck-inventory,.ck-picks{display:flex;gap:7px;flex-wrap:wrap;padding:10px 2px}.ck-confirm{display:flex;gap:7px;align-items:center;margin-top:10px}.ck-confirm button:first-child,#ck-commit,#ck-serve,#ck-fridge{background:#197078;color:white}.ck-offers{display:flex;gap:14px}.ck-offers>div{flex:1;max-width:330px}.ck-offers>div>button:last-child{width:100%;margin-top:8px}.ck-stock-counts{display:flex;justify-content:space-between;font-size:13px;gap:7px;flex-wrap:wrap}.ck-private-rumors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0}.ck-private-rumors>span{font-size:12px;padding:8px;background:#dfece5;border-radius:5px}.ck-plate-tabs{display:flex;gap:8px}.ck-plates{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}.ck-plate{padding:10px;border:2px solid #b3c8bb;border-radius:30px;background:#f1f5e8;min-height:100px}.ck-plate h3{text-align:center}.ck-dish-item{display:grid;grid-template-columns:54px 1fr;gap:5px;align-items:center;padding:6px;border-bottom:1px solid #bdcebd}.ck-dish-item label{font-size:11px;display:grid;gap:3px;min-width:0}.ck-dish-item button{font-size:11px;grid-column:2}.ck-broth{display:flex;gap:12px;flex-wrap:wrap;margin:8px}.ck-broth label{font-size:13px}.ck-broth input{width:65px;padding:7px}.ck-validation{color:#8c4625;min-height:24px}.ck-inventory .discarded{opacity:.35}.ck-scoreboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.ck-scoreboard article{padding:12px;background:#edf2df;border:2px solid #abc5ba;border-radius:8px;display:flex;flex-direction:column;gap:5px}.ck-scoreboard .winner{border:3px solid #c88912;background:#fff2bc}.ck-scoreboard span{font-size:12px}.ck-total{font-size:30px;color:#9e4c15}.ck-log{margin-top:12px;font-size:13px}.ck-log li{margin:5px 0}.ck-dialog{width:min(850px,92vw);max-height:90dvh;padding:0;border:3px solid #427a76;border-radius:12px;background:#fcf8df;color:var(--ink);overflow:hidden}.ck-dialog::backdrop{background:#102e36ab;backdrop-filter:blur(6px)}body:has(.ck-dialog[open]){overflow:hidden}.ck-dialog-body{max-height:calc(90dvh - 55px);padding:48px 18px 20px;overflow:auto;overscroll-behavior:contain}.ck-close{position:absolute;z-index:5;right:7px;top:7px;width:40px;height:40px;font-size:25px;background:#fffaf0;border:1px solid #699791;border-radius:50%;cursor:pointer}.ck-dialog .ck-card{max-width:500px;margin:auto}.ck-dialog .ck-card>.ck-art{aspect-ratio:auto;max-height:none;object-fit:contain}.ck-dialog .ck-card strong{font-size:24px}.ck-dialog .ck-card>span{font-size:16px}.ck-dialog .ck-scoreboard p{font-size:12px;margin:3px 0}.ck-dialog:not(.ck-count-complete) .ck-total{animation:ck-count .8s ease-out}@keyframes ck-count{from{opacity:.2;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@media(min-width:1100px){.ck-root.show-board .ck-layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;align-items:start}.ck-root:not(.show-board) .ck-private{grid-template-columns:1fr 1fr}.ck-information{grid-template-columns:100px 1fr}.ck-rumors{grid-column:1/-1;grid-template-columns:repeat(3,100px)}.ck-rumors .ck-card-back{min-height:70px}.ck-rumors .ck-card-back img{display:none}.ck-private .ck-plates{grid-template-columns:1fr}.ck-private .ck-chefs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.ck-root{padding:8px;border-radius:5px}.ck-title{align-items:flex-start}.ck-title label{max-width:135px}.ck-title span{font-size:12px}.ck-priority{gap:4px}.ck-priority>span{min-width:0;flex:1;padding:4px;grid-template-columns:25px 1fr}.ck-priority .profile-avatar{width:25px;height:25px;min-width:25px;max-width:25px;flex-basis:25px}.ck-priority b{font-size:11px}.ck-priority small{font-size:9px}.ck-information{grid-template-columns:75px 1fr;padding:6px;gap:6px}.ck-challenges{grid-template-columns:repeat(3,minmax(0,1fr))}.ck-challenges .ck-card strong{font-size:9px}.ck-challenges small{font-size:9px}.ck-challenges .ck-foods{display:none}.ck-rumors{grid-column:1/-1}.ck-rumors .ck-card-back{min-height:38px;flex-direction:row;align-items:center;gap:4px}.ck-rumors .ck-card-back img{width:25px;height:36px}.ck-rumors small{font-size:9px}.ck-market{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.ck-board{padding:6px}.ck-location header{min-height:65px;padding:4px;flex-direction:column;align-items:flex-start}.ck-location header button{font-size:11px;min-height:34px}.ck-location header small{max-width:none}.ck-stock{gap:3px;padding:5px;min-height:75px}.ck-token{width:43px;height:67px}.ck-token b{font-size:19px}.ck-token img{height:38px}.ck-token.spice b{font-size:10px}.ck-queues{grid-template-columns:1fr}.ck-queues>div{display:grid;grid-template-columns:42px 1fr}.ck-queues span{font-size:9px}.ck-action,.ck-kitchen{padding:11px}.ck-chefs{gap:5px}.ck-chefs img{max-height:65px}.ck-chefs small{font-size:9px}.ck-chefs b{font-size:10px}.ck-chefs button{padding:5px}.ck-destinations button{font-size:12px;padding:7px}.ck-plates{grid-template-columns:repeat(2,minmax(0,1fr))}.ck-dish-item{grid-template-columns:1fr}.ck-dish-item button{grid-column:1}.ck-stock-counts{font-size:12px}.ck-dialog-body{padding:50px 12px 15px}.ck-plate-tabs{gap:4px}.ck-plate-tabs button{font-size:11px;padding:7px}.ck-private-rumors .ck-card strong{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.ck-root *,.ck-dialog *{animation:none!important;transition:none!important}}
+.ck-player-details{margin:12px 0}.ck-player-details>.ck-scoreboard{margin-top:10px}.ck-player-details .ck-card{max-width:170px}.ck-scoreboard details{font-size:12px}.ck-token.special img{height:48px}.ck-dialog .ck-total{font-variant-numeric:tabular-nums}
+@media(min-width:1100px){.ck-root.display-only.show-board .ck-layout{display:flex}.ck-root.display-only .ck-private:not([hidden]){grid-template-columns:1fr}.ck-root.display-only .ck-information{grid-template-columns:120px 1fr 260px}.ck-root.display-only .ck-rumors{grid-column:auto;grid-template-columns:repeat(3,minmax(0,1fr))}.ck-root.display-only .ck-rumors .ck-card-back img{display:block}}
+.ck-private[hidden]{display:none}.ck-help{margin-top:12px;font-size:14px;line-height:1.8}.ck-help a{color:#145e79;text-decoration:underline}.ck-help li{margin:7px 0}
+.ck-root button,.ck-dialog button{touch-action:manipulation}.ck-root button:not(:disabled):hover{filter:brightness(.96)}.ck-priority b{overflow-wrap:anywhere;min-width:0}.ck-root h1,.ck-root h2{text-wrap:balance}.ck-root{padding-bottom:max(14px,env(safe-area-inset-bottom))}
+.ck-picks .selected .ck-token{transform:translateY(-5px)}.ck-token{transition:transform .15s ease-out}.ck-action .ck-inventory{align-items:center}.ck-queues span{min-height:25px}
+@media(max-width:1099px){.ck-root.has-player .ck-private{order:-1}.ck-root.has-player .ck-board{order:0}}
+.ck-root{background:linear-gradient(#e8f4eff0,#e8f4eff5),url('/art/critter-kitchen/table.webp') center/cover}.ck-token.spice img{height:43px}.ck-token.spice .ck-spice{position:absolute;right:2px;bottom:0;font-size:22px;text-shadow:0 1px white}.ck-token.special{justify-content:space-between}.ck-token.special b{font-size:11px;line-height:1.7;background:#b47b27}.ck-result-art{width:100%;height:160px;object-fit:cover;border-radius:7px;margin-bottom:12px}.ck-dialog .ck-result-art{height:180px}
+.ck-location header .ck-deck-back{width:24px;height:32px;object-fit:cover;border:1px solid #f1dfad;border-radius:3px}
+.ck-kitchen>.ck-card{max-width:150px;display:inline-flex;vertical-align:top;margin:6px 4px 0 0}.ck-kitchen>.ck-card .ck-art{max-height:110px}.ck-private-rumors .ck-card .ck-art{max-height:100px}.ck-chefs button:disabled{opacity:.8}.ck-chefs button.selected{background:#fff0c6}body:has(.ck-root){background:#246e72 url('/art/critter-kitchen/table.webp') center/cover fixed}
+.ck-crown{display:inline-block;vertical-align:middle;margin-right:5px;flex-shrink:0}
+.ck-token-name{position:absolute;bottom:0;font-size:9px;background:#fffdf1e6;color:#143f44;padding:0 3px;border-radius:4px;line-height:1.4}.ck-art[hidden]{display:none!important}.ck-root [data-art-fallback]::after{content:attr(data-art-fallback);font-size:10px;color:#52736b}.ck-root article.ck-card{border:1px solid #367c80;border-radius:8px}
+.ck-hat{display:inline-block;vertical-align:middle;margin-right:4px;flex-shrink:0}.ck-priority b{line-height:1.6}.ck-priority .ck-hat{width:17px;height:16px}
+.ck-held .ck-foods i:last-child{text-decoration:line-through;opacity:.35}.ck-held>.ck-card{border-bottom:4px solid #c44e3b}
+.ck-root.display-only .ck-stock button:disabled{opacity:1}.ck-location .ck-stock .ck-card{max-width:110px}.ck-location .ck-stock .ck-card>.ck-art{max-height:90px}
+
+/* Canal market: clear decisions, illustrated food pieces and shallow printed edges. */
+.ck-root{--teal:#155a61;--orange:#d85c29;--ink:#143f44;background:#e6f0e8;padding:clamp(8px,1.6vw,20px);border:1px solid #bad3c4;border-radius:18px}
+body:has(.ck-root){background:#d1e5de}
+.ck-root h1{font-family:Georgia,'Noto Sans Thai',serif;font-weight:800;color:#9b361c}
+.ck-title{padding:6px 2px 10px;border-bottom:2px solid #b4cec0}
+.ck-title>div>span{display:block;margin-top:7px;font-weight:600}
+.ck-turn-guide{padding:14px 16px;margin:12px 0;background:#155a61;color:#fffdf0;border-radius:15px}
+.ck-turn-guide h2{margin:12px 0 4px;font-size:19px;color:inherit}
+.ck-turn-guide p{margin:0;max-width:72ch;color:#e3f0dc}
+.ck-rounds{display:flex;gap:7px;align-items:flex-start}
+.ck-rounds>span{width:32px;height:32px;display:grid;place-items:center;position:relative;box-sizing:border-box;border-radius:50%;background:#326d6d;color:#c8dfd4;font-weight:800;font-size:15px}
+.ck-rounds>span.current{background:#f4ca52;color:#25433d;outline:2px solid #fff4bc;outline-offset:2px}
+.ck-rounds>span.done{background:#94bc9a;color:#123f3e}
+.ck-rounds small{display:none}
+.ck-phase-steps{display:flex;flex-wrap:wrap;gap:6px 18px;padding:0;margin:12px 0 0;list-style:none;color:#c5d9cf;font-size:12px}
+.ck-phase-steps li.current{color:#ffe599;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.ck-tabs{gap:8px}
+.ck-root .ck-tabs>button{flex:1;background:#f7f5df;border-color:#bad1bd}
+.ck-root .ck-tabs>button:disabled{background:#155a61;color:#fffbed;opacity:1}
+.ck-action,.ck-kitchen{border-radius:14px;border-color:#b8cdb7;background:#fffbed;padding:16px}
+.ck-action>h2,.ck-kitchen>h2{font-size:19px;color:#155a61}
+.ck-root .ck-inspect-hint{margin:0 0 8px;color:#587162;font-size:12px}
+.ck-information{border-radius:12px;padding:12px;background:#fffbed}
+.ck-board{border:1px solid #8eb2a1;padding:10px;border-radius:15px}
+.ck-location{border:2px solid #b1c7b2;border-radius:13px;box-shadow:0 3px 0 #8aaa9f}
+.ck-location.active{border-color:#d47a25;box-shadow:0 3px 0 #b05c23;background:#fff8dc}
+.ck-location header{min-height:90px}
+.ck-location header button{border:0;background:#fff9e9;font-size:13px;min-height:44px}
+.ck-location .ck-stock{align-items:center;min-height:102px;gap:8px;padding:12px 9px}
+.ck-queues{background:#e2e7d4;padding:8px;gap:6px}
+.ck-card{position:relative;border:1px solid #9ebba5;border-radius:12px!important;box-shadow:0 3px 0 #c0c9a9}
+.ck-card.small strong{font-size:12px;padding:7px 7px 2px;color:#214f46}
+.ck-card-inspect{display:block!important;margin-top:auto;padding:2px 7px 6px!important;font-size:10px!important;font-weight:500;color:#5b7565}
+.ck-card .ck-art{object-position:center}
+.ck-root .ck-foods{padding:3px 7px;gap:4px}
+.ck-foods i{border:0;background:color-mix(in srgb,var(--food),#fff9df 80%);padding:2px 4px;border-radius:4px;color:#20463f}
+.ck-card-back{background:#25635f;border-radius:12px}
+.ck-chefs{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ck-chefs button{background:#f3f3df;border-color:#abc3ac;border-radius:12px}
+.ck-chefs button.selected{background:#fff0bd;outline:2px solid #d58a2c;outline-offset:0}
+.ck-chefs img{border-radius:8px}
+.ck-destinations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.ck-destinations button{font-size:12px;text-align:left;padding:9px;white-space:normal}
+.ck-plan-summary{background:#edf2df;border:0;border-radius:9px;padding:12px}
+.ck-root button.selected{outline:2px solid #c57526;outline-offset:1px}
+.ck-root .ck-token,.ck-dialog .ck-token{width:58px;height:88px;box-sizing:border-box;border:1px solid #c0b998;border-bottom:5px solid var(--food,#b89d55);border-radius:27px 27px 20px 20px;background:linear-gradient(110deg,#fffefa,#f1ead5);box-shadow:0 4px 0 color-mix(in srgb,var(--food,#c4ae76),#344c3f 26%);overflow:hidden;transition:none;transform:none}
+.ck-token:after{content:'';position:absolute;inset:1px;border:1px solid #fff9;border-radius:inherit;pointer-events:none}
+.ck-token b{background:#21473f;font-variant-numeric:tabular-nums;font-size:23px;line-height:1.25;padding-top:2px}
+.ck-token img{width:100%;height:49px;object-fit:cover}
+.ck-token.spice img{object-fit:contain;height:44px}
+.ck-token.spice b{font-size:10px;line-height:1.5;padding:4px 0}
+.ck-token.rumor{background:#f2dc8e}
+.ck-token.rumor b{background:#5d6b39;font-size:20px;padding:2px 0}
+.ck-token.rumor>span{font-size:11px;padding:5px}
+.ck-token-name{font-size:9px;bottom:1px;max-width:100%}
+.ck-root .ck-inventory{gap:10px 9px;padding:9px 2px 14px}
+.ck-root .ck-picks{gap:10px;padding:14px 3px 18px}
+.ck-root .ck-inspect-token{border:0;background:none;outline-offset:3px;padding:3px!important;min-height:44px}
+.ck-picks .selected .ck-token{transform:translateY(-3px)}
+.ck-root .ck-confirm{flex-wrap:wrap}
+.ck-root .ck-confirm button:first-child{flex:1;min-height:48px}
+.ck-root #ck-commit,.ck-root #ck-serve,.ck-root #ck-fridge{min-height:48px;margin:8px 0 0;width:100%;border:0;border-radius:11px;background:#155a61;color:#fffcef}
+.ck-dialog{--ink:#143f44;width:min(760px,calc(100vw - 24px));max-height:90svh;border:2px solid #abc09b;border-radius:18px;background:#fffbed;color:#143f44;font-family:'Noto Sans Thai',sans-serif}
+.ck-dialog::backdrop{background:#123f3dc2;backdrop-filter:none}
+.ck-dialog-body{max-height:calc(90svh - 68px);padding:58px 18px 20px;box-sizing:border-box}
+.ck-close{display:grid;place-items:center;top:9px;right:9px;width:44px;height:44px;min-height:44px;line-height:1;font:400 34px/1 sans-serif;background:#fffbed;color:#155a61;border:2px solid #97b6a0;border-radius:50%;padding:0}
+.ck-dialog .ck-card{width:min(100%,480px);background:#fffbed!important;box-shadow:none}
+.ck-dialog .ck-card .ck-art{height:auto;max-height:none;aspect-ratio:auto;object-fit:contain}
+.ck-dialog .ck-card>span{line-height:1.8}
+.ck-dialog .ck-card strong{font-size:22px}
+.ck-choice-dialog{width:min(480px,calc(100vw - 24px));padding:0}
+.ck-choice-dialog:focus{outline:none}
+.ck-choice-dialog .ck-dialog-body{padding:22px 18px;max-height:calc(90svh - 78px);text-align:center}
+.ck-choice-dialog h2{font-size:21px;color:#155a61;margin:0 0 16px;line-height:1.5}
+.ck-choice-preview p{font-size:14px;line-height:1.8}
+.ck-choice-preview>.ck-art{width:min(180px,70%);height:auto;border-radius:10px}
+.ck-choice-actions{display:flex;gap:10px;align-items:center;padding:12px 16px 16px;border-top:1px solid #dbdec4;background:#fffbed}
+.ck-choice-actions button{flex:1;min-height:48px;border:1px solid #a7b99b;border-radius:11px;background:#f1ead4;color:#244e43;font:700 15px 'Noto Sans Thai',sans-serif;cursor:pointer;padding:10px}
+.ck-choice-actions #ck-choice-confirm{background:#155a61;color:#fffbed;border-color:#155a61}
+.ck-choice-actions button:focus-visible,.ck-close:focus-visible{outline:3px solid #bc5632;outline-offset:2px}
+.ck-token-preview{display:flex;justify-content:center;padding:10px 0 20px}
+.ck-dialog .ck-token-preview .ck-token{width:154px;height:220px;border-radius:65px 65px 45px 45px;border-bottom-width:8px;box-shadow:0 6px 0 #8b7959}
+.ck-token-preview .ck-token b{font-size:48px;padding:5px 0;line-height:1.2}
+.ck-token-preview .ck-token img{height:145px;object-fit:contain}
+.ck-token-preview .ck-token-name{font-size:17px;padding:2px 8px}
+.ck-token-preview .ck-token.spice b,.ck-token-preview .ck-token.special b{font-size:20px}
+.ck-token-preview .ck-spice{font-size:40px!important}
+.ck-token-preview .ck-token.rumor>span{font-size:22px}
+.ck-review-plan{display:grid;gap:9px;text-align:left}
+.ck-review-plan>div{display:flex;align-items:center;gap:12px;background:#edf0db;border-radius:10px;padding:8px}
+.ck-review-plan img{width:64px;height:60px;object-fit:cover;border-radius:8px}
+.ck-review-plan span{display:grid;gap:4px}
+.ck-review-plan small{font-size:13px;color:#466750}
+.ck-meal-review>section{border:1px solid #c2d1b4;border-radius:12px;padding:12px;margin:10px 0;text-align:left}
+.ck-meal-review .ck-inventory{display:flex;gap:12px;flex-wrap:wrap}
+.ck-meal-review h3{font-size:15px}
+@media(max-width:650px){.ck-root{border-radius:13px}.ck-title{align-items:flex-start}.ck-title h1{font-size:26px}.ck-title label{max-width:125px}.ck-title select{font-size:11px}.ck-turn-guide{padding:12px}.ck-turn-guide h2{font-size:18px}.ck-turn-guide p{font-size:13px}.ck-root .ck-token{width:50px;height:78px}.ck-token b{font-size:21px}.ck-token img{height:42px}.ck-token.spice img{height:38px}.ck-token.spice b{font-size:9px}.ck-information{grid-template-columns:90px minmax(0,1fr);padding:8px;gap:8px}.ck-challenges{display:flex;overflow-x:auto;gap:7px;align-items:flex-start;padding-bottom:6px}.ck-challenges>div{flex:0 0 83px;min-width:0}.ck-challenges .ck-card strong{font-size:10px}.ck-card.small strong{font-size:11px}.ck-rumors{gap:6px}.ck-market{grid-template-columns:1fr;gap:12px}.ck-location header{min-height:80px;flex-direction:row;align-items:flex-end}.ck-queues{grid-template-columns:repeat(3,minmax(0,1fr))}.ck-queues>div{display:flex}.ck-chefs b{font-size:12px}.ck-chefs small{font-size:10px}.ck-action,.ck-kitchen{padding:13px}.ck-stock-counts{display:grid;gap:5px}.ck-private-rumors{grid-template-columns:repeat(3,minmax(0,1fr))}.ck-offers{gap:10px}.ck-offers>div{min-width:0}.ck-offers .ck-card strong{font-size:13px}.ck-offers .ck-card>span{font-size:12px}.ck-dialog-body{padding:58px 12px 16px}.ck-dialog .ck-card strong{font-size:21px}}
+@media(max-width:450px){.ck-title{flex-wrap:wrap}.ck-title>div{flex:1 1 100%}.ck-title label{display:flex;align-items:center;gap:10px;width:100%;max-width:none}.ck-title select{flex:1;min-height:44px}.ck-phase-steps{gap:7px 12px}}
+.ck-broths{display:flex;gap:9px;flex-wrap:wrap}
+.ck-root .ck-broths button{display:flex;align-items:center;gap:7px;background:#f3edd6;border:1px solid #c7c5a1;border-bottom:3px solid #c2aa73;padding:5px 9px;border-radius:12px;text-align:left;font-size:12px}
+.ck-broths img{width:38px;height:38px;object-fit:cover;border-radius:50%}
+.ck-broths span{display:grid;gap:2px}.ck-broths b{font-size:15px}
+.ck-root .ck-dialog .ck-close{width:44px;height:44px;min-height:44px;border-radius:50%;padding:0;font:400 34px/1 sans-serif;line-height:1}
+.ck-phase-steps[hidden]{display:none}
+
+/* Compact market shell: fixed illustrated world, bounded workspaces, secondary information in menus. */
+html.critter-document{background:#246e72}
+html.critter-document:before{content:'';position:fixed;inset:0 0 auto;height:100lvh;z-index:-1;pointer-events:none;background:#418d91 url('/art/critter-kitchen/board-standard.webp') center/cover no-repeat}
+body.critter-theme,body.critter-theme:has(.ck-root){background:none;color:#173f3f;min-height:100svh}
+body.critter-theme:before{display:none}
+.critter-theme main{position:relative;z-index:1;max-width:1600px;padding:4px 10px 8px;background:transparent;box-sizing:border-box}
+.critter-theme .game-header{height:44px;min-height:44px;display:flex;align-items:center;justify-content:space-between;padding:0;margin:0 0 4px;border:0;background:transparent}
+.critter-theme .game-header .brand{font:800 clamp(20px,3vw,28px)/1.2 Georgia,'Noto Sans Thai',serif;color:#fff7da;max-width:calc(100% - 132px);text-shadow:0 1px 0 #174e4f}
+.critter-theme .game-header .header-links,.critter-theme .game-header .header-account>nav,.critter-theme .game-header .connection,.critter-theme .game-header .shared-turn,.critter-theme .game-header .shared-room-menu{display:none}
+.critter-theme .game-header .audio-settings{position:fixed;top:max(6px,env(safe-area-inset-top));right:53px;z-index:75;margin:0;width:36px;height:36px}
+.critter-theme .audio-settings>summary{display:grid;place-items:center;box-sizing:border-box;width:36px;height:36px;min-height:36px;padding:0;margin:0;border-radius:50%;border:1px solid #d4e6d1;background:#155a61;color:#fff7db;list-style:none}
+.critter-theme .audio-settings>summary svg{width:22px;height:22px}
+.critter-theme .audio-settings>summary::marker,.critter-theme .audio-settings>summary::-webkit-details-marker{display:none;content:''}
+.critter-theme .audio-settings .audio-panel{top:44px;right:0;left:auto;max-width:calc(100vw - 20px);border-radius:16px;background:#fff7df;color:#194e49}
+.ck-root{padding:0;border:0;border-radius:0;background:none!important;max-width:none}
+.ck-root .profile-avatar{display:none}
+.ck-root .ck-title{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;padding:2px 9px;margin:0;height:30px;min-height:30px;border:1px solid #b7d8bd;border-radius:12px;background:#fff7d9ee;box-sizing:border-box;overflow:hidden}
+.ck-title .ck-round-badge{display:block;flex:none;background:#d7e8c6;border-radius:8px;padding:2px 7px;font:800 11px/1.5 'Noto Sans Thai',sans-serif;color:#235f4d}
+.ck-title>strong{min-width:0;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ck-root #ck-help-button,.ck-root .ck-menu>summary{display:grid;place-items:center;box-sizing:border-box;width:36px;height:36px;min-height:36px;padding:0;margin:0;border:1px solid #d4c78d;border-radius:50%;background:#fff3ce;color:#155a61;box-shadow:none;cursor:pointer;list-style:none}
+.ck-root #ck-help-button{position:fixed;top:max(6px,env(safe-area-inset-top));right:96px;z-index:75}
+.ck-root .ck-menu{position:fixed;top:max(6px,env(safe-area-inset-top));right:10px;z-index:76;margin:0}
+.ck-menu>summary::marker,.ck-menu>summary::-webkit-details-marker{display:none;content:''}
+.ck-menu-panel{position:absolute;top:44px;right:0;width:min(340px,calc(100vw - 20px));max-height:calc(100svh - 70px);overflow:auto;overscroll-behavior:contain;box-sizing:border-box;padding:12px;border:1px solid #b1c8a8;border-radius:18px;background:#fff8e1;color:#1a4a42;box-shadow:0 5px 0 #164e4666;font-size:12px;line-height:1.7}
+.ck-menu-panel>header{display:flex;justify-content:space-between;align-items:center;padding:0 0 10px}
+.ck-root #ck-menu-close{width:36px;height:36px;min-height:36px;border-radius:50%;margin:0;padding:0;font-size:25px;line-height:1}
+.ck-menu-panel>label{display:grid;gap:5px;padding:10px 0}
+.ck-menu-panel details{margin:10px 0;border-top:1px solid #d5dcc2;padding-top:9px}
+.ck-menu-panel summary{min-height:36px;cursor:pointer;font-weight:700}
+.ck-menu-panel .ck-priority{display:grid;margin:9px 0}
+.ck-menu-panel .ck-priority>span{display:block;min-width:0;border-radius:10px;padding:6px 9px}
+.ck-menu-panel .ck-priority small{display:block}
+.ck-menu-panel .ck-player-details>.ck-scoreboard{display:grid;grid-template-columns:1fr 1fr}
+.ck-menu-panel .ck-scoreboard article{min-width:0;padding:7px}
+.ck-menu-panel .ck-turn-guide{padding:10px;margin:10px 0}
+.ck-menu-panel .ck-turn-guide h2{font-size:14px}
+.ck-menu-panel .ck-turn-guide p,.ck-menu-panel .ck-turn-guide li{font-size:11px}
+.ck-menu-panel .ck-rounds{gap:6px}.ck-menu-panel .ck-rounds>span{width:28px;height:28px;font-size:12px}
+.ck-menu-panel .ck-information{display:block;padding:0;background:none}
+.ck-menu-panel .ck-information>div:first-child{max-width:120px;margin:8px auto}
+.ck-menu-panel .ck-challenges{display:flex;overflow:auto;gap:7px;padding:8px 1px}
+.ck-menu-panel .ck-challenges>div{flex:0 0 88px}
+.ck-menu-panel .ck-rumors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.ck-menu-panel .ck-card-back img{display:block;width:100%;height:75px;max-height:75px;object-fit:cover}
+.ck-menu-panel .ck-card-back{font-size:10px;min-height:75px}
+.ck-root .ck-plan-actions{position:sticky;bottom:-12px;z-index:3;display:flex;justify-content:center;align-items:center;gap:14px;min-height:54px;margin-top:auto;padding:7px 0 3px;background:#fffbed}
+.ck-root .ck-plan-actions .ck-circle-action,.ck-root .ck-plan-actions #ck-commit{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;min-width:44px;min-height:44px;border:1px solid #91b19a;border-radius:50%;padding:0;margin:0;box-shadow:0 3px 0 #aec0a0;background:#e7ead0;color:#245444}
+.ck-root .ck-plan-actions #ck-commit{background:#116d5c;color:#fff6d3;border-color:#0d584a;box-shadow:0 3px 0 #0c4f43}
+.ck-root .ck-plan-actions #ck-commit:disabled{opacity:.45;box-shadow:none}
+.ck-root .ck-plan-actions svg{width:25px;height:25px}
+.ck-pantry-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}
+.ck-pantry-heading h2{font-size:14px;margin:0}
+.ck-pantry-heading nav{display:flex;gap:5px}
+.ck-root .ck-pantry-heading button{min-height:30px;padding:4px 7px;margin:0;border:0;border-radius:12px;background:#e4ebd0;font-size:10px}
+.ck-pantry-heading button[aria-pressed=true]{background:#155a61;color:#fff6d5}
+.ck-kitchen[data-pane=stock] .ck-pantry-cards,.ck-kitchen[data-pane=cards] .ck-pantry-stock{display:none}
+.ck-pantry-cards{display:flex;gap:7px;overflow-x:auto;padding:3px 0 8px;align-items:start}
+.ck-pantry-cards .ck-private-rumors{display:contents}
+.ck-pantry-cards .ck-card,.ck-pantry-cards .ck-private-rumors>span{flex:0 0 88px;min-width:88px;max-width:88px;margin:0}
+.ck-pantry-cards .ck-card .ck-art{height:54px;max-height:54px;object-fit:cover}
+.ck-pantry-cards .ck-card strong{font-size:10px;line-height:1.3;padding:3px}
+.ck-pantry-cards .ck-card-inspect{font-size:8px!important;padding:1px 3px!important}
+.ck-pantry-cards h3{font-size:10px;min-width:45px}
+.ck-course-tabs,.ck-market-tabs{display:flex;gap:5px;overflow-x:auto;padding:3px 1px 7px;scroll-padding-inline:5px}
+.ck-root .ck-course-tabs button,.ck-root .ck-market-tabs button{flex:0 0 auto;min-height:36px;padding:6px 9px;border-radius:13px;font-size:11px;margin:0}
+.ck-course-tabs button[aria-pressed=true],.ck-market-tabs button[aria-pressed=true]{background:#155a61;color:#fff6d7}
+.ck-market-tabs{display:none}
+/* Phone controller in shared-display mode: status, workspace tabs, active task, pantry. */
+.ck-root.ck-shared.has-player{height:calc(100svh - 60px - env(safe-area-inset-bottom));min-height:440px;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:30px 34px minmax(0,1fr) 138px;gap:6px;padding:0}
+.ck-shared.has-player>.ck-title{grid-row:1;grid-column:1}
+.ck-shared.has-player>.ck-tabs{grid-row:2;grid-column:1;display:flex;gap:6px;margin:0}
+.ck-shared .ck-tabs>button{min-height:32px;height:32px;padding:3px 8px;border:1px solid #b8c9a5;border-radius:12px;font-size:12px}
+.ck-shared.has-player .ck-layout,.ck-shared.has-player .ck-private{display:contents}
+.ck-shared.has-player .ck-board{grid-row:3;grid-column:1;overflow:auto;min-width:0;min-height:0;margin:0;padding:7px;background:#f4f2ddea;border:1px solid #9ec5af;border-radius:15px;overscroll-behavior:contain}
+.ck-shared.has-player .ck-board>.ck-information{display:none}
+.ck-shared.has-player .ck-market-tabs{display:flex;position:sticky;top:0;z-index:3;background:#f4f2dd}
+.ck-shared.has-player .ck-market{display:block;margin:0}
+.ck-shared.has-player .ck-location{display:none}
+.ck-shared.has-player .ck-location[data-current-location=true]{display:block}
+.ck-shared.has-player .ck-action{grid-row:3;grid-column:1;min-width:0;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:10px;border-radius:15px;box-sizing:border-box}
+.ck-shared.has-player[data-workspace=board] .ck-action{display:none}
+.ck-shared.has-player[data-workspace=kitchen] .ck-board{display:none}
+.ck-shared.has-player .ck-action>h2{font-size:16px;margin:0 0 6px}
+.ck-shared.has-player .ck-action>p:not(.ck-validation):not(.ck-needed){display:none}
+.ck-shared.has-player .ck-action>.ck-plan-summary{display:none}
+.ck-shared.has-player .ck-chefs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:5px 0 9px}
+.ck-shared.has-player .ck-chefs button{padding:3px;min-width:0}
+.ck-shared.has-player .ck-chefs img{height:52px;max-height:52px;object-fit:contain}
+.ck-shared.has-player .ck-chefs b{font-size:11px}
+.ck-shared.has-player .ck-chefs small{font-size:9px;line-height:1.35;min-height:24px}
+.ck-shared.has-player .ck-destinations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.ck-shared.has-player .ck-destinations>button{min-height:38px;padding:5px 7px;font-size:11px}
+.ck-shared.has-player .ck-kitchen{grid-row:4;grid-column:1;min-width:0;min-height:0;padding:7px 10px;background:#fff9e5ed;border:1px solid #b2cba9;border-radius:15px;overflow:hidden;box-sizing:border-box}
+.ck-shared.has-player .ck-stock-counts{display:flex;align-items:center;gap:7px;margin:0}
+.ck-shared.has-player .ck-stock-counts>span{font-size:9px;line-height:1.4;max-width:110px}
+.ck-shared.has-player .ck-broths{gap:4px}
+.ck-shared.has-player .ck-broths button{padding:1px 5px;gap:4px;min-height:27px;border-bottom-width:2px;font-size:9px;border-radius:8px}
+.ck-shared.has-player .ck-broths img{width:20px;height:20px}
+.ck-shared.has-player .ck-broths span{display:flex;gap:4px;align-items:center}
+.ck-shared.has-player .ck-broths b{font-size:10px}
+.ck-shared.has-player .ck-kitchen .ck-inventory{display:flex;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 8px;gap:8px;max-height:82px;box-sizing:border-box}
+.ck-shared.has-player .ck-kitchen .ck-inventory>button{flex:none;padding:2px!important}
+.ck-shared.has-player .ck-kitchen .ck-token{width:42px;height:62px;border-bottom-width:3px;box-shadow:0 3px 0 #a19671}
+.ck-shared.has-player .ck-kitchen .ck-token>b{font-size:17px}
+.ck-shared.has-player .ck-kitchen .ck-token img{height:34px}
+.ck-shared.has-player .ck-kitchen .ck-token-name{font-size:8px}
+.ck-shared.has-player .ck-kitchen .ck-token.spice>b,.ck-shared.has-player .ck-kitchen .ck-token.special>b{font-size:9px}
+.ck-shared.has-player .ck-action>.ck-inventory,.ck-shared.has-player .ck-picks{flex-wrap:nowrap;overflow-x:auto;gap:9px;padding:9px 3px 13px}
+.ck-shared.has-player .ck-action>.ck-inventory>button,.ck-shared.has-player .ck-picks>button{flex:none}
+.ck-shared.has-player .ck-confirm{position:sticky;bottom:-10px;background:#fffbed;padding:7px 0 1px}
+.ck-shared.has-player .ck-confirm button{font-size:12px;min-height:44px}
+.ck-shared.has-player .ck-offers{gap:9px}.ck-shared.has-player .ck-offers>div{min-width:0}
+.ck-shared.has-player .ck-offers .ck-card>span:not(.ck-card-inspect){display:none}
+.ck-shared.has-player .ck-offers .ck-card strong{font-size:12px}
+.ck-shared.has-player .ck-offers .ck-card>.ck-art{max-height:125px;object-fit:cover}
+.ck-shared.has-player .ck-plates{grid-template-columns:1fr;gap:6px}
+.ck-shared.has-player .ck-plate{min-height:80px;border-radius:20px;padding:7px}
+.ck-shared.has-player .ck-dish-item{grid-template-columns:48px minmax(0,1fr);padding:4px;gap:5px}
+.ck-shared.has-player .ck-dish-item>button{min-height:30px;padding:3px}
+.ck-shared.has-player .ck-action>.ck-needed{margin:3px 0;font-size:11px;line-height:1.5}
+.ck-shared.has-player .ck-action>h3{font-size:12px;margin:5px 0 2px}
+.ck-shared.has-player #ck-serve,.ck-shared.has-player #ck-fridge{position:sticky;bottom:-9px;z-index:3;min-height:44px;font-size:12px}
+.ck-shared.has-player:is([data-phase=challenge],[data-phase=critic],[data-phase=refrigeration]) .ck-kitchen{display:none}
+.ck-shared.has-player:is([data-phase=challenge],[data-phase=critic],[data-phase=refrigeration]) .ck-action{grid-row:3 / 5}
+.ck-shared.has-player[data-phase=refrigeration] .ck-action>.ck-inventory{flex-wrap:wrap;overflow:visible}
+.ck-shared.has-player .ck-scoreboard{display:flex;overflow-x:auto;gap:8px}.ck-shared.has-player .ck-scoreboard>article{flex:0 0 135px;padding:9px}
+.ck-shared.has-player[data-phase=finished] .ck-action>.ck-scoreboard{display:none}
+/* Public shared display fits all numbered/special locations into one landscape overview. */
+.ck-root.display-only{height:calc(100svh - 60px - env(safe-area-inset-bottom));min-height:460px;display:grid;grid-template-rows:30px minmax(0,1fr);gap:7px}
+.ck-root.display-only .ck-layout{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) auto;min-height:0;gap:6px}
+.ck-root.display-only .ck-board{display:grid;grid-template-rows:112px minmax(0,1fr);min-width:0;min-height:0;padding:8px;border:1px solid #a7c9b3;background:#f3f3dde8;overflow:auto;gap:8px}
+.ck-root.display-only .ck-board>.ck-information{display:flex!important;gap:8px;min-height:0;padding:5px;background:#fff9e3ee;border-radius:12px}
+.ck-root.display-only .ck-board>.ck-information>div:first-child{flex:0 0 90px}
+.ck-root.display-only .ck-challenges{display:flex;flex:1;gap:5px;min-width:0;overflow-x:auto;padding:0}
+.ck-root.display-only .ck-challenges>div{flex:1;min-width:64px;max-width:110px}
+.ck-root.display-only .ck-rumors{display:flex;flex:0 0 230px;gap:5px}
+.ck-root.display-only .ck-rumors>*{flex:1;min-width:0}
+.ck-root.display-only .ck-board .ck-card{height:96px;box-shadow:none}
+.ck-root.display-only .ck-board .ck-card .ck-art{height:54px;max-height:54px;object-fit:cover}
+.ck-root.display-only .ck-board .ck-card strong{font-size:10px;line-height:1.2;padding:3px}
+.ck-root.display-only .ck-board .ck-card-inspect{font-size:8px!important;padding:1px 3px!important}
+.ck-root.display-only .ck-board .ck-foods{display:none}
+.ck-root.display-only .ck-board .ck-card-back{height:96px;min-height:0;font-size:10px}
+.ck-root.display-only .ck-board .ck-card-back img{height:62px;max-height:62px;object-fit:cover}
+.ck-root.display-only .ck-rumors .ck-card-back img{display:block}
+.ck-root.display-only .ck-market{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(180px,1fr);gap:8px;margin:0;min-height:0}
+.ck-root.display-only .ck-location{display:flex;flex-direction:column;border-radius:13px;min-height:0}
+.ck-root.display-only .ck-location header{flex:none;min-height:40px;height:40px;padding:5px 6px;flex-direction:row;align-items:center}
+.ck-root.display-only .ck-location header button{font-size:11px;min-height:30px;padding:3px 7px}
+.ck-root.display-only .ck-location header small{font-size:9px}
+.ck-root.display-only .ck-location .ck-stock{flex:1;min-height:65px;padding:7px;align-items:center;align-content:center;gap:6px}
+.ck-root.display-only .ck-location .ck-token{width:43px;height:66px}
+.ck-root.display-only .ck-location .ck-token>b{font-size:18px}
+.ck-root.display-only .ck-location .ck-token img{height:37px}
+.ck-root.display-only .ck-location .ck-token.spice>b,.ck-root.display-only .ck-location .ck-token.special>b{font-size:9px}
+.ck-root.display-only .ck-queues{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;min-height:40px;padding:5px}
+.ck-root.display-only .ck-queues>div{display:flex}
+.ck-root.display-only .ck-queues b{font-size:9px}
+.ck-root.display-only .ck-queues span{font-size:9px;min-height:0;padding:2px 4px;border-left-width:3px}
+.ck-root.display-only .ck-queues small{font-size:10px}
+.ck-root.display-only .ck-private{display:block;min-height:0}
+.ck-root.display-only .ck-private[hidden]{display:none}
+.ck-root.display-only .ck-action{padding:7px 10px;max-height:150px;overflow:auto;text-align:center}
+.ck-root.display-only .ck-action>h2{font-size:15px}.ck-root.display-only .ck-action>.ck-scoreboard,.ck-root.display-only .ck-action>.ck-plan-summary{display:none}
+.ck-root.display-only .ck-market-tabs{display:none}
+.ck-sky{position:fixed;inset:0 0 auto;height:100lvh;z-index:-1;overflow:hidden;pointer-events:none}
+.ck-airship{position:absolute;top:11%;left:0;width:108px;height:52px;opacity:.55;animation:ck-airship-drift 90s linear infinite}
+.ck-airship.second{top:24%;width:72px;height:35px;opacity:.35;animation-duration:125s;animation-delay:-55s}
+@keyframes ck-airship-drift{from{transform:translateX(-130px)}to{transform:translateX(calc(100vw + 130px))}}
+@media(min-width:1620px){.critter-theme .game-header .audio-settings{right:calc((100vw - 1600px)/2 + 53px)}.ck-root #ck-help-button{right:calc((100vw - 1600px)/2 + 96px)}.ck-root .ck-menu{right:calc((100vw - 1600px)/2 + 10px)}}
+@media(max-width:900px){.ck-root.display-only .ck-rumors{flex-basis:180px}.ck-root.display-only .ck-market{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(150px,1fr)}}
+@media(max-width:550px){.critter-theme main{padding:4px 7px 6px}.ck-root.display-only .ck-market{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}.ck-root.display-only .ck-rumors{flex-basis:150px}.ck-root.display-only .ck-board>.ck-information{overflow-x:auto}.ck-root.display-only .ck-challenges{flex:none}.ck-root.display-only .ck-challenges>div{flex:0 0 68px}.ck-root.display-only .ck-title{font-size:11px}.ck-shared.has-player .ck-pantry-heading h2{font-size:12px}.ck-root.ck-shared.has-player{grid-template-rows:30px 34px minmax(0,1fr) 132px;gap:5px}}
+@media(max-height:650px) and (max-width:650px){.ck-root.ck-shared.has-player{grid-template-rows:28px 32px minmax(0,1fr) 122px;gap:4px}.ck-shared.has-player .ck-title{height:28px;min-height:28px}.ck-shared.has-player .ck-action{padding:8px}.ck-shared.has-player .ck-chefs img{height:42px}.ck-shared.has-player .ck-chefs small{min-height:22px;font-size:8px}.ck-shared.has-player .ck-destinations>button{min-height:36px}.ck-shared.has-player .ck-plan-actions{min-height:48px}.ck-shared.has-player .ck-pantry-heading{margin-bottom:1px}.ck-shared.has-player .ck-kitchen{padding:5px 8px}}
+@media(prefers-reduced-motion:reduce){.ck-airship{animation:none;transform:translateX(16vw)}.ck-airship.second{transform:translateX(76vw)}}
+
+/* Long academy stock stays inside its own market cell on tablets. */
+.ck-root.display-only .ck-location .ck-stock{overflow:auto;align-content:safe center}
+.ck-root.display-only .ck-location .ck-queues{flex:none}
+/* Secret route cards: illustrated locations and yellow receiving spaces. */
+.ck-route-planner{display:grid;grid-template-rows:auto auto 78px minmax(240px,1fr) 50px;gap:7px;min-height:100%;box-sizing:border-box}
+.ck-route-planner>h2{margin:0;font-size:16px}.ck-route-planner .ck-route-hint{display:block!important;margin:0;font-size:11px;line-height:1.5}
+.ck-route-planner>.ck-chefs{display:flex;justify-content:center;gap:9px;margin:0;overflow-x:auto;min-height:0;padding:2px 3px}
+.ck-root .ck-route-planner .ck-chefs>button{flex:0 0 72px;display:grid;grid-template-rows:42px 15px 12px;justify-items:center;gap:0;min-height:0;padding:3px;border-radius:7px;background:#fff6d8;border:1px solid #9cba9a;touch-action:none;user-select:none;cursor:grab;position:relative}
+.ck-root .ck-route-planner .ck-chefs>button:disabled{cursor:default}
+.ck-route-planner .ck-chefs>button.ck-assigned{background:#dbebd8}.ck-route-planner .ck-chefs>button.ck-assigned:after{content:'✓';position:absolute;right:3px;top:1px;color:#18774f;font-size:14px}
+.ck-root .ck-route-planner .ck-chefs img{height:42px;width:48px;max-height:42px;pointer-events:none}.ck-root .ck-route-planner .ck-chefs b{font-size:10px;line-height:15px}.ck-root .ck-route-planner .ck-chefs small{font-size:9px;min-height:0;line-height:12px}
+.ck-route-planner>.ck-destinations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(78px,1fr);gap:8px;margin:0;min-height:0}
+.ck-root .ck-route-planner [data-destination]{position:relative;isolation:isolate;min-width:0;min-height:78px;padding:0;overflow:hidden;border:1px solid #9bb79e;border-radius:10px;background:#174f4e;text-align:left;opacity:1}
+.ck-route-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:-2}
+.ck-route-planner [data-destination]:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#123b38a6,transparent 80%);pointer-events:none}
+.ck-route-name{position:absolute;left:7px;top:7px;max-width:calc(100% - 67px);font-size:11px;line-height:1.4;color:#fff8d7;text-shadow:0 1px 2px #153c3a}
+.ck-route-slot{position:absolute;right:7px;top:7px;bottom:7px;width:52px;border:2px dashed #f9d14e;border-radius:6px;background:#1a493652;display:grid;place-items:center;box-sizing:border-box;pointer-events:none}
+.ck-slot-outline{font:26px/1 sans-serif;color:#ffe88a}
+.ck-route-slot.ck-route-filled{border-style:solid;border-color:#ffe294;background:#fff4d9}
+.ck-placed-chef{display:grid;justify-items:center;align-content:center;gap:0;width:100%;height:100%;color:#164b43;overflow:hidden}
+.ck-placed-chef .ck-art{width:40px;height:39px;object-fit:contain}.ck-placed-chef b{font-size:8px;line-height:12px}.ck-placed-chef small{font-size:8px;line-height:11px}
+.ck-route-planner .ck-plan-summary{display:none}.ck-route-planner .ck-plan-actions{margin:0;align-self:center;position:static}
+.ck-root .ck-route-planner [data-destination].ck-drop-over{border-color:#ffe167;outline:3px solid #f8d34c;outline-offset:-3px}.ck-drop-over .ck-route-slot{background:#f8d34c55}
+.ck-root .ck-route-planner .ck-dragging{opacity:.35}
+.ck-chef-ghost{position:fixed!important;z-index:300;pointer-events:none;transform:translate(-50%,-55%) rotate(-5deg);width:72px;height:92px;display:grid;justify-items:center;align-content:center;gap:2px;padding:4px;border:2px solid #ffe082;border-radius:7px;background:#fff4d5;box-shadow:0 5px 12px #102f4666;color:#174f44;font-family:'Noto Sans Thai',sans-serif}
+.ck-chef-ghost img{width:58px;height:56px;object-fit:contain}.ck-chef-ghost b{font-size:11px}.ck-chef-ghost small{font-size:9px}
+.ck-shared.has-player[data-phase=planning] .ck-kitchen{display:none}
+.ck-shared.has-player[data-phase=planning] .ck-action{grid-row:3 / 5;padding:9px}
+.ck-root.display-only:is([data-phase=planning],[data-phase=running]) .ck-market{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(100px,1fr)}
+.ck-root.display-only:is([data-phase=planning],[data-phase=running]) .ck-location{position:relative;display:grid;grid-template-columns:minmax(90px,.8fr) minmax(0,1.2fr);grid-template-rows:38px minmax(0,1fr);background:linear-gradient(90deg,#163f3866,#fff9d9ed 55%),var(--loc) center/cover}
+.ck-root.display-only:is([data-phase=planning],[data-phase=running]) .ck-location header{grid-row:1;grid-column:1;background:none;padding:4px;min-width:0;height:38px;min-height:38px}
+.ck-root.display-only:is([data-phase=planning],[data-phase=running]) .ck-location header small{display:none}
+.ck-root.display-only:is([data-phase=planning],[data-phase=running]) .ck-location .ck-stock{grid-row:2;grid-column:1;min-height:0;padding:4px;gap:4px;overflow:auto;align-content:start}
+.ck-root.display-only:is([data-phase=planning],[data-phase=running]) .ck-location .ck-queues{grid-row:1 / 3;grid-column:2;background:#fff8dfb8;border:2px dashed #e7be45;border-radius:7px;margin:6px;overflow:auto;min-height:0;align-content:start}
+@media(max-height:650px){.ck-route-planner{grid-template-rows:auto auto 74px minmax(234px,1fr) 48px;gap:5px}.ck-route-planner .ck-route-hint{font-size:10px}.ck-root .ck-route-planner [data-destination]{min-height:74px}}
+.ck-root .ck-route-planner>.ck-chefs{display:flex;margin:0}
+.ck-root .ck-route-planner>.ck-destinations{grid-auto-rows:clamp(78px,11svh,100px);align-content:center}
+.ck-route-slot{top:50%;bottom:auto;height:72px;max-height:calc(100% - 12px);transform:translateY(-50%)}
+.ck-root.display-only .ck-queues .ck-visit-card{display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:6px;padding:4px;font-size:10px;text-align:center;background:#fff6db}
+.ck-root.display-only .ck-queues .ck-visit-card .ck-art{width:42px;height:46px;object-fit:contain;flex:none}
+.ck-root .ck-route-planner>.ck-destinations{align-content:start}
+/* Round is information in the fixed toolbar, alongside help. */
+.ck-title .ck-round-badge{position:fixed;right:139px;top:max(10px,calc(env(safe-area-inset-top) + 4px));z-index:75;background:#fff5d5;color:#23584e;white-space:nowrap;border:1px solid #d0c496;padding:3px 7px;font-size:11px;line-height:20px}
+.critter-theme .game-header .brand{max-width:calc(100% - 220px);font-size:clamp(13px,2.5vw,25px);white-space:nowrap}
+@media(min-width:1620px){.ck-title .ck-round-badge{right:calc((100vw - 1600px)/2 + 139px)}}
+/* Every pantry piece, including soup and bisque, shares one uncut card rail. */
+.ck-kitchen .ck-stock-counts{display:block;min-height:14px;margin:0;font-size:10px;line-height:14px}
+.ck-kitchen .ck-stock-counts>span{max-width:none!important;font-size:10px!important}
+.ck-pantry-rail{position:relative;min-width:0}
+.ck-root .ck-kitchen .ck-inventory{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-height:none;height:80px;box-sizing:border-box;padding:3px 20px 11px 3px;gap:9px;scroll-padding-inline:10px;scrollbar-width:thin;scrollbar-color:#6b9a82 #e5ead4;overscroll-behavior-x:contain}
+.ck-root .ck-kitchen .ck-inventory:after{content:'';flex:0 0 20px}
+.ck-root .ck-kitchen .ck-inventory>button{flex:0 0 auto;position:relative;min-width:46px;padding:2px!important;align-self:start}
+.ck-pantry-quantity{position:absolute;right:-1px;bottom:4px;background:#155a61;color:#fff6d5;border:1px solid #f9e9b9;border-radius:5px;font:800 11px/16px 'Noto Sans Thai',sans-serif;padding:0 3px}
+.ck-rail-more{display:none;position:absolute;right:0;top:20px;color:#155a61;background:#fff9e5e8;border-radius:50%;font:28px/26px sans-serif;pointer-events:none;width:20px;text-align:center}
+.ck-more-stock .ck-rail-more{display:block}
+.ck-root .ck-kitchen .ck-token{width:42px;height:62px;border-bottom-width:3px}
+.ck-root .ck-kitchen .ck-token>b{font-size:17px}
+.ck-root .ck-kitchen .ck-token img,.ck-root .ck-kitchen .ck-token.spice img{height:34px;min-height:34px;object-fit:contain}
+.ck-root .ck-token.spice{justify-content:space-between}
+.ck-root .ck-token.spice img{height:49px;min-height:49px;object-fit:contain}
+.ck-root .ck-token.spice .ck-spice{display:none}
+.ck-root.display-only .ck-location .ck-token.spice img{height:37px;min-height:37px}
+.ck-root .ck-kitchen .ck-token.spice>b,.ck-root .ck-kitchen .ck-token.special>b{font-size:8px;line-height:14px;padding:0}
+.ck-root .ck-kitchen .ck-token.special{justify-content:space-between;flex-direction:column-reverse}
+.ck-root .ck-kitchen .ck-token.special>b{width:100%;background:#21473f;color:#fff8dc}
+.ck-root .ck-kitchen .ck-token-name{font-size:8px}
+.ck-pantry-cards{height:80px;box-sizing:border-box;padding:3px 22px 11px 3px;gap:9px;scrollbar-width:thin;scrollbar-color:#6b9a82 #e5ead4;overscroll-behavior-x:contain}
+.ck-pantry-cards:after{content:'';flex:0 0 20px}
+.ck-root .ck-pantry-cards .ck-card{flex:0 0 46px;min-width:46px;max-width:46px;height:64px;min-height:64px;border-radius:5px!important;box-shadow:0 3px 0 #819c7d}
+.ck-root .ck-pantry-cards .ck-card .ck-art{height:100%;max-height:none;width:100%;object-fit:cover;aspect-ratio:auto}
+.ck-root .ck-pantry-cards .ck-card>:not(img){display:none!important}
+.ck-root .ck-pantry-cards .ck-private-rumors>span{min-width:46px;max-width:46px;flex:0 0 46px;height:64px;box-sizing:border-box;padding:5px;font-size:9px;line-height:1.4;display:grid;place-items:center;text-align:center;background:#dce6d3;border:1px dashed #94ab8b;border-radius:5px}
+/* Small detail dialogs show image and explanation together, without a scrolling image. */
+.ck-detail-fit{width:min(720px,calc(100vw - 24px))}
+.ck-detail-fit .ck-dialog-body{padding:55px 16px 18px;overflow:visible;max-height:none}
+.ck-detail-fit .ck-card{display:grid;grid-template-columns:minmax(90px,.8fr) minmax(0,1.2fr);grid-template-rows:auto 1fr;gap:10px 16px;max-width:none;border:0;box-shadow:none;background:none!important;overflow:visible}
+.ck-detail-fit .ck-card>.ck-art{grid-column:1;grid-row:1 / 4;width:100%;height:min(48svh,300px);max-height:none;aspect-ratio:auto;object-fit:contain;border-radius:9px}
+.ck-detail-fit .ck-card>strong{grid-column:2;margin:0;padding:0;font-size:20px;line-height:1.4;align-self:end}
+.ck-detail-fit .ck-card>span{grid-column:2;padding:0;font-size:14px;line-height:1.65;align-self:start}
+.ck-detail-fit .ck-card>.ck-foods{display:flex}
+.ck-detail-fit .ck-dialog-body>p:empty{display:none}
+.ck-detail-fit .ck-token-preview{padding:0 0 10px}
+.ck-detail-fit .ck-dialog-body>h2{font-size:20px;margin:5px 0}.ck-detail-fit .ck-dialog-body>p{font-size:13px;line-height:1.65;margin:8px 0 0}
+.ck-close{display:grid;place-items:center;background:#155a61;color:#fff5d8;border:2px solid #d9d6b2;box-shadow:0 3px 0 #0b4945}
+.ck-close svg{width:25px;height:25px;pointer-events:none}
+@media(max-height:650px){.ck-detail-fit .ck-card>strong{font-size:16px}.ck-detail-fit .ck-card>span{font-size:12px;line-height:1.5}.ck-detail-fit .ck-dialog-body>p{font-size:12px}.ck-detail-fit .ck-card>.ck-art{height:min(42svh,220px)}}
+/* One panorama per row; one identical decorated chef card before and after placement. */
+.ck-route-planner{--ck-chef-height:min(clamp(34px,7svh,60px),calc((100svh - 300px)/var(--ck-location-count) - 6px));--ck-chef-width:calc(var(--ck-chef-height)*.72);height:100%;min-height:0;grid-template-rows:20px var(--ck-chef-height) minmax(0,1fr) 48px;gap:7px}
+.ck-route-planner .ck-route-hint{display:none!important}
+.ck-root .ck-route-planner>.ck-chefs{grid-row:2;height:var(--ck-chef-height);min-height:0;overflow:visible;padding:0;margin:0;gap:14px}
+.ck-root .ck-route-planner .ck-chefs>button{display:block;flex:0 0 var(--ck-chef-width);width:var(--ck-chef-width);height:var(--ck-chef-height);min-width:0;min-height:0;padding:0;border:0;background:none;border-radius:5px;box-shadow:0 3px 0 #153c34}
+.ck-chef-face{display:grid;grid-template-rows:minmax(0,1fr) auto auto;justify-items:center;box-sizing:border-box;width:100%;height:100%;padding:3px 2px;border:1px solid #e4c66c;border-radius:5px;background:radial-gradient(circle at 3px 3px,#e4c66c88 1px,transparent 1.5px) 0 0/9px 9px,linear-gradient(130deg,#123f43,#34785e 55%,#174a44);box-shadow:inset 0 0 0 2px #153e3e,inset 0 0 0 3px #d1b354;color:#fff5cc;overflow:hidden}
+.ck-root .ck-route-planner .ck-chef-face .ck-art{height:100%;max-height:100%;width:100%;object-fit:contain;min-height:0;filter:drop-shadow(0 1px 0 #0d3029)}
+.ck-root .ck-route-planner .ck-chef-face b{font-size:clamp(6px,1svh,9px);line-height:1.15;white-space:nowrap}
+.ck-root .ck-route-planner .ck-chef-face small{font-size:clamp(5px,.85svh,8px);line-height:1.15;min-height:0;white-space:nowrap}
+.ck-root .ck-route-planner>.ck-destinations{grid-row:3;grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(var(--ck-location-count),minmax(0,1fr));grid-auto-rows:auto;gap:6px;min-height:0;align-content:stretch}
+.ck-root .ck-route-planner [data-destination]{height:100%;min-height:0;padding:0;border-radius:8px;overflow:visible}
+.ck-root .ck-route-planner .ck-route-cover{border-radius:7px;object-position:center 52%}
+.ck-root .ck-route-planner [data-destination]:after{border-radius:7px;background:linear-gradient(90deg,#113b3b99,transparent 70%)}
+.ck-route-name{font-size:12px;left:9px;top:8px;max-width:calc(100% - 68px)}
+.ck-route-slot{right:16px;top:50%;bottom:auto;width:calc(var(--ck-chef-width) + 6px);height:calc(var(--ck-chef-height) + 4px);max-height:calc(100% - 2px);border-radius:5px}
+.ck-route-slot.ck-route-filled{background:none;border:0}
+.ck-placed-chef{width:var(--ck-chef-width);height:var(--ck-chef-height);overflow:visible;display:block;box-shadow:0 3px 0 #173b33;border-radius:5px}
+.ck-root .ck-route-planner .ck-plan-actions{grid-row:4;position:static;min-height:44px;margin:0;padding:0}
+.ck-chef-ghost{padding:0;width:43px;height:60px;border:0;background:none;border-radius:5px}
+.ck-chef-ghost .ck-chef-face img{width:100%;height:100%;min-height:0;object-fit:contain}.ck-chef-ghost .ck-chef-face b{font-size:8px}.ck-chef-ghost .ck-chef-face small{font-size:7px}
+@media(min-width:700px){.ck-route-planner{--ck-chef-height:min(68px,calc((100svh - 300px)/var(--ck-location-count) - 6px))}.ck-route-name{font-size:15px}}
+.ck-dialog .ck-token-preview .ck-token.spice img{height:145px;min-height:145px}
+.ck-root.ck-shared.has-player{grid-template-rows:30px 34px minmax(0,1fr) 150px}
+@media(max-height:650px) and (max-width:650px){.ck-root.ck-shared.has-player{grid-template-rows:28px 32px minmax(0,1fr) 142px}}
+.ck-root .ck-kitchen,.ck-root .ck-pantry-stock,.ck-root .ck-private{min-width:0}
+.ck-root .ck-pantry-cards .ck-unknown-card{padding:0;overflow:hidden;border-style:solid}
+.ck-unknown-card img{width:100%;height:100%;object-fit:cover}
+.ck-dialog.ck-detail-fit .ck-card{border:0!important;box-shadow:none;align-items:start}
+.ck-dialog.ck-detail-fit .ck-card>.ck-art{height:auto;max-height:min(48svh,300px);align-self:start;object-fit:contain}
+/* Ingredient and ×2 spice artwork share the exact same image window. */
+.ck-root .ck-token:is(.ingredient,.spice){display:grid;grid-template-rows:24px minmax(0,1fr) 10px;justify-items:center;align-items:center}
+.ck-root .ck-token:is(.ingredient,.spice)>b{grid-row:1;align-self:stretch;display:grid;place-items:center;box-sizing:border-box;padding:0;line-height:1}
+.ck-root .ck-token:is(.ingredient,.spice)>img{grid-row:2;height:100%;min-height:0;max-height:100%;width:100%;object-fit:contain}
+.ck-root .ck-token:is(.ingredient,.spice)>.ck-token-name{grid-row:3;line-height:1;padding:0}
+.ck-root .ck-kitchen .ck-token:is(.ingredient,.spice){grid-template-rows:18px minmax(0,1fr) 8px}
+.ck-root.display-only .ck-location .ck-token:is(.ingredient,.spice){grid-template-rows:20px minmax(0,1fr) 8px}
+.ck-dialog .ck-token-preview .ck-token:is(.ingredient,.spice){display:grid;grid-template-rows:40px minmax(0,1fr) 22px;justify-items:center;align-items:center}
+.ck-dialog .ck-token-preview .ck-token:is(.ingredient,.spice)>img{height:100%;min-height:0;max-height:100%;object-fit:contain}
+.ck-root .ck-token:is(.ingredient,.spice),.ck-dialog .ck-token-preview .ck-token:is(.ingredient,.spice){grid-template-columns:minmax(0,1fr)}
+.ck-root .ck-token:is(.ingredient,.spice)>b{min-width:0;width:100%;max-width:100%;overflow:hidden;white-space:nowrap}
+.ck-root .ck-token:is(.ingredient,.spice)>img{min-width:0}
+@media(max-width:350px){.critter-theme .game-header .brand{font-size:11px;min-width:0;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 205px)}}
+/* Portrait chef cards: big face above a separate, shaded readable caption. */
+.ck-chef-face{position:relative;display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:stretch;padding:0;border:1px solid #e8cc77;border-radius:5px;background:radial-gradient(ellipse at 50% 20%,#c9dba5aa,transparent 70%),repeating-linear-gradient(45deg,#316d5870 0 2px,transparent 2px 9px),#175345;box-shadow:inset 0 0 0 1px #53784d,0 2px 0 #143d32;overflow:hidden}
+.ck-chef-portrait{position:relative;display:block;min-height:0;overflow:hidden;width:100%;height:100%}
+.ck-root .ck-chef-face .ck-chef-portrait .ck-art,.ck-chef-ghost .ck-chef-face .ck-chef-portrait img{position:absolute;left:50%;top:-2%;width:170%;height:auto;min-height:0;max-width:none;max-height:none;object-fit:contain;transform:translateX(-50%);pointer-events:none;filter:none;border-radius:0}
+.ck-root .ck-chef-face .ck-sous-portrait .ck-art{left:43%;width:165%}
+.ck-chef-caption{position:relative;z-index:1;display:grid!important;grid-template-rows:auto auto;justify-items:center;gap:1px;padding:2px 1px 3px!important;background:linear-gradient(#173f34d9,#092c29);box-shadow:0 -4px 7px #103b3699;color:#fff8dc;text-align:center;min-width:0}
+.ck-root .ck-route-planner .ck-chef-caption b,.ck-root .ck-route-planner .ck-chef-caption small{display:block;max-width:100%;padding:0;line-height:1.15;text-shadow:0 1px 1px #001d17}
+.ck-root .ck-route-planner .ck-chef-caption b{font-size:clamp(6px,1.05svh,10px)}
+.ck-root .ck-route-planner .ck-chef-caption small{font-size:clamp(5px,.85svh,8px)}
+.ck-basic-planner .ck-chefs .ck-chef-face{width:64px;height:88px;align-self:center}
+.ck-basic-planner .ck-chefs .ck-chef-caption b{font-size:10px}.ck-basic-planner .ck-chefs .ck-chef-caption small{font-size:9px;min-height:0}
+.ck-root[data-phase=planning]>.ck-title{height:0;min-height:0;border:0;padding:0;background:none;overflow:visible}
+.ck-root.ck-shared.has-player[data-phase=planning]{grid-template-rows:0 34px minmax(0,1fr) 150px;row-gap:5px}
+.ck-root.display-only[data-phase=planning]{grid-template-rows:0 minmax(0,1fr)}
+/* Review the exact local plan as illustrated destination rows. */
+.ck-review-plan{display:grid;gap:8px}
+.ck-choice-preview .ck-review-plan>.ck-review-route{position:relative;isolation:isolate;display:flex;align-items:center;gap:16px;min-height:0;height:clamp(68px,12svh,104px);box-sizing:border-box;padding:6px 12px 6px 7px;background:linear-gradient(90deg,#133e3622,#103d37a6 45%,#123c37de),var(--ck-review-cover) center/cover;border:1px solid #c3b46f;border-radius:10px;overflow:hidden}
+.ck-choice-preview .ck-review-route>.ck-chef-face{display:grid;flex:0 0 auto;width:calc(clamp(68px,12svh,104px)*.64);height:100%;padding:0;gap:0;border-radius:6px;align-items:stretch}
+.ck-choice-preview .ck-review-route .ck-chef-portrait{display:block;padding:0;width:100%;height:100%;min-height:0;overflow:hidden}
+.ck-choice-preview .ck-review-route .ck-chef-face .ck-art{position:absolute;left:50%;top:-2%;width:170%;height:auto;max-height:none;max-width:none;object-fit:contain;transform:translateX(-50%);border-radius:0}
+.ck-choice-preview .ck-review-route .ck-chef-face .ck-sous-portrait .ck-art{left:43%;width:165%}
+.ck-choice-preview .ck-review-route .ck-chef-caption b{font-size:11px;line-height:1.15}
+.ck-choice-preview .ck-review-route .ck-chef-caption small{font-size:9px;line-height:1.15;color:#fff4cf}
+.ck-choice-preview .ck-review-route .ck-review-destination{display:grid;gap:3px;min-width:0;text-shadow:0 2px 3px #103829;color:#fff6d8}
+.ck-choice-preview .ck-review-destination small{font-size:11px;color:#f3df9e}
+.ck-choice-preview .ck-review-destination b{font-size:clamp(14px,2.2svh,19px);line-height:1.4}
+.ck-choice-preview:has(.ck-review-plan)>p{font-size:11px;line-height:1.5;margin:8px 0 0}
+.ck-chef-ghost .ck-chef-caption b{font-size:8px}.ck-chef-ghost .ck-chef-caption small{font-size:6px}
+.ck-root .ck-chef-face .ck-chef-portrait .ck-art,.ck-chef-ghost .ck-chef-face .ck-chef-portrait img,.ck-choice-preview .ck-review-route .ck-chef-face .ck-art{left:0;top:0;width:100%;height:250%;max-height:none;object-fit:cover;object-position:50% 0;transform:none}
+.ck-root .ck-chef-face .ck-sous-portrait .ck-art,.ck-choice-preview .ck-review-route .ck-chef-face .ck-sous-portrait .ck-art{left:0;top:-18%;width:100%;height:200%;object-position:60% 0}
+.ck-review-plan .ck-chef-caption{gap:1px}
+.ck-choice-preview .ck-review-route .ck-chef-caption b{font-size:clamp(7px,1.2svh,11px);white-space:nowrap}
+.ck-choice-preview .ck-review-route .ck-chef-caption small{font-size:clamp(6px,1svh,9px);white-space:nowrap}
+/* Vertical chef hand frees the full panorama height; dropped cards fill the left inset. */
+.ck-route-planner{--ck-chef-height:min(78px,max(16px,calc((100svh - 245px)/var(--ck-location-count) - 32px)));--ck-chef-width:calc(var(--ck-chef-height)*.72);grid-template-columns:calc(var(--ck-chef-width) + 6px) minmax(0,1fr);grid-template-rows:20px minmax(0,1fr) 48px;gap:7px 9px}
+.ck-route-planner>h2{grid-column:1 / -1;grid-row:1}
+.ck-root .ck-route-planner>.ck-chefs{grid-column:1;grid-row:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;height:auto;gap:14px;padding:4px 1px;overflow:visible;min-width:0}
+.ck-root .ck-route-planner .ck-chefs>button{flex:0 0 var(--ck-chef-height);width:var(--ck-chef-width);height:var(--ck-chef-height)}
+.ck-root .ck-route-planner>.ck-destinations{grid-column:2;grid-row:2;gap:6px}
+.ck-root .ck-route-planner .ck-plan-actions{grid-column:1 / -1;grid-row:3}
+.ck-root .ck-route-planner [data-destination]{overflow:hidden}
+.ck-root .ck-route-planner [data-destination]:after{background:linear-gradient(90deg,#082d36e6 0,#0b303a88 24%,#0d30351a 47%,transparent 66%)}
+.ck-root .ck-route-planner .ck-route-name{left:7px;right:6px;top:4px;max-width:none;font-size:12px;line-height:16px;text-shadow:0 1px 3px #042f32;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:2}
+.ck-root .ck-route-planner .ck-route-slot{left:6px;right:auto;top:23px;bottom:3px;width:auto;height:calc(100% - 26px);max-height:none;aspect-ratio:.72;transform:none;border:2px dashed #f9d14e;border-radius:5px;box-shadow:0 2px 5px #042f3655;box-sizing:border-box}
+.ck-root .ck-route-planner .ck-route-filled{border:1px solid #efd382;padding:1px;background:#174936;box-shadow:0 2px 4px #092f35}
+.ck-root .ck-route-planner .ck-placed-chef{width:100%;height:100%;border-radius:4px;box-shadow:none}
+.ck-root .ck-route-planner .ck-placed-chef .ck-chef-face{border-radius:3px}
+.ck-root .ck-route-planner .ck-placed-chef .ck-chef-caption b{font-size:clamp(6px,1.25svh,11px)}
+.ck-root .ck-route-planner .ck-placed-chef .ck-chef-caption small{font-size:clamp(5px,1svh,9px)}
+.ck-root .ck-route-planner[data-location-count="8"] .ck-route-name,.ck-root .ck-route-planner[data-location-count="7"] .ck-route-name{top:2px;font-size:10px;line-height:12px}
+.ck-root .ck-route-planner[data-location-count="8"] .ck-route-slot,.ck-root .ck-route-planner[data-location-count="7"] .ck-route-slot{top:16px;bottom:2px;height:calc(100% - 18px)}
+@media(min-width:700px){.ck-route-planner{--ck-chef-height:min(88px,max(16px,calc((100svh - 245px)/var(--ck-location-count) - 32px)));column-gap:14px}.ck-root .ck-route-planner .ck-route-name{font-size:15px}}
+/* Dense short screens scroll only the scenery list, keeping chef faces legible. */
+.ck-route-planner{--ck-chef-height:min(78px,max(54px,calc((100svh - 245px)/var(--ck-location-count) - 32px)))}
+.ck-root .ck-route-planner>.ck-destinations{grid-template-rows:repeat(var(--ck-location-count),minmax(86px,1fr));overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#8ca876 #f1ebd5;padding:2px 2px 4px 0;scroll-padding-block:4px}
+@media(min-width:700px){.ck-route-planner{--ck-chef-height:min(88px,max(54px,calc((100svh - 245px)/var(--ck-location-count) - 32px)))}}
+/* Full-height chef inset, with the destination name beside its portrait. */
+.ck-root .ck-route-planner [data-destination]{container-type:size}
+.ck-root .ck-route-planner[data-location-count] .ck-route-slot{top:3px;bottom:3px;height:calc(100% - 6px);left:5px}
+.ck-root .ck-route-planner[data-location-count] .ck-route-name{left:calc((100cqh - 6px)*.72 + 14px);top:7px;right:7px;max-width:none;font-size:12px;line-height:1.45;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-overflow:ellipsis}
+.ck-root .ck-route-planner .ck-route-filled{pointer-events:auto;cursor:zoom-in}
+.ck-root .ck-route-planner .ck-chefs>button{cursor:grab}
+.ck-dialog.ck-detail-fit .ck-chef-detail{grid-template-rows:auto auto 1fr}
+.ck-dialog.ck-detail-fit .ck-chef-detail>:nth-child(3){font-weight:800;color:#17624f}
+/* One heading row with compact kitchen/market navigation. */
+.ck-workspace-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 8px;margin:5px 0;background:#fff8deef;border-radius:12px;min-width:0;box-sizing:border-box}
+.ck-workspace-heading>h2{font-size:16px;line-height:1.35;margin:0;min-width:0}
+.ck-root .ck-workspace-heading .ck-tabs{display:flex;flex:none;align-items:center;gap:7px;margin:0}
+.ck-root .ck-workspace-heading .ck-tabs>button{display:grid;place-items:center;flex:none;width:36px;height:36px;min-height:36px;padding:0;border:1px solid #a4b899;border-radius:50%;background:#e8edd3;color:#255b4d}
+.ck-root .ck-workspace-heading .ck-tabs>button[aria-pressed=true]{background:#155a61;color:#fff6d8;border-color:#155a61}
+.ck-workspace-heading .ck-tabs svg{width:21px;height:21px}
+.ck-root.ck-shared.has-player{grid-template-rows:30px 42px minmax(0,1fr) 150px}
+.ck-root.ck-shared.has-player[data-phase=planning]{grid-template-rows:0 42px minmax(0,1fr) 150px}
+.ck-shared.has-player>.ck-workspace-heading{grid-row:2;grid-column:1;margin:0}
+.ck-route-planner{grid-template-rows:minmax(0,1fr) 48px}
+.ck-route-planner>h2{display:none}
+.ck-root .ck-route-planner>.ck-chefs,.ck-root .ck-route-planner>.ck-destinations{grid-row:1}
+.ck-root .ck-route-planner .ck-plan-actions{grid-row:2}
+.ck-root .ck-route-planner[data-location-count] .ck-route-name{left:calc((100cqh - 6px)*.72 + 24px)}
+/* Solid card edge, paper highlight and a short resting shadow; no idle effects. */
+.ck-root .ck-route-planner .ck-route-filled{overflow:visible;border:0;padding:1px;background:transparent;box-shadow:none}
+.ck-root .ck-route-planner .ck-placed-chef{position:relative;touch-action:none;user-select:none;cursor:grab;transform:translateY(-1px);border-radius:5px;box-shadow:1px 3px 0 #c6b990,2px 5px 0 #71654b,4px 7px 7px #071f397d}
+.ck-root .ck-route-planner .ck-placed-chef>.ck-chef-face{border:2px solid #f0dc9b;border-radius:5px;box-shadow:inset 0 0 0 1px #0d3d35}
+.ck-root .ck-route-planner .ck-placed-chef:after{content:'';position:absolute;inset:1px;border-top:1px solid #fff9cd;border-left:1px solid #fff9cd;border-radius:4px;pointer-events:none}
+.ck-root .ck-route-planner .ck-dragging{opacity:.3}
+/* Close remains a44px touch target, with only the cross visible. */
+.ck-dialog .ck-close,.ck-dialog .ck-close:focus-visible{border:0!important;border-radius:0;background:transparent!important;box-shadow:none!important;outline:none!important;color:#155a61}
+.ck-dialog .ck-close svg{width:28px;height:28px}
+.ck-dialog .ck-close:focus-visible svg{stroke-width:3}
+/* Public-market names sit directly on the artwork. */
+.ck-root .ck-location header{background:linear-gradient(90deg,#092f3be6,#123d3d70 45%,transparent 78%),var(--loc) center/cover}
+.ck-root .ck-location header button{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0;color:#fff7d9;padding-left:3px;text-align:left;text-shadow:0 2px 3px #082b34}
+.ck-root.display-only:is([data-phase=planning],[data-phase=running]) .ck-location{background:linear-gradient(90deg,#082f3da8,#153f3a22 45%,transparent 75%),var(--loc) center/cover}
+@media(max-height:650px) and (max-width:650px){.ck-root.ck-shared.has-player:not([data-phase=planning]){grid-template-rows:28px 42px minmax(0,1fr) 150px}}
+/* The floating card needs a definite block height; an auto grid row collapses its portrait. */
+.ck-chef-ghost{display:block!important;box-sizing:border-box;align-content:normal;transform:translate(-50%,-72%) rotate(-4deg);opacity:1;overflow:visible}
+.ck-chef-ghost>.ck-chef-face{display:grid;width:100%;height:100%;box-sizing:border-box;box-shadow:1px 3px 0 #b7a67a,3px 5px 9px #082d4280}
+/* Used chefs in the hand are monochrome; placed cards and floating previews keep their color. */
+.ck-root .ck-chefs>button.ck-assigned .ck-chef-face{filter:grayscale(1)}
+/* Full-mobile uses the same drag-only planning controls, with its own bounded pane. */
+.ck-root:not(.ck-shared) .ck-route-planner{height:calc(100svh - 190px);min-height:400px}
+.ck-root .ck-route-planner [data-destination]{cursor:default}
+/* Empty planning destinations are monochrome; assigning a chef restores the scenery. */
+.ck-root .ck-route-planner [data-destination]>.ck-route-cover{filter:grayscale(1)}
+.ck-root .ck-route-planner [data-destination]:has(.ck-placed-chef)>.ck-route-cover{filter:none}
+/* Ready to leave: a quiet prompt and a solid floating green start button. */
+.ck-root[data-phase=running]>.ck-title{height:0;min-height:0;border:0;padding:0;background:none;overflow:visible}
+.ck-root.ck-shared.has-player[data-phase=running]{grid-template-rows:0 42px minmax(0,1fr) 150px}
+.ck-shared.has-player[data-phase=running] .ck-kitchen{display:none}
+.ck-shared.has-player[data-phase=running] .ck-action{grid-row:3 / 5;display:grid;place-items:center}
+.ck-ready-market{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:18px 8px}
+.ck-ready-market h2{font-size:clamp(20px,3vw,30px);margin:0;color:#174f43}
+.ck-ready-market p{margin:0;font-size:14px}
+.ck-root .ck-ready-market .ck-market-start{display:grid;place-items:center;width:124px;height:124px;min-height:124px;border:2px solid #e6f1b1;border-radius:50%;margin:20px 8px 12px;padding:0;background:radial-gradient(circle at 32% 20%,#a3dc70,#48a85d 45%,#14734b 80%);color:#fffce5;font-size:27px;font-weight:900;line-height:1;box-shadow:inset 0 3px 2px #eaf8c499,inset 0 -5px 2px #135c484d,0 8px 0 #0d563f,0 13px 12px #103f3540;text-shadow:0 2px 2px #175b42;cursor:pointer;touch-action:manipulation}
+.ck-root .ck-ready-market .ck-market-start:active{transform:translateY(5px);box-shadow:inset 0 2px 2px #eaf8c466,0 3px 0 #0d563f,0 6px 7px #103f3533}
+.ck-root .ck-ready-market .ck-market-start:disabled{opacity:.6;cursor:default}
+.ck-root.display-only[data-phase=running]{grid-template-rows:0 minmax(0,1fr)}
+.ck-root.display-only[data-phase=running] .ck-layout{position:relative;grid-template-rows:minmax(0,1fr)}
+.ck-root.display-only[data-phase=running] .ck-private{position:absolute;inset:0;z-index:4;display:grid;place-items:center;pointer-events:none}
+.ck-root.display-only[data-phase=running] .ck-action{max-height:none;padding:12px 30px;border:1px solid #d8deb2;border-radius:28px;background:#fff8e5f5;pointer-events:auto;box-shadow:0 5px 0 #416f5355}
+.ck-market-departure{position:fixed;inset:0;width:100vw;max-width:none;height:100svh;max-height:none;margin:0;padding:0;border:0;border-radius:0;overflow:hidden;color:#fff9df;font-family:'Noto Sans Thai',sans-serif;background:linear-gradient(#124c52bb,#164a3d55),url('/art/critter-kitchen/board-standard.webp') center/cover}
+.ck-market-departure::backdrop{background:#173f43}
+body:has(.ck-market-departure[open]){overflow:hidden}
+.ck-departure-scene{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;overflow:hidden}
+.ck-departure-scene h2{margin:0;font-size:clamp(28px,5vw,48px);text-shadow:0 3px 4px #143d35}
+.ck-departure-scene>p{margin:0;font-size:16px;text-shadow:0 2px 3px #143d35}
+.ck-runway{position:relative;width:min(700px,100%);height:240px;margin:10px 0 16px;border-bottom:5px solid #eac47788;background:linear-gradient(transparent 65%,#163f4433)}
+.ck-running-pack{position:absolute;left:0;bottom:8px;display:flex;gap:5px;align-items:end;animation:ck-chef-travel 2s ease-in-out both}
+.ck-runner{position:relative;display:block;width:calc(clamp(54px,15vw,105px) * var(--runner-scale,1));height:auto;aspect-ratio:2/3}
+.ck-runner img{display:block;position:relative;z-index:1;width:100%;height:100%;object-fit:contain;transform-origin:50% 90%;animation:ck-chef-jog .22s ease-in-out infinite alternate;animation-delay:calc(var(--runner)*-.07s)}
+.ck-runner i{position:absolute;left:5%;right:5%;bottom:-2px;height:8px;border-radius:50%;background:#173d3555}
+.ck-market-basket{position:absolute;right:5%;bottom:6px;width:70px;height:70px;background:#f4d696;border:3px solid #b2803c;border-radius:10px 10px 18px 18px;transform:rotate(5deg)}
+.ck-market-basket img{width:100%;height:100%;object-fit:contain}
+.ck-departure-progress{width:min(210px,50vw);height:5px;overflow:hidden;border-radius:4px;background:#f1e5b844}
+.ck-departure-progress span{display:block;width:100%;height:100%;background:#b9e584;transform-origin:left;animation:ck-departure-fill 2s linear both}
+@keyframes ck-chef-travel{from{transform:translateX(0)}to{transform:translateX(85%)}}
+@keyframes ck-chef-jog{from{transform:translateY(0) rotate(-5deg)}to{transform:translateY(calc(-13px * var(--runner-scale,1))) rotate(6deg)}}
+@keyframes ck-departure-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.ck-running-pack{animation:none;left:12%}.ck-runner img,.ck-departure-progress span{animation:none}.ck-departure-progress span{transform:none}}
+/* The ready/start screen has no workspace heading or navigation row. */
+.ck-root.ck-shared.has-player[data-phase=running]{grid-template-rows:0 0 minmax(0,1fr) 150px;row-gap:0}
+
+/* Shopping keeps the active destination, chef and two matching cardboard rails together. */
+.ck-shopping-scene{position:relative;isolation:isolate;min-height:130px;border-radius:14px;overflow:hidden;background:linear-gradient(90deg,#123c42d9,transparent 85%),var(--shopping-cover) center/cover;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;color:#fffbed}
+.ck-shopping-scene>strong{font-size:22px;text-shadow:0 2px 4px #16302d}
+.ck-shopping-scene .ck-chef-face{width:74px;height:110px;flex:none;border-radius:9px;overflow:hidden;box-shadow:2px 4px 0 #142f34,0 6px 10px #0005}
+.ck-pick-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0}
+.ck-pick-toolbar p{margin:0;font-size:13px}
+.ck-root .ck-return-home{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;flex:none;padding:9px}
+.ck-root .ck-picks{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:12px;padding:10px 8px 16px;scrollbar-width:thin}
+.ck-pick-card{position:relative;flex:0 0 auto}
+.ck-root .ck-pick-card>[data-pick]{padding:0;border:0;background:none;box-shadow:none;display:block}
+.ck-root .ck-pick-card.selected .ck-token{filter:brightness(.72)}
+.ck-root .ck-pick-card .ck-inline-confirm{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);min-height:44px;padding:7px 8px;border:1px solid #c0efb5;border-radius:12px;background:linear-gradient(#41a96a,#187747);color:white;font-size:12px;box-shadow:0 3px 0 #105232,0 4px 8px #0004;z-index:1}
+.ck-root .ck-picks .ck-token,.ck-root.ck-shared.has-player .ck-kitchen .ck-token,.ck-root .ck-kitchen .ck-token{width:64px;height:94px}
+.ck-root .ck-kitchen .ck-token:is(.ingredient,.spice){grid-template-rows:24px minmax(0,1fr) 10px}
+.ck-root.ck-shared.has-player .ck-kitchen .ck-inventory,.ck-root .ck-kitchen .ck-inventory{height:118px;max-height:none;gap:12px;padding:8px 8px 10px;align-items:center}
+.ck-root .ck-kitchen .ck-pantry-rail{min-width:0}
+.ck-root.ck-shared.has-player[data-phase="shopping"]{grid-template-rows:30px 42px minmax(0,1fr) 210px}
+@media(max-width:400px){.ck-shopping-scene{min-height:108px;padding:8px 12px}.ck-shopping-scene .ck-chef-face{height:94px;width:64px}.ck-shopping-scene>strong{font-size:19px}}
+.ck-root .ck-pick-card{width:64px;min-width:64px}
+.ck-root .ck-pick-card>[data-pick]{width:64px;height:94px;min-width:0;overflow:hidden}
+.ck-root .ck-pick-card .ck-token.special{box-sizing:border-box;overflow:hidden}
+.ck-root .ck-pick-card .ck-token.special img{width:100%;max-width:100%;height:62px;min-height:0;object-fit:contain}
+.ck-root .ck-pick-card .ck-token.special small{font-size:10px;line-height:1.3;overflow-wrap:anywhere}
+.ck-root .ck-action{min-width:0;max-width:100%;box-sizing:border-box}
+.ck-root .ck-picks{min-width:0;max-width:100%;box-sizing:border-box}
+.ck-shopping-scene .ck-chef-caption b{font-size:11px;line-height:1.25;white-space:nowrap}
+.ck-shopping-scene .ck-chef-caption small{font-size:9px;line-height:1.25;white-space:nowrap}
+.ck-root .ck-kitchen .ck-token.special img{height:62px;min-height:0;object-fit:contain}
+/* Rectangular resource cards and a visible fraction of the next item replace arrows. */
+.ck-root .ck-token{border-radius:10px}
+.ck-root .ck-picks,.ck-root .ck-kitchen .ck-inventory{--ck-resource-width:72px;gap:12px;scroll-snap-type:x proximity}
+.ck-root .ck-pick-card,.ck-root .ck-pick-card>[data-pick],.ck-root .ck-picks .ck-token,.ck-root.ck-shared.has-player .ck-kitchen .ck-token,.ck-root .ck-kitchen .ck-token{width:var(--ck-resource-width,72px);min-width:0;height:106px;border-radius:10px}
+.ck-root .ck-pick-card{flex:0 0 var(--ck-resource-width,72px);scroll-snap-align:start}
+.ck-root .ck-kitchen .ck-inventory>button{width:var(--ck-resource-width,72px);min-width:0;padding:0!important;scroll-snap-align:start}
+.ck-root .ck-kitchen .ck-inventory:after,.ck-pantry-cards:after{display:none}
+.ck-root .ck-pick-card.selected,.ck-root [data-pick].selected{outline:none;box-shadow:none}
+.ck-root .ck-pick-card.selected .ck-token,.ck-root [data-pick].selected .ck-token{transform:none}
+.ck-root .ck-pick-card .ck-token img,.ck-root .ck-kitchen .ck-token img,.ck-root .ck-token:is(.ingredient,.spice) img{width:44px;height:44px;min-height:44px;max-height:44px;object-fit:contain;align-self:center;justify-self:center;margin:auto}
+.ck-root .ck-pick-card .ck-token.special img,.ck-root .ck-kitchen .ck-token.special img{width:44px;height:44px;min-height:44px;max-height:44px}
+.ck-root .ck-token:is(.ingredient,.spice){justify-items:center}
+.ck-root .ck-kitchen .ck-token.special{align-items:center}
+.ck-root.ck-shared.has-player .ck-kitchen .ck-inventory,.ck-root .ck-kitchen .ck-inventory{height:128px}
+.ck-root[data-phase=shopping] .ck-title{height:0;min-height:0;margin:0;padding:0}
+.ck-root[data-phase=shopping] .ck-title>strong{display:none}
+.ck-root.ck-shared.has-player[data-phase=shopping]{grid-template-rows:0 42px minmax(0,1fr) 220px}
+.ck-root[data-phase=shopping] .ck-action:has(.ck-waiting){display:grid;place-items:center;min-height:300px}
+.ck-waiting{text-align:center;padding:24px 8px;color:#23584e}
+.ck-waiting h2{margin:20px 0 4px;font-size:20px}
+.ck-waiting p{margin:0;font-size:13px}
+.ck-wait-loader{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;width:116px;height:104px;margin:auto}
+.ck-wait-loader>svg{position:absolute;top:4px;width:62px;height:62px;stroke-width:1.5;color:#368269}
+.ck-wait-loader>span{width:9px;height:9px;margin-top:84px;background:#dba947;border-radius:50%;animation:ck-wait-dot 1.2s ease-in-out infinite}
+.ck-wait-loader>span:nth-of-type(2){animation-delay:.15s}.ck-wait-loader>span:nth-of-type(3){animation-delay:.3s}
+@keyframes ck-wait-dot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-7px);opacity:1}}
+@media(prefers-reduced-motion:reduce){.ck-wait-loader>span{animation:none;opacity:1}}
+.ck-root .ck-kitchen[data-pane=cards]{display:flex;flex-direction:column;min-height:190px}
+.ck-root .ck-kitchen[data-pane=cards] .ck-pantry-heading{flex:none}
+.ck-root .ck-kitchen[data-pane=cards] .ck-pantry-cards{display:flex;flex:1;min-height:132px;height:132px;align-items:stretch;padding:5px 8px 10px;gap:12px}
+.ck-root .ck-pantry-cards .ck-card,.ck-root .ck-pantry-cards .ck-private-rumors>span{position:relative;flex:0 0 auto;aspect-ratio:2/3;min-width:0;max-width:none;width:auto;height:100%;min-height:0;padding:0!important;overflow:hidden;border-radius:10px!important}
+.ck-root .ck-pantry-cards .ck-card>.ck-art,.ck-root .ck-pantry-cards .ck-unknown-card>.ck-art{width:100%;height:100%;max-height:none;object-fit:cover;aspect-ratio:auto}
+.ck-root .ck-kitchen .ck-pantry-cards .ck-card>strong{display:block!important;position:absolute;bottom:0;left:0;right:0;padding:24px 6px 7px;font-size:11px;line-height:1.4;text-align:center;color:#fffbed;background:linear-gradient(transparent,#092d2be8 65%);text-shadow:0 1px 2px #000}
+
+.ck-root.ck-shared.has-player[data-phase=shopping] .ck-action:has(.ck-waiting){min-height:0}
+.ck-root .ck-kitchen[data-pane=cards]{height:220px;box-sizing:border-box}
+.ck-root .ck-kitchen[data-pane=cards] .ck-pantry-cards{height:0;min-height:0;flex:1 1 0}
+/* One resource face is reused in stock, the pantry and enlarged inspection. */
+.ck-root .ck-shopping-chef{padding:0;border:0;background:transparent;box-shadow:none;flex:none;border-radius:9px}
+.ck-root .ck-pick-card .ck-inline-confirm{width:44px;height:44px;min-height:44px;border-radius:50%;padding:9px;display:grid;place-items:center}
+.ck-root .ck-pick-card .ck-inline-confirm svg{width:25px;height:25px}
+.ck-token.ck-resource-card{position:relative;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:24px minmax(0,1fr) 20px;align-items:center;justify-items:center;overflow:hidden;border-radius:10px}
+.ck-root .ck-token.ck-resource-card,.ck-root .ck-kitchen .ck-token.ck-resource-card{display:grid;grid-template-rows:24px minmax(0,1fr) 20px;flex-direction:initial}
+.ck-token.ck-resource-card>.ck-resource-heading,.ck-root .ck-token.ck-resource-card>.ck-resource-heading{grid-row:1;grid-column:1;box-sizing:border-box;width:100%;height:24px;min-height:24px;padding:0;display:grid;place-items:center;font-size:19px;line-height:1;background:#21473f;color:#fffbed;border-radius:0}
+.ck-token.ck-resource-card>img.ck-resource-icon,.ck-root .ck-token.ck-resource-card>img.ck-resource-icon{grid-row:2;grid-column:1;width:56px;max-width:100%;height:100%;min-height:0;max-height:56px;object-fit:contain;margin:0;align-self:center;justify-self:center}
+.ck-token.ck-resource-card>.ck-token-name,.ck-root .ck-token.ck-resource-card>.ck-token-name{position:static;grid-row:3;grid-column:1;display:block;font-size:12px;font-weight:700;line-height:20px;padding:0;max-width:100%;white-space:nowrap;color:#194e54}
+.ck-token.ck-resource-card>.ck-spice-badge{position:absolute;right:2px;bottom:20px;width:25px;height:25px;border-radius:50%;background:#fff8dc;border:1px solid #a7782b;box-shadow:0 1px 2px #46351d44;display:grid;place-items:center;pointer-events:none}
+.ck-token.ck-resource-card>.ck-spice-badge>img,.ck-root .ck-token.ck-resource-card>.ck-spice-badge>img{width:23px;height:23px;min-height:0;max-height:23px;object-fit:contain;margin:0}
+.ck-dialog .ck-token-preview .ck-token.ck-resource-card{width:154px;height:220px;border-radius:14px;grid-template-rows:36px minmax(0,1fr) 30px}
+.ck-dialog .ck-token-preview .ck-resource-card>.ck-resource-heading{height:36px;min-height:36px;font-size:28px}
+.ck-dialog .ck-token-preview .ck-resource-card>img.ck-resource-icon{width:112px;height:112px;min-height:0;max-height:112px;object-fit:contain}
+.ck-dialog .ck-token-preview .ck-resource-card>.ck-token-name{font-size:18px;line-height:30px}
+.ck-dialog .ck-token-preview .ck-resource-card>.ck-spice-badge{right:5px;bottom:32px;width:38px;height:38px}
+.ck-dialog .ck-token-preview .ck-resource-card>.ck-spice-badge>img{width:34px;height:34px;max-height:34px}
+.ck-root .ck-kitchen .ck-token.ck-resource-card>.ck-resource-heading{height:24px;min-height:24px;font-size:19px;line-height:1;display:grid;place-items:center}
+/* Waiting has only the task and pantry; card rails reveal a partial next face. */
+.ck-root[data-waiting=true] .ck-board{display:none}
+.ck-root.ck-shared.has-player[data-phase=shopping][data-waiting=true]{grid-template-rows:0 0 minmax(0,1fr) 230px;row-gap:6px}
+.ck-root.ck-shared.has-player[data-phase=shopping][data-waiting=false]{grid-template-rows:0 42px minmax(0,1fr) 230px}
+.ck-root .ck-picks,.ck-root.ck-shared.has-player .ck-kitchen .ck-inventory,.ck-root .ck-kitchen .ck-inventory{gap:6px}
+.ck-root .ck-pick-card,.ck-root .ck-pick-card>[data-pick],.ck-root .ck-picks .ck-token,.ck-root.ck-shared.has-player .ck-kitchen .ck-token,.ck-root .ck-kitchen .ck-token{height:114px}
+.ck-root .ck-picks .ck-token.ck-resource-card>img.ck-resource-icon,.ck-root .ck-kitchen .ck-token.ck-resource-card>img.ck-resource-icon{width:64px;max-height:64px}
+.ck-root.ck-shared.has-player .ck-kitchen .ck-inventory,.ck-root .ck-kitchen .ck-inventory{height:136px}
+.ck-root .ck-kitchen[data-pane=cards]{height:230px}
+.ck-root .ck-kitchen[data-pane=cards] .ck-pantry-cards{gap:10px;scroll-snap-type:x proximity}
+.ck-root .ck-pantry-cards .ck-card,.ck-root .ck-pantry-cards .ck-private-rumors>span{width:var(--ck-private-card-width,100px);min-width:var(--ck-private-card-width,100px);max-width:var(--ck-private-card-width,100px);flex:0 0 var(--ck-private-card-width,100px);scroll-snap-align:start;aspect-ratio:auto}
+.ck-root .ck-picks,.ck-root .ck-kitchen .ck-inventory,.ck-root .ck-kitchen[data-pane=cards] .ck-pantry-cards{scroll-padding-inline-start:8px}
+/* Pantry controls share the workspace's type scale and circular icon treatment. */
+.ck-root .ck-kitchen .ck-pantry-heading{min-height:40px;margin-bottom:4px;gap:6px}
+.ck-root .ck-kitchen .ck-pantry-heading h2{font-size:16px;line-height:1.35;margin:0}
+.ck-pantry-total{font-size:12px;white-space:nowrap;font-weight:600}
+.ck-root .ck-kitchen .ck-pantry-heading nav{display:flex;flex:none;gap:7px}
+.ck-root .ck-kitchen .ck-pantry-heading button{display:grid;place-items:center;width:36px;height:36px;min-height:36px;padding:0;border:1px solid #a4b899;border-radius:50%;background:#e8edd3;color:#255b4d}
+.ck-root .ck-kitchen .ck-pantry-heading button[aria-pressed=true]{background:#155a61;color:#fff6d8;border-color:#155a61}
+.ck-pantry-heading svg{width:21px;height:21px}
+.ck-root .ck-token.ck-resource-card:is(.ingredient,.spice,.special)>b.ck-resource-heading{font-size:19px;line-height:1;font-variant-numeric:tabular-nums}
+.ck-root .ck-dialog .ck-token-preview .ck-resource-card>b.ck-resource-heading{font-size:28px}
+.ck-token.ck-resource-card>.ck-spice-badge{width:32px;height:32px}
+.ck-token.ck-resource-card>.ck-spice-badge>img,.ck-root .ck-token.ck-resource-card>.ck-spice-badge>img{width:30px;height:30px;max-height:30px}
+.ck-dialog .ck-token-preview .ck-resource-card>.ck-spice-badge{width:48px;height:48px}
+.ck-root .ck-dialog .ck-token-preview .ck-resource-card>.ck-spice-badge>img{width:44px;height:44px;max-height:44px}
+.ck-token.ck-resource-card[data-resource=soup]{background:linear-gradient(135deg,#fff2bf,#f3d67c);border-color:#b58b36;border-bottom-color:#a57726}
+.ck-token.ck-resource-card[data-resource=bisque]{background:linear-gradient(135deg,#ffe5d7,#efb4a3);border-color:#bb745d;border-bottom-color:#a65c49}
+.ck-root .ck-token.ck-resource-card[data-resource=soup]>.ck-resource-heading{background:#79571f}
+.ck-root .ck-token.ck-resource-card[data-resource=bisque]>.ck-resource-heading{background:#8a4d3e}
+.ck-root .ck-kitchen .ck-inventory>button{overflow:visible}
+.ck-pantry-quantity{top:-11px;right:-8px;bottom:auto;width:36px;height:36px;box-sizing:border-box;border-radius:50%;display:grid;place-items:center;padding:0;font-size:12px;line-height:1;background:#155a61;color:#fffbed;border:2px solid #fff8de;box-shadow:0 2px 3px #123d3440;z-index:2;pointer-events:none}
+.ck-root.ck-shared.has-player .ck-kitchen .ck-inventory,.ck-root .ck-kitchen .ck-inventory{height:144px;padding-top:18px;padding-right:12px}
+/* Rumors stay face down until a private, explicitly confirmed choice. */
+.ck-token.ck-resource-card>.ck-token-name,.ck-root .ck-token.ck-resource-card>.ck-token-name{background:transparent;box-shadow:none;border-radius:0}
+.ck-rumor-face{position:relative;overflow:hidden;border-radius:10px;background:#155a61;isolation:isolate}
+.ck-root .ck-token.ck-rumor-face{display:block;padding:0;border:1px solid #b89d55;border-bottom:4px solid #735e32}
+.ck-root .ck-token.ck-rumor-face>img,.ck-root .ck-pick-card .ck-token.ck-rumor-face>img{display:block;width:100%;height:100%;min-height:0;max-height:none;object-fit:cover;margin:0;border-radius:0}
+.ck-rumor-caption{position:absolute;left:0;right:0;bottom:0;z-index:1;display:grid;gap:1px;text-align:center;color:#fffbed;background:linear-gradient(transparent,#092d2bee 60%);padding:22px 3px 6px;text-shadow:0 1px 3px #001f20}
+.ck-root .ck-token.ck-rumor-face>.ck-rumor-caption{font-size:12px;padding:22px 2px 5px}
+.ck-rumor-caption strong{font-size:13px;line-height:1.3}.ck-rumor-caption small{font-size:10px;line-height:1.4}
+.ck-rumor-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:10px 2px 16px;max-width:520px;margin:auto}
+.ck-rumor-slot{position:relative;min-width:0;aspect-ratio:2/3;max-height:230px}
+.ck-root .ck-rumor-slot>.ck-rumor-face{display:block;width:100%;height:100%;padding:0;border:1px solid #a98b42;box-shadow:0 3px 0 #8c774b}
+.ck-rumor-slot .ck-rumor-face>.ck-art{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:auto}
+.ck-root .ck-rumor-slot>.ck-rumor-known{filter:grayscale(1);opacity:.6;cursor:default}
+.ck-root .ck-rumor-slot>[aria-pressed=true]{outline:none}
+.ck-root .ck-rumor-slot .ck-inline-confirm{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;min-height:44px;display:grid;place-items:center;padding:9px;border:1px solid #c0efb5;border-radius:50%;background:linear-gradient(#41a96a,#187747);color:white;box-shadow:0 3px 0 #105232,0 4px 8px #0004;z-index:2}
+.ck-dialog .ck-token-preview .ck-rumor-face{position:relative;display:block;width:154px;height:220px;border-radius:14px;padding:0}
+.ck-dialog .ck-token-preview .ck-rumor-face>img{width:100%;height:100%;max-height:none;object-fit:cover;margin:0}
+.ck-root .ck-chef-face .ck-team-portrait .ck-art{left:0;top:0;width:100%;height:100%;object-fit:cover;transform:none}
+.ck-root .ck-pick-card{position:relative}
+.ck-pick-stamps{position:absolute;inset:27px 0 19px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px;pointer-events:none}
+.ck-pick-stamp{position:relative;width:42px;height:42px;display:block;border:2px solid #3a8cde;border-radius:50%;box-shadow:0 2px 4px #143f4480;background:#cce5ff;overflow:visible;transform:rotate(-8deg)}
+.ck-pick-stamp[data-team=red]{border-color:#e34343;background:#ffe0de;transform:rotate(8deg)}
+.ck-pick-stamp>.ck-art{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.ck-pick-stamp>small{position:absolute;bottom:-4px;right:-5px;background:#174e57;color:white;border-radius:8px;padding:0 3px;font-size:9px}
+.ck-root .ck-pick-card.ck-claimed>[data-pick]:disabled{opacity:.75}
+.ck-root[data-phase=shopping] .ck-action:has(.ck-waiting-inline),.ck-root.ck-shared.has-player[data-phase=shopping] .ck-action:has(.ck-waiting-inline){display:block;min-height:0}
+.ck-waiting.ck-waiting-inline{padding:12px 4px 8px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 12px}
+.ck-waiting-inline .ck-wait-loader{width:54px;height:42px;margin:0;gap:4px}
+.ck-waiting-inline .ck-wait-loader>svg{width:28px;height:28px;top:0}
+.ck-waiting-inline .ck-wait-loader>span{width:5px;height:5px;margin-top:34px}
+.ck-waiting-inline h2{margin:0!important;font-size:15px!important}.ck-waiting-inline p{flex-basis:100%;font-size:12px}
+.ck-root.ck-shared.has-player[data-phase=shopping][data-waiting=true]{grid-template-rows:0 42px minmax(0,1fr) 230px}
+.ck-root .ck-tabs>button:disabled{opacity:.45;cursor:default}
+.ck-chef-ghost .ck-chef-face .ck-team-portrait img{left:0;top:0;width:100%;height:100%;object-fit:cover;transform:none}
+.ck-root[data-phase=shopping] .ck-action:has(.ck-waiting-inline){place-items:normal;justify-items:stretch;align-items:normal;text-align:initial}
+.ck-root[data-phase=shopping] .ck-action:has(.ck-waiting-inline)>.ck-shopping-scene,.ck-root[data-phase=shopping] .ck-action:has(.ck-waiting-inline)>.ck-pick-toolbar,.ck-root[data-phase=shopping] .ck-action:has(.ck-waiting-inline)>.ck-picks{width:100%;box-sizing:border-box}
+.ck-pick-stamps{display:grid;grid-template-columns:repeat(var(--stamp-columns,1),var(--stamp-size,42px));align-content:center;justify-content:center}
+.ck-pick-stamps .ck-pick-stamp{width:var(--stamp-size,42px);height:var(--stamp-size,42px);box-sizing:border-box}
+/* Inspect the face; buy explicitly from the floating corner control. */
+.ck-root .ck-picks{padding-top:20px}
+.ck-root .ck-buy-button{position:absolute;right:-7px;top:-10px;z-index:4;width:36px;height:36px;min-height:36px;padding:6px;display:grid;place-items:center;border-radius:50%;border:2px solid #fff8de;color:#fff;background:linear-gradient(#42ad6a,#187747);box-shadow:0 2px 0 #105232,0 3px 5px #123d3450}
+.ck-buy-button svg{width:22px;height:22px}
+.ck-root .ck-claimed>[data-pick] .ck-token{filter:brightness(.85)}
+.ck-root .ck-pick-card.ck-chef-offer-card{width:var(--ck-resource-width,72px);min-width:0;flex-basis:var(--ck-resource-width,72px)}
+.ck-root .ck-pick-card.ck-chef-offer-card>[data-pick],.ck-root .ck-pick-card.ck-chef-offer-card .ck-chef-offer-face{width:100%;height:114px;border-radius:10px}
+.ck-root .ck-token.ck-chef-offer-face{position:relative;display:block;overflow:hidden;padding:0;background:#174e57}
+.ck-root .ck-pick-card .ck-token.ck-chef-offer-face>img{display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;margin:0}
+.ck-chef-offer-face>.ck-rumor-caption{padding-top:25px}
+.ck-chef-offer-face .ck-rumor-caption strong{font-size:13px;line-height:1.4}
+.ck-buy-chef-preview{display:grid;place-items:center}
+.ck-root .ck-buy-chef-preview .ck-token.ck-chef-offer-face{width:min(100%,360px);height:240px;display:block;border-radius:12px}
+.ck-root .ck-buy-chef-preview .ck-chef-offer-face>img{width:100%;height:100%;max-height:none;object-fit:contain}
+.ck-buy-chef-preview .ck-rumor-caption strong{font-size:18px}
+.ck-root .ck-rumor-options{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));height:min(48svh,340px);max-width:300px;gap:12px;padding:8px 0 12px;box-sizing:border-box;align-items:center;justify-items:center}
+.ck-root .ck-rumor-options>.ck-rumor-slot{grid-column:span 2;height:100%;width:auto;aspect-ratio:2/3;max-width:100%;min-height:0}
+.ck-root .ck-rumor-options>.ck-rumor-slot:last-child{grid-column:2 / span 2}
+.ck-rumor-confirm{position:relative;width:154px;height:220px;overflow:hidden;border-radius:12px;margin:auto}
+.ck-rumor-confirm>.ck-art{width:100%;height:100%;object-fit:cover}
+.ck-root .ck-pick-card.ck-chef-offer-card{width:var(--ck-resource-width,72px);flex-basis:var(--ck-resource-width,72px);height:150px}
+.ck-root .ck-pick-card.ck-chef-offer-card>[data-pick],.ck-root .ck-pick-card.ck-chef-offer-card .ck-chef-offer-face{height:150px}
+.ck-root .ck-buy-chef-preview .ck-token.ck-chef-offer-face{width:auto;max-width:100%;height:min(32svh,270px);aspect-ratio:3/4}
+/* Compact two-line waiting feedback. */
+.ck-waiting.ck-waiting-inline{display:grid;justify-items:center;gap:4px;padding:6px 0 2px}
+.ck-waiting-inline .ck-wait-loader{display:grid;place-items:center;width:20px;height:20px;margin:0}
+.ck-waiting-inline .ck-wait-loader>svg{position:static;width:20px;height:20px;color:#368269;animation:ck-wait-spin 1s linear infinite}
+.ck-waiting-inline p{margin:0;font-size:12px;line-height:18px}
+@keyframes ck-wait-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.ck-waiting-inline .ck-wait-loader>svg{animation:none}}
+
+/* Corner pickup seals leave the ingredient art visible. Only the newest seal shows its tag. */
+.ck-pick-stamps{inset:auto;top:-12px;right:-7px;display:flex;align-items:center;justify-content:flex-end;gap:0;z-index:5}
+.ck-pick-stamps .ck-pick-stamp{width:32px;height:32px;flex:0 0 32px;transform:none}
+.ck-pick-stamps .ck-pick-stamp+.ck-pick-stamp{margin-left:-12px}
+.ck-pick-stamps .ck-pick-stamp:not(:last-child){width:26px;height:26px;flex-basis:26px}
+.ck-pick-stamps .ck-pick-stamp:not(:last-child)>small{display:none}
+.ck-pick-stamp>small{right:-4px;bottom:-11px;min-width:25px;box-sizing:border-box;padding:1px 4px;border:1px solid #fff6d7;border-radius:6px;background:#174e57;color:#fff;font-size:10px;font-weight:800;line-height:14px;text-align:center;white-space:nowrap}
+.ck-pick-stamp[data-team=red]>small{background:#963b41}
+.ck-stamp-more{font-size:9px;font-weight:800;background:#fff3d2;color:#174e57;border-radius:8px;padding:2px 4px;margin-right:1px}
+.ck-root .ck-claimed>[data-pick] .ck-token{filter:grayscale(1)}
+.ck-root .ck-pick-card.ck-claimed>.ck-buy-button{left:auto;right:-7px;top:34px}
+.ck-root[data-waiting=true] .ck-pick-card>[data-pick]{opacity:.35}
+.ck-root[data-waiting=true] .ck-pick-card.ck-owned>[data-pick]{opacity:1}
+.ck-root[data-waiting=true] .ck-pick-card.ck-owned>[data-pick] .ck-token{filter:none}
+
+/* Reserve the score's left corner for reading beside pickup/quantity badges. */
+.ck-root .ck-picks .ck-token.ck-resource-card>.ck-resource-heading,
+.ck-root .ck-kitchen .ck-token.ck-resource-card>.ck-resource-heading{justify-items:start;padding-inline:6px 0;text-align:left}
+
+/* Cooking uses the same lightweight card faces as shopping. */
+.ck-root:is([data-phase=challenge],[data-phase=critic]) .ck-title>strong{display:none}
+.ck-root:has(.ck-cooking) .ck-kitchen{display:none}
+.ck-root.ck-shared.has-player:has(.ck-cooking){grid-template-rows:0 42px minmax(0,1fr) 0;row-gap:6px}
+.ck-root.ck-shared.has-player:has(.ck-cooking) .ck-action{grid-row:3 / 5}
+.ck-cooking{display:flex;flex-direction:column;gap:10px;min-width:0}
+.ck-dish-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ck-root .ck-cooking .ck-plate-tabs{display:flex;justify-content:flex-start;gap:6px;margin:0}
+.ck-root .ck-cooking .ck-plate-tabs button{width:46px;height:46px;min-height:46px;padding:4px;border:0;border-radius:50%;background:#e4e5d9;box-shadow:0 2px 2px #21483b33;outline:0}
+.ck-root .ck-cooking .ck-plate-tabs button.selected{background:#40966c;color:#155a61}
+.ck-plate-number{display:grid;place-items:center;width:100%;height:100%;box-sizing:border-box;border:4px solid #fffdf0;border-radius:50%;background:#fffdf0;box-shadow:inset 0 0 0 1px #bbc9bd;font-size:19px;font-weight:800}
+.ck-recipe-icons{display:flex;padding:0 3px 0 8px;align-items:center}
+.ck-required-food{width:38px;height:38px;box-sizing:border-box;border:2px solid #fff9df;border-radius:50%;background:#e5dcc0;box-shadow:0 2px 3px #173e3633;margin-left:-6px;display:grid;place-items:center}
+.ck-required-food img{width:32px;height:32px;object-fit:contain;border-radius:50%}
+.ck-root .ck-dish-rail{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;padding:16px 8px 5px;min-height:165px;box-sizing:border-box;scrollbar-width:thin;scroll-padding-inline-start:8px}
+.ck-root .ck-cooking .ck-dish-item{position:relative;display:flex;flex-direction:column;flex:0 0 72px;gap:3px;padding:0;border:0;background:transparent;min-width:0;align-items:stretch}
+.ck-root .ck-cooking .ck-dish-item>[data-token-detail],.ck-root .ck-cooking .ck-pick-card>[data-token-detail]{display:block;padding:0!important;min-height:0;border:0;background:transparent;overflow:hidden;border-radius:10px;width:100%}
+.ck-root .ck-cooking .ck-token{width:100%;height:114px;box-sizing:border-box}
+.ck-root .ck-cooking .ck-resource-card>.ck-resource-heading{justify-items:start;text-align:left;padding-left:6px}
+.ck-root .ck-cooking .ck-resource-card>img.ck-resource-icon{width:64px;height:64px;max-height:64px;min-height:0;object-fit:contain}
+.ck-root .ck-cooking .ck-remove-food{position:absolute;right:-7px;top:-10px;width:32px;height:32px;min-height:32px;padding:6px;display:grid;place-items:center;background:#b64247;border:2px solid #fff8df;border-radius:50%;color:#fff;box-shadow:0 2px 0 #772b30}
+.ck-remove-food svg{width:18px;height:18px}
+.ck-root .ck-cooking .ck-spice-toggle{display:flex;align-items:center;justify-content:center;gap:4px;min-height:36px;cursor:pointer}
+.ck-spice-toggle input{width:20px;height:20px;margin:0;accent-color:#24824e}
+.ck-spice-toggle img{width:28px;height:28px;object-fit:contain}
+.ck-spice-toggle:has(input:disabled){opacity:.4;cursor:default}
+.ck-dish-item select{width:100%;font-size:11px;min-height:32px;padding:2px}
+.ck-dish-empty{margin:auto;color:#647b6c;text-align:center;font-size:12px!important}
+.ck-root .ck-cooking .ck-broth{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0;padding:0}
+.ck-broth-stepper{display:flex;align-items:center;justify-content:space-between;gap:3px;min-width:0}
+.ck-root .ck-broth-stepper>[data-broth]{display:grid;place-items:center;width:36px;height:36px;min-height:36px;flex:0 0 36px;padding:7px;border-radius:50%;border:1px solid #cbbd8d;box-shadow:0 2px 0 #9d9368;background:#fff6d8}
+.ck-broth-face{position:relative;width:52px;flex:0 0 52px;padding-bottom:5px}
+.ck-root .ck-broth-face>[data-token-detail]{display:block;padding:0;border:0;background:transparent;width:100%}
+.ck-root .ck-cooking .ck-broth-face .ck-token{height:78px;width:52px;grid-template-rows:18px minmax(0,1fr) 16px}
+.ck-root .ck-cooking .ck-broth-face .ck-resource-heading{height:18px;min-height:18px;font-size:15px}
+.ck-root .ck-cooking .ck-broth-face img.ck-resource-icon{width:42px;height:42px;max-height:42px}
+.ck-root .ck-cooking .ck-broth-face .ck-token-name{font-size:10px;line-height:16px}
+.ck-broth-amount{position:absolute;bottom:0;right:-4px;border-radius:7px;background:#174e57;color:#fff8dc;border:1px solid #fff8dc;padding:0 5px;font-size:11px;font-weight:800;line-height:18px}
+.ck-root .ck-cooking .ck-cook-stock-title{margin:0;font-size:14px}
+.ck-root .ck-cooking .ck-cook-source{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;gap:6px;height:144px;min-height:144px;box-sizing:border-box;padding:18px 12px 11px 8px;scroll-padding-inline-start:8px;scrollbar-width:thin;overscroll-behavior-x:contain;max-width:100%}
+.ck-root .ck-cooking .ck-cook-source .ck-pick-card{flex:0 0 var(--ck-resource-width,64px);width:var(--ck-resource-width,64px);height:114px;position:relative}
+.ck-cook-source .ck-in-dish>[data-token-detail]{opacity:.35}
+.ck-root .ck-cooking .ck-serve-footer{display:flex;align-items:center;gap:8px;position:sticky;bottom:-10px;background:#fffdf0;padding:7px 0 5px;z-index:6;border-top:1px solid #c8d2b5}
+.ck-root .ck-cooking .ck-validation{flex:1;margin:0;padding:0;background:transparent;border:0;font-size:12px;line-height:1.45;display:flex;align-items:center;gap:5px;color:#9d3b36}
+.ck-root .ck-cooking .ck-serve-ready{color:#227449}
+.ck-validation svg{flex:0 0 22px;width:22px;height:22px}
+.ck-root .ck-cooking .ck-cook-round{position:static;width:44px;height:44px;min-height:44px;flex:0 0 44px;display:grid;place-items:center;padding:10px;margin:0;border-radius:50%;border:1px solid #b4c29f;background:#fff5d7;box-shadow:0 2px 0 #99a784}
+.ck-root .ck-cooking #ck-serve{position:static;width:44px;height:44px;min-height:44px;margin:0;padding:10px;border-radius:50%;background:linear-gradient(#41ae68,#187746);color:white;border-color:#21754a;box-shadow:0 2px 0 #105232}
+@media(max-width:350px){.ck-root .ck-cooking .ck-broth{gap:8px}.ck-root .ck-broth-stepper>[data-broth]{width:32px;height:32px;min-height:32px;flex-basis:32px;padding:5px}}
+
+/* Meal confirmation shows exactly the ingredients committed by this draft. */
+.ck-meal-total{display:grid;justify-items:center;gap:4px;margin:0 0 18px;color:#155a61}
+.ck-meal-total>small{font-size:13px}
+.ck-meal-total>strong{display:flex;align-items:center;gap:9px;font-size:48px;line-height:1.2;font-variant-numeric:tabular-nums}
+.ck-meal-total>strong>svg{width:38px;height:38px;color:#dca329;stroke:#b88520;stroke-width:1.2}
+.ck-meal-total>strong>small{font-size:18px}
+.ck-meal-total>b{font-size:17px}
+.ck-meal-review>section{padding:10px 8px 4px;margin:10px 0;border-radius:16px;min-width:0;overflow:hidden;background:#f8f4df}
+.ck-meal-review>section>header{display:flex;align-items:center;gap:9px;padding:0 2px}
+.ck-review-plate-icon{width:40px;height:40px;box-sizing:border-box;padding:3px;border-radius:50%;background:#c4d8c3;flex:0 0 40px}
+.ck-review-plate-icon .ck-plate-number{font-size:17px}
+.ck-review-plate-score{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:1;font-size:13px;font-weight:700}
+.ck-review-plate-score>b{display:flex;align-items:center;gap:3px;font-size:17px;color:#785b16}
+.ck-review-plate-score svg{width:20px;height:20px;color:#d5a027;stroke-width:1.2}
+.ck-meal-rail{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;overflow-y:hidden;padding:14px 0 10px 4px;scrollbar-width:thin;scroll-padding-inline-start:4px;scroll-snap-type:x proximity;overscroll-behavior-x:contain;box-sizing:border-box}
+.ck-review-resource{position:relative;display:block;flex:0 0 var(--ck-review-card-width,64px);width:var(--ck-review-card-width,64px);scroll-snap-align:start}
+.ck-meal-rail .ck-token{width:100%;height:114px;box-sizing:border-box}
+.ck-meal-rail .ck-token.ck-resource-card>.ck-resource-heading{justify-items:start;text-align:left;padding-left:6px}
+.ck-meal-rail .ck-token.ck-resource-card>img.ck-resource-icon{width:64px;height:64px;max-height:64px;min-height:0;object-fit:contain}
+.ck-review-quantity{position:absolute;top:-10px;right:-2px;display:grid;place-items:center;min-width:28px;height:28px;box-sizing:border-box;padding:0 4px;border:2px solid #fff9df;border-radius:50%;background:#155a61;color:#fff;font-size:11px;font-weight:800}
+.ck-meal-review .ck-review-empty{font-size:12px;color:#687b68;margin:12px 4px}
+
+/* Service stage: plates share the process row; the recipe has its own labelled strip. */
+.ck-workspace-heading:has(.ck-plate-tabs){gap:6px}
+.ck-workspace-heading:has(.ck-plate-tabs)>h2{font-size:14px;line-height:1.3;min-width:0;flex:1}
+.ck-root .ck-workspace-heading .ck-plate-tabs{display:flex;gap:3px;margin:0;flex:none}
+.ck-root .ck-workspace-heading .ck-plate-tabs button{width:44px;height:44px;min-height:44px;box-sizing:border-box;border:0;padding:0;margin:0;background:transparent;border-radius:50%;outline:none;box-shadow:none}
+.ck-root .ck-workspace-heading .ck-plate-tabs button.selected{background:#d5ebcd;box-shadow:0 0 0 2px #32845f}
+.ck-workspace-heading:has(.ck-plate-tabs) .ck-tabs{margin:0;gap:4px;flex:none}
+.ck-root .ck-cooking .ck-dish-heading{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.ck-root .ck-cooking .ck-dish-heading h3{margin:0;font-size:14px}
+.ck-cooking .ck-recipe-icons{display:flex;justify-content:flex-start;align-items:flex-start;gap:12px;padding:0;flex-wrap:wrap}
+.ck-cooking .ck-required-food{display:flex;flex-direction:column;align-items:center;gap:4px;width:62px;height:auto;flex:0 0 62px;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.ck-recipe-picture{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#f1e7c7;box-shadow:0 2px 3px #173e3626}
+.ck-cooking .ck-required-food img{width:44px;height:44px;object-fit:contain;border-radius:50%}
+.ck-required-food>small{font-size:12px;font-weight:700;line-height:1.4;white-space:nowrap}
+.ck-root .ck-cooking .ck-dish-item{align-self:flex-start;gap:0}
+.ck-root .ck-cooking .ck-dish-item>[data-token-detail]{height:114px;flex:none}
+.ck-root .ck-cooking .ck-spice-toggle{display:flex;align-items:center;justify-content:center;height:40px;min-height:40px;flex:none;gap:3px;padding:0;margin:0}
+.ck-root .ck-cooking .ck-spice-toggle input{width:20px;height:20px;min-width:20px;min-height:20px;max-height:20px;box-sizing:border-box;padding:0;margin:0;flex:none}
+.ck-root .ck-cooking .ck-spice-toggle img{width:40px;height:40px;max-height:40px;object-fit:contain;flex:none}
+.ck-root .ck-cooking .ck-broth{gap:18px;padding:0 6px}
+.ck-cooking .ck-broth-stepper{display:flex;align-items:center;justify-content:center;gap:12px}
+.ck-cooking .ck-broth-face{width:var(--ck-cook-card-width,72px);flex:0 0 var(--ck-cook-card-width,72px);padding:0}
+.ck-root .ck-cooking .ck-broth-face .ck-token{width:100%;height:114px;grid-template-rows:24px minmax(0,1fr) 20px}
+.ck-root .ck-cooking .ck-broth-face .ck-resource-heading{height:24px;min-height:24px;font-size:19px}
+.ck-root .ck-cooking .ck-broth-face img.ck-resource-icon{width:64px;height:64px;max-height:64px}
+.ck-root .ck-cooking .ck-broth-face .ck-token-name{font-size:12px;line-height:20px}
+.ck-cooking .ck-broth-amount{right:-14px;bottom:-3px;z-index:1;font-size:11px;line-height:18px}
+.ck-broth-controls{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;flex:none}
+.ck-root .ck-broth-controls>[data-broth]{display:grid;place-items:center;width:36px;height:36px;min-width:36px;min-height:36px;box-sizing:border-box;padding:0;margin:0;border-radius:50%;border:1px solid #cbbd8d;box-shadow:0 2px 0 #9d9368;background:#fff6d8}
+.ck-broth-controls>[data-broth]>svg{display:block;width:22px;height:22px;margin:0}
+@media(max-width:360px){.ck-root .ck-workspace-heading:has(.ck-plate-tabs)>h2{font-size:12px}.ck-root .ck-workspace-heading .ck-plate-tabs button{width:36px;height:36px;min-height:36px}.ck-workspace-heading:has(.ck-plate-tabs) .ck-tabs button{width:32px;height:32px;min-height:32px;padding:4px}.ck-cooking .ck-broth-stepper{gap:10px}}
+/* Generated ceramic plate is reused at thumbnail size; numbers remain accessible text. */
+.ck-root .ck-plate-number{background:transparent url('/art/critter-kitchen/thumbs/serving-plate.webp') center/contain no-repeat;border:0;border-radius:50%;box-shadow:none;color:#174e57;text-shadow:0 1px 0 #fff;font-weight:800}
+.ck-root .ck-review-plate-icon{background:transparent;padding:0}
+.ck-root .ck-workspace-heading .ck-plate-tabs button:focus-visible{outline:3px solid #af398e;outline-offset:2px}
+
+/* Fit all three reviewed plates in one viewport; only ingredient rails scroll. */
+.ck-serving-dialog[open]{display:flex;flex-direction:column;height:min(90svh,620px);max-height:90svh;overflow:hidden;box-sizing:border-box}
+.ck-serving-dialog .ck-dialog-body{flex:1;min-height:0;max-height:none;padding:12px;overflow:hidden}
+.ck-serving-dialog .ck-choice-preview{height:100%;display:flex;flex-direction:column;gap:8px;min-height:0}
+.ck-serving-dialog .ck-meal-total{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px 12px;margin:0;flex:none}
+.ck-serving-dialog .ck-meal-total>strong{font-size:34px;gap:5px;line-height:1.15}
+.ck-serving-dialog .ck-meal-total>strong>svg{width:28px;height:28px}
+.ck-serving-dialog .ck-meal-total>strong>small{font-size:14px}
+.ck-serving-dialog .ck-meal-total>b{font-size:14px}
+.ck-serving-dialog .ck-meal-total>small{font-size:11px}
+.ck-serving-dialog .ck-meal-review{flex:1;min-height:0;display:grid;grid-template-rows:repeat(var(--ck-review-plates,3),minmax(0,1fr));gap:8px}
+.ck-serving-dialog .ck-meal-review>section{min-height:0;display:flex;flex-direction:column;margin:0;padding:6px;border-radius:12px;box-sizing:border-box}
+.ck-serving-dialog .ck-meal-review>section>header{height:28px;flex:0 0 28px;padding:0;gap:6px;border:0}
+.ck-serving-dialog .ck-review-plate-icon{width:28px;height:28px;flex-basis:28px}
+.ck-serving-dialog .ck-review-plate-icon .ck-plate-number{font-size:13px}
+.ck-serving-dialog .ck-review-plate-score{flex:none;justify-content:flex-start;gap:9px;font-size:11px}
+.ck-serving-dialog .ck-review-plate-score>b{font-size:14px;gap:2px}
+.ck-serving-dialog .ck-review-plate-score svg{width:15px;height:15px}
+.ck-serving-dialog .ck-meal-rail{flex:1;min-height:0;align-items:center;padding:10px 0 4px 4px}
+.ck-serving-dialog .ck-review-resource{height:100%;max-height:76px;min-height:0}
+.ck-serving-dialog .ck-meal-rail .ck-token{height:100%;max-height:76px;grid-template-rows:18px minmax(0,1fr) 16px;border-bottom-width:3px;border-radius:8px}
+.ck-serving-dialog .ck-meal-rail .ck-token>.ck-resource-heading{height:18px;min-height:18px;font-size:14px;padding-left:4px}
+.ck-serving-dialog .ck-meal-rail .ck-token>img.ck-resource-icon{width:40px;max-width:100%;height:100%;min-height:0;max-height:40px}
+.ck-serving-dialog .ck-meal-rail .ck-token>.ck-token-name{font-size:10px;line-height:16px}
+.ck-serving-dialog .ck-meal-rail .ck-spice-badge{width:22px;height:22px;bottom:16px;right:1px}
+.ck-serving-dialog .ck-meal-rail .ck-spice-badge>img{width:20px;height:20px;max-height:20px;min-height:0}
+.ck-serving-dialog .ck-review-quantity{top:-8px;right:-1px;height:20px;min-width:20px;padding:0 3px;border-width:1px;font-size:9px}
+.ck-serving-dialog .ck-meal-review .ck-review-empty{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:0;padding:4px;box-sizing:border-box}
+.ck-serving-dialog .ck-empty-plate{display:block;width:auto;height:64px;max-height:100%;max-width:100%;object-fit:contain;opacity:.8}
+.ck-serving-dialog .ck-choice-actions{flex:none;padding:8px 12px 12px;gap:8px}
+.ck-serving-dialog .ck-choice-actions button{min-height:44px;padding:8px;font-size:14px}
+@media(max-height:620px){.ck-serving-dialog .ck-dialog-body{padding:8px}.ck-serving-dialog .ck-choice-preview{gap:6px}.ck-serving-dialog .ck-meal-review{gap:6px}.ck-serving-dialog .ck-meal-total>strong{font-size:28px}.ck-serving-dialog .ck-meal-total>strong>svg{width:24px;height:24px}}
+
+/* Broths join the pantry rail; larger centered plates show completion at a glance. */
+.ck-root .ck-cooking .ck-dish-heading h3{font-size:18px;font-weight:800}
+.ck-cooking .ck-recipe-icons{gap:14px}
+.ck-cooking .ck-required-food{width:74px;flex-basis:74px;gap:5px}
+.ck-cooking .ck-recipe-picture{width:62px;height:62px;background:#f3e5b7}
+.ck-cooking .ck-required-food img{width:62px;height:62px}
+.ck-cooking .ck-required-food>small{font-size:14px;font-weight:800}
+.ck-root .ck-cooking .ck-plate-tabs{display:flex;justify-content:center;align-items:center;gap:10px;margin:3px 0 0;padding:3px 0;flex:none}
+.ck-root .ck-cooking .ck-plate-tabs button{width:58px;height:58px;min-height:58px;padding:0;border:0;border-radius:50%;background:transparent;outline:none;box-shadow:none}
+.ck-root .ck-cooking .ck-plate-tabs button.selected{background:#c9e6bf;box-shadow:0 0 0 3px #2c8b5b}
+.ck-root .ck-cooking .ck-plate-tabs button:focus-visible{outline:3px solid #af398e;outline-offset:3px}
+.ck-root .ck-cooking .ck-plate-tabs .ck-plate-number{font-size:23px}
+.ck-plate-number>svg{width:28px;height:28px;color:#21834c;stroke-width:3.4}
+.ck-cook-broth .ck-broth-remaining{position:absolute;right:-6px;bottom:-8px;z-index:2;min-width:28px;height:22px;display:grid;place-items:center;padding:0 4px;box-sizing:border-box;border:1px solid #fff8df;border-radius:7px;background:#155a61;color:white;font-size:11px;font-weight:800;pointer-events:none}
+.ck-cook-source .ck-stock-empty>[data-token-detail]{opacity:.4}
+.ck-dish-quantity{align-self:flex-end;min-width:28px;line-height:22px;text-align:center;background:#155a61;color:#fffbed;border-radius:7px;font-size:11px;font-weight:800}
+
+/* Keep the draft frame fixed; ingredient rows retain horizontal scrolling only. */
+.ck-serving-dialog .ck-meal-review .ck-review-empty{flex-direction:column;gap:3px}
+.ck-serving-dialog .ck-empty-plate{flex:0 1 64px;min-height:0;max-height:calc(100% - 20px)}
+.ck-empty-caption{flex:none;font-size:11px;line-height:17px;color:#61765e;text-align:center}
+.ck-root .ck-action:has(.ck-cooking){display:flex;flex-direction:column;height:calc(100svh - 120px);max-height:calc(100svh - 112px);min-height:0;overflow:hidden}
+.ck-root.ck-shared.has-player .ck-action:has(.ck-cooking){height:100%}
+.ck-root .ck-cooking{height:100%;width:100%;min-height:0;gap:clamp(4px,1svh,10px)}
+.ck-root .ck-cooking>.ck-dish-heading,.ck-root .ck-cooking>.ck-course-tabs,.ck-root .ck-cooking>.ck-cook-stock-title{flex:none}
+.ck-root .ck-cooking .ck-dish-rail{flex:1;min-height:0;overflow-y:hidden;overscroll-behavior-y:none}
+.ck-root .ck-cooking .ck-serve-footer{position:static;flex:none;bottom:auto}
+@media(max-height:700px){
+ .ck-root .ck-cooking{gap:4px;--ck-draft-card-height:clamp(56px,calc(100svh - 500px),84px)}
+ .ck-root .ck-cooking .ck-dish-heading{flex-direction:row;align-items:center;gap:8px}
+ .ck-root .ck-cooking .ck-dish-heading h3{font-size:15px;max-width:84px;line-height:1.4}
+ .ck-cooking .ck-recipe-icons{gap:6px;flex-wrap:nowrap}
+ .ck-cooking .ck-required-food{width:52px;flex-basis:52px;gap:2px}
+ .ck-cooking .ck-recipe-picture,.ck-cooking .ck-required-food img{width:44px;height:44px}
+ .ck-cooking .ck-required-food>small{font-size:11px}
+ .ck-root .ck-cooking .ck-plate-tabs{gap:8px;margin:0;padding:3px 0}
+ .ck-root .ck-cooking .ck-plate-tabs button{width:44px;height:44px;min-height:44px}
+ .ck-root .ck-cooking .ck-plate-tabs .ck-plate-number{font-size:19px}
+ .ck-root .ck-cooking .ck-dish-rail{padding:10px 8px 2px}
+ .ck-root .ck-cooking .ck-dish-item>[data-token-detail],.ck-root .ck-cooking .ck-dish-item .ck-token{height:var(--ck-draft-card-height);min-height:0}
+ .ck-root .ck-cooking .ck-spice-toggle{height:30px;min-height:30px}
+ .ck-root .ck-cooking .ck-spice-toggle img{width:30px;height:30px;max-height:30px}
+ .ck-root .ck-cooking .ck-cook-source{height:100px;min-height:100px;padding-top:16px;padding-bottom:8px}
+ .ck-root .ck-cooking .ck-cook-source .ck-pick-card,.ck-root .ck-cooking .ck-cook-source .ck-token{height:76px}
+ .ck-root .ck-cooking .ck-resource-card{grid-template-rows:18px minmax(0,1fr) 16px}
+ .ck-root .ck-cooking .ck-resource-card>.ck-resource-heading{height:18px;min-height:18px;font-size:15px}
+ .ck-root .ck-cooking .ck-resource-card>img.ck-resource-icon{width:40px;height:100%;max-height:40px;min-height:0}
+ .ck-root .ck-cooking .ck-resource-card>.ck-token-name{font-size:10px;line-height:16px}
+ .ck-root .ck-cooking .ck-cook-stock-title{font-size:12px;line-height:18px}
+ .ck-root .ck-cooking .ck-serve-footer{padding:3px 0}
+ .ck-root .ck-cooking .ck-validation{font-size:11px}
+}
+@media(max-height:700px){
+ .ck-root .ck-cooking .ck-dish-item:has(select){display:grid;grid-template-columns:60px 72px;grid-template-rows:var(--ck-draft-card-height) 30px;flex-basis:138px;gap:2px 6px;align-items:center}
+ .ck-root .ck-cooking .ck-dish-item:has(select)>[data-token-detail]{grid-column:1;grid-row:1}
+ .ck-root .ck-cooking .ck-dish-item:has(select)>.ck-spice-toggle{grid-column:1;grid-row:2}
+ .ck-root .ck-cooking .ck-dish-item:has(select)>select{grid-column:2;grid-row:1;font-size:10px;min-height:28px;padding:2px}
+ .ck-root .ck-cooking .ck-dish-item:has(select)>label:not(.ck-spice-toggle){grid-column:2;grid-row:2;font-size:9px;display:flex;gap:2px;align-items:center}
+ .ck-root .ck-cooking .ck-dish-item:has(select)>label select{min-height:28px;font-size:10px;padding:1px;min-width:0}
+ .ck-root .ck-cooking .ck-dish-item:has(select)>.ck-remove-food{right:auto;left:44px}
+}
+
+/* Match pantry count seals on the lower-right of allocated broth cards. */
+.ck-root .ck-cooking .ck-dish-quantity,.ck-root .ck-cooking .ck-broth-remaining{position:absolute;right:-8px;bottom:-10px;z-index:2;display:grid;place-items:center;align-self:auto;width:36px;height:36px;min-width:36px;box-sizing:border-box;border:2px solid #fff8de;border-radius:50%;padding:0;background:#155a61;color:#fffbed;box-shadow:0 2px 3px #123d3440;font-size:12px;font-weight:800;line-height:1;pointer-events:none}
+.ck-root .ck-cooking .ck-dish-heading{align-items:center;justify-content:center;align-self:center;width:min(100%,420px);box-sizing:border-box;padding:14px 18px 10px;gap:6px;border:1px solid #c2ab70;border-radius:12px;background:#fff5d7 url('/art/critter-kitchen/thumbs/service-menu-paper.webp') center/100% 100% no-repeat;box-shadow:0 2px 0 #b19e6c40}
+.ck-root .ck-cooking .ck-dish-heading h3{font-size:16px;text-align:center;color:#174e57}
+.ck-cooking .ck-recipe-icons{justify-content:center;gap:12px}
+.ck-cooking .ck-required-food{width:70px;flex-basis:70px;gap:3px}
+.ck-cooking .ck-recipe-picture,.ck-cooking .ck-required-food img{width:52px;height:52px}
+.ck-cooking .ck-required-food>small{font-size:13px}
+@media(max-height:700px){
+ .ck-root .ck-cooking .ck-dish-heading{padding:7px 10px;gap:8px}
+ .ck-root .ck-cooking .ck-dish-heading h3{font-size:14px;max-width:80px}
+ .ck-cooking .ck-recipe-icons{gap:4px}
+ .ck-cooking .ck-required-food{width:46px;flex-basis:46px;gap:2px}
+ .ck-cooking .ck-recipe-picture,.ck-cooking .ck-required-food img{width:40px;height:40px}
+ .ck-cooking .ck-required-food>small{font-size:11px}
+}
+
+/* Count identical ingredients while retaining individual token identities in the draft. */
+.ck-root .ck-cooking .ck-ingredient-quantity{bottom:auto;top:calc(var(--ck-draft-card-height,114px) - 26px)}
+.ck-root .ck-kitchen .ck-ingredient-stock-quantity{top:auto;bottom:-10px;right:-8px}
+.ck-cooking .ck-recipe-picture{background:transparent;box-shadow:none;border:0;border-radius:0}
+.ck-cooking .ck-required-food img{border-radius:0}
+@media(max-height:700px){.ck-root .ck-cooking .ck-dish-item:has(select)>.ck-ingredient-quantity{right:auto;left:32px}}
+@media(max-height:700px){.ck-root .ck-cooking .ck-cook-source{height:104px;min-height:104px}}
+/* Keep longer ingredient names clear of the count seal. */
+.ck-root .ck-cooking .ck-ingredient-quantity,.ck-root .ck-cooking [data-stock-quantity],.ck-root .ck-kitchen .ck-ingredient-stock-quantity{right:-16px}
+@media(max-height:700px){.ck-root .ck-cooking .ck-dish-item:has(select)>.ck-ingredient-quantity{right:auto;left:40px}}
+.ck-serving-dialog .ck-review-quantity{top:auto;bottom:-3px;right:-10px}
+
+/* Stable five-player team identities and serving feedback. */
+.ck-pick-stamp[data-team=green]{border-color:#278650;background:#deefcf}.ck-pick-stamp[data-team=green]>small{background:#286346}
+.ck-pick-stamp[data-team=purple]{border-color:#9255ad;background:#eee0ff}.ck-pick-stamp[data-team=purple]>small{background:#703d84}
+.ck-pick-stamp[data-team=orange]{border-color:#d47626;background:#ffead3}.ck-pick-stamp[data-team=orange]>small{background:#a75c23}
+.ck-root .ck-action:has(.ck-serving-wait){display:grid;place-items:center;min-height:200px;text-align:center}
+.ck-serving-wait{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 10px}
+.ck-serving-wait .ck-wait-loader{display:grid;place-items:center;width:36px;height:36px;color:#368269}
+.ck-serving-wait .ck-wait-loader svg{width:32px;height:32px;animation:ck-wait-spin 1s linear infinite}
+.ck-serving-wait h2{font-size:18px;margin:0}.ck-serving-wait p{margin:0;font-size:14px}
+@media(prefers-reduced-motion:reduce){.ck-serving-wait .ck-wait-loader svg{animation:none}}
+.ck-serving-dialog[open]{height:min(94svh,760px);max-height:94svh}
+.ck-serving-dialog .ck-meal-total>strong{font-size:20px;gap:8px;max-width:100%}
+.ck-star-stack{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;max-width:250px;gap:1px 0;padding-left:7px}
+.ck-star-piece{display:block;width:25px;height:27px;margin-left:-7px;flex:0 0 25px}
+.ck-star-piece>svg{display:block;width:27px;height:27px;color:#dca329;stroke:#9d721a;stroke-width:1;filter:none}
+.ck-serving-dialog .ck-meal-review>section>header{height:24px;flex-basis:24px}
+.ck-serving-dialog .ck-review-plate-score{width:100%;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.ck-review-plate-label{font-size:12px;font-weight:800}
+.ck-serving-dialog .ck-review-plate-score>b{gap:3px;font-size:11px;flex:none}
+.ck-review-plate-score .ck-star-stack{max-width:120px;padding-left:5px;flex-wrap:nowrap}
+.ck-review-plate-score .ck-star-piece{width:17px;height:18px;flex-basis:17px;margin-left:-5px}
+.ck-serving-dialog .ck-review-plate-score .ck-star-piece>svg{width:18px;height:18px}
+.ck-review-plate-score small{font-size:10px;white-space:nowrap}
+.ck-serving-dialog .ck-review-resource,.ck-serving-dialog .ck-meal-rail .ck-token{max-height:114px}
+.ck-serving-dialog .ck-meal-rail .ck-token{grid-template-rows:24px minmax(0,1fr) 20px}
+.ck-serving-dialog .ck-meal-rail .ck-token>.ck-resource-heading{height:24px;min-height:24px;font-size:19px}
+.ck-serving-dialog .ck-meal-rail .ck-token>img.ck-resource-icon{width:64px;max-height:64px}
+.ck-serving-dialog .ck-meal-rail .ck-token>.ck-token-name{font-size:12px;line-height:20px}
+.ck-root .ck-token.ck-resource-card>.ck-spice-badge{overflow:hidden;box-sizing:border-box}
+.ck-root .ck-token.ck-resource-card>.ck-spice-badge>img{display:block;width:100%;height:100%;min-height:0;max-height:100%;max-width:100%;object-fit:contain;margin:0;box-sizing:border-box}
+@media(max-height:620px){.ck-review-plate-label{font-size:10px}.ck-serving-dialog .ck-meal-rail .ck-token{grid-template-rows:18px minmax(0,1fr) 16px}.ck-serving-dialog .ck-meal-rail .ck-token>.ck-resource-heading{height:18px;min-height:18px;font-size:15px}.ck-serving-dialog .ck-meal-rail .ck-token>img.ck-resource-icon{width:48px;max-height:48px}.ck-serving-dialog .ck-meal-rail .ck-token>.ck-token-name{font-size:10px;line-height:16px}}
+
+/* Keep only useful multiplicities and a clear left-to-right plating surface. */
+.ck-root .ck-dish-quantity[hidden],.ck-root .ck-broth-remaining[hidden],.ck-root .ck-pantry-quantity[hidden]{display:none}
+.ck-root .ck-cooking .ck-dish-rail{border:1px solid #c7bd91;border-radius:14px;background:#f3efdc99;box-shadow:inset 0 1px 3px #6c725512;align-items:center;justify-content:flex-start;padding:14px 12px 14px 8px}
+.ck-root .ck-cooking .ck-dish-item{align-self:center}
+.ck-root .ck-cooking .ck-dish-quantity,.ck-root .ck-cooking .ck-broth-remaining,.ck-root .ck-kitchen .ck-pantry-quantity{width:24px;height:24px;min-width:24px;font-size:10px;border-width:1px;right:-6px;bottom:-6px}
+.ck-root .ck-cooking .ck-ingredient-quantity{top:calc(var(--ck-draft-card-height,114px) - 18px);bottom:auto;right:-6px}
+.ck-serving-dialog .ck-review-quantity{width:18px;height:18px;min-width:18px;font-size:9px;top:auto;bottom:-3px;right:-6px}
+.ck-serving-dialog .ck-meal-total>strong{font-size:32px;gap:6px}
+.ck-serving-dialog .ck-meal-total>strong>small{font-size:30px;font-weight:800}
+.ck-star-stack{flex-wrap:nowrap;padding-left:0;max-width:none}
+.ck-star-piece{margin-left:0}
+.ck-review-plate-score .ck-star-stack{padding-left:0}
+.ck-review-plate-score .ck-star-piece{margin-left:0}
+@media(max-height:700px){.ck-root .ck-cooking .ck-dish-rail{padding:10px 12px 10px 8px}.ck-root .ck-cooking .ck-dish-item:has(select)>.ck-ingredient-quantity{right:auto;left:42px}}
+.ck-root .ck-kitchen .ck-pantry-quantity{top:auto}
+.ck-root .ck-kitchen .ck-broth-card.ck-stock-empty .ck-token{opacity:.4}
+
+/* Center the complete row, then align card tops independently of spice controls. */
+.ck-dish-row{display:flex;align-items:flex-start;gap:10px;flex:0 0 auto;min-width:100%}
+.ck-root .ck-cooking .ck-dish-row>.ck-dish-item{align-self:flex-start}
+
+/* Round serving results: paired columns or a measured horizontal player rail. */
+.ck-root[data-phase=challenge-results]>.ck-title,.ck-root[data-phase=challenge-results] .ck-board{display:none}
+.ck-root.has-player[data-phase=challenge-results],.ck-root.ck-shared.has-player[data-phase=challenge-results]{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:0 42px minmax(0,1fr) 230px;gap:6px;height:calc(100svh - 60px - env(safe-area-inset-bottom));min-height:440px;padding:0}
+.ck-root.has-player[data-phase=challenge-results] .ck-layout,.ck-root.has-player[data-phase=challenge-results] .ck-private{display:contents}
+.ck-root.has-player[data-phase=challenge-results]>.ck-workspace-heading{grid-column:1;grid-row:2;margin:0}
+.ck-root.has-player[data-phase=challenge-results] .ck-action{grid-column:1;grid-row:3;min-height:0;overflow:hidden;box-sizing:border-box;padding:8px}
+.ck-root.has-player[data-phase=challenge-results] .ck-kitchen{grid-column:1;grid-row:4;min-height:0;height:100%;box-sizing:border-box}
+.ck-root.display-only[data-phase=challenge-results]{display:block}
+.ck-root.display-only[data-phase=challenge-results] .ck-layout,.ck-root.display-only[data-phase=challenge-results] .ck-private{display:block!important}
+.ck-root[data-phase=challenge-results]>#ck-dialog-slot:empty{display:none}
+.ck-root.display-only[data-phase=challenge-results] .ck-action{height:calc(100svh - 105px);min-height:280px;max-height:750px;box-sizing:border-box}
+.ck-round-results{display:flex;flex-direction:column;gap:8px;height:100%;min-height:0}
+.ck-results-rail{display:flex;flex-wrap:nowrap;gap:10px;align-items:center;flex:1;min-height:0;overflow-x:auto;overflow-y:hidden;padding:4px 0 8px 6px;box-sizing:border-box;scroll-padding-inline-start:6px;scroll-snap-type:x proximity;scrollbar-width:thin;overscroll-behavior-x:contain}
+.ck-result-player{flex:0 0 var(--ck-result-width,220px);width:var(--ck-result-width,220px);height:100%;max-height:340px;box-sizing:border-box;min-width:0;min-height:0;display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid #c6b77e;border-radius:16px;background:linear-gradient(155deg,#fff9e1,#f1ebd1);box-shadow:0 3px 0 #bdaf7a44;scroll-snap-align:start}
+.ck-results-pair{padding:4px 0 8px}
+.ck-results-pair .ck-result-player{width:calc((100% - 10px)/2);flex-basis:calc((100% - 10px)/2)}
+.ck-result-player>header{display:flex;align-items:center;gap:6px;min-width:0;flex:none}
+.ck-result-player>header>strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
+.ck-result-total{display:flex;align-items:center;gap:4px;flex-wrap:wrap;flex:none}
+.ck-result-total>svg{width:23px;height:23px;color:#d5a027;stroke:#a57d23;stroke-width:1}
+.ck-result-total>b{font-size:25px;line-height:1.2}.ck-result-total>span{font-size:11px}.ck-result-total>small{width:100%;font-size:11px;color:#516b56}
+.ck-result-dishes{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:6px;min-height:0;flex:1}
+.ck-result-dish{display:flex;align-items:center;gap:5px;min-height:0;border-top:1px solid #d6cba5;padding-top:4px}
+.ck-result-plate{display:block;width:36px;height:36px;flex:0 0 36px}
+.ck-result-plate .ck-plate-number{font-size:15px}
+.ck-result-quality{font-size:11px;line-height:1.3;flex:1}
+.ck-result-dish-stars{display:flex;align-items:center;gap:2px;font-size:17px}
+.ck-result-dish-stars>svg{width:17px;height:17px;color:#d5a027;stroke:#9f741b;stroke-width:1}
+.ck-round-results>footer{display:flex;justify-content:center;flex:none}
+.ck-root .ck-next-fridge{display:grid;place-items:center;width:52px;height:52px;min-height:52px;padding:11px;border:1px solid #277a4b;border-radius:50%;background:linear-gradient(#44af70,#177345);color:white;box-shadow:0 3px 0 #125532,0 4px 7px #184b3433}
+.ck-next-fridge>svg{width:27px;height:27px}
+@media(max-width:500px){.ck-result-player{padding:8px;gap:6px}.ck-result-player>header>strong{font-size:12px}.ck-result-player .profile-avatar{width:26px;height:26px;min-width:26px;max-width:26px;flex-basis:26px}.ck-result-plate{width:30px;height:30px;flex-basis:30px}.ck-result-quality{font-size:10px}.ck-result-dish-stars{font-size:14px}.ck-result-dish-stars>svg{width:14px;height:14px}}
+@media(max-height:700px){.ck-result-player{padding:6px;gap:3px}.ck-result-player>header>strong{font-size:11px}.ck-result-total>b{font-size:19px}.ck-result-total>svg{width:17px;height:17px}.ck-result-total>small{font-size:9px}.ck-result-dishes{gap:2px}.ck-result-dish{padding-top:1px;gap:3px}.ck-result-plate{width:24px;height:24px;flex-basis:24px}.ck-result-plate .ck-plate-number{font-size:11px}.ck-result-quality{font-size:9px}.ck-root .ck-next-fridge{width:44px;height:44px;min-height:44px;padding:8px}.ck-next-fridge>svg{width:24px;height:24px}}
+
+/* Stable market card alignment before and after a pickup. */
+.ck-root[data-phase=shopping] .ck-action:has(.ck-picks),.ck-root.ck-shared.has-player[data-phase=shopping] .ck-action:has(.ck-picks){display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:0}
+.ck-action:has(.ck-picks)>.ck-shopping-scene,.ck-action:has(.ck-picks)>.ck-pick-toolbar{flex:none}
+.ck-root[data-phase=shopping] .ck-action>.ck-picks{flex:1 0 auto;min-height:190px;align-items:center;justify-content:safe center}
+.ck-root[data-phase=shopping] .ck-action:has(.ck-picks)>.ck-waiting-inline{flex:none;box-sizing:border-box;height:40px;min-height:40px}
+.ck-root[data-phase=shopping] .ck-action:has(.ck-picks):not(:has(.ck-waiting-inline)):after{content:"";display:block;flex:none;height:40px}
+.ck-root .ck-sold-ribbon{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);z-index:3;padding:3px 0;text-align:center;background:#193f41e8;color:#fff5dd;border-block:1px solid #e8cf8a;font-size:14px;font-weight:800;line-height:1.5;pointer-events:none}
+.ck-root .ck-rumor-slot{overflow:visible}
+/* Keep full-mobile market height stable without changing the public-board layout. */
+.ck-root.has-player[data-phase=shopping] .ck-action:has(.ck-picks){height:480px;box-sizing:border-box;overflow:auto}
+.ck-root.ck-shared.has-player[data-phase=shopping] .ck-action:has(.ck-picks){height:100%}
+.ck-root[data-phase=shopping] .ck-pick-toolbar{min-height:44px;box-sizing:border-box}
+
+/* Pickup portraits occupy the same circle and position as the plus control. */
+.ck-root .ck-pick-stamps{top:-10px;right:-7px;transition:none;animation:none}
+.ck-root .ck-pick-stamps .ck-pick-stamp,.ck-root .ck-pick-stamps .ck-pick-stamp:not(:last-child){width:36px;height:36px;flex-basis:36px;transform:none;transition:none;animation:none}
+.ck-root .ck-pick-card.ck-rumor-unavailable>[data-pick] .ck-token.ck-rumor-face{filter:grayscale(1);opacity:.55}
+.ck-root .ck-sold-ribbon{background:#fff5d99c;color:#254e48;border-color:#fff8df80;text-shadow:0 1px 1px #fff9e6}
+
+/* Shopping is a viewport-sized surface in both player modes. */
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks),.ck-root.ck-shared.has-player[data-phase=shopping]:has(.ck-picks){display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:0 42px minmax(0,1fr) 230px;gap:6px;height:calc(100svh - 60px - env(safe-area-inset-bottom));min-height:0;padding:0;overflow:hidden}
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-layout,.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-private{display:contents}
+.ck-root.has-player[data-phase=shopping] .ck-board{display:none!important}
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks)>.ck-workspace-heading{grid-column:1;grid-row:2;margin:0}
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-action{grid-column:1;grid-row:3;height:100%;min-height:0;overflow:hidden;box-sizing:border-box;padding:8px}
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-kitchen{grid-column:1;grid-row:4;height:100%;min-height:0;box-sizing:border-box;overflow:hidden}
+.ck-root.has-player[data-phase=shopping]>#ck-dialog-slot:empty{display:none}
+.ck-root .ck-pantry-cards .ck-unknown-card>strong{position:absolute;bottom:0;left:0;right:0;padding:24px 5px 7px;background:linear-gradient(transparent,#092d2be8 65%);color:#fffbed;text-shadow:0 1px 2px #000;font-size:11px;line-height:1.4;text-align:center}
+@media(max-height:700px){
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks),.ck-root.ck-shared.has-player[data-phase=shopping]:has(.ck-picks){grid-template-rows:0 42px minmax(0,1fr) 170px}
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-shopping-scene{min-height:0;height:76px;box-sizing:border-box;padding:5px 10px}
+.ck-root.has-player[data-phase=shopping] .ck-shopping-scene .ck-chef-face{height:64px;width:44px}
+.ck-root.has-player[data-phase=shopping] .ck-shopping-scene>strong{font-size:17px}
+.ck-root.has-player[data-phase=shopping] .ck-pick-toolbar{min-height:32px;margin:4px 0;gap:6px}
+.ck-root.has-player[data-phase=shopping] .ck-pick-toolbar p{font-size:10px}
+.ck-root.has-player[data-phase=shopping] .ck-return-home{height:32px;width:32px;min-height:32px;padding:6px}
+.ck-root.has-player[data-phase=shopping] .ck-action>.ck-picks{min-height:112px;flex:1 1 0;padding-top:18px;padding-bottom:4px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-card,.ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-card>[data-pick],.ck-root.has-player[data-phase=shopping] .ck-picks .ck-token{height:90px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-resource-card{grid-template-rows:20px minmax(0,1fr) 18px}
+.ck-root.has-player[data-phase=shopping] .ck-action:has(.ck-picks)>.ck-waiting-inline,.ck-root.has-player[data-phase=shopping] .ck-action:has(.ck-picks):not(:has(.ck-waiting-inline)):after{height:32px;min-height:32px}
+.ck-root.has-player[data-phase=shopping] .ck-waiting-inline p{font-size:10px;line-height:12px}
+.ck-root.has-player[data-phase=shopping] .ck-kitchen .ck-inventory{height:112px;padding-top:10px;padding-bottom:8px}
+.ck-root.has-player[data-phase=shopping] .ck-kitchen .ck-token{height:90px}
+}
+@media(max-height:700px){
+.ck-root.has-player[data-phase=shopping] .ck-waiting-inline{padding:0;gap:2px}
+.ck-root.has-player[data-phase=shopping] .ck-waiting-inline .ck-wait-loader,.ck-root.has-player[data-phase=shopping] .ck-waiting-inline .ck-wait-loader>svg{width:16px;height:16px}
+}
+
+/* A flush destination cover and a larger, responsive public pickup rail. */
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-action{padding:0}
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-shopping-scene{min-height:130px;height:130px;box-sizing:border-box;border-radius:14px 14px 0 0;margin:0;width:100%}
+.ck-root.has-player[data-phase=shopping] .ck-pick-toolbar{padding-inline:10px}
+.ck-market-cards{position:relative;display:flex;flex:1 1 0;min-height:0;min-width:0}
+.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks{flex:1;min-height:0;height:100%;padding:22px 10px;align-items:center;box-sizing:border-box;overflow-x:auto;overflow-y:hidden}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-card,.ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-card>[data-pick],.ck-root.has-player[data-phase=shopping] .ck-picks .ck-token,.ck-root.has-player[data-phase=shopping] .ck-picks .ck-chef-offer-face{height:var(--ck-market-card-height,114px);width:var(--ck-resource-width,72px)}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-resource-card{grid-template-rows:24px minmax(0,1fr) 22px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-token>img.ck-resource-icon{width:70%;height:auto;min-height:0;max-height:65%;aspect-ratio:1;object-fit:contain}
+.ck-root .ck-sold-ribbon{background:none;border:0;color:#173f3d;text-shadow:0 1px 2px #fff,0 0 5px #fff,0 0 9px #fff;font-size:16px}
+.ck-market-loading{position:absolute;inset:0;z-index:6;display:grid;place-items:center;pointer-events:none}
+.ck-market-loading>svg{width:42px;height:42px;padding:9px;box-sizing:border-box;border-radius:50%;color:#246a5b;background:#fff9e7eb;box-shadow:0 2px 8px #153b3333;animation:ck-wait-spin 1s linear infinite}
+.ck-root[data-waiting=true] .ck-market-cards [data-pick]{opacity:.35}
+.ck-root[data-waiting=true] .ck-market-cards .ck-owned [data-pick]{opacity:.55}
+@media(max-height:700px){
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-shopping-scene{min-height:0;height:76px}
+.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks{padding-block:20px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-resource-card{grid-template-rows:20px minmax(0,1fr) 18px}
+}
+@media(prefers-reduced-motion:reduce){.ck-market-loading>svg{animation:none}}
+/* Reserve horizontal scrollbar space so changing controls cannot shift the row. */
+.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks{overflow-x:scroll}
+
+.ck-market-cards{container-type:size}
+.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks{--ck-market-card-height:clamp(72px,calc(100cqh - 50px),260px)}
+
+/* Compact market cards flow into two rows, then additional horizontal columns. */
+.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks{--ck-market-rows:1;--ck-market-card-height:clamp(44px,calc((100cqh - 40px - (var(--ck-market-rows) - 1)*20px)/var(--ck-market-rows)),var(--ck-market-card-max,114px));--ck-resource-width:calc(var(--ck-market-card-height)*.66);display:grid;grid-auto-flow:column;grid-template-rows:repeat(var(--ck-market-rows),var(--ck-market-card-height));grid-auto-columns:var(--ck-resource-width);gap:20px 10px;align-content:center;align-items:center;justify-content:safe center;padding:20px 10px;scrollbar-width:thin}
+.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks[data-rows="2"]{--ck-market-rows:2}
+.ck-root .ck-pantry-cards .ck-unknown-card>.ck-art{filter:grayscale(1)}
+@media(max-height:700px){
+.ck-root.has-player[data-phase=shopping]:has(.ck-picks) .ck-shopping-scene{height:56px}
+.ck-root.has-player[data-phase=shopping] .ck-shopping-scene .ck-chef-face{height:46px;width:34px}
+.ck-root.has-player[data-phase=shopping] .ck-action:has(.ck-picks)>.ck-waiting-inline,.ck-root.has-player[data-phase=shopping] .ck-action:has(.ck-picks):not(:has(.ck-waiting-inline)):after{height:24px;min-height:24px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-resource-card{grid-template-rows:16px minmax(0,1fr) 14px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-resource-heading{font-size:13px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-token-name,.ck-root.has-player[data-phase=shopping] .ck-picks .ck-chef-offer-face strong{font-size:9px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-rumor-caption{padding:10px 1px 3px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-buy-button{width:26px;height:26px;min-height:26px;padding:3px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-buy-button svg{width:16px;height:16px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-stamp,.ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-stamp:not(:last-child){width:26px;height:26px;flex-basis:26px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-spice-badge{width:19px;height:19px;right:1px;bottom:12px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-spice-badge>img{width:17px;height:17px;max-height:17px}
+}
+
+@media(max-height:700px){.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks{--ck-market-card-max:90px}}
+
+/* Give the pickup grid the entire area below its destination cover. */
+.ck-root.has-player[data-phase=shopping] .ck-action:has(.ck-picks):after{display:none!important}
+.ck-root.has-player[data-phase=shopping] .ck-workspace-heading .ck-return-home{width:36px;height:36px;min-height:36px;padding:7px}
+.ck-market-loading>svg{width:64px;height:64px;padding:12px}
+/* Sold cards keep a clear edge; pickup art matches the pantry's 64 × 64 face. */
+.ck-root .ck-picks .ck-pick-card.ck-exhausted>[data-pick]{outline:2px solid #526b64;outline-offset:-2px}
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-token>img.ck-resource-icon{width:64px;height:min(64px,max(0px,calc(var(--ck-market-card-height) - 50px)));max-width:100%;max-height:64px;min-height:0;object-fit:contain}
+@media(max-height:700px){.ck-root.has-player[data-phase=shopping] .ck-picks .ck-token>img.ck-resource-icon{height:min(64px,max(0px,calc(var(--ck-market-card-height) - 34px)))}}
+/* Chef offers use full-bleed artwork beneath the existing name shadow. */
+.ck-root .ck-pick-card .ck-token.ck-chef-offer-face>img{object-fit:cover;object-position:center;width:100%;height:100%;max-width:none;max-height:none;margin:0}
+/* Keep reusable soup's corner free and give waiting copy its own floating line. */
+.ck-market-loading{grid-template-rows:auto auto;align-content:center;gap:9px;text-align:center}
+.ck-market-loading>svg{justify-self:center}
+.ck-market-loading>span{justify-self:center;padding:4px 12px;border-radius:20px;background:#fff9e7eb;color:#20594f;font-size:13px;font-weight:700;box-shadow:0 2px 8px #153b3320}
+/* Final courses are a compact wrapping collection, rather than one oversized course. */
+.ck-root.has-player:has(.ck-final-cooking){display:block;height:auto;min-height:0;overflow:visible}
+.ck-root.has-player:has(.ck-final-cooking)>.ck-title,.ck-root:has(.ck-final-cooking) .ck-board{display:none!important}
+.ck-root.has-player:has(.ck-final-cooking) .ck-layout,.ck-root.has-player:has(.ck-final-cooking) .ck-private{display:block}
+.ck-root.has-player:has(.ck-final-cooking) .ck-action{height:auto;max-height:none;overflow:visible;padding:12px}
+.ck-root .ck-final-cooking{display:flex;flex-direction:column;height:auto;min-height:0;gap:12px;--ck-cook-card-width:72px!important}
+.ck-root .ck-final-cooking .ck-dish-rail{flex:none;height:auto;min-height:0;max-height:none;overflow:visible;padding:16px 10px}
+.ck-root .ck-final-cooking .ck-dish-row{flex-wrap:wrap;gap:16px;min-height:0}
+.ck-root .ck-final-cooking .ck-cook-source{display:flex;flex-wrap:wrap;flex:none;height:auto;min-height:0;max-height:none;overflow:visible;gap:18px 12px;padding:16px 8px;--ck-resource-width:72px!important}
+.ck-root .ck-final-cooking .ck-cook-source .ck-pick-card{flex:0 0 72px}
+.ck-root .ck-final-cooking .ck-serve-footer{position:static;flex:none;margin-top:6px}
+.ck-final-serving-dialog{width:calc(100vw - 16px);max-width:1000px;height:calc(100svh - 16px);max-height:calc(100svh - 16px);margin:8px auto;overflow:hidden}
+.ck-final-serving-dialog .ck-dialog-body{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden}
+.ck-final-serving-dialog .ck-choice-preview{height:auto;overflow:visible;flex:none}
+.ck-final-serving-dialog .ck-meal-review{display:block;flex:none;height:auto;overflow:visible}
+.ck-final-serving-dialog .ck-meal-review>section{height:auto;min-height:0;padding:14px 8px}
+.ck-final-serving-dialog .ck-meal-rail{display:flex;flex-wrap:wrap;align-content:flex-start;justify-content:flex-start;gap:14px;flex:none;height:auto;min-height:0;overflow:visible;padding:14px 6px}
+.ck-final-serving-dialog .ck-review-resource{flex:0 0 72px;width:72px;height:114px}
+.ck-final-serving-dialog .ck-meal-rail .ck-token{height:114px;max-height:none;min-height:0;grid-template-rows:24px minmax(0,1fr) 20px}
+.ck-final-serving-dialog .ck-meal-total{flex:none;margin-bottom:12px}
+/* Shared reveal gates and the same rounded, dimensional result frames in each summary. */
+.ck-reveal-gate{min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:22px}
+.ck-reveal-gate>svg{width:64px;height:64px;color:#daa92f;filter:drop-shadow(0 4px 0 #94681244)}
+.ck-root .ck-reveal-button{padding:12px 26px;border-radius:30px;background:linear-gradient(#299c89,#12646c);color:#fff7d8;box-shadow:0 4px 0 #0e4e51}
+.ck-final-results{display:flex;gap:12px;align-items:stretch;overflow-x:auto;padding:10px 2px 14px}
+.ck-final-results>.ck-result-player{flex:0 0 min(72vw,300px);width:min(72vw,300px);height:auto;max-height:none;min-height:300px}
+.ck-final-pair>.ck-result-player{flex:0 0 calc((100% - 12px)/2);width:calc((100% - 12px)/2)}
+.ck-final-breakdown{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.ck-score-step{display:flex;align-items:center;justify-content:space-between;gap:5px;border-top:1px solid #d9cc9d;padding-top:6px;font-size:12px}
+.ck-score-step>b{display:flex;align-items:center;gap:3px;white-space:nowrap}.ck-score-step svg{width:14px;height:14px;color:#c99625}
+.ck-result-crown{display:none;color:#b67912;font-size:24px;margin-left:auto}.ck-rank-reason{visibility:hidden;margin-top:12px;font-size:11px}
+.ck-count-complete [data-winner=true]{background:linear-gradient(145deg,#fff6be,#f7e7ad);border-color:#c79128;box-shadow:0 4px 0 #b07b2c66}
+.ck-count-complete [data-winner=true] .ck-result-crown{display:inline}.ck-count-complete .ck-rank-reason{visibility:visible}
+.ck-counting .ck-score-step{animation:ck-score-reveal .5s both;animation-delay:calc(var(--ck-step)*.36s)}
+.ck-counting .ck-result-dish{animation:ck-score-reveal .6s both}.ck-counting .ck-result-dish:nth-child(2){animation-delay:.65s}.ck-counting .ck-result-dish:nth-child(3){animation-delay:1.3s}
+@keyframes ck-score-reveal{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+.ck-final-result-dialog{width:min(960px,calc(100vw - 18px));max-width:none;max-height:94svh;padding:0;overflow-y:auto}
+.ck-final-result-dialog .ck-dialog-body{padding:18px 12px}
+.ck-final-result-dialog .ck-result-art{display:block;width:100%;height:clamp(90px,18svh,180px);object-fit:cover;border-radius:16px;margin-bottom:14px}
+.ck-final-result-dialog h2{text-align:center;margin:10px 0}
+.ck-final-actions{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin:20px 0 5px}
+.ck-final-actions>button{border-radius:24px}
+@media(max-width:500px){.ck-score-step{font-size:10px;gap:3px}.ck-score-step svg{width:12px;height:12px}.ck-final-results>.ck-result-player{padding:8px;min-height:0}.ck-final-result-dialog .ck-dialog-body{padding:12px 8px}.ck-result-crown{font-size:20px}.ck-final-results header{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.ck-counting .ck-score-step,.ck-counting .ck-result-dish{animation:none}}
+.ck-reveal-gate{min-height:0;height:100%;box-sizing:border-box}
+@media(max-height:700px){.ck-reveal-gate{padding:12px;gap:8px}.ck-reveal-gate>svg{width:36px;height:36px}.ck-reveal-gate h2{font-size:16px;margin:0}.ck-reveal-gate p{font-size:12px;margin:0}.ck-root .ck-reveal-button{padding:9px 18px}}
+.ck-root .ck-final-cooking .ck-dish-row{flex:1 1 100%;width:100%;min-width:0;max-width:100%}
+.ck-root .ck-final-cooking,.ck-root .ck-final-cooking .ck-cook-source{min-width:0;max-width:100%;box-sizing:border-box}
+.ck-final-serving-dialog[open]{position:fixed;inset:8px;margin:0;width:calc(100% - 16px);max-width:none;height:calc(100% - 16px);max-height:none;transform:none}
+
+.ck-final-actions>button{padding:10px 18px;border:1px solid #8ba995;background:#fff5d9;color:#155a61}
+.ck-final-actions>#ck-result-restart{background:linear-gradient(#329c76,#176b55);border-color:#176b55;color:#fffbed;box-shadow:0 3px 0 #15523f}
+/* End-of-game landing: artwork and actions, kept within one viewport. */
+.ck-root[data-phase=finished],.ck-root.ck-shared.has-player[data-phase=finished],.ck-root.display-only[data-phase=finished]{display:block;height:calc(100svh - 60px - env(safe-area-inset-bottom));min-height:0;padding:0;overflow:hidden}
+.ck-root[data-phase=finished]>.ck-title,.ck-root[data-phase=finished]>.ck-workspace-heading,.ck-root[data-phase=finished] .ck-board,.ck-root[data-phase=finished] .ck-kitchen{display:none!important}
+.ck-root[data-phase=finished] .ck-layout,.ck-root[data-phase=finished] .ck-private{display:block!important;height:100%;min-height:0}
+.ck-root[data-phase=finished] .ck-action{display:flex;align-items:center;justify-content:center;height:100%;max-height:none;min-height:0;overflow:hidden;padding:clamp(12px,2vw,24px);box-sizing:border-box}
+.ck-finished-hub{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;max-width:1100px;gap:22px;margin:auto;min-height:0}
+.ck-finished-art{width:100%;flex:1;min-height:0;max-height:70svh;border-radius:22px;overflow:hidden;box-shadow:0 4px 0 #b6a87855}
+.ck-finished-art>.ck-art{display:block;width:100%;height:100%;object-fit:cover}
+.ck-finished-hub>footer{display:flex;justify-content:center;align-items:center;gap:14px;flex:none;padding:4px 0 8px}
+.ck-root .ck-finished-hub #ck-show-result,.ck-root .ck-finished-hub #ck-restart{width:auto;min-height:48px;margin:0;padding:10px 22px;border-radius:28px}
+.ck-root .ck-finished-hub #ck-show-result{background:#fff5d9;color:#155a61;border:1px solid #83a69a}
+.ck-exit-room{display:grid;place-items:center;flex:none;width:48px;height:48px;border:1px solid #83a69a;border-radius:50%;background:#fff5d9;color:#155a61}
+.ck-exit-room>svg{width:25px;height:25px}
+.ck-gate-art{display:block;width:min(100%,700px);max-height:45svh;object-fit:cover;border-radius:20px}
+/* Every popup close control has a visible circular target. */
+.ck-dialog.ck-dialog .ck-close,.ck-root .ck-dialog .ck-close{position:absolute;display:grid;place-items:center;width:42px;height:42px;min-width:42px;min-height:42px;aspect-ratio:1;box-sizing:border-box;padding:7px;border:2px solid #9bb9a5!important;border-radius:50%!important;background:#fffbed!important;color:#155a61;box-shadow:0 2px 5px #173d3433!important;z-index:10}
+.ck-dialog.ck-dialog .ck-close>svg{display:block;width:24px;height:24px}
+.ck-dialog.ck-dialog .ck-close:focus-visible{outline:3px solid #d59f38!important;outline-offset:2px}
+/* The result popup reserves fixed heading/total slots and scrolls only horizontally. */
+.ck-final-result-dialog[open]{display:flex;flex-direction:column;width:min(960px,calc(100vw - 16px));height:min(94svh,820px);max-height:94svh;box-sizing:border-box;overflow:hidden;padding:0}
+.ck-final-result-dialog .ck-dialog-body{display:flex;flex-direction:column;flex:1;min-height:0;max-height:none;height:100%;overflow:hidden;gap:10px;padding:12px;box-sizing:border-box}
+.ck-final-hero{position:relative;flex:0 0 clamp(80px,18svh,160px);min-height:0;overflow:hidden;border-radius:16px}
+.ck-final-result-dialog .ck-final-hero>.ck-result-art{display:block;width:100%;height:100%;margin:0;border-radius:0;object-fit:cover}
+.ck-final-result-dialog .ck-final-hero>h2{position:absolute;inset:0;display:grid;place-items:center;margin:0;font-size:clamp(22px,4vw,34px);color:#174b48;text-shadow:0 1px 4px white}
+.ck-final-hero>h2:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse,#fffdf0f5 5%,#fffdf0b8 28%,#fffdf000 72%)}
+.ck-final-hero>h2>span{position:relative}
+.ck-final-result-dialog .ck-final-results{display:flex;flex-wrap:nowrap;flex:1;min-height:0;align-items:stretch;gap:12px;overflow-x:auto;overflow-y:hidden;padding:8px 0 8px 6px;scrollbar-width:thin;box-sizing:border-box;scroll-padding-left:6px}
+.ck-final-result-dialog .ck-final-pair{padding-inline:0}
+.ck-final-result-dialog .ck-final-results>.ck-result-player{display:flex;flex-direction:column;flex:0 0 var(--ck-final-player-width,240px);width:var(--ck-final-player-width,240px);height:100%;max-height:none;min-height:0;padding:12px;gap:6px;box-sizing:border-box}
+.ck-final-result-dialog .ck-final-pair>.ck-result-player{flex-basis:calc((100% - 12px)/2);width:calc((100% - 12px)/2)}
+.ck-final-result-dialog .ck-result-player>header{position:relative;flex:0 0 36px;height:36px;min-height:36px;padding-right:26px;box-sizing:border-box;flex-wrap:nowrap;overflow:hidden}
+.ck-final-result-dialog .ck-result-crown{position:absolute;right:0;top:50%;transform:translateY(-50%);display:block;visibility:hidden;margin:0;width:24px;text-align:center;line-height:1}
+.ck-final-result-dialog.ck-count-complete [data-winner=true] .ck-result-crown{visibility:visible}
+.ck-final-result-dialog .ck-result-total{height:38px;flex:0 0 38px;flex-wrap:nowrap;margin:0}
+.ck-final-result-dialog .ck-result-player>small:not(.ck-rank-reason){height:16px;flex:0 0 16px;line-height:16px;font-size:11px;white-space:nowrap}
+.ck-final-result-dialog .ck-final-breakdown{display:grid;grid-template-rows:repeat(7,minmax(0,1fr));flex:1;min-height:0;gap:0;margin:6px 0 0}
+.ck-final-result-dialog .ck-score-step{min-height:0;line-height:1.2;padding:0;font-size:12px}
+.ck-final-result-dialog .ck-rank-reason{height:30px;flex:0 0 30px;overflow:hidden;margin:4px 0 0;font-size:10px;line-height:15px}
+.ck-final-result-dialog .ck-final-actions{flex:none;margin:4px 0 2px;gap:12px}
+@media(max-width:500px){.ck-final-result-dialog .ck-final-results>.ck-result-player{padding:8px;gap:4px}.ck-final-result-dialog .ck-score-step{font-size:10px}.ck-final-result-dialog .ck-result-player>small:not(.ck-rank-reason){font-size:9px}.ck-final-result-dialog .ck-result-total>b{font-size:24px}.ck-final-result-dialog .ck-result-total>svg{width:20px;height:20px}.ck-final-result-dialog .ck-result-player>header>strong{font-size:12px}}
+@media(max-height:650px){.ck-final-result-dialog .ck-dialog-body{padding:8px;gap:6px}.ck-final-hero{flex-basis:76px}.ck-final-result-dialog .ck-result-player>header{height:30px;min-height:30px;flex-basis:30px}.ck-final-result-dialog .ck-result-total{height:30px;flex-basis:30px}.ck-final-result-dialog .ck-final-actions>button{min-height:40px;padding:7px 14px}.ck-final-result-dialog .ck-score-step{font-size:10px}.ck-final-result-dialog .ck-rank-reason{height:26px;flex-basis:26px;line-height:13px}}
+/* The market is a vertical destination catalogue, with one horizontal stock rail each. */
+.ck-root .ck-board .ck-market{display:flex!important;flex-direction:column;gap:16px;margin:0;min-height:0}
+.ck-root .ck-board .ck-location,.ck-root.ck-shared.has-player .ck-board .ck-location{display:block;flex:none;min-width:0}
+.ck-root .ck-board .ck-market-tabs{display:none!important}
+.ck-root .ck-board{overflow-y:auto;overflow-x:hidden}
+.ck-root .ck-board .ck-location>header{display:flex;align-items:flex-start;justify-content:flex-start;min-height:100px;height:100px;box-sizing:border-box;padding:12px;background:linear-gradient(90deg,#103c42dc,transparent 85%),var(--loc) center/cover}
+.ck-root .ck-board .ck-location-caption{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0}
+.ck-root .ck-board .ck-location>header button{background:transparent!important;border:0;box-shadow:none;padding:0;min-height:0;color:#fffbed;font-size:18px;line-height:1.5;text-align:left;text-shadow:0 1px 3px #132d2e}
+.ck-root .ck-board .ck-location>header small{display:block;position:static;font-size:12px;color:#fffbed;max-width:none;text-align:left;text-shadow:0 1px 2px #123f3d}
+.ck-root .ck-board .ck-market-stock{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;gap:6px;height:166px;min-height:166px;padding:18px 0 26px 8px;box-sizing:border-box;scrollbar-width:thin;align-items:flex-start;max-width:100%;scroll-padding-left:8px}
+.ck-market-token{position:relative;flex:0 0 var(--ck-resource-width,72px);width:var(--ck-resource-width,72px);height:114px;min-width:0}
+.ck-root .ck-board .ck-market-token>[data-pick]{display:block;width:100%;height:114px;min-height:0;padding:0;border:0;border-radius:10px;background:transparent;box-shadow:none;overflow:hidden}
+.ck-root .ck-board .ck-market-token .ck-token{width:100%;height:114px;box-sizing:border-box;border-radius:10px}
+.ck-root .ck-board .ck-market-token .ck-token.ck-resource-card{grid-template-rows:24px minmax(0,1fr) 20px}
+.ck-root .ck-board .ck-market-token .ck-token>img.ck-resource-icon{width:64px;height:64px;min-height:0;max-width:100%;max-height:64px;object-fit:contain;margin:auto}
+.ck-root .ck-board .ck-market-token .ck-token.ck-chef-offer-face>img,.ck-root .ck-board .ck-market-token .ck-token.ck-rumor-face>img{width:100%;height:100%;max-height:none;max-width:none;object-fit:cover;margin:0}
+.ck-root .ck-board .ck-market-token .ck-token.ck-chef-offer-face,.ck-root .ck-board .ck-market-token .ck-token.ck-rumor-face{display:block;position:relative;padding:0;overflow:hidden}
+.ck-root .ck-board .ck-market-token.ck-market-owned>[data-pick]{filter:grayscale(1)}
+.ck-market-owner-name{display:block;position:absolute;left:0;right:0;top:calc(100% + 5px);color:#1d5c51;font-size:10px;line-height:14px;white-space:nowrap;text-align:center;overflow:hidden;text-overflow:ellipsis}
+.ck-root .ck-board .ck-market-token .ck-pick-stamps{top:-10px;right:-5px}.ck-root .ck-board .ck-market-token .ck-pick-stamp{width:30px;height:30px;flex-basis:30px}
+.ck-root .ck-buy-chef-preview .ck-token.ck-chef-offer-face>img{object-fit:cover}
+.ck-market-cards{justify-content:center}
+.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks[data-many=true]{flex:0 0 auto;width:var(--ck-pick-window,100%);max-width:100%;justify-content:flex-start}
+@media(max-height:700px){.ck-root .ck-board .ck-market-stock{height:142px;min-height:142px}.ck-market-token,.ck-root .ck-board .ck-market-token>[data-pick],.ck-root .ck-board .ck-market-token .ck-token{height:90px}.ck-root .ck-board .ck-market-token .ck-token>img.ck-resource-icon{height:54px;max-height:54px}.ck-root .ck-board .ck-market-token .ck-token.ck-resource-card{grid-template-rows:18px minmax(0,1fr) 18px}}
+
+.ck-root.display-only .ck-layout>.ck-board{display:block;height:100%;min-height:0;box-sizing:border-box;overflow-y:auto}.ck-root.display-only .ck-board>.ck-information{margin-bottom:12px}
+/* Market navigation replaces the task in both controller modes. */
+.ck-root.has-player[data-workspace=board]{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:0 42px minmax(0,1fr) 170px;height:calc(100svh - 60px - env(safe-area-inset-bottom));min-height:0;gap:6px;padding:0;overflow:hidden}
+.ck-root.has-player[data-workspace=board] .ck-layout,.ck-root.has-player[data-workspace=board] .ck-private{display:contents}
+.ck-root.has-player[data-workspace=board] .ck-action{display:none!important}
+.ck-root.has-player[data-workspace=board] .ck-board{grid-row:3;grid-column:1;order:0;min-height:0;min-width:0;margin:0;overflow-y:auto}
+.ck-root.has-player[data-workspace=board] .ck-board>.ck-information{display:none!important}
+.ck-root.has-player[data-workspace=board] .ck-kitchen{grid-row:4;grid-column:1;order:1;min-height:0;overflow:hidden}
+/* Compact chef copy is independent of the portrait height. */
+.ck-dialog.ck-detail-fit .ck-chef-detail{grid-template-rows:auto;align-items:start}
+.ck-dialog.ck-detail-fit .ck-chef-detail>.ck-art{grid-row:1;grid-column:1}
+.ck-chef-description{grid-column:2;display:flex;flex-direction:column;gap:6px;align-items:flex-start;min-width:0}
+.ck-chef-description>strong{font-size:20px;line-height:1.4}.ck-chef-description>span{font-weight:800;font-size:14px}.ck-chef-description>p{font-size:14px;line-height:1.5;margin:0}
+.ck-choice-preview:has(.ck-buy-chef-preview)>p{line-height:1.45;margin:8px 0 0}
+/* The scrolling surface reserves room above the card for its remove control. */
+.ck-root .ck-cooking .ck-dish-rail{position:relative;overflow:visible;padding:0;border:0;background:none;box-shadow:none}
+.ck-root .ck-cooking .ck-dish-rail:before{content:'';position:absolute;inset:18px 0 0;border:1px solid #c7bd91;border-radius:14px;background:#f3efdc99;pointer-events:none}
+.ck-root .ck-cooking .ck-dish-row{position:relative;display:flex;flex:1 1 auto;width:100%;min-width:0;max-width:100%;height:100%;box-sizing:border-box;overflow-x:auto;overflow-y:hidden;padding:24px 14px 12px 8px;align-items:center;scrollbar-width:thin}
+.ck-root .ck-cooking .ck-dish-row>.ck-dish-item{align-self:flex-start}
+.ck-root .ck-cooking .ck-remove-food{z-index:4;isolation:isolate}
+.ck-root .ck-final-cooking .ck-dish-row{height:auto;overflow:visible;align-items:flex-start;padding-top:24px}
+.ck-root .ck-final-cooking .ck-dish-row>.ck-dish-item{align-self:flex-start}
+.ck-root .ck-cooking [data-plate-ready=true] .ck-plate-number{position:relative;background:radial-gradient(circle,#3aab73,#187a50);color:white;text-shadow:none;box-shadow:inset 0 0 0 3px #cae4bc,inset 0 0 0 5px #288456}
+.ck-plate-quality{color:white;font:inherit;line-height:1}
+.ck-plate-ready-mark{position:absolute;right:-4px;bottom:-4px;display:grid;place-items:center;width:21px;height:21px;border-radius:50%;background:#16794e;border:2px solid #fff9df;color:white}
+.ck-plate-ready-mark>svg{width:16px;height:16px;stroke-width:3}
+/* Generated looping artwork replaces the empty white waiting panel. */
+.ck-wait-scene{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:100%;min-height:0;text-align:center;padding:14px;box-sizing:border-box}
+.ck-wait-scene>picture{display:block;flex:0 1 auto;width:min(320px,76vw,48svh);min-height:0;aspect-ratio:1;border-radius:28px;overflow:hidden;box-shadow:0 5px 0 #164c4533}
+.ck-wait-scene img{display:block;width:100%;height:100%;object-fit:cover}
+.ck-root .ck-wait-scene>p{font-size:16px;font-weight:800;line-height:1.5;margin:0;padding:7px 14px;border-radius:18px;color:#174e49;background:#fff8dfed}
+.ck-root .ck-action:has(.ck-wait-scene){display:flex;align-items:center;justify-content:center;background:transparent;border:0;box-shadow:none;padding:0;overflow:hidden}
+.ck-serving-wait{width:100%;padding:0}
+/* Refrigeration uses a selectable four-column collection and a fixed confirm control. */
+.ck-root.has-player[data-phase=refrigeration]{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:0 42px minmax(0,1fr);height:calc(100svh - 60px - env(safe-area-inset-bottom));min-height:0;gap:6px;padding:0;overflow:hidden}
+.ck-root[data-phase=refrigeration]>.ck-title{height:0;min-height:0;margin:0;padding:0;border:0;background:none;overflow:visible}
+.ck-root.has-player[data-phase=refrigeration] .ck-layout,.ck-root.has-player[data-phase=refrigeration] .ck-private{display:contents}
+.ck-root.has-player[data-phase=refrigeration] .ck-action{grid-row:3;grid-column:1;min-height:0;overflow:hidden}
+.ck-root.has-player[data-phase=refrigeration] .ck-kitchen{display:none}
+.ck-fridge-picker{display:flex;flex-direction:column;gap:12px;height:100%;min-height:0}
+.ck-fridge-picker>header{flex:none;text-align:center}.ck-fridge-picker>header>h2{font-size:17px;margin:0 0 3px}.ck-fridge-picker>header>small{font-size:11px}
+.ck-fridge-grid{display:grid;grid-template-columns:repeat(4,minmax(0,72px));justify-content:center;align-content:start;gap:18px 12px;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:14px 6px;scrollbar-width:thin}
+.ck-root .ck-fridge-grid>[data-keep]{position:relative;padding:0;border:0;background:none;box-shadow:none;outline:0;min-width:0;height:114px;overflow:visible}
+.ck-root .ck-fridge-grid .ck-token{width:100%;height:114px;box-sizing:border-box}
+.ck-root .ck-fridge-grid .ck-token.ck-resource-card{grid-template-rows:24px minmax(0,1fr) 20px}
+.ck-root .ck-fridge-grid .ck-resource-icon{width:64px;height:64px;max-width:100%;max-height:64px;object-fit:contain}
+.ck-root .ck-fridge-grid .ck-will-discard>.ck-token{filter:grayscale(1);opacity:.45}
+.ck-fridge-tick{position:absolute;right:-7px;top:-10px;display:grid;place-items:center;width:28px;height:28px;background:#269e60;border:2px solid #fffbed;box-shadow:0 2px 0 #146943;border-radius:50%;color:white}
+.ck-fridge-tick>svg{width:21px;height:21px}
+.ck-fridge-picker>footer{flex:none;display:flex;justify-content:center;padding:0 0 4px}
+.ck-root .ck-fridge-picker #ck-fridge{position:static;display:grid;place-items:center;width:52px;height:52px;min-height:52px;border-radius:50%;padding:10px;margin:0;background:linear-gradient(#3daf72,#18794c);box-shadow:0 4px 0 #12643e;color:white}
+.ck-root .ck-fridge-picker #ck-fridge:disabled{opacity:.35;box-shadow:none}.ck-fridge-picker #ck-fridge>svg{width:30px;height:30px}
+.ck-root .ck-fridge-grid>[data-keep]:focus-visible{outline:3px solid #d59f38;outline-offset:4px}
+.ck-fridge-review{display:grid;grid-template-columns:repeat(5,minmax(0,72px));justify-content:center;gap:12px 8px;max-width:100%;margin:auto;padding-top:4px}
+.ck-root .ck-fridge-review .ck-token{width:100%;height:114px;box-sizing:border-box;grid-template-rows:24px minmax(0,1fr) 20px}
+.ck-root .ck-fridge-review .ck-resource-icon{width:64px;height:64px;max-width:100%;max-height:64px;object-fit:contain}
+@media(max-height:700px){.ck-root .ck-fridge-grid>[data-keep],.ck-root .ck-fridge-grid .ck-token{height:90px}.ck-root .ck-fridge-grid .ck-token.ck-resource-card{grid-template-rows:18px minmax(0,1fr) 18px}.ck-root .ck-fridge-grid .ck-resource-icon{height:48px;max-height:48px}.ck-fridge-picker{gap:5px}.ck-wait-scene>picture{width:min(280px,65vw,45svh)}}
+.ck-root.has-player[data-passive-wait=true]>.ck-title{height:0;min-height:0;margin:0;padding:0;border:0;background:none;overflow:visible}
+.ck-root.ck-shared.has-player[data-passive-wait=true]:not([data-phase=refrigeration]){grid-template-rows:0 42px minmax(0,1fr) 170px}
+/* Modal surfaces stay out of the underlying game grid. */
+.ck-root>#ck-dialog-slot{display:contents}
+html:has(body.critter-theme){scrollbar-gutter:stable}
+.ck-dialog:focus{outline:none}
+
+/* Five through eight offers retain four positions in the top row. */
+.ck-root.has-player[data-phase=shopping] .ck-market-cards>.ck-picks[data-rows="2"][data-many=false]{--ck-resource-width:min(calc(var(--ck-market-card-height)*.66),calc((100cqw - 50px)/4))}
+/* Challenge quality thresholds sit within the illustrated menu. */
+.ck-root .ck-cooking .ck-dish-heading{display:grid;grid-template-columns:minmax(0,1fr) 88px;grid-template-rows:auto auto;width:min(100%,480px);gap:5px 10px;padding:12px 16px;align-items:center}
+.ck-root .ck-cooking .ck-dish-heading>h3{grid-column:1;grid-row:1;max-width:none;margin:0;font-size:15px;line-height:1.4}
+.ck-dish-heading>.ck-recipe-icons{grid-column:1;grid-row:2;justify-content:center;gap:6px;padding:0;min-width:0}
+.ck-dish-heading .ck-required-food{width:48px;flex:0 1 48px;min-width:0;margin:0}.ck-dish-heading .ck-recipe-picture,.ck-dish-heading .ck-required-food img{width:44px;height:44px}.ck-dish-heading .ck-required-food>small{font-size:11px}
+.ck-score-guide{grid-column:2;grid-row:1 / 3;display:flex;flex-direction:column;gap:3px;border-left:1px solid #c4b278;padding-left:8px;min-width:0}
+.ck-score-guide>small{font-size:8px;line-height:1.4;color:#416454;white-space:nowrap}
+.ck-score-guide>span{display:flex;align-items:center;justify-content:space-between;gap:3px;font-size:12px;line-height:16px}
+.ck-score-guide i{font-style:normal;color:#8c9e77}.ck-score-guide strong{display:flex;align-items:center;gap:3px}.ck-score-guide svg{width:14px;height:14px;fill:#edbd34;color:#aa7515}
+.ck-root .ck-dish-heading>.ck-score-bonus{grid-column:1 / -1;font-size:9px;text-align:center;line-height:1.4}
+/* Final selection lives on the original inventory cards only. */
+.ck-root .ck-final-cooking .ck-cook-source{display:grid;grid-template-columns:repeat(4,minmax(0,72px));justify-content:center;align-content:start;gap:18px 12px;padding:16px 8px;box-sizing:border-box;--ck-final-controls:44px}
+.ck-root .ck-final-cooking .ck-cook-source>.ck-pick-card{width:100%;min-width:0;height:calc(114px + var(--ck-final-controls));min-height:0;padding-bottom:var(--ck-final-controls);box-sizing:border-box;align-self:start}
+.ck-root .ck-final-cooking .ck-cook-source .ck-resource-icon{max-width:100%}
+.ck-root .ck-final-cooking .ck-cook-source .ck-in-dish>[data-token-detail]{filter:grayscale(1);opacity:.35}
+.ck-root .ck-final-cooking .ck-cook-source .ck-final-selected>[data-token-detail]{filter:none;opacity:1}
+.ck-root .ck-final-cooking .ck-final-crown{background:linear-gradient(#ffe38a,#eab336);border-color:#fff4cf;color:#795008;box-shadow:0 3px 0 #a87318}
+.ck-root .ck-final-cooking .ck-final-crown>svg{width:24px;height:22px}
+.ck-root .ck-final-cooking .ck-cook-source .ck-spice-toggle{position:absolute;top:116px;left:0;right:0;height:36px;min-height:0;margin:0;gap:3px}
+.ck-root .ck-final-cooking .ck-cook-source .ck-spice-toggle img{width:30px;height:30px}
+.ck-root .ck-final-cooking .ck-cook-source:has(.ck-final-as){--ck-final-controls:86px}
+.ck-final-as{position:absolute;top:155px;left:0;right:0;display:flex;flex-direction:column;font-size:9px;line-height:12px}
+.ck-root .ck-final-as>select{min-height:28px;height:28px;font-size:10px;padding:2px;max-width:100%}
+.ck-root .ck-final-cooking>.ck-cook-stock-title{text-align:center}
+/* Final review has natural height and one centered, unframed four-column grid. */
+.ck-final-serving-dialog[open]{position:fixed;inset:0;margin:auto;width:min(440px,calc(100vw - 24px));height:fit-content;max-height:90svh;display:flex;flex-direction:column;overflow:hidden;box-sizing:border-box}
+.ck-final-serving-dialog .ck-dialog-body{flex:0 1 auto;min-height:0;max-height:none;height:auto;padding:16px 12px;overflow-y:auto;overflow-x:hidden}
+.ck-final-serving-dialog .ck-choice-preview{height:auto;min-height:0;display:flex;flex-direction:column;gap:14px;overflow:visible}
+.ck-final-serving-dialog .ck-meal-total{display:flex;flex-direction:column;gap:3px;margin:0;align-items:center;justify-content:center}
+.ck-final-serving-dialog .ck-meal-total>b{font-size:20px}.ck-final-serving-dialog .ck-meal-total>small{font-size:10px;text-align:center}
+.ck-final-review-grid{display:grid;grid-template-columns:repeat(4,minmax(0,72px));justify-content:center;gap:14px 10px;padding:2px 0;max-width:100%}
+.ck-final-serving-dialog .ck-final-review-grid .ck-review-resource{display:block;position:relative;width:100%;height:114px;min-width:0}
+.ck-final-serving-dialog .ck-final-review-grid .ck-token{width:100%;height:114px;box-sizing:border-box;grid-template-rows:24px minmax(0,1fr) 20px}
+.ck-final-serving-dialog .ck-final-review-grid .ck-resource-icon{width:64px;height:64px;max-width:100%;max-height:64px;object-fit:contain}
+.ck-final-serving-dialog .ck-choice-actions{flex:none}.ck-final-empty{grid-column:1 / -1;text-align:center;font-size:13px}
+@media(max-height:700px){.ck-root .ck-cooking .ck-dish-heading{padding:7px 10px;grid-template-columns:minmax(0,1fr) 76px;gap:3px 6px}.ck-root .ck-cooking .ck-dish-heading>h3{font-size:12px}.ck-dish-heading .ck-required-food{width:38px;flex-basis:38px}.ck-dish-heading .ck-recipe-picture,.ck-dish-heading .ck-required-food img{width:32px;height:32px}.ck-dish-heading .ck-required-food>small{font-size:10px}.ck-score-guide{gap:1px;padding-left:5px}.ck-score-guide>span{font-size:11px;line-height:13px}.ck-score-guide>small{font-size:7px}.ck-score-guide svg{width:12px;height:12px}}
+/* Center incomplete rows as well as complete rows, with at most four cards. */
+.ck-root .ck-final-cooking .ck-cook-source{display:flex;flex-wrap:wrap;width:min(100%,340px);margin-inline:auto;justify-content:center}
+.ck-root .ck-final-cooking .ck-cook-source>.ck-pick-card{flex:0 0 calc((100% - 36px)/4);max-width:72px}
+.ck-final-review-grid{display:flex;flex-wrap:wrap;width:min(100%,318px);margin-inline:auto;justify-content:center}
+.ck-final-serving-dialog .ck-final-review-grid .ck-review-resource{flex:0 0 calc((100% - 30px)/4);max-width:72px}
+.ck-final-review-grid>.ck-final-empty{flex:0 0 100%}
+/* The player market is a document-height catalogue, rather than a nested scroller. */
+.ck-root.has-player[data-workspace=board]:not([data-phase=finished]){display:block!important;height:auto!important;min-height:calc(100svh - 60px - env(safe-area-inset-bottom));max-height:none;overflow:visible!important}
+.ck-root.has-player[data-workspace=board]:not([data-phase=finished])>.ck-title{height:0;min-height:0;margin:0;padding:0;border:0;background:none;overflow:visible}
+.ck-root.has-player[data-workspace=board]:not([data-phase=finished]) .ck-layout,.ck-root.has-player[data-workspace=board]:not([data-phase=finished]) .ck-private{display:contents!important}
+.ck-root.has-player[data-workspace=board]:not([data-phase=finished]) .ck-board{display:block!important;height:auto;min-height:calc(100svh - 116px);max-height:none;overflow:visible!important;box-sizing:border-box;padding:8px}
+.ck-root.has-player[data-workspace=board]:not([data-phase=finished]) .ck-kitchen{display:none!important}
+.ck-root .ck-board .ck-location>header{height:68px;min-height:68px;padding:8px 10px}
+.ck-root .ck-board .ck-location>header button{font-size:16px;line-height:1.4}
+.ck-root .ck-board .ck-location>header small{font-size:11px}
+.ck-root .ck-board .ck-market-token>.ck-market-face{position:relative;z-index:0;display:block;opacity:1!important;visibility:visible;flex:none;min-width:0}
+.ck-root .ck-board .ck-market-token>.ck-market-face .ck-token{visibility:visible;opacity:1;transform:none}
+.ck-root .ck-board .ck-market-token>.ck-market-face img{display:block;visibility:visible;opacity:1}
+.ck-root .ck-board .ck-market-token .ck-pick-stamps{z-index:2;pointer-events:none}
+.ck-root .ck-board .ck-market-token .ck-pick-stamp>.ck-art{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+/* Final serving keeps its heading, four-column stock and confirmation in one viewport. */
+.ck-root.has-player[data-workspace=kitchen]:has(.ck-final-cooking){display:flex;height:calc(100svh - 60px - env(safe-area-inset-bottom));min-height:0;overflow:hidden;flex-direction:column;gap:8px}
+.ck-root.has-player[data-workspace=kitchen]:has(.ck-final-cooking)>.ck-workspace-heading{flex:none;margin:0;min-height:42px}
+.ck-root.has-player[data-workspace=kitchen]:has(.ck-final-cooking) .ck-layout,
+.ck-root.has-player[data-workspace=kitchen]:has(.ck-final-cooking) .ck-private{display:flex;flex:1;flex-direction:column;min-height:0;overflow:hidden}
+.ck-root.has-player[data-workspace=kitchen]:has(.ck-final-cooking) .ck-action{flex:1;min-height:0;height:100%;box-sizing:border-box;overflow:hidden;padding:10px}
+.ck-root .ck-final-cooking{height:100%;gap:6px;overflow:hidden}
+.ck-root .ck-final-cooking>.ck-cook-stock-title{flex:none}
+.ck-root .ck-final-cooking .ck-cook-source{flex:1;min-height:0;height:0;max-height:none;align-content:center;gap:10px 12px;padding:14px 8px 4px;overflow:hidden;--ck-final-controls:28px}
+.ck-root .ck-final-cooking .ck-cook-source:has(.ck-final-as){--ck-final-controls:62px}
+.ck-root .ck-final-cooking .ck-cook-source>.ck-pick-card{height:calc(var(--ck-final-face-height,114px) + var(--ck-final-controls));padding-bottom:var(--ck-final-controls)}
+.ck-root .ck-final-cooking .ck-cook-source .ck-token{height:var(--ck-final-face-height,114px);grid-template-rows:18px minmax(0,1fr) 16px}
+.ck-root .ck-final-cooking .ck-cook-source .ck-resource-heading{height:18px;min-height:18px;font-size:15px}
+.ck-root .ck-final-cooking .ck-cook-source .ck-token-name{font-size:10px;line-height:16px}
+.ck-root .ck-final-cooking .ck-cook-source img.ck-resource-icon{height:100%;max-height:64px;min-height:0}
+.ck-root .ck-final-cooking .ck-cook-source .ck-spice-toggle{top:calc(var(--ck-final-face-height,114px) + 2px);height:24px;min-height:0}
+.ck-root .ck-final-cooking .ck-cook-source .ck-spice-toggle img{width:24px;height:24px}
+.ck-root .ck-final-cooking .ck-final-as{top:calc(var(--ck-final-face-height,114px) + 28px);line-height:10px}
+.ck-root .ck-final-cooking .ck-final-as>select{height:24px;min-height:24px}
+.ck-root .ck-final-cooking .ck-serve-footer{margin-top:0}
+/* Explicit zero padding keeps both SVG silhouettes centered inside the circle. */
+.ck-root .ck-buy-button{padding:0;box-sizing:border-box;line-height:0;align-items:center;justify-items:center}
+.ck-root .ck-buy-button>svg{display:block;margin:0;flex:none}
+.ck-root .ck-final-cooking .ck-final-crown>svg{width:24px;height:19px}
+/* Only selected ingredients need a spice row; empty slots reserve no control space. */
+.ck-root .ck-final-cooking .ck-cook-source>.ck-pick-card{--ck-final-controls:0px}
+.ck-root .ck-final-cooking .ck-cook-source>.ck-final-selected{--ck-final-controls:28px}
+.ck-root .ck-final-cooking .ck-cook-source>.ck-pick-card:has(.ck-final-as){--ck-final-controls:62px}
+
+/* Empty destinations use the same stock area, with a centered empty tray. */
+.ck-root .ck-board .ck-market-stock:has(>.ck-market-empty){padding:0;align-items:center;justify-content:center;overflow:hidden}
+.ck-market-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;color:#6c8174;text-align:center}
+.ck-market-empty>svg{display:block;width:48px;height:48px;flex:none;opacity:.8}
+.ck-market-empty>p{margin:0;font-size:13px;line-height:1.5}
+
+/* The third workspace is a document-length reference album, with no nested scroller. */
+.ck-root.has-player[data-workspace=information]{display:block!important;height:auto!important;min-height:calc(100svh - 60px - env(safe-area-inset-bottom));max-height:none;overflow:visible!important;padding:0}
+.ck-root.has-player[data-workspace=information]>.ck-title{height:0;min-height:0;margin:0;padding:0;border:0;background:none;overflow:visible}
+.ck-root.has-player[data-workspace=information]>.ck-layout{display:none!important}
+.ck-reference[hidden]{display:none!important}
+.ck-reference:not([hidden]){display:flex;flex-direction:column;gap:12px;margin-top:8px;padding-bottom:12px}
+.ck-reference-section{padding:14px 12px 16px;border:1px solid #a4b899;border-radius:14px;background:#fffbedf5;box-sizing:border-box;min-width:0}
+.ck-reference-section>h2{text-align:center;font-size:17px;margin:0 0 12px;color:#155a61}
+.ck-reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 8px;align-items:start}
+.ck-reference-slot{min-width:0;text-align:center}
+.ck-reference-slot>h3{font-size:12px;line-height:1.5;margin:0 0 6px;color:#155a61}
+.ck-root .ck-reference .ck-card,.ck-reference-back{display:flex;flex-direction:column;width:100%;min-width:0;max-width:none;height:auto;margin:0;padding:0;border:1px solid #a4b899;background:#fffdf0;border-radius:9px!important;overflow:hidden;box-sizing:border-box;text-align:center}
+.ck-root .ck-reference .ck-card>.ck-art,.ck-reference-back>.ck-art{display:block;width:100%;height:auto;max-height:none;aspect-ratio:3/4;object-fit:cover;margin:0;border-radius:0}
+.ck-root .ck-reference .ck-card>strong,.ck-reference-back>strong{display:block;padding:6px 4px 4px;font-size:12px;line-height:1.5;white-space:normal;color:#155a61}
+.ck-root .ck-reference .ck-card-inspect{display:none}
+.ck-reference .ck-foods{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;padding:0 3px 6px}
+.ck-reference .ck-foods i{font-size:9px;line-height:1.6}
+.ck-reference-back>small,.ck-reference-note{display:block;font-size:10px;line-height:1.5;color:#6c8174;padding:0 3px 6px}
+.ck-reference-note{padding-top:6px}
+.ck-reference-critic{width:min(100%,480px);margin:auto;display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);align-items:center;gap:16px}
+.ck-reference-critic>p{font-size:14px;line-height:1.8;margin:0;color:#315e53}
+.ck-root .ck-location-caption>strong{display:block;color:#fff7d9;font-size:18px;line-height:1.5;text-shadow:0 2px 3px #082b34}
+@media(max-width:360px){.ck-reference-section{padding:12px 8px}.ck-reference-grid{gap:12px 6px}.ck-root .ck-reference .ck-card>strong{font-size:10px}.ck-reference-critic{grid-template-columns:110px minmax(0,1fr);gap:10px}.ck-reference-critic>p{font-size:12px}.ck-root[data-workspace=information] .ck-workspace-heading>h2{font-size:13px}}
+.ck-root .ck-reference .ck-card-inspect{display:none!important}
+
+/* Reference faces use one card size and captions printed over the artwork. */
+.ck-reference-critic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;max-width:none}
+.ck-reference-critic>.ck-card{grid-column:2}
+.ck-root .ck-reference .ck-reference-face,.ck-reference-back{position:relative;display:block;aspect-ratio:3/4;border-radius:9px!important;box-shadow:0 3px 0 #8da489}
+.ck-root .ck-reference .ck-reference-face>.ck-art,.ck-reference-back>.ck-art{width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
+.ck-root .ck-reference .ck-reference-caption{position:absolute;inset:auto 0 0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:26px 4px 7px;background:linear-gradient(transparent,#0a303de6 60%,#082a36f5);color:#fffbee;box-sizing:border-box;pointer-events:none}
+.ck-root .ck-reference .ck-reference-caption>strong{font-size:11px;line-height:1.35;font-weight:800;color:#fffbee;text-shadow:0 1px 3px #001c24;white-space:normal}
+.ck-reference-caption>small{font-size:9px;color:#e1e9df;line-height:1.4}
+.ck-reference-foods{display:flex;align-items:center;justify-content:center;gap:3px;width:100%}
+.ck-reference-foods>span{display:block;width:24px;height:24px;min-width:0;flex:0 1 24px}
+.ck-root .ck-reference .ck-reference-foods img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 1px 2px #fff9);margin:0;border-radius:0}
+.ck-reference .ck-held .ck-reference-foods>span:last-child{opacity:.4}
+@media(max-width:360px){.ck-reference-critic{gap:6px;grid-template-columns:repeat(3,minmax(0,1fr))}.ck-root .ck-reference .ck-reference-caption>strong{font-size:10px}.ck-reference-foods{gap:2px}.ck-reference-foods>span{width:21px;height:21px;flex-basis:21px}}
+
+.ck-market-basket>b{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%) rotate(-5deg);padding:3px 12px;background:#fff3cb;color:#155a61;border:2px solid #bc9d62;border-radius:7px;font-size:15px;line-height:1.5;white-space:nowrap}
+
+/* Unrevealed faces are monochrome; revealed requirements use readable round pieces. */
+.ck-reference-back{filter:grayscale(1)}
+.ck-reference-foods{gap:2px}
+.ck-reference-foods>span{width:34px;height:auto;aspect-ratio:1;flex:0 1 34px;min-width:0;padding:3px;border:1px solid #c6ae72;border-radius:50%;background:#fff4cf;box-sizing:border-box}
+.ck-root .ck-reference .ck-reference-foods img{filter:none}
+.ck-root .ck-reference .ck-reference-hold{font-size:9px;line-height:1.4;padding:0;color:#fff3cf}
+.ck-reference-critic>.ck-card{grid-column:1}
+.ck-reference-critic>p{grid-column:2 / 4;margin:0;font-size:14px;line-height:1.8;color:#315e53;text-align:left}
+.ck-challenge-detail{display:grid;grid-template-columns:minmax(85px,.8fr) minmax(0,1.2fr);gap:14px;align-items:center}
+.ck-challenge-detail>.ck-art{display:block;width:100%;height:auto;max-height:55svh;object-fit:contain;border-radius:9px}
+.ck-challenge-detail>div{min-width:0}
+.ck-challenge-detail h2{font-size:20px;line-height:1.4;margin:0 0 14px;color:#155a61}
+.ck-challenge-detail-foods{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:10px}
+.ck-challenge-detail-foods>span{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:44px}
+.ck-food-circle{display:block;width:48px;height:48px;padding:4px;border:1px solid #c6ae72;border-radius:50%;background:#fff4cf;box-sizing:border-box}
+.ck-food-circle>.ck-art{display:block;width:100%;height:100%;object-fit:contain}
+.ck-challenge-detail-foods strong{font-size:12px;line-height:1.4;color:#155a61}
+.ck-challenge-detail p{font-size:12px;line-height:1.6;margin:12px 0 0}
+.ck-challenge-held .ck-challenge-detail-foods>span:last-child{opacity:.4}
+@media(max-width:360px){.ck-reference-critic>p{font-size:12px}.ck-challenge-detail{gap:10px}.ck-challenge-detail h2{font-size:16px}.ck-challenge-detail-foods{gap:8px}.ck-food-circle{width:40px;height:40px}.ck-challenge-detail-foods>span{min-width:40px}}
+
+/* Equal breathing room below the workspace heading in fixed and document layouts. */
+.ck-root.has-player{row-gap:8px!important}
+.ck-root.has-player>.ck-workspace-heading{margin:0 0 8px}
+.ck-root.has-player[data-workspace=kitchen]:is(.ck-shared,[data-phase=shopping],[data-phase=refrigeration])>.ck-workspace-heading,
+.ck-root.has-player[data-workspace=kitchen]:has(.ck-cooking)>.ck-workspace-heading{margin:0}
+.ck-root.has-player[data-workspace=information] .ck-reference{margin-top:0}
+/* Ownership captions count as part of a market item when centering its row. */
+.ck-root .ck-board .ck-market-stock{height:150px;min-height:150px;padding:18px 8px;align-items:center}
+.ck-root .ck-board .ck-market-stock:has(.ck-market-owner-name){height:169px;min-height:169px}
+.ck-root .ck-board .ck-market-token:has(.ck-market-owner-name){height:133px}
+.ck-root .ck-board .ck-market-token .ck-market-owner-name{top:119px}
+@media(max-height:700px){.ck-root .ck-board .ck-market-stock{height:126px;min-height:126px}.ck-root .ck-board .ck-market-stock:has(.ck-market-owner-name){height:145px;min-height:145px}.ck-root .ck-board .ck-market-token:has(.ck-market-owner-name){height:109px}.ck-root .ck-board .ck-market-token .ck-market-owner-name{top:95px}}
+
+/* Card indices belong to the face, above a light top shade. */
+.ck-root .ck-reference .ck-reference-index{position:absolute;inset:0 0 auto;display:block;padding:6px 4px 18px;background:linear-gradient(#082a36c9,transparent);color:#fffbee;text-shadow:0 1px 3px #001c24;font-size:11px;line-height:1.4;font-weight:800;text-align:left;pointer-events:none}
+/* Square tracks and out-of-flow images prevent intrinsic artwork stretching circles. */
+.ck-reference-foods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;align-items:start}
+.ck-reference-foods>span{position:relative;display:block;width:100%;height:auto;aspect-ratio:1;min-width:0;padding:0;overflow:hidden;border-radius:50%;box-sizing:border-box}
+.ck-root .ck-reference .ck-reference-foods img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;transform:scale(1.12)}
+.ck-food-circle{padding:0;overflow:hidden}
+.ck-food-circle>.ck-art{transform:scale(1.12)}
+/* Empty stock only reserves room for its icon and message. */
+.ck-root .ck-board .ck-market-stock:has(>.ck-market-empty){height:auto;min-height:0;padding:12px 8px;overflow:visible}
+.ck-root .ck-board .ck-location:has(.ck-market-empty)>header{filter:grayscale(1)}
+.ck-market-empty{gap:6px}
+.ck-market-empty>svg{width:40px;height:40px}
+
+/* Slot numbers sit at the top center, separate from the bottom reveal caption. */
+.ck-root .ck-reference .ck-reference-index{top:0;bottom:auto;left:0;right:0;height:auto;margin:0;padding:6px 4px 18px;text-align:center;z-index:2}
+/* A zero-height legacy title row still contributes a grid gap in the home workspace. */
+.ck-root.has-player[data-workspace=kitchen]>.ck-title{height:0;min-height:0;margin:0;padding:0;border:0;background:none;overflow:visible}
+.ck-root.has-player[data-workspace=kitchen]:is(.ck-shared,[data-phase=shopping]:has(.ck-picks),[data-phase=refrigeration],[data-phase=challenge-results]):has(>.ck-workspace-heading){margin-top:-8px}
+.ck-root.has-player[data-workspace=kitchen]:has(.ck-final-cooking){margin-top:0}
+
+/* One toolbar height even when the current phase or label changes. */
+.ck-root.has-player>.ck-workspace-heading{height:42px;min-height:42px;max-height:42px;box-sizing:border-box;margin:0!important;flex:none}
+.ck-root.has-player>.ck-workspace-heading>h2{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;line-height:1.4}
+.ck-root.has-player>.ck-workspace-heading .ck-tabs{height:36px;min-height:36px;align-items:center}
+.ck-root.has-player[data-workspace=information] .ck-reference{margin-top:8px}
+.ck-root.has-player[data-workspace=board]:not([data-phase=finished]) .ck-board{margin-top:8px;padding:0;border:0;border-radius:0;background:none!important;min-height:0}
+.ck-root.has-player[data-workspace=kitchen]>.ck-layout{margin-top:8px}
+.ck-root.has-player[data-workspace=kitchen]:has(.ck-final-cooking)>.ck-layout{margin-top:0}
+.ck-root .ck-board .ck-market-stock{height:130px;min-height:130px;padding:8px;align-items:center}
+.ck-root .ck-board .ck-market-stock:has(.ck-market-owner-name){height:149px;min-height:149px}
+@media(max-height:700px){.ck-root .ck-board .ck-market-stock{height:106px;min-height:106px}.ck-root .ck-board .ck-market-stock:has(.ck-market-owner-name){height:125px;min-height:125px}}
+/* The planning market keeps your pantry alongside the location catalogue. */
+.ck-root.has-player[data-workspace=board][data-phase=planning] .ck-kitchen{display:flex!important;flex-direction:column;position:sticky;bottom:6px;z-index:5;margin-top:12px;height:170px;max-height:none;box-sizing:border-box}
+.ck-root.has-player[data-workspace=board][data-phase=planning] .ck-kitchen[data-pane=cards]{height:220px}
+.ck-root .ck-pantry-cards .ck-card,.ck-root .ck-pantry-cards .ck-unknown-card{height:auto!important;max-height:none;aspect-ratio:3/4;align-self:flex-start}
+.ck-root .ck-kitchen .ck-pantry-cards{align-items:flex-start}
+.ck-root .ck-pantry-cards .ck-unknown-card{order:2}
+.ck-root .ck-pantry-cards .ck-card:disabled{order:2}
+.ck-root.ck-shared.has-player[data-workspace=kitchen]:is([data-phase=planning],[data-phase=shopping]):has(.ck-kitchen[data-pane=cards]),
+.ck-root.has-player[data-workspace=kitchen][data-phase=shopping]:has(.ck-kitchen[data-pane=cards]){grid-template-rows:0 42px minmax(0,1fr) 220px}
+
+.ck-root .ck-kitchen[data-pane=cards] .ck-pantry-cards{width:var(--ck-pantry-card-window,100%);max-width:100%}
+.ck-root .ck-pantry-cards .ck-card,.ck-root .ck-pantry-cards .ck-unknown-card{height:calc(var(--ck-private-card-width,100px)*4/3)!important}
+.ck-pantry-cards:after{order:3}
+/* Reserve the whole portrait, including its name, in the pantry card rail. */
+.ck-root{--ck-pantry-height:clamp(220px,calc((100vw - 56px)*4/9 + 102px),316px)}
+.ck-root .ck-kitchen[data-pane=cards],.ck-root.has-player[data-workspace=board][data-phase=planning] .ck-kitchen[data-pane=cards]{height:var(--ck-pantry-height)}
+.ck-root.ck-shared.has-player[data-workspace=kitchen]:is([data-phase=planning],[data-phase=shopping]):has(.ck-kitchen[data-pane=cards]),
+.ck-root.has-player[data-workspace=kitchen][data-phase=shopping]:has(.ck-kitchen[data-pane=cards]){grid-template-rows:0 42px minmax(0,1fr) var(--ck-pantry-height)}

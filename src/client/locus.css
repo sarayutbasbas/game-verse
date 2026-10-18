@@ -1,0 +1,929 @@
+.lc-root {
+  --graphite:#21323d;
+  max-width:1220px;
+  margin:auto;
+  color:var(--graphite);
+  background:#d9e1e5 url('/art/locus/table.webp') center/cover;
+  padding:18px;
+  border-radius:10px;
+  font-family:'Noto Sans Thai',sans-serif;
+  line-height:1.6
+}
+.lc-root * {
+  box-sizing:border-box
+}
+.lc-root button,.lc-root select {
+  font:inherit
+}
+.lc-root button {
+  border:1px solid #809096;
+  background:#fffdf4;
+  color:#21323d;
+  min-height:42px;
+  padding:7px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  box-shadow:0 2px 0 #21323d26
+}
+.lc-root button:disabled {
+  opacity:.45;
+  cursor:default;
+  box-shadow:none
+}
+.lc-root button.selected {
+  border:2px solid #263e52;
+  background:#eef4fa
+}
+.lc-root :focus-visible {
+  outline:3px solid #177fbb;
+  outline-offset:3px
+}
+.lc-root h1,.lc-root h2,.lc-root p {
+  margin:0
+}
+.lc-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  border-bottom:2px solid #233541;
+  padding-bottom:12px;
+  margin-bottom:12px
+}
+.lc-heading h1 {
+  font-size:clamp(28px,4vw,42px);
+  line-height:1.25;
+  letter-spacing:-1.5px
+}
+.lc-heading h1 span {
+  display:block;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:0;
+  margin-top:5px
+}
+.lc-heading>div {
+  text-align:right;
+  font-weight:700
+}
+.lc-heading small {
+  display:block;
+  font-size:11px;
+  font-weight:400
+}
+.lc-defs {
+  position:absolute
+}
+.lc-status {
+  font-weight:700;
+  text-align:center;
+  padding:8px;
+  background:#233746;
+  color:#fff
+}
+.lc-mode {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-end;
+  font-size:12px;
+  margin:7px 0
+}
+.lc-mode select {
+  max-width:220px;
+  padding:5px;
+  background:#fefdf5;
+  color:#233746;
+  border:1px solid #627681;
+  border-radius:4px
+}
+.lc-market {
+  display:flex;
+  gap:10px;
+  align-items:stretch;
+  padding:12px 3px;
+  margin-bottom:6px;
+  min-height:115px
+}
+.lc-market-slot {
+  flex:1;
+  min-width:0
+}
+.lc-market-slot>button {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  min-height:110px;
+  border:2px solid #fff9df;
+  background:#15293d url('/art/locus/back.webp') center/cover;
+  color:#fff;
+  padding:10px 5px;
+  box-shadow:0 3px 0 #122b3b55
+}
+.lc-market-slot>button:disabled {
+  opacity:1
+}
+.lc-market-slot.claimed>button {
+  filter:saturate(.3);
+  opacity:.58
+}
+.lc-slot-number {
+  position:absolute;
+  top:1px;
+  left:6px;
+  font-size:18px;
+  color:#fff
+}
+.lc-market-slot small {
+  font-size:10px;
+  line-height:1.4;
+  margin-top:4px;
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+.lc-shape {
+  height:66px;
+  width:72px;
+  display:block;
+  flex-shrink:0
+}
+.lc-card-ink {
+  font-size:11px;
+  margin-top:4px
+}
+.lc-deck {
+  width:45px;
+  flex-shrink:0;
+  align-self:center;
+  position:relative;
+  isolation:isolate
+}
+.lc-deck:before,.lc-deck:after {
+  content:'';
+  position:absolute;
+  inset:0 0 12px;
+  border-radius:5px;
+  background:#1a3547;
+  border:1px solid #d2cba5;
+  z-index:-1;
+  transform:translate(3px,-3px)
+}
+.lc-deck:before {
+  transform:translate(6px,-6px)
+}
+.lc-deck img {
+  width:100%;
+  height:70px;
+  object-fit:cover;
+  border:1px solid #fff6dc;
+  border-radius:5px
+}
+.lc-deck small {
+  display:block;
+  text-align:center;
+  font-size:11px
+}
+.lc-players {
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  margin:2px 0 10px;
+  padding:3px 0
+}
+.lc-players>button {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  text-align:left;
+  flex:1;
+  min-width:135px;
+  padding:5px 8px;
+  font-size:13px
+}
+.lc-players .turn {
+  box-shadow:inset 0 0 0 2px #ce9d15
+}
+.lc-root .profile-avatar,.lc-root .avatar,.lc-root img[alt*="โปรไฟล์"] {
+  width:32px;
+  height:32px;
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:50%;
+  flex-shrink:0
+}
+.lc-players small {
+  display:block;
+  font-size:10px;
+  white-space:nowrap
+}
+.lc-paper {
+  background:#fffef5 url('/art/locus/paper.webp') center/cover;
+  border:1px solid #bdc4c3;
+  box-shadow:0 4px 9px #263c4626;
+  padding:12px;
+  max-width:850px;
+  margin:auto
+}
+.lc-paper>header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom:1px solid #bdc4c3;
+  padding-bottom:7px;
+  font-size:14px
+}
+.lc-coins {
+  background:#ebc971;
+  border:1px solid #aa8229;
+  border-radius:30px;
+  padding:0 10px;
+  font-weight:700
+}
+.lc-zone-tabs {
+  display:flex;
+  gap:4px;
+  padding:9px 0;
+  flex-wrap:wrap
+}
+.lc-root .lc-zone-tabs button {
+  font-size:11px;
+  min-height:34px;
+  padding:4px 8px;
+  border-bottom:4px solid var(--zone,#243c4e)
+}
+.lc-sheet-scroll {
+  overflow:auto;
+  max-height:72vh;
+  text-align:center;
+  scrollbar-width:thin
+}
+.lc-sheet-svg {
+  display:block;
+  width:100%;
+  max-width:720px;
+  margin:auto;
+  overflow:visible
+}
+.lc-sheet-svg.zoom {
+  max-width:470px
+}
+.lc-zone-title {
+  font:700 13px 'Noto Sans Thai',sans-serif;
+  fill:#25333c
+}
+.lc-zone-title tspan {
+  font-weight:500
+}
+.lc-grid-score {
+  font:700 12px 'Noto Sans Thai',sans-serif;
+  fill:#2d3c45
+}
+.lc-end-score {
+  font:600 8px sans-serif;
+  text-anchor:middle;
+  fill:#385d16;
+  pointer-events:none
+}
+.lc-coin-letter {
+  font:7px sans-serif;
+  text-anchor:middle;
+  fill:#a1781c
+}
+.lc-cell {
+  cursor:pointer;
+  outline:none
+}
+.lc-cell:focus-visible>rect:first-child {
+  stroke:#007cc3;
+  stroke-width:4
+}
+.lc-cell[role=button]:hover>rect:first-child {
+  fill-opacity:.4
+}
+.lc-x {
+  stroke:#25353c;
+  stroke-width:2.5;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  pointer-events:none
+}
+.lc-x.draw {
+  stroke-dasharray:1;
+  stroke-dashoffset:1;
+  animation:lc-pencil .22s var(--delay) forwards ease-out
+}
+.lc-cell.recent>rect:first-child {
+  animation:lc-mark-flash .55s var(--delay) ease-out
+}
+.lc-ghost-fill {
+  pointer-events:none
+}
+.lc-zone-note {
+  font-size:11px;
+  color:#56656d;
+  padding:5px 0 0;
+  min-height:26px
+}
+.lc-workbench {
+  max-width:850px;
+  background:#f1f4f3;
+  border:1px solid #8fa1a8;
+  margin:10px auto 0;
+  padding:12px
+}
+.lc-effects {
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:2px 0 8px
+}
+.lc-effects>button {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:150px;
+  text-align:left
+}
+.lc-effects .lc-shape {
+  width:42px;
+  height:43px
+}
+.lc-effects span {
+  font-size:12px
+}
+.lc-effects small {
+  display:block;
+  font-size:10px
+}
+.lc-effects p {
+  font-size:13px
+}
+.lc-tools {
+  display:flex;
+  gap:7px;
+  align-items:center;
+  flex-wrap:wrap
+}
+.lc-tools button {
+  font-size:12px;
+  padding:5px 9px
+}
+.lc-tools label {
+  display:flex;
+  align-items:center;
+  font-size:12px;
+  gap:4px
+}
+.lc-tools .lc-preview-shape {
+  width:43px;
+  height:44px
+}
+.lc-placement-status {
+  font-size:12px;
+  min-height:32px;
+  padding:6px 0
+}
+.lc-confirm-row {
+  display:flex;
+  justify-content:flex-end;
+  gap:8px
+}
+.lc-root #lc-confirm,.lc-root #lc-done,.lc-root #lc-start {
+  background:#26485c;
+  color:#fff;
+  border-color:#26485c
+}
+.lc-spend {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  border-top:1px solid #b9c8cc;
+  padding-top:10px;
+  margin-top:9px
+}
+.lc-spend button {
+  font-size:12px
+}
+.lc-root #lc-done {
+  margin-left:auto
+}
+.lc-workbench>small {
+  display:block;
+  font-size:10px;
+  color:#52666e;
+  padding-top:5px
+}
+.lc-rules {
+  max-width:850px;
+  margin:12px auto 0;
+  font-size:12px;
+  background:#fefdf5;
+  padding:10px
+}
+.lc-rules summary {
+  cursor:pointer;
+  font-weight:700
+}
+.lc-rules p {
+  padding-top:7px
+}
+.lc-lobby {
+  display:flex;
+  gap:24px;
+  padding:16px;
+  background:#fffef5
+}
+.lc-lobby>img {
+  width:190px;
+  height:285px;
+  object-fit:cover
+}
+.lc-lobby>div {
+  flex:1
+}
+.lc-lobby h2 {
+  font-size:22px
+}
+.lc-lobby p {
+  font-size:13px;
+  padding-bottom:10px
+}
+.lc-lobby-players {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin:10px 0
+}
+.lc-lobby article {
+  display:flex;
+  gap:9px;
+  border-bottom:1px solid #bbc8cd;
+  padding:9px 0
+}
+.lc-lobby article small,.lc-lobby article span {
+  display:block;
+  font-size:11px
+}
+.lc-lobby label {
+  display:block;
+  font-size:12px;
+  margin:12px 0 5px
+}
+.lc-lobby select {
+  width:100%;
+  padding:7px
+}
+.lc-lobby button {
+  margin-right:7px
+}
+.lc-final-banner {
+  position:sticky;
+  bottom:10px;
+  z-index:4;
+  background:#fffbe9;
+  border:2px solid #b99427;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 3px 15px #183b4655;
+  margin-top:12px
+}
+.lc-final-banner b {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px
+}
+.lc-final-banner button {
+  margin:8px 4px 0
+}
+.lc-dialog-open {
+  overflow:hidden
+}
+.lc-modal {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:grid;
+  place-items:center;
+  background:#152d407a;
+  backdrop-filter:blur(5px);
+  padding:12px
+}
+.lc-results {
+  background:#fffef5 url('/art/locus/results.webp') center/cover;
+  border:1px solid #c7c8b5;
+  border-radius:9px;
+  padding:27px 20px;
+  max-width:900px;
+  width:100%;
+  max-height:90dvh;
+  overflow:auto;
+  color:#253c48;
+  box-shadow:0 15px 60px #09202e77
+}
+.lc-results h2 {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-size:26px
+}
+.lc-results p {
+  text-align:center;
+  font-size:12px;
+  margin-top:10px
+}
+.lc-count-tabs {
+  display:flex;
+  gap:6px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:18px 0 12px
+}
+.lc-count-tabs button {
+  font-size:12px;
+  border-bottom:3px solid var(--zone,#243c4e)
+}
+.lc-score-table {
+  overflow-x:auto;
+  padding:4px
+}
+.lc-results table {
+  border-collapse:collapse;
+  width:100%;
+  background:#fffef5e8
+}
+.lc-results th,.lc-results td {
+  padding:10px 8px;
+  text-align:center;
+  border-bottom:1px solid #b6c4c9;
+  font-size:13px;
+  white-space:nowrap
+}
+.lc-results th:first-child {
+  text-align:left
+}
+.lc-results th small {
+  display:block;
+  font-size:10px;
+  font-weight:400
+}
+.lc-results tr.winner {
+  outline:2px solid #bf962c;
+  outline-offset:-2px;
+  background:#fff3ce
+}
+.lc-results td.counting {
+  animation:lc-count .45s ease-out;
+  background:#e1edf4
+}
+.lc-result-actions {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px
+}
+.lc-market.dealing .lc-market-slot {
+  animation:lc-deal .35s var(--delay) both ease-out
+}
+.pop {
+  animation:lc-count .45s ease-out
+}
+@keyframes lc-pencil {
+  to {
+  stroke-dashoffset:0
+}
+
+}
+@keyframes lc-mark-flash {
+  from {
+  fill-opacity:.65
+}
+to {
+  fill-opacity:.18
+}
+
+}
+@keyframes lc-deal {
+  from {
+  opacity:0;
+  transform:translate(50px,-10px) rotate(5deg)
+}
+to {
+  opacity:1;
+  transform:none
+}
+
+}
+@keyframes lc-count {
+  50% {
+  transform:scale(1.12)
+}
+
+}
+
+@media(min-width:1000px) {
+  .lc-root:has(.lc-workbench) {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 330px;
+  gap:0 16px
+}
+.lc-heading,.lc-status,.lc-mode,.lc-market,.lc-players,.lc-rules,.lc-final-banner {
+  grid-column:1/-1
+}
+.lc-workbench {
+  margin:0;
+  align-self:start;
+  position:sticky;
+  top:12px
+}
+.lc-tools {
+  align-content:start
+}
+.lc-confirm-row {
+  justify-content:stretch
+}
+.lc-confirm-row button {
+  flex:1
+}
+.lc-effects {
+  flex-direction:column
+}
+.lc-paper {
+  width:100%
+}
+.lc-spend {
+  flex-direction:column
+}
+.lc-root #lc-done {
+  margin-left:0
+}
+.lc-modal {
+  grid-column:1/-1
+}
+
+}
+
+@media(max-width:600px) {
+  .lc-root {
+  padding:9px;
+  border-radius:6px
+}
+.lc-heading {
+  padding-bottom:9px;
+  margin-bottom:9px
+}
+.lc-heading h1 {
+  font-size:31px
+}
+.lc-heading>div {
+  font-size:12px
+}
+.lc-market {
+  gap:6px;
+  padding:10px 1px;
+  min-height:92px
+}
+.lc-market-slot>button {
+  min-height:92px;
+  padding:12px 2px 5px
+}
+.lc-market .lc-shape {
+  width:100%;
+  height:49px;
+  max-width:55px
+}
+.lc-market .lc-card-ink {
+  font-size:9px
+}
+.lc-slot-number {
+  font-size:13px;
+  top:0;
+  left:4px
+}
+.lc-market-slot small {
+  font-size:8px
+}
+.lc-deck {
+  width:27px
+}
+.lc-deck img {
+  height:54px
+}
+.lc-market.numbers {
+  min-height:58px
+}
+.lc-market.numbers .lc-market-slot>button {
+  min-height:52px;
+  font-size:12px
+}
+.lc-market.numbers .lc-slot-number,.lc-market.numbers .lc-deck {
+  display:none
+}
+.lc-paper {
+  padding:8px
+}
+.lc-paper>header {
+  font-size:12px
+}
+.lc-zone-tabs {
+  gap:3px
+}
+.lc-root .lc-zone-tabs button {
+  font-size:10px;
+  padding:4px 6px;
+  min-height:32px
+}
+.lc-root .lc-zone-tabs button:first-child {
+  flex-basis:100%;
+  min-height:29px
+}
+.lc-sheet-svg:not(.zoom) {
+  min-width:0
+}
+.lc-zone-note {
+  font-size:10px
+}
+.lc-workbench {
+  padding:9px
+}
+.lc-effects>button {
+  min-width:145px;
+  min-height:55px
+}
+.lc-spend {
+  gap:5px
+}
+.lc-spend button {
+  font-size:11px;
+  padding:6px 8px
+}
+.lc-lobby {
+  padding:12px;
+  gap:12px
+}
+.lc-lobby>img {
+  display:none
+}
+.lc-lobby-players {
+  grid-template-columns:1fr
+}
+.lc-results {
+  padding:20px 10px
+}
+.lc-results h2 {
+  font-size:22px
+}
+.lc-results th,.lc-results td {
+  font-size:11px;
+  padding:8px 6px
+}
+.lc-count-tabs {
+  gap:4px
+}
+.lc-count-tabs button {
+  font-size:11px;
+  padding:5px 8px
+}
+
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .lc-root *,.lc-root *:before,.lc-root *:after {
+  animation:none!important;
+  transition:none!important
+}
+.lc-x.draw {
+  stroke-dasharray:none;
+  stroke-dashoffset:0
+}
+
+}
+
+/* Keep the native sheet and compact controls independent of the portal's form styles. */
+body:has(.lc-root) {
+  background:#263d4d
+}
+.lc-root {
+  padding-bottom:max(12px,env(safe-area-inset-bottom));
+  font-variant-numeric:tabular-nums
+}
+.lc-root button,.lc-cell {
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:#279bd044
+}
+.lc-root button:not(:disabled):hover {
+  filter:brightness(.96)
+}
+.lc-root .lc-market-slot>button,.lc-root .lc-market-slot>button:disabled {
+  background:#15293d url('/art/locus/back.webp') center/cover;
+  color:#fff
+}
+.lc-root .lc-tools label {
+  flex:1 0 140px;
+  white-space:nowrap;
+  min-height:42px
+}
+.lc-root .lc-tools input[type=checkbox] {
+  width:18px;
+  height:18px;
+  min-height:18px;
+  flex:0 0 18px;
+  margin:0;
+  accent-color:#26485c
+}
+.lc-root .profile-avatar.default-avatar {
+  width:32px;
+  height:32px;
+  min-width:32px
+}
+.lc-players span {
+  min-width:0;
+  overflow-wrap:anywhere
+}
+.lc-results {
+  overscroll-behavior:contain
+}
+.lc-root h1,.lc-root h2 {
+  text-wrap:balance
+}
+.lc-root .lc-mode select {
+  min-height:32px;
+  height:34px;
+  width:auto;
+  max-width:210px
+}
+.lc-root .lc-lobby select {
+  background:#fffef5;
+  color:#21323d
+}
+
+@media(max-width:600px) {
+  .lc-mode {
+  margin:5px 0;
+  font-size:10px
+}
+.lc-root .lc-mode select {
+  font-size:11px;
+  min-height:30px;
+  height:30px;
+  max-width:185px
+}
+.lc-heading h1 span {
+  font-size:10px
+}
+.lc-heading {
+  padding-bottom:6px;
+  margin-bottom:6px
+}
+.lc-status {
+  padding:5px;
+  font-size:12px
+}
+.lc-players>button {
+  min-width:140px
+}
+.lc-root .lc-tools label {
+  flex:1 0 135px;
+  font-size:11px
+}
+.lc-root .lc-tools button {
+  font-size:11px
+}
+.lc-root .lc-market {
+  gap:5px
+}
+.lc-root .lc-market-slot>button {
+  min-height:86px
+}
+.lc-root .lc-market.numbers .lc-market-slot>button {
+  min-height:46px
+}
+
+}
+
+.lc-result-detail {
+  margin:12px auto 0;
+  padding:8px 12px;
+  max-width:620px;
+  background:#fffef5e8;
+  border-left:3px solid #8da4b4
+}
+.lc-result-detail p {
+  font-size:11px;
+  text-align:left;
+  margin:3px 0
+}
+
+.lc-all-sheets{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:8px 0}.lc-all-sheets button{min-width:0;padding:5px;text-align:left}.lc-all-sheets strong{font-size:10px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lc-all-sheets svg{height:74px;width:100%;margin:4px auto}.lc-all-sheets small{font-size:9px;display:block;text-align:center}.lc-root.display-only .lc-players{display:none}
+@media(min-width:760px){.lc-root.display-only{display:grid;grid-template-columns:135px minmax(0,1fr);gap:8px 12px}.lc-root.display-only>.lc-heading,.lc-root.display-only>.lc-status,.lc-root.display-only>.lc-market,.lc-root.display-only>.lc-rules,.lc-root.display-only>.lc-final-banner{grid-column:1/-1}.lc-root.display-only .lc-all-sheets{grid-column:1;grid-template-columns:1fr;align-self:start;position:sticky;top:10px;margin:0}.lc-root.display-only .lc-paper{grid-column:2;width:100%;max-width:none}.lc-root.display-only .lc-paper .lc-sheet-svg:not(.zoom){max-height:61vh;width:auto;max-width:100%}}
+.lc-root button.new-bonus{animation:lc-combo .65s ease-out}@keyframes lc-combo{50%{transform:translateY(-3px);box-shadow:0 0 0 3px #e4be43}}

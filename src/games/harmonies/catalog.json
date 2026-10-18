@@ -1,0 +1,1118 @@
+[
+  {
+    "id": "animal-01",
+    "name": "จระเข้",
+    "animal": "crocodile",
+    "points": [
+      4,
+      9,
+      15
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-02",
+    "name": "ปลากระเบน",
+    "animal": "stingray",
+    "points": [
+      4,
+      10,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 0,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-03",
+    "name": "ฮิปโป",
+    "animal": "hippopotamus",
+    "points": [
+      3,
+      6,
+      10,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock",
+          "rock",
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-04",
+    "name": "นาก",
+    "animal": "otter",
+    "points": [
+      5,
+      10,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-05",
+    "name": "กบ",
+    "animal": "frog",
+    "points": [
+      2,
+      4,
+      6,
+      10,
+      15
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-06",
+    "name": "เป็ด",
+    "animal": "duck",
+    "points": [
+      2,
+      4,
+      8,
+      13
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "building"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-07",
+    "name": "ฟลามิงโก",
+    "animal": "flamingo",
+    "points": [
+      4,
+      10,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-08",
+    "name": "กิ้งก่า",
+    "animal": "lizard",
+    "points": [
+      5,
+      10,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "building"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-09",
+    "name": "หนู",
+    "animal": "mouse",
+    "points": [
+      5,
+      10,
+      17
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "building"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-10",
+    "name": "นกยูง",
+    "animal": "peacock",
+    "points": [
+      5,
+      10,
+      17
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "building"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-11",
+    "name": "กระรอก",
+    "animal": "squirrel",
+    "points": [
+      4,
+      9,
+      15
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "building"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-12",
+    "name": "เม่น",
+    "animal": "hedgehog",
+    "points": [
+      5,
+      12
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "building"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 0,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-13",
+    "name": "ผึ้ง",
+    "animal": "bee",
+    "points": [
+      8,
+      18
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-14",
+    "name": "หมี",
+    "animal": "bear",
+    "points": [
+      5,
+      11
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "leaf"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 0,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-15",
+    "name": "กระต่ายป่า",
+    "animal": "hare",
+    "points": [
+      5,
+      10,
+      17
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "building"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "leaf"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-16",
+    "name": "นกแก้ว",
+    "animal": "macaw",
+    "points": [
+      4,
+      9,
+      14
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-17",
+    "name": "หมูป่า",
+    "animal": "boar",
+    "points": [
+      4,
+      8,
+      13
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "building"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-18",
+    "name": "โคอาลา",
+    "animal": "koala",
+    "points": [
+      3,
+      6,
+      10,
+      15
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-19",
+    "name": "หมาป่า",
+    "animal": "wolf",
+    "points": [
+      4,
+      10,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-20",
+    "name": "นกกระเต็น",
+    "animal": "kingfisher",
+    "points": [
+      5,
+      11,
+      18
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-21",
+    "name": "เพนกวิน",
+    "animal": "penguin",
+    "points": [
+      4,
+      10,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "rock"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-22",
+    "name": "ค้างคาว",
+    "animal": "bat",
+    "points": [
+      3,
+      6,
+      10,
+      15
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "rock"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-23",
+    "name": "จิ้งจอกเฟนเนก",
+    "animal": "fennec fox",
+    "points": [
+      4,
+      9,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "rock"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-24",
+    "name": "ลิงหิมะ",
+    "animal": "snow monkey",
+    "points": [
+      5,
+      11
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-25",
+    "name": "แร้ง",
+    "animal": "vulture",
+    "points": [
+      5,
+      11
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "rock",
+          "rock",
+          "rock"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-26",
+    "name": "เมียร์แคต",
+    "animal": "meerkat",
+    "points": [
+      2,
+      5,
+      9,
+      14
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "rock"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-27",
+    "name": "อีกา",
+    "animal": "crow",
+    "points": [
+      4,
+      9
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "building"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "building"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-28",
+    "name": "ลามา",
+    "animal": "llama",
+    "points": [
+      5,
+      12
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-29",
+    "name": "นกกระสา",
+    "animal": "heron",
+    "points": [
+      5,
+      10,
+      17
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-30",
+    "name": "แรคคูน",
+    "animal": "raccoon",
+    "points": [
+      6,
+      12
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "animal-31",
+    "name": "เต่าทอง",
+    "animal": "ladybug",
+    "points": [
+      2,
+      5,
+      8,
+      12,
+      17
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "animal-32",
+    "name": "เสือดำ",
+    "animal": "black panther",
+    "points": [
+      5,
+      11
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      }
+    ]
+  }
+]

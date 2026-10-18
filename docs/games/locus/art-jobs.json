@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cover",
+    "prompt": "Original editorial board-game cover illustration, portrait 2:3 composition. A tactile abstract flip-and-write puzzle night: bright yellow, cyan blue, coral red, plum purple and leaf green paper strips and wooden colored pencils arranged around a large empty white paper surface on a subtle deep indigo star-speckled tabletop. Playful refined stationery photography mixed with hand-painted material texture, warm pencil grain, crisp paper edges, soft natural shadows. Colors and materials should suggest logical spatial puzzles without drawing any actual playable grid or game card. Strong simple composition readable as a small catalog cover. No words, letters, numbers, branding, logos, score sheet, exact polyomino shapes or watermark."
+  },
+  {
+    "id": "paper",
+    "prompt": "Seamless-looking flat overhead ivory-white uncoated drawing paper texture, subtle fine natural fibers and faint graphite smudges only at the outermost edges, very light almost white center that preserves legibility of overlaid colored grids and small black text. Even diffuse lighting, no folds or shadows through center. Portrait paper surface only. No text, handwriting, lines, grid, objects, symbols or logos."
+  },
+  {
+    "id": "table",
+    "prompt": "Original flat overhead tabletop background for a colorful pencil puzzle game: muted blue-gray artist's workbench, subtle fine grain and a few soft graphite and colored-pencil dust flecks near edges, very quiet clear center, diffuse lighting. Wide landscape surface with no perspective distortion, no text, no objects, no grids, no cards, no logos. Tactile and welcoming, restrained rather than busy."
+  },
+  {
+    "id": "back",
+    "prompt": "Original portrait card-back texture for an abstract family puzzle game. Deep navy paper with a subtle indigo and cyan nebula-like pigment cloud, fine paper grain and tiny restrained star-like specks. A delicate continuous border of loose colored-pencil strokes in yellow, cyan, coral, purple and green around the outer edge, identical repeated back suitable for every card. No words, lettering, numbers, logos, grid, playable shape or recognizable symbol. Flat front-on view, sharp rounded-corner-friendly edges, attractive quiet center."
+  },
+  {
+    "id": "results",
+    "prompt": "Original wide overhead celebratory still life for the border of an abstract pencil puzzle game's score summary. Five colored pencils (yellow, cyan blue, coral red, plum purple, leaf green), tiny paper scraps and pencil shavings loosely framing a large empty white paper center. Friendly hand-painted paper textures, soft realistic shadows, bright clean readable center left entirely blank for score UI. No words, numbers, charts, grids, logos, scores, trophies or watermark."
+  }
+]

@@ -1,0 +1,9 @@
+# Locus — presentation plan
+
+The hero is an interactive five-color pencil sheet, with a restrained blue-grey workbench (#22303b), graphite (#21323d), near-white paper (#fffef5), and the publisher's recognizable yellow (#e7bc16), blue (#279bd0), coral (#e96062), purple (#9459a3), green (#79ac3b). Noto Sans Thai inherits the project's loaded Thai font. Bold zone headings, compact tabular scores, no decorative counters unrelated to gameplay.
+
+Desktop: numbered market strip above a large paper sheet; public display keeps all player sheet thumbnails alongside the selected large sheet. Yellow/red occupy the top, purple/green below, with the tall blue track on the right, matching the physical sheet. Player controls keep tabs and scores in one shallow row. Phone: a shallow market strip (numbers in shared-table; actual cards in full-mobile), five-color sheet overview, tap a zone for large touch cells, compact shape workbench with rotate/mirror/coin toggle and confirmation. Every preview is local, and the whole shape is visible before commit. Confirm sits beside the workbench and never overlays grid cells. Other players' sheets are read-only.
+
+Original generated cover, paper, table, back, result-border textures add tactile context only. Exact coordinates, polyominoes, X strokes, bonus marks, tiers and score labels use native SVG/HTML. This keeps the memorable element—the color-coded paper puzzle—readable rather than imitating a generic dashboard. Public display uses the same sheet renderer with no legal private actions. Display mode changes retain preview and never mutate game state.
+
+Motion: stable keyed DOM; accepted event sequences draw only new X strokes in order, pop coins/bonuses, and deal the next market. Refresh/reconnect and presentation-only rerenders never replay history. Reduced motion removes movement and stroke animation. No automatic scrolling. Independent shared audio preferences control subtle paper, coin, combo, card and final cues.

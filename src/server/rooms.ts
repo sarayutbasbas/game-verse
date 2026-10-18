@@ -1060,7 +1060,7 @@ export class RoomService {
       if(room.players.length<2||room.players.length>5||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error("รอผู้เล่น 2–5 คนเชื่อมต่อและกดพร้อม");
       room.ck=ckRules.createInitialState(room.players,this.random,{restaurateurs:action.restaurateurs,tutorial:action.tutorial});room.ck.matchId=randomUUID();return;
     }
-    if(room.ck&&this.canManage(room,session)&&(action.type==="ck-run"||action.type==="ck-next")){room.ck=ckRules.applyAction(room.ck,room.ck.players[0].id,action,this.random);return;}
+    if(room.ck&&this.canManage(room,session)&&(action.type==="ck-run"||action.type==="ck-next"||action.type==="ck-reveal-results")){room.ck=ckRules.applyAction(room.ck,room.ck.players[0].id,action,this.random);return;}
     if(session.role!=="player"||!room.ck)throw Error("ใช้มือถือผู้เล่นหลังเริ่มเกม");
     room.ck=ckRules.applyAction(room.ck,session.playerId!,action as CKAction,this.random);
   }

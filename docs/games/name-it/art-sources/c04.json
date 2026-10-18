@@ -1,0 +1,7 @@
+{
+  "id": "c04",
+  "input": "/Users/basukekung/Projects/games/public/art/name-it/c03.webp",
+  "prompt": "Use case: precise-object-edit / identity-preserve. Input is the edit target dog illustration for a memory card game. Preserve exactly the same dog: breed anatomy, pose, fur colors, facial features, body proportions, painting style and expression. Add only a clearly visible saturated coral-red collar and attached thick red leash. The leash must visibly connect to the collar and curve through the empty area around the dog, ending in an easily recognized large hand loop. No human or hands. Keep full dog and entire leash inside the image with generous transparent margins; if needed uniformly make the subject slightly smaller without changing pose. Genuine transparent background preserved. No text, letters, numbers, labels, symbols, ground, additional animal or props. The result must be instantly recognized as the SAME dog now WITH A LEASH, even at small phone-card size.",
+  "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-d7bc277b-776c-441b-9984-48c93ce2139e.png",
+  "status": "generated"
+}

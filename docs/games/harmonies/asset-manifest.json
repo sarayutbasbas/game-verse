@@ -1,0 +1,308 @@
+{
+  "game": "harmonies",
+  "scope": "Libellud base 2024: 32 animals, board A and B; no expansions or spirits",
+  "generator": "built-in image_gen",
+  "style": "Original warm gouache and textured cut-paper; turquoise, moss, ochre, rose",
+  "assets": [
+    {
+      "id": "animal-01",
+      "animal": "crocodile",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-3ed89473-9af3-4e24-8ff9-1cbd62841778.png",
+      "artwork": "/art/harmonies/animals/animal-01.webp",
+      "status": "generated",
+      "prompt": "Original portrait illustration for a cozy nature board game animal card. A charming crocodile is the clear main subject, living in a lush suitable natural habitat with water, leafy trees or meadow details as appropriate. Sunny hand-painted gouache with textured cut-paper shapes, jewel turquoise, moss greens, warm ochre and soft rose accents. Sophisticated whimsical wildlife, beautiful readable silhouette at small size. Full bleed, no text, numbers, frame, logo, diagrams, cubes, or UI. Original composition, do not copy existing Harmonies artwork. Dedicated distinct asset animal-01."
+    },
+    {
+      "id": "animal-02",
+      "animal": "stingray",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-0a8b3b97-0281-403a-abf3-21e8e7266115.png",
+      "artwork": "/art/harmonies/animals/animal-02.webp",
+      "status": "generated",
+      "prompt": "Original portrait illustration for a cozy nature board game animal card. A charming stingray is the clear main subject, living in a lush suitable natural habitat with water, leafy trees or meadow details as appropriate. Sunny hand-painted gouache with textured cut-paper shapes, jewel turquoise, moss greens, warm ochre and soft rose accents. Sophisticated whimsical wildlife, beautiful readable silhouette at small size. Full bleed, no text, numbers, frame, logo, diagrams, cubes, or UI. Original composition, do not copy existing Harmonies artwork. Dedicated distinct asset animal-02."
+    },
+    {
+      "id": "animal-03",
+      "animal": "hippopotamus",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-a9a4892b-dcd6-4a1b-af6b-97daa922d9e2.png",
+      "artwork": "/art/harmonies/animals/animal-03.webp",
+      "status": "generated",
+      "prompt": "Original portrait illustration for a cozy nature board game animal card. A charming hippopotamus is the clear main subject, living in a lush suitable natural habitat with water, leafy trees or meadow details as appropriate. Sunny hand-painted gouache with textured cut-paper shapes, jewel turquoise, moss greens, warm ochre and soft rose accents. Sophisticated whimsical wildlife, beautiful readable silhouette at small size. Full bleed, no text, numbers, frame, logo, diagrams, cubes, or UI. Original composition, do not copy existing Harmonies artwork. Dedicated distinct asset animal-03."
+    },
+    {
+      "id": "animal-04",
+      "animal": "otter",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-2fdf589c-3321-4013-bd36-f292c8b08625.png",
+      "artwork": "/art/harmonies/animals/animal-04.webp",
+      "status": "generated",
+      "prompt": "Original portrait illustration for a cozy nature board game animal card. A charming otter is the clear main subject, living in a lush suitable natural habitat with water, leafy trees or meadow details as appropriate. Sunny hand-painted gouache with textured cut-paper shapes, jewel turquoise, moss greens, warm ochre and soft rose accents. Sophisticated whimsical wildlife, beautiful readable silhouette at small size. Full bleed, no text, numbers, frame, logo, diagrams, cubes, or UI. Original composition, do not copy existing Harmonies artwork. Dedicated distinct asset animal-04."
+    },
+    {
+      "id": "animal-05",
+      "animal": "frog",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-0f5444e1-7295-48d8-8dbc-bad9c70cc29e.png",
+      "artwork": "/art/harmonies/animals/animal-05.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming frog in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-05."
+    },
+    {
+      "id": "animal-06",
+      "animal": "duck",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-27d30631-1994-4d3d-ad61-bf29810b0c0c.png",
+      "artwork": "/art/harmonies/animals/animal-06.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming duck in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-06."
+    },
+    {
+      "id": "animal-07",
+      "animal": "flamingo",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-a8ee188d-84b9-4cba-af61-9ef6f35729d4.png",
+      "artwork": "/art/harmonies/animals/animal-07.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming flamingo in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-07."
+    },
+    {
+      "id": "animal-08",
+      "animal": "lizard",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-0a5cf6c5-79d6-4631-8fa5-badca3502096.png",
+      "artwork": "/art/harmonies/animals/animal-08.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming lizard in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-08."
+    },
+    {
+      "id": "animal-09",
+      "animal": "mouse",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-edbb9183-f521-40e2-9d2b-2b69979f3e71.png",
+      "artwork": "/art/harmonies/animals/animal-09.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming mouse in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-09."
+    },
+    {
+      "id": "animal-10",
+      "animal": "peacock",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-1cbb18cb-17fb-4ca6-8e5f-affaaa34ce62.png",
+      "artwork": "/art/harmonies/animals/animal-10.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming peacock in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-10."
+    },
+    {
+      "id": "animal-11",
+      "animal": "squirrel",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-37090c55-135e-4771-bf34-bf488c665d8f.png",
+      "artwork": "/art/harmonies/animals/animal-11.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming squirrel in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-11."
+    },
+    {
+      "id": "animal-12",
+      "animal": "hedgehog",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-5697c54f-a34a-47c4-8ac3-b13a4e41d7ef.png",
+      "artwork": "/art/harmonies/animals/animal-12.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming hedgehog in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-12."
+    },
+    {
+      "id": "animal-13",
+      "animal": "bee",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-6c0bf3ef-0285-4eae-abb8-b9493cec085d.png",
+      "artwork": "/art/harmonies/animals/animal-13.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming bee in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-13."
+    },
+    {
+      "id": "animal-14",
+      "animal": "bear",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-14d2309b-c259-4762-9df8-d43cba9d277b.png",
+      "artwork": "/art/harmonies/animals/animal-14.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming bear in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-14."
+    },
+    {
+      "id": "animal-15",
+      "animal": "hare",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-d3df4fad-27c9-4439-8e0f-ae795399fdcd.png",
+      "artwork": "/art/harmonies/animals/animal-15.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming hare in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-15."
+    },
+    {
+      "id": "animal-16",
+      "animal": "macaw",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-5f94af54-bb84-42f1-b6e9-dad004182217.png",
+      "artwork": "/art/harmonies/animals/animal-16.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming macaw in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-16."
+    },
+    {
+      "id": "animal-17",
+      "animal": "boar",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-79875fa6-da41-4d13-8cf2-2468442ec5c8.png",
+      "artwork": "/art/harmonies/animals/animal-17.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming boar in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-17."
+    },
+    {
+      "id": "animal-18",
+      "animal": "koala",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-3fa45a34-26ac-4362-a057-22b490917281.png",
+      "artwork": "/art/harmonies/animals/animal-18.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming koala in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-18."
+    },
+    {
+      "id": "animal-19",
+      "animal": "wolf",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-6073c45c-3a0e-4fd2-aa9c-9aa453bb43c2.png",
+      "artwork": "/art/harmonies/animals/animal-19.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming wolf in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-19."
+    },
+    {
+      "id": "animal-20",
+      "animal": "kingfisher",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-d58b3a41-028c-4727-b4fe-4b776b4b758c.png",
+      "artwork": "/art/harmonies/animals/animal-20.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming kingfisher in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-20."
+    },
+    {
+      "id": "animal-21",
+      "animal": "penguin",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-d51fc4ff-b531-40be-a7df-290cee5ad5f8.png",
+      "artwork": "/art/harmonies/animals/animal-21.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming penguin in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-21."
+    },
+    {
+      "id": "animal-22",
+      "animal": "bat",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-594c24cf-a021-4b35-9815-a55c85a999c6.png",
+      "artwork": "/art/harmonies/animals/animal-22.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming bat in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-22."
+    },
+    {
+      "id": "animal-23",
+      "animal": "fennec fox",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-c504d5c3-fa96-4ac8-a953-41f684831897.png",
+      "artwork": "/art/harmonies/animals/animal-23.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming fennec fox in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-23."
+    },
+    {
+      "id": "animal-24",
+      "animal": "snow monkey",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-cffe13c8-df14-421b-9c12-8291ffc06667.png",
+      "artwork": "/art/harmonies/animals/animal-24.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming snow monkey in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-24."
+    },
+    {
+      "id": "animal-25",
+      "animal": "vulture",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-0cdda260-8e21-49d9-9f82-ca55e77917d9.png",
+      "artwork": "/art/harmonies/animals/animal-25.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming vulture in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-25."
+    },
+    {
+      "id": "animal-26",
+      "animal": "meerkat",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-417adfc7-30bf-4637-81f6-c830e18af7b8.png",
+      "artwork": "/art/harmonies/animals/animal-26.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming meerkat in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-26."
+    },
+    {
+      "id": "animal-27",
+      "animal": "crow",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-59d03d27-a0f0-46e2-b3f2-c3f473ea426b.png",
+      "artwork": "/art/harmonies/animals/animal-27.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming crow in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-27."
+    },
+    {
+      "id": "animal-28",
+      "animal": "llama",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-a0d014ca-7277-41ac-abef-9e4484795f25.png",
+      "artwork": "/art/harmonies/animals/animal-28.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming llama in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-28."
+    },
+    {
+      "id": "animal-29",
+      "animal": "heron",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-6a414907-00b4-4979-b5cd-c38ed9f2bb1f.png",
+      "artwork": "/art/harmonies/animals/animal-29.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming heron in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-29."
+    },
+    {
+      "id": "animal-30",
+      "animal": "raccoon",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-388ced66-a890-4d39-ae69-b1a5b96a3c86.png",
+      "artwork": "/art/harmonies/animals/animal-30.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming raccoon in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-30."
+    },
+    {
+      "id": "animal-31",
+      "animal": "ladybug",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-7abf56e6-7d3a-45da-8e0f-9c542850b365.png",
+      "artwork": "/art/harmonies/animals/animal-31.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming ladybug in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-31."
+    },
+    {
+      "id": "animal-32",
+      "animal": "black panther",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-71555dda-1c63-4685-8af9-825a9ea775c5.png",
+      "artwork": "/art/harmonies/animals/animal-32.webp",
+      "status": "generated",
+      "prompt": "Original portrait wildlife illustration of a charming black panther in a lush appropriate natural habitat. Cozy nature board game style: sunny hand-painted gouache and textured cut-paper, jewel turquoise, moss green, warm ochre, gentle rose accents. The animal is large and immediately readable at small size, playful but anatomically recognizable. Full bleed, no words, numbers, frame, logo, card rules, diagram, cubes or UI. New original composition, never copy existing Harmonies art. Distinct illustration animal-32."
+    },
+    {
+      "id": "back",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-1fe28c8f-e318-4259-acfd-29a56b20f503.png",
+      "artwork": "/art/harmonies/back.webp",
+      "status": "generated",
+      "prompt": "Original playing card back, portrait, repeating botanical pattern of fine moss green leaves and golden seeds on dark petrol teal, elegant warm hand-painted gouache and textured paper. Symmetrical, no text, no logo, no animals, no game symbols."
+    },
+    {
+      "id": "board-A",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-c222c53d-5ac3-429e-8f82-06691f281ed4.png",
+      "artwork": "/art/harmonies/board-A.webp",
+      "status": "generated",
+      "prompt": "Original square subtle board-game player mat texture: warm parchment sand, faint hand-painted contour lines and sparse meadow plants at outer edges, center completely quiet pale sand, rich textured gouache paper. Top down, no grid, no hexagons, no tokens, no text. Nature theme, very low contrast, suitable underneath a generated hex grid."
+    },
+    {
+      "id": "board-B",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-186baa6c-4f67-4006-add1-993e4b78b14a.png",
+      "artwork": "/art/harmonies/board-B.webp",
+      "status": "generated",
+      "prompt": "Original square subtle board-game player mat texture: warm pale sand island with turquoise watercolor wash at the OUTER EDGE only, faint contour lines and sparse plants at edges. Center entirely quiet pale sand. Top down textured gouache paper, no grid, no hexagons, no tokens, no text. Low contrast under a coded hex grid."
+    },
+    {
+      "id": "cover",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-df0b37c2-e141-4ba9-b350-bd95f3a0ec92.png",
+      "status": "generated",
+      "artwork": "/art/covers/harmonies.webp",
+      "prompt": "Original sunny gouache wildlife-world cover with fox, kingfisher, river, trees and meadow. No copied logos or printed rules."
+    },
+    {
+      "id": "results",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-038917f6-e454-46d3-b81e-d45576fe1c8f.png",
+      "artwork": "/art/harmonies/results.webp",
+      "status": "generated",
+      "prompt": "Original cheerful landscape illustration celebrating a completed little wildlife world: fox, kingfisher, deer, hedgehog and otter peacefully gathered among turquoise river, golden wildflowers, rounded green trees and gray hills. Sunny gouache and layered textured cut-paper, warm and inviting. Panoramic 16:9 composition, no text, logos, cards, UI or numbers."
+    },
+    {
+      "id": "table",
+      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-13eb49d6-af8d-4d10-a937-0176742c28c4.png",
+      "artwork": "/art/harmonies/table.webp",
+      "status": "generated",
+      "prompt": "Original subtle tabletop environment texture for a cozy nature board game. Warm pale oak wood with delicate diffuse sunlight, very faint leaves at distant outer edges, flat overhead view, no objects, text, markings or tokens. Low contrast and seamless-feeling. Natural handmade cheerful atmosphere."
+    }
+  ],
+  "supersededBy": "reference-redesign/asset-manifest.json",
+  "note": "Original 38-asset set retained as fallback/rollback. Active 2026-10-16 reference art maps all32 animals and decorations in the linked manifest."
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cover",
+    "prompt": "Square original boardgame illustration: a bustling whimsical canal-side animal restaurant market, cheerful boar chef carrying vegetables, lizard baker, mouse waiter, ornate boats and colorful turquoise waterfront buildings, warm golden daylight, saturated teal, paprika orange, orchid and lemon, hand-painted gouache detailed inviting world. No text, no logo, no numbers. Original composition, not reproduction of existing game cover.",
+    "transparent": false
+  },
+  {
+    "id": "board-two-player",
+    "prompt": "Wide panoramic tabletop background for a two-player animal culinary market board: cozy two-bank canal promenade, teal blue water, copper food carts and gardens, five distinct architectural bays, viewed slightly overhead, airy quiet central playable area. Original hand-painted gouache, cheerful daylight, no characters, no letters, no symbols, no numbers, no UI.",
+    "transparent": false
+  },
+  {
+    "id": "board-standard",
+    "prompt": "Wide panoramic tabletop background for a large animal culinary market board: expansive sunlit canal harbor with rooftop vegetable gardens, distant airships, ornate midnight stalls and chef school architecture at edge, open teal cobblestone center for UI. Original cheerful painted gouache, no text, no numbers, no characters.",
+    "transparent": false
+  },
+  {
+    "id": "table",
+    "prompt": "Seamless-looking overhead illustrated turquoise glazed kitchen counter texture with subtle wood and tiny flour specks near perimeter, cheerful fantasy animal cooking game, restrained low contrast central area, hand-painted gouache, no text no food no symbols. Wide landscape.",
+    "transparent": false
+  }
+]

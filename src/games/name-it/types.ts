@@ -1,0 +1,12 @@
+export type CardKind='dog'|'leash'|'cat'|'gluta'|'gollum';
+export interface Breed {id:string;name:string;art:string;leashArt:string;ordinary:number;leashed:number}
+export interface Catalog {id:string;rulesVersion:string;provenance:'development'|'user-approved-web'|'official';breeds:Breed[];cat:number;gluta:number;gollum:number;specialArt:{cat:string;gluta:string;gollum:string};nearMs:number}
+export interface Card {id:string;kind:CardKind;art:string;breed?:string}
+export interface LocalPlayer {id:string;name:string;avatar:number;cards:string[]}
+export type Phase='ready'|'revealing'|'answer'|'judge'|'naming'|'settled'|'finished';
+export interface Context {mode:'breed'|'nickname'|'owner'|'tap';criterion:'first'|'last';breed?:string;answer?:string;owner?:string}
+export interface Award {card:string;recipient:string;points:1|-1;round:number;opener:string;context:Context;manualOverride:boolean;inspected:boolean}
+export interface NameState {gameId:'name-it';schema:1;matchId:string;rulesVersion:string;catalog:Catalog;cards:Card[];players:LocalPlayer[];deck:string[];current:string|null;turn:number;round:number;revision:number;phase:Phase;memory:Record<string,{nickname:string;owner:string}>;lastContext:Context|null;context:Context|null;taps:{seat:string;at:number}[];armedAt:number|null;forceManual:boolean;inspected:boolean;pendingWinner:string|null;history:Award[];winners:string[];event:'setup'|'draw'|'arm'|'touch'|'judge'|'inspect'|'naming'|'award'|'finish'}
+export type Intent={type:'draw'}|{type:'arm';round:number}|{type:'touch';round:number;seat:string;at:number}|{type:'judge';round:number}|{type:'inspect';round:number}|{type:'confirm';round:number;recipient:string;override:boolean}|{type:'name';round:number;nickname:string};
+export interface Proposal {candidate:string|null;uncertain:boolean;reason:string}
+export interface LocalView {matchId:string;phase:Phase;revision:number;round:number;remaining:number;opener:string;current:{id:string;art:string}|null;players:{id:string;name:string;avatar:number;score:number;positive:number;negative:number;tapped:boolean}[];event:NameState['event'];winners:string[];lastRecipient?:string;judgement?:{proposal:Proposal;expected?:string;ownerSeat?:number;mode?:Context['mode'];criterion?:Context['criterion'];taps:{seat:string;at:number}[];needsName:boolean};pendingWinner:string|null;memory?:{breed:string;nickname:string;owner:string}[]}

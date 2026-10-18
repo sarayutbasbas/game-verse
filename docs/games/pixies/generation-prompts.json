@@ -1,0 +1,163 @@
+{
+  "tool": "built-in image_gen",
+  "batch1": {
+    "style": "Original full-bleed woodland miniature card illustration. Handmade acorn/seed/twig/petal creature, unique botanical material and pose per catalog ID. Macro natural light and shallow depth of field. Color-specific forest backdrop. No text, numbers, symbols, frames or logos.",
+    "assetCount": 31
+  },
+  "batch2": [
+    {
+      "id": "green-10",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of pinecone body and leaf hat, sitting in an acorn cup. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. green dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset green-10."
+    },
+    {
+      "id": "green-12",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of chestnut and moss hair, waving beside a fern. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. green dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset green-12."
+    },
+    {
+      "id": "green-09",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of poppy pod body and twig legs, peeking from a mushroom. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. green dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset green-09."
+    },
+    {
+      "id": "green-13",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of hazelnut and seed wings, waving beside a fern. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. green dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset green-13."
+    },
+    {
+      "id": "green-14",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of mushroom cap and leaf boots, carrying flower petals. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. green dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset green-14."
+    },
+    {
+      "id": "green-15",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of bark face and flower ears, carrying flower petals. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. green dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset green-15."
+    },
+    {
+      "id": "green-16",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of acorn helmet and fern cape, sheltering under a leaf. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. green dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset green-16."
+    },
+    {
+      "id": "yellow-02",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of pinecone body and leaf hat, balancing on a twig. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-02."
+    },
+    {
+      "id": "yellow-01",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of poppy pod body and twig legs, sheltering under a leaf. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-01."
+    },
+    {
+      "id": "yellow-03",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of walnut body and petal scarf, balancing on a twig. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-03."
+    },
+    {
+      "id": "yellow-04",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of chestnut and moss hair, holding a dew drop. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-04."
+    },
+    {
+      "id": "yellow-05",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of hazelnut and seed wings, holding a dew drop. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-05."
+    },
+    {
+      "id": "yellow-07",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of bark face and flower ears, playing with a seedpod. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-07."
+    },
+    {
+      "id": "yellow-08",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of acorn helmet and fern cape, peeking from a mushroom. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-08."
+    },
+    {
+      "id": "yellow-06",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of mushroom cap and leaf boots, playing with a seedpod. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-06."
+    },
+    {
+      "id": "yellow-09",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of poppy pod body and twig legs, peeking from a mushroom. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-09."
+    },
+    {
+      "id": "yellow-10",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of pinecone body and leaf hat, sitting in an acorn cup. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-10."
+    },
+    {
+      "id": "yellow-11",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of walnut body and petal scarf, sitting in an acorn cup. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-11."
+    },
+    {
+      "id": "yellow-12",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of chestnut and moss hair, waving beside a fern. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-12."
+    },
+    {
+      "id": "yellow-13",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of hazelnut and seed wings, waving beside a fern. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-13."
+    },
+    {
+      "id": "yellow-14",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of mushroom cap and leaf boots, carrying flower petals. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-14."
+    },
+    {
+      "id": "yellow-15",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of bark face and flower ears, carrying flower petals. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-15."
+    },
+    {
+      "id": "red-01",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of poppy pod body and twig legs, sheltering under a leaf. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-01."
+    },
+    {
+      "id": "yellow-16",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of acorn helmet and fern cape, sheltering under a leaf. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. yellow dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset yellow-16."
+    },
+    {
+      "id": "red-02",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of pinecone body and leaf hat, balancing on a twig. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-02."
+    },
+    {
+      "id": "red-03",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of walnut body and petal scarf, balancing on a twig. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-03."
+    },
+    {
+      "id": "red-04",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of chestnut and moss hair, holding a dew drop. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-04."
+    },
+    {
+      "id": "red-05",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of hazelnut and seed wings, holding a dew drop. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-05."
+    },
+    {
+      "id": "red-06",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of mushroom cap and leaf boots, playing with a seedpod. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-06."
+    },
+    {
+      "id": "red-08",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of acorn helmet and fern cape, peeking from a mushroom. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-08."
+    },
+    {
+      "id": "red-09",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of poppy pod body and twig legs, peeking from a mushroom. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-09."
+    },
+    {
+      "id": "red-11",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of walnut body and petal scarf, sitting in an acorn cup. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-11."
+    },
+    {
+      "id": "red-12",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of chestnut and moss hair, waving beside a fern. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-12."
+    },
+    {
+      "id": "red-10",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of pinecone body and leaf hat, sitting in an acorn cup. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-10."
+    },
+    {
+      "id": "red-14",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of mushroom cap and leaf boots, carrying flower petals. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-14."
+    },
+    {
+      "id": "red-13",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of hazelnut and seed wings, waving beside a fern. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-13."
+    },
+    {
+      "id": "red-15",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of bark face and flower ears, carrying flower petals. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-15."
+    },
+    {
+      "id": "red-16",
+      "prompt": "Original full-bleed portrait card illustration of a unique mischievous miniature woodland creature made of acorn helmet and fern cape, sheltering under a leaf. Tactile handmade botanical craft photographed with macro shallow depth of field, soft natural light. red dominant forest backdrop. Warm cute original seed folk, not copied characters. Fill portrait frame, centered creature. No text, numbers, symbols, icons, logo, frame or game information. Keep top corners and bottom edge quiet. Unique asset red-16."
+    }
+  ],
+  "red07": "Original cozy macro photograph style illustration for a botanical tabletop game card: a small friendly acorn figurine with two seed bead eyes, twig arms and fern scarf sitting on soft moss beside a single red autumn leaf. Tactile handmade natural materials, soft daylight, shallow depth of field, portrait composition. Illustration only, no letters, numbers, printed symbols, logos or frame. Entirely original woodland craft character.",
+  "blue06Replacement": "An original portrait macro photo-style illustration of a tiny friendly handmade acorn creature with twig arms, a small blue forget-me-not flower hat and curled fern scarf, standing on a moss-covered root. Soft blue forest flowers and dew in background, natural daylight, tactile botanical materials, warm mischievous expression, shallow depth of field. No paper, books, writing, letters, numbers, symbols, labels, frame or logos. Only a nature craft miniature in a tiny forest."
+}

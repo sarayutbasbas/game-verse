@@ -1,0 +1,77 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "id": "cover",
+      "path": "/art/covers/sky-team.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": false,
+      "bytes": 265452,
+      "original": "exec-95969858-6dbb-4795-b028-5f4d21846725.png"
+    },
+    {
+      "id": "panel",
+      "path": "/art/sky-team/panel.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": false,
+      "bytes": 65896,
+      "original": "exec-e14b8809-35d7-43ae-b760-bbb6948bba64.png"
+    },
+    {
+      "id": "runway",
+      "path": "/art/sky-team/runway.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": false,
+      "bytes": 193726,
+      "original": "exec-c58bb38c-15f8-4a6e-bd9d-6bfb5980eef8.png"
+    },
+    {
+      "id": "airplane",
+      "path": "/art/sky-team/airplane.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": true,
+      "bytes": 31314,
+      "original": "exec-4221e867-0d27-4a9a-8ebc-4745c15f1077.png"
+    },
+    {
+      "id": "pilot",
+      "path": "/art/sky-team/pilot.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": false,
+      "bytes": 11708,
+      "original": "exec-d5530b13-61aa-48a1-ac9f-ed970d35fc66.png"
+    },
+    {
+      "id": "copilot",
+      "path": "/art/sky-team/copilot.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": false,
+      "bytes": 12406,
+      "original": "exec-618207a0-1b2d-4a0c-8e31-290edd0518a7.png"
+    },
+    {
+      "id": "success",
+      "path": "/art/sky-team/success.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": false,
+      "bytes": 171542,
+      "original": "exec-a18ca0b9-795a-4e16-a097-1f4cf40103ab.png"
+    },
+    {
+      "id": "failure",
+      "path": "/art/sky-team/failure.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": false,
+      "bytes": 138120,
+      "original": "exec-ca612ca8-763e-401f-b165-e5b59fd5341e.png"
+    },
+    {
+      "id": "traffic",
+      "path": "/art/sky-team/traffic.webp",
+      "generatedWith": "built-in image_gen",
+      "transparent": true,
+      "bytes": 4802,
+      "original": "exec-410495b0-6081-4795-887e-9b345676dff9.png"
+    }
+  ]
+}

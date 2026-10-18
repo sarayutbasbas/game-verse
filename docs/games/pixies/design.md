@@ -1,0 +1,41 @@
+# Pixies design
+
+Base palette: shaded forest #143c34, deep moss #0c2b25, fern #819b57, pale leaf #e9efda, seed gold #e8c267. Use bundled Noto Sans Thai; Pixies title is compact and playful. Main landmark is each 3×3 garden with a slightly lifted validated stack; UI framing evokes plant labels without hiding game information. Card numbers/symbols remain on dark high-contrast overlays, color has a distinct shape as well as hue. No ColorADD licensed glyphs are copied.
+
+Shared screen: market above a responsive row of all gardens; click cards to inspect. Phone: market then own3×3, tabs expose opponents. Sticky placement footer, direct slot taps, default legal target, compare old/new choices, cancellation, no forced scrolling or drag. Pending selection is server-persisted; placement choice itself stays local until confirmation. All hidden faces are excluded from DTOs.
+
+Generated illustration style: original handmade botanical miniature creatures of acorns, seed pods, twigs, petals and mushrooms; macro natural light and shallow depth. All70 IDs receive separate generation prompts and separate local WebP. Cover/back/table separate. No printed rule text generated in images; renderer reads catalog and vector symbol functions. Manifest tracks saved files and source prompts. Sources remain under Codex generated_images; only optimized web files ship.
+
+Audio uses shared TurnSound/Web Audio, quiet synthesized forest-toned major pads, paper rustle and warm chimes. Separate BGM/SFX toggles and volume, device preferences, gesture restriction, visibility pause, no extra contexts or downloads. BGM defaults off on both surfaces, user enables primarily on shared display to avoid overlapping phones. No audio files claimed. Motion only follows accepted sequence/revisions; snapshots/reconnect skip, reduced motion snaps. Local selection sound does not reveal hidden information.
+
+QA refinements: phone gardens use wider card windows with unchanged code overlays to keep the3×3 visible at390px; shared gardens cap at320px so three gardens fit desktop. Preview indicators and scoring data remain readable even while artwork loads. Expand a complete garden on smaller screens. Score dialogs blur/inert/lock the background, count only server totals and support skip/Escape; later authoritative rounds clear old result overlays. Card flip/lift targets only changed up/down slots, never the entire garden. Seat numbers accompany duplicate names in score panels.
+
+## Stable selection and card comparison — 2026-10-15
+
+Supersedes compact square phone windows and the previous skip/OK summary controls. Keep the main shell and patch the existing Pixies DOM using stable market-cell/player/slot/card keys; repeated pending/ACK/presence deliveries retain image nodes and do not flash the board. Optional persisted marketSlots keep holes after picks; old rooms without this layout remain readable and acquire it on their next action. Public layout contains visible available faces or null, never the ID of a card that has left the market.
+
+Selection lifts the same market button10px. The selected card stays enabled for cancellation by a second tap. New batches deal from the actual deck-back marker with staggered flights; duplicate deliveries/reconnect/reduced motion skip replay. Portrait phone slots now preserve the full336×464 card view. Circular avatars and color badges have fixed equal dimensions and no flex shrink.
+
+Duplicate unvalidated numbers open a native modal showing the two full cards, labeled old/new. Explicitly tap a face to select it, then confirm; no small old/new footer selector. Cancel returns the pending card to the market. Round summaries mark the highest round score (ties included) with an SVG crown; final summaries use authoritative winner IDs. The single action continues the next round or restarts a finished game for an authorized manager. Spectators wait; Escape closes locally and the summary can be reopened. Host continuation uses existing room management capability and the same engine legality check.
+
+## Slot confirmation and score review — 2026-10-15
+
+Selection can switch directly to another available market card; a second tap still cancels the selected card. All legal destinations show an independent “ตกลง” button inside the slot. Duplicate-face comparison opens only after tapping that destination, keeping the market available for changing the selection. The sticky placement footer and garden fullscreen control are removed. Phone garden tabs precede the market. Four-card phone markets use two columns with larger faces; five-card markets use three columns. Stable market cells retain holes until the authoritative next batch arrives. The deck marker and validated slots show offset card backs; buried face IDs remain excluded.
+
+The send/state/ACK lock previously triggered the same disabled-card dimming as waiting for another player's turn. Market opacity now follows turn ownership only, with disabled controls keeping their artwork unchanged during the request. Browser tests delay the actual command send and sample computed opacity on animation frames, in addition to retaining market/garden/card nodes and positions. Deal flights occur only on a new authoritative batch, not selection or repeated delivery.
+
+Score review has five category buttons. Each replays a bounce only on contributing number, spiral, cross, special, or color symbols in the round gardens. The engine supplies visible slot indices, using the same scoring calculation and a deterministic largest color group; no buried IDs or future cards are included. Changing category cancels the prior animation. Reduced motion retains highlights without bouncing. The final winner dialog cannot be dismissed with Escape, reopens after reconnect, and remains until an authorized restart; its continuation button stays at the bottom of the dialog. Individual-card zoom remains, with a close button over the card's upper-right corner.
+
+## Open comparison and brighter audio — 2026-10-15
+
+Duplicate-number selection now opens a non-modal, in-flow comparison above the market. Old/new cards remain explicit choices with a separate confirm; the garden stays interactive and the page is not blurred or locked. The preserved comparison mount survives state/ACK rendering. Scoring symbols sit in the upper-right corner opposite the number across market, garden, zoom, comparison and score review.
+
+Pixies music replaces the former sustained low chord/glide bed with an original C-major plucked melody, short envelopes, rests and light higher-register accompaniment. It uses the existing AudioContext, independent BGM gain, pause/cleanup and saved preferences. SFX remain separate: immediate selection, authoritative placement/validation, every newly dealt market batch, and round/final results. Final placements retain their confirmation cue before the result chime. Snapshot/reconnect/duplicate states do not replay effects. No downloaded audio or additional services are introduced.
+
+## Compact destination confirmation — 2026-10-15
+
+Supersedes the two-column phone market and comparison above the market. Available market cards remain in one horizontal row, with interior padding and stable holes. Phone gardens use shorter card windows (full faces remain available in zoom), preserving number and symbol overlays. Short viewports reduce the windows further. Removing the market cancel/preview action row leaves more space for the nine slots; a second market tap still cancels and another card switches selection directly.
+
+Every legal destination previews the pending face at reduced opacity beneath a centered “ตกลง” button. Duplicate numbers open a non-modal popover immediately above their destination: new face on the left, old face on the right. Selecting either face closes the popover, previews that face in the slot, and enables that slot's confirmation. The server continues to validate placement; no rules, hidden-card projections or identity checks change.
+
+Card zoom reserves a separate top strip for its close button, enlarges numbers and scoring symbols, and closes when the backdrop or dialog padding is tapped. Modal scroll locking and Escape remain. Stable patch keys and request-lock artwork opacity are preserved.

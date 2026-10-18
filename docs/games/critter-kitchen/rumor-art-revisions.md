@@ -1,0 +1,7 @@
+# Rumor illustration review
+
+The first generated set was rejected in visual QA because thought bubbles included food diagrams, stars and numeric marks. All 28 selected rumor illustrations were replaced with natural narrative scenes. The revised prompt direction excludes speech/thought bubbles, symbols, stars, annotations, graphic overlays, mathematical marks, text, letters and digits, and never supplies the scoring formula to the image generator.
+
+Each selected card remains a distinct illustration: bakery admirer, carrot tasting, cheese tasting, fish tasting, steak tasting, mushroom tasting, wine tasting, varied tasting dishes, owl with spectacles, talkative monkey, discerning cat, takeaway hamper, spice enthusiast, quirky raven, simple rustic vegetables, heron with tender greens, delicate bread tasting, contrasting dishes, bat in a wine cellar, purple mushroom soup, cheese wheel, sleepy bear, bread dipped in soup, pampered cat, rustic raccoon, wolf sommelier, otter with leftovers, and moonlit owl dinner.
+
+`asset-manifest.json` records the selected original PNG and the superseded original for each rumor. Both remain in Codex's generated-images archive; only the selected optimized WebP is used by the app. `last-art-revisions.json` records the four jobs completed after the interrupted tool session. Final visual QA used a contact sheet of all 28 selected illustrations and checked that no scoring diagram or numeric annotation remained. Card titles, Thai effects and points are code-rendered separately.
