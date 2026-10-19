@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "status": "artwork-preparation",
+  "gameplayEnabled": false,
+  "reference": {
+    "file": "CritterKitchen_Exp_Rulebook.pdf",
+    "pages": 12,
+    "sha256": "b42a05e9332b7364aa2e94b76340369625682acd63ad90a44e8c0eea055d2165",
+    "componentPages": [
+      2,
+      3,
+      4
+    ]
+  },
+  "hero": "market-banner.webp",
+  "items": [
+    {
+      "id": "coffee",
+      "name": "กาแฟ",
+      "quantity": 7,
+      "asset": "items/coffee.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "dumpling",
+      "name": "เกี๊ยว",
+      "quantity": 6,
+      "asset": "items/dumpling.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "receipt",
+      "name": "ใบเสร็จ",
+      "quantity": 7,
+      "asset": "items/receipt.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "balloon",
+      "name": "ลูกโป่ง",
+      "quantity": 30,
+      "asset": "items/balloon.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "trophy",
+      "name": "ถ้วยรางวัล",
+      "quantity": 7,
+      "asset": "items/trophy.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "cookbook",
+      "name": "ตำราอาหาร",
+      "quantity": 7,
+      "asset": "items/cookbook.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "flower",
+      "name": "ดอกไม้",
+      "quantity": 7,
+      "asset": "items/flower.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "gold-coin",
+      "name": "เหรียญทอง",
+      "quantity": 7,
+      "asset": "items/gold-coin.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "newspaper",
+      "name": "หนังสือพิมพ์",
+      "quantity": 21,
+      "asset": "items/newspaper.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "ice",
+      "name": "น้ำแข็ง",
+      "quantity": 6,
+      "asset": "items/ice.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "sauce",
+      "name": "ซอส",
+      "quantity": 7,
+      "asset": "items/sauce.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "tofu",
+      "name": "เต้าหู้",
+      "quantity": 7,
+      "asset": "items/tofu.webp",
+      "sourcePage": 2
+    },
+    {
+      "id": "zous-ingredients",
+      "name": "วัตถุดิบ Zous",
+      "quantity": 14,
+      "asset": "items/zous-ingredients.webp",
+      "sourcePage": 3
+    },
+    {
+      "id": "organic",
+      "name": "วัตถุดิบออร์แกนิก",
+      "quantity": 7,
+      "asset": "items/organic.webp",
+      "sourcePage": 3
+    },
+    {
+      "id": "gelato",
+      "name": "เจลาโต",
+      "quantity": 7,
+      "asset": "items/gelato.webp",
+      "sourcePage": 3
+    },
+    {
+      "id": "pie",
+      "name": "พาย",
+      "quantity": 7,
+      "asset": "items/pie.webp",
+      "sourcePage": 3
+    }
+  ],
+  "additionalComponents": [
+    {
+      "id": "newspaper-rumor",
+      "name": "โทเคนข่าวลือหนังสือพิมพ์",
+      "quantity": 14,
+      "sourcePage": 2
+    },
+    {
+      "id": "mystery-die",
+      "name": "ลูกเต๋าปริศนา",
+      "quantity": 1,
+      "sourcePage": 3
+    }
+  ],
+  "teams": [
+    {
+      "color": "pink",
+      "chef": "mouse",
+      "asset": "teams/pink-mouse.webp"
+    },
+    {
+      "color": "pink",
+      "chef": "lizard",
+      "asset": "teams/pink-lizard.webp"
+    },
+    {
+      "color": "pink",
+      "chef": "boar",
+      "asset": "teams/pink-boar.webp"
+    },
+    {
+      "color": "turquoise",
+      "chef": "mouse",
+      "asset": "teams/turquoise-mouse.webp"
+    },
+    {
+      "color": "turquoise",
+      "chef": "lizard",
+      "asset": "teams/turquoise-lizard.webp"
+    },
+    {
+      "color": "turquoise",
+      "chef": "boar",
+      "asset": "teams/turquoise-boar.webp"
+    }
+  ],
+  "notes": [
+    "Original artwork; no official illustrations redistributed.",
+    "Item artwork has no printed quality or rules; values and effects require the original card faces.",
+    "Pink/turquoise are prepared custom team visuals; not added to the active color pool or player capacity yet."
+  ]
+}

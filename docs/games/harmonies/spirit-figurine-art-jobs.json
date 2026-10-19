@@ -1,0 +1,111 @@
+{
+  "generator": "image_gen",
+  "generatedAt": "2026-10-19",
+  "prompt": "Create one production sprite atlas for a nature board game: EXACTLY 10 separate glowing magical animal figurines arranged in an evenly spaced strict grid of FIVE COLUMNS and TWO ROWS, on a fully TRANSPARENT background. Landscape canvas. Every cell has equal size, all figures entirely inside their cell with generous transparent margins. No labels, no text, no grid lines. Render as beautiful premium miniature sculpted translucent crystal/resin 3D models, viewed from front three-quarter isometric camera, facing slightly right, whole body visible. Strong recognizable sculpted silhouettes, visible eyes and anatomy, softly luminous colored cores and fine luminous rim lighting, solid colored details rather than white light blobs. Subtle small glow stays within each cell. Row 1 left to right: golden amber lion with full mane; rainbow iridescent butterfly with open wings; emerald green stag with branching antlers; sapphire and violet owl; dark violet bat with spread wings and silver edge light. Row 2 left to right: warm coral-red crane standing with long legs and elegant neck; ice-blue crystal mountain goat with curved horns; warm rose-gold marmot sitting upright; cyan turquoise dragonfly with four clear wings; jade green turtle with a distinct sculpted shell. Each miniature centered on identical baseline in its own grid cell; no pedestal, no ground plane, no props. Crisp detailed forms legible as small game pieces, enchanting high-quality collectible miniature aesthetic.",
+  "firstSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cfd12299-d1a2-46c2-b5ac-9226bc38bdd3.png",
+  "revisionPrompt": "Re-layout this sprite atlas into a precise FIVE-COLUMN TWO-ROW grid with 10 equal-size square cells. Preserve all ten crystalline glowing animals and their colors and order. CRITICAL: shrink EVERY animal to at most 65 percent of its cell width and 70 percent of its cell height, centered independently in its own cell. Put very generous transparent gaps between every animal horizontally and vertically and outer margins on ALL sides. No animal or glow may touch another cell or any edge of the canvas. All wings, tails, antlers and feet must be complete and visible. Maintain a fully transparent background, do not add grid lines, text, labels or floors. The exact order is golden lion, rainbow butterfly, green stag, blue owl, purple bat; then coral crane, icy blue goat, rose marmot, cyan dragonfly, jade turtle. Landscape aspect ratio 5:2.",
+  "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3cedc9f0-d4d6-435b-ae59-66379c83dfa8.png",
+  "format": "Transparent WebP sprite, 160×184, original generated crystal figurines",
+  "outputs": [
+    {
+      "id": "spirit-01",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 414,
+        "height": 410
+      },
+      "path": "public/art/harmonies/figurines/spirit-01-glow.webp"
+    },
+    {
+      "id": "spirit-02",
+      "crop": {
+        "left": 414,
+        "top": 0,
+        "width": 432,
+        "height": 410
+      },
+      "path": "public/art/harmonies/figurines/spirit-02-glow.webp"
+    },
+    {
+      "id": "spirit-03",
+      "crop": {
+        "left": 846,
+        "top": 0,
+        "width": 344,
+        "height": 410
+      },
+      "path": "public/art/harmonies/figurines/spirit-03-glow.webp"
+    },
+    {
+      "id": "spirit-04",
+      "crop": {
+        "left": 1190,
+        "top": 0,
+        "width": 340,
+        "height": 410
+      },
+      "path": "public/art/harmonies/figurines/spirit-04-glow.webp"
+    },
+    {
+      "id": "spirit-05",
+      "crop": {
+        "left": 1530,
+        "top": 0,
+        "width": 453,
+        "height": 410
+      },
+      "path": "public/art/harmonies/figurines/spirit-05-glow.webp"
+    },
+    {
+      "id": "spirit-06",
+      "crop": {
+        "left": 0,
+        "top": 410,
+        "width": 400,
+        "height": 383
+      },
+      "path": "public/art/harmonies/figurines/spirit-06-glow.webp"
+    },
+    {
+      "id": "spirit-07",
+      "crop": {
+        "left": 400,
+        "top": 410,
+        "width": 420,
+        "height": 383
+      },
+      "path": "public/art/harmonies/figurines/spirit-07-glow.webp"
+    },
+    {
+      "id": "spirit-08",
+      "crop": {
+        "left": 820,
+        "top": 410,
+        "width": 320,
+        "height": 383
+      },
+      "path": "public/art/harmonies/figurines/spirit-08-glow.webp"
+    },
+    {
+      "id": "spirit-09",
+      "crop": {
+        "left": 1140,
+        "top": 410,
+        "width": 450,
+        "height": 383
+      },
+      "path": "public/art/harmonies/figurines/spirit-09-glow.webp"
+    },
+    {
+      "id": "spirit-10",
+      "crop": {
+        "left": 1590,
+        "top": 410,
+        "width": 393,
+        "height": 383
+      },
+      "path": "public/art/harmonies/figurines/spirit-10-glow.webp"
+    }
+  ]
+}

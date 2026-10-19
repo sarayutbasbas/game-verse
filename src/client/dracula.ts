@@ -1,3 +1,4 @@
+import {illustratedGameGuide} from './game-learning.js';
 import { patchHTML } from "./dom-patch.js";
 import {
   EFFECTS,
@@ -72,7 +73,7 @@ export function renderDracula(
   root.dataset.duelWaiting = String(!!mine && v.phase === "playing" && v.turn !== mine.id);
   patchHTML(root, `<div class="duel-room room-heading"><div><h1>Dracula <span>vs</span> Van Helsing</h1><p>${v.round ? `รอบ ${v.round}/5 • ` : ""}${phase}</p></div></div>
   <section id="duel-board" data-preserve-content class="duel-game-board ${mine ? "duel-player-board" : ""} own-${own ?? "helsing"}"></section>
-  <details class="duel-help"><summary>วิธีเล่นและความสามารถการ์ด</summary><p>วางการ์ดตรงเขต 1–5 ห้ามจัดใหม่เอง ในตาของคุณจั่วหนึ่งใบ แล้วทิ้งใบที่จั่วหรือเปลี่ยนกับใบในเขต ความสามารถมาจากใบที่ทิ้ง และต้องทำถ้าทำได้</p><p>ทรัมป์ชนะสีอื่น ถ้าเหมือนกันใช้เลข เลขเท่ากันใช้ลำดับสี เปิดการ์ดคงเปิดแม้สลับตำแหน่ง</p><ol>${Object.entries(
+  <details class="duel-help"><summary>วิธีเล่นและความสามารถการ์ด</summary>${illustratedGameGuide('dracula-vs-van-helsing')}<p>วางการ์ดตรงเขต 1–5 ห้ามจัดใหม่เอง ในตาของคุณจั่วหนึ่งใบ แล้วทิ้งใบที่จั่วหรือเปลี่ยนกับใบในเขต ความสามารถมาจากใบที่ทิ้ง และต้องทำถ้าทำได้</p><p>ทรัมป์ชนะสีอื่น ถ้าเหมือนกันใช้เลข เลขเท่ากันใช้ลำดับสี เปิดการ์ดคงเปิดแม้สลับตำแหน่ง</p><ol>${Object.entries(
     EFFECTS,
   )
     .map(([n, e]) => `<li value="${n}">${e}</li>`)

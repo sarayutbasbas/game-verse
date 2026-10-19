@@ -35,7 +35,7 @@ export function validateMeals(s: MealContext, p: MealPlayer, meals: Meal[], fina
         const by = FOODS.map(f => m.items.filter(a => a.as === f));
         for (const a of m.items) {
             const t = TOKEN[a.token];
-            if (!t || t.kind !== 'ingredient' || !p.storage.includes(a.token) || t.food !== a.as && !(s.critic === 'badger' && t.food === 'mushroom') || !required.includes(a.as) || !spiceMatches(s, p, a, final))
+            if (!t || t.kind !== 'ingredient' || !p.storage.includes(a.token) || t.food !== a.as && !(s.critic === 'badger' && t.food === 'mushroom') && !(!final && p.restaurateur === 'wolfgang-duck' && t.food === 'wine') || !required.includes(a.as) || !spiceMatches(s, p, a, final))
                 err();
             all.push(a.token);
             if (a.spice) {

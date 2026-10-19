@@ -1,3 +1,4 @@
+import {illustratedGameGuide} from './game-learning.js';
 import { roomCode } from "./ui.js";
 import { TILE_NAMES, type TileColor, type AzulView } from "../games/azul/types.js";
 import type { RoomAction } from "../shared/types.js";
@@ -55,7 +56,7 @@ class AzulTable {
       ${v.me ? `<nav class="az-tabs" aria-label="ดูกระดานผู้เล่น">${v.players.map(p => `<button data-inspect="${p.id}" aria-pressed="false">${esc(p.name)}${p.id === v.me!.id ? " (คุณ)" : " • ดูอย่างเดียว"}<small>${p.score} คะแนน</small></button>`).join("")}</nav>` : ""}
       <section class="az-boards ${v.me ? "az-inspected" : ""}">${v.players.map(p => `<div data-board-player="${p.id}">${PlayerBoard(p, v)}</div>`).join("")}</section><section class="az-confirm-wrap"></section></div></div>
       ${v.settlements?.length ? `<details class="az-history"><summary>รายละเอียดคะแนนรอบล่าสุดและประวัติ</summary>${[...v.settlements].reverse().map(r => RoundSummary(v, r)).join("")}</details>` : ""}
-      <details class="az-help"><summary>วิธีเล่น Azul ภาคหลัก</summary><p>เลือกสีเดียวทั้งหมดจากโรงงานหนึ่งวงหรือกลางโต๊ะ วางแถวเดียวหรือพื้น เศษโรงงานไปกลาง แถวรับสีเดิมและสีนี้ต้องยังไม่มีบนผนังแถวนั้น แถวเต็มปูจากบนลงล่าง แถวไม่เต็มคงอยู่รอบหน้า</p><p>ช่องเดี่ยว +1 ต่อแนวเดียวคิดความยาวกลุ่ม ถ้าต่อสองแนวคิดทั้งสองกลุ่ม จบหลังทุกคนคิดผลเมื่อมีผนังแถวครบ โบนัสแถว +2 คอลัมน์ +7 สีครบ +10</p><p>แทร็กแสดงช่วงคะแนนจริง เมื่อเกินช่วงจะเลื่อนช่วง ไม่ย้อนคะแนนเป็นศูนย์. กระดานคู่แข่งเปิดเผยและดูได้จากแท็บ</p><p>หลุดแล้วกลับลิงก์เดิม: ที่นั่งและคะแนนเดิม ไม่ข้ามตา. ช่วงผลรอบผู้เล่นคนใดหรือ owner กดต่อได้. ผู้เริ่มเว็บเลือกหรือสุ่มแทนเกณฑ์ไปโปรตุเกสล่าสุด; เมื่อพื้นเต็มรับ marker ไว้ข้างกระดานโดยไม่เพิ่มค่าปรับเกิน 7 ช่อง ตามข้อวินิจฉัยที่ผู้ใช้ยืนยัน</p></details>`;
+      <details class="az-help"><summary>วิธีเล่น Azul ภาคหลัก</summary>${illustratedGameGuide('azul')}<p>เลือกสีเดียวทั้งหมดจากโรงงานหนึ่งวงหรือกลางโต๊ะ วางแถวเดียวหรือพื้น เศษโรงงานไปกลาง แถวรับสีเดิมและสีนี้ต้องยังไม่มีบนผนังแถวนั้น แถวเต็มปูจากบนลงล่าง แถวไม่เต็มคงอยู่รอบหน้า</p><p>ช่องเดี่ยว +1 ต่อแนวเดียวคิดความยาวกลุ่ม ถ้าต่อสองแนวคิดทั้งสองกลุ่ม จบหลังทุกคนคิดผลเมื่อมีผนังแถวครบ โบนัสแถว +2 คอลัมน์ +7 สีครบ +10</p><p>แทร็กแสดงช่วงคะแนนจริง เมื่อเกินช่วงจะเลื่อนช่วง ไม่ย้อนคะแนนเป็นศูนย์. กระดานคู่แข่งเปิดเผยและดูได้จากแท็บ</p><p>หลุดแล้วกลับลิงก์เดิม: ที่นั่งและคะแนนเดิม ไม่ข้ามตา. ช่วงผลรอบผู้เล่นคนใดหรือ owner กดต่อได้. ผู้เริ่มเว็บเลือกหรือสุ่มแทนเกณฑ์ไปโปรตุเกสล่าสุด; เมื่อพื้นเต็มรับ marker ไว้ข้างกระดานโดยไม่เพิ่มค่าปรับเกิน 7 ช่อง ตามข้อวินิจฉัยที่ผู้ใช้ยืนยัน</p></details>`;
   }
   private updateInteraction() {
     const v = this.view!, offer = this.offer(), active = this.active();

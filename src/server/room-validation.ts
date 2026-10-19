@@ -1,5 +1,7 @@
+import {validateTakeTimeState} from "../games/take-time/validation.js";
 import {validateLocusState} from "../games/locus/validation.js";
 import {validateCKState} from "../games/critter-kitchen/validation.js";
+import {expansionOptions} from "../games/critter-kitchen/expansions.js";
 import {validateSkyState} from "../games/sky-team/validation.js";
 import {validateHarmoniesState} from "../games/harmonies/validation.js";
 import {validatePixiesState} from "../games/pixies/validation.js";
@@ -9,6 +11,8 @@ import { validateCalicoState } from "../games/calico/validation.js";
 import { metadata, supportsPlayers } from "../shared/catalog.js";
 import { validateAzulState } from "../games/azul/validation.js";
 export function validateRoomRecord(r: any): boolean {
+  try { expansionOptions(r?.ckExpansions); } catch { return false; }
+  if(r?.ckExpansions!==undefined&&r.gameId!=="critter-kitchen")return false;
   const g = metadata(r?.gameId);
   if(r?.calicoPreset!==undefined && !["standard","first"].includes(r.calicoPreset))return false;
   if (
@@ -37,8 +41,8 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
-  if ([r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus].filter(Boolean).length > 1) return false;
-  const s = r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus;
+  if ([r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus, r.takeTime].filter(Boolean).length > 1) return false;
+  const s = r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus ?? r.takeTime;
   if(r.locusMode!==undefined&&!["shared-table","full-mobile"].includes(r.locusMode))return false;
   if(r.harmoniesMode!==undefined&&!["shared-table","full-mobile"].includes(r.harmoniesMode))return false;
   if(r.ckMode!==undefined&&!["shared-table","full-mobile"].includes(r.ckMode))return false;
@@ -53,6 +57,7 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
+  if(r.takeTime)return r.gameId==="take-time"&&validateTakeTimeState(s);
   if(r.locus)return r.gameId==="locus"&&validateLocusState(s);
   if(r.ck)return r.gameId==="critter-kitchen"&&validateCKState(s);
   if(r.sky)return r.gameId==="sky-team"&&validateSkyState(s);

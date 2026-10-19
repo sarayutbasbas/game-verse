@@ -789,3 +789,7 @@ body.platform-theme {
   .platform-lobby .lobby-heading img { width: 82px; height: 102.5px; }
   .platform-lobby .lobby-heading .room-code { grid-column: 1 / -1; justify-self: center; margin: 0; }
 }
+
+.ck-promo-setup{margin-top:18px}.ck-promo-setup>article{display:flow-root;margin:12px 0;padding:12px;background:#fff9e7;border:1px solid #cabb83;border-radius:14px}.ck-promo-setup>article>img{float:left;width:72px;height:96px;object-fit:cover;border-radius:8px;margin-right:12px}.ck-promo-setup label{display:flex;gap:8px;align-items:center;min-height:44px}.ck-promo-setup input{width:22px;height:22px;accent-color:#17635c}.ck-promo-setup label span{display:grid}.ck-promo-setup small{font-size:.82em}.ck-promo-setup p{margin:6px 0;font-size:.9em;line-height:1.5}
+
+.ck-promo-setup>article{display:grid;grid-template-columns:56px minmax(0,1fr);gap:8px 10px}.ck-promo-setup>article>img{float:none;width:56px;height:75px;margin:0;grid-column:1;grid-row:1}.ck-promo-setup>article>label{grid-column:2;grid-row:1;gap:6px;min-width:0;font-size:15px;line-height:1.4}.ck-promo-setup input{flex:0 0 20px;min-width:20px;max-width:20px;margin:0}.ck-promo-setup>article>p{grid-column:1/-1;margin:0}.ck-promo-setup label small{font-size:11px}

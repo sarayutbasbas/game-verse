@@ -1,0 +1,65 @@
+{
+  "mode": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "spirit-01",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: a radiant celestial lion with a mane of golden leaves. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cca66a2a-58a9-462c-bff1-0a83af85fc93.png",
+      "output": "public/art/harmonies/reference/spirit-01.webp"
+    },
+    {
+      "id": "spirit-02",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: an iridescent giant butterfly fluttering over wildflowers. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c1ca3e87-4e88-4769-addf-4b64c032432d.png",
+      "output": "public/art/harmonies/reference/spirit-02.webp"
+    },
+    {
+      "id": "spirit-03",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: a luminous antlered stag with tiny forest leaves. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-af994909-3b0f-4477-afe7-f7543295c721.png",
+      "output": "public/art/harmonies/reference/spirit-03.webp"
+    },
+    {
+      "id": "spirit-04",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: a mystical owl with shimmering feathers in a moonlit canopy. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e9c8e130-c9a2-490f-8d06-d96e170d3f07.png",
+      "output": "public/art/harmonies/reference/spirit-04.webp"
+    },
+    {
+      "id": "spirit-05",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: a friendly spectral bat flying above an old woodland sanctuary. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-86cda539-c4a8-4386-a3e4-cc4bf373ffab.png",
+      "output": "public/art/harmonies/reference/spirit-05.webp"
+    },
+    {
+      "id": "spirit-06",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: a graceful glowing white crane flying above red-roofed ruins. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cfb8560c-44e1-4699-bf79-86b78dca1626.png",
+      "output": "public/art/harmonies/reference/spirit-06.webp"
+    },
+    {
+      "id": "spirit-07",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: a majestic mountain goat with crystal horns. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-60b615e2-e664-4118-afdf-b31022c27689.png",
+      "output": "public/art/harmonies/reference/spirit-07.webp"
+    },
+    {
+      "id": "spirit-08",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: a friendly chubby marmot with tiny alpine flowers. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fae3729c-5dd4-4c50-838a-4b71ada80665.png",
+      "output": "public/art/harmonies/reference/spirit-08.webp"
+    },
+    {
+      "id": "spirit-09",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: a luminous turquoise dragonfly skimming a forest river. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-89e96e61-da7b-4c4a-83a5-61812607029c.png",
+      "output": "public/art/harmonies/reference/spirit-09.webp"
+    },
+    {
+      "id": "spirit-10",
+      "prompt": "Original fantasy wildlife illustration for a premium cozy board game, portrait aspect ratio 3:4. Subject: an ancient wise turtle with moss and small plants on its shell. Painterly dimensional storybook art, luminous jewel colors, warm magical light, richly layered natural habitat, elegant rounded forms. Animal large and clearly visible in the upper two-thirds, uncluttered shaded lower quarter for a separately coded habitat diagram. Gentle magical aura and tiny natural sparkles, readable at small card size. Entirely original composition; do not imitate an existing game's illustrations. No text, logos, numbers, frames, card borders, tokens, cubes, diagrams, or UI. Full bleed image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-49949e90-7a80-4504-a655-1ecfda33a371.png",
+      "output": "public/art/harmonies/reference/spirit-10.webp"
+    }
+  ]
+}

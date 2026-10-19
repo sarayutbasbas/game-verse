@@ -1,0 +1,266 @@
+{
+  "generatedAt": "2026-10-19",
+  "generator": "image_gen",
+  "status": "Artwork preparation; does not enable unverified Cart effects or 6–7-player gameplay",
+  "reference": {
+    "file": "/Users/basukekung/Downloads/CritterKitchen_Exp_Rulebook.pdf",
+    "pages": 12,
+    "sha256": "b42a05e9332b7364aa2e94b76340369625682acd63ad90a44e8c0eea055d2165",
+    "componentPages": [
+      2,
+      3,
+      4
+    ]
+  },
+  "jobs": [
+    {
+      "id": "hero",
+      "prompt": "One original landscape banner illustration for a cozy woodland cooking board game expansion about street food carts. A lively magical canal-town culinary festival with three elaborate wooden pushcarts in the foreground: one serving steaming coffee and dumplings, one selling colorful organic vegetables and fragrant sauces, one selling gelato and cookbooks. Charming anthropomorphic woodland cooks and customers, warm gold afternoon light, turquoise canal water, terracotta roofs, purple wisteria, abundant flowers, hand-painted richly detailed storybook gouache style. Distinctive fully original composition, welcoming scene, beautifully crafted wheels, striped parasols, no text, no letters, no numbers, no logos, no UI, no frames. Wide 3:1 composition with carts as the focal point, readable at banner size.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-02c04846-18b2-4da2-87a5-a82f9bff4e76.png",
+      "outputs": [
+        "public/art/critter-kitchen/alacart/market-banner.webp",
+        "public/art/critter-kitchen/alacart/market-banner-small.webp"
+      ]
+    },
+    {
+      "id": "items",
+      "prompt": "One production sprite atlas of SIXTEEN original cooking board game item illustrations in a strict FOUR-COLUMN FOUR-ROW grid. Square canvas, fully TRANSPARENT background. Each object completely contained within its own equal square cell, centered and occupying at most 65 percent of cell width and height, with generous transparent gaps and outer margins. No touching, no labels, no words, no letters, no digits, no frames, no tiles or borders. Charming detailed hand-painted dimensional storybook gouache, warm sunlight, turquoise and gold culinary accents, bold silhouettes readable at small icon size. Row 1 left to right: porcelain cup of steaming coffee on saucer; bamboo steamer with two dumplings; small rolled paper shop receipt with abstract illegible horizontal marks; bunch of three colorful balloons tied together. Row 2: small gold culinary trophy cup; closed teal cookbook with a tiny spoon illustration on the cover but no text; fresh bouquet of pink flowers; a shiny gold coin with a simple raised star. Row 3: folded newspaper with abstract illegible marks and a small colored picture; pair of translucent blue ice cubes; small ceramic sauce jug with red sauce; block of fresh white tofu on a tiny wooden dish. Row 4: wicker basket holding bread and cheese; wooden crate holding organic carrots and green leaves; two scoops of colorful gelato in a wafer cone; whole golden fruit pie with a single slice cut out. Every item isolated, no other background objects, full alpha transparency.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-22cf44e3-cca3-4061-bae6-520428b9e8f2.png",
+      "outputs": [
+        {
+          "id": "coffee",
+          "crop": {
+            "left": 37,
+            "top": 19,
+            "width": 294,
+            "height": 321
+          },
+          "path": "public/art/critter-kitchen/alacart/items/coffee.webp"
+        },
+        {
+          "id": "dumpling",
+          "crop": {
+            "left": 352,
+            "top": 75,
+            "width": 276,
+            "height": 257
+          },
+          "path": "public/art/critter-kitchen/alacart/items/dumpling.webp"
+        },
+        {
+          "id": "receipt",
+          "crop": {
+            "left": 661,
+            "top": 77,
+            "width": 238,
+            "height": 257
+          },
+          "path": "public/art/critter-kitchen/alacart/items/receipt.webp"
+        },
+        {
+          "id": "balloon",
+          "crop": {
+            "left": 963,
+            "top": 46,
+            "width": 244,
+            "height": 310
+          },
+          "path": "public/art/critter-kitchen/alacart/items/balloon.webp"
+        },
+        {
+          "id": "trophy",
+          "crop": {
+            "left": 43,
+            "top": 368,
+            "width": 276,
+            "height": 271
+          },
+          "path": "public/art/critter-kitchen/alacart/items/trophy.webp"
+        },
+        {
+          "id": "cookbook",
+          "crop": {
+            "left": 335,
+            "top": 366,
+            "width": 292,
+            "height": 276
+          },
+          "path": "public/art/critter-kitchen/alacart/items/cookbook.webp"
+        },
+        {
+          "id": "flower",
+          "crop": {
+            "left": 643,
+            "top": 343,
+            "width": 295,
+            "height": 321
+          },
+          "path": "public/art/critter-kitchen/alacart/items/flower.webp"
+        },
+        {
+          "id": "gold-coin",
+          "crop": {
+            "left": 965,
+            "top": 390,
+            "width": 240,
+            "height": 244
+          },
+          "path": "public/art/critter-kitchen/alacart/items/gold-coin.webp"
+        },
+        {
+          "id": "newspaper",
+          "crop": {
+            "left": 33,
+            "top": 661,
+            "width": 310,
+            "height": 259
+          },
+          "path": "public/art/critter-kitchen/alacart/items/newspaper.webp"
+        },
+        {
+          "id": "ice",
+          "crop": {
+            "left": 364,
+            "top": 703,
+            "width": 256,
+            "height": 214
+          },
+          "path": "public/art/critter-kitchen/alacart/items/ice.webp"
+        },
+        {
+          "id": "sauce",
+          "crop": {
+            "left": 662,
+            "top": 686,
+            "width": 266,
+            "height": 228
+          },
+          "path": "public/art/critter-kitchen/alacart/items/sauce.webp"
+        },
+        {
+          "id": "tofu",
+          "crop": {
+            "left": 939,
+            "top": 689,
+            "width": 295,
+            "height": 227
+          },
+          "path": "public/art/critter-kitchen/alacart/items/tofu.webp"
+        },
+        {
+          "id": "zous-ingredients",
+          "crop": {
+            "left": 30,
+            "top": 919,
+            "width": 308,
+            "height": 284
+          },
+          "path": "public/art/critter-kitchen/alacart/items/zous-ingredients.webp"
+        },
+        {
+          "id": "organic",
+          "crop": {
+            "left": 355,
+            "top": 920,
+            "width": 300,
+            "height": 291
+          },
+          "path": "public/art/critter-kitchen/alacart/items/organic.webp"
+        },
+        {
+          "id": "gelato",
+          "crop": {
+            "left": 701,
+            "top": 912,
+            "width": 195,
+            "height": 314
+          },
+          "path": "public/art/critter-kitchen/alacart/items/gelato.webp"
+        },
+        {
+          "id": "pie",
+          "crop": {
+            "left": 941,
+            "top": 951,
+            "width": 294,
+            "height": 255
+          },
+          "path": "public/art/critter-kitchen/alacart/items/pie.webp"
+        }
+      ]
+    },
+    {
+      "id": "teams",
+      "prompt": "Edit this exact six-panel sprite atlas. Preserve the exact same mouse, green lizard and boar faces, expressions, white chef hats, body proportions, cooking uniforms, three-column/two-row layout and painted storybook style. Change ONLY the team colors. Top row: warm bright rose PINK aprons and neckerchiefs, rose-pink botanical watercolor backgrounds. Bottom row: bright CYAN/TURQUOISE aprons and neckerchiefs, deep turquoise botanical watercolor backgrounds. Retain elegant tiny herbs and gold motifs on backgrounds and the white chef coats. Each of the six panels must remain an equal square, neatly centered full portrait in its own cell. No text, numbers, logos, dividing lines or extra characters. These are two new player color sets for the same board game.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-543f8051-b12a-4a59-ac1c-01621f78bcc3.png",
+      "outputs": [
+        {
+          "color": "pink",
+          "chef": "mouse",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 512,
+            "height": 512
+          },
+          "path": "public/art/critter-kitchen/alacart/teams/pink-mouse.webp"
+        },
+        {
+          "color": "pink",
+          "chef": "lizard",
+          "crop": {
+            "left": 512,
+            "top": 0,
+            "width": 512,
+            "height": 512
+          },
+          "path": "public/art/critter-kitchen/alacart/teams/pink-lizard.webp"
+        },
+        {
+          "color": "pink",
+          "chef": "boar",
+          "crop": {
+            "left": 1024,
+            "top": 0,
+            "width": 512,
+            "height": 512
+          },
+          "path": "public/art/critter-kitchen/alacart/teams/pink-boar.webp"
+        },
+        {
+          "color": "turquoise",
+          "chef": "mouse",
+          "crop": {
+            "left": 0,
+            "top": 512,
+            "width": 512,
+            "height": 512
+          },
+          "path": "public/art/critter-kitchen/alacart/teams/turquoise-mouse.webp"
+        },
+        {
+          "color": "turquoise",
+          "chef": "lizard",
+          "crop": {
+            "left": 512,
+            "top": 512,
+            "width": 512,
+            "height": 512
+          },
+          "path": "public/art/critter-kitchen/alacart/teams/turquoise-lizard.webp"
+        },
+        {
+          "color": "turquoise",
+          "chef": "boar",
+          "crop": {
+            "left": 1024,
+            "top": 512,
+            "width": 512,
+            "height": 512
+          },
+          "path": "public/art/critter-kitchen/alacart/teams/turquoise-boar.webp"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "generator": "built-in image_gen",
+  "useCase": "illustration-story",
+  "reference": "Original portraits; verified rules rendered separately as text.",
+  "jobs": [
+    {
+      "id": "queenie",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-38cbec26-2215-49be-8701-1eed1aabc838.png",
+      "prompt": "Use case: illustration-story. Asset type: original full-bleed 3:4 portrait artwork for a woodland culinary board-game sous-chef card. A cheerful small anthropomorphic queen bee chef named Queenie, fuzzy warm golden face, soft striped abdomen, delicate translucent wings, expressive friendly eyes, emerald chef jacket and ivory apron with tiny purple flower embroidery. Holding a wicker shopping basket and a fresh blossom, walking briskly at the front of a sunlit canal-town farmers market. Turquoise canal, terracotta shops, blooming wisteria, fragrant herb stalls in the background. Richly detailed hand-painted storybook gouache, premium cozy board-game illustration, dimensional warm golden lighting with deep teal shadows. Character large and centered, face clearly readable when cropped into a small circle, complete portrait composition. No text, no lettering, no numbers, no logos, no card border, no UI.",
+      "outputs": [
+        {
+          "path": "public/art/critter-kitchen/portrait/sous-queenie.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "path": "public/art/critter-kitchen/thumbs/portrait/sous-queenie.webp",
+          "width": 180,
+          "height": 240
+        }
+      ]
+    },
+    {
+      "id": "shaggy",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-af52680b-0646-4b66-9b8e-375394f0d041.png",
+      "prompt": "Use case: illustration-story. Asset type: original full-bleed 3:4 portrait artwork for a woodland culinary board-game sous-chef card. A cheerful anthropomorphic golden retriever chef named Shaggy, long soft golden ears, shaggy cream muzzle, kind expressive eyes, emerald green chef jacket and ivory apron, a practical brown leather cross-body satchel. Holding fresh groceries in one arm and a small sealed folded paper message in the other, talking to a market vendor beside a canal. Charming sunlit canal-town food market, terracotta shops, turquoise water, blooming wisteria, baskets of vegetables and warm bakery light behind him. Richly detailed hand-painted storybook gouache, premium cozy board-game illustration, dimensional warm golden lighting and deep teal shadows. Character large and centered, face clearly readable in a small circular crop, complete portrait composition. No text, no lettering, no numbers, no logos, no card border, no UI.",
+      "outputs": [
+        {
+          "path": "public/art/critter-kitchen/portrait/sous-shaggy.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "path": "public/art/critter-kitchen/thumbs/portrait/sous-shaggy.webp",
+          "width": 180,
+          "height": 240
+        }
+      ]
+    }
+  ]
+}

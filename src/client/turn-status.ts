@@ -2,6 +2,7 @@ import type { RoomView } from "../shared/types.js";
 /** Text is derived solely from the authorized projection, including non-turn phases. */
 export function turnStatus(v: RoomView) {
   if (v.phase === "lobby") return { text: "รอผู้เล่น", own: false };
+  if(v.gameId==='take-time'){if(v.phase==='discussion')return {text:'ปรึกษาก่อนเปิดมือ',own:false};if(v.phase==='resolution')return {text:'เปิดผลทีละช่อง',own:false};if(v.phase==='placement'&&!v.turn)return {text:'ใครพร้อม เริ่มได้',own:!!v.me};}
   if (v.phase === "finished") return { text: "จบเกม", own: false };
   if (v.phase === "results") return { text: "สรุปผลรอบ", own: false };
   if (v.phase === "settling" || (v.gameId === "calico" && v.phase === "setup"))

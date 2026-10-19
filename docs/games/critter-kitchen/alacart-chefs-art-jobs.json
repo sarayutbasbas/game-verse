@@ -1,0 +1,41 @@
+{
+  "generator": "built-in image_gen",
+  "useCase": "illustration-story",
+  "reference": "Original generated portraits; gameplay text is rendered separately.",
+  "jobs": [
+    {
+      "id": "alex",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-997b7fcf-8dd3-4bcf-a46c-b76d775a8e2e.png",
+      "prompt": "Use case: illustration-story. Asset type: full-bleed portrait artwork for a woodland culinary board-game sous-chef card, 3:4 portrait composition. An original friendly anthropomorphic alpaca chef named Alex, fluffy cream wool, long neck, warm kind face, sage green chef jacket and crisp ivory apron, holding a wicker basket overflowing with freshly baked golden baguettes and bread rolls. Standing in a sunlit canal-town bakery courtyard, terracotta rooftops, turquoise canal, flowering wisteria, richly detailed warm hand-painted gouache storybook illustration with dimensional lighting. Upper body and face large, centered, readable as a small circular crop; entire character remains visible on portrait card. Charming inviting personality, polished premium board game illustration, warm golden highlights and deep teal shadows. No text, no letters, no numbers, no logos, no card border, no UI.",
+      "outputs": [
+        {
+          "path": "public/art/critter-kitchen/portrait/sous-alex.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "path": "public/art/critter-kitchen/thumbs/portrait/sous-alex.webp",
+          "width": 180,
+          "height": 240
+        }
+      ]
+    },
+    {
+      "id": "peter",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-05e7d4cc-dbdd-4744-81ba-b1481b255332.png",
+      "prompt": "Use case: illustration-story. Asset type: full-bleed portrait artwork for a woodland culinary board-game sous-chef card, 3:4 portrait composition. An original charismatic anthropomorphic scarlet macaw parrot chef named Peter, brilliant scarlet head, yellow and turquoise wing feathers, expressive curved beak, moss green chef jacket, ivory apron, tied crimson headscarf. Holding a small wooden spice box and a fragrant leafy herb sprig while happily inspecting market spices. Standing in a cozy canal-town open-air spice market kitchen with hanging peppers, colorful ceramic spice jars, turquoise shutters, flowering vines and warm sunlit architecture. Richly detailed warm hand-painted gouache storybook illustration with dimensional lighting. Upper body and face large, centered, readable as a small circular crop, whole character fits the portrait. Charming inviting personality, polished premium board game illustration, golden highlights and deep teal shadows. No text, no letters, no numbers, no logos, no card border, no UI.",
+      "outputs": [
+        {
+          "path": "public/art/critter-kitchen/portrait/sous-peter.webp",
+          "width": 600,
+          "height": 800
+        },
+        {
+          "path": "public/art/critter-kitchen/thumbs/portrait/sous-peter.webp",
+          "width": 180,
+          "height": 240
+        }
+      ]
+    }
+  ]
+}

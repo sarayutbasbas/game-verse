@@ -1,3 +1,4 @@
+import {createPlanningFixture} from './critter-kitchen-fixtures.js';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as e from '../src/games/critter-kitchen/engine.js';
@@ -11,17 +12,17 @@ const seats = (n: number) => Array.from({ length: n }, (_, i) => ({ id: 'p' + i,
 test('component catalog has119 bag tokens and exact base card counts', () => { assert.equal(TOKENS.length, 119); for (const food of FOODS)
     assert.deepEqual(TOKENS.filter(t => t.kind === 'ingredient' && t.food === food).map(t => t.value), [2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 6, 6, 7]); assert.deepEqual([ZOUS.length, CRITICS.length, CHALLENGES.length, RUMORS.length, RESTAURATEURS.length], [12, 12, 7, 28, 10]); });
 for (const n of [2, 3, 4, 5])
-    test(`setup${n}: real locations/sides/restock/priority; seeded full game conserves resources through all7 rounds`, () => { const r = seeded(n + 77); let s = e.createInitialState(seats(n), r, { restaurateurs: true }); assert.ok(validateCKState(s)); assert.equal(s.config.locations.length, n + 3); assert.equal(s.config.specialSide, n === 2 ? '2' : 'standard'); let steps = 0; while (s.phase !== 'finished' && steps++ < 1600) {
+    test(`setup${n}: real locations/sides/restock/priority; seeded full game conserves resources through all7 rounds`, () => { const r = seeded(n + 77); let s = createPlanningFixture(seats(n), r, { restaurateurs: true }); assert.ok(validateCKState(s)); assert.equal(s.config.locations.length, n + 3); assert.equal(s.config.specialSide, n === 2 ? '2' : 'standard'); let steps = 0; while (s.phase !== 'finished' && steps++ < 1600) {
         const { actor, action } = botAction(s, r);
         s = e.applyAction(s, actor, action, r);
         assert.ok(validateCKState(s), JSON.stringify({ steps, round: s.round, phase: s.phase, pending: s.pending, action }));
     } assert.equal(s.phase, 'finished'); assert.equal(s.round, 7); assert.equal(s.winners.length, 1); assert.ok(s.players.every(p => p.score && p.score.total >= p.stars)); });
-test('commitment stays private until market start and locked plans cannot change', () => { let s = e.createInitialState(seats(3), seeded(7)); const plan = { mouse: 'soup', lizard: 'garden', boar: 'academy' } as const; s = e.applyAction(s, 'p0', { type: 'ck-plan', epoch: e.decisionKey(s), plan }); assert.equal(e.getDisplayView(s, 'X', 0).players[0].plan, null); assert.deepEqual(e.getPlayerView(s, 'p0').plan, plan); assert.equal(e.getPlayerView(s, 'p1').plan, null); assert.equal((e.getDisplayView(s, 'X', 0) as any).bag, undefined); assert.equal((e.getDisplayView(s, 'X', 0) as any).unusedRumors, undefined); const saved = structuredClone(s); assert.throws(() => e.applyAction(s, 'p0', { type: 'ck-plan', epoch: e.decisionKey(s), plan })); assert.deepEqual(s, saved); for (const id of ['p1', 'p2'])
+test('commitment stays private until market start and locked plans cannot change', () => { let s = createPlanningFixture(seats(3), seeded(7)); const plan = { mouse: 'soup', lizard: 'garden', boar: 'academy' } as const; s = e.applyAction(s, 'p0', { type: 'ck-plan', epoch: e.decisionKey(s), plan }); assert.equal(e.getDisplayView(s, 'X', 0).players[0].plan, null); assert.deepEqual(e.getPlayerView(s, 'p0').plan, plan); assert.equal(e.getPlayerView(s, 'p1').plan, null); assert.equal((e.getDisplayView(s, 'X', 0) as any).bag, undefined); assert.equal((e.getDisplayView(s, 'X', 0) as any).unusedRumors, undefined); const saved = structuredClone(s); assert.throws(() => e.applyAction(s, 'p0', { type: 'ck-plan', epoch: e.decisionKey(s), plan })); assert.deepEqual(s, saved); for (const id of ['p1', 'p2'])
     s = e.applyAction(s, id, { type: 'ck-plan', epoch: e.decisionKey(s), plan }); assert.equal(s.phase, 'running'); assert.ok(e.getDisplayView(s, 'X', 1).players.every(p => p.plan===null)); assert.deepEqual(e.getDisplayView(s,'X',1).visits,[]); assert.deepEqual(e.getPlayerView(s,'p0').plan,plan); assert.throws(() => e.applyAction(s, 'p0', { type: 'ck-uncommit', epoch: e.decisionKey(s) })); s=e.applyAction(s,'p0',{type:'ck-run'},seeded(2));const publicView=e.getDisplayView(s,'X',2);assert.ok(publicView.players.every(p=>!!p.plan));assert.equal(publicView.visits.length,9); });
-test('wrong/duplicate destinations, forged token/identity, bad epoch leave state untouched', () => { const s = e.createInitialState(seats(2), seeded(3)), before = structuredClone(s); for (const action of [{ type: 'ck-plan', epoch: e.decisionKey(s), plan: { mouse: 'soup', lizard: 'soup', boar: 'academy' } }, { type: 'ck-plan', epoch: 'old', plan: { mouse: 'soup', lizard: 'garden', boar: 'academy' } }, { type: 'ck-pick', item: s.bag[0] }, { type: 'ck-plan', epoch: e.decisionKey(s), plan: { mouse: 'soup', lizard: 'garden', boar: 'academy' }, playerId: 'p1' }])
+test('wrong/duplicate destinations, forged token/identity, bad epoch leave state untouched', () => { const s = createPlanningFixture(seats(2), seeded(3)), before = structuredClone(s); for (const action of [{ type: 'ck-plan', epoch: e.decisionKey(s), plan: { mouse: 'soup', lizard: 'soup', boar: 'academy' } }, { type: 'ck-plan', epoch: 'old', plan: { mouse: 'soup', lizard: 'garden', boar: 'academy' } }, { type: 'ck-pick', item: s.bag[0] }, { type: 'ck-plan', epoch: e.decisionKey(s), plan: { mouse: 'soup', lizard: 'garden', boar: 'academy' }, playerId: 'p1' }])
     assert.throws(() => e.applyAction(s, 'p0', action as any)); assert.deepEqual(s, before); });
 function activeFixture(chef: string, other?: string) {
-    let s = e.createInitialState(seats(2), seeded(11));
+    let s = createPlanningFixture(seats(2), seeded(11));
     const p = s.players[0];
     if (s.academySous === chef)
         s.academySous = s.zousDeck.pop()!;
@@ -86,7 +87,7 @@ test('known rumors never prevent receiving ingredients and unknown rumor is not 
     s.players[0].known[i] = t;
 } assert.ok(e.pickChoices(s, s.players[0], 'garden').includes('i-bread-0')); assert.ok(e.getDisplayView(s, 'X', 0).rumors.every(x => x === null)); assert.equal(e.getPlayerView(s, 'p0').known.filter(Boolean).length, 3); assert.equal(e.getPlayerView(s, 'p1').known.filter(Boolean).length, 0); });
 test('equal capacities alternate one pick each in established hat order; only first tied pick moves hat', () => {
-    let s = e.createInitialState(seats(2), seeded(72));
+    let s = createPlanningFixture(seats(2), seeded(72));
     s.priority = ['p0', 'p1'];
     for (const p of s.players)
         s = e.applyAction(s, p.id, { type: 'ck-plan', epoch: e.decisionKey(s), plan: { mouse: 'soup', lizard: 'garden', boar: 'academy' } });
@@ -108,7 +109,7 @@ test('equal capacities alternate one pick each in established hat order; only fi
     assert.equal(s.pending!.actor, first);
     assert.equal(initial[0], first);
 });
-function endEffectFixture(rest: string, priority = ['p1', 'p0']) { const s = e.createInitialState(seats(2), seeded(19)); s.players[0].restaurateur = rest; s.unusedRestaurateurs.splice(s.unusedRestaurateurs.indexOf(rest), 1); s.phase = 'shopping'; s.priority = priority; s.location = 'academy'; s.visits = [{ id: 'p1:mouse', actor: 'p1', chef: 'mouse', loc: 'academy', capacity: 1, limit: 1, used: 0, gained: 0, done: true, started: true, newton: false }]; s.pending = { kind: 'consolation', actor: 'p1', visit: 'p1:mouse' }; s.tasks = [{ kind: 'end-round' }]; if (s.academySous) {
+function endEffectFixture(rest: string, priority = ['p1', 'p0']) { const s = createPlanningFixture(seats(2), seeded(19)); s.players[0].restaurateur = rest; s.unusedRestaurateurs.splice(s.unusedRestaurateurs.indexOf(rest), 1); s.phase = 'shopping'; s.priority = priority; s.location = 'academy'; s.visits = [{ id: 'p1:mouse', actor: 'p1', chef: 'mouse', loc: 'academy', capacity: 1, limit: 1, used: 0, gained: 0, done: true, started: true, newton: false }]; s.pending = { kind: 'consolation', actor: 'p1', visit: 'p1:mouse' }; s.tasks = [{ kind: 'end-round' }]; if (s.academySous) {
     s.usedZous.push(s.academySous);
     s.academySous = null;
 } const gift = s.bag.find(t => TOKEN[t].kind === 'ingredient')!; s.bag = s.bag.filter(t => t !== gift); s.bag.push(gift); return { s, gift }; }
@@ -123,7 +124,7 @@ test('Marcus end-round moves exactly one hat step, or grants one bag item at fro
 } });
 test('Anthony can replace empty-handed consolation with one bag item without also taking soup', () => { const { s, gift } = endEffectFixture('anthony-boardain'); s.pending = { kind: 'consolation', actor: 'p0', visit: 'p0:mouse' }; s.visits[0].id = 'p0:mouse'; s.visits[0].actor = 'p0'; const next = e.applyAction(s, 'p0', { type: 'ck-consolation', reward: 'bag' }); assert.equal(next.players[0].soup, 1); assert.ok(next.players[0].storage.includes(gift)); assert.ok(validateCKState(next)); });
 test('Jamie gets one private additional rumor immediately; it becomes public only at final scoring', () => { let s: CKState | undefined; for (let seed = 0; seed < 100; seed++) {
-    const candidate = e.createInitialState(seats(2), seeded(seed), { restaurateurs: true });
+    const candidate = createPlanningFixture(seats(2), seeded(seed), { restaurateurs: true });
     if (candidate.players[0].offers.includes('jamie-owliver')) {
         s = candidate;
         break;
@@ -132,11 +133,11 @@ test('Jamie gets one private additional rumor immediately; it becomes public onl
 
 test('recovery accepts JSON object key reordering like JSONB, but rejects changed challenge results',()=>{
  const reorder=(v:any):any=>Array.isArray(v)?v.map(reorder):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).reverse().map(([k,x])=>[k,reorder(x)])):v;
- const r=seeded(909);let s=e.createInitialState(seats(3),r,{restaurateurs:true});assert.ok(validateCKState(reorder(s)));let guard=0;while(s.phase!=='challenge-results'&&guard++<1000){const next=botAction(s,r);s=e.applyAction(s,next.actor,next.action,r);}assert.equal(s.phase,'challenge-results');assert.ok(validateCKState(reorder(s)));const changed=reorder(s);changed.challengeResults.p0[0].quality++;assert.equal(validateCKState(changed),false);
+ const r=seeded(909);let s=createPlanningFixture(seats(3),r,{restaurateurs:true});assert.ok(validateCKState(reorder(s)));let guard=0;while(s.phase!=='challenge-results'&&guard++<1000){const next=botAction(s,r);s=e.applyAction(s,next.actor,next.action,r);}assert.equal(s.phase,'challenge-results');assert.ok(validateCKState(reorder(s)));const changed=reorder(s);changed.challengeResults.p0[0].quality++;assert.equal(validateCKState(changed),false);
 });
 
 test('market pickup stamps persist publicly with fixed team colors without exposing private inventories',()=>{
- const r=seeded(805);let s=e.createInitialState(seats(2),r);const colors=structuredClone(s.teamColors);
+ const r=seeded(805);let s=createPlanningFixture(seats(2),r);const colors=structuredClone(s.teamColors);
  assert.equal(new Set(Object.values(colors!)).size,2);assert.ok(Object.values(colors!).every(color=>TEAM_COLORS.includes(color)));
  for(const p of s.players)s=e.applyAction(s,p.id,{type:'ck-plan',epoch:e.decisionKey(s),plan:{mouse:'garden',lizard:'soup',boar:'academy'}},r);
  s=e.applyAction(s,'p0',{type:'ck-run'},r);
@@ -157,7 +158,7 @@ test('market pickup stamps persist publicly with fixed team colors without expos
 
 test('team colors remain unique for2–5 seats and recover legacy duplicate colors consistently',()=>{
  for(const count of [2,3,4,5]){
-  const random=seeded(1800+count),state=e.createInitialState(seats(count),random);
+  const random=seeded(1800+count),state=createPlanningFixture(seats(count),random);
   const assigned=structuredClone(state.teamColors);assert.equal(new Set(Object.values(assigned!)).size,count);
   assert.ok(validateCKState(JSON.parse(JSON.stringify(state))));
   assert.deepEqual(e.getDisplayView(state,'COLORS',1).teamColors,assigned);
@@ -171,7 +172,7 @@ test('team colors remain unique for2–5 seats and recover legacy duplicate colo
 });
 
 test('serving reveal is shared, authenticated, replay-safe and cannot skip into refrigeration',()=>{
- const random=seeded(944);let state=e.createInitialState(seats(2),random);let guard=0;while(state.phase!=='challenge-results'&&guard++<1000){const next=botAction(state,random);state=e.applyAction(state,next.actor,next.action,random);}
+ const random=seeded(944);let state=createPlanningFixture(seats(2),random);let guard=0;while(state.phase!=='challenge-results'&&guard++<1000){const next=botAction(state,random);state=e.applyAction(state,next.actor,next.action,random);}
  assert.equal(state.resultsRevealed,false);const before=structuredClone(state);assert.throws(()=>e.applyAction(state,'p0',{type:'ck-next'}));assert.throws(()=>e.applyAction(state,'outsider',{type:'ck-reveal-results'}));assert.deepEqual(state,before);
  state=e.applyAction(state,'p1',{type:'ck-reveal-results'});assert.equal(state.resultsRevealed,true);assert.equal(e.getDisplayView(state,'ROOM',0).resultsRevealed,true);assert.equal(e.getPlayerView(state,'p0').id,'p0');assert.deepEqual(state.challengeResults,before.challengeResults);assert.throws(()=>e.applyAction(state,'p0',{type:'ck-reveal-results'}));assert.ok(validateCKState(state));
  while(state.phase!=='finished'&&guard++<1800){const next=botAction(state,random);state=e.applyAction(state,next.actor,next.action,random);}
@@ -183,10 +184,10 @@ test('new games sample every team color without replacement, with deterministic 
  for(const count of [2,3,4,5]){
   const firstSeatColors=new Set<string>();
   for(let seed=1;seed<=40;seed++){
-   const state=e.createInitialState(seats(count),seeded(seed));
+   const state=createPlanningFixture(seats(count),seeded(seed));
    const assigned=Object.values(state.teamColors!);assert.equal(new Set(assigned).size,count);assert.ok(assigned.every(color=>TEAM_COLORS.includes(color)));
    firstSeatColors.add(state.teamColors!.p0);
-   assert.deepEqual(e.createInitialState(seats(count),seeded(seed)).teamColors,state.teamColors);
+   assert.deepEqual(createPlanningFixture(seats(count),seeded(seed)).teamColors,state.teamColors);
    const before=structuredClone(state.teamColors);e.getDisplayView(state,'COLOR',1);e.getPlayerView(state,'p0');assert.deepEqual(state.teamColors,before);
   }
   assert.deepEqual([...firstSeatColors].sort(),[...TEAM_COLORS].sort());
@@ -195,7 +196,7 @@ test('new games sample every team color without replacement, with deterministic 
 
 test('final ceremony reveals one answer per accepted step, persists progress and conserves every score',()=>{
  for(const count of [2,5]){
-  const random=seeded(1180+count);let state=e.createInitialState(seats(count),random,{restaurateurs:true}),guard=0;
+  const random=seeded(1180+count);let state=createPlanningFixture(seats(count),random,{restaurateurs:true}),guard=0;
   while(state.phase!=='finished'&&guard++<1800){const next=botAction(state,random);state=e.applyAction(state,next.actor,next.action,random);}
   assert.equal(state.phase,'finished');const scores=structuredClone(state.players.map(p=>p.score)),totalScores=Object.fromEntries(state.players.map(p=>[p.id,p.score!.total]));
   assert.throws(()=>e.applyAction(state,'p0',{type:'ck-score-step',step:0}));
@@ -208,14 +209,25 @@ test('final ceremony reveals one answer per accepted step, persists progress and
  }
 });
 test('explicit ceremony skip is shared and replay safe without changing settled scores',()=>{
- const random=seeded(1192);let state=e.createInitialState(seats(2),random),guard=0;while(state.phase!=='finished'&&guard++<1800){const next=botAction(state,random);state=e.applyAction(state,next.actor,next.action,random);}state=e.applyAction(state,'p0',{type:'ck-reveal-results'});const before=structuredClone(state.players.map(p=>p.score));state=e.applyAction(state,'p1',{type:'ck-score-step',step:0,skip:true});const view=e.getDisplayView(state,'SKIP',1);assert.equal(view.finalReveal!.total,14);assert.equal(view.finalReveal!.complete,true);const legacy={...state,finalRevealStep:state.finalRevealStep!+2};assert.ok(validateCKState(legacy));assert.equal(e.getDisplayView(legacy,'SKIP',1).finalReveal!.step,view.finalReveal!.step);assert.deepEqual(view.finalReveal!.totals,Object.fromEntries(state.players.map(p=>[p.id,p.score!.total])));assert.deepEqual(state.players.map(p=>p.score),before);assert.throws(()=>e.applyAction(state,'p0',{type:'ck-score-step',step:0,skip:true}));const invalid=structuredClone(state);invalid.finalRevealStep=99;assert.equal(validateCKState(invalid),false);
+ const random=seeded(1192);let state=createPlanningFixture(seats(2),random),guard=0;while(state.phase!=='finished'&&guard++<1800){const next=botAction(state,random);state=e.applyAction(state,next.actor,next.action,random);}state=e.applyAction(state,'p0',{type:'ck-reveal-results'});const before=structuredClone(state.players.map(p=>p.score));state=e.applyAction(state,'p1',{type:'ck-score-step',step:0,skip:true});const view=e.getDisplayView(state,'SKIP',1);assert.equal(view.finalReveal!.total,14);assert.equal(view.finalReveal!.complete,true);const legacy={...state,finalRevealStep:state.finalRevealStep!+2};assert.ok(validateCKState(legacy));assert.equal(e.getDisplayView(legacy,'SKIP',1).finalReveal!.step,view.finalReveal!.step);assert.deepEqual(view.finalReveal!.totals,Object.fromEntries(state.players.map(p=>[p.id,p.score!.total])));assert.deepEqual(state.players.map(p=>p.score),before);assert.throws(()=>e.applyAction(state,'p0',{type:'ck-score-step',step:0,skip:true}));const invalid=structuredClone(state);invalid.finalRevealStep=99;assert.equal(validateCKState(invalid),false);
 });
 
 test('one player continues the shared Challenge once; pending reveal survives restoration and rejects stale or forged actions',()=>{
- const random=seeded(733);let s=e.createInitialState(seats(3),random);for(let i=0;s.challengeReveal===undefined&&i<300;i++){const next=botAction(s,random);s=e.applyAction(s,next.actor,next.action,random);}
+ const random=seeded(733);let s=createPlanningFixture(seats(3),random);for(let i=0;s.challengeReveal===undefined&&i<300;i++){const next=botAction(s,random);s=e.applyAction(s,next.actor,next.action,random);}
  assert.equal(s.challengeReveal,2);assert.equal(s.phase,'planning');assert.ok(validateCKState(s));assert.ok(validateCKState(JSON.parse(JSON.stringify(s))));assert.equal(e.getDisplayView(s,'X',7).challengeReveal,2);
  const action={type:'ck-continue-planning' as const,round:s.round,challenge:s.challengeReveal!},before=structuredClone(s);
  for(const bad of [{...action,round:1},{...action,challenge:3},{...action,actor:'p1'}])assert.throws(()=>e.applyAction(s,'p0',bad as any));assert.throws(()=>e.applyAction(s,'outsider',action));assert.throws(()=>e.applyAction(s,'p0',{type:'ck-plan',epoch:e.decisionKey(s),plan:{mouse:'soup',lizard:'garden',boar:'academy'}}));assert.deepEqual(s,before);
  const opened=e.applyAction(s,'p2',action,random);assert.equal(opened.challengeReveal,undefined);assert.equal(opened.round,s.round);assert.equal(opened.revealed,s.revealed);assert.deepEqual(opened.players,s.players);assert.deepEqual(opened.bag,s.bag);assert.ok(validateCKState(opened));assert.equal(e.getDisplayView(opened,'X',8).challengeReveal,undefined);assert.throws(()=>e.applyAction(opened,'p1',action));
  assert.equal(validateCKState({...s,challengeReveal:7}),false);assert.equal(validateCKState({...s,phase:'shopping'}),false);assert.equal(validateCKState({...s,challengeReveal:1}),false);
+});
+
+test('opening briefing blocks plans, persists and can be continued exactly once, with or without head chefs',()=>{
+ for(const restaurateurs of [false,true]){
+ const random=seeded(184);let s=e.createInitialState(seats(3),random,{restaurateurs});
+ while(s.phase==='restaurateurs'){const next=botAction(s,random);s=e.applyAction(s,next.actor,next.action,random);}
+ assert.equal(s.round,1);assert.equal(s.challengeReveal,1);assert.ok(validateCKState(JSON.parse(JSON.stringify(s))));
+ const before=structuredClone(s);assert.throws(()=>e.applyAction(s,'p0',{type:'ck-plan',epoch:e.decisionKey(s),plan:{mouse:'soup',lizard:'garden',boar:'academy'}}));assert.deepEqual(s,before);
+ const action={type:'ck-continue-planning' as const,round:1,challenge:1};s=e.applyAction(s,'p1',action);assert.equal(s.challengeReveal,undefined);assert.deepEqual(s.players,before.players);assert.throws(()=>e.applyAction(s,'p2',action));
+ let guard=0;while(s.phase!=='finished'&&guard++<1800){const next=botAction(s,random);s=e.applyAction(s,next.actor,next.action,random);assert.ok(validateCKState(s));}assert.equal(s.phase,'finished');
+ }
 });

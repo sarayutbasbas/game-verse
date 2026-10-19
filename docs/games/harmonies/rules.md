@@ -1,6 +1,6 @@
-# Harmonies — Libellud base 2024, both boards, 2–4 players
+# Harmonies — Libellud base 2024, boards A/B and optional modules, 1–4 players
 
-Scope: multiplayer only, all32 Animal cards, both common board sides A/B, no Solo, Nature Spirits, Pulse or Crescendo. TypeScript/DOM project, native CSS3D geometry and HTML actions with flat fallback; no extra renderer dependency. All player boards/cards and current turn's terrain are public. Bag/card-deck order stays server-only.
+Scope: all32 base Animal cards and common board sides A/B. Optional Solo, Nature’s Spirits, and Crescendo’s Whispers module are now implemented; see [expansions.md](expansions.md) for rules, sources, privacy and the still-unimplemented Sanctuary/C/D modules. Pulse is excluded. TypeScript/DOM project, native CSS3D geometry and HTML actions with flat fallback; no extra renderer dependency. All player boards/cards and current turn's terrain are public. Bag/card-deck order stays server-only.
 
 Sources checked 2026-10-15:
 - Official current [game page and FAQ](https://www.libellud.com/game/harmonies/), including river shortest-path/loop clarification and unlimited substitute animal cubes.

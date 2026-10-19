@@ -1,5 +1,5 @@
 import { TOKEN, FOODS, CHALLENGE, BASE_CHEFS, ZOU } from '../src/games/critter-kitchen/data.js';
-import { getLegalActions, decisionKey, chefs, applyAction } from '../src/games/critter-kitchen/engine.js';
+import { getLegalActions, decisionKey, chefs, applyAction, createInitialState } from '../src/games/critter-kitchen/engine.js';
 import { emptyMeal, mealQuality } from '../src/games/critter-kitchen/scoring.js';
 import type { CKState, CKAction, Player, Meal } from '../src/games/critter-kitchen/types.js';
 export function seeded(seed: number) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let x = Math.imul(seed ^ seed >>> 15, 1 | seed); x = x + Math.imul(x ^ x >>> 7, 61 | x) ^ x; return ((x ^ x >>> 14) >>> 0) / 4294967296; }; }
@@ -103,4 +103,10 @@ export function botAction(s: CKState, random: () => number): {
         return { actor: p.id, action: { type: 'ck-final', epoch: decisionKey(s), meal: criticMeal(s, p) } };
     }
     throw Error('Game finished');
+}
+
+/** Ability fixtures start after the explicit shared opening briefing. */
+export function createPlanningFixture(...args: Parameters<typeof createInitialState>): CKState {
+ const state=createInitialState(...args);
+ return state.challengeReveal===undefined?state:applyAction(state,state.players[0].id,{type:'ck-continue-planning',round:state.round,challenge:state.challengeReveal});
 }

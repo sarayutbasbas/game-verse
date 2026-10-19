@@ -1,3 +1,4 @@
+import {createPlanningFixture} from './critter-kitchen-fixtures.js';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createInitialState, applyAction, decisionKey } from '../src/games/critter-kitchen/engine.js';
@@ -8,7 +9,7 @@ import { seeded } from './critter-kitchen-fixtures.js';
 import type { CKState, Meal, MealItem } from '../src/games/critter-kitchen/types.js';
 const ingredient = (food: Food, value: number, n = 0) => TOKENS.filter(t => t.kind === 'ingredient' && t.food === food && t.value === value)[n].id;
 const item = (food: Food, value: number, n = 0): MealItem => ({ token: ingredient(food, value, n), as: food });
-function fixture(critic = 'mouse') { const s = createInitialState([{ id: 'a', name: 'A' }, { id: 'b', name: 'B' }], seeded(444)); s.critic = critic; s.round = 7; s.phase = 'critic'; s.rumors = ['bread-fanatic', 'carrot-fanatic', 'fish-fanatic']; for (const p of s.players) {
+function fixture(critic = 'mouse') { const s = createPlanningFixture([{ id: 'a', name: 'A' }, { id: 'b', name: 'B' }], seeded(444)); s.critic = critic; s.round = 7; s.phase = 'critic'; s.rumors = ['bread-fanatic', 'carrot-fanatic', 'fish-fanatic']; for (const p of s.players) {
     p.storage = [];
     p.critic = emptyMeal();
     p.soup = 0;
@@ -171,7 +172,7 @@ test('meal validation: Hold drops rightmost requirement, real ingredient mandato
     assert.throws(() => validateMeals(s, p, [m, m, emptyMeal()]));
     assert.throws(() => validateMeals(s, p, [{ ...m, quality: 999 } as Meal, emptyMeal(), emptyMeal()]));
 });
-test('recovery rejects invalid mode-independent state, fake deck/token, bad queue target and forged winner', () => { const s = createInitialState([{ id: 'a', name: 'A' }, { id: 'b', name: 'B' }], seeded(12)); assert.ok(validateCKState(s)); for (const change of [(x: CKState) => x.bag.push(x.bag[0]), (x: CKState) => x.config.count = 5, (x: CKState) => x.rumors[0] = 'invented', (x: CKState) => x.tasks.push({ kind: 'pick', visit: 'missing' })]) {
+test('recovery rejects invalid mode-independent state, fake deck/token, bad queue target and forged winner', () => { const s = createPlanningFixture([{ id: 'a', name: 'A' }, { id: 'b', name: 'B' }], seeded(12)); assert.ok(validateCKState(s)); for (const change of [(x: CKState) => x.bag.push(x.bag[0]), (x: CKState) => x.config.count = 5, (x: CKState) => x.rumors[0] = 'invented', (x: CKState) => x.tasks.push({ kind: 'pick', visit: 'missing' })]) {
     const x = structuredClone(s);
     change(x);
     assert.equal(validateCKState(x), false);

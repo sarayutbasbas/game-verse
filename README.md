@@ -1,6 +1,12 @@
 # GameVerse — เว็บบอร์ดเกมจอกลาง + มือถือ
 
-มี portal ให้เลือก **Sky Team (2 คน, YUL introductory)**, **Harmonies ภาคหลัก (2–4 คน, ด้าน A/B)**, **Pixies ภาคหลัก (2–5 คน)**, **Jaipur ภาคหลัก (2 คน)**, **7 Wonders Duel ภาคหลัก (2 คน)**, **Camel Up Second Edition (3–8 คน)**, **Dracula vs Van Helsing, Mandoo 2023 (2 คน)**, **Azul ภาคหลัก ผนังสีมาตรฐาน (2–4 คน)** และ **Calico ภาคหลัก (1–4 คน)**. Camel Up ใช้ฉบับ 2018 / คู่มือพิมพ์ใหม่ 2024. UI ไทย, QR/รหัสห้อง, มือถือส่วนตัว, server ตัดสินกติกาและสุ่ม, reconnect ด้วย session เดิม. คนสร้างห้องเข้ามาเล่นด้วยมือถืออีกเครื่องได้
+มี portal ให้เลือก **Sky Team (2 คน, YUL introductory)**, **Harmonies (Solo 1 คน / 2–4 คน, ด้าน A/B, Nature’s Spirits และ Crescendo: Whispers)**, **Pixies ภาคหลัก (2–5 คน)**, **Jaipur ภาคหลัก (2 คน)**, **7 Wonders Duel ภาคหลัก (2 คน)**, **Camel Up Second Edition (3–8 คน)**, **Dracula vs Van Helsing, Mandoo 2023 (2 คน)**, **Azul ภาคหลัก ผนังสีมาตรฐาน (2–4 คน)** และ **Calico ภาคหลัก (1–4 คน)**. Camel Up ใช้ฉบับ 2018 / คู่มือพิมพ์ใหม่ 2024. UI ไทย, QR/รหัสห้อง, มือถือส่วนตัว, server ตัดสินกติกาและสุ่ม, reconnect ด้วย session เดิม. คนสร้างห้องเข้ามาเล่นด้วยมือถืออีกเครื่องได้
+
+Critter Kitchen รองรับภาคหลัก 2–5 คน และเลือกเพิ่ม Lucky Duck Pack (Wolfgang Duck + Cosmo) / Rudy the Reindeer / เชฟ À La Cart สี่ใบ Alex, Peter, Queenie และ Shaggy ก่อนเริ่มได้ พร้อมภาพใหม่และกติกาภาษาไทย ส่วน À La Cart เต็มชุดและ 6–7 คนยังไม่เปิดใช้งาน ดู [สถานะภาคเสริม](docs/games/critter-kitchen/expansions.md)
+
+Take Time เปิดเล่น **ด่านเริ่มต้น 1–1 สำหรับ 2–4 คน** ที่ `/games/take-time` ตามคู่มือ TH/EN ปี 2025 มีจอกลาง มือถือ การ์ดลับ เปิดผลทีละช่อง ลองใหม่พร้อมโบนัส Header/เมนูเสียง/วิธีเล่น และภาพสร้างใหม่ ยังไม่รวมแคมเปญ 40 ด่าน เนื่องจากไฟล์คู่มือทั่วไปไม่มีหน้านาฬิกาและแผ่นกติกาประจำบทครบ ดู [ขอบเขตและกติกา](docs/games/take-time/rules.md)
+
+หน้ารายละเอียดเกมทุกเกมมีเป้าหมายและวิธีเล่นพร้อมภาพก่อนสร้าง/เข้าห้อง พร้อมลิงก์ข้ามสำหรับคนที่เล่นเป็นแล้ว รายการกลับเข้าห้องเดิมแสดงชื่อเกมและรหัสห้องคู่กัน ในเกมเปิดคู่มือภาพจากเมนูห้องได้ ดู [รูปแบบคำแนะนำเกม](docs/ui/game-learning.md)
 
 ## ติดตั้งและรัน
 
@@ -328,7 +334,7 @@ Pixies: เลือกเปลี่ยนไพ่กลางได้ทั
 
 Pixies ใช้แถบเลือกใบเดิม/ใบใหม่เหนือกองจั่วแทน popup, สัญลักษณ์อยู่ขวาบนไพ่ และเพลงพื้นหลังเป็นทำนองใสแบบดีดสั้น พร้อมเสียงเลือก/วาง/แจกชุดใหม่/สรุปผลที่ปิดแยกจากเพลงได้.
 
-Harmonies: /games/harmonies • 2–4 คน • กระดาน A/B • มุม 3D • เลือกชิ้นไม้/สัตว์ → ช่อง → ดูตัวอย่าง → ยืนยันในกรอบกระดาน • ไม่รวม Solo/Spirits/ภาคเสริม. กติกา: docs/games/harmonies/rules.md.
+Harmonies: /games/harmonies • Solo 1 คน / 2–4 คน • กระดาน A/B • มุม 3D • เลือกชิ้นไม้/สัตว์ → ช่อง → ดูตัวอย่าง → ยืนยันในกรอบกระดาน • เลือก Solo, Nature’s Spirits และ Crescendo: Whispers ในห้องรอก่อนเริ่มได้ ยังไม่รวม Sanctuaries/C/D/Pulse. กติกา: docs/games/harmonies/rules.md และ docs/games/harmonies/expansions.md.
 
 
 ## Sky Team — เที่ยวบินฝึกแรก

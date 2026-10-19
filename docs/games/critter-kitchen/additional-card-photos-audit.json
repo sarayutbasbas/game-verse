@@ -1,0 +1,85 @@
+{
+  "referenceOnly": true,
+  "reviewedDate": "2026-10-19",
+  "sources": [
+    {
+      "file": "/Users/basukekung/Downloads/pic9126160.webp",
+      "archive": "data/critter-kitchen-expansion-ref/additional-card-photos/pic9126160.webp",
+      "dimensions": [
+        1200,
+        800
+      ],
+      "sha256": "a646a39680908f6a2ceaf0f943dd05af5a27431cbcbfc3f9439fd9d47dc58758",
+      "content": "Hungarian base critics: 12"
+    },
+    {
+      "file": "/Users/basukekung/Downloads/pic9126159.webp",
+      "archive": "data/critter-kitchen-expansion-ref/additional-card-photos/pic9126159.webp",
+      "dimensions": [
+        1200,
+        800
+      ],
+      "sha256": "fa3b76b8e3d1a3355a5da0d53b903ad03998ded82653fe2c33b50d28cfd01ac1",
+      "content": "Hungarian base Zous: 12"
+    },
+    {
+      "file": "/Users/basukekung/Downloads/pic9403347.webp",
+      "archive": "data/critter-kitchen-expansion-ref/additional-card-photos/pic9403347.webp",
+      "dimensions": [
+        1200,
+        557
+      ],
+      "sha256": "ca6f70c04aac6f17332079d4f05f6c59086a8edafcefd15f834ce9fca21d3b79",
+      "content": "Kangaroo and three base rumors"
+    },
+    {
+      "file": "/Users/basukekung/Downloads/pic9403345.webp",
+      "archive": "data/critter-kitchen-expansion-ref/additional-card-photos/pic9403345.webp",
+      "dimensions": [
+        1200,
+        616
+      ],
+      "sha256": "4c7926be82604163e3bfa2d463bb1856e5043a2383ca355c4aec38143cea1647",
+      "content": "Mack Shark #239 capacity 3"
+    },
+    {
+      "file": "/Users/basukekung/Downloads/pic9040017.webp",
+      "archive": "data/critter-kitchen-expansion-ref/additional-card-photos/pic9040017.webp",
+      "dimensions": [
+        1200,
+        687
+      ],
+      "sha256": "d7edb2d5bdb7c35e0aaf03611b7c97670ff027abbc140a9e6c6c68170403bbe4",
+      "content": "Base restaurateurs; Martha printed bonus 2"
+    }
+  ],
+  "inlineOnlyReference": {
+    "card": "The Pig",
+    "number": 207,
+    "localFile": null,
+    "text": "Throughout the game, spice does not count towards your refrigeration limit. Keep them public. When preparing the critic meal, each course may contain 2 ingredients of its type.",
+    "runtimeEnabled": false
+  },
+  "mack": {
+    "number": 239,
+    "capacity": 3,
+    "text": "Start of location: Name an ingredient type. Every chef at Mack’s location must give you an ingredient or spice of that type or leave with 1 soup.",
+    "runtimeEnabled": false,
+    "unresolved": [
+      "Scope of every chef for Mack and other chefs owned by the same player",
+      "Forced departure timing and compensation interactions"
+    ]
+  },
+  "martha": {
+    "printedRestaurateurBonus": 2,
+    "currentRuntimeBonus": 3,
+    "challengeAbilityBonus": 2,
+    "status": "Discrepancy recorded; runtime unchanged. Correction must preserve saved-game scoring/validation."
+  },
+  "releasedExpansionFaceCoverage": {
+    "zous": 13,
+    "zousTotal": 24,
+    "critics": 1,
+    "criticsTotal": 4
+  }
+}

@@ -1,4 +1,5 @@
 import {finalRevealItems} from './final-reveal.js';
+import { expansionOptions, selectedZous, selectedRestaurateurs } from './expansions.js';
 import {TEAM_COLORS} from './team-colors.js';
 import { TOKENS, TOKEN, BASE_CHEFS, ZOUS, ZOU, CRITICS, CRITIC, CHALLENGES, CHALLENGE, RESTAURATEURS, RESTAURATEUR, RUMORS, RUMOR, SPECIAL_ALLSPICE, boardConfiguration } from './data.js';
 import { chefs } from './engine.js';
@@ -15,11 +16,12 @@ const sameData=(a:any,b:any):boolean=>{
 const sameSet = (a: string[], b: string[]) => a.length === b.length && new Set(a).size === a.length && b.every(x => a.includes(x));
 export function validateCKState(s: any): s is CKState {
     try {
+        const expansions = expansionOptions(s?.expansions);
         if (!s || !['restaurateurs', 'planning', 'running', 'shopping', 'challenge', 'challenge-results', 'refrigeration', 'critic', 'finished'].includes(s.phase) || !Array.isArray(s.players) || s.players.length < 2 || s.players.length > 5 || new Set(s.players.map((p: any) => p.id)).size !== s.players.length || s.players.some((p: any) => typeof p.id !== 'string' || typeof p.name !== 'string'))
             return false;
         if (!sameData(s.config,boardConfiguration(s.players.length)) || !integer(s.round, 1, 7) || !integer(s.sequence) || !integer(s.revealed, 0, 6) || !strings(s.priority) || !sameSet(s.priority, s.players.map((p: any) => p.id)) || !CRITIC[s.critic] || !strings(s.bag) || !strings(s.discard))
             return false;
-        if(s.challengeReveal!==undefined&&(!integer(s.challengeReveal,2,6)||s.phase!=='planning'||s.round<2||s.round>6||s.challengeReveal!==s.revealed||s.players.some((p:any)=>p.plan)))return false;
+        if(s.challengeReveal!==undefined&&(!integer(s.challengeReveal,1,6)||s.phase!=='planning'||s.round<1||s.round>6||s.challengeReveal!==s.revealed||s.players.some((p:any)=>p.plan)))return false;
         if(s.finalRevealStep!==undefined&&(!integer(s.finalRevealStep,0,100)||s.phase!=='finished'))return false;
         if (s.houseRules !== undefined && (!s.houseRules || s.houseRules.emptyCourses !== true))
             return false;
@@ -80,6 +82,11 @@ export function validateCKState(s: any): s is CKState {
                 return false;
             if (p.restaurateur !== null && !RESTAURATEUR[p.restaurateur] || p.extraRumor !== null && !RUMOR[p.extraRumor])
                 return false;
+            if (p.cosmoSous !== undefined) {
+                if (!expansions.luckyDuck || typeof p.cosmoSous !== 'string' || !ZOU[p.cosmoSous] || p.cosmoSous === 'cosmo' || p.activeSous !== 'cosmo' && p.nextSous !== 'cosmo') return false;
+                zous.push(p.cosmoSous);
+            }
+            if ((p.activeSous === 'cosmo' || p.nextSous === 'cosmo') && !p.cosmoSous) return false;
             if (!Array.isArray(p.spentRumors) || new Set(p.spentRumors).size !== p.spentRumors.length || p.spentRumors.some((i: any) => !integer(i, 0, 2) || !p.known[i]))
                 return false;
             rest.push(...p.offers, ...p.restaurateur ? [p.restaurateur] : []);
@@ -111,7 +118,7 @@ export function validateCKState(s: any): s is CKState {
         }
         rest.push(...s.unusedRestaurateurs);
         if (s.pending) {
-            if (!s.players.some((p: any) => p.id === s.pending.actor) || !['pick', 'rumor', 'consolation'].includes(s.pending.kind))
+            if (!s.players.some((p: any) => p.id === s.pending.actor) || !['pick', 'rumor', 'consolation', 'rudy-gift'].includes(s.pending.kind))
                 return false;
             if (s.pending.kind === 'rumor') {
                 if (TOKEN[s.pending.token]?.kind !== 'rumor' || TOKEN[s.pending.token]?.rumor !== 3)
@@ -120,13 +127,14 @@ export function validateCKState(s: any): s is CKState {
             }
             else if (!s.visits.some((v: any) => v.id === s.pending.visit && v.actor === s.pending.actor))
                 return false;
+            if (s.pending.kind === 'rudy-gift' && (!expansions.rudy || TOKEN[s.pending.token]?.kind !== 'ingredient' || TOKEN[s.pending.token]?.food !== 'carrot' || !s.players.find((p: any) => p.id === s.pending.actor).storage.includes(s.pending.token) || !s.visits.some((v: any) => v.id === s.pending.visit && v.chef === 'rudy'))) return false;
         }
         if (bisque !== 7 || tokens.some(id => !TOKEN[id]) || new Set(tokens).size !== tokens.length || !TOKENS.every(t => tokens.includes(t.id)))
             return false;
         const specialCount = tokens.filter(t => t === SPECIAL_ALLSPICE).length + Number(s.seventhAvailable);
         if (s.round === 7 ? specialCount !== 1 : specialCount !== 0)
             return false;
-        if (!sameSet(zous, ZOUS.map(c => c.id)) || !sameSet(rest, RESTAURATEURS.map(c => c.id)) || !sameSet(rumors, RUMORS.map(c => c.id)) || !sameSet([s.critic, ...s.unusedCritics], CRITICS.map(c => c.id)) || !sameSet([...s.challenges, ...s.unusedChallenges], CHALLENGES.map(c => c.id)))
+        if (!sameSet(zous, selectedZous(expansions).map(c => c.id)) || !sameSet(rest, selectedRestaurateurs(expansions).map(c => c.id)) || !sameSet(rumors, RUMORS.map(c => c.id)) || !sameSet([s.critic, ...s.unusedCritics], CRITICS.map(c => c.id)) || !sameSet([...s.challenges, ...s.unusedChallenges], CHALLENGES.map(c => c.id)))
             return false;
         for (let i = 0; i < 3; i++) {
             if (s.players.some((p: any) => p.known[i] && TOKEN[p.known[i]].rumor !== 3 && TOKEN[p.known[i]].rumor !== i))
@@ -136,6 +144,7 @@ export function validateCKState(s: any): s is CKState {
         }
         if(s.resultsRevealed!==undefined&&typeof s.resultsRevealed!=='boolean')return false;
         for (const v of s.visits) {
+            if (v.breadPicked !== undefined && (v.chef !== 'alex' || typeof v.breadPicked !== 'boolean')) return false;
             if (typeof v.id !== 'string' || !s.players.some((p: any) => p.id === v.actor) || !(BASE_CHEFS.some(c => c.id === v.chef) || ZOU[v.chef]) || !s.config.locations.some((l: any) => l.id === v.loc) || !integer(v.capacity, 1, 3) || !integer(v.limit, 1, 3) || !integer(v.used, 0, v.limit) || !integer(v.gained) || typeof v.done !== 'boolean' || typeof v.started !== 'boolean' || typeof v.newton !== 'boolean')
                 return false;
         }

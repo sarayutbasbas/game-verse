@@ -1,0 +1,23 @@
+{
+  "edition": "Libellud 2025",
+  "userProvided": [
+    {
+      "language": "EN",
+      "path": "/Users/basukekung/Downloads/TT_RULES_PRINT_MASTER_EN_compressed.pdf",
+      "sha256": "e84cd2b1c524c146893deaaefe0d4a680c8b9523ba0b37d00ca141f90d84ab9f",
+      "pdfPages": 7,
+      "printedPages": 12
+    },
+    {
+      "language": "TH",
+      "path": "/Users/basukekung/Downloads/TT_RULES_TH_20250429_compressed.pdf",
+      "sha256": "53634fc2fad2c1e56b68e1b0554ca12dac0a5175ccae41fa61ad9cfda3c7fd4a",
+      "pdfPages": 7,
+      "printedPages": 12
+    }
+  ],
+  "publisher": "https://www.libellud.com/game/take-time/",
+  "pressKit": "https://cdn.svc.asmodee.net/production-libelludv2/uploads/2026/07/PRESS-KIT-EN.zip",
+  "coverage": "General rules + complete clock 1-1 example. Chapter sheets and forty complete clock faces not included.",
+  "referenceOnlyArchive": "data/take-time-reference/"
+}

@@ -1837,3 +1837,32 @@ html.critter-document,body.critter-theme{overscroll-behavior-y:auto}
 
 .ck-challenge-reveal.is-restored .ck-challenge-flipper{animation:none;transform:rotateY(180deg)}
 .ck-challenge-reveal.is-restored .ck-new-challenge-foods{animation:none}
+.ck-rudy-gift{text-align:center;padding:12px}.ck-rudy-recipients{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0}.ck-rudy-recipients button{display:grid;justify-items:center;padding:12px;gap:8px;min-height:70px}.ck-rudy-recipients .avatar{width:44px;height:44px}.ck-cosmo-note{margin:12px 0;padding:12px;border:1px dashed #786397;border-radius:12px;text-align:center;background:#f1eafa}.ck-cosmo-note .ck-card{width:100px;max-height:150px;margin:auto}.ck-cosmo-note p{margin:6px 0 10px}
+.ck-root .ck-rudy-gift>button{background:#155a61;color:#fffbed;border-color:#155a61}.ck-rudy-recipients:has(>button:only-child){grid-template-columns:minmax(0,180px);justify-content:center}
+
+/* Permanent head chef and portrait choice table. */
+.ck-root[data-phase=restaurateurs] .ck-offers{display:grid;grid-template-columns:repeat(2,minmax(0,260px));justify-content:center;gap:24px;width:100%;margin:20px auto}
+.ck-root[data-phase=restaurateurs] .ck-offers>div{min-width:0;display:flex;flex-direction:column;gap:12px}
+.ck-root[data-phase=restaurateurs] .ck-offers .ck-card{display:flex;flex-direction:column;width:100%;height:auto;max-width:none;padding:8px;background:#fff9e9;border:2px solid #ba9855;border-radius:14px;box-shadow:0 8px 20px #183f4630;overflow:hidden;color:#21474b}
+.ck-root[data-phase=restaurateurs] .ck-offers .ck-card>img{display:block;width:100%;height:auto;aspect-ratio:3/4;max-height:none;object-fit:cover;border-radius:8px}
+.ck-root[data-phase=restaurateurs] .ck-offers .ck-card>strong{font-size:17px;margin:8px 0 2px}
+.ck-root[data-phase=restaurateurs] .ck-offers .ck-card>span:not(.ck-card-inspect){font-size:12px;line-height:1.6;text-align:left}
+.ck-root .ck-offer-hint{text-align:center;color:#486a6e}
+.ck-root[data-phase=restaurateurs] .ck-offers>.ck-rest-wait{grid-column:1/-1;min-height:42svh;align-items:center;justify-content:center;text-align:center;gap:8px}
+.ck-rest-wait>svg{width:48px;height:48px;color:#bb8d35}
+.ck-root .ck-my-head-chef{position:fixed;z-index:25;bottom:max(14px,env(safe-area-inset-bottom));left:14px;display:flex;align-items:center;gap:9px;min-height:58px;padding:6px 12px 6px 6px;border:2px solid #bd9e59;border-radius:12px;background:#fffae9;color:#234f53;box-shadow:0 4px 15px #1f434933;font-weight:700}
+.ck-root .ck-my-head-chef>img{width:35px;height:47px;object-fit:cover;border-radius:5px}
+.ck-my-head-chef small{display:block;font-size:10px;font-weight:400}
+.ck-root:has(.ck-my-head-chef){padding-bottom:88px}
+.ck-opening-critic{max-width:560px;font-size:12px!important;line-height:1.5!important}
+@media(max-width:600px){.ck-root[data-phase=restaurateurs] .ck-offers{gap:10px;margin:12px auto}.ck-root[data-phase=restaurateurs] .ck-offers .ck-card{padding:5px}.ck-root[data-phase=restaurateurs] .ck-offers .ck-card>strong{font-size:13px}.ck-root[data-phase=restaurateurs] .ck-offers .ck-card>span:not(.ck-card-inspect){font-size:11px}.ck-root .ck-my-head-chef{left:8px;bottom:max(8px,env(safe-area-inset-bottom));min-height:48px;padding:4px 8px 4px 4px;font-size:12px}.ck-root .ck-my-head-chef>img{width:29px;height:39px}}
+.ck-root[data-phase=restaurateurs] .ck-offers .ck-card>strong,.ck-root[data-phase=restaurateurs] .ck-offers .ck-card>span:not(.ck-card-inspect){display:block!important}
+.ck-root.has-player[data-phase=restaurateurs] .ck-offers .ck-card>.ck-art{max-height:none;aspect-ratio:3/4;height:auto}
+.ck-root[data-phase=restaurateurs] .ck-offers>.ck-rest-wait{position:fixed;inset:0;z-index:24;background:radial-gradient(ellipse at center,#fffbed,#e1eeea);min-height:0;padding:24px}
+.ck-rest-wait>svg{animation:ck-head-chef-spin 1.2s linear infinite}
+@keyframes ck-head-chef-spin{to{transform:rotate(360deg)}}
+.ck-root.has-player:has(.ck-my-head-chef) .ck-pantry-stock{padding-left:126px;box-sizing:border-box}
+.ck-opening-briefing{overflow:auto}
+.ck-opening-briefing .ck-challenge-flip{height:min(28svh,240px);flex-shrink:0}
+@media(max-height:650px){.ck-opening-briefing{padding:10px}.ck-opening-briefing>section{height:auto;min-height:100%;gap:5px}.ck-opening-briefing .ck-challenge-flip{height:24svh}.ck-opening-briefing .ck-new-challenge-foods>div{margin:6px 0}.ck-opening-briefing .ck-opening-critic{font-size:11px!important}}
+.ck-root[data-phase=restaurateurs] .ck-offers>.ck-rest-wait{width:100vw;max-width:none;margin:0;box-sizing:border-box}

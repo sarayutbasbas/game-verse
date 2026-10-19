@@ -1,7 +1,11 @@
 import catalog from './catalog.json' with {type:'json'};
+import whispers from './whispers.json' with {type:'json'};
+import spirits from './spirits.json' with {type:'json'};
 import type {Animal,Terrain} from './types.js';
 export const ANIMALS=catalog as Animal[];
-export const ANIMAL=Object.fromEntries(ANIMALS.map(c=>[c.id,c]));
+export const SPIRITS=spirits as Animal[];
+export const WHISPERS=whispers as Animal[];
+export const ANIMAL:Record<string,Animal>=Object.fromEntries([...ANIMALS,...SPIRITS,...WHISPERS].map(c=>[c.id,c]));
 export const TERRAINS:Terrain[]=['water','rock','wood','leaf','field','building'];
 export const COUNTS:Record<Terrain,number>={water:23,rock:23,wood:21,leaf:19,field:19,building:15};
 export const NAMES:Record<Terrain,string>={water:'น้ำ',rock:'หิน',wood:'ลำต้น',leaf:'พุ่มไม้',field:'ทุ่งดอกไม้',building:'อาคาร'};

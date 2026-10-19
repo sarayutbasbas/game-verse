@@ -6,7 +6,7 @@ export function lastRoundInfo(v:HarmoniesView) {
     const active=v.players.find(p=>p.id===v.turn);
     if(!active)return;
     const lowSpace=active.board.filter(c=>!c.stack.length).length<=2;
-    if(v.endAt===undefined&&!lowSpace&&(v.bagCount??3)>=3)return;
+    if(v.endAt===undefined&&!lowSpace&&(v.bagCount??3)>=(v.options?.solo?9:3))return;
     // Warn before the end button too: ending the last seat's turn can finish immediately.
     const end=v.endAt??Math.ceil((v.turnCount+1)/v.players.length)*v.players.length;
     const count=Math.max(0,end-v.turnCount),start=v.players.indexOf(active);

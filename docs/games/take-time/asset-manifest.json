@@ -1,0 +1,47 @@
+{
+  "generator": "built-in image_gen",
+  "scope": "Original assets for playable clock 1-1; no claim of illustrating all forty physical clocks",
+  "assets": [
+    {
+      "id": "Cover",
+      "prompt": "Use case: stylized-concept. Asset type: original illustrated cover for a browser cooperative board game named Take Time. Create a polished portrait 4:5 book-cover illustration, NOT an existing published box design. A fantastical astronomical clock floating in a lush midnight garden, its brass orbital rings framing a luminous lavender and turquoise time vortex. Tiny fireflies, delicate botanical silhouettes, richly painted gouache and fine etched metalwork, calm mysterious atmosphere, deep Prussian blue, antique gold, pale icy blue and violet. Clear beautiful centered title at top: 'TAKE TIME'. No other text, no publisher logos, no watermark. Full bleed flat artwork, no product mockup, no perspective box, no border. Large clock as visual focus, readable when small.",
+      "output": "/art/take-time/cover.webp",
+      "sourceHint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-31589752-a760-4fbc-87bb-563b07e559c7.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "Solar",
+      "prompt": "Use case: stylized-concept. Asset type: original reusable solar playing card background, portrait 2:3. A pale icy turquoise parchment celestial illustration, fine antique-gold astronomical orbits, delicate radiant sun medallion around lower half, light hand-painted clouds. Elegant ornamental rounded corners. Keep upper half and central top area calm pale almost white for very large dark numeral to be overlaid in HTML. Flat full bleed card face texture with no perspective, no text, no letters, no numerals, no logos, no watermark. Luxurious boardgame artwork, clear small-screen readability.",
+      "output": "/art/take-time/solar.webp",
+      "sourceHint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b42f265d-875f-4895-bca4-df66eacd1354.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "Lunar",
+      "prompt": "Use case: stylized-concept. Asset type: original reusable lunar playing card background, portrait 2:3. Deep Prussian blue midnight parchment, antique gold delicate celestial orbits and stars, a graceful small crescent moon medallion in lower half, subtly painted indigo clouds. Fine ornamental rounded corners. Keep upper half and central top area quiet deep navy for a large light golden numeral to be overlaid in HTML. Flat full bleed card face texture with no perspective, no text, no letters, no numerals, no logo, no watermark. Elegant cohesive astronomical boardgame artwork, readable on phone.",
+      "output": "/art/take-time/lunar.webp",
+      "sourceHint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6c42d910-bd28-4695-bbb8-3a25fc693fb8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "Clock",
+      "prompt": "Use case: stylized-concept. Asset type: original square central clock-dial illustration for a cooperative astronomical card game. Perfectly centered circular antique brass celestial clock inside a midnight botanical garden, top-down flat view. Outer fine gold ring and six subtle equally sized radial areas, luminous lavender time vortex and pale teal flowing light in the center. Deep blue, indigo, turquoise, antique gold. Painterly gouache and detailed etched brass, polished magical tabletop art. Keep center quiet for HTML text. No text, no numerals, no letters, no hands, no logos, no watermark. Entire circular dial visible with quiet midnight-blue corners. Not a copy of any existing published clock art.",
+      "output": "/art/take-time/clock.webp",
+      "sourceHint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-55ae5114-debd-40c1-999e-c8787331524d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "Box",
+      "prompt": "Use case: product-mockup. Edit image 1 (Take Time artwork) into a premium standing BOARD GAME BOX product cutout. Use image 2 only as the exact reference for camera angle, box silhouette, framing and size. Match the Harmonies box reference: upright tall rectangular boardgame box, front mostly facing viewer, narrow visible LEFT spine, very shallow visible top, front right edge straight, similar slight three-quarter perspective and same margins. Preserve image 1's original navy/gold astronomical clock, violet vortex, flowers and exact title 'TAKE TIME' as printed FRONT artwork. Extend matching navy botanical/orbital artwork onto the left spine, with readable vertical title 'TAKE TIME'. Cardboard box with realistic crisp wrapped edges, subtle print texture and soft studio lighting. One closed box only, full box completely visible, centered, occupying almost the entire portrait 4:5 canvas with the same margin as image 2. Transparent background outside box, no floor, no backdrop, no additional objects, no publisher logos, no extra text. Do not return a flat cover illustration.",
+      "output": "/art/boxes/take-time-9a765b96596b.png",
+      "sourceHint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-906eb090-ee3e-4d82-91dd-df825d6318cd.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "references": [
+        "/art/take-time/cover.webp",
+        "/art/boxes/harmonies.png"
+      ],
+      "dimensions": [
+        640,
+        800
+      ],
+      "transparentBackground": true,
+      "legacyOutput": "/art/boxes/take-time.png"
+    }
+  ],
+  "uiAssets": "Numerals, suit marks, reveal eye, six segments, needle, quota and bonus pips are responsive HTML/CSS/SVG; no baked-in rules text."
+}

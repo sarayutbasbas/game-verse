@@ -67,3 +67,11 @@ test('Harmonies market refill deals only at accepted end turn and never on recov
 test('Locus paper, coins, combo and final cues only on newly accepted events, no snapshot/presence replay',async()=>{
  const {createInitialState,getDisplayView}=await import('../src/games/locus/engine.js');const s=createInitialState([{id:'a',name:'A'},{id:'b',name:'B'}],()=>.5),before=getDisplayView(s,'ABC234',10),after=structuredClone(before);after.revision++;after.sequence++;after.event={kind:'mark',actor:'a',cells:[{zone:'yellow',x:0,y:5}],gained:1,effects:['bonus']};assert.deepEqual(gameEffects(before,after,false),['pencil','combo','coin']);assert.deepEqual(gameEffects(before,after,true),[]);assert.deepEqual(gameEffects(after,after,false),[]);after.event={kind:'finish'};assert.ok(gameEffects(before,after,false).includes('finish'));
 });
+
+test('Harmonies special-card chime: choose, acquire and activate only on accepted revisions',()=>{
+ const before:any={gameId:'harmonies',code:'ABCDEF',revision:4,phase:'playing',turn:'a',sequence:3,event:{kind:'place'}};
+ for(const [kind,card]of [['spirit','spirit-01'],['cube','spirit-03'],['card','whisper-01'],['cube','whisper-02']]){
+ const next:any={...before,revision:5,sequence:4,event:{kind,card}};assert.deepEqual(gameEffects(before,next,false),['magic']);assert.deepEqual(gameEffects(before,next,true),[]);assert.deepEqual(gameEffects(next,next,false),[]);assert.deepEqual(gameEffects(before,{...next,revision:6},false),[]);
+ }
+ assert.deepEqual(gameEffects(before,{...before,revision:5,event:{kind:'spirit',card:'spirit-01'}},false),[]);
+});

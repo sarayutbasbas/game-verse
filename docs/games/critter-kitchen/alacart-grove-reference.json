@@ -1,0 +1,272 @@
+{
+  "status": "reference-only-not-runtime-catalog",
+  "reviewed": "2026-10-19",
+  "sources": [
+    {
+      "id": "grove-c6QXKSJVIIE",
+      "url": "https://www.youtube.com/watch?v=c6QXKSJVIIE",
+      "title": "À la Cart is on the Menu in Critter Kitchen | The Grove Plays",
+      "channel": "The Grove",
+      "published": "2025-07-09",
+      "durationSeconds": 4736,
+      "method": "Printed component faces inspected in downloaded video; original English auto-captions used only to locate scenes.",
+      "referenceOnly": true
+    }
+  ],
+  "cards": [
+    {
+      "id": "gelato",
+      "kind": "cart",
+      "number": 255,
+      "at": 80,
+      "name": "Gelato",
+      "nameTh": "เจลาโต",
+      "setupTh": "สับโทเคนเจลาโตเป็นกองคว่ำไว้ข้างรถเข็น",
+      "roundSetupTh": "เปิดเจลาโต 1 ชิ้นไว้บนรถเข็น",
+      "effectTh": "หยิบตามปกติ เสิร์ฟได้เฉพาะคอร์สพิเศษในมื้อผู้วิจารณ์ ใส่เจลาโตได้หลายชิ้น ใช้ได้เฉพาะเครื่องเทศอเนกประสงค์ ผู้ชนะคุณภาพคอร์สนี้ได้รับ 2 ดาว",
+      "refrigeration": "required",
+      "unresolved": [
+        "The seven campaign values are now readable; a complete released-set face comparison is still distinguished from campaign evidence."
+      ],
+      "crossReferences": [
+        "Earlier user-supplied full face #255",
+        "Released rulebook p12: eighth/rightmost course, any seven courses, rumor interactions"
+      ],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 80,
+      "frame": "data/critter-kitchen-expansion-ref/review-0080.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=80s",
+      "runtimeEnabled": false,
+      "campaignInventory": {
+        "values": [
+          3,
+          3,
+          4,
+          4,
+          5,
+          6,
+          7
+        ],
+        "source": "campaign-attachments-audit.json",
+        "releasedFullSetComparison": false
+      }
+    },
+    {
+      "id": "flowers",
+      "kind": "cart",
+      "number": 254,
+      "at": 115,
+      "name": "Flowers",
+      "nameTh": "ดอกไม้",
+      "setupTh": "วางโทเคนดอกไม้ข้างรถเข็น",
+      "roundSetupTh": "เติมดอกไม้ 1 ชิ้นบนรถเข็น",
+      "effectTh": "ผู้เล่นคนแรกที่หยิบของจากสถานที่นี้ต้องรับดอกไม้ด้วย ดอกไม้ที่ถืออยู่ทิ้งไม่ได้ เมื่อจบรอบ 3, 6 และ 7 ผู้ที่มีดอกไม้มากที่สุดได้รับ 1 ดาว",
+      "refrigeration": "required",
+      "unresolved": [
+        "The clip has no tied-most example.",
+        "Clarify unpicked accumulated flowers against general Cart cleanup before encoding the edge case."
+      ],
+      "crossReferences": [
+        "Released rulebook p12: flowers may be transferred when forced to give another player an item",
+        "Gameplay confirms flowers occupy refrigeration space at 7:34–7:38"
+      ],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 115,
+      "frame": "data/critter-kitchen-expansion-ref/review-0115.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=115s",
+      "runtimeEnabled": false
+    },
+    {
+      "id": "zous-too",
+      "kind": "cart",
+      "number": 268,
+      "at": 132,
+      "name": "Zous Too",
+      "nameTh": "เชฟเพิ่มอีกคน",
+      "minimumPlayers": 3,
+      "setupTh": "รวมเชฟผู้ช่วยใหม่กับภาคหลักแล้วสับ รวมและสับโทเคนวัตถุดิบ Zous แยกเป็นกองคว่ำข้างรถเข็น",
+      "roundSetupTh": "หลังเปิดเชฟที่โรงเรียนเชฟ ให้เปิดเชฟเพิ่มอีก 1 ใบสำหรับรถเข็นนี้พร้อมตัวแทน และเปิดวัตถุดิบ Zous 2 ชิ้น",
+      "effectTh": "เลือกหยิบเชฟหรือวัตถุดิบเป็นของ 1 ชิ้นตามปกติ วัตถุดิบ Zous ใช้ปรุงเหมือนวัตถุดิบทั่วไป ผู้เล่นรับเชฟจากทั้งสองแหล่งแล้วมีเชฟผู้ช่วยมากกว่าหนึ่งตัวในรอบถัดไปได้",
+      "refrigeration": "ingredients-required",
+      "unresolved": [
+        "Exact full fourteen-token ingredient/value inventory."
+      ],
+      "crossReferences": [
+        "User-supplied high-resolution face #268",
+        "Released rulebook pp7–8: separate supply never enters bag; mandatory Garden Top Shop placement for 6–7 players",
+        "At 1:04:10–1:04:19 the players place seventh-round allspice at both Academy and Zous Too; observed gameplay, not a separate line printed on this face"
+      ],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 132,
+      "frame": "data/critter-kitchen-expansion-ref/review-0132.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=132s",
+      "runtimeEnabled": false
+    },
+    {
+      "id": "pocket",
+      "kind": "sous",
+      "number": 243,
+      "at": 228,
+      "name": "Pocket",
+      "animal": "raccoon",
+      "capacity": 2,
+      "timing": "after-last-pick",
+      "effectTh": "หลังหยิบเสร็จ หากพ่อค้าเที่ยงคืนยังไม่ถูกประมวลผล และคุณยังไม่มีเชฟอยู่ที่นั่น ให้ย้าย Pocket ไปพ่อค้าเที่ยงคืนเพื่อทำเทิร์นที่นั่นอีกครั้ง",
+      "unresolved": [],
+      "crossReferences": [
+        "Released rulebook p10: must move to Midnight Merchant; being there initially does not grant a second turn"
+      ],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 228,
+      "frame": "data/critter-kitchen-expansion-ref/review-0228.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=228s",
+      "runtimeEnabled": false
+    },
+    {
+      "id": "shaggy",
+      "kind": "sous",
+      "number": 246,
+      "at": 725,
+      "name": "Shaggy",
+      "animal": "retriever",
+      "capacity": 2,
+      "timing": "after-last-pick",
+      "effectTh": "หลังหยิบเสร็จ หยิบของเพิ่มจากสถานที่เดิมตามจำนวนโทเคนข่าวลือบนครัวของคุณ โทเคนข่าวลือแต่ละชิ้นให้หยิบเพิ่ม 1 ชิ้น",
+      "unresolved": [
+        "Interaction with substituted rumor markers (Marty/Lulu), spent Jerboa tokens and optional newspaper tokens must preserve physical-token semantics."
+      ],
+      "crossReferences": [],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 725,
+      "frame": "data/critter-kitchen-expansion-ref/review-0725.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=725s",
+      "runtimeEnabled": true,
+      "runtimeOption": "aLaCartMoreChefs"
+    },
+    {
+      "id": "queenie",
+      "kind": "sous",
+      "number": 244,
+      "at": 742,
+      "name": "Queenie",
+      "animal": "bee",
+      "capacity": 1,
+      "timing": "after-last-pick",
+      "effectTh": "หลังหยิบเสร็จ ถ้า Queenie เป็นเชฟตัวแรกที่หยิบของจากสถานที่นี้ รับของสุ่มจากถุง 1 ชิ้น",
+      "unresolved": [],
+      "crossReferences": [
+        "At 27:43–28:23 Queenie receives a bag item after her regular pick; the draw happens afterward rather than before her turn"
+      ],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 742,
+      "frame": "data/critter-kitchen-expansion-ref/review-0742.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=742s",
+      "runtimeEnabled": true,
+      "runtimeOption": "aLaCartMoreChefs"
+    },
+    {
+      "id": "stripes",
+      "kind": "sous",
+      "number": 249,
+      "at": 2286,
+      "name": "Stripes",
+      "animal": "zebra",
+      "capacity": 3,
+      "timing": "start-of-location",
+      "effectTh": "Stripes หยิบของของตัวเองทั้งหมดก่อนเชฟอื่นที่มีความจุเท่ากัน เชฟกลุ่มความจุเดียวกันนี้รวม Stripes ไม่เปลี่ยนตำแหน่งหมวกจากสถานที่นี้",
+      "unresolved": [
+        "Interaction with other priority-modifying chefs when combined."
+      ],
+      "crossReferences": [],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 2286,
+      "frame": "data/critter-kitchen-expansion-ref/review-2286.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=2286s",
+      "runtimeEnabled": false
+    },
+    {
+      "id": "hootly",
+      "kind": "sous",
+      "number": 236,
+      "at": 2306,
+      "name": "Hootly",
+      "animal": "owl",
+      "capacity": 2,
+      "timing": "start-of-location",
+      "effectTh": "เมื่ออยู่กับพ่อค้าเที่ยงคืน หากของที่เปิดมีวัตถุดิบปลาหรือเครื่องเทศปลา Hootly ได้หยิบก่อนเชฟอื่นของสถานที่นี้",
+      "unresolved": [
+        "Competing first-priority abilities, including Ming."
+      ],
+      "crossReferences": [
+        "Released rulebook p10: Hootly need not actually choose the fish",
+        "Earlier publisher playthrough had already described this effect; this video supplies the complete readable face and capacity"
+      ],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 2306,
+      "frame": "data/critter-kitchen-expansion-ref/review-2306.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=2306s",
+      "runtimeEnabled": false
+    },
+    {
+      "id": "emma",
+      "kind": "sous",
+      "number": 233,
+      "at": 2676,
+      "name": "Emma",
+      "animal": "eagle",
+      "capacity": 2,
+      "timing": "start-of-location",
+      "effectTh": "เลือกย้ายหมวกของตัวเองไปท้ายแถวเพื่อให้ Emma หยิบก่อนเชฟอื่นในสถานที่นี้ได้ หากใช้ความสามารถ Emma จะหยิบได้เพียง 1 ชิ้นแทน 2 ชิ้น",
+      "unresolved": [
+        "Choice timing among multiple start-of-location abilities."
+      ],
+      "crossReferences": [],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 2676,
+      "frame": "data/critter-kitchen-expansion-ref/review-2676.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=2676s",
+      "runtimeEnabled": false
+    },
+    {
+      "id": "lulu",
+      "kind": "sous",
+      "number": 238,
+      "at": 2692,
+      "name": "Lulu",
+      "animal": "lemur",
+      "capacity": 2,
+      "timing": "after-last-pick",
+      "effectTh": "หาก Lulu หยิบวัตถุดิบไวน์มาได้ เลือกใช้ไวน์นั้นเป็นโทเคนข่าวลืออเนกประสงค์บนครัวแทนการเก็บเป็นวัตถุดิบได้ เครื่องเทศไวน์ใช้ไม่ได้",
+      "unresolved": [
+        "The face uses singular wine: verify the choice when Lulu takes multiple wine tokens; do not auto-convert every wine."
+      ],
+      "crossReferences": [],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 2692,
+      "frame": "data/critter-kitchen-expansion-ref/review-2692.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=2692s",
+      "runtimeEnabled": false
+    },
+    {
+      "id": "dottie",
+      "kind": "sous",
+      "number": 232,
+      "at": 3147,
+      "name": "Dottie",
+      "animal": "leopard",
+      "capacity": 3,
+      "timing": "after-last-pick",
+      "cutthroat": true,
+      "effectTh": "หาก Dottie ไม่สามารถหยิบได้ครบ 3 ชิ้น ให้หยิบของ 3 ชิ้นจากโรงเรียนเชฟ โดยหยิบเชฟผู้ช่วยจากที่นั่นไม่ได้",
+      "unresolved": [],
+      "crossReferences": [
+        "Released rulebook p10: cannot intentionally take fewer than three when three are available; can take three at Academy after having picked one or two at the earlier location"
+      ],
+      "source": "grove-c6QXKSJVIIE",
+      "timestampSeconds": 3147,
+      "frame": "data/critter-kitchen-expansion-ref/review-3147.png",
+      "timestampUrl": "https://www.youtube.com/watch?v=c6QXKSJVIIE&t=3147s",
+      "runtimeEnabled": false
+    }
+  ]
+}

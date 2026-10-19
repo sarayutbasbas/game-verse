@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-10-19",
+  "generator": "image_gen",
+  "purpose": "Original replacement artwork for verified Lucky Duck and Rudy promos; no official scan used at runtime",
+  "jobs": [
+    {
+      "key": "Wolf",
+      "prompt": "Vertical 3:4 original painterly storybook illustration of a brown mallard duck cook in a whimsical canal village kitchen. The friendly duck wears an ivory apron and turquoise scarf and pours grape juice from a ceramic jug into a copper pot. Full animal body visible, richly detailed culinary still life, lush green herbs, warm gold daylight, cozy European riverside fantasy town, tactile painted brushwork, attractive composition for a board game character portrait. No words, no lettering, no logos, no frame.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-58821af0-5b5c-494c-9279-066f263e53d8.png",
+      "id": "restaurateur-wolfgang-duck",
+      "outputs": [
+        "public/art/critter-kitchen/portrait/restaurateur-wolfgang-duck.webp",
+        "public/art/critter-kitchen/thumbs/portrait/restaurateur-wolfgang-duck.webp"
+      ]
+    },
+    {
+      "key": "Cosmo",
+      "prompt": "Original vertical 3:4 painterly storybook board game character illustration. A friendly purple octopus sous chef with eight curling arms holding a whisk, wooden spoon and tiny copper pan. White toque and teal apron. Standing on a cobbled canal-side market kitchen in a lush whimsical Mediterranean woodland town, golden lantern glow, detailed herbs and kitchen utensils, playful mysterious personality, warm purple and turquoise palette, full character centered. No text, no letters, no card borders, no logos.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7942f0de-5164-4579-8f35-b4c58b5de52c.png",
+      "id": "sous-cosmo",
+      "outputs": [
+        "public/art/critter-kitchen/portrait/sous-cosmo.webp",
+        "public/art/critter-kitchen/thumbs/portrait/sous-cosmo.webp"
+      ]
+    },
+    {
+      "key": "Rudy",
+      "prompt": "Original vertical 3:4 painterly storybook board game character portrait of a friendly reindeer chef with large antlers, a white chef hat and red-orange apron. Holding a wicker basket overflowing with fresh orange carrots and offering one carrot outward as a gift. Full body centered in a lush cozy canal-side market in a whimsical Mediterranean woodland town, flower garlands, warm golden light, rich detailed fur, charming expressive face, hand-painted culinary fantasy style. No text, no letters, no card borders, no logos.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1b98d98f-a7b6-44e1-8e67-71879378c4e2.png",
+      "id": "sous-rudy",
+      "outputs": [
+        "public/art/critter-kitchen/portrait/sous-rudy.webp",
+        "public/art/critter-kitchen/thumbs/portrait/sous-rudy.webp"
+      ]
+    }
+  ]
+}

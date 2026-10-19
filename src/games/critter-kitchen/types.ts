@@ -1,4 +1,5 @@
 import type {TeamColor} from './team-colors.js';
+import type { CKExpansions } from './expansions.js';
 import type { Food, LocationId } from './data.js';
 import type {DisplayMode} from '../../shared/display-mode.js';
 export type {DisplayMode};
@@ -62,6 +63,8 @@ export interface Player {
     chefStars: number;
     activeSous: string | null;
     nextSous: string | null;
+    /** Cosmo's secret replacement; never included in public projections. */
+    cosmoSous?: string;
     restaurateur: string | null;
     offers: string[];
     extraRumor: string | null;
@@ -84,6 +87,8 @@ export interface Visit {
     done: boolean;
     started: boolean;
     newton: boolean;
+    /** Actual bread collected by Alex on this visit, not existing pantry contents. */
+    breadPicked?: boolean;
 }
 export type Task = {
     kind: 'location';
@@ -115,6 +120,8 @@ export type Task = {
     kind: 'prepare';
 };
 export type Pending = {
+    kind: 'rudy-gift'; actor: string; token: string; visit: string;
+} | {
     kind: 'pick';
     actor: string;
     visit: string;
@@ -133,6 +140,7 @@ export type Pending = {
 };
 export interface Pickup { actor:string; chef:string; loc:LocationId; item:string; sequence:number; }
 export interface CKState {
+    expansions?: CKExpansions;
     teamColors?:Record<string,TeamColor>;
     marketStock?:Record<string,string[]>;
     pickups?:Pickup[];
@@ -186,6 +194,8 @@ export interface CKState {
     };
 }
 export type CKAction = {
+    type: 'ck-rudy-gift'; token: string; recipient: string | null;
+} | {
     type: 'ck-restaurateur';
     card: string;
 } | {
@@ -226,6 +236,7 @@ export type CKAction = {
     type: 'ck-next';
 } | {type:'ck-score-step';step:number;skip?:true} | {type:'ck-continue-planning';round:number;challenge:number};
 export interface CKView {
+    expansions?: CKExpansions;
     teamColors?:Record<string,TeamColor>;
     marketStock?:Record<string,string[]>;
     pickups?:Pickup[];
@@ -286,6 +297,8 @@ export interface CKView {
     finalReveal?:FinalReveal;
     challengeResults?: Record<string, MealScore[]>;
     me?: {
+        cosmoSous?: string;
+        giftToken?: string;
         id: string;
         canManage?: boolean;
         storage: string[];

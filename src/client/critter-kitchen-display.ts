@@ -11,7 +11,7 @@ export const displayPhase:Record<string,string>={restaurateurs:'เลือก�
 export function displayDashboard(v:CKView,parts:DisplayParts,action:string,host:boolean,blocked:boolean){
  const {art,token,label,icon}=parts,teams=resolveTeamColors(v.players.map(p=>p.id),v.teamColors),players=new Map(v.players.map(p=>[p.id,p]));
  const teamStyle=(actor:string)=>`--team:${inks[teams[actor]]}`;
- const portrait=(chef:string,actor:string)=>art('teams-v2/'+teams[actor]+'/'+chef);
+ const portrait=(chef:string,actor:string)=>art(['cosmo','rudy','alex','peter','queenie','shaggy'].includes(chef)?'sous-'+chef:'teams-v2/'+teams[actor]+'/'+chef);
  const chefName=(id:string)=>BASE_CHEFS.find(c=>c.id===id)?.name??ZOU[id]?.name??id;
  const history=!['restaurateurs','planning','running'].includes(v.phase);
  const revealedPlans=['restaurateurs','planning','running'].includes(v.phase)?[]:v.visits;

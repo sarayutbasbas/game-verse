@@ -17,8 +17,14 @@ export function critterKitchenSetup() {
     </section>`;
     const intro=html.match(/<p>[\s\S]*?<\/p>/)![0];
     const scope=html.match(/<p class="ck-setup-scope">[\s\S]*?<\/p>/)![0];
+    const promos = `<section class="ck-promo-setup" aria-label="ชุด Promo"><h3>เพิ่มสีสันให้ครัว</h3>
+      <article><img src="/art/critter-kitchen/thumbs/portrait/restaurateur-wolfgang-duck.webp" alt="" width="90" height="120"><label><input id="ck-luckyDuck" type="checkbox"><span><b>Lucky Duck Pack</b><small>Wolfgang Duck + Cosmo</small></span></label><p>ใช้ไวน์แทนวัตถุดิบใน Challenge และลุ้นเชฟลับของ Cosmo เปิดความสามารถเจ้าของร้านด้วยเพื่อให้ Wolfgang มีโอกาสเข้าร่วม</p></article>
+      <article><img src="/art/critter-kitchen/thumbs/portrait/sous-rudy.webp" alt="" width="90" height="120"><label><input id="ck-rudy" type="checkbox"><span><b>Rudy the Reindeer</b><small>มอบแครอตให้เพื่อนเพื่อรับดาว</small></span></label><p>เพิ่ม Rudy ลงในกองเชฟผู้ช่วย ทุกครั้งที่เขาหยิบแครอต คุณเลือกมอบให้คนอื่นเพื่อรับ 1 ดาวได้</p></article>
+      <article><img src="/art/critter-kitchen/thumbs/portrait/sous-alex.webp" alt="" width="90" height="120"><label><input id="ck-aLaCartChefs" type="checkbox"><span><b>À La Cart · เชฟเพิ่มเติม 2 ใบ</b><small>Alex Alpaca + Peter Parrot</small></span></label><p>Alex รับดาวเมื่อหยิบขนมปัง ส่วน Peter หยิบของเพิ่มเมื่อมีเครื่องเทศก่อนถึงตาแรก ตัวเลือกนี้เพิ่มเฉพาะเชฟสองใบที่ตรวจหน้าการ์ดแล้ว ยังไม่รวมรถเข็น เชฟใบอื่น หรือโหมด 6–7 คนของ À La Cart</p></article>
+      <article><img src="/art/critter-kitchen/thumbs/portrait/sous-queenie.webp" alt="" width="90" height="120"><label><input id="ck-aLaCartMoreChefs" type="checkbox"><span><b>À La Cart · Queenie + Shaggy</b><small>เชฟเพิ่มเติมอีก 2 ใบ</small></span></label><p>Queenie รับของสุ่มเพิ่มเมื่อหยิบเป็นตัวแรก ส่วน Shaggy หยิบของเพิ่มตามจำนวนโทเคนข่าวลือ เลือกเปิดร่วมกับ Alex และ Peter ได้ ยังไม่รวมรถเข็นหรือโหมด 6–7 คน</p></article>
+      </section>`;
     return html.replace(intro,'').replace(scope,'')
       .replaceAll('</label>','</label><details class="ck-option-details"><summary>รายละเอียด</summary>')
       .replaceAll('</article>','</details></article>')
-      .replace('</section>',`<details class="ck-setup-overview"><summary>กติกาที่ใช้ร่วมกัน</summary>${intro}${scope}</details></section>`);
+      .replace('</section>',`${promos}<details class="ck-setup-overview"><summary>กติกาที่ใช้ร่วมกัน</summary>${intro}<p>ชุดเพิ่มเติมเลือกเปิดร่วมกันได้ และยังเล่น 2–5 คน ปิดทั้งหมดเพื่อใช้กองการ์ดภาคหลักตามเดิม</p></details></section>`);
 }

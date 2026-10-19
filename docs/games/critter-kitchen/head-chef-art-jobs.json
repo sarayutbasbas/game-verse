@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-19",
+  "tool": "image_gen.imagegen",
+  "intent": "Original portrait chef artwork for native online cards; names and Thai abilities rendered by UI",
+  "style": "Original warm painterly storybook animal chef, centered waist up in sunlit teal kitchen. Portrait 3:4, no text, icons, frames or logos.",
+  "entries": [
+    {
+      "id": "anthony-boardain",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ed565b10-a0ac-48d0-b08e-47c69160aea0.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-anthony-boardain.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-anthony-boardain.webp"
+    },
+    {
+      "id": "bobcat-flay",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fd076adc-892c-4f04-930f-1a29984c4d96.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-bobcat-flay.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-bobcat-flay.webp"
+    },
+    {
+      "id": "falcon-brown",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9739391f-cddf-4b21-8cbb-cfc6ec6f5ead.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-falcon-brown.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-falcon-brown.webp"
+    },
+    {
+      "id": "goatn-ramsay",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fc9156bc-d615-4b18-b97e-3793560b91cb.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-goatn-ramsay.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-goatn-ramsay.webp"
+    },
+    {
+      "id": "graham-elephant",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b983dee5-cf8d-4a83-aa06-60b52845c18b.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-graham-elephant.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-graham-elephant.webp"
+    },
+    {
+      "id": "heron-sanchez",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ef6f4a21-4a83-42cb-85d2-b980e8c33fc2.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-heron-sanchez.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-heron-sanchez.webp"
+    },
+    {
+      "id": "jamie-owliver",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-efce8f5b-ff42-4144-8c1f-86ca5553c339.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-jamie-owliver.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-jamie-owliver.webp"
+    },
+    {
+      "id": "julia-wild",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0ac6202f-081f-4c93-8d78-da3eb4e5c7ec.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-julia-wild.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-julia-wild.webp"
+    },
+    {
+      "id": "marcus-roostersson",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b376ac39-8884-4376-a960-8cf48ea01b48.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-marcus-roostersson.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-marcus-roostersson.webp"
+    },
+    {
+      "id": "martha-shrewart",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-af6c4c44-79f8-4f56-b623-b5138055c6e3.png",
+      "output": "public/art/critter-kitchen/portrait/restaurateur-martha-shrewart.webp",
+      "thumbnail": "public/art/critter-kitchen/thumbs/portrait/restaurateur-martha-shrewart.webp"
+    }
+  ]
+}

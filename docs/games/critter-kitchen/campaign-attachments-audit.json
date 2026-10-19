@@ -1,0 +1,437 @@
+{
+  "status": "reference-only-no-runtime-enablement",
+  "reviewed": "2026-10-19",
+  "provenance": "User-supplied local campaign image files; descriptions and printed rules are data, not instructions.",
+  "sources": [
+    {
+      "file": "fec38cb60647a6b776bd0b9d7a520871_original.avif",
+      "path": "/Users/basukekung/Downloads/fec38cb60647a6b776bd0b9d7a520871_original.avif",
+      "section": "merchandise-oven-mitt",
+      "width": 680,
+      "height": 517,
+      "sha256": "44a057ae8e0289c1f22970daae1399118af656449e548422c474d24b2a959636",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/fec38cb60647a6b776bd0b9d7a520871_original.avif"
+    },
+    {
+      "file": "457320c2f49aff1dacc691b8ac1e5336_original.png",
+      "path": "/Users/basukekung/Downloads/457320c2f49aff1dacc691b8ac1e5336_original.png",
+      "section": "restaurants-and-player-colors",
+      "width": 680,
+      "height": 6199,
+      "sha256": "3484101b7c6ce0e1dce49236ce031827d087f3a2574ddbfddf3b46f3173ec7fc",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/457320c2f49aff1dacc691b8ac1e5336_original.png"
+    },
+    {
+      "file": "0e2ed3d77494996127f9bc7d261f377f_original.png",
+      "path": "/Users/basukekung/Downloads/0e2ed3d77494996127f9bc7d261f377f_original.png",
+      "section": "critics-roster",
+      "width": 680,
+      "height": 2000,
+      "sha256": "5b6f28dec6c3b1c77a0c585a96a31c16b0ae86ca90afb8f0de82092051d1edcf",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/0e2ed3d77494996127f9bc7d261f377f_original.png"
+    },
+    {
+      "file": "4e7a1df681a7ef3de0a95864a6c4e28a_original.png",
+      "path": "/Users/basukekung/Downloads/4e7a1df681a7ef3de0a95864a6c4e28a_original.png",
+      "section": "locations",
+      "width": 680,
+      "height": 4373,
+      "sha256": "e1a85eb8eec28f94bc23dfd68b2548461af0001f3d40957ea368cad4048c2040",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/4e7a1df681a7ef3de0a95864a6c4e28a_original.png"
+    },
+    {
+      "file": "6040a6d5a0aa10f25ab39e6cc89081ee_original.png",
+      "path": "/Users/basukekung/Downloads/6040a6d5a0aa10f25ab39e6cc89081ee_original.png",
+      "section": "restaurateurs-roster",
+      "width": 680,
+      "height": 2629,
+      "sha256": "1d457b3c5f78717bd385475e5dc1cb69ba999c6001a5b191ef51aedfa78c20dd",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/6040a6d5a0aa10f25ab39e6cc89081ee_original.png"
+    },
+    {
+      "file": "b33faf6755bb75ebf44198d8d68ef1d4_original.png",
+      "path": "/Users/basukekung/Downloads/b33faf6755bb75ebf44198d8d68ef1d4_original.png",
+      "section": "rumors-roster",
+      "width": 680,
+      "height": 2460,
+      "sha256": "c0d8e450ea3909453a1a103cd3fe7402f5248d1d2b0d021b0de5b1f08134d7cb",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/b33faf6755bb75ebf44198d8d68ef1d4_original.png"
+    },
+    {
+      "file": "d40be7dd89a6be7663215964b277ee6e_original.png",
+      "path": "/Users/basukekung/Downloads/d40be7dd89a6be7663215964b277ee6e_original.png",
+      "section": "carts-overview",
+      "width": 680,
+      "height": 2886,
+      "sha256": "6b56989d8180bc205395ccdc89bd6618a2d4e01f0a2f0944803c0cd2f7d3b748",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/d40be7dd89a6be7663215964b277ee6e_original.png"
+    },
+    {
+      "file": "b02bb206a9d4d77c07466534355163fa_original.png",
+      "path": "/Users/basukekung/Downloads/b02bb206a9d4d77c07466534355163fa_original.png",
+      "section": "zous-roster",
+      "width": 680,
+      "height": 2980,
+      "sha256": "c9bc6d9211a3e79ae9f9a3cc7ceac3ca04f19aad2b4efe02e365a46a1e2edc2e",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/b02bb206a9d4d77c07466534355163fa_original.png"
+    },
+    {
+      "file": "4ee9bab67a3fa517818d07c1eca4844e_original.png",
+      "path": "/Users/basukekung/Downloads/4ee9bab67a3fa517818d07c1eca4844e_original.png",
+      "section": "base-components",
+      "width": 680,
+      "height": 9800,
+      "sha256": "2dbe50d8fcb8181fc25e12c7829f6c634f2cd7105b33e5806c028c018612a371",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/4ee9bab67a3fa517818d07c1eca4844e_original.png"
+    },
+    {
+      "file": "7f3e1d447cde5c3c3393d2b65f93e423_original.png",
+      "path": "/Users/basukekung/Downloads/7f3e1d447cde5c3c3393d2b65f93e423_original.png",
+      "section": "expansion-components-and-sample-faces",
+      "width": 680,
+      "height": 8200,
+      "sha256": "5214586847f5da3e82266ea349c9d81fd766b99847cd95dc8e201af6aaf80761",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/7f3e1d447cde5c3c3393d2b65f93e423_original.png"
+    },
+    {
+      "file": "aca1a10fcebd86cac584a774ba9873c8_original.png",
+      "path": "/Users/basukekung/Downloads/aca1a10fcebd86cac584a774ba9873c8_original.png",
+      "section": "promo-perks",
+      "width": 680,
+      "height": 3962,
+      "sha256": "daa45933969a064aa7963c532e2c56c529f843a09c1f2a389538d7e5c7b41c47",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/aca1a10fcebd86cac584a774ba9873c8_original.png"
+    },
+    {
+      "file": "0da42b433c0997cbe2bc07df30a25d4e_original.png",
+      "path": "/Users/basukekung/Downloads/0da42b433c0997cbe2bc07df30a25d4e_original.png",
+      "section": "campaign-pledge-overview",
+      "width": 680,
+      "height": 1513,
+      "sha256": "5f27e80a6a56fd5f2c064bc2992cfbf09ab19cf99ede35a77c84a703fdd515b7",
+      "archivedCopy": "data/critter-kitchen-expansion-ref/campaign-attachments/0da42b433c0997cbe2bc07df30a25d4e_original.png"
+    }
+  ],
+  "inventory": [
+    {
+      "id": "gelato",
+      "count": 7,
+      "values": [
+        3,
+        3,
+        4,
+        4,
+        5,
+        6,
+        7
+      ],
+      "status": "all-seven-values-visible-in-campaign-image",
+      "source": "expansion-components-and-sample-faces",
+      "crop": {
+        "left": 0,
+        "top": 3020,
+        "width": 390,
+        "height": 250
+      },
+      "releasedCrossCheck": "Released rulebook lists seven tokens. The Grove final Gelato totals 4, 4 and 24 sum to the pictured 32; this is corroboration, not a replacement for inspecting every released token face."
+    },
+    {
+      "id": "organic",
+      "count": 7,
+      "foods": [
+        "meat",
+        "bread",
+        "mushroom",
+        "wine",
+        "fish",
+        "cheese",
+        "carrot"
+      ],
+      "values": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "status": "all-seven-foods-and-values-visible-in-campaign-image",
+      "source": "carts-overview",
+      "note": "The expansion overview overlaps several faces; the separate Carts graphic shows all seven food/value illustrations."
+    },
+    {
+      "id": "tofu",
+      "count": 7,
+      "values": [
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7
+      ],
+      "status": "all-seven-values-visible-in-campaign-image",
+      "source": "expansion-components-and-sample-faces",
+      "crop": {
+        "left": 0,
+        "top": 2440,
+        "width": 680,
+        "height": 650
+      },
+      "runtimeEffectVerified": false
+    },
+    {
+      "id": "ice",
+      "count": 6,
+      "values": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "status": "all-six-values-visible-in-campaign-image",
+      "source": "expansion-components-and-sample-faces",
+      "crop": {
+        "left": 0,
+        "top": 2440,
+        "width": 680,
+        "height": 650
+      },
+      "runtimeEffectVerified": false
+    },
+    {
+      "id": "sauces",
+      "count": 7,
+      "visibleModifier": 3,
+      "status": "examples-visible-not-all-faces",
+      "source": "expansion-components-and-sample-faces",
+      "runtimeEffectVerified": false
+    },
+    {
+      "id": "zous-ingredients",
+      "count": 14,
+      "visibleExamples": [
+        {
+          "food": "fish",
+          "value": 4
+        },
+        {
+          "food": "cheese",
+          "value": 5
+        },
+        {
+          "food": "meat",
+          "value": 5
+        }
+      ],
+      "status": "partial-visible-inventory",
+      "fullDistributionVerified": false,
+      "source": "expansion-components-and-sample-faces"
+    },
+    {
+      "id": "balloons",
+      "count": 30,
+      "visibleTypes": [
+        "red-heart",
+        "blue-round",
+        "yellow-long"
+      ],
+      "status": "types-and-total-visible",
+      "perTypeMultiplicityVerified": false,
+      "source": "carts-overview"
+    }
+  ],
+  "campaignZousRoster": [
+    "Alex Alpaca",
+    "Billy Buffalo",
+    "Marie Butterfly",
+    "Emma Eagle",
+    "Ginger Fox",
+    "Geoffrey Giraffe",
+    "Ming Hummingbird",
+    "Hootly Owl",
+    "Dottie Leopard",
+    "Marty Fly",
+    "Dash Cheetah",
+    "Snooze Sloth",
+    "Chrissy Chipmunk",
+    "Finn Dolphin",
+    "Queenie Bee",
+    "Mack Shark",
+    "Hans Mole",
+    "Donna Donkey",
+    "Carol Koala",
+    "Peter Parrot",
+    "Cecilia Python",
+    "Pocket Raccoon",
+    "Newton Yorkie",
+    "Atticus Finch",
+    "Lulu Lemur",
+    "Shaggy Golden Retriever",
+    "Skeeter Skunk",
+    "Mandy Panda",
+    "Otto Otter",
+    "Penny Penguin",
+    "Lily Frog",
+    "Syd Platypus",
+    "Richard Lion",
+    "Cosmo Octopus",
+    "Spike Porcupine",
+    "Stripes Zebra",
+    "Lenore Raven"
+  ],
+  "previewFaces": [
+    {
+      "id": "pies",
+      "status": "campaign-preview-full-face-readable",
+      "setupTh": "ผู้เล่นแต่ละคนรับแป้นนับพาย",
+      "effectTh": "เชฟที่ไปสถานที่ของรถเข็นได้รับพายเท่าความจุของตัวเองเพิ่มเติมจากของที่หยิบตามปกติ เก็บจำนวนเป็นความลับบนแป้น จบเกมผู้มีพายมากที่สุดรับ 3 ดาว อันดับสองรับ 1 ดาว การ์ดระบุว่าเสมอรับรางวัลร่วมกัน",
+      "releasedFullFaceVerified": false
+    },
+    {
+      "id": "gift",
+      "status": "campaign-preview-full-face-readable",
+      "setupTh": "ผู้เล่นทุกคนเริ่มด้วยดาวเพิ่ม 1 ดาว ถ้าเล่นน้อยกว่า 4 คน ใช้ของขวัญเพียง 1 ชุด",
+      "roundSetupTh": "เติมของ 2 ชิ้นในของขวัญแต่ละชุด แม้จะมีของเหลืออยู่",
+      "effectTh": "จ่าย 1 ดาวเพื่อรับของทั้งหมดจากของขวัญ 1 ชุด นับเป็นการหยิบ 1 ชิ้นตามความจุ",
+      "releasedFullFaceVerified": false
+    },
+    {
+      "id": "emeril-llamasse",
+      "status": "campaign-preview-full-ability-and-two-bonus-stars-readable",
+      "bonusStars": 2,
+      "effectTh": "เลือกใช้เครื่องเทศเป็นวัตถุดิบค่า 5 ชนิดเดียวกันแทนใช้เป็นเครื่องเทศได้ เครื่องเทศอเนกประสงค์เลือกชนิดวัตถุดิบค่า 5 ได้",
+      "releasedFullFaceVerified": false
+    },
+    {
+      "id": "morimotter",
+      "status": "campaign-preview-full-ability-and-one-bonus-star-readable",
+      "bonusStars": 1,
+      "effectTh": "เชฟผู้ช่วยของคุณมีความจุเพิ่ม 1 เริ่มเกมด้วยเชฟผู้ช่วยสุ่ม 1 ใบ",
+      "releasedFullFaceVerified": false
+    },
+    {
+      "id": "lenore",
+      "status": "campaign-preview-full-ability-readable",
+      "capacity": 1,
+      "effectTh": "เลือกหยิบ 2 ชิ้นเสมือนความจุ 2 ได้ ถ้าใช้แล้วจั่วของจากถุงมาเติมสถานที่ 2 ชิ้นภายหลัง",
+      "releasedFullFaceVerified": false
+    }
+  ],
+  "limitations": [
+    "Campaign artwork includes visibly earlier card wording/layout and not-final examples; do not silently override released faces or rulebook.",
+    "No complete fourteen-token Zous ingredient distribution is shown.",
+    "These illustrations do not provide every Cart reference face or full Promo rules."
+  ],
+  "campaignRosters": {
+    "critics": {
+      "count": 18,
+      "names": [
+        "Mouse",
+        "Tree Shrew",
+        "Fruit Bat",
+        "Kangaroo",
+        "Wolverine",
+        "Saint Bernard",
+        "Hippo",
+        "Badger",
+        "Cockatoo",
+        "Cow",
+        "Jerboa",
+        "Hyena",
+        "Raccoon",
+        "Rabbit",
+        "Pig",
+        "Poodle",
+        "Capybara",
+        "Chimera"
+      ],
+      "note": "Union roster across the base game, expansion and campaign-perk critics, not eighteen new expansion critics."
+    },
+    "restaurateurs": {
+      "count": 17,
+      "names": [
+        "Anthony Boardain",
+        "Bobcat Flay",
+        "Jamie Owliver",
+        "Julia Wild",
+        "Kit-Joy",
+        "Herón Sanchez",
+        "Falcon Brown",
+        "Marcus Roostersson",
+        "Emeril Llamasse",
+        "Martha Shrewart",
+        "Wolfgang Duck",
+        "Goat’n Ramsey",
+        "Alex Guarnashellfish",
+        "Guy Beari",
+        "Morimotter",
+        "Graham Elephant",
+        "Swedish Heff"
+      ],
+      "note": "Union roster, not seventeen new expansion restaurateurs. Spelling records the campaign graphic."
+    },
+    "rumors": {
+      "count": 28,
+      "note": "All twenty-eight rumor IDs already exist in the current base-game catalogue."
+    },
+    "zous": {
+      "count": 37,
+      "note": "The campaign roster includes the twelve base chefs, twenty-four expansion chefs and Cosmo promo. Rudy/Amazing Race are outside this campaign list."
+    }
+  },
+  "campaignComponentCounts": {
+    "gelato": 7,
+    "coins": 7,
+    "balloons": 30,
+    "ice": 6,
+    "organic": 7,
+    "sauce": 7,
+    "tofu": 7,
+    "trophies": 7,
+    "zous-ingredients": 14,
+    "dumplings": 6,
+    "flowers": 7,
+    "newspapers": 21,
+    "mystery-die": 1,
+    "coffee": 7,
+    "cookbooks": 7,
+    "pie-dials": 7,
+    "food-drive": 7
+  },
+  "aliases": {
+    "Zous Two": "Zous Too",
+    "Wontons": "Dumplings",
+    "Gift": "Gifts"
+  },
+  "candidateExpansionZousNames": [
+    "Alex Alpaca",
+    "Billy Buffalo",
+    "Marie Butterfly",
+    "Emma Eagle",
+    "Hootly Owl",
+    "Dottie Leopard",
+    "Marty Fly",
+    "Finn Dolphin",
+    "Queenie Bee",
+    "Mack Shark",
+    "Hans Mole",
+    "Donna Donkey",
+    "Peter Parrot",
+    "Cecilia Python",
+    "Pocket Raccoon",
+    "Atticus Finch",
+    "Lulu Lemur",
+    "Shaggy Golden Retriever",
+    "Skeeter Skunk",
+    "Syd Platypus",
+    "Richard Lion",
+    "Spike Porcupine",
+    "Stripes Zebra",
+    "Lenore Raven"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "mode": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "crystals",
+      "prompt": "Original portrait storybook landscape artwork for a cozy premium nature board game card, 3:4 portrait composition. Main subject: a cluster of glowing amethyst crystals beside mossy stones and a tiny woodland stream. Rich painterly depth, luminous gentle light, jewel greens and blues, charming natural detail, readable central subject in upper two-thirds, shaded uncluttered lower quarter reserved for separately coded diagrams. No text, logos, frames, card edges, icons, game tokens or cubes. Original composition, do not copy an existing game's art.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3fa10d82-2884-4807-8c2d-d94eab101003.png",
+      "cards": [
+        "whisper-01",
+        "whisper-08"
+      ],
+      "outputs": [
+        "public/art/harmonies/reference/whisper-01.webp",
+        "public/art/harmonies/reference/whisper-01-small.webp",
+        "public/art/harmonies/reference/whisper-08.webp",
+        "public/art/harmonies/reference/whisper-08-small.webp"
+      ]
+    },
+    {
+      "id": "statues",
+      "prompt": "Original portrait storybook landscape artwork for a cozy premium nature board game card, 3:4 portrait composition. Main subject: a small abandoned fox-shaped stone statue outside a red-roofed forest shrine, lush foliage. Rich painterly depth, luminous gentle light, jewel greens and blues, charming natural detail, readable central subject in upper two-thirds, shaded uncluttered lower quarter reserved for separately coded diagrams. No text, logos, frames, card edges, icons, game tokens or cubes. Original composition, do not copy an existing game's art.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8f102561-c394-4689-8224-edcf349e7d80.png",
+      "cards": [
+        "whisper-02",
+        "whisper-07"
+      ],
+      "outputs": [
+        "public/art/harmonies/reference/whisper-02.webp",
+        "public/art/harmonies/reference/whisper-02-small.webp",
+        "public/art/harmonies/reference/whisper-07.webp",
+        "public/art/harmonies/reference/whisper-07-small.webp"
+      ]
+    },
+    {
+      "id": "flowers",
+      "prompt": "Original portrait storybook landscape artwork for a cozy premium nature board game card, 3:4 portrait composition. Main subject: bright miniature wildflowers blooming beside an old tree stump in a golden meadow. Rich painterly depth, luminous gentle light, jewel greens and blues, charming natural detail, readable central subject in upper two-thirds, shaded uncluttered lower quarter reserved for separately coded diagrams. No text, logos, frames, card edges, icons, game tokens or cubes. Original composition, do not copy an existing game's art.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e08e565c-3f49-4705-b818-d2ec71c92eb8.png",
+      "cards": [
+        "whisper-03",
+        "whisper-06"
+      ],
+      "outputs": [
+        "public/art/harmonies/reference/whisper-03.webp",
+        "public/art/harmonies/reference/whisper-03-small.webp",
+        "public/art/harmonies/reference/whisper-06.webp",
+        "public/art/harmonies/reference/whisper-06-small.webp"
+      ]
+    },
+    {
+      "id": "corals",
+      "prompt": "Original portrait storybook landscape artwork for a cozy premium nature board game card, 3:4 portrait composition. Main subject: a tranquil clear turquoise pool containing colorful corals and an old submerged branch. Rich painterly depth, luminous gentle light, jewel greens and blues, charming natural detail, readable central subject in upper two-thirds, shaded uncluttered lower quarter reserved for separately coded diagrams. No text, logos, frames, card edges, icons, game tokens or cubes. Original composition, do not copy an existing game's art.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-27f42a71-ecf2-4385-b4ed-17a6a827df70.png",
+      "cards": [
+        "whisper-04",
+        "whisper-10"
+      ],
+      "outputs": [
+        "public/art/harmonies/reference/whisper-04.webp",
+        "public/art/harmonies/reference/whisper-04-small.webp",
+        "public/art/harmonies/reference/whisper-10.webp",
+        "public/art/harmonies/reference/whisper-10-small.webp"
+      ]
+    },
+    {
+      "id": "mushrooms",
+      "prompt": "Original portrait storybook landscape artwork for a cozy premium nature board game card, 3:4 portrait composition. Main subject: tiny luminous pink mushrooms on a moss-covered tree stump beside a woodland stream. Rich painterly depth, luminous gentle light, jewel greens and blues, charming natural detail, readable central subject in upper two-thirds, shaded uncluttered lower quarter reserved for separately coded diagrams. No text, logos, frames, card edges, icons, game tokens or cubes. Original composition, do not copy an existing game's art.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-09666db3-9da9-4915-a0fd-a97ca1343236.png",
+      "cards": [
+        "whisper-05",
+        "whisper-09"
+      ],
+      "outputs": [
+        "public/art/harmonies/reference/whisper-05.webp",
+        "public/art/harmonies/reference/whisper-05-small.webp",
+        "public/art/harmonies/reference/whisper-09.webp",
+        "public/art/harmonies/reference/whisper-09-small.webp"
+      ]
+    }
+  ]
+}

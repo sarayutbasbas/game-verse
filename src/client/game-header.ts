@@ -1,3 +1,5 @@
+import {openGameGuide,closeGameGuide} from './game-learning.js';
+import {metadata} from '../shared/catalog.js';
 import type { RoomView } from "../shared/types.js";
 import QRCode from "qrcode";
 import { roomCode } from "./ui.js";
@@ -26,6 +28,7 @@ export function updateGameHeader(
   const playing = !!view && view.phase !== "lobby";
   main.classList.toggle("in-game", playing);
   if (!view || !playing) {
+    closeGameGuide();
     announced = "";
     previousTurn = undefined;
     announcement.textContent = "";
@@ -72,7 +75,8 @@ export function updateGameHeader(
     menu.innerHTML =
       "<summary>ข้อมูลห้อง</summary><div>" +
       roomCode(view.code) +
-      '<canvas width="160" height="160" aria-label="QR เข้าห้อง"></canvas><a class="join-link">ลิงก์เข้าห้อง</a><a href="/">เลือกเกม / ออกจากหน้าห้อง</a><small>กลับลิงก์เดิมเพื่อเล่นต่อได้</small></div>';
+      '<button type="button" class="shared-illustrated-guide">วิธีเล่นพร้อมภาพ</button><canvas width="160" height="160" aria-label="QR เข้าห้อง"></canvas><a class="join-link">ลิงก์เข้าห้อง</a><a href="/">เลือกเกม / ออกจากหน้าห้อง</a><small>กลับลิงก์เดิมเพื่อเล่นต่อได้</small></div>';
+    menu.querySelector<HTMLButtonElement>('.shared-illustrated-guide')!.onclick=()=>{menu!.open=false;openGameGuide(view.gameId,metadata(view.gameId)!.name);};
     menu.querySelector<HTMLAnchorElement>(".join-link")!.href = url;
     menu.ontoggle = () => {
       if (menu!.open)

@@ -1,0 +1,395 @@
+[
+  {
+    "id": "spirit-01",
+    "name": "ราชสีห์แสงทอง",
+    "animal": "lion",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "field-large",
+    "description": "กลุ่มทุ่งสีเหลือง 1–2 ช่องได้กลุ่มละ 2 คะแนน กลุ่มตั้งแต่ 3 ช่องได้กลุ่มละ 10 คะแนน",
+    "soloSuns": 0,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "spirit-02",
+    "name": "ผีเสื้อสายรุ้ง",
+    "animal": "butterfly",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "field-groups",
+    "description": "ทุกกลุ่มทุ่งสีเหลืองได้กลุ่มละ 5 คะแนน รวมกลุ่มที่มีเพียง 1 ช่อง",
+    "soloSuns": 0,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "spirit-03",
+    "name": "กวางพฤกษา",
+    "animal": "stag",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "tree-tall",
+    "description": "ต้นไม้สูง 2 หรือ 3 ชั้น ได้ต้นละ 4 คะแนน",
+    "soloSuns": 1,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": true
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "spirit-04",
+    "name": "นกฮูกรัตติกาล",
+    "animal": "owl",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "tree-short",
+    "description": "ต้นไม้สูง 1 หรือ 2 ชั้น ได้ต้นละ 3 คะแนน สูง 3 ชั้นได้ต้นละ 1 คะแนน",
+    "soloSuns": 1,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 0,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "spirit-05",
+    "name": "ค้างคาวเงาจันทร์",
+    "animal": "bat",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "building-groups",
+    "description": "ทุกกลุ่มอาคารสูง 2 ชั้นได้กลุ่มละ 4 คะแนน รวมอาคารเดี่ยว",
+    "soloSuns": 0,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "building"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "building"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "spirit-06",
+    "name": "กระเรียนเพลิง",
+    "animal": "crane",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "building-pairs",
+    "description": "กลุ่มอาคารสูง 2 ชั้นตั้งแต่ 2 อาคารขึ้นไป ได้กลุ่มละ 6 คะแนน",
+    "soloSuns": 0,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "building"
+        ],
+        "cube": false
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "building"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "spirit-07",
+    "name": "แพะผลึกภูเขา",
+    "animal": "mountain-goat",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "rock-tall",
+    "description": "ภูเขาสูง 2 หรือ 3 ชั้นได้ลูกละ 4 คะแนน รวมภูเขาที่อยู่เดี่ยว",
+    "soloSuns": 1,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "rock",
+          "rock",
+          "rock"
+        ],
+        "cube": true
+      }
+    ]
+  },
+  {
+    "id": "spirit-08",
+    "name": "มาร์มอตขุนเขา",
+    "animal": "marmot",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "rock-short",
+    "description": "ภูเขาสูง 1 หรือ 2 ชั้นได้ลูกละ 3 คะแนน สูง 3 ชั้นได้ลูกละ 1 คะแนน รวมภูเขาที่อยู่เดี่ยว",
+    "soloSuns": 1,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": 0,
+        "r": 1,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": true
+      },
+      {
+        "q": -1,
+        "r": 2,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "spirit-09",
+    "name": "แมลงปอสายน้ำ",
+    "animal": "dragonfly",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "water-groups",
+    "description": "กลุ่มน้ำที่มีตั้งแต่ 2 ช่องขึ้นไป ได้กลุ่มละ 7 คะแนน",
+    "soloSuns": 0,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      }
+    ]
+  },
+  {
+    "id": "spirit-10",
+    "name": "เต่าพฤกษา",
+    "animal": "turtle",
+    "kind": "spirit",
+    "points": [
+      0
+    ],
+    "spiritScoring": "water-count",
+    "description": "น้ำทุกช่องได้ช่องละ 2 คะแนน",
+    "soloSuns": 1,
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": -1,
+        "r": 1,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      },
+      {
+        "q": -2,
+        "r": 2,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      }
+    ]
+  }
+]

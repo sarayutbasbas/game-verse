@@ -1,3 +1,4 @@
+import type {TakeTimeAction,TakeTimeView} from "../games/take-time/types.js";
 import type {LocusAction,LocusView} from "../games/locus/types.js";
 import type {CKAction,CKView,DisplayMode} from "../games/critter-kitchen/types.js";
 import type {SkyAction,SkyView} from "../games/sky-team/types.js";
@@ -35,6 +36,7 @@ export type HostAction = {
   type: "start" | "restart";
   startingPlayerId?: string;
   boardSide?: "A"|"B";
+  harmoniesOptions?:Partial<import("../games/harmonies/types.js").HarmoniesOptions>;
   restaurateurs?:boolean;
   tutorial?:boolean;
 };
@@ -117,9 +119,9 @@ export interface View {
     legal: Action[];
   };
 }
-export type GameId = "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
-export type RoomView = LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView;
-export type RoomAction = {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
+export type GameId = "take-time" | "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
+export type RoomView = TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView;
+export type RoomAction = TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
 export type ClientMessage =
   | { type: "create"; gameId?: GameId; displayMode?:DisplayMode }
   | { type: "join"; code: string; name: string }

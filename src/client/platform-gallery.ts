@@ -1,3 +1,4 @@
+import {gameBoxArt} from './game-box-art.js';
 import {GAME_CATALOG,supportsPlayers,type GameMetadata} from '../shared/catalog.js';
 import {platform} from './account.js';
 import {esc} from './platform.js';
@@ -20,11 +21,12 @@ export function gallery(root:HTMLElement){
       const count=`${g.minPlayers===g.maxPlayers?g.minPlayers:g.minPlayers+'–'+g.maxPlayers} คน`;
       node.setAttribute('aria-label','เลือกเล่น '+g.name);node.querySelector('.game-title')!.textContent=g.name;
       const badge=node.querySelector('.game-player-count')!;badge.textContent=count;badge.setAttribute('aria-label','ผู้เล่น '+count);
+      const box=node.querySelector<HTMLImageElement>('.game-box')!,src=gameBoxArt(g.id);if(box.getAttribute('src')!==src)box.src=src;
       return node;
     }
     node=document.createElement('a');node.className='game-cover';node.href='/games/'+g.id;node.setAttribute('aria-label','เลือกเล่น '+g.name);
     const count=`${g.minPlayers===g.maxPlayers?g.minPlayers:g.minPlayers+'–'+g.maxPlayers} คน`;
-    node.innerHTML=`<figure><div class="game-box-scene"><img class="game-world" src="${g.cover}" alt="" aria-hidden="true" width="640" height="800" loading="lazy"><img class="game-box" src="/art/boxes/${g.id}.png" alt="กล่องเกม ${esc(g.name)}" width="640" height="800" decoding="async" ${index<2?'fetchpriority="high"':''}><span class="game-player-count" aria-label="ผู้เล่น ${count}">${count}</span></div><figcaption><h3 class="game-title" translate="no">${esc(g.name)}</h3>${g.playMode==='local'?'<span>เล่นบนเครื่องนี้</span>':''}${!['ready','beta'].includes(g.status)?'<span>พักการสร้างห้อง</span>':''}</figcaption></figure>`;
+    node.innerHTML=`<figure><div class="game-box-scene"><img class="game-world" src="${g.cover}" alt="" aria-hidden="true" width="640" height="800" loading="lazy"><img class="game-box" src="${gameBoxArt(g.id)}" alt="กล่องเกม ${esc(g.name)}" width="640" height="800" decoding="async" ${index<2?'fetchpriority="high"':''}><span class="game-player-count" aria-label="ผู้เล่น ${count}">${count}</span></div><figcaption><h3 class="game-title" translate="no">${esc(g.name)}</h3>${g.playMode==='local'?'<span>เล่นบนเครื่องนี้</span>':''}${!['ready','beta'].includes(g.status)?'<span>พักการสร้างห้อง</span>':''}</figcaption></figure>`;
     node.querySelectorAll('img').forEach(img=>{img.onerror=()=>{img.style.visibility='hidden';};});pool.set(g.id,node);return node;
   }
   function reconcile(grid:HTMLElement,nodes:HTMLElement[]){if(grid.children.length!==nodes.length||nodes.some((n,i)=>grid.children[i]!==n))grid.replaceChildren(...nodes);}

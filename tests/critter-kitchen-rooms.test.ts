@@ -79,6 +79,7 @@ test('Critter Kitchen real WS: mixed presentation, private simultaneous commitme
         assert.equal(host.view.displayMode, 'full-mobile');
         assert.equal(host.view.config.specialSide, 'standard');
         assert.equal(host.view.config.locations.length, 6);
+        assert.equal(host.view.challengeReveal,1);await phones[0].send({type:'sync'},'state');assert.equal((await phones[0].command({type:'ck-plan',epoch:phones[0].view.me!.epoch,plan:{mouse:'garden',lizard:'midnight',boar:'academy'}})).ok,false);assert.equal((await host.command({type:'ck-continue-planning',round:1,challenge:1})).ok,true);
         const plan = { mouse: 'garden', lizard: 'midnight', boar: 'academy' };
         await phones[0].send({ type: 'sync' }, 'state');
         assert.equal((await phones[0].command({ type: 'ck-plan', epoch: phones[0].view.me!.epoch, plan })).ok, true);
@@ -153,4 +154,37 @@ test('Critter Kitchen real WS: mixed presentation, private simultaneous commitme
         await app.close();
         await rm(dir, { recursive: true, force: true });
     }
+});
+
+test('Critter Kitchen Promo lobby: manager-only authoritative options, strict input, reconnect and restart persistence', async()=>{
+ const dir=await mkdtemp(join(tmpdir(),'ck-promos-')),path=join(dir,'rooms.sqlite');
+ let app=await startServer(0,'127.0.0.1',true,seeded(981),{storePath:path});let url=`http://localhost:${(app.server.address() as any).port}`;const peers:Peer[]=[];
+ const connect=async(cookie='')=>{const p=await new Peer().connect(url,cookie);peers.push(p);return p;};
+ const identity=async(member=false)=>{const r=await fetch(url+'/api/auth/sign-in/anonymous',{method:'POST',headers:{Origin:url,'Content-Type':'application/json'},body:'{}'});const data=await r.json();if(member)await(await app.auth.$context).internalAdapter.updateUser(data.user.id,{isAnonymous:false});return r.headers.getSetCookie().map(c=>c.split(';')[0]).join('; ');};
+ try{
+ const ownerCookie=await identity(true),guestCookie=await identity();let host=await connect(ownerCookie);const hs=await host.send({type:'create',gameId:'critter-kitchen'},'session');await host.send({type:'sync'},'state');
+ const phones:Peer[]=[];for(const [i,cookie]of [ownerCookie,guestCookie].entries()){const p=await connect(cookie);await p.send({type:'join',code:hs.code,name:'Promo '+i},'session');await p.send({type:'sync'},'state');phones.push(p);}
+ const observer=await connect();await observer.send({type:'watch',code:hs.code},'state');await host.send({type:'sync'},'state');const revision=host.view.revision;
+ assert.equal((await phones[1].command({type:'ck-expansions',expansions:{rudy:true}})).ok,false);assert.equal(phones[1].view.revision,revision);
+ for(const expansions of [null,{aLaCartMoreChefs:1},{aLaCart:true},{luckyDuck:1},{rudy:true,forged:true}])assert.equal((await host.command({type:'ck-expansions',expansions})).ok,false);
+ const action={type:'ck-expansions',expansions:{luckyDuck:true,rudy:true,aLaCartChefs:true,aLaCartMoreChefs:true}},actionId=randomUUID();const ack=await host.command(action,host.view.revision,actionId);assert.equal(ack.ok,true);
+ await observer.wait((m:any)=>m.type==='state'&&m.view.revision===ack.revision);assert.deepEqual(observer.view.expansions,{luckyDuck:true,rudy:true,aLaCartChefs:true,aLaCartMoreChefs:true});assert.equal((await host.command(action,revision,actionId)).revision,ack.revision);
+ assert.equal((await host.command({type:'ck-expansions',expansions:{rudy:false}},revision)).ok,false);assert.equal(host.view.expansions!.rudy,true);
+ for(const p of peers)p.ws.close();await app.close();app=await startServer(0,'127.0.0.1',true,seeded(981),{storePath:path});url=`http://localhost:${(app.server.address() as any).port}`;
+ host=await connect(ownerCookie);await host.send({type:'resume',code:hs.code,token:hs.token},'state');await host.send({type:'sync'},'state');assert.deepEqual(host.view.expansions,{luckyDuck:true,rudy:true,aLaCartChefs:true,aLaCartMoreChefs:true});
+ for(let i=0;i<phones.length;i++){const p=await connect(i===0?ownerCookie:guestCookie);await p.send({type:'join',code:hs.code,name:'same identity'},'session');await p.send({type:'sync'},'state');await p.command({type:'ready',ready:true});phones[i]=p;}
+ await host.send({type:'sync'},'state');assert.equal((await host.command({type:'start',expansions:{luckyDuck:false}})).ok,false);assert.equal((await host.command({type:'start',restaurateurs:true})).ok,true);assert.deepEqual(host.view.expansions,{luckyDuck:true,rudy:true,aLaCartChefs:true,aLaCartMoreChefs:true});
+ assert.equal((await host.command({type:'ck-expansions',expansions:{}})).ok,false);assert.deepEqual(host.view.expansions,{luckyDuck:true,rudy:true,aLaCartChefs:true,aLaCartMoreChefs:true});
+ // Finish a valid game, then replay with the same head-chef module and fresh private offers.
+ const room=app.rooms.rooms.get(hs.code)!,random=seeded(431);let finished=room.ck!,guard=0;
+ while(finished.phase!=='finished'&&guard++<2000){const next=botAction(finished,random);finished=ckRules.applyAction(finished,next.actor,next.action,random);}
+ assert.equal(finished.phase,'finished');assert.ok(validateCKState(finished));const oldMatch=finished.matchId;room.ck=finished;
+ const replayRevision=room.revision,replayId=randomUUID();assert.equal((await phones[1].command({type:'restart'},replayRevision)).ok,false);
+ assert.equal((await host.command({type:'restart'},replayRevision,replayId)).ok,true);assert.equal(room.ck!.phase,'restaurateurs');assert.notEqual(room.ck!.matchId,oldMatch);assert.equal(room.ck!.round,1);
+ assert.ok(room.ck!.players.every(p=>p.restaurateur===null&&p.offers.length===2&&p.stars===0));assert.equal(new Set(room.ck!.players.flatMap(p=>p.offers)).size,4);
+ const replay=structuredClone(room.ck);assert.equal((await host.command({type:'restart'},replayRevision,replayId)).ok,true);assert.deepEqual(room.ck,replay);
+ await phones[0].send({type:'sync'},'state');assert.equal(phones[0].view.me!.offers.length,2);assert.equal((phones[0].view.players[1] as any).offers,undefined);
+ assert.equal((await phones[0].command({type:'ck-plan',epoch:phones[0].view.me!.epoch,plan:{mouse:'soup',lizard:'garden',boar:'academy'}})).ok,false);
+
+ }finally{for(const p of peers)p.ws.close();await app.close();await rm(dir,{recursive:true,force:true});}
 });

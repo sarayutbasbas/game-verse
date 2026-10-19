@@ -90,7 +90,7 @@ export class PlatformStore {
       const g = metadata(String(r.game_id));
       if (
         !g ||
-        ((r.rules_version !== g.rulesVersion || r.schema_version !== g.stateSchemaVersion)&&!(r.game_id==="calico"&&r.rules_version==="base-2020-two-player-v1"&&r.schema_version===1))
+        ((r.rules_version !== g.rulesVersion || r.schema_version !== g.stateSchemaVersion)&&!(r.game_id==="calico"&&r.rules_version==="base-2020-two-player-v1"&&r.schema_version===1)&&!(r.game_id==="harmonies"&&r.rules_version==="libellud-base-2024-A-B-v1"&&r.schema_version===1))
       ) {
         this.quarantined.push({
           code: String(r.code),
@@ -108,6 +108,11 @@ export class PlatformStore {
           !validateRoomRecord(x)
         )
           throw Error();
+        // Optional Harmonies modules preserve the base snapshot schema and base rules.
+        // Upgrade only this known compatible predecessor; all other mismatches stay quarantined.
+        if(r.game_id==="harmonies"&&r.rules_version==="libellud-base-2024-A-B-v1"){
+          x.rulesVersion=g.rulesVersion;x.schemaVersion=g.stateSchemaVersion;
+        }
         this.loadedRooms.set(x.code,String(r.state));
         return [x];
       } catch {

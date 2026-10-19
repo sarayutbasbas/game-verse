@@ -1,5 +1,6 @@
 import { DEAL_GAP_MS } from "./dracula-assets.js";
 import type { RoomView } from "../shared/types.js";
+import { ANIMAL as HARMONIES_CARDS } from "../games/harmonies/data.js";
 export function endedTurn(
   previous: RoomView | undefined,
   next: RoomView,
@@ -15,10 +16,17 @@ export function endedTurn(
     (next.phase !== "playing" || next.turn !== previous.turn || (next.gameId === "calico" && next.event?.kind === "calico-draft") || (next.gameId === "seven-wonders-duel" && !next.pending && !!next.event && ["build", "discard", "wonder", "wonders-decide"].includes(next.event.kind)))
   );
 }
-export type GameEffect = "turn" | "draw" | "swap" | "reveal" | "deal" | "select" | "place" | "validate" | "round" | "finish" | "wood" | "cube" | "pencil" | "coin" | "combo";
+export type GameEffect = "turn" | "draw" | "swap" | "reveal" | "deal" | "select" | "place" | "validate" | "round" | "finish" | "wood" | "cube" | "pencil" | "coin" | "combo" | "magic";
 export function gameEffects(previous:RoomView|undefined,next:RoomView,snapshot:boolean):GameEffect[] {
   if(!previous || snapshot || previous.code!==next.code || next.revision!==previous.revision+1)return [];
   const out:GameEffect[]=endedTurn(previous,next,false)?["turn"]:[];
+  if(next.gameId==="take-time"&&previous.gameId==="take-time"){
+    if(next.placed.length>previous.placed.length)out.push('place');
+    if(next.revealed>previous.revealed)out.push(next.phase==='finished'?'finish':'reveal');
+    if(next.attempt>previous.attempt)out.push('deal');
+    if(next.turn===next.me?.id&&next.turn!==previous.turn)out.push('turn');
+    return out;
+  }
   if(next.gameId==="locus"&&previous.gameId==="locus"){
     if(next.sequence===previous.sequence)return out;
     const kind=next.event.kind;
@@ -38,6 +46,7 @@ export function gameEffects(previous:RoomView|undefined,next:RoomView,snapshot:b
   }
   if(next.gameId==="harmonies"&&previous.gameId==="harmonies"){
     if(next.sequence===previous.sequence)return out;
+    if(next.event?.kind==='spirit'||next.event?.card&&HARMONIES_CARDS[next.event.card]?.kind&&['card','cube'].includes(next.event.kind))return [...out,'magic'];
     const cue:Partial<Record<string,GameEffect>>={setup:'deal',group:'wood',place:'place',card:'draw',cube:'cube',finish:'finish'};
     const kind=next.event&&cue[next.event.kind];if(next.deckCount!==undefined&&previous.deckCount!==undefined&&next.deckCount<previous.deckCount)out.push('deal');if(kind)out.push(kind);return out;
   }
@@ -122,7 +131,7 @@ export class TurnSound {
     const play=this.active&&this.musicEnabled&&this.unlocked&&!document.hidden&&this.context?.state==="running";
     if(!play){if(this.musicTimer)clearInterval(this.musicTimer);this.musicTimer=undefined;for(const n of this.musicNodes){if(typeof (n as AudioScheduledSourceNode).stop==="function")(n as AudioScheduledSourceNode).stop();n.disconnect();}this.musicNodes=[];this.musicBus=undefined;this.controls.dataset.musicPlaying="false";return;}
     if(this.musicNodes.length)return;
-    if(this.gameId==="locus"||this.gameId==="pixies"||this.gameId==="harmonies"||this.gameId==="critter-kitchen"||this.gameId==="name-it"){this.startPixiesMusic();return;}
+    if(this.gameId==="take-time"||this.gameId==="locus"||this.gameId==="pixies"||this.gameId==="harmonies"||this.gameId==="critter-kitchen"||this.gameId==="name-it"){this.startPixiesMusic();return;}
     const ctx=this.context!,bus=ctx.createGain(),filter=ctx.createBiquadFilter();const master=ctx.createGain();this.musicBus=master;master.gain.value=this.musicVolume;bus.gain.value=.018;filter.type="lowpass";filter.frequency.value=650;bus.connect(filter);filter.connect(master);master.connect(ctx.destination);
     const voices=[130.81,155.56,196].map(f=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type="sine";o.frequency.value=f;g.gain.value=.16;o.connect(g);g.connect(bus);o.start();this.musicNodes.push(o,g);return o;});
     const lfo=ctx.createOscillator(),depth=ctx.createGain();lfo.frequency.value=.08;depth.gain.value=.004;lfo.connect(depth);depth.connect(bus.gain);lfo.start();this.musicNodes.push(bus,filter,master,lfo,depth);
@@ -144,6 +153,11 @@ export class TurnSound {
     const ctx=this.context,start=ctx.currentTime+offset;
     this.fxBus??=ctx.createGain();this.fxBus.gain.value=this.enabled?this.fxVolume:0;this.fxBus.disconnect();this.fxBus.connect(ctx.destination);
     this.controls.dataset.fxCount=String(Number(this.controls.dataset.fxCount??0)+1);this.controls.dataset.lastEffect=kind;
+    if(kind==='magic'){
+      for(const [delay,frequency]of [[0,659.25],[.085,987.77],[.17,1318.51],[.26,1975.53]]){
+        const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.setValueAtTime(frequency,start+delay);o.frequency.exponentialRampToValueAtTime(frequency*1.025,start+delay+.34);g.gain.setValueAtTime(0,start+delay);g.gain.linearRampToValueAtTime(.035,start+delay+.025);g.gain.exponentialRampToValueAtTime(.0001,start+delay+.48);o.connect(g);g.connect(this.fxBus);o.start(start+delay);o.stop(start+delay+.5);o.onended=()=>{o.disconnect();g.disconnect();};
+      }return;
+    }
     if(kind==='wood'||kind==='cube'){
       const o=ctx.createOscillator(),g=ctx.createGain();o.type=kind==='wood'?'triangle':'sine';o.frequency.setValueAtTime(kind==='wood'?620:1174,start);o.frequency.exponentialRampToValueAtTime(kind==='wood'?240:880,start+.08);g.gain.setValueAtTime(.045,start);g.gain.exponentialRampToValueAtTime(.0001,start+.12);o.connect(g);g.connect(this.fxBus);o.start(start);o.stop(start+.14);o.onended=()=>{o.disconnect();g.disconnect();};return;
     }
