@@ -4,7 +4,7 @@ import {esc} from './platform.js';
 import {avatar} from './account.js';
 export function finalResults(v:CKView,own?:string){
  const players=[...v.players].sort((a,b)=>(b.score?.total??0)-(a.score?.total??0)||(b.score?.quality??0)-(a.score?.quality??0)||v.priority.indexOf(a.id)-v.priority.indexOf(b.id));
- return `<div class="ck-final-results ${players.length===2?'ck-final-pair':''}" data-final-player-count="${players.length}">${players.map((p,index)=>{
+ return `<div class="ck-final-results ${players.length===2?'ck-final-pair':''}" data-final-player-count="${players.length}" style="--final-columns:${Math.min(3,players.length)}">${players.map((p,index)=>{
  const s=p.score!;const rows=[['รอบเสิร์ฟอาหาร',s.challenge],['เชฟ',s.chef],['คุณภาพมื้อสุดท้าย',s.qualityStars],['ซุป',s.soup],['ครบทุกคอร์ส',s.seven],['จานยอดเยี่ยม',s.best.reduce((a,b)=>a+b,0)],['โบนัสและข่าวลือ',s.bonus+s.rumors.reduce((n,r)=>n+r.stars,0)]] as const;
  return `<article class="ck-result-player" data-winner="${v.winners.includes(p.id)}" data-result-rank="${index+1}" data-result-score="${s.total}"><header>${avatar(p)}<strong>${esc(p.name)}${p.id===own?' (คุณ)':''}</strong><span class="ck-result-crown" aria-label="ผู้ชนะ">♛</span></header><div class="ck-result-total">${ckIcon('star')}<b data-total="${s.total}">0</b><span>ดาว</span></div><small>คุณภาพมื้อสุดท้าย ${s.quality}</small><div class="ck-final-breakdown">${rows.map(([name,value],i)=>`<div class="ck-score-step" style="--ck-step:${i}"><span>${name}</span><b>${ckIcon('star')}${value}</b></div>`).join('')}</div><small class="ck-rank-reason">${esc(s.rankReason??'')}</small></article>`;
  }).join('')}</div>`;

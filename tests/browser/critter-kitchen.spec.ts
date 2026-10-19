@@ -7,7 +7,8 @@ import { testAccount } from './auth-fixture.js';
 import type { CKView, Meal } from '../../src/games/critter-kitchen/types.js';
 import { FOODS, TOKEN, CHALLENGE } from '../../src/games/critter-kitchen/data.js';
 import { emptyMeal, mealQuality } from '../../src/games/critter-kitchen/scoring.js';
-import { seeded } from '../critter-kitchen-fixtures.js';
+import { seeded,botAction } from '../critter-kitchen-fixtures.js';
+import * as ckEngine from '../../src/games/critter-kitchen/engine.js';
 const read = (p: Page): Promise<CKView> => p.evaluate(() => (window as any).__view);
 async function capture(p: Page) { await p.addInitScript(() => { (window as any).__frames = []; window.WebSocket = new Proxy(window.WebSocket, { construct(T, args) { const ws = new T(args[0], args[1]); ws.addEventListener('message', e => { const m = JSON.parse(e.data); (window as any).__frames.push(m); if (m.type === 'state')
         (window as any).__view = m.view; }); return ws; } }); }); }
@@ -126,6 +127,7 @@ for (const count of [2, 3])
                 expect(await host.evaluate(()=>document.documentElement.scrollHeight)).toBeLessThanOrEqual(size.height+2);
             }
             await host.setViewportSize({width:1440,height:1000});
+            for(const page of [host,...phones])if(await page.locator('.ck-challenge-reveal').isVisible())await page.locator('.ck-challenge-reveal button').click();
             const ui=phones[0];
             for(const size of [{width:390,height:844},{width:390,height:620},{width:320,height:568}]){
                 await ui.setViewportSize(size);
@@ -197,11 +199,13 @@ for (const count of [2, 3])
             let actions = 0, recovered = false, scored = false, fridge = false, spiceChecked=false, rumorChecked=0;
             while ((await read(host)).phase !== 'finished' && actions++ < 1000) {
                 const v = await read(host);
+                if(v.challengeReveal!==undefined){await revision(phones[0],v.revision);await phones[0].locator('.ck-challenge-reveal button').click();await revision(host,v.revision+1);continue;}
                 let p: Page;
                 if (v.phase === 'planning') {
                     p = phones.find((_p, i) => !v.players[i].committed)!;
                     await pace(p);
                     await revision(p, v.revision);
+                    if(await p.locator('.ck-challenge-reveal').isVisible())await p.locator('.ck-challenge-reveal button').click();
                     const own = await read(p);
                     const locs = own.config.locations.map(l => l.id), offset = (v.round + v.players.findIndex(x => x.id === own.me!.id)) % locs.length;
                     for (const [i, id] of own.me!.chefIds.entries()) {
@@ -287,7 +291,7 @@ for (const count of [2, 3])
                     await expect(p.locator('.ck-dish-rail')).toHaveCSS('align-items','center');
                     await expect(p.locator('.ck-dish-rail')).toHaveCSS('justify-content','flex-start');
                     await expect(p.locator('.ck-plate-tabs [data-plate]')).toHaveCount(3);
-                    await expect(p.locator('.ck-workspace-heading>h2')).toHaveText('เสิร์ฟอาหาร');
+                    await expect(p.locator('.ck-workspace-heading .ck-stage-name')).toHaveText('เสิร์ฟอาหาร');
                     await expect(p.locator('.ck-workspace-heading .ck-plate-tabs [data-plate]')).toHaveCount(0);
                     await expect(p.locator('.ck-cooking .ck-plate-tabs')).toHaveCount(1);
                     await expect(p.locator('.ck-plate-tabs [data-plate-ready="true"]')).toHaveCount(0);
@@ -583,9 +587,10 @@ for (const count of [2, 3])
             expect(recovered).toBeTruthy();
             await expect(host.locator('.ck-dialog')).toHaveCount(0);
             await phones[0].locator('[data-action="ck-reveal-results"]').click();await revision(host,end.revision+1);end=await read(host);
+            await expect(host.locator('.ck-ceremony-dialog')).toBeVisible();await phones[0].locator('[data-final-skip]').click();await revision(host,end.revision+1);end=await read(host);
             await expect(host.locator('.ck-final-result-dialog')).toBeVisible();
             await expect(host.locator('.ck-dialog [data-winner=true]')).toHaveCount(1);
-            await host.locator('#ck-skip-count').click();for(const player of end.players)await expect(host.locator(`.ck-dialog [data-total="${player.score!.total}"]`).first()).toHaveText(String(player.score!.total));await host.screenshot({ path: `data/qa-critter-kitchen/final-${count}.png` });
+            await expect(host.locator('#ck-skip-count')).toHaveCount(0);for(const player of end.players)await expect(host.locator(`.ck-dialog [data-total="${player.score!.total}"]`).first()).toHaveText(String(player.score!.total));await host.screenshot({ path: `data/qa-critter-kitchen/final-${count}.png` });
             for(const size of [{width:390,height:844},{width:320,height:568}]){
                 await host.setViewportSize(size);
                 await expect.poll(()=>host.locator('.ck-final-result-dialog').evaluate(el=>el.scrollHeight<=el.clientHeight+1)).toBe(true);
@@ -601,7 +606,7 @@ for (const count of [2, 3])
             await host.locator('.ck-close').click();
             await expect(host.locator('.ck-dialog')).toHaveCount(0);
             await expect(host.locator('.ck-kitchen,.ck-workspace-heading')).toHaveCount(0);
-            await expect(host.locator('.ck-title')).toBeHidden();
+            await expect(host.locator('.ck-title>strong')).toHaveText('สรุปผลการแข่งขัน');
             await expect(host.locator('.ck-finished-art img')).toBeVisible();
             await expect.poll(()=>host.locator('.ck-action').evaluate(el=>el.scrollHeight<=el.clientHeight+1)).toBe(true);
             await host.screenshot({path:`data/qa-critter-kitchen/finished-hub-${count}.png`});
@@ -690,7 +695,7 @@ test('Critter Kitchen actual Docker: portal, mode, public board, secret plan, st
         }
         await host.screenshot({ path: 'data/qa-critter-kitchen/board-two-player-local.png', fullPage: true });
         await expect(host.locator('.ck-title')).not.toContainText('เปิดแผนพร้อมกัน');
-        await expect(host.locator('.ck-market-start')).toHaveText('เริ่ม');
+        await expect(host.locator('.ck-d-start')).toHaveText('เริ่มออกตลาด');
         await phones[0].locator('.ck-menu > summary').click();await phones[0].locator('#ck-mode').selectOption('shared-table');await phones[0].locator('#ck-menu-close').click();await phones[0].screenshot({path:'data/qa-critter-kitchen/ready-no-tabs-mobile.png'});
         for(const phone of phones){await expect(phone.locator('.ck-root')).toHaveAttribute('data-phase','running');await expect(phone.locator('.ck-workspace-heading')).toHaveCount(0);await expect(phone.locator('[data-tab]')).toHaveCount(0);}
         await host.screenshot({path:'data/qa-critter-kitchen/market-ready.png'});
@@ -874,8 +879,8 @@ test('Critter Kitchen actual Docker: portal, mode, public board, secret plan, st
             const actor=phones[current.players.findIndex(player=>player.id===current.turn)];await revision(actor,current.revision);const own=await read(actor);
             const hired=own.me!.choices.find(id=>id.startsWith('zous:'));
             if(hired){
-                const face=actor.locator(`.ck-picks [data-pick="${hired}"]`);await expect(face.locator('strong')).toBeVisible();const faceBox=await face.boundingBox();expect(faceBox!.height).toBeGreaterThan(faceBox!.width);expect(faceBox!.height).toBeLessThanOrEqual(114);expect(faceBox!.width/faceBox!.height).toBeCloseTo(.75,2);await face.screenshot({path:'data/qa-critter-kitchen/chef-offer-card.png'});await expect(face.locator('img')).toHaveCSS('object-fit','cover');
-                await face.click();await expect(actor.locator('.ck-chef-detail')).toBeVisible();await actor.keyboard.press('Escape');
+                const face=actor.locator(`.ck-picks [data-pick="${hired}"]`);await expect(face.locator('strong')).toBeVisible();const faceBox=await face.boundingBox();expect(faceBox!.height).toBeGreaterThan(faceBox!.width);expect(faceBox!.height).toBeLessThanOrEqual(114);const resourceHeight=await face.evaluate(el=>parseFloat(getComputedStyle(el.closest('.ck-picks')!).getPropertyValue('--ck-market-card-height'))||114);expect(faceBox!.height).toBeCloseTo(resourceHeight,0);await face.screenshot({path:'data/qa-critter-kitchen/chef-offer-card.png'});await expect(face.locator('img')).toHaveCSS('object-fit','cover');
+                await face.click();await expect(actor.locator('.ck-chef-detail')).toBeVisible();const detailBox=await actor.locator('.ck-reference-detail-dialog').boundingBox();expect(detailBox!.width/detailBox!.height).toBeCloseTo(.75,2);await expect.poll(()=>actor.locator('.ck-chef-detail>.ck-art').evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBeGreaterThan(0);await actor.locator('.ck-chef-detail>.ck-art').evaluate((img:HTMLImageElement)=>img.decode());await actor.screenshot({path:'data/qa-critter-kitchen/chef-portrait-detail.png'});await actor.keyboard.press('Escape');
                 await actor.locator(`.ck-picks [data-buy="${hired}"]`).click();await expect(actor.locator('.ck-buy-chef-preview')).toBeVisible();await expect(actor.locator('.ck-buy-chef-preview img')).toHaveCSS('object-fit','cover');
                 await expect.poll(()=>actor.locator('.ck-buy-chef-preview img').evaluate((img:HTMLImageElement)=>img.naturalWidth)).toBeGreaterThan(0);
                 await actor.screenshot({path:'data/qa-critter-kitchen/chef-buy-confirm.png'});await actor.locator('#ck-choice-cancel').click();expect((await read(host)).revision).toBe(current.revision);chefOfferChecked=true;
@@ -885,12 +890,12 @@ test('Critter Kitchen actual Docker: portal, mode, public board, secret plan, st
             if(!chefOfferChecked)await revision(host,current.revision+1);
         }
         expect(chefOfferChecked).toBe(true);
-        const publicChef=host.locator('.ck-board [data-pick^="zous:"]').first();
+        const publicChef=host.locator('.ck-d-stock [data-pick^="zous:"]').first();
         if(await publicChef.count()){await publicChef.click();await expect(host.locator('.ck-chef-detail')).toBeVisible();await host.keyboard.press('Escape');}
-        const marketOwners=host.locator('.ck-board .ck-market-token .ck-market-owner-name');
+        const marketOwners=host.locator('.ck-d-owners');
         expect(await marketOwners.count()).toBeGreaterThan(0);
-        await expect(marketOwners.first()).toContainText('เชฟทดสอบ');
-        const ownedProduct=host.locator('.ck-board .ck-market-owned .ck-market-face').first();await ownedProduct.scrollIntoViewIfNeeded();await expect(ownedProduct.locator('.ck-token')).toBeVisible();await expect.poll(()=>ownedProduct.locator('img').first().evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0&&img.getBoundingClientRect().height>30)).toBe(true);await ownedProduct.locator('.ck-token').screenshot({path:'data/qa-critter-kitchen/market-purchased-product.png'});for(const tile of await host.locator('.ck-board .ck-market-owned').all()){await tile.scrollIntoViewIfNeeded();await expect(tile.locator('.ck-market-face .ck-token')).toBeVisible();await expect.poll(()=>tile.locator('.ck-market-face img').first().evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0&&img.getBoundingClientRect().height>30)).toBe(true);await expect(tile.locator('.ck-pick-stamp').first()).toBeVisible();}await expect(host.locator('.ck-board .ck-queues')).toHaveCount(0);
+        await expect(marketOwners.first()).toHaveAttribute('aria-label',/เชฟทดสอบ/);
+        const ownedProduct=host.locator('.ck-d-item:has(.ck-d-owners)>button').first();await ownedProduct.scrollIntoViewIfNeeded();await expect(ownedProduct.locator('.ck-token')).toBeVisible();await expect.poll(()=>ownedProduct.locator('img').first().evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0&&img.getBoundingClientRect().height>30)).toBe(true);await ownedProduct.locator('.ck-token').screenshot({path:'data/qa-critter-kitchen/market-purchased-product.png'});for(const tile of await host.locator('.ck-d-item:has(.ck-d-owners)').all()){await tile.scrollIntoViewIfNeeded();await expect(tile.locator('.ck-token')).toBeVisible();await expect.poll(()=>tile.locator('button img').first().evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0&&img.getBoundingClientRect().height>30)).toBe(true);await expect(tile.locator('.ck-d-owners i').first()).toBeVisible();}await expect(host.locator('.ck-board .ck-queues')).toHaveCount(0);
         await host.screenshot({path:'data/qa-critter-kitchen/market-owners-docker.png'});
 
         const teams=JSON.parse(await readFile('docs/games/critter-kitchen/team-avatar-assets.json','utf8'));
@@ -914,7 +919,7 @@ test('Critter Kitchen dense planning: vertical chef hand stays visible, enlarged
         await capture(host);await host.goto(url+'/games/critter-kitchen');await testAccount(host,app);await host.locator('#ck-entry-mode').selectOption('shared-table');await host.getByRole('button',{name:'สร้างห้องบนจอกลาง'}).click();await expect(host.locator('#qr')).toBeVisible();const code=await host.locator('.room-code strong').innerText(),phones:Page[]=[];
         for(let i=0;i<5;i++){const c=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});contexts.push(c);const p=await c.newPage();p.setDefaultTimeout(12000);await capture(p);phones.push(p);await p.goto(url+'/play/'+code);await p.getByRole('textbox',{name:'ชื่อของคุณ'}).fill('เชฟ '+i);await p.getByRole('button',{name:'เข้าห้อง',exact:true}).click();await p.getByRole('button',{name:'พร้อมเล่น',exact:true}).click();}
         await host.locator('#start').click();const p=phones[0];await expect(p.locator('.ck-route-planner')).toBeVisible();await expect(p.locator('.ck-title')).not.toContainText('วางแผนลับ');await expect(p.locator('.ck-route-planner [data-destination]')).toHaveCount(8);
-        await expect(p.locator('.ck-round-badge')).toBeVisible();await expect(p.locator('.ck-kitchen')).toBeVisible();await expect(p.locator('.ck-pantry-heading>nav')).not.toBeVisible();await expect(p.locator('#ck-clear-plan,#ck-commit')).toHaveCount(0);
+        await expect(p.locator('.ck-title .ck-round-badge')).toHaveCount(0);await expect(p.locator('.ck-stage-round')).toHaveText('รอบที่ 1/7');await expect(p.locator('.ck-stage-name')).toHaveText('ส่งเชฟออกตลาด');await expect(p.locator('.ck-kitchen')).toBeVisible();await expect(p.locator('.ck-pantry-heading>nav')).not.toBeVisible();await expect(p.locator('#ck-clear-plan,#ck-commit')).toHaveCount(0);
         const five=await read(host);expect(new Set(Object.values(five.teamColors!)).size).toBe(5);await p.locator('[data-tab="board"]').click();await expect(p.locator('.ck-kitchen')).toHaveAttribute('data-pane','stock');await expect(p.locator('.ck-kitchen')).toHaveCSS('position','static');await expect(p.locator('.ck-pantry-heading>nav')).not.toBeVisible();await p.locator('[data-tab="kitchen"]').click();
         for(const phone of phones){const own=await read(phone);expect(own.teamColors).toEqual(five.teamColors);const color=own.teamColors![own.me!.id];await expect(phone.locator('[data-chef="mouse"] img')).toHaveAttribute('src',`/art/critter-kitchen/thumbs/teams-v2/${color}/mouse.webp`);expect((await phone.request.get(url+`/art/critter-kitchen/thumbs/teams-v2/${color}/mouse.webp`)).ok()).toBe(true);}
 
@@ -978,7 +983,7 @@ test('Critter Kitchen refrigeration: ten-card review, four-column selection and 
         const learner=phones[0],other=phones[1];
         for(const p of phones)await revision(p,room.revision);
         await learner.locator('[data-tab="board"]').click();
-        const emptyMarket=learner.locator('.ck-location').filter({has:learner.locator('.ck-market-empty')}).first();await expect(emptyMarket.locator('header')).toHaveCSS('filter','grayscale(1)');expect((await emptyMarket.locator('.ck-market-stock').boundingBox())!.height).toBeLessThan(110);
+        const midnightMarket=learner.locator('[data-location-card="midnight"]');await expect(midnightMarket.locator('.ck-mystery-card')).toHaveCount(state.config.locations.find(l=>l.id==='midnight')!.slots);await expect(midnightMarket.locator('header')).toHaveCSS('filter','none');await expect(midnightMarket.locator('.ck-market-empty')).toHaveCount(0);
         await learner.locator('.ck-location-caption>strong').first().click();await expect(learner.locator('.ck-dialog[open]')).toHaveCount(0);
         for(const p of phones){await p.locator('[data-tab="information"]').click();await expect(p.locator('.ck-root')).toHaveAttribute('data-workspace','information');await expect(p.locator('.ck-reference-section')).toHaveCount(3);await expect(p.locator('.ck-reference-grid').first().locator('.ck-reference-slot')).toHaveCount(6);await expect(p.locator('.ck-reference-grid').last().locator('.ck-reference-slot')).toHaveCount(3);await expect(p.locator('.ck-layout')).not.toBeVisible();await expect(p.locator('.ck-menu-cards')).toHaveCount(0);}
         const challengeBoxes=await learner.locator('.ck-reference-grid').first().locator('.ck-reference-slot').evaluateAll(es=>es.map(e=>e.getBoundingClientRect()));expect(challengeBoxes[0].top).toBe(challengeBoxes[2].top);expect(challengeBoxes[3].top).toBeGreaterThan(challengeBoxes[0].bottom);
@@ -1068,11 +1073,119 @@ test('Critter Kitchen new Challenge: final market purchase reveals public foods 
         await phones[0].screenshot({path:'data/qa-critter-kitchen/new-challenge-reveal.png'});
         expect(await phones[1].locator('.ck-challenge-flipper').evaluate(e=>getComputedStyle(e).animationName)).toBe('none');
         room.revision++;(app.rooms as any).broadcast(room,true);for(const p of phones)await revision(p,room.revision);await expect(phones[0].locator('.ck-challenge-reveal')).toHaveCount(1);
-        for(const p of [host,...phones])await p.locator('.ck-challenge-reveal button').click();
+        await phones[0].reload();await expect(phones[0].locator('.ck-challenge-reveal')).toBeVisible();expect(await phones[0].locator('.ck-challenge-flipper').evaluate(e=>getComputedStyle(e).animationName)).toBe('none');
+        const sc=await browser.newContext({viewport:{width:1024,height:768}});contexts.push(sc);const spectator=await sc.newPage();await capture(spectator);await spectator.goto(url+'/display/'+code);await expect(spectator.locator('.ck-challenge-reveal')).toBeVisible();await expect(spectator.locator('.ck-challenge-reveal button')).toHaveCount(0);
+        const beforeContinue=room.revision;await phones[1].locator('.ck-challenge-reveal button').click();for(const p of [host,...phones,spectator]){await revision(p,beforeContinue+1);await expect(p.locator('.ck-challenge-reveal')).toHaveCount(0);}expect(room.ck!.challengeReveal).toBeUndefined();expect(room.ck!.round).toBe(2);
         room.revision++;(app.rooms as any).broadcast(room,true);for(const p of phones){await revision(p,room.revision);await expect(p.locator('.ck-challenge-reveal')).toHaveCount(0);}
         await phones[0].reload();await expect(phones[0].locator('.ck-route-planner')).toBeVisible();await expect(phones[0].locator('.ck-challenge-reveal')).toHaveCount(0);
         // The third card reveals its held/excluded ingredient rather than promising all three.
         state=room.ck!;state.phase='shopping';state.round=2;state.location='soup';state.visits=[{id:'last-visit-2',actor,chef:'mouse',loc:'soup',capacity:1,limit:1,used:0,gained:0,done:false,started:true,newton:false}];state.pending={kind:'pick',actor,visit:'last-visit-2',loc:'soup',extra:false,fallback:false};state.tasks=[{kind:'end-round'}];room.revision++;(app.rooms as any).broadcast(room,true);for(const p of phones)await revision(p,room.revision);
-        await confirmButton(phones[0],phones[0].locator('[data-buy="soup"]'));await expect(phones[0].locator('.ck-challenge-reveal h2')).toHaveText('Challenge 3');await expect(phones[0].locator('.ck-new-food-omitted')).toHaveCount(1);await expect(phones[0].locator('.ck-new-challenge-foods>p')).toHaveText('ไม่ใช้วัตถุดิบขวาสุด');await expect(phones[0].locator('.ck-challenge-reveal')).toHaveCount(0,{timeout:8000});await expect(phones[0].locator('.ck-route-planner')).toBeVisible();
+        await confirmButton(phones[0],phones[0].locator('[data-buy="soup"]'));await expect(phones[0].locator('.ck-challenge-reveal h2')).toHaveText('Challenge 3');await expect(phones[0].locator('.ck-new-food-omitted')).toHaveCount(1);await expect(phones[0].locator('.ck-new-challenge-foods>p')).toHaveText('ไม่ใช้วัตถุดิบขวาสุด');await phones[0].waitForTimeout(7000);await expect(phones[0].locator('.ck-challenge-reveal')).toBeVisible();const raceRevision=room.revision;await Promise.all(phones.map(p=>p.locator('.ck-challenge-reveal button').evaluate((button:HTMLButtonElement)=>button.click())));for(const p of [host,...phones]){await revision(p,raceRevision+1);await expect(p.locator('.ck-challenge-reveal')).toHaveCount(0);}expect(room.revision).toBe(raceRevision+1);expect(room.ck!.round).toBe(3);await expect(phones[0].locator('.ck-route-planner')).toBeVisible();
     }finally{for(const c of contexts)await c.close();await app.close();await rm(dir,{recursive:true,force:true});}
+});
+
+test('Critter Kitchen shared display: responsive public panorama, colored visits, moving priority and live sold stock',async({browser})=>{
+ test.setTimeout(120000);let pairPortrait=0;
+ for(const count of [2,5]){
+  const dir=await mkdtemp(join(tmpdir(),'ck-display-')),app=await startServer(0,'127.0.0.1',true,seeded(910),{storePath:join(dir,'rooms.sqlite')}),url=`http://localhost:${(app.server.address() as any).port}`,contexts:BrowserContext[]=[];
+  try{
+   const hc=await browser.newContext({viewport:{width:1440,height:900}});contexts.push(hc);const host=await hc.newPage();await capture(host);await host.addInitScript(()=>{(window as any).__queueMoves=[];const animate=Element.prototype.animate;Element.prototype.animate=function(...args:Parameters<Element['animate']>){if(this.hasAttribute('data-priority-player'))(window as any).__queueMoves.push(this.getAttribute('data-priority-player'));return animate.apply(this,args);};});await host.goto(url+'/games/critter-kitchen');await testAccount(host,app);await host.getByRole('button',{name:'สร้างห้องบนจอกลาง'}).click();await expect(host.locator('#qr')).toBeVisible();const code=await host.locator('.room-code strong').innerText(),phones:Page[]=[];
+   for(let i=0;i<count;i++){const c=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});contexts.push(c);const p=await c.newPage();await capture(p);phones.push(p);await p.goto(url+'/play/'+code);await p.getByRole('textbox',{name:'ชื่อของคุณ'}).fill('ครัว '+(i+1));await p.getByRole('button',{name:'เข้าห้อง',exact:true}).click();await p.getByRole('button',{name:'พร้อมเล่น',exact:true}).click();}
+   await host.locator('#start').click();await expect(host.locator('.ck-d-dashboard')).toBeVisible();const room=app.rooms.rooms.get(code)!,state=room.ck!,garden='garden';
+   const extras=state.bag.filter(id=>TOKEN[id].kind==='ingredient').slice(0,30);state.bag=state.bag.filter(id=>!extras.includes(id));state.locations[garden].push(...extras);room.revision++;(app.rooms as any).broadcast(room,true);for(const p of [host,...phones])await revision(p,room.revision);
+   await expect(host.locator('.ck-d-references')).not.toContainText('แตะเพื่ออ่านเงื่อนไข');await expect(phones[0].locator('.ck-stage-round')).toHaveText('รอบที่ 1/7');await expect(phones[0].locator('.ck-title .ck-round-badge')).toHaveCount(0);await expect(host.locator('.ck-d-visitor')).toHaveCount(0);expect((await read(host)).me).toBeUndefined();expect((await read(host)).players.every(p=>p.plan===null)).toBe(true);await expect(host.locator('.ck-d-rumors .is-hidden')).toHaveCount(3);
+   const mysteryCount=state.config.locations.find(l=>l.id==='midnight')!.slots;
+   await expect(host.locator('[data-display-location="midnight"] .ck-mystery-card')).toHaveCount(mysteryCount);await expect(host.locator('[data-display-location="midnight"] .ck-d-empty')).toHaveCount(0);
+   await expect(phones[0].locator('[data-destination="midnight"] .ck-mystery-circle')).toHaveCount(mysteryCount);await expect(phones[0].locator('[data-destination="midnight"]>.ck-route-cover')).toHaveCSS('filter','grayscale(1)');await phones[0].locator('[data-destination="midnight"]').scrollIntoViewIfNeeded();await expect(phones[0].locator('[data-destination="midnight"] .ck-mystery-circle').first()).toBeInViewport();await phones[0].screenshot({path:`data/qa-critter-kitchen/midnight-planning-${count}.png`});
+   await phones[0].locator('[data-tab="board"]').click();await expect(phones[0].locator('[data-location-card="midnight"] .ck-mystery-card')).toHaveCount(mysteryCount);await expect(phones[0].locator('[data-location-card="midnight"]>header')).toHaveCSS('filter','none');await phones[0].locator('[data-location-card="midnight"]').scrollIntoViewIfNeeded();await phones[0].screenshot({path:`data/qa-critter-kitchen/midnight-market-${count}.png`});await phones[0].locator('[data-tab="kitchen"]').click();
+   for(const size of [{width:1440,height:900},{width:1024,height:768},{width:864,height:649},{width:1084,height:604},{width:1920,height:1080}]){
+    await host.setViewportSize(size);await expect.poll(()=>host.locator('.ck-d-stock').first().evaluate(e=>(e as HTMLElement).style.getPropertyValue('--display-face-height'))).not.toBe('');
+    const bounds=await host.locator('.ck-d-shops,.ck-d-priority,.ck-d-references,.ck-d-footer').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().toJSON()));expect(bounds.every(r=>r.width>0&&r.height>0&&r.left>=0&&r.right<=size.width+1&&r.bottom<=size.height+1),JSON.stringify(bounds)).toBe(true);expect(await host.evaluate(()=>document.documentElement.scrollHeight)).toBeLessThanOrEqual(size.height);expect(await host.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(size.width);
+    const faces=await host.locator('.ck-d-stock .ck-d-item').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();const rail=e.closest('.ck-d-stock')!.getBoundingClientRect();return {width:r.width,height:r.height,fits:r.top>=rail.top-1&&r.bottom<=rail.bottom+1};}));expect(faces.every(r=>Math.abs(r.width-72)<1&&Math.abs(r.height-110)<1&&r.fits)).toBe(true);await expect(host.locator('.ck-d-shop')).toHaveCount(state.config.locations.length);await expect(host.locator('[data-priority-player]')).toHaveCount(count);const sameChef=await host.locator('.ck-d-queue-portrait>.ck-art').evaluateAll(es=>es.every(e=>e.getAttribute('src')!.endsWith('/boar.webp')));expect(sameChef).toBe(true);
+    if(size.width===864){const portrait=await host.locator('.ck-d-queue-portrait').first().boundingBox();if(count===2)pairPortrait=portrait!.height;else expect(portrait!.height).toBeLessThan(pairPortrait);}
+    await host.screenshot({path:`data/qa-critter-kitchen/display-${count}-${size.width}.png`});
+   }
+   await host.setViewportSize({width:1440,height:900});await host.locator('.ck-d-shops').evaluate(el=>el.scrollTop=0);
+   for(const p of phones){for(const [chef,loc] of [['mouse','garden'],['lizard','soup'],['boar','academy']])await dragChefTo(p,chef,loc);await confirmButton(p,p.locator('#ck-commit'));}
+   await expect(host.locator('.ck-root')).toHaveAttribute('data-phase','running');await expect(host.locator('.ck-d-visitor')).toHaveCount(0);expect((await read(host)).players.every(p=>p.plan===null)).toBe(true);
+   const sc=await browser.newContext({viewport:{width:1024,height:768}});contexts.push(sc);const spectator=await sc.newPage();await capture(spectator);await spectator.goto(url+'/display/'+code);await expect(spectator.locator('.ck-d-visitor')).toHaveCount(0);await expect(spectator.locator('.ck-d-start')).toHaveCount(0);expect((await read(spectator)).me).toBeUndefined();
+   await host.locator('.ck-d-start').click();await expect(host.locator('.ck-market-departure')).toBeVisible();await expect(host.locator('.ck-market-departure')).toHaveCount(0,{timeout:5000});
+   await expect(host.locator('.ck-d-visitor')).toHaveCount(3*count);await expect(spectator.locator('.ck-d-visitor')).toHaveCount(3*count);const colorCount=await host.locator('[data-display-location="garden"] .ck-d-visitor').evaluateAll(es=>new Set(es.map(e=>(e as HTMLElement).style.getPropertyValue('--team'))).size);expect(colorCount).toBe(count);const visitorSizes=await host.locator('.ck-d-visitor').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().width));expect(visitorSizes.every(width=>width>=44)).toBe(true);await host.setViewportSize({width:1084,height:604});await host.screenshot({path:`data/qa-critter-kitchen/display-compact-visitors-${count}.png`});await host.setViewportSize({width:1440,height:900});const before=await read(host),actor=phones[(await Promise.all(phones.map(read))).findIndex(v=>v.me!.id===before.turn)],stock=host.locator('[data-display-stock="soup"]'),bisque=stock.locator('[data-display-item="bisque"]');await expect(bisque).toBeVisible();const order=await stock.locator('[data-display-item]').evaluateAll(es=>es.map(e=>e.getAttribute('data-display-item')));
+   await confirmButton(actor,actor.locator('[data-buy="bisque"]'));await revision(host,before.revision+1);await expect(bisque).toHaveClass(/is-sold/);await expect(bisque.locator('.ck-d-sold')).toHaveText('หมด');await expect(bisque.locator('.ck-d-owners i')).toHaveCount(1);expect(await stock.locator('[data-display-item]').evaluateAll(es=>es.map(e=>e.getAttribute('data-display-item')))).toEqual(order);
+   const after=await read(host);expect(await host.locator('[data-priority-player]').evaluateAll(es=>es.map(e=>e.getAttribute('data-priority-player')))).toEqual(after.priority);expect(await host.evaluate(()=>(window as any).__queueMoves.length)).toBeGreaterThan(0);await expect(host.locator('.ck-d-visitor.is-current')).toHaveCount(1);
+   const busy=host.locator('[data-display-stock="garden"]');await expect.poll(()=>busy.evaluate(e=>e.scrollWidth>e.clientWidth)).toBe(true);await busy.evaluate(e=>e.scrollLeft=e.scrollWidth);const offset=await busy.evaluate(e=>e.scrollLeft);const liveRoom=app.rooms.rooms.get(code)!;liveRoom.revision++;(app.rooms as any).broadcast(liveRoom,true);await revision(host,liveRoom.revision);await expect.poll(()=>busy.evaluate(e=>e.scrollLeft)).toBeCloseTo(offset,0);
+   await host.locator('.ck-d-critic [data-detail]').click();await expect(host.locator('.ck-reference-detail-dialog')).toBeVisible();await host.keyboard.press('Escape');await host.evaluate(async()=>{await Promise.all(document.querySelector('.ck-d-priority')!.getAnimations({subtree:true}).map(a=>a.finished.catch(()=>{})));});await host.screenshot({path:`data/qa-critter-kitchen/display-live-${count}.png`});
+   await expect(host.locator('[data-display-location="midnight"] .ck-mystery-card')).toHaveCount(mysteryCount);
+   await host.emulateMedia({reducedMotion:'reduce'});const motions=await host.evaluate(()=>(window as any).__queueMoves.length);liveRoom.ck!.priority.reverse();liveRoom.revision++;(app.rooms as any).broadcast(liveRoom,true);await revision(host,liveRoom.revision);expect(await host.evaluate(()=>(window as any).__queueMoves.length)).toBe(motions);
+   liveRoom.ck!.location='midnight';const drawn=liveRoom.ck!.bag.splice(-mysteryCount);liveRoom.ck!.locations.midnight.push(...drawn);liveRoom.revision++;(app.rooms as any).broadcast(liveRoom,true);await revision(host,liveRoom.revision);await expect(host.locator('[data-display-location="midnight"] .ck-mystery-card')).toHaveCount(0);await expect(host.locator('[data-display-location="midnight"] [data-display-item]')).toHaveCount(mysteryCount);
+  }finally{for(const c of contexts)await c.close();await app.close();await rm(dir,{recursive:true,force:true});}
+ }
+});
+
+test('Critter Kitchen final ceremony: synchronized manual questions, evidence, cumulative stars and restored progress',async({browser})=>{
+ test.setTimeout(120000);
+ for(const count of [2,5]){
+  const dir=await mkdtemp(join(tmpdir(),'ck-ceremony-')),app=await startServer(0,'127.0.0.1',true,seeded(910),{storePath:join(dir,'rooms.sqlite')}),url=`http://localhost:${(app.server.address() as any).port}`,contexts:BrowserContext[]=[];
+  try{
+   const hc=await browser.newContext({viewport:{width:1440,height:900}});contexts.push(hc);const host=await hc.newPage();await capture(host);await host.addInitScript(()=>{(window as any).__starFlights=0;const original=Element.prototype.animate;Element.prototype.animate=function(...args:Parameters<Element['animate']>){if(this.classList.contains('ck-tally-flying-star'))(window as any).__starFlights++;return original.apply(this,args);};});await host.goto(url+'/games/critter-kitchen');await testAccount(host,app);await host.getByRole('button',{name:'สร้างห้องบนจอกลาง'}).click();await expect(host.locator('#qr')).toBeVisible();const code=await host.locator('.room-code strong').innerText(),phones:Page[]=[];
+   for(let i=0;i<count;i++){const c=await browser.newContext({viewport:{width:320,height:568},isMobile:true,hasTouch:true,reducedMotion:i===1?'reduce':'no-preference'});contexts.push(c);const p=await c.newPage();p.setDefaultTimeout(8000);await capture(p);phones.push(p);await p.goto(url+'/play/'+code);await p.getByRole('textbox',{name:'ชื่อของคุณ'}).fill('ครัวดาว '+(i+1));await p.getByRole('button',{name:'เข้าห้อง',exact:true}).click();await p.getByRole('button',{name:'พร้อมเล่น',exact:true}).click();}
+   await host.locator('#start').click();await expect(host.locator('.ck-root')).toHaveAttribute('data-phase','planning');const room=app.rooms.rooms.get(code)!;let finished=room.ck!,guard=0;const random=seeded(1200+count);while(finished.phase!=='finished'&&guard++<1800){const next=botAction(finished,random);finished=ckEngine.applyAction(finished,next.actor,next.action,random);}expect(finished.phase).toBe('finished');const scores=structuredClone(finished.players.map(p=>p.score));room.ck=finished;room.revision++;(app.rooms as any).broadcast(room,true);for(const page of [host,...phones])await revision(page,room.revision);
+   await phones[0].locator('[data-action="ck-reveal-results"]').click();for(const page of [host,...phones]){await revision(page,room.revision);await expect(page.locator('.ck-tally')).toHaveAttribute('data-reveal-step','0');await expect(page.locator('.ck-tally-award,.ck-final-results,.ck-tally-crown')).toHaveCount(0);}
+   await host.screenshot({path:`data/qa-critter-kitchen/ceremony-question-${count}.png`});await phones[0].screenshot({path:`data/qa-critter-kitchen/ceremony-question-phone-${count}.png`});
+   // No timer may answer the question for the room.
+   await host.waitForTimeout(1400);expect((await read(host)).finalReveal!.step).toBe(0);
+   await Promise.all([phones[0],phones[1]].map(page=>page.locator('[data-final-step]').evaluate((b:HTMLButtonElement)=>b.click())));
+   await expect.poll(async()=>(await read(host)).finalReveal!.step).toBe(1);for(const page of [host,...phones])await expect(page.locator('.ck-tally')).toHaveAttribute('data-reveal-answered','true');
+   await expect.poll(()=>phones[1].locator('[data-tally-total]').evaluateAll(es=>es.every(e=>e.textContent===e.getAttribute('data-tally-total')))).toBe(true);
+   await phones[0].reload();await expect(phones[0].locator('.ck-tally')).toHaveAttribute('data-reveal-step','1');expect((await read(phones[0])).finalReveal).toEqual((await read(host)).finalReveal);
+   const sc=await browser.newContext({viewport:{width:1024,height:768}});contexts.push(sc);const spectator=await sc.newPage();await capture(spectator);await spectator.goto(url+'/display/'+code);await expect(spectator.locator('.ck-tally')).toHaveAttribute('data-reveal-step','1');await expect(spectator.locator('[data-final-step],[data-final-skip]')).toHaveCount(0);
+   let view=await read(host),steps=0,animated=false,fixtureView:CKView|undefined;
+   while(!view.finalReveal!.complete&&steps++<100){
+    const reveal=view.finalReveal!,actor=[host,...phones][reveal.step%(count+1)];await revision(actor,view.revision);
+    await expect(host.locator('.ck-tally-crown')).toHaveCount(reveal.index===reveal.total-1&&reveal.answered?1:0);
+    if(!reveal.answered){await expect(host.locator('.ck-tally-award')).toHaveCount(0);await expect(host.locator('.ck-tally-unanswered')).toHaveCount(count);}
+    else{
+     await expect(host.locator('.ck-tally-award')).toHaveCount(count);await expect(host.locator('.ck-tally-evidence')).toHaveCount(count);
+     if(!animated&&reveal.item!.awards!.some(a=>a.stars>0)){await expect.poll(()=>host.locator('[data-tally-total]').evaluateAll(es=>es.every(e=>e.textContent===e.getAttribute('data-tally-total')))).toBe(true);animated=true;}
+    }
+    if(reveal.index===0||reveal.item!.card||reveal.index===reveal.total-1){
+     const fit=await phones[0].locator('.ck-ceremony-dialog').evaluate(d=>{const body=d.querySelector('.ck-dialog-body')!,p=d.querySelector('.ck-tally-question p')!,q=d.querySelector('.ck-tally-question')!;return {dialog:d.scrollHeight<=d.clientHeight+1,body:body.scrollHeight<=body.clientHeight+1,rule:p.getBoundingClientRect().bottom<=q.getBoundingClientRect().bottom+1,evidence:[...d.querySelectorAll('.ck-tally-evidence')].every(e=>e.scrollHeight<=e.clientHeight+1)};});expect(fit,JSON.stringify({step:reveal.step,fit})).toEqual({dialog:true,body:true,rule:true,evidence:true});
+     if(reveal.answered&&reveal.item!.card){fixtureView=structuredClone(view);await host.screenshot({path:`data/qa-critter-kitchen/ceremony-rumor-${count}.png`});await phones[0].screenshot({path:`data/qa-critter-kitchen/ceremony-rumor-phone-${count}.png`});}
+    }
+    if(reveal.index===reveal.total-1&&reveal.answered){await expect(host.locator('.ck-tally-winner')).toContainText(view.players.find(p=>view.winners.includes(p.id))!.name);await expect(host.locator('[data-final-skip]')).toHaveCount(0);await expect(host.locator('.ck-tally')).not.toContainText('ดาวรวมมากที่สุดชนะ');await phones[0].locator('.ck-tally-winner').evaluate(async e=>{await Promise.all(e.getAnimations().map(a=>a.finished.catch(()=>{})));});await expect(phones[0].locator('.ck-tally-winner')).toHaveCSS('opacity','1');await phones[0].screenshot({path:`data/qa-critter-kitchen/ceremony-winner-phone-${count}.png`});}
+    const previous=view.revision;await actor.locator('[data-final-step]').click();await revision(host,previous+1);view=await read(host);expect(view.finalReveal!.step).toBe(reveal.step+1);expect(room.ck!.players.map(p=>p.score)).toEqual(scores);
+   }
+   expect(await host.evaluate(()=>(window as any).__starFlights)).toBeGreaterThan(0);
+   expect(view.finalReveal!.complete).toBe(true);expect(view.finalReveal!.totals).toEqual(Object.fromEntries(view.players.map(p=>[p.id,p.score!.total])));await expect(host.locator('.ck-final-result-dialog')).toBeVisible();await host.screenshot({path:`data/qa-critter-kitchen/ceremony-complete-${count}.png`});await expect(host.locator('#ck-skip-count,[data-final-skip]')).toHaveCount(0);
+   if(count===5){
+    // Six-seat presentation fixture; the base-game room/rule cap remains unchanged.
+    const six=structuredClone(fixtureView!),extra=structuredClone(six.players[0]);extra.id='sixth-score-seat';extra.name='ครัวที่ 6';six.players.push(extra);six.priority.push(extra.id);six.finalReveal!.totals[extra.id]=six.finalReveal!.totals[six.players[0].id];six.finalReveal!.item!.awards!.push({...six.finalReveal!.item!.awards![0],actor:extra.id});
+    const {build}=await import('esbuild'),bundle=await build({stdin:{contents:"export {finalRevealMarkup} from './src/client/critter-kitchen-final-reveal.ts';export {finalResults,countResults} from './src/client/critter-kitchen-results.ts';",resolveDir:process.cwd()},bundle:true,write:false,format:'iife',globalName:'__ceremonyFixture',loader:{'.css':'empty'}});await host.evaluate(js=>(0,eval)(js),bundle.outputFiles[0].text);
+    for(const size of [{width:1440,height:1000},{width:1084,height:768}]){
+     await host.setViewportSize(size);await host.evaluate(v=>{const d=document.querySelector<HTMLDialogElement>('.ck-dialog')!;d.className='ck-dialog ck-ceremony-dialog';d.innerHTML='<div class="ck-dialog-body">'+(window as any).__ceremonyFixture.finalRevealMarkup(v,true,false)+'</div>';},six);
+     const layout=await host.locator('.ck-tally-player').evaluateAll(es=>({rows:new Set(es.map(e=>Math.round(e.getBoundingClientRect().top))).size,count:es.length,compact:es.every(e=>e.getBoundingClientRect().height<=256)}));expect(layout).toEqual({rows:2,count:6,compact:true});const evidenceFit=await host.locator('.ck-tally-evidence').evaluateAll(es=>es.every(e=>e.scrollWidth<=e.clientWidth+1&&e.scrollHeight<=e.clientHeight+1));expect(evidenceFit).toBe(true);await host.screenshot({path:`data/qa-critter-kitchen/ceremony-six-${size.width}.png`});
+     await host.evaluate(v=>{const d=document.querySelector<HTMLDialogElement>('.ck-dialog')!;d.className='ck-dialog ck-final-result-dialog';d.innerHTML='<div class="ck-dialog-body"><div class="ck-final-hero"><h2>ผลการแข่งขัน</h2></div>'+(window as any).__ceremonyFixture.finalResults(v)+'</div>';delete d.dataset.countStarted;(window as any).__ceremonyFixture.countResults(d,true);},six);await expect(host.locator('.ck-result-player')).toHaveCount(6);const rows=await host.locator('.ck-result-player').evaluateAll(es=>new Set(es.map(e=>Math.round(e.getBoundingClientRect().top))).size);expect(rows).toBe(2);await host.screenshot({path:`data/qa-critter-kitchen/results-six-${size.width}.png`});
+    }
+   }
+  }finally{for(const c of contexts)await c.close();await app.close();await rm(dir,{recursive:true,force:true});}
+ }
+});
+
+test('Critter Kitchen consolation: soup card preview, safe confirmation and full-width pantry cards',async({browser})=>{
+ test.setTimeout(60000);
+ const dir=await mkdtemp(join(tmpdir(),'ck-soup-ui-')),app=await startServer(0,'127.0.0.1',true,seeded(910),{storePath:join(dir,'rooms.sqlite')}),url=`http://localhost:${(app.server.address() as any).port}`,contexts:BrowserContext[]=[];
+ try{
+  const hc=await browser.newContext({viewport:{width:1440,height:900}});contexts.push(hc);const host=await hc.newPage();await capture(host);await host.goto(url+'/games/critter-kitchen');await testAccount(host,app);await host.getByRole('button',{name:'สร้างห้องบนจอกลาง'}).click();await expect(host.locator('#qr')).toBeVisible();const code=await host.locator('.room-code strong').innerText(),phones:Page[]=[];
+  for(let i=0;i<2;i++){const c=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});contexts.push(c);const p=await c.newPage();phones.push(p);await capture(p);await p.goto(url+'/play/'+code);await p.getByRole('textbox',{name:'ชื่อของคุณ'}).fill('ครัวซุป '+i);await p.getByRole('button',{name:'เข้าห้อง',exact:true}).click();await p.getByRole('button',{name:'พร้อมเล่น',exact:true}).click();}
+  await host.locator('#start').click();for(const p of phones){for(const [chef,loc] of [['mouse','soup'],['lizard','garden'],['boar','academy']])await dragChefTo(p,chef,loc);await confirmButton(p,p.locator('#ck-commit'));}
+  await host.locator('.ck-d-start').click();await expect(host.locator('.ck-market-departure')).toBeVisible();await expect(host.locator('.ck-market-departure')).toHaveCount(0,{timeout:5000});await expect(host.locator('.ck-root')).toHaveAttribute('data-phase','shopping');const view=await read(host),actor=phones[(await Promise.all(phones.map(read))).findIndex(v=>v.me!.id===view.turn)];await revision(actor,view.revision);const soup=(await read(actor)).me!.soup;
+  await confirmButton(actor,actor.locator('[data-action="ck-leave"]'));await expect(actor.locator('.ck-consolation')).toBeVisible();const revisionBefore=(await read(actor)).revision;
+  await expect(actor.locator('[data-reward="soup"] .ck-resource-card')).toBeVisible();await expect(actor.locator('[data-reward="soup"] .ck-reward-copy')).toContainText('รับซุป 1 ถ้วย');
+  for(const size of [{width:320,height:568},{width:390,height:844}]){
+   await actor.setViewportSize(size);await actor.locator('[data-pantry="cards"]').click();await expect.poll(()=>actor.locator('.ck-pantry-cards').evaluate(el=>parseFloat((el as HTMLElement).style.getPropertyValue('--ck-private-card-width')))).toBeGreaterThan(0);
+   const fit=await actor.locator('.ck-pantry-cards').evaluate(el=>{const pane=el.closest('.ck-kitchen')!,style=getComputedStyle(pane),r=el.getBoundingClientRect(),p=pane.getBoundingClientRect();return {right:r.right,expected:p.right-parseFloat(style.borderRightWidth)-parseFloat(style.paddingRight),scroll:el.scrollWidth>el.clientWidth};});expect(fit.right).toBeCloseTo(fit.expected,0);const actionsFit=await actor.locator('.ck-consolation').evaluate(el=>{const card=el.querySelector('[data-reward="soup"]')!.getBoundingClientRect(),skip=el.querySelector('[data-reward="skip"]')!.getBoundingClientRect(),action=el.closest('.ck-action')!.getBoundingClientRect();return card.bottom<=action.bottom&&skip.bottom<=action.bottom;});expect(actionsFit).toBe(true);await actor.screenshot({path:`data/qa-critter-kitchen/soup-pantry-${size.width}.png`});
+  }
+  await actor.locator('[data-reward="soup"]').click();await expect(actor.locator('.ck-choice-dialog .ck-reward-preview .ck-resource-card')).toBeVisible();await expect(actor.locator('.ck-choice-dialog')).toContainText('เพิ่มซุป 1 ถ้วย');await actor.locator('.ck-reward-preview img').evaluate((img:HTMLImageElement)=>img.decode());await actor.screenshot({path:'data/qa-critter-kitchen/soup-confirm.png'});await actor.locator('#ck-choice-cancel').click();expect((await read(actor)).revision).toBe(revisionBefore);expect((await read(actor)).me!.soup).toBe(soup);
+  await confirmButton(actor,actor.locator('[data-reward="soup"]'));await expect.poll(async()=>(await read(actor)).me!.soup).toBe(soup+1);await expect(actor.locator('.ck-consolation')).toHaveCount(0);
+ }finally{for(const c of contexts)await c.close();await app.close();await rm(dir,{recursive:true,force:true});}
 });

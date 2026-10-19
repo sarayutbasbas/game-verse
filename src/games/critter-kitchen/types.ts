@@ -23,6 +23,14 @@ export interface MealScore {
     requirements: Food[];
     bonus: number;
 }
+export interface FinalRevealItem {
+    id:string;title:string;rule:string;food?:Food;card?:{kind:'rumor'|'critic';id:string};
+    awards:{actor:string;stars:number;evidence:string;winner?:boolean}[];
+}
+export interface FinalReveal {
+    step:number;index:number;total:number;complete:boolean;answered:boolean;totals:Record<string,number>;
+    item?:Omit<FinalRevealItem,'awards'>&{awards?:FinalRevealItem['awards']};
+}
 export interface FinalScore {
     challenge: number;
     chef: number;
@@ -166,7 +174,10 @@ export interface CKState {
         location?: LocationId;
     };
     log: string[];
+    /** Newly public Challenge count awaiting shared continuation (rounds 2–6). */
+    challengeReveal?:number;
     resultsRevealed?: boolean;
+    finalRevealStep?:number;
     challengeResults?: Record<string, MealScore[]>;
     winners: string[];
     matchId?: string;
@@ -213,7 +224,7 @@ export type CKAction = {
     type: 'ck-reveal-results';
 } | {
     type: 'ck-next';
-};
+} | {type:'ck-score-step';step:number;skip?:true} | {type:'ck-continue-planning';round:number;challenge:number};
 export interface CKView {
     teamColors?:Record<string,TeamColor>;
     marketStock?:Record<string,string[]>;
@@ -269,7 +280,10 @@ export interface CKView {
     event: CKState['event'];
     log: string[];
     winners: string[];
+    /** Newly public Challenge count awaiting shared continuation (rounds 2–6). */
+    challengeReveal?:number;
     resultsRevealed?: boolean;
+    finalReveal?:FinalReveal;
     challengeResults?: Record<string, MealScore[]>;
     me?: {
         id: string;

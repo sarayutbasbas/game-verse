@@ -1,3 +1,4 @@
+import {finalRevealView,finalRevealItems} from './final-reveal.js';
 import {resolveTeamColors,TEAM_COLORS} from './team-colors.js';
 import { TOKENS, TOKEN, FOODS, BASE_CHEFS, ZOUS, ZOU, CRITICS, CRITIC, CHALLENGES, RESTAURATEURS, RESTAURATEUR, RUMORS, RUMOR, SPECIAL_ALLSPICE, boardConfiguration, type LocationId } from './data.js';
 import { validateMeals, scoreChallenge, scoreFinal, baseValue } from './scoring.js';
@@ -62,8 +63,11 @@ function startRound(s: CKState) {
         p.critic = null;
         p.fridgeReady = false;
     }
-    if (s.round < 7)
+    delete s.challengeReveal;
+    if (s.round < 7){
         s.revealed++;
+        if(s.round>1)s.challengeReveal=s.revealed;
+    }
     if (!s.bisqueAvailable && s.bisqueSupply) {
         s.bisqueAvailable = true;
         s.bisqueSupply--;
@@ -389,9 +393,10 @@ function validatePlan(s: CKState, p: Player, plan: any): plan is Plan { const id
 export function getLegalActions(s: CKState, id: string): CKAction[] {
     const p = s.players.find(p => p.id === id);
     if (!p)return [];
-    if(s.phase==='finished')return s.resultsRevealed===false?[{type:'ck-reveal-results'}]:[];
+    if(s.phase==='finished'){if(s.resultsRevealed===false)return [{type:'ck-reveal-results'}];const reveal=finalRevealView(s);return reveal&&!reveal.complete?[{type:'ck-score-step',step:reveal.step},{type:'ck-score-step',step:reveal.step,skip:true}]:[];}
     if (s.phase === 'restaurateurs')
         return p.offers.map(card => ({ type: 'ck-restaurateur', card }));
+    if(s.phase==='planning'&&s.challengeReveal!==undefined)return [{type:'ck-continue-planning',round:s.round,challenge:s.challengeReveal}];
     if (s.phase === 'planning')
         return p.plan ? [{ type: 'ck-uncommit', epoch: decisionKey(s) }] : [];
     if (s.phase === 'running')
@@ -415,7 +420,7 @@ function assertIntent(a: any, keys: string[]) { if (!a || typeof a !== 'object' 
     throw Error('รูปแบบคำสั่งไม่ถูกต้อง'); }
 export function applyAction(state: CKState, id: string, action: CKAction, random: () => number = Math.random): CKState {
     const player = own(state, id);
-    if (state.phase === 'finished' && action?.type!=='ck-reveal-results')
+    if (state.phase === 'finished' && action?.type!=='ck-reveal-results'&&action?.type!=='ck-score-step')
         throw Error('เกมจบแล้ว');
     const complex = ['ck-plan', 'ck-meals', 'ck-fridge', 'ck-final'].includes(action?.type);
     if (!complex && !getLegalActions(state, id).some(a => Object.keys(a).sort().join() === Object.keys(action).sort().join() && Object.entries(a).every(([k, v]) => JSON.stringify((action as any)[k]) === JSON.stringify(v))))
@@ -424,7 +429,7 @@ export function applyAction(state: CKState, id: string, action: CKAction, random
         assertIntent(action, action.type === 'ck-plan' ? ['type', 'epoch', 'plan'] : action.type === 'ck-meals' ? ['type', 'epoch', 'meals'] : action.type === 'ck-fridge' ? ['type', 'epoch', 'keep'] : ['type', 'epoch', 'meal']);
         if (!('epoch' in action) || action.epoch !== decisionKey(state))
             throw Error('รอบหรือขั้นตอนเปลี่ยนแล้ว กรุณาเลือกใหม่');
-        if (action.type === 'ck-plan' && (state.phase !== 'planning' || player.plan || !validatePlan(state, player, action.plan)))
+        if (action.type === 'ck-plan' && (state.phase !== 'planning' || state.challengeReveal!==undefined || player.plan || !validatePlan(state, player, action.plan)))
             throw Error('จัดเชฟทุกตัวไปคนละสถานที่ก่อนยืนยัน');
         if (action.type === 'ck-meals') {
             if (state.phase !== 'challenge' || player.meals)
@@ -460,7 +465,7 @@ export function applyAction(state: CKState, id: string, action: CKAction, random
             if (s.players.every(p => p.plan)) {
                 s.phase = 'running';
                 s.event = { kind: 'reveal' };
-                trace(s, 'ทุกคนเปิดแผนพร้อมกัน • พร้อมเริ่มช้อป');
+                trace(s, 'ทุกคนส่งแผนแล้ว • กดเริ่มเพื่อออกตลาด');
             }
             break;
         case 'ck-uncommit':
@@ -533,8 +538,17 @@ export function applyAction(state: CKState, id: string, action: CKAction, random
                 trace(s, `เปิด Challenge พร้อมกัน • จบวันที่ ${s.round === 3 ? 1 : 2}`);
             }
             break;
+        case 'ck-continue-planning':
+            delete s.challengeReveal;
+            s.event={kind:'effect',actor:id};
+            break;
+        case 'ck-score-step':
+            s.finalRevealStep=action.skip?finalRevealItems(s).length*2:action.step+1;
+            s.event={kind:'effect',actor:id};
+            break;
         case 'ck-reveal-results':
             s.resultsRevealed=true;
+            if(s.phase==='finished')s.finalRevealStep??=0;
             s.event={kind:'effect',actor:id};
             break;
         case 'ck-next':
@@ -584,6 +598,7 @@ export function applyAction(state: CKState, id: string, action: CKAction, random
                     p.score!.rankReason = p.id === winner.id ? reason : 'เรียงตามดาว คุณภาพมื้อสุดท้าย และลำดับหมวก';
                 s.publicRumors.fill(true);
                 s.phase = 'finished';
+                s.finalRevealStep=0;
                 s.resultsRevealed=false;
                 s.event = { kind: 'finish' };
                 trace(s, 'เปิดมื้อสุดท้ายพร้อมกัน • รวมดาวและตัดสินผู้ชนะ');
@@ -594,7 +609,7 @@ export function applyAction(state: CKState, id: string, action: CKAction, random
 }
 export const isFinished = (s: CKState) => s.phase === 'finished';
 export function getDisplayView(s: CKState, code: string, revision: number, displayMode: DisplayMode = 'shared-table'): CKView {
-    const showPlans = !['restaurateurs', 'planning'].includes(s.phase), showMeals = s.phase === 'challenge-results', finished = s.phase === 'finished';
-    return { resultsRevealed:s.resultsRevealed, gameId: 'critter-kitchen', code, revision, teamColors:resolveTeamColors(s.players.map(p=>p.id),s.teamColors), marketStock:structuredClone(s.marketStock??{}), pickups:structuredClone(s.pickups??[]), phase: s.phase, config: structuredClone(s.config), displayMode, players: s.players.map(p => ({ id: p.id, name: p.name, committed: !!(s.phase === 'planning' ? p.plan : s.phase === 'challenge' ? p.meals : s.phase === 'critic' ? p.critic : s.phase === 'restaurateurs' ? p.restaurateur : false), known: p.known.map(Boolean), publicStorage: s.critic === 'raccoon' ? p.storage.filter(t => TOKEN[t].kind === 'ingredient' && TOKEN[t].value === 2) : [], stars: p.stars, activeSous: p.activeSous, nextSous: p.nextSous, restaurateur: p.restaurateur, plan: showPlans ? structuredClone(p.plan) : null, ...showMeals ? { meals: structuredClone(p.meals!) } : {}, ...finished ? { critic: structuredClone(p.critic!), score: structuredClone(p.score) } : {}, fridgeReady: p.fridgeReady })), round: s.round, priority: [...s.priority], locations: structuredClone(s.locations), challenges: s.challenges.map((id, i) => ({ id: i < s.revealed ? id : null, held: i === 2 || i === 5 })), critic: s.critic, rumors: s.rumors.map((id, i) => s.publicRumors[i] || finished ? id : null), ...finished ? { extraRumors: s.players.flatMap(p => p.extraRumor ? [p.extraRumor] : []) } : {}, academySous: s.academySous, bisqueAvailable: s.bisqueAvailable, seventhAvailable: s.seventhAvailable, visits: s.visits.map(({ newton, ...v }) => ({ ...v })), location: s.location, turn: s.pending?.actor, decision: s.pending ? { kind: s.pending.kind, actor: s.pending.actor, ...s.pending.visit ? { chef: s.visits.find(v => v.id === s.pending!.visit)?.chef } : {}, ...s.pending.kind === 'pick' ? { loc: s.pending.loc } : {} } : undefined, sequence: s.sequence, event: { ...s.event }, log: [...s.log], winners: [...s.winners], ...showMeals ? { challengeResults: structuredClone(s.challengeResults) } : {} };
+    const showPlans = !['restaurateurs', 'planning', 'running'].includes(s.phase), showMeals = s.phase === 'challenge-results', finished = s.phase === 'finished';
+    return { challengeReveal:s.challengeReveal,finalReveal:finalRevealView(s),resultsRevealed:s.resultsRevealed, gameId: 'critter-kitchen', code, revision, teamColors:resolveTeamColors(s.players.map(p=>p.id),s.teamColors), marketStock:structuredClone(s.marketStock??{}), pickups:structuredClone(s.pickups??[]), phase: s.phase, config: structuredClone(s.config), displayMode, players: s.players.map(p => ({ id: p.id, name: p.name, committed: !!(s.phase === 'planning' ? p.plan : s.phase === 'challenge' ? p.meals : s.phase === 'critic' ? p.critic : s.phase === 'restaurateurs' ? p.restaurateur : false), known: p.known.map(Boolean), publicStorage: s.critic === 'raccoon' ? p.storage.filter(t => TOKEN[t].kind === 'ingredient' && TOKEN[t].value === 2) : [], stars: p.stars, activeSous: p.activeSous, nextSous: p.nextSous, restaurateur: p.restaurateur, plan: showPlans ? structuredClone(p.plan) : null, ...showMeals ? { meals: structuredClone(p.meals!) } : {}, ...finished ? { critic: structuredClone(p.critic!), score: structuredClone(p.score) } : {}, fridgeReady: p.fridgeReady })), round: s.round, priority: [...s.priority], locations: structuredClone(s.locations), challenges: s.challenges.map((id, i) => ({ id: i < s.revealed ? id : null, held: i === 2 || i === 5 })), critic: s.critic, rumors: s.rumors.map((id, i) => s.publicRumors[i] || finished ? id : null), ...finished ? { extraRumors: s.players.flatMap(p => p.extraRumor ? [p.extraRumor] : []) } : {}, academySous: s.academySous, bisqueAvailable: s.bisqueAvailable, seventhAvailable: s.seventhAvailable, visits: showPlans?s.visits.map(({ newton, ...v }) => ({ ...v })):[], location: s.location, turn: s.pending?.actor, decision: s.pending ? { kind: s.pending.kind, actor: s.pending.actor, ...s.pending.visit ? { chef: s.visits.find(v => v.id === s.pending!.visit)?.chef } : {}, ...s.pending.kind === 'pick' ? { loc: s.pending.loc } : {} } : undefined, sequence: s.sequence, event: { ...s.event }, log: [...s.log], winners: [...s.winners], ...showMeals ? { challengeResults: structuredClone(s.challengeResults) } : {} };
 }
 export function getPlayerView(s: CKState, id: string): NonNullable<CKView['me']> { const p = own(s, id), d = s.pending; return { id, storage: [...p.storage], soup: p.soup, bisque: p.bisque, known: p.known.map((x, i) => x ? s.rumors[i] : null), rumorTokens: [...p.known], spentRumors: [...p.spentRumors], extraRumor: p.extraRumor, offers: [...p.offers], plan: structuredClone(p.plan), meals: structuredClone(p.meals), critic: structuredClone(p.critic), chefIds: chefs(p), choices: d?.actor === id && d.kind === 'pick' ? pickChoices(s, p, d.loc) : [], rewards: d?.actor === id && d.kind === 'consolation' ? p.restaurateur === 'anthony-boardain' ? ['soup', 'bag', 'skip'] : ['soup', 'skip'] : [], rumorChoices: d?.actor === id && d.kind === 'rumor' ? p.known.flatMap((x, i) => x ? [] : [i]) : [], epoch: decisionKey(s), legal: getLegalActions(s, id) }; }

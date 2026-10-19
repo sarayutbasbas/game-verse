@@ -1,4 +1,7 @@
+import {finalRevealMarkup,bindFinalReveal} from './critter-kitchen-final-reveal.js';
 import {finalResults,countResults,fitFinalResultRail} from './critter-kitchen-results.js';
+import {displayDashboard,displayPhase,fitDisplayStocks} from './critter-kitchen-display.js';
+import {midnightMysteryCount,mysteryStock} from './critter-kitchen-mystery.js';
 import type {TeamColor} from '../games/critter-kitchen/team-colors.js';
 import {deviceDisplayMode,saveDisplayMode} from './display-mode.js';
 import { patchHTML } from './dom-patch.js';
@@ -15,7 +18,7 @@ import {closeCKChallengeReveal,showCKChallengeReveal} from './critter-kitchen-ch
 import {ckIcon,ckSky} from './critter-kitchen-shell.js';
 let room = '', epoch = '', lastSequence = -1, lastRevision = -1, plan: Plan = {}, chef = '', pick = '', plate = 0, meals: Meal[] = [], keep: string[] = [], tab = 'kitchen', detail = '', locationDetail = '', mode = '', resultClosed = false, resultCount = true;
 let previousPhase='';
-let previousChallengeCount=-1;
+let lastFinalStep=-1;
 const workspaceScroll=new Map<string,()=>void>();
 const shoppingOrders=new Map<string,string[]>();
 let shoppingRound=0;
@@ -26,7 +29,7 @@ function rememberCKScroll(root:HTMLElement){
 let resourceRails:ResizeObserver|undefined;
 let disposeChefDrag:(()=>void)|undefined;
 let pantryView='stock', course:Food=FOODS[0], menuEvents:AbortController|undefined;
-export function closeCK(){workspaceScroll.clear();resourceRails?.disconnect();resourceRails=undefined;closeCKDeparture();closeCKChallengeReveal();previousChallengeCount=-1;previousPhase='';disposeChefDrag?.();disposeChefDrag=undefined;menuEvents?.abort();menuEvents=undefined;dismissChoice();document.querySelectorAll('.ck-dialog').forEach(el=>el.remove());detail='';locationDetail='';}
+export function closeCK(){workspaceScroll.clear();resourceRails?.disconnect();resourceRails=undefined;closeCKDeparture();closeCKChallengeReveal();lastFinalStep=-1;previousPhase='';disposeChefDrag?.();disposeChefDrag=undefined;menuEvents?.abort();menuEvents=undefined;dismissChoice();document.querySelectorAll('.ck-dialog').forEach(el=>el.remove());detail='';locationDetail='';}
 const crown = '<svg class="ck-crown" viewBox="0 0 32 25" width="27" height="22" aria-label="ผู้ชนะ" role="img"><path d="M3 5l8 7 5-10 5 10 8-7-3 16H6z" fill="#e0a226" stroke="#805615" stroke-width="2"/><path d="M7 24h18" stroke="#805615" stroke-width="2"/></svg>';
 const playerColors = ['#cb7046', '#337dba', '#a94e91', '#6c9a3c', '#a77d19'];
 const hat = (index: number, order = index) => `<svg class="ck-hat" viewBox="0 0 30 26" width="22" height="20" aria-label="หมวกลำดับ ${order+1}" role="img"><path d="M7 15C0 14 0 6 7 5C9-1 19-1 22 5C30 5 30 14 23 15L22 24H8z" fill="${playerColors[index]}" stroke="#234e50"/><path d="M8 19h14" stroke="#fff9df" stroke-width="3"/></svg>`;
@@ -86,6 +89,9 @@ const guidance: Record<string,string> = {
  finished:'ดูดาวรวมและเงื่อนไขตัดสินผู้ชนะในสรุปผล'
 };
 export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: boolean, command: (a: RoomAction) => void, snapshot: boolean) {
+    const displayPositions=new Map([...root.querySelectorAll<HTMLElement>('[data-priority-player]')].map(node=>[node.dataset.priorityPlayer!,node.getBoundingClientRect()]));
+    const displayStocks=[...root.querySelectorAll<HTMLElement>('.ck-d-stock')].map(node=>({node,left:node.scrollLeft,values:['--display-stock-rows','--display-face-height','--display-face-width'].map(name=>[name,node.style.getPropertyValue(name)] as const).filter(([,value])=>value)}));
+    const displayScroll=new Map(displayStocks.map(item=>[item.node,item.left]));
     const existingFrame=room===v.code&&v.phase==='planning'&&tab==='kitchen'?root.querySelector<HTMLElement>('.ck-root[data-phase="planning"][data-workspace="kitchen"]'):null;
     const planningProperties=['--ck-plan-footer-height','--ck-plan-pantry-face','--ck-plan-pantry-width','--ck-plan-seam'];
     const planningStyles=existingFrame?planningProperties.map(name=>[name,existingFrame.style.getPropertyValue(name)] as const):[];
@@ -96,7 +102,7 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
     const restoreCookingScroll=()=>{for(const {node,left,top} of cookingScroll)if(node.isConnected){node.scrollLeft=left;node.scrollTop=top;}};
     if(choice && (choice.code!==v.code || choice.revision!==v.revision || blocked || !choice.dialog.isConnected)) dismissChoice();
     if (room !== v.code) {
-        closeCKDeparture();closeCKChallengeReveal();previousChallengeCount=-1;previousPhase='';
+        closeCKDeparture();closeCKChallengeReveal();lastFinalStep=-1;previousPhase='';
         room = v.code;pantryView='stock';shoppingOrders.clear();workspaceScroll.clear();
         epoch = '';
         lastSequence = -1;
@@ -115,12 +121,12 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
         resultClosed = false;
         resultCount = true;
     }
+    const finalStepChanged=!!v.finalReveal&&v.finalReveal.step!==lastFinalStep;
+    if(finalStepChanged)resultClosed=false;
     if(shoppingRound!==v.round){shoppingOrders.clear();shoppingRound=v.round;}
     const departing=!snapshot&&previousPhase==='running'&&v.phase==='shopping';
-    const challengeCount=v.challenges.filter(c=>c.id).length;
-    const newChallenge=!snapshot&&v.phase==='planning'&&previousChallengeCount>=0&&challengeCount>previousChallengeCount;
-    if(v.phase!=='planning'||challengeCount!==previousChallengeCount&&!newChallenge)closeCKChallengeReveal();
-    previousChallengeCount=challengeCount;
+    const newChallenge=v.phase==='planning'&&v.challengeReveal!==undefined;
+    if(!newChallenge)closeCKChallengeReveal();
     previousPhase=v.phase;
     if(v.phase!=='shopping')closeCKDeparture();
     if(departing){dismissChoice();detail='';locationDetail='';}
@@ -204,12 +210,12 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
     const locationMarkup = (loc: CKView['config']['locations'][number], expanded = false) => {
         const history=!['restaurateurs','planning','running'].includes(v.phase),pickups=history?(v.pickups??[]).filter(p=>p.loc===loc.id):[];
         const ids=[...new Set([...(history?v.marketStock?.[loc.id]??[]:[]),...(v.locations[loc.id]??[]),...pickups.map(p=>p.item),...loc.id==='soup'?['soup',...v.bisqueAvailable?['bisque']:[]]:[],...loc.id==='academy'?[...v.academySous?['zous:'+v.academySous]:[],...v.seventhAvailable?['seventh-allspice']:[]]:[]])];
-        const stock=ids.map(id=>{
+        const stock=(loc.id==='midnight'?mysteryStock(midnightMysteryCount(v),'card'):'')+ids.map(id=>{
             const marks=pickups.filter(p=>p.item===id),owners=[...new Map(marks.map(p=>[p.actor+':'+p.chef,p])).values()];
             const names=[...new Set(owners.map(p=>v.players.find(player=>player.id===p.actor)?.name??''))].join(', ');
             return `<div class="ck-market-token ${marks.length?'ck-market-owned':''}" data-market-item="${id}" data-ui-key="market-${loc.id}-${id}">${btn(token(id).replace('loading="lazy"','loading="eager"'),`class="ck-market-face" data-ui-key="market-face-${loc.id}-${id}" data-pick="${id}" aria-label="ดูรายละเอียด ${esc(label(id))}"`)}${owners.length?`<div class="ck-pick-stamps" data-ui-key="market-owners-${loc.id}-${id}">${owners.slice(-2).map(mark=>{const color=teamFor(mark.actor)??'blue';return `<span class="ck-pick-stamp" data-owner="${mark.actor}" data-team="${color}" title="${esc(names)}">${art('teams-v2/'+color+'/'+mark.chef)}</span>`;}).join('')}</div><small class="ck-market-owner-name">${esc(names)}</small>`:''}</div>`;
         }).join('');
-        return `<article class="ck-location ${v.location===loc.id?'active':''}" data-ui-key="loc-${loc.id}" data-location-card="${loc.id}" style="--loc:url('/art/critter-kitchen/location-${loc.id}.webp')"><header><div class="ck-location-caption"><strong>${esc(loc.name)}</strong><small>${loc.id==='soup'?'ซุปไม่จำกัด':loc.slots?`เติม ${loc.slots} ชิ้น`:'ของจากตลาด'}</small></div></header><div class="ck-stock ck-market-stock" aria-label="ของที่ ${esc(loc.name)}">${stock||'<div class="ck-market-empty"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 20 15 8h18l7 12v19H8Z"/><path d="M8 20h10l3 6h6l3-6h10M19 14h10"/></svg><p>ไม่มีของในตลาด</p></div>'}</div>${expanded?'<p>เชฟความจุน้อยหยิบก่อน เมื่อความจุเท่ากันจะเวียนตามลำดับหมวก</p>':''}</article>`;
+        return `<article class="ck-location ${v.location===loc.id?'active':''}" data-ui-key="loc-${loc.id}" data-location-card="${loc.id}" style="--loc:url('/art/critter-kitchen/location-${loc.id}.webp')"><header><div class="ck-location-caption"><strong>${esc(loc.name)}</strong><small>${loc.id==='soup'?'ซุปไม่จำกัด':loc.id==='midnight'&&midnightMysteryCount(v)?`สุ่ม ${loc.slots} ชิ้นเมื่อถึงคิว`:loc.slots?`เติม ${loc.slots} ชิ้น`:'ของจากตลาด'}</small></div></header><div class="ck-stock ck-market-stock" aria-label="ของที่ ${esc(loc.name)}">${stock||'<div class="ck-market-empty"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 20 15 8h18l7 12v19H8Z"/><path d="M8 20h10l3 6h6l3-6h10M19 14h10"/></svg><p>ไม่มีของในตลาด</p></div>'}</div>${expanded?'<p>เชฟความจุน้อยหยิบก่อน เมื่อความจุเท่ากันจะเวียนตามลำดับหมวก</p>':''}</article>`;
     };
     const servicePlates=v.phase==='challenge'&&me&&!submitted?`<nav class="ck-plate-tabs" aria-label="เลือกจาน">${meals.map((m,i)=>{
         let ready=false;
@@ -247,6 +253,7 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
             return `<div class="ck-rumor-slot" data-ui-key="rumor-choice-${index}">${btn(`${art('back-rumor')}<span class="ck-rumor-caption"><strong>ข่าวลือ ${index+1}</strong>${known?'<small>รู้แล้ว</small>':''}</span>`,`class="ck-rumor-face ${known?'ck-rumor-known':''}" data-rumor="${index}" aria-haspopup="dialog" aria-label="เลือกข่าวลือ ${index+1}${known?' · รู้แล้ว':''}"`,blocked||known)}${!known?btn(ckIcon('plus'),`class="ck-buy-button" data-rumor-buy="${index}" aria-label="เลือกข่าวลือ ${index+1}" aria-haspopup="dialog"`,blocked):''}</div>`;
         }).join('')}</div>`;
     };
+    const consolationOptions=()=>`<section class="ck-consolation"><header><h2>เชฟกลับถึงครัวแล้ว</h2><p>เลือกของกลับครัวได้ 1 อย่าง</p></header><div class="ck-reward-options">${(me?.rewards??[]).filter(reward=>reward!=='skip').map(reward=>btn(`${reward==='soup'?token('soup'):`<span class="ck-reward-bag-art">${art('mystery-midnight-parcel')}</span>`}<span class="ck-reward-copy"><strong>${reward==='soup'?'รับซุป 1 ถ้วย':'สุ่มของจากถุง 1 ชิ้น'}</strong><small>${reward==='soup'?'ไว้เติมคุณภาพหรือแทนวัตถุดิบตอนเสิร์ฟ':'รับของสุ่มตามความสามารถเจ้าของร้าน'}</small></span>`,`class="ck-reward-option" data-reward="${reward}" aria-haspopup="dialog"`,blocked)).join('')}</div>${me?.rewards.includes('skip')?btn(`${ckIcon('logout')}<span>กลับครัวโดยไม่รับของ</span>`,'class="ck-reward-skip" data-reward="skip" aria-haspopup="dialog"',blocked):''}</section>`;
     let action = '';
     if (me) {
         if (v.phase === 'restaurateurs')
@@ -257,14 +264,14 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
             action = `<div class="${shared?'ck-route-planner':'ck-basic-planner'}" data-location-count="${v.config.locations.length}" style="--ck-location-count:${v.config.locations.length}"><h2>${me.plan ? 'ส่งแผนแล้ว' : 'ส่งเชฟออกตลาด'}</h2><p class="ck-route-hint">${shared?'ลากการ์ดเชฟไปวางในกรอบสีเหลือง แตะการ์ดเพื่ออ่านรายละเอียด':'เชฟแต่ละตัวไปคนละสถานที่ แผนจะเปิดพร้อมกันเมื่อทุกคนยืนยัน'}</p><div class="ck-chefs">${me.chefIds.map(id=>btn(`${chefCard(id)}${!shared?`<small>${esc(v.config.locations.find(l=>l.id===draft[id])?.name??'ยังไม่เลือก')}</small>`:''}`,`data-chef="${id}" data-ui-key="plan-chef-${id}" class="${chef===id?'selected':''} ${draft[id]?'ck-assigned':''}" aria-label="ดูรายละเอียด ${esc(chefName(id))} · ถือได้ ${chefData(id)?.capacity}${draft[id]?' · '+esc(v.config.locations.find(l=>l.id===draft[id])?.name??''):''}"`,false)).join('')}</div><div class="ck-destinations">${v.config.locations.map(loc=>{
              const assigned=me.chefIds.find(id=>draft[id]===loc.id);
              const stock=[...(v.locations[loc.id]??[]),...loc.id==='soup'?['soup',...v.bisqueAvailable?['bisque']:[]]:[],...loc.id==='academy'?[...v.academySous?['zous:'+v.academySous]:[],...v.seventhAvailable?['seventh-allspice']:[]]:[]];
-             const preview=`<span class="ck-route-stock" data-ui-key="route-stock-${loc.id}" aria-label="ของที่ ${esc(loc.name)}">${stock.map(routeStockItem).join('')}</span>`;
+             const preview=`<span class="ck-route-stock" data-ui-key="route-stock-${loc.id}" aria-label="ของที่ ${esc(loc.name)}">${loc.id==='midnight'?mysteryStock(midnightMysteryCount(v),'circle'):''}${stock.map(routeStockItem).join('')}</span>`;
              return `<div data-destination="${loc.id}" role="group" aria-label="${esc(loc.name)}" aria-disabled="${!!me.plan||blocked}"><img class="ck-route-cover" src="/art/critter-kitchen/location-${loc.id}.webp" alt="" draggable="false"><b class="ck-route-name">${esc(loc.name)}</b>${preview}<span class="ck-route-slot ${assigned?'ck-route-filled':''}">${assigned?`<button type="button" class="ck-placed-chef" data-placed-chef="${assigned}" aria-label="ดูรายละเอียด ${esc(chefName(assigned))}">${chefCard(assigned)}</button>`:'<span class="ck-slot-outline" aria-hidden="true">＋</span>'}</span></div>`;
             }).join('')}</div><div class="ck-plan-summary">${me.chefIds.map(id => `<span>${chefName(id)} → ${esc(v.config.locations.find(l => l.id === (me.plan ?? plan)[id])?.name ?? 'ยังไม่เลือก')}</span>`).join('')}</div>${(me.plan||me.chefIds.every(id=>plan[id]))?`<div class="ck-plan-actions ck-plan-floating">${btn(ckIcon(me.plan?'edit':'confirm'),`id="ck-commit" class="ck-circle-action ${me.plan?'ck-edit-plan':''}" aria-label="${me.plan?'แก้ไขแผน':'ยืนยันแผน'}" title="${me.plan?'แก้ไขแผน':'ยืนยันแผน'}"`,locked)}</div>`:''}</div>`;
         }
         if (v.phase === 'running')
-            action = `<section class="ck-ready-market"><h2>ทุกคนเปิดแผนแล้ว</h2><p>กดปุ่มเริ่มเพื่อออกตลาด</p>${btn('เริ่ม','data-action="ck-run" class="ck-market-start"',locked)}</section>`;
+            action = `<section class="ck-ready-market"><h2>ทุกคนส่งแผนแล้ว</h2><p>กดปุ่มเริ่มเพื่อออกตลาด</p>${btn('เริ่ม','data-action="ck-run" class="ck-market-start"',locked)}</section>`;
         if (v.phase === 'shopping')
-            action = `${isTarget ? v.decision?.kind === 'rumor' ? rumorOptions() : v.decision?.kind === 'consolation' ? `<p>เชฟกลับมือเปล่า เลือกรางวัลปลอบใจ</p>${me.rewards.map(reward => btn(reward === 'soup' ? 'รับซุป 1' : reward === 'bag' ? 'สุ่มจากถุง 1 ชิ้น' : 'ไม่รับ', `data-reward="${reward}"`, blocked)).join('')}` : shoppingStock() : shoppingStock()}`;
+            action = `${isTarget ? v.decision?.kind === 'rumor' ? rumorOptions() : v.decision?.kind === 'consolation' ? consolationOptions() : shoppingStock() : shoppingStock()}`;
         if (v.phase === 'challenge' || v.phase === 'critic') {
             const final = v.phase === 'critic';
             const used = new Set(meals.flatMap(m => [...m.items.flatMap(a => [a.token, ...a.spice ? [a.spice] : []]), ...(m.wine ?? []).map(w => w.token)]));
@@ -320,14 +327,14 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
         }
     }
     if (host && !me && v.phase === 'running')
-        action = `<section class="ck-ready-market"><h2>ทุกคนเปิดแผนแล้ว</h2><p>กดปุ่มเริ่มเพื่อออกตลาด</p>${btn('เริ่ม','data-action="ck-run" class="ck-market-start"',blocked)}</section>`;
+        action = `<section class="ck-ready-market"><h2>ทุกคนส่งแผนแล้ว</h2><p>กดปุ่มเริ่มเพื่อออกตลาด</p>${btn('เริ่ม','data-action="ck-run" class="ck-market-start"',blocked)}</section>`;
     if(v.phase==='challenge-results'){
         const results=v.players.map(p=>{const dishes=v.challengeResults?.[p.id]??[];return {p,dishes,stars:dishes.reduce((n,s)=>n+s.stars,0),quality:dishes.reduce((n,s)=>n+s.quality,0)};}).sort((a,b)=>b.stars-a.stars||b.quality-a.quality);
         action=`<div class="ck-round-results"><div class="ck-results-rail ${results.length===2?'ck-results-pair':''}" data-player-count="${results.length}" aria-label="ผลการเสิร์ฟ เรียงดาวมากไปน้อย">${results.map(({p,dishes,stars,quality})=>`<article class="ck-result-player" data-result-player="${p.id}" data-result-stars="${stars}" data-ui-key="result-${p.id}"><header>${avatar(p)}<strong>${esc(p.name)}${p.id===me?.id?' (คุณ)':''}</strong></header><div class="ck-result-total">${ckIcon('star')}<b data-total="${stars}">0</b><span>ดาว</span><small>คุณภาพรวม ${quality}</small></div><div class="ck-result-dishes">${dishes.map((dish,i)=>`<div class="ck-result-dish"><span class="ck-result-plate" role="img" aria-label="จานที่ ${i+1}"><span class="ck-plate-number">${i+1}</span></span><span class="ck-result-quality">คุณภาพ ${dish.quality}</span><b class="ck-result-dish-stars" aria-label="${dish.stars} ดาว">${ckIcon('star')}${dish.stars}</b></div>`).join('')}</div></article>`).join('')}</div>${me||host?`<footer>${btn(ckIcon('fridge'),'data-action="ck-next" class="ck-next-fridge" aria-label="จัดตู้เย็นและไปขั้นตอนถัดไป" title="จัดตู้เย็นและไปขั้นตอนถัดไป"',blocked)}</footer>`:''}</div>`;
     }
-    const revealGate=()=>`<div class="ck-reveal-gate">${v.phase==='finished'?art('results','ck-gate-art',true):ckIcon('star')}<h2>${v.phase==='finished'?'มื้อสุดท้ายพร้อมแล้ว':'ทุกจานพร้อมแล้ว'}</h2><p>พร้อมลุ้นดาวไปด้วยกันหรือยัง?</p>${me||host?btn('เปิดผลการเสิร์ฟ','data-action="ck-reveal-results" class="ck-reveal-button"',blocked):'<p>รอผู้เล่นเปิดผลการเสิร์ฟ</p>'}</div>`;
+    const revealGate=()=>`<div class="ck-reveal-gate">${v.phase==='finished'?art('results','ck-gate-art',true):ckIcon('star')}<h2>${v.phase==='finished'?'มื้อสุดท้ายพร้อมแล้ว':'ทุกจานพร้อมแล้ว'}</h2><p>พร้อมลุ้นดาวไปด้วยกันหรือยัง?</p>${me||host?btn(v.phase==='finished'?'เริ่มเฉลยคะแนน':'เปิดผลการเสิร์ฟ','data-action="ck-reveal-results" class="ck-reveal-button"',blocked):'<p>รอผู้เล่นเปิดผลการเสิร์ฟ</p>'}</div>`;
     if(v.phase==='challenge-results'&&v.resultsRevealed===false)action=revealGate();
-    if(v.phase==='finished')action=v.resultsRevealed===false?revealGate():`<section class="ck-finished-hub"><div class="ck-finished-art">${art('results','',true)}</div><footer>${btn('ดูสรุปคะแนน','id="ck-show-result"')}${host||me?.canManage?btn('เริ่มเล่นใหม่','id="ck-restart"',blocked):`<a class="ck-exit-room" href="/" aria-label="ออกจากห้อง" title="ออกจากห้อง">${ckIcon('logout')}</a>`}</footer></section>`;
+    if(v.phase==='finished')action=v.resultsRevealed===false?revealGate():`<section class="ck-finished-hub"><div class="ck-finished-art">${art('results','',true)}</div><footer>${btn(v.finalReveal&&!v.finalReveal.complete?'นับคะแนนต่อ':'ดูสรุปคะแนน','id="ck-show-result"')}${host||me?.canManage?btn('เริ่มเล่นใหม่','id="ck-restart"',blocked):`<a class="ck-exit-room" href="/" aria-label="ออกจากห้อง" title="ออกจากห้อง">${ckIcon('logout')}</a>`}</footer></section>`;
     const publicInformation=`<div class="ck-information"><div>${card('critic', v.critic, true)}</div><div class="ck-challenges">${v.challenges.map((c, i) => c.id ? `<div class="${c.held?'ck-held':''}">${card('challenge', c.id, true)}<small>${c.held ? 'Hold · ไม่ใช้ชนิดขวาสุด' : `Challenge ${i + 1}`}</small></div>` : `<div class="ck-card-back">${art('back-challenge')}<b>Challenge ${i + 1}</b></div>`).join('')}</div><div class="ck-rumors">${v.rumors.map((id, i) => id ? card('rumor', id, true) : `<div class="ck-card-back">${art('back-rumor')}<b>ข่าวลือ ${i + 1}</b><small>${v.players.filter(p => p.known[i]).length}/${v.players.length} คนรู้</small></div>`).join('')}</div></div>`;
     const referenceCard=(kind:'critic'|'challenge'|'rumor',id:string,held=false,heading='')=>{
         const data=kind==='critic'?CRITIC[id]:kind==='challenge'?CHALLENGE[id]:RUMOR[id];
@@ -343,11 +350,16 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
     const playerInformation=`<details class="ck-player-details"><summary>ร้านอาหารและเชฟของทุกคน</summary><div class="ck-scoreboard">${v.players.map(p => `<article>${avatar(p)}<strong>${esc(p.name)}</strong>${p.restaurateur ? card('restaurateur', p.restaurateur, true) : v.phase === 'restaurateurs' ? `<div class="ck-card-back">${art('back-restaurateur')}<b>กำลังเลือกเจ้าของร้าน</b></div>` : ''}${p.activeSous ? card('sous', p.activeSous, true) : ''}${p.nextSous ? `<small>เชฟเสริมรอบหน้า</small>${card('sous', p.nextSous, true)}` : ''}${p.publicStorage.length ? `<small>วัตถุดิบค่า 2 เปิดเผย</small><div class="ck-inventory">${p.publicStorage.map(id => token(id)).join('')}</div>` : ''}</article>`).join('')}</div></details>`;
     const rulesContent=`<ol><li>วางแผนลับ ส่งเชฟแต่ละตัวไปคนละสถานที่ แล้วทุกคนกดยืนยัน</li><li>เปิดแผนพร้อมกัน ออกตลาดจากรถซุป ผ่านตลาดหมายเลข ไปพ่อค้าเที่ยงคืนและโรงเรียนเชฟ</li><li>เชฟความจุ 1 หยิบก่อน 2 และ 3 ถ้าเท่ากันให้เวียนหยิบตามลำดับหมวก ผู้หยิบก่อนที่เสมอจะย้ายหมวกไปท้าย</li><li>อาหารและเครื่องเทศเป็นของส่วนตัว ข่าวลืออ่านได้เมื่อเก็บโทเคนตรงหมายเลขหรือโทเคนเลือก</li><li>จบรอบ 3 และ 6 จัดอาหาร 3 จานตาม Challenge ใช้ซุปแทนชนิดที่ขาดได้ แต่ต้องมีวัตถุดิบจริงอย่างน้อยหนึ่งชิ้น เครื่องเทศคูณคุณภาพตามผู้วิจารณ์</li><li>คุณภาพ 6–11 ได้ 1 ดาว, 12–20 ได้ 2 ดาว, 21 ขึ้นไปได้ 4 ดาว ไม่นับโบนัส จากนั้นเก็บของได้ 5 ชิ้นในวันแรก และ 10 ชิ้นในวันที่สอง</li><li>รอบ 7 เสิร์ฟ 7 คอร์สตามชนิดวัตถุดิบ ปกติคอร์สละ 1 ชิ้น ไม่ใช้ซุป ตรวจความสามารถผู้วิจารณ์และข่าวลือก่อนเสิร์ฟ</li><li>รวมดาว Challenge, Best of Course, ข่าวลือ, โบนัส และดาวคุณภาพมื้อสุดท้าย ดาวเสมอดูคุณภาพ แล้วลำดับหมวก</li></ol><p>ข่าวลือและของในครัวซ่อนจากคนอื่น การเปลี่ยนรูปแบบหน้าจอไม่เปลี่ยนสิทธิ์ของคุณ ผู้เล่นหลุดให้กลับด้วยบัญชีหรือเซสชันเดิม เกมรอการเลือกของเจ้าของเชฟ ไม่ให้จอกลางเล่นแทน</p><a href="https://cardboardalchemy.com/downloads/CritterKitchen_Rulebook.pdf" target="_blank" rel="noreferrer">คู่มือภาคหลักจากผู้จัดพิมพ์</a>`;
     const menuInformation=`<div class="ck-priority" aria-label="ลำดับหมวก">${v.priority.map((id, i) => { const p = v.players.find(p => p.id === id)!; return `<span class="${id === v.turn ? 'active' : ''}">${avatar(p)}<b>${hat(v.players.findIndex(x=>x.id===p.id),i)}${i + 1}. ${esc(p.name)}</b><small>${p.stars} ดาว ${p.committed ? '· ยืนยันแล้ว' : ''}</small></span>`; }).join('')}</div><details class="ck-log"><summary>เหตุการณ์ล่าสุด / กติกาที่ใช้</summary><ol>${v.log.slice(-15).map(l => `<li>${esc(l)}</li>`).join('')}</ol><p>ภาคหลัก 2–5 คน · ข้อวินิจฉัยเว็บ: คอร์สว่างไม่ได้ Best of Course และต้องเสิร์ฟอย่างน้อย 1 คอร์สจึงรับ Nocturnal/Odd Tastes</p></details><section class="ck-turn-guide" aria-label="ขั้นตอนการเล่น"><div class="ck-rounds" aria-label="รอบที่ ${v.round} จาก 7">${Array.from({length:7},(_,i)=>`<span class="${i+1===v.round?'current':i+1<v.round?'done':''}" ${i+1===v.round?'aria-current="step"':''}>${i+1}<small>${i===2||i===5?'ปรุง':i===6?'มื้อสุดท้าย':''}</small></span>`).join('')}</div><h2>${esc(status)}</h2><p>${guidance[v.phase]??''}</p><ol class="ck-phase-steps" ${v.phase==='restaurateurs'||v.phase==='finished'?'hidden':''}>${phaseSteps.map((step,i)=>`<li class="${(v.phase==='planning'?0:v.phase==='shopping'||v.phase==='running'?1:v.phase==='refrigeration'?3:2)===i?'current':''}">${i+1}. ${step}</li>`).join('')}</ol></section>`;
-    patchHTML(root, `<div class="ck-root ${displayMode==='shared-table'?'ck-shared':''} ${showBoard ? 'show-board' : ''} ${me ? 'has-player' : 'display-only'}" data-mode="${displayMode}" data-workspace="${tab==='information'?'information':waitingForOpponent?'kitchen':tab}" data-waiting="${waitingForOpponent}" data-passive-wait="${submitted||v.phase==='refrigeration'&&!!mine?.fridgeReady}" data-phase="${v.phase}">${ckSky}<header class="ck-title"><h1 class="sr-only">Critter Kitchen</h1><span class="ck-round-badge" aria-label="รอบที่ ${v.round} จาก 7">รอบที่ ${v.round}/7</span><strong>${esc(status)}</strong></header><button id="ck-help-button" aria-label="วิธีเล่นและการนับคะแนน" title="วิธีเล่นและการนับคะแนน">${ckIcon('help')}</button><details class="ck-menu"><summary aria-label="เมนูเกม">${ckIcon('menu')}</summary><div class="ck-menu-panel"><header><b>เมนูครัว</b><button id="ck-menu-close" aria-label="ปิดเมนู">×</button></header><label>รูปแบบหน้าจอ<select id="ck-mode"><option value="shared-table" ${displayMode === 'shared-table' ? 'selected' : ''}>โต๊ะกลาง</option><option value="full-mobile" ${displayMode === 'full-mobile' ? 'selected' : ''}>เล่นบนมือถือ</option></select></label>${me?'':`<details class="ck-menu-cards"><summary>ผู้วิจารณ์ เป้าหมาย และข่าวลือ</summary>${publicInformation}</details>`}${playerInformation}${menuInformation}<a href="/">เลือกเกมอื่น</a></div></details>${me && v.phase!=='running'&&v.phase!=='finished' ? `<div class="ck-workspace-heading"><h2>${tab==='information'?'ผู้วิจารณ์และเป้าหมาย':processTitle[v.phase]??'ออกตลาด'}</h2><nav class="ck-tabs" aria-label="มุมมองเกม">${btn(ckIcon('home'),`data-tab="kitchen" aria-label="ครัวของคุณ" title="ครัวของคุณ" aria-pressed="${tab==='kitchen'}"`)}${btn(ckIcon('market'),`data-tab="board" aria-label="ตลาดกลาง" title="ตลาดกลาง" ${v.phase==='shopping'?'disabled':''} aria-pressed="${tab==='board'}"`)}${btn(ckIcon('cards'),`data-tab="information" aria-label="ผู้วิจารณ์ เป้าหมาย และข่าวลือ" title="ผู้วิจารณ์ เป้าหมาย และข่าวลือ" aria-pressed="${tab==='information'}"`)}${v.phase==='shopping'&&isTarget&&legal('ck-leave')?btn(ckIcon('logout'),'class="ck-return-home" data-action="ck-leave" aria-label="กลับบ้าน" title="กลับบ้าน"',blocked):''}</nav></div>` : ''}${referenceInformation}<div class="ck-layout"><section class="ck-board" style="--board:url('/art/critter-kitchen/board-${v.config.id}.webp')" ${!showBoard ? 'hidden' : ''}>${publicInformation}<div class="ck-market">${v.config.locations.map(l => locationMarkup(l)).join('')}</div></section><div class="ck-private" ${!action && !me ? 'hidden' : ''}>${action ? `<section class="ck-action" id="ck-action">${action}</section>` : ''}${me&&v.phase!=='finished' ? `<section class="ck-kitchen" aria-label="ครัวของคุณ" data-pane="${v.phase==='planning'?'stock':pantryView}"><header class="ck-pantry-heading"><h2>ครัวของคุณ <span class="ck-pantry-total">(${me.storage.length+me.soup+me.bisque} อย่าง)</span></h2><nav aria-label="ดูของในครัว"><button type="button" data-pantry="stock" aria-label="วัตถุดิบ" title="วัตถุดิบ" aria-pressed="${pantryView==='stock'}">${ckIcon('supplies')}</button><button type="button" data-pantry="cards" aria-label="การ์ดของคุณ" title="การ์ดของคุณ" aria-pressed="${pantryView==='cards'}">${ckIcon('cards')}</button></nav></header><div class="ck-pantry-stock"><div class="ck-pantry-rail"><div class="ck-inventory">${(['soup','bisque'] as const).map(kind=>`<button type="button" class="ck-inspect-token ck-broth-card ${me[kind]?'':'ck-stock-empty'}" data-token-detail="${kind}" aria-label="ดูรายละเอียด${kind==='soup'?'ซุป':'บิสก์'} ${me[kind]} ชิ้น">${token(kind)}<span class="ck-pantry-quantity" ${me[kind]<2?'hidden':''}>×${me[kind]}</span></button>`).join('')}${groupIngredients([...me.storage].sort(pantryOrder)).map(group=>`<button type="button" class="ck-inspect-token" data-token-detail="${group.id}" data-ui-key="inventory-${group.key}" aria-label="ดู ${esc(label(group.id))}${TOKEN[group.id]?.kind==='ingredient'?' '+group.ids.length+' ชิ้น':''}">${token(group.id)}${TOKEN[group.id]?.kind==='ingredient'?`<span class="ck-pantry-quantity ck-ingredient-stock-quantity" ${group.ids.length<2?'hidden':''}>×${group.ids.length}</span>`:''}</button>`).join('')}</div></div></div><div class="ck-pantry-cards"><div class="ck-private-rumors">${me.known.map((id, i) => id ? card('rumor', id, true, true, `ข่าวลือ ใบที่ ${i+1}`) : `<span class="ck-unknown-card" aria-label="ยังไม่รู้ข่าวลือ ${i+1}">${art('back-rumor')}<strong>ข่าวลือ ใบที่ ${i+1}</strong></span>`).join('')}${me.extraRumor ? card('rumor', me.extraRumor, true, true, 'ข่าวลือพิเศษ') : ''}</div>${mine?.restaurateur ? card('restaurateur', mine.restaurateur, true) : ''}${mine?.activeSous ? card('sous', mine.activeSous, true) : ''}${mine?.nextSous ? `${card('sous', mine.nextSous, true)}` : ''}</div></section>` : ''}</div></div><div id="ck-dialog-slot" data-preserve-content></div></div>`);
+    patchHTML(root, `<div class="ck-root ${displayMode==='shared-table'?'ck-shared':''} ${showBoard ? 'show-board' : ''} ${me ? 'has-player' : 'display-only ck-display-screen'}" data-mode="${displayMode}" data-workspace="${tab==='information'?'information':waitingForOpponent?'kitchen':tab}" data-waiting="${waitingForOpponent}" data-passive-wait="${submitted||v.phase==='refrigeration'&&!!mine?.fridgeReady}" data-phase="${v.phase}">${ckSky}<header class="ck-title"><h1 class="sr-only">Critter Kitchen</h1>${!me?`<span class="ck-round-badge" aria-label="รอบที่ ${v.round} จาก 7">รอบที่ ${v.round}/7</span>`:''}<strong>${esc(me?status:displayPhase[v.phase])}</strong></header><button id="ck-help-button" aria-label="วิธีเล่นและการนับคะแนน" title="วิธีเล่นและการนับคะแนน">${ckIcon('help')}</button><details class="ck-menu"><summary aria-label="เมนูเกม">${ckIcon('menu')}</summary><div class="ck-menu-panel"><header><b>เมนูครัว</b><button id="ck-menu-close" aria-label="ปิดเมนู">×</button></header><label>รูปแบบหน้าจอ<select id="ck-mode"><option value="shared-table" ${displayMode === 'shared-table' ? 'selected' : ''}>โต๊ะกลาง</option><option value="full-mobile" ${displayMode === 'full-mobile' ? 'selected' : ''}>เล่นบนมือถือ</option></select></label>${me?'':`<details class="ck-menu-cards"><summary>ผู้วิจารณ์ เป้าหมาย และข่าวลือ</summary>${publicInformation}</details>`}${playerInformation}${menuInformation}<a href="/">เลือกเกมอื่น</a></div></details>${me && v.phase!=='running'&&v.phase!=='finished' ? `<div class="ck-workspace-heading"><h2 class="ck-stage-heading"><span class="ck-stage-round" aria-label="รอบที่ ${v.round} จาก 7">รอบที่ ${v.round}/7</span><span class="ck-stage-name">${tab==='information'?'ผู้วิจารณ์และเป้าหมาย':processTitle[v.phase]??'ออกตลาด'}</span></h2><nav class="ck-tabs" aria-label="มุมมองเกม">${btn(ckIcon('home'),`data-tab="kitchen" aria-label="ครัวของคุณ" title="ครัวของคุณ" aria-pressed="${tab==='kitchen'}"`)}${btn(ckIcon('market'),`data-tab="board" aria-label="ตลาดกลาง" title="ตลาดกลาง" ${v.phase==='shopping'?'disabled':''} aria-pressed="${tab==='board'}"`)}${btn(ckIcon('cards'),`data-tab="information" aria-label="ผู้วิจารณ์ เป้าหมาย และข่าวลือ" title="ผู้วิจารณ์ เป้าหมาย และข่าวลือ" aria-pressed="${tab==='information'}"`)}${v.phase==='shopping'&&isTarget&&legal('ck-leave')?btn(ckIcon('logout'),'class="ck-return-home" data-action="ck-leave" aria-label="กลับบ้าน" title="กลับบ้าน"',blocked):''}</nav></div>` : ''}${!me?displayDashboard(v,{art,token,label,icon:ckIcon},action,host,blocked):`${referenceInformation}<div class="ck-layout"><section class="ck-board" style="--board:url('/art/critter-kitchen/board-${v.config.id}.webp')" ${!showBoard ? 'hidden' : ''}>${publicInformation}<div class="ck-market">${v.config.locations.map(l => locationMarkup(l)).join('')}</div></section><div class="ck-private" ${!action && !me ? 'hidden' : ''}>${action ? `<section class="ck-action" id="ck-action">${action}</section>` : ''}${me&&v.phase!=='finished' ? `<section class="ck-kitchen" aria-label="ครัวของคุณ" data-pane="${v.phase==='planning'?'stock':pantryView}"><header class="ck-pantry-heading"><h2>ครัวของคุณ <span class="ck-pantry-total">(${me.storage.length+me.soup+me.bisque} อย่าง)</span></h2><nav aria-label="ดูของในครัว"><button type="button" data-pantry="stock" aria-label="วัตถุดิบ" title="วัตถุดิบ" aria-pressed="${pantryView==='stock'}">${ckIcon('supplies')}</button><button type="button" data-pantry="cards" aria-label="การ์ดของคุณ" title="การ์ดของคุณ" aria-pressed="${pantryView==='cards'}">${ckIcon('cards')}</button></nav></header><div class="ck-pantry-stock"><div class="ck-pantry-rail"><div class="ck-inventory">${(['soup','bisque'] as const).map(kind=>`<button type="button" class="ck-inspect-token ck-broth-card ${me[kind]?'':'ck-stock-empty'}" data-token-detail="${kind}" aria-label="ดูรายละเอียด${kind==='soup'?'ซุป':'บิสก์'} ${me[kind]} ชิ้น">${token(kind)}<span class="ck-pantry-quantity" ${me[kind]<2?'hidden':''}>×${me[kind]}</span></button>`).join('')}${groupIngredients([...me.storage].sort(pantryOrder)).map(group=>`<button type="button" class="ck-inspect-token" data-token-detail="${group.id}" data-ui-key="inventory-${group.key}" aria-label="ดู ${esc(label(group.id))}${TOKEN[group.id]?.kind==='ingredient'?' '+group.ids.length+' ชิ้น':''}">${token(group.id)}${TOKEN[group.id]?.kind==='ingredient'?`<span class="ck-pantry-quantity ck-ingredient-stock-quantity" ${group.ids.length<2?'hidden':''}>×${group.ids.length}</span>`:''}</button>`).join('')}</div></div></div><div class="ck-pantry-cards"><div class="ck-private-rumors">${me.known.map((id, i) => id ? card('rumor', id, true, true, `ข่าวลือ ใบที่ ${i+1}`) : `<span class="ck-unknown-card" aria-label="ยังไม่รู้ข่าวลือ ${i+1}">${art('back-rumor')}<strong>ข่าวลือ ใบที่ ${i+1}</strong></span>`).join('')}${me.extraRumor ? card('rumor', me.extraRumor, true, true, 'ข่าวลือพิเศษ') : ''}</div>${mine?.restaurateur ? card('restaurateur', mine.restaurateur, true) : ''}${mine?.activeSous ? card('sous', mine.activeSous, true) : ''}${mine?.nextSous ? `${card('sous', mine.nextSous, true)}` : ''}</div></section>` : ''}</div></div>`}<div id="ck-dialog-slot" data-preserve-content></div></div>`);
     if(existingFrame){
         const frame=root.querySelector<HTMLElement>('.ck-root')!;
         for(const [name,value] of planningStyles)if(value)frame.style.setProperty(name,value);
         const rail=frame.querySelector<HTMLElement>('.ck-kitchen .ck-inventory');if(rail&&planningScroll!==undefined)rail.scrollLeft=planningScroll;
+    }
+    for(const {node,left,values} of displayStocks)if(node.isConnected){for(const [name,value] of values)node.style.setProperty(name,value);node.scrollLeft=left;}
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)for(const node of root.querySelectorAll<HTMLElement>('[data-priority-player]')){
+        const before=displayPositions.get(node.dataset.priorityPlayer!),after=node.getBoundingClientRect();
+        if(before&&Math.abs(before.top-after.top)>1)node.animate([{transform:`translateY(${before.top-after.top}px)`},{transform:'translateY(0)'}],{duration:550,easing:'cubic-bezier(.2,.8,.2,1)'});
     }
     // Retain fitted widths before layout can clamp a scrolled rail during a draft update.
     for(const {node,values} of cookingSizes)if(node.isConnected)for(const [name,value] of values)node.style.setProperty(name,value);
@@ -355,6 +367,7 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
     resourceRails?.disconnect();
     resourceRails=new ResizeObserver(entries=>{for(const entry of entries){
         const rail=entry.target as HTMLElement,style=getComputedStyle(rail);
+        if(rail.classList.contains('ck-d-stock')){fitDisplayStocks([rail]);const left=displayScroll.get(rail);if(left!==undefined){rail.scrollLeft=left;displayScroll.delete(rail);}continue;}
         if(rail.matches('.ck-final-cooking .ck-cook-source')){
             // Four physical ingredients per row; reserve controls before fitting the faces.
             const rows=Math.max(1,Math.ceil(rail.children.length/4));
@@ -367,15 +380,14 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
             continue;
         }
         if(rail.classList.contains('ck-route-stock')){
-            const count=rail.children.length,available=(rail.parentElement?.clientWidth??0)-parseFloat(style.left)-5,gap=7;
+            const count=rail.children.length,outer=(rail.parentElement?.clientWidth??0)-parseFloat(style.left),available=outer-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight),gap=7;
             if(!count||available<=0)continue;
             const preferred=Math.max(32,Math.min(44,rail.clientHeight-12));
             const rows=1,columns=count;
-            const overflow=columns>6||columns*(preferred+gap)-gap>available;
-            const visible=Math.max(1,Math.min(6,Math.floor((available+gap)/(preferred+gap)-.4)));
-            const windowWidth=overflow?Math.min(available,(visible+.4)*preferred+visible*gap):available;
-            const size=overflow?(windowWidth-gap*visible)/(visible+.4):preferred;
-            rail.style.width=`${windowWidth+5}px`;
+            const overflow=columns*(preferred+gap)-gap>available;
+            const visible=Math.max(1,Math.ceil((available+gap)/(preferred+gap)-.4));
+            const size=overflow?(available-gap*visible)/(visible+.4):preferred;
+            rail.style.width=`${outer}px`;
             rail.style.setProperty('--ck-route-circle',`${size}px`);
             rail.style.gridTemplateColumns=`repeat(${columns},${size}px)`;
             rail.style.gridTemplateRows=`repeat(${rows},${size+4}px)`;
@@ -400,7 +412,7 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
         }
         if(rail.classList.contains('ck-market-stock')){
             const available=rail.clientWidth-16,gap=6;if(available<=0)continue;
-            const height=rail.querySelector('.ck-resource-card')?.getBoundingClientRect().height??114;
+            const height=rail.querySelector('.ck-token')?.getBoundingClientRect().height??114;
             const preferred=Math.min(72,height*.66);
             // Fit a partial next card without widening faces beyond their portrait proportions.
             const count=Math.max(1,Math.ceil((available+gap)/(preferred+gap)-.4));
@@ -408,11 +420,14 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
         }
         if(rail.classList.contains('ck-pantry-cards')){
             const pantry=rail.closest<HTMLElement>('.ck-kitchen')!,pantryStyle=getComputedStyle(pantry);
-            const available=pantry.clientWidth-parseFloat(pantryStyle.paddingLeft)-parseFloat(pantryStyle.paddingRight),leading=parseFloat(style.paddingLeft),gap=10;
+            const available=pantry.clientWidth-parseFloat(pantryStyle.paddingLeft)-parseFloat(pantryStyle.paddingRight),leading=parseFloat(style.paddingLeft),trailing=parseFloat(style.paddingRight),gap=10;
             if(available<=0)continue;
-            const width=Math.min(160,(root.clientWidth-42)/3),count=Math.max(1,Math.floor((available-leading+gap)/(width+gap)-.4));
-            rail.style.setProperty('--ck-private-card-width',`${width}px`);
-            rail.style.setProperty('--ck-pantry-card-window',`${Math.min(available,leading+(count+.4)*width+count*gap)}px`);continue;
+            const preferred=Math.min(160,(root.clientWidth-42)/3),track=available-leading-trailing;
+            const count=Math.max(1,Math.ceil((track+gap)/(preferred+gap)-.4));
+            const cards=rail.querySelectorAll('.ck-card,.ck-unknown-card').length;
+            const overflow=cards*preferred+Math.max(0,cards-1)*gap>track;
+            const width=overflow?(available-leading-gap*count)/(count+.4):preferred;
+            rail.style.setProperty('--ck-private-card-width',`${width}px`);continue;
         }
         if(v.phase==='planning'&&tab==='kitchen'&&rail.matches('.ck-kitchen .ck-inventory')){
             const frame=root.querySelector<HTMLElement>('.ck-root')!,count=v.config.locations.length;
@@ -436,7 +451,7 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
     }
     if(entries.some(entry=>(entry.target as HTMLElement).classList.contains('ck-cook-source'))){restoreCookingScroll();cookingScroll=[];}
     });
-    root.querySelectorAll<HTMLElement>('.ck-route-stock,.ck-picks,.ck-market-stock,.ck-cook-source,.ck-pantry-rail>.ck-inventory,.ck-pantry-cards,.ck-results-rail').forEach(rail=>resourceRails!.observe(rail));
+    root.querySelectorAll<HTMLElement>('.ck-d-stock,.ck-route-stock,.ck-picks,.ck-market-stock,.ck-cook-source,.ck-pantry-rail>.ck-inventory,.ck-pantry-cards,.ck-results-rail').forEach(rail=>resourceRails!.observe(rail));
     const bind = (selector: string, fn: (el: HTMLElement, event:MouseEvent) => void) => root.querySelectorAll<HTMLElement>(selector).forEach(el => el.onclick = event => { if(el instanceof HTMLButtonElement && el.disabled)return;fn(el,event); });
     bind('#ck-help-button',()=>{detail='help';locationDetail='';showDialog();});
     bind('[data-pantry]',el=>{pantryView=el.dataset.pantry!;rerender();});
@@ -487,7 +502,7 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
     bind('[data-pick]',el=>{dismissChoice();detail=el.dataset.pick!.startsWith('zous:')?'chef:'+el.dataset.pick!.slice(5):'token:'+el.dataset.pick!;locationDetail='';showDialog();});
     bind('[data-buy]',el=>{const id=el.dataset.buy!;if(blocked||!isTarget||!me?.choices.includes(id))return;confirmAction('ยืนยันหยิบ '+label(id)+'?',`${id.startsWith('zous:')?`<div class="ck-buy-chef-preview">${token(id,true)}</div><p>${esc(ZOU[id.slice(5)]?.text??'')}</p>`:`<div class="ck-token-preview">${token(id,true)}</div>`}<p>${id.startsWith('zous:')?'เชฟเสริมที่รับตอนนี้จะมาช่วยในรอบถัดไป 1 รอบ เมื่อจบรอบนั้นจะออกจากทีม':'รับของชิ้นนี้แล้วดำเนินคิวเชฟต่อ'}</p>`,{type:'ck-pick',item:id});});
     bind('[data-rumor],[data-rumor-buy]',el=>{const index=Number(el.dataset.rumor??el.dataset.rumorBuy);if(blocked||!isTarget||!me?.rumorChoices.includes(index))return;confirmAction('ยืนยันเลือกข่าวลือ '+(index+1)+'?',`<div class="ck-rumor-confirm">${art('back-rumor')}<span class="ck-rumor-caption"><strong>ข่าวลือ ${index+1}</strong></span></div><p>เปิดอ่านได้เฉพาะคุณ จนถึงเวลาที่กติกาให้เปิดเผย</p>`,{type:'ck-rumor',index});});
-    bind('[data-reward]', el => confirmAction('ยืนยันรางวัลปลอบใจ?',`<p>${el.dataset.reward==='soup'?'รับซุป 1 เข้าครัว':el.dataset.reward==='bag'?'รับของสุ่ม 1 ชิ้นจากถุง':'กลับครัวโดยไม่รับรางวัล'}</p>`,{ type: 'ck-consolation', reward: el.dataset.reward as 'soup' | 'bag' | 'skip' }));
+    bind('[data-reward]', el => {const reward=el.dataset.reward as 'soup'|'bag'|'skip';confirmAction(reward==='soup'?'รับซุปกลับครัว?':reward==='bag'?'รับของสุ่มกลับครัว?':'กลับครัวโดยไม่รับของ?',`${reward==='soup'?`<div class="ck-token-preview ck-reward-preview">${token('soup',true)}</div>`:reward==='bag'?`<div class="ck-reward-preview ck-reward-bag-art">${art('mystery-midnight-parcel','',true)}</div>`:''}<p>${reward==='soup'?'เพิ่มซุป 1 ถ้วยในครัว เก็บไว้ใช้ตอนเสิร์ฟอาหาร':reward==='bag'?'รับของสุ่ม 1 ชิ้นจากถุงตามความสามารถเจ้าของร้าน':'เชฟกลับครัวโดยไม่รับรางวัล'}</p>`,{type:'ck-consolation',reward});});
     bind('[data-plate]', el => { plate = Number(el.dataset.plate); rerender(); });
     bind('[data-add]', el => { const id = el.dataset.add!;if(meals.some(m=>m.items.some(a=>a.token===id)))return; meals[plate].items.push({ token: id, as: TOKEN[id].food as Food });if(v.phase==='critic')course=TOKEN[id].food as Food;rerender(); });
     bind('[data-remove-broth]',el=>{const kind=el.dataset.removeBroth as 'soup'|'bisque';if(meals[plate][kind]>0)meals[plate][kind]--;rerender();});
@@ -531,11 +546,12 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
         const slot = root.querySelector('#ck-dialog-slot')!;
         let body = '';
         const final = v.phase === 'finished' && v.resultsRevealed!==false && !resultClosed && !detail && !locationDetail;
+        const ceremony=final&&!!v.finalReveal&&!v.finalReveal.complete;
         if(detail==='help')body=`<h2>วิธีเล่นและการนับคะแนน</h2>${rulesContent}`;
         else if (detail) {
             const [kind, ...parts] = detail.split(':');const id=parts.join(':');
             const t=TOKEN[id];
-            body = kind==='chef'?`<article class="ck-card ck-chef-detail">${art((ZOU[id]?'sous-':'chef-')+id,'',true)}<div class="ck-chef-description"><strong>${esc(chefName(id))}</strong><span>ถือได้ ${chefData(id)?.capacity} ชิ้น</span><p>${ZOU[id]?esc(ZOU[id].text):'ที่แต่ละสถานที่ เชฟที่ถือของได้น้อยกว่าจะหยิบก่อน หากถือได้เท่ากัน ผู้ที่มีหมวกอยู่ข้างหน้าจะได้หยิบก่อน แล้วเวียนหยิบกันครั้งละ 1 ชิ้น จนเชฟถือของครบหรือไม่มีของให้เลือก'}</p></div></article>`:kind==='token'?`<div class="ck-token-preview">${token(id,true)}</div><h2>${esc(label(id))}</h2><p>${t?.kind==='ingredient'?'ตัวเลขคือคุณภาพวัตถุดิบ ใช้ปรุง Challenge หรือเสิร์ฟเป็นคอร์สชนิดนี้ในมื้อสุดท้าย ตรวจเงื่อนไขผู้วิจารณ์ก่อนปรุง':t?.kind==='spice'?'ปกติใช้กับวัตถุดิบชนิดที่ตรงกันเพื่อคูณคุณภาพ 2 เท่า เครื่องเทศรวมใช้แทนชนิดใดก็ได้ ตรวจความสามารถพิเศษประกอบ':t?.kind==='rumor'?'หยิบโทเคนนี้เพื่อเปิดอ่านข่าวลือตามหมายเลขเป็นการส่วนตัว หากเป็นโทเคนเลือกข่าวลือ คุณเลือกอ่านได้ 1 ใบที่ยังไม่รู้ เมื่อจบเกม ข่าวลือจะเปิดให้ทุกคนเห็น และใช้คิดคะแนนให้ผู้เล่นทุกคน แม้คนที่ไม่เคยอ่านมาก่อน':id==='soup'||id==='bisque'?'ใช้เพิ่มคุณภาพหรือแทนชนิดวัตถุดิบที่ขาดใน Challenge ได้ ซุปให้คุณภาพ 1 บิสก์ให้ 3 ซุปและบิสก์ไม่กินที่ตู้เย็น':id.startsWith('zous:')?esc(ZOU[id.slice(5)]?.text??''):'ชิ้นส่วนพิเศษสำหรับครัวของคุณ'}</p>`:card(kind, id, false, false) + `<p>${kind === 'challenge' ? CHALLENGE[id]?.foods.map(f => FOOD_NAMES[f]).join(' + ') : ''}</p>`;
+            body = kind==='chef'?`<article class="ck-reference-detail ck-chef-detail">${art((ZOU[id]?'sous-':'chef-')+id,'',true)}<h2>${esc(chefName(id))}</h2><div class="ck-reference-detail-caption ck-chef-description"><span>ถือได้ ${chefData(id)?.capacity} ชิ้น</span><p>${ZOU[id]?esc(ZOU[id].text):'ที่แต่ละสถานที่ เชฟที่ถือของได้น้อยกว่าจะหยิบก่อน หากถือได้เท่ากัน ผู้ที่มีหมวกอยู่ข้างหน้าจะได้หยิบก่อน แล้วเวียนหยิบกันครั้งละ 1 ชิ้น จนเชฟถือของครบหรือไม่มีของให้เลือก'}</p></div></article>`:kind==='token'?`<div class="ck-token-preview">${token(id,true)}</div><h2>${esc(label(id))}</h2><p>${t?.kind==='ingredient'?'ตัวเลขคือคุณภาพวัตถุดิบ ใช้ปรุง Challenge หรือเสิร์ฟเป็นคอร์สชนิดนี้ในมื้อสุดท้าย ตรวจเงื่อนไขผู้วิจารณ์ก่อนปรุง':t?.kind==='spice'?'ปกติใช้กับวัตถุดิบชนิดที่ตรงกันเพื่อคูณคุณภาพ 2 เท่า เครื่องเทศรวมใช้แทนชนิดใดก็ได้ ตรวจความสามารถพิเศษประกอบ':t?.kind==='rumor'?'หยิบโทเคนนี้เพื่อเปิดอ่านข่าวลือตามหมายเลขเป็นการส่วนตัว หากเป็นโทเคนเลือกข่าวลือ คุณเลือกอ่านได้ 1 ใบที่ยังไม่รู้ เมื่อจบเกม ข่าวลือจะเปิดให้ทุกคนเห็น และใช้คิดคะแนนให้ผู้เล่นทุกคน แม้คนที่ไม่เคยอ่านมาก่อน':id==='soup'||id==='bisque'?'ใช้เพิ่มคุณภาพหรือแทนชนิดวัตถุดิบที่ขาดใน Challenge ได้ ซุปให้คุณภาพ 1 บิสก์ให้ 3 ซุปและบิสก์ไม่กินที่ตู้เย็น':id.startsWith('zous:')?esc(ZOU[id.slice(5)]?.text??''):'ชิ้นส่วนพิเศษสำหรับครัวของคุณ'}</p>`:card(kind, id, false, false) + `<p>${kind === 'challenge' ? CHALLENGE[id]?.foods.map(f => FOOD_NAMES[f]).join(' + ') : ''}</p>`;
             if(kind==='challenge'&&CHALLENGE[id]){
                 const challenge=CHALLENGE[id],held=v.challenges.some(c=>c.id===id&&c.held);
                 body=`<article class="ck-reference-detail ck-challenge-detail ${held?'ck-challenge-held':''}">${art('challenge-'+id,'',true)}<h2>${esc(challenge.name)}</h2><div class="ck-reference-detail-caption">${held?'<p>ไม่ใช้วัตถุดิบชนิดขวาสุด</p>':''}<div class="ck-challenge-detail-foods">${challenge.foods.map((food,index)=>`<span><span class="ck-food-circle ${held&&index===challenge.foods.length-1?'ck-omitted-food':''}">${art('ingredient-'+food)}${held&&index===challenge.foods.length-1?ckIcon('close'):''}</span><strong>${FOOD_NAMES[food]}</strong></span>`).join('')}</div></div></article>`;
@@ -551,19 +567,21 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
                 body = locationMarkup(loc, true);
         }
         else if (final)
-            body=`<div class="ck-final-hero">${art('results','ck-result-art',true)}<h2><span>ผลการแข่งขัน</span></h2></div>${finalResults(v,me?.id)}<div class="ck-final-actions">${btn('ข้ามการนับ','id="ck-skip-count"')}${host||me?.canManage?btn('เริ่มเล่นใหม่','id="ck-result-restart"',blocked):''}</div>`;
+            body=ceremony?finalRevealMarkup(v,!!me||host,blocked):`<div class="ck-final-hero">${art('results','ck-result-art',true)}<h2><span>ผลการแข่งขัน</span></h2></div>${finalResults(v,me?.id)}<div class="ck-final-actions">${host||me?.canManage?btn('เริ่มเล่นใหม่','id="ck-result-restart"',blocked):''}</div>`;
         else
             return;
         const existing = slot.querySelector<HTMLDialogElement>('dialog');
         const dialogKey = detail || (locationDetail ? 'location:' + locationDetail + ':' + v.revision : '') || (final ? 'final:' + v.revision : '');
-        if (existing?.dataset.key === dialogKey)
+        if (existing?.dataset.key === dialogKey){
+            if(ceremony)existing.querySelectorAll<HTMLButtonElement>('[data-final-step],[data-final-skip]').forEach(b=>b.disabled=blocked||!(me||host));
             return;
+        }
         if (existing) {
             existing.close();
             existing.remove();
         }
         const restoreScene=rememberCKScroll(root);
-        slot.innerHTML = `<dialog tabindex="-1" autofocus class="ck-dialog ${detail&&detail!=='help'?'ck-detail-fit':''} ${final?'ck-final-result-dialog':''} ${/^(challenge|critic|rumor):/.test(detail)?'ck-reference-detail-dialog':''}" aria-label="${final ? 'ผลการแข่งขัน' : locationDetail ? 'รายละเอียดสถานที่' : 'รายละเอียดการ์ดและวัตถุดิบ'}" data-key="${esc(dialogKey)}"><button type="button" class="ck-close" aria-label="ปิด">${ckIcon('close')}</button><div class="ck-dialog-body">${body}</div></dialog>`;
+        slot.innerHTML = `<dialog tabindex="-1" autofocus class="ck-dialog ${detail&&detail!=='help'?'ck-detail-fit':''} ${ceremony?'ck-ceremony-dialog':final?'ck-final-result-dialog':''} ${/^(challenge|critic|rumor|chef):/.test(detail)?'ck-reference-detail-dialog':''}" aria-label="${final ? 'ผลการแข่งขัน' : locationDetail ? 'รายละเอียดสถานที่' : 'รายละเอียดการ์ดและวัตถุดิบ'}" data-key="${esc(dialogKey)}"><button type="button" class="ck-close" aria-label="ปิด">${ckIcon('close')}</button><div class="ck-dialog-body">${body}</div></dialog>`;
         const dialog = slot.querySelector<HTMLDialogElement>('dialog')!;
         let stopFitting=()=>{};dialog.addEventListener('close',()=>stopFitting(),{once:true});
         const close = () => { if (final)
@@ -578,9 +596,10 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
         dialog.querySelectorAll<HTMLButtonElement>('[data-pick]').forEach(el=>el.onclick=()=>{const id=el.dataset.pick!;close();detail=id.startsWith('zous:')?'chef:'+id.slice(5):'token:'+id;locationDetail='';showDialog();});
         dialog.querySelector<HTMLButtonElement>('#ck-skip-count')?.addEventListener('click',()=>{resultCount=false;dialog.dispatchEvent(new Event('ck-skip-count'));});
         dialog.querySelector<HTMLButtonElement>('#ck-result-restart')?.addEventListener('click', () => { close(); confirmAction('เริ่มการประลองครัวใหม่?', '<p>เริ่มรอบแรกใหม่ในห้องเดิม</p>', { type: 'restart' }); });
-        dialog.showModal();if(final)stopFitting=fitFinalResultRail(dialog);
+        dialog.showModal();if(final&&!ceremony)stopFitting=fitFinalResultRail(dialog);
         dialog.focus({preventScroll:true});restoreScene();
-        if(final)countResults(dialog,!resultCount);
+        if(ceremony)bindFinalReveal(dialog,v,command,!snapshot&&finalStepChanged);
+        else if(final)countResults(dialog,!!v.finalReveal?.complete||!resultCount);
     }
     if (detail || locationDetail || v.phase === 'finished' && v.resultsRevealed!==false && !resultClosed)
         showDialog();
@@ -601,7 +620,8 @@ export function renderCK(root: HTMLElement, v: CKView, host: boolean, blocked: b
     if(v.phase==='challenge-results'&&v.resultsRevealed!==false){const panel=root.querySelector<HTMLElement>('.ck-round-results');if(panel)countResults(panel);}
     if(v.phase==='finished'&&v.resultsRevealed!==false){const panel=root.querySelector<HTMLElement>('.ck-action>.ck-final-results');if(panel)countResults(panel,!resultCount);}
     if(departing)showCKDeparture();
-    if(newChallenge){dismissChoice();detail='';locationDetail='';root.querySelectorAll<HTMLDialogElement>('.ck-dialog').forEach(d=>{d.close();d.remove();});showCKChallengeReveal(v.challenges[challengeCount-1].id!,challengeCount-1);}
+    if(newChallenge){dismissChoice();detail='';locationDetail='';root.querySelectorAll<HTMLDialogElement>('.ck-dialog').forEach(d=>{d.close();d.remove();});const count=v.challengeReveal!;showCKChallengeReveal(v.challenges[count-1].id!,count-1,me||host?()=>command({type:'ck-continue-planning',round:v.round,challenge:count}):undefined,blocked,snapshot);}
+    lastFinalStep=v.finalReveal?.step??-1;
     lastSequence = v.sequence;
     lastRevision = v.revision;
 }

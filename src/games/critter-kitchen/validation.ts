@@ -1,3 +1,4 @@
+import {finalRevealItems} from './final-reveal.js';
 import {TEAM_COLORS} from './team-colors.js';
 import { TOKENS, TOKEN, BASE_CHEFS, ZOUS, ZOU, CRITICS, CRITIC, CHALLENGES, CHALLENGE, RESTAURATEURS, RESTAURATEUR, RUMORS, RUMOR, SPECIAL_ALLSPICE, boardConfiguration } from './data.js';
 import { chefs } from './engine.js';
@@ -18,6 +19,8 @@ export function validateCKState(s: any): s is CKState {
             return false;
         if (!sameData(s.config,boardConfiguration(s.players.length)) || !integer(s.round, 1, 7) || !integer(s.sequence) || !integer(s.revealed, 0, 6) || !strings(s.priority) || !sameSet(s.priority, s.players.map((p: any) => p.id)) || !CRITIC[s.critic] || !strings(s.bag) || !strings(s.discard))
             return false;
+        if(s.challengeReveal!==undefined&&(!integer(s.challengeReveal,2,6)||s.phase!=='planning'||s.round<2||s.round>6||s.challengeReveal!==s.revealed||s.players.some((p:any)=>p.plan)))return false;
+        if(s.finalRevealStep!==undefined&&(!integer(s.finalRevealStep,0,100)||s.phase!=='finished'))return false;
         if (s.houseRules !== undefined && (!s.houseRules || s.houseRules.emptyCourses !== true))
             return false;
         if (!strings(s.challenges) || s.challenges.length !== 6 || s.challenges.some((id: string) => !CHALLENGE[id]) || !strings(s.rumors) || s.rumors.length !== 3 || s.rumors.some((id: string) => !RUMOR[id]) || !Array.isArray(s.publicRumors) || s.publicRumors.length !== 3 || s.publicRumors.some((x: any) => typeof x !== 'boolean'))
@@ -163,6 +166,8 @@ export function validateCKState(s: any): s is CKState {
             if (best.id !== s.winners[0])
                 return false;
         }
+        // Legacy completed ceremonies included an extra zero-star winner question.
+        if(s.finalRevealStep!==undefined&&s.finalRevealStep>finalRevealItems(s).length*2+2)return false;
         return true;
     }
     catch {

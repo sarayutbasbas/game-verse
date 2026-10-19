@@ -100,9 +100,9 @@ test('Critter Kitchen real WS: mixed presentation, private simultaneous commitme
             assert.equal((await phones[i].command({ type: 'ck-plan', epoch: phones[i].view.me!.epoch, plan }, rev)).ok, true);
         await host.send({ type: 'sync' }, 'state');
         assert.equal(host.view.phase, 'running');
-        assert.ok(host.view.players.every(p => p.plan));
+        assert.ok(host.view.players.every(p => p.plan===null));assert.deepEqual(host.view.visits,[]);await spectator.send({type:'sync'},'state');assert.ok(spectator.view.players.every(p=>p.plan===null));assert.deepEqual(spectator.view.visits,[]);
         assert.equal((await spectator.send({ type: 'command', id: 'spectator-action-123', revision: host.view.revision, action: { type: 'ck-run' } }, 'error')).type, 'error');
-        assert.equal((await host.command({ type: 'ck-run' })).ok, true);
+        assert.equal((await host.command({ type: 'ck-run' })).ok, true);await host.send({type:'sync'},'state');assert.ok(host.view.players.every(p=>p.plan));assert.equal(host.view.visits.length,9);
         const state = app.rooms.rooms.get(code)!.ck!, index = ids.indexOf(state.pending!.actor), actor = phones[index];
         await actor.send({ type: 'sync' }, 'state');
         const action = actor.view.me!.legal.find(a => a.type === 'ck-pick')!;
@@ -121,6 +121,16 @@ test('Critter Kitchen real WS: mixed presentation, private simultaneous commitme
         assert.equal(host.view.phase, 'shopping');
         assert.deepEqual(app.rooms.rooms.get(code)!.ck, saved);
         assert.equal(phones[index].view.me!.storage.length, saved!.players[index].storage.length);
+        // The next-Challenge gate is shared, persisted and restricted to room members/managers.
+        const random=seeded(422);
+        for(let step=0;app.rooms.rooms.get(code)!.ck!.challengeReveal===undefined&&step<200;step++){
+            const next=botAction(app.rooms.rooms.get(code)!.ck!,random),peer=phones[ids.indexOf(next.actor)];await peer.send({type:'sync'},'state');assert.equal((await peer.command(next.action)).ok,true);
+        }
+        await host.send({type:'sync'},'state');assert.equal(host.view.challengeReveal,2);const pendingStage=structuredClone(app.rooms.rooms.get(code)!.ck),continueAction={type:'ck-continue-planning',round:2,challenge:2};
+        await spectator.send({type:'sync'},'state');assert.equal((await spectator.send({type:'command',id:randomUUID(),revision:host.view.revision,action:continueAction},'error')).type,'error');assert.deepEqual(app.rooms.rooms.get(code)!.ck,pendingStage);
+        await restart();assert.equal(host.view.challengeReveal,2);assert.equal(phones[1].view.challengeReveal,2);const continueRevision=phones[1].view.revision,continueId=randomUUID();assert.equal((await phones[1].command(continueAction,continueRevision,continueId)).ok,true);
+        const continued=structuredClone(app.rooms.rooms.get(code)!.ck);assert.equal(continued!.challengeReveal,undefined);assert.equal(continued!.round,2);assert.equal((await phones[1].command(continueAction,continueRevision,continueId)).ok,true);assert.deepEqual(app.rooms.rooms.get(code)!.ck,continued);assert.equal((await phones[1].command(continueAction,continueRevision)).ok,false);
+        await restart();assert.equal(host.view.challengeReveal,undefined);assert.equal(phones[0].view.challengeReveal,undefined);assert.equal(host.view.round,2);
         for (const peer of peers)
             for (const m of peer.messages.filter(x => x.type === 'state' && x.view.gameId === 'critter-kitchen')) {
                 assert.equal(m.view.bag, undefined);

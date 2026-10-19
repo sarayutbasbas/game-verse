@@ -1597,7 +1597,7 @@ html:has(body.critter-theme){scrollbar-gutter:stable}
 .ck-root.ck-shared.has-player[data-workspace=kitchen]:is([data-phase=planning],[data-phase=shopping]):has(.ck-kitchen[data-pane=cards]),
 .ck-root.has-player[data-workspace=kitchen][data-phase=shopping]:has(.ck-kitchen[data-pane=cards]){grid-template-rows:0 42px minmax(0,1fr) 220px}
 
-.ck-root .ck-kitchen[data-pane=cards] .ck-pantry-cards{width:var(--ck-pantry-card-window,100%);max-width:100%}
+.ck-root .ck-kitchen[data-pane=cards] .ck-pantry-cards{width:100%;max-width:100%;min-width:0}
 .ck-root .ck-pantry-cards .ck-card,.ck-root .ck-pantry-cards .ck-unknown-card{height:calc(var(--ck-private-card-width,100px)*4/3)!important}
 .ck-pantry-cards:after{order:3}
 /* Reserve the whole portrait, including its name, in the pantry card rail. */
@@ -1754,9 +1754,9 @@ html.critter-document,body.critter-theme{overscroll-behavior-y:auto}
 .ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-card:has(.ck-rumor-face)>[data-pick]{display:block;width:100%;height:auto;min-height:0;aspect-ratio:3/4}
 .ck-root.has-player[data-phase=shopping] .ck-picks .ck-token:is(.ck-chef-offer-face,.ck-rumor-face){display:block;width:100%;height:auto;min-height:0;aspect-ratio:3/4;overflow:hidden;border:1px solid #b89d55;border-bottom:4px solid #735e32;border-radius:10px;padding:0;background:#155a61}
 .ck-root.has-player[data-phase=shopping] .ck-picks .ck-token:is(.ck-chef-offer-face,.ck-rumor-face)>.ck-art{display:block;width:100%;height:100%;min-height:0;max-height:none;max-width:none;object-fit:cover;margin:0}
-/* Rumor tokens in the pickup rail match physical ingredient faces exactly. */
-.ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-card:has(.ck-rumor-face)>[data-pick],
-.ck-root.has-player[data-phase=shopping] .ck-picks .ck-token.ck-rumor-face{width:var(--ck-resource-width,72px);height:var(--ck-market-card-height,114px);aspect-ratio:auto;box-sizing:border-box}
+/* All card offers in the pickup rail match physical ingredient faces exactly. */
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-pick-card:has(:is(.ck-rumor-face,.ck-chef-offer-face))>[data-pick],
+.ck-root.has-player[data-phase=shopping] .ck-picks .ck-token:is(.ck-rumor-face,.ck-chef-offer-face){width:var(--ck-resource-width,72px);height:var(--ck-market-card-height,114px);aspect-ratio:auto;box-sizing:border-box}
 .ck-dialog .ck-token-preview .ck-rumor-face{width:auto;height:min(32svh,270px);aspect-ratio:3/4;margin-inline:auto}
 
 /* A newly public Challenge gets a short shared reveal before planning resumes. */
@@ -1800,3 +1800,40 @@ html.critter-document,body.critter-theme{overscroll-behavior-y:auto}
 .ck-reference-detail-dialog .ck-close{z-index:5}
 /* Reserve space for the full ability explanation on short phone screens. */
 @media(max-height:650px){.ck-choice-dialog .ck-buy-chef-preview .ck-token.ck-chef-offer-face{height:min(28svh,220px)}}
+
+/* One round/phase pill in the mobile workspace, rather than a header duplicate. */
+.ck-root.has-player>.ck-workspace-heading>.ck-stage-heading{display:flex;align-items:center;gap:7px;min-width:0;max-width:100%;padding:2px 8px 2px 2px;border:1px solid #d0bd7f;border-radius:24px;background:#174e50;color:#fff5d5;font-size:12px;line-height:1.4}
+.ck-stage-heading>.ck-stage-round{flex:none;border-radius:20px;background:#fff5d5;color:#184e50;padding:4px 8px;font-size:11px;white-space:nowrap}
+.ck-stage-heading>.ck-stage-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:380px){.ck-root.has-player>.ck-workspace-heading>.ck-stage-heading{gap:4px;padding-right:5px;font-size:10px}.ck-stage-heading>.ck-stage-round{padding:4px 5px;font-size:10px}}
+
+.ck-root.has-player[data-phase=planning] .ck-route-planner>.ck-destinations{padding-right:7px}
+.ck-reference-detail-dialog .ck-chef-detail .ck-chef-description{align-items:center;gap:6px;box-sizing:border-box}
+.ck-reference-detail-dialog .ck-chef-description>span{font-size:14px;color:#ffe49a}
+.ck-reference-detail-dialog .ck-chef-detail>.ck-art{border-radius:0;object-fit:cover}
+
+/* Consolation uses the same tactile soup card as the kitchen and its confirmation. */
+.ck-consolation{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;min-height:100%;padding:18px 10px;box-sizing:border-box;text-align:center}
+.ck-consolation>header h2{font-size:20px;line-height:1.4;margin:0 0 5px}
+.ck-consolation>header p{font-size:12px;line-height:1.6;margin:0;color:#42685b}
+.ck-reward-options{display:flex;justify-content:center;align-items:stretch;gap:18px;width:100%}
+.ck-root .ck-reward-option{display:flex;flex-direction:column;align-items:center;gap:12px;width:min(200px,100%);min-width:0;padding:8px 2px;border:0;border-radius:16px;background:none;box-shadow:none}
+.ck-root .ck-reward-option>.ck-token{width:90px;height:142px;flex:none;box-shadow:0 5px 0 #9a722b,0 9px 12px #674e2526}
+.ck-root .ck-reward-option .ck-resource-icon{width:100%;height:100%;max-height:92px}
+.ck-reward-copy{display:flex;flex-direction:column;gap:4px;text-align:center}
+.ck-reward-copy>strong{font-size:16px;color:#155a61;line-height:1.5}
+.ck-reward-copy>small{font-size:11px;font-weight:400;line-height:1.6;color:#42685b}
+.ck-root .ck-reward-skip{display:flex;align-items:center;justify-content:center;gap:7px;padding:6px 12px;background:none;border:0;font-size:12px;color:#42685b}
+.ck-reward-skip>svg{width:20px;height:20px;flex:none}
+.ck-reward-bag-art{display:block;width:90px;height:142px;flex:none;overflow:hidden;border:1px solid #b39159;border-bottom:5px solid #806036;border-radius:12px;box-shadow:0 5px 9px #46352c26}
+.ck-reward-bag-art>.ck-art{display:block;width:100%;height:100%;max-height:none;object-fit:cover;margin:0}
+.ck-choice-preview>.ck-reward-preview{margin-inline:auto}
+.ck-root .ck-choice-preview>.ck-reward-preview~p{text-align:center}
+@media(max-height:650px){.ck-consolation{gap:8px;padding:8px 2px}.ck-consolation>header h2{font-size:16px}.ck-root .ck-reward-option>.ck-token,.ck-reward-bag-art{width:72px;height:114px}.ck-reward-copy>small{font-size:10px}.ck-root .ck-reward-option{gap:8px;padding-block:4px}}
+
+.ck-root .ck-consolation>header{display:block;width:100%;min-height:0;margin:0;padding:0;border:0;background:none;box-shadow:none;text-align:center}
+.ck-root .ck-reward-option .ck-resource-card>img.ck-resource-icon{width:100%;height:100%;max-height:92px}
+@media(max-height:650px){.ck-consolation{gap:6px;padding:4px 2px}.ck-consolation>header h2{font-size:14px;line-height:20px;margin-bottom:2px}.ck-consolation>header p{font-size:10px;line-height:14px}.ck-root .ck-reward-option{gap:4px;padding:0}.ck-root .ck-reward-option>.ck-token,.ck-reward-bag-art{width:60px;height:94px}.ck-reward-copy>strong{font-size:13px;line-height:18px}.ck-reward-copy>small{font-size:10px;line-height:14px}.ck-reward-copy{gap:2px}.ck-root .ck-reward-skip{min-height:28px;padding:2px 6px;font-size:11px}}
+
+.ck-challenge-reveal.is-restored .ck-challenge-flipper{animation:none;transform:rotateY(180deg)}
+.ck-challenge-reveal.is-restored .ck-new-challenge-foods{animation:none}

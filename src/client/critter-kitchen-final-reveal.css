@@ -1,0 +1,135 @@
+.ck-dialog.ck-ceremony-dialog{width:min(1280px,calc(100vw - 24px));height:min(900px,94svh);max-height:94svh;padding:0;overflow:hidden;border:2px solid #c8af70;border-radius:26px;background:linear-gradient(#fff9e9f5,#fff5dff5),url('/art/critter-kitchen/board-standard.webp') center/cover}
+.ck-dialog.ck-ceremony-dialog .ck-dialog-body{height:100%;max-height:none;padding:22px;overflow:hidden;box-sizing:border-box}
+.ck-tally{display:grid;grid-template-rows:auto minmax(100px,.55fr) minmax(0,1.45fr) auto;gap:14px;height:100%;min-height:0;color:#174b4e}
+.ck-ceremony-dialog .ck-tally-heading{display:block;width:100%;box-sizing:border-box;text-align:center;padding:0 40px;border:0;background:none}
+.ck-tally-heading>span{font-size:14px;color:#65785b}
+.ck-ceremony-dialog .ck-tally-heading h2{margin:5px 0 0;font-size:clamp(25px,2.5vw,36px);line-height:1.3;color:#174b4e}
+.ck-tally-question{display:flex;align-items:center;justify-content:center;gap:18px;min-height:0;padding:10px 18px;border:1px solid #d4c18c;border-radius:18px;background:#e8edda99;box-sizing:border-box}
+.ck-tally-question>img{width:auto;height:100%;max-height:130px;max-width:110px;object-fit:contain;border-radius:10px}
+.ck-tally-question>div{max-width:950px;min-width:0;text-align:center}
+.ck-tally-question b{font-size:14px;color:#89723d}
+.ck-ceremony-dialog .ck-tally-question p{font-size:clamp(17px,1.5vw,21px);line-height:1.55;margin:5px 0 0;overflow-wrap:anywhere}
+.ck-tally-symbol{display:grid;place-items:center;flex:none;width:65px;height:65px;color:#d7a237}
+.ck-tally-symbol svg{width:65%;height:65%;filter:drop-shadow(0 3px 1px #8c692c33)}
+.ck-tally-players{display:grid;grid-template-columns:repeat(var(--tally-columns),minmax(0,1fr));grid-auto-rows:minmax(0,1fr);align-content:center;gap:12px;min-height:0;min-width:0}
+.ck-tally-player{position:relative;display:flex;flex-direction:column;align-items:center;align-self:center;width:100%;height:100%;max-height:255px;min-width:0;min-height:0;padding:10px 12px;border:1px solid #b7c5a1;border-radius:18px;background:linear-gradient(150deg,#fffdf4,#e9eedb);box-shadow:0 3px 0 #45695133;text-align:center;box-sizing:border-box}
+.ck-tally-player>header{display:flex;align-items:center;justify-content:center;gap:7px;flex:none;width:100%;padding:0;border:0;background:none}
+.ck-tally-player>header>img{display:block;width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:center 18%;border:2px solid #cbb778}
+.ck-tally-player>header>strong{font-size:20px;line-height:1.3;min-width:0;overflow-wrap:anywhere}
+.ck-tally-award{display:flex;align-items:center;justify-content:center;gap:5px;min-height:30px;margin-top:5px;color:#b77a1e;font-size:26px;font-weight:800;line-height:1.2}
+.ck-tally-award svg{width:26px;height:26px}
+.ck-tally-unanswered{display:grid;place-items:center;width:36px;height:36px;margin:5px 0 0;border:1px solid #d8bd76;border-radius:50%;color:#a47f36;background:#fff2c9;font:800 27px/1 Georgia,serif}
+.ck-ceremony-dialog .ck-tally-evidence{flex:1;min-height:0;margin:6px 0;font-size:16px;line-height:1.45;color:#42615b;overflow-wrap:anywhere}
+.ck-tally-total{display:flex;align-items:center;justify-content:center;gap:6px;flex:none;padding:6px 12px;border-radius:13px;background:#155a61;color:#fff1c4;box-shadow:0 2px 0 #073d4244;min-width:0}
+.ck-tally-total>b{font-size:34px;line-height:1}
+.ck-tally-total>small{font-size:13px;color:#fff8dd}
+.ck-tally-total svg{width:25px;height:25px;color:#ffd970}
+.ck-tally-player.is-winner{border:2px solid #ce9f2c;background:linear-gradient(140deg,#fff4c9,#ffe29b);box-shadow:0 3px 0 #a1733b55}
+.ck-tally-crown{font-size:27px;color:#bd841c}
+.ck-tally-actions{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;border:0;padding:0}
+.ck-root .ck-tally-next,.ck-tally-next{min-height:44px;border:1px solid #156c58;border-radius:26px;padding:8px 23px;background:linear-gradient(#35a575,#197356);color:#fff9dd;font:700 16px 'Noto Sans Thai',sans-serif;box-shadow:0 3px 0 #194c4266;cursor:pointer}
+.ck-ceremony-dialog .ck-tally-skip{min-height:42px;padding:7px 14px;border:1px solid #acb995;border-radius:24px;background:#fffbed;color:#4a6558;font:600 14px 'Noto Sans Thai',sans-serif;cursor:pointer}
+.ck-tally-actions>small{flex:0 0 100%;font-size:12px;text-align:center;color:#67816b}
+.ck-tally-winner{display:flex;flex:0 0 100%;align-items:center;justify-content:center;gap:12px;padding:6px 12px;border-radius:16px;background:linear-gradient(100deg,#fff0ba,#ffe09c,#fff0ba);border:1px solid #d4ac54;box-sizing:border-box;animation:ck-tally-champion .5s 1.25s both}
+.ck-tally-winner>span{font-size:38px;line-height:1;color:#b98012}
+.ck-tally-winner>div{display:flex;flex-direction:column;min-width:0}
+.ck-tally-winner small{font-size:13px;color:#796328}
+.ck-tally-winner strong{font-size:24px;line-height:1.3;color:#164f49}
+.ck-tally-winner>b{display:flex;align-items:center;gap:4px;font-size:28px;color:#9a6017}
+.ck-tally-winner svg{width:25px;height:25px}
+@keyframes ck-tally-champion{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ck-tally-flying-star{position:absolute;width:24px;height:24px;color:#e3a923;z-index:4;pointer-events:none;filter:drop-shadow(0 1px 2px #8a641b66)}
+.ck-tally-next:focus-visible,.ck-tally-skip:focus-visible{outline:3px solid #bc5632;outline-offset:3px}
+@media(max-width:700px){
+ .ck-dialog.ck-ceremony-dialog{width:calc(100vw - 10px);height:94svh;border-radius:19px}
+ .ck-dialog.ck-ceremony-dialog .ck-dialog-body{padding:14px 8px}
+ .ck-tally{gap:8px;grid-template-rows:auto minmax(125px,.8fr) minmax(0,1.2fr) auto}
+ .ck-ceremony-dialog .ck-tally-heading{padding:0 30px 0 5px}
+ .ck-tally-heading>span{font-size:12px}
+ .ck-ceremony-dialog .ck-tally-heading h2{font-size:22px}
+ .ck-tally-question{gap:8px;padding:8px}
+ .ck-tally-question>img{max-width:40px;max-height:65px}
+ .ck-tally-question.is-long-rule>img,.ck-tally-question.is-long-rule>.ck-tally-symbol{display:none}
+ .ck-tally-question b{font-size:12px}
+ .ck-ceremony-dialog .ck-tally-question p{font-size:14px;line-height:1.5;margin-top:3px}
+ .ck-tally-symbol{width:30px;height:36px}
+ .ck-tally-players{grid-template-columns:none;grid-template-rows:minmax(0,1fr);grid-auto-flow:column;grid-auto-columns:calc((100% - 10px)/1.4);overflow-x:auto;overflow-y:hidden;gap:10px;padding-bottom:4px;scroll-snap-type:x proximity}
+ .ck-tally-players.is-pair{grid-auto-columns:calc((100% - 10px)/2)}
+ .ck-tally-player{padding:8px 6px;max-height:260px;scroll-snap-align:start}
+ .ck-tally-player>header{gap:4px}
+ .ck-tally-player>header>img{width:28px;height:28px}
+ .ck-tally-player>header>strong{font-size:16px}
+ .ck-tally-award{font-size:22px;min-height:26px}
+ .ck-ceremony-dialog .ck-tally-evidence{font-size:14px;line-height:1.45;margin:4px 0}
+ .ck-tally-total{gap:4px;padding:5px 7px}
+ .ck-tally-total>b{font-size:28px}
+ .ck-tally-total>small{font-size:11px}
+ .ck-tally-total svg{width:20px;height:20px}
+ .ck-tally-actions{gap:7px}
+ .ck-root .ck-tally-next{font-size:14px;min-height:40px;padding:7px 15px}
+ .ck-ceremony-dialog .ck-tally-skip{font-size:13px;min-height:40px;padding:6px 10px}
+ .ck-tally-actions>small{display:none}
+ .ck-tally-winner{gap:7px;padding:4px 7px}
+ .ck-tally-winner>span{font-size:29px}
+ .ck-tally-winner small{font-size:11px}
+ .ck-tally-winner strong{font-size:19px}
+ .ck-tally-winner>b{font-size:22px}
+}
+@media(max-height:650px){
+ .ck-dialog.ck-ceremony-dialog .ck-dialog-body{padding:10px 8px}
+ .ck-tally{gap:7px;grid-template-rows:auto minmax(120px,.8fr) minmax(0,1.2fr) auto}
+ .ck-ceremony-dialog .ck-tally-heading h2{font-size:20px}
+ .ck-ceremony-dialog .ck-tally-question p{font-size:13.5px;line-height:1.45}
+ .ck-tally-question b{font-size:12px}
+ .ck-ceremony-dialog .ck-tally-evidence{font-size:13.5px;line-height:1.4;margin:3px 0}
+ .ck-tally-player{padding:6px 5px}
+ .ck-tally-player>header>img{width:25px;height:25px}
+ .ck-tally-player>header>strong{font-size:15px}
+ .ck-tally-award{font-size:20px;min-height:24px;margin-top:3px}
+ .ck-tally-total>b{font-size:25px}
+ .ck-tally-total{padding:4px 6px}
+}
+/* Compact score tables: up to six seats use two rows rather than tall columns. */
+.ck-dialog.ck-final-result-dialog{width:min(1280px,calc(100vw - 16px));height:min(960px,94svh)}
+.ck-dialog.ck-final-result-dialog .ck-final-hero{flex-basis:clamp(64px,11svh,105px)}
+.ck-dialog.ck-final-result-dialog .ck-final-results{display:grid;grid-template-columns:repeat(var(--final-columns),minmax(0,1fr));grid-auto-rows:minmax(0,1fr);overflow:hidden;gap:12px;padding:4px}
+.ck-dialog.ck-final-result-dialog .ck-final-results>.ck-result-player{width:100%;max-height:390px;height:100%;align-self:center;min-width:0;flex:none;padding:10px;gap:4px}
+.ck-dialog.ck-final-result-dialog .ck-result-player>header{height:30px;min-height:30px;flex-basis:30px}
+.ck-dialog.ck-final-result-dialog .ck-result-player>header>strong{font-size:18px}
+.ck-dialog.ck-final-result-dialog .ck-result-total{height:36px;flex-basis:36px}
+.ck-dialog.ck-final-result-dialog .ck-result-total>b{font-size:30px}
+.ck-dialog.ck-final-result-dialog .ck-result-player>small:not(.ck-rank-reason){font-size:13px;flex-basis:18px;height:18px;line-height:18px}
+.ck-dialog.ck-final-result-dialog .ck-final-breakdown{grid-template-rows:repeat(7,minmax(0,1fr));margin-top:4px}
+.ck-dialog.ck-final-result-dialog .ck-score-step{font-size:14px;line-height:1.35}
+.ck-dialog.ck-final-result-dialog .ck-rank-reason{font-size:12px;line-height:15px;flex-basis:30px;height:30px}
+@media(max-width:700px){
+ .ck-dialog.ck-final-result-dialog .ck-final-results{display:flex;overflow-x:auto;overflow-y:hidden;gap:12px;padding-inline:6px 0}
+ .ck-dialog.ck-final-result-dialog .ck-final-results>.ck-result-player{width:var(--ck-final-player-width,230px);flex:0 0 var(--ck-final-player-width,230px);max-height:none;padding:8px}
+ .ck-dialog.ck-final-result-dialog .ck-final-pair{padding-inline:0}
+ .ck-dialog.ck-final-result-dialog .ck-final-pair>.ck-result-player{width:calc((100% - 12px)/2);flex-basis:calc((100% - 12px)/2);padding:6px}
+ .ck-dialog.ck-final-result-dialog .ck-result-player>header>strong{font-size:15px}
+ .ck-dialog.ck-final-result-dialog .ck-score-step{font-size:13px}
+ .ck-dialog.ck-final-result-dialog .ck-result-player>small:not(.ck-rank-reason){font-size:11px}
+ .ck-dialog.ck-final-result-dialog .ck-final-pair .ck-score-step{font-size:12px}
+ .ck-dialog.ck-final-result-dialog .ck-rank-reason{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.ck-tally-winner{animation:none}}
+
+.ck-tally-player>.ck-tally-evidence{width:100%;box-sizing:border-box}
+@media(min-width:701px){
+ .ck-tally.is-multi .ck-tally-player{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);grid-template-rows:auto minmax(30px,1fr) auto;gap:5px 10px;align-items:center}
+ .ck-tally.is-multi .ck-tally-player>header{grid-column:1/-1;grid-row:1}
+ .ck-tally.is-multi .ck-tally-award,.ck-tally.is-multi .ck-tally-unanswered{grid-column:1;grid-row:2;margin:0;justify-self:center}
+ .ck-ceremony-dialog .ck-tally.is-multi .ck-tally-evidence{grid-column:2;grid-row:2/4;align-self:center;margin:0;font-size:16px;line-height:1.45}
+ .ck-tally.is-multi .ck-tally-total{grid-column:1;grid-row:3;width:100%;box-sizing:border-box;padding:6px;gap:4px}
+ .ck-tally.is-multi .ck-tally-total>b{font-size:30px}
+ .ck-tally.is-multi .ck-tally-total>small{font-size:12px}
+ .ck-tally.is-multi .ck-tally-total svg{width:20px;height:20px}
+}
+.ck-ceremony-dialog.ck-tally-restored .ck-tally-winner{animation:none}
+
+@media(max-width:700px){
+ .ck-tally.has-winner{grid-template-rows:auto minmax(90px,.5fr) minmax(0,1.5fr) auto}
+ .ck-tally.has-winner .ck-tally-question{padding:6px 8px}
+ .ck-tally.has-winner .ck-tally-question>img,.ck-tally.has-winner .ck-tally-symbol,.ck-tally.has-winner .ck-tally-question b,.ck-tally.has-winner .ck-tally-crown{display:none}
+}

@@ -67,6 +67,7 @@ export function botAction(s: CKState, random: () => number): {
         const p = s.players.find(p => p.offers.length)!;
         return { actor: p.id, action: { type: 'ck-restaurateur', card: p.offers[0] } };
     }
+    if(s.challengeReveal!==undefined)return {actor:s.players[0].id,action:{type:'ck-continue-planning',round:s.round,challenge:s.challengeReveal}};
     if (s.phase === 'planning') {
         const p = s.players.find(p => !p.plan)!, locs = s.config.locations.map(l => l.id);
         for (let i = locs.length - 1; i > 0; i--) {

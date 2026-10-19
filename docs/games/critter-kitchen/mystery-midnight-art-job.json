@@ -1,0 +1,21 @@
+{
+  "asset": "mystery-midnight-parcel",
+  "generator": "built-in imagegen",
+  "intent": "Original Midnight Merchant unknown-stock illustration; shared across display, mobile market and planning circles.",
+  "prompt": "Portrait 3:4 watercolor storybook nocturnal canal market. Sealed cream linen parcel in a wooden crate, copper ribbon, amber lanterns, deep midnight blue/plum surroundings. Blank round gold/ivory seal near center for a native question mark. Readable central square/circular crop, dark lower edge for native Thai caption. No generated text, numerals, logos or question marks.",
+  "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-95009a53-b395-4679-949b-4197e257d8db.png",
+  "outputs": [
+    {
+      "path": "public/art/critter-kitchen/mystery-midnight-parcel.webp",
+      "width": 600,
+      "height": 800,
+      "quality": 84
+    },
+    {
+      "path": "public/art/critter-kitchen/thumbs/mystery-midnight-parcel.webp",
+      "width": 240,
+      "height": 320,
+      "quality": 80
+    }
+  ]
+}
