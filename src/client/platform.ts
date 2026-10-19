@@ -1,8 +1,8 @@
 import { critterKitchenSetup } from './critter-kitchen-setup.js';
 import { rolePortrait } from "./dracula-assets.js";
 import { roomCode } from "./ui.js";
-import { GAME_CATALOG, filterGames } from "../shared/catalog.js";
-import { platform, avatar, api } from "./account.js";
+import { GAME_CATALOG } from "../shared/catalog.js";
+import { platform, avatar, api, refreshAccount } from "./account.js";
 import QRCode from "qrcode";
 import type { GameId, RoomView, RoomAction } from "../shared/types.js";
 import "./platform.css";
@@ -21,78 +21,10 @@ export const CATALOG = GAME_CATALOG.map((g) => ({
       ? `${g.minPlayers} คน`
       : `${g.minPlayers}–${g.maxPlayers} คน`,
 }));
-export function gallery(root: HTMLElement) {
-  const params = new URLSearchParams(location.search),
-    q = params.get("q") ?? "",
-    n = Number(params.get("players")) || undefined;
-  const games = platform.games.length ? platform.games : GAME_CATALOG;
-  root.innerHTML = `<section class="platform-gallery" aria-labelledby="catalog-title"><div class="gallery-heading"><h1 id="catalog-title">เลือกเกม</h1><a href="/join">เข้าห้องด้วยรหัส</a></div><form class="catalog-filters" id="catalog-filters" role="search"><div><label for="game-search">ค้นหาเกม</label><input id="game-search" name="q" type="search" placeholder="ชื่อเกม ไทยหรืออังกฤษ…" value="${esc(q)}"></div><div><label for="player-count">ตอนนี้มีผู้เล่น</label><select id="player-count" name="players"><option value="">ทุกจำนวน</option>${Array.from(
-    { length: 8 },
-    (_, i) => i + 1,
-  )
-    .map(
-      (x) =>
-        `<option value="${x}" ${x === n ? "selected" : ""}>${x} คน</option>`,
-    )
-    .join(
-      "",
-    )}</select></div><button>ค้นหา</button><a href="/">ล้างตัวกรอง</a></form>${platform.rooms.length ? `<section class="active-rooms"><h2>กลับเข้าห้อง</h2>${platform.rooms.map((r) => `<div><strong>${esc(games.find((g) => g.id === r.gameId)?.name)} ${r.code}</strong>${r.player ? `<a href="/play/${r.code}">กลับไปเล่น</a>` : ""}${r.owner ? `<a href="/display/${r.code}">เปิดจอกลาง</a>` : ""}</div>`).join("")}</section>` : ""}${
-    platform.recent.length
-      ? `<section class="recent-games"><h2>เกมล่าสุด</h2><div>${platform.recent
-          .map((r) => {
-            const g = games.find((g) => g.id === r.gameId);
-            return g
-              ? `<a href="/games/${g.id}" aria-label="เล่น ${esc(g.name)} อีกครั้ง"><img src="${g.cover}" alt="${esc(g.name)}" width="120" height="180"></a>`
-              : "";
-          })
-          .join("")}</div></section>`
-      : ""
-  }<div class="cover-gallery" id="filtered-games"></div></section>`;
-  const results = root.querySelector("#filtered-games")!;
-  const update = () => {
-    const query = root.querySelector<HTMLInputElement>("#game-search")!.value,
-      players =
-        Number(root.querySelector<HTMLSelectElement>("#player-count")!.value) ||
-        undefined;
-    const found = filterGames(games, query, players);
-    results.innerHTML =
-      found
-        .map(
-          (g) =>
-            `<a class="game-cover" href="/games/${g.id}" aria-label="เลือกเล่น ${esc(g.name)}"><figure><img src="${g.cover}" alt="${esc(g.coverAlt)}" width="640" height="960" fetchpriority="high"><h2 class="cover-name" translate="no">${esc(g.name)}</h2><figcaption><span>${g.minPlayers === g.maxPlayers ? g.minPlayers : g.minPlayers + "–" + g.maxPlayers} คน</span>${g.playMode==="local"?"<span>เล่นบนเครื่องนี้</span>":""}${!["ready", "beta"].includes(g.status) ? "<span>พักการสร้างห้อง</span>" : ""}</figcaption></figure></a>`,
-        )
-        .join("") ||
-      '<p role="status">ไม่พบเกมที่ตรงกัน ลองเปลี่ยนจำนวนผู้เล่นหรือล้างตัวกรอง</p>';
-    const url = new URL(location.href);
-    if (query.trim()) url.searchParams.set("q", query.trim());
-    else url.searchParams.delete("q");
-    if (players) url.searchParams.set("players", String(players));
-    else url.searchParams.delete("players");
-    history.replaceState(null, "", url);
-    results.querySelectorAll<HTMLImageElement>("img").forEach(
-      (img) =>
-        (img.onerror = () => {
-          img.style.visibility = "hidden";
-        }),
-    );
-  };
-  root.querySelector<HTMLInputElement>("#game-search")!.oninput = update;
-  root.querySelector<HTMLSelectElement>("#player-count")!.onchange = update;
-  root.querySelector<HTMLFormElement>("#catalog-filters")!.onsubmit = (e) => {
-    e.preventDefault();
-    update();
-  };
-  update();
-}
-function recentRooms() {
-  const rooms: { code: string; role: string }[] = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    const match = /^games:(host|player):([A-Z2-9]{6})$/.exec(
-      localStorage.key(i) ?? "",
-    );
-    if (match) rooms.push({ code: match[2], role: match[1] });
-  }
-  return rooms.slice(-4);
+export {gallery} from "./platform-gallery.js";
+function gameRooms(game?: GameId) {
+  const rooms = platform.rooms.filter(r => !game || r.gameId === game);
+  return rooms.length ? `<nav class="active-rooms game-rooms" aria-label="กลับเข้าห้องเดิม"><h2>กลับเข้าห้อง${game ? 'เกมนี้' : 'เดิม'}</h2>${rooms.map(r => `<div><strong>ห้อง ${esc(r.code)}</strong><div class="game-room-links">${r.player ? `<a href="/play/${r.code}">กลับไปเล่น</a>` : ''}${r.owner ? `<a href="/display/${r.code}">เปิดจอกลาง</a><button type="button" class="close-game-room" data-close-game-room="${r.code}" aria-label="ปิดห้อง ${r.code}">×</button>` : ''}</div></div>`).join('')}<p id="game-room-error" role="alert"></p></nav>` : '';
 }
 export function entry(
   root: HTMLElement,
@@ -109,18 +41,16 @@ export function entry(
   create: (game: GameId,displayMode?:"shared-table"|"full-mobile") => void,
 ) {
   const g = CATALOG.find((g) => g.id === options.game),
-    fixed = !!options.code;
-  root.innerHTML = `<section class="platform-entry"><div class="entry-context">${g ? `<img src="${g.cover}" width="80" height="120" alt=""><div><h1 translate="no">${g.name}</h1><p>${g.count}</p><button id="create" ${!options.connected || options.busy || !options.canCreate || !["ready", "beta"].includes(platform.games.find((x) => x.id === g.id)?.status ?? g.status) ? "disabled" : ""}>สร้างห้องบนจอกลาง</button>${!["ready", "beta"].includes(platform.games.find((x) => x.id === g.id)?.status ?? g.status) ? "<p>เกมนี้พักการสร้างห้องใหม่ ห้องที่เริ่มแล้วเล่นต่อได้</p>" : ""}${!options.canCreate ? `<p><a href="/login?returnTo=${encodeURIComponent(location.pathname)}">ล็อกอิน Google เพื่อสร้างห้อง</a></p>` : ""}</div>` : "<div><h1>เข้าห้อง</h1><p>ใช้มือถือเลือกการกระทำจากห้องเดียวกับจอกลาง</p></div>"}</div><form id="join" class="platform-form" aria-busy="${options.busy}"><h2>${fixed ? `เข้าห้อง ${esc(options.code)}` : "เข้าห้องจากมือถือ"}</h2>${fixed ? `<input type="hidden" name="code" value="${esc(options.code)}"><p class="fixed-code">รหัสห้อง <strong>${esc(options.code)}</strong></p>` : `<label for="join-code">รหัสห้อง</label><input id="join-code" name="code" maxlength="12" value="" autocapitalize="characters" autocomplete="off" spellcheck="false" required placeholder="เช่น ABC234…" aria-describedby="entry-error">`}${!platform.profile ? `<p>เข้าร่วมเป็น Guest หรือ <a href="/login?returnTo=${encodeURIComponent(location.pathname)}">ล็อกอิน Google</a></p>` : ""}<label for="join-name">ชื่อของคุณ</label><input id="join-name" name="name" ${platform.profile && !platform.profile.guest ? "readonly" : ""} maxlength="24" autocomplete="nickname" value="${esc(platform.profile?.guest ? "" : (platform.profile?.name ?? ""))}" required placeholder="ชื่อที่เพื่อนรู้จัก…" aria-describedby="entry-error"><p id="entry-error" class="entry-error" role="alert">${esc(options.error)}</p><button ${!options.connected || options.busy || options.resuming ? "disabled" : ""}>${options.resuming ? "กำลังกลับเข้าห้องเดิม…" : options.busy ? "กำลังเข้าห้อง…" : "เข้าห้อง"}</button></form>${
-    recentRooms().length
-      ? `<nav class="recent-rooms" aria-label="ห้องที่เคยเข้าบนเครื่องนี้"><h2>กลับเข้าห้องเดิม</h2>${recentRooms()
-          .map(
-            (r) =>
-              `<a href="/${r.role === "host" ? "display" : "play"}/${r.code}">${r.role === "host" ? "จอกลาง" : "ผู้เล่น"} • ${r.code}</a>`,
-          )
-          .join("")}</nav>`
-      : ""
-  }<a class="back-to-games" href="/">เลือกเกม</a></section>`;
-  if(g?.id==="critter-kitchen"||g?.id==="locus"){const label=document.createElement("label");label.textContent="รูปแบบมือถือเริ่มต้น";label.innerHTML+='<select id="ck-entry-mode" name="display-mode"><option value="shared-table">เล่นร่วมกับจอกลาง</option><option value="full-mobile">เล่นครบจากมือถือ</option></select>';root.querySelector("#create")?.before(label);}
+    fixed = !!options.code,
+    chooseMode = g?.id === "critter-kitchen" || g?.id === "locus",
+    available = !!g && ["ready", "beta"].includes(platform.games.find(x => x.id === g.id)?.status ?? g.status),
+    createBlocked = !options.connected || options.busy || !options.canCreate || !available;
+  root.innerHTML = `<section class="platform-entry">${g ? `<div class="entry-context"><img class="entry-box" src="/art/boxes/${g.id}.png" width="640" height="800" alt="กล่องเกม ${esc(g.name)}"><div class="entry-game-info"><h1 translate="no">${esc(g.name)}</h1><p class="entry-player-count">${g.count}</p><p class="entry-intro">สร้างห้องใหม่ หรือเข้าห้องของเพื่อน</p></div></div><div class="entry-create"><div class="entry-create-row">${chooseMode ? `<label class="entry-mode" for="ck-entry-mode">รูปแบบมือถือ<select id="ck-entry-mode" name="display-mode" ${options.busy ? 'disabled' : ''}><option value="shared-table">เล่นร่วมกับจอกลาง</option><option value="full-mobile">เล่นครบจากมือถือ</option></select></label>` : '<div class="entry-create-label"><strong>สร้างห้องใหม่</strong><span>เปิดกระดานบนจอกลาง</span></div>'}<button id="create" type="button" class="entry-go" aria-label="สร้างห้องบนจอกลาง" title="สร้างห้องบนจอกลาง" ${createBlocked ? 'disabled' : ''}>GO</button></div>${!available ? '<p class="entry-host-note">เกมนี้พักการสร้างห้องใหม่ ห้องที่เริ่มแล้วเล่นต่อได้</p>' : ''}${!options.canCreate ? `<p class="entry-host-note"><a href="/login?returnTo=${encodeURIComponent(location.pathname)}">ล็อกอิน Google เพื่อสร้างห้อง</a></p>` : ''}</div>` : '<div class="entry-join-intro"><h1>เข้าห้อง</h1><p>ร่วมเล่นกับเพื่อนผ่านรหัสบนจอกลาง</p></div>'}<form id="join" class="platform-form entry-join" aria-busy="${options.busy}"><div class="entry-form-heading"><h2>เข้าห้องจากมือถือ</h2><p>${fixed ? 'ใส่ชื่อของคุณ แล้วเข้าร่วมเกมได้เลย' : 'ใส่รหัสห้องจากจอกลาง แล้วบอกชื่อให้เพื่อนรู้จัก'}</p></div>${fixed ? `<input type="hidden" name="code" value="${esc(options.code)}"><p class="fixed-code"><span>รหัสห้อง</span><strong>${esc(options.code)}</strong></p>` : ''}<div class="entry-fields ${fixed ? 'entry-fields-fixed' : ''}">${!fixed ? '<div class="entry-field"><label for="join-code">รหัสห้อง</label><input id="join-code" name="code" maxlength="12" value="" autocapitalize="characters" autocomplete="off" spellcheck="false" required placeholder="ABC234" aria-describedby="entry-error"></div>' : ''}<div class="entry-field"><label for="join-name">ชื่อของคุณ</label><input id="join-name" name="name" ${platform.profile && !platform.profile.guest ? 'readonly' : ''} maxlength="24" autocomplete="nickname" value="${esc(platform.profile?.guest ? '' : (platform.profile?.name ?? ''))}" required placeholder="ชื่อที่เพื่อนรู้จัก" aria-describedby="entry-error"></div></div>${!platform.profile ? `<p class="entry-guest-hint">เข้าร่วมเป็น Guest ได้เลย หรือ <a href="/login?returnTo=${encodeURIComponent(location.pathname)}">ล็อกอิน Google</a></p>` : ''}<p id="entry-error" class="entry-error" role="alert">${esc(options.error)}</p><button type="submit" ${!options.connected || options.busy || options.resuming ? 'disabled' : ''}>${options.resuming ? 'กำลังกลับเข้าห้องเดิม…' : options.busy ? 'กำลังเข้าห้อง…' : 'เข้าห้อง'}</button></form>${gameRooms(g?.id)}</section>`;
+  root.querySelectorAll<HTMLButtonElement>('[data-close-game-room]').forEach(button=>{button.onclick=async()=>{
+    if(button.disabled)return;button.disabled=true;const room=button.dataset.closeGameRoom!;
+    try{await api('/api/rooms/leave','POST',{code:room,close:true});for(const k of Object.keys(localStorage))if(k.startsWith('games:')&&k.includes(room))localStorage.removeItem(k);await refreshAccount();entry(root,options,submit,create);}
+    catch(error){const message=root.querySelector('#game-room-error');if(message)message.textContent=(error as Error).message;button.disabled=false;}
+  };});
   root
     .querySelector("#create")
     ?.addEventListener("click", () => g && create(g.id,g.id==="critter-kitchen"||g.id==="locus"?root.querySelector<HTMLSelectElement>("#ck-entry-mode")!.value as "shared-table"|"full-mobile":undefined));
@@ -145,7 +75,7 @@ export function entry(
     submit(code, name);
   };
 }
-let ckLobbyDraft:{code:string;restaurateurs:boolean;tutorial:boolean}|undefined;
+let ckLobbyDraft:{code:string;restaurateurs:boolean;tutorial:boolean;expanded?:number[]}|undefined;
 export function lobby(
   root: HTMLElement,
   v: RoomView,
@@ -171,8 +101,9 @@ export function lobby(
   const sky=v.gameId==="sky-team";
   const harmonies=v.gameId==="harmonies";
   const azul = v.gameId === "azul" || calico || wonders || jaipur || pixies || harmonies || sky || ck || locus;
-  root.innerHTML = `<section class="platform-lobby"><div class="lobby-heading"><img src="${game.cover}" width="64" height="96" alt=""><div><h1 translate="no">${game.name}</h1><p>${game.count}</p></div>${roomCode(v.code)}</div><div class="lobby-grid"><section class="join-panel"><h2>${isPlayer ? "คุณเข้าห้องแล้ว" : "ชวนเพื่อนมาที่กระดานนี้"}</h2>${isPlayer ? "<p>รอเริ่มเกมที่จอกลาง ใช้หน้านี้เลือกการกระทำเมื่อเกมเริ่ม</p>" : `<canvas id="qr" aria-label="QR สำหรับเข้าห้อง"></canvas><a class="join-link" href="${esc(joinURL)}">${esc(joinURL)}</a><p>มือถือกับจอกลางต้องเข้าถึงที่อยู่นี้ได้ บน Wi-Fi ให้เปิดจอกลางด้วย LAN IP ของคอม</p>`}${duel && isPlayer ? `<div class="role-choices">${(["dracula", "helsing"] as const).map((character) => `<button data-character="${character}" aria-label="${character === "dracula" ? "Dracula" : "Van Helsing"}" aria-pressed="${own && "character" in own && own.character === character}" ${blocked || v.players.some((p) => "character" in p && p.id !== mine?.id && p.character === character) ? "disabled" : ""}>${rolePortrait(character)}<strong>${character === "dracula" ? "Dracula" : "Van Helsing"}</strong><span class="role-choice-check">${own && "character" in own && own.character === character ? "✓ ฝั่งของคุณ" : "เลือกฝั่งนี้"}</span></button>`).join("")}</div><button id="lobby-ready" ${blocked || !own || !("character" in own) || !own.character ? "disabled" : ""}>${own && "ready" in own && own.ready ? "ยกเลิกพร้อม" : "พร้อมเล่น"}</button>` : ""}${azul && isPlayer ? `<button id="lobby-ready" ${blocked ? "disabled" : ""}>${own && "ready" in own && own.ready ? "ยกเลิกพร้อม" : "พร้อมเล่น"}</button>` : ""}${host ? `${!duel && !sky && !ck ? `<label>${locus ? "ผู้เริ่มเกม (วันเกิดใกล้ถึงที่สุด)" : harmonies ? "ผู้เริ่มเกม (คนเห็นทิวทัศน์สวยล่าสุด)" : pixies ? "ผู้เริ่มเกม (สุ่มที่ server)" : jaipur ? "ผู้เริ่มเกม (ตกลงร่วมกัน หรือสุ่ม)" : wonders ? "ผู้เริ่มเกม (ตกลงร่วมกันก่อนเลือก Wonders)" : calico ? "ผู้เริ่มเกม (คนลูบแมวล่าสุด)" : azul ? "ผู้เริ่มเกม (เว็บ: เลือกผู้ไปโปรตุเกสล่าสุด หรือสุ่ม)" : "ผู้เริ่มเกม (เลือกคนอายุน้อยที่สุด)"}<select id="starter" name="starter">${azul && !calico && !locus ? `<option value="">สุ่มที่ server</option>` : ""}${v.players.map((p) => `<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select></label>` : ""}<button id="start" ${blocked || v.players.some((p) => !p.connected) || (!duel && !azul && v.players.length < 3) || (azul && (v.players.length < (calico?1:2) || v.players.some(p => !("ready" in p) || !p.ready))) || (duel && (v.players.length !== 2 || v.players.some((p) => !("ready" in p) || !p.ready || !p.character))) ? "disabled" : ""}>เริ่มเกม</button><p>${locus ? "2–5 คนกดพร้อม • ทุกชุดเลือกการ์ดคนละใบ แล้วกากบาทและต่อโบนัส" : ck ? "2–5 คนกดพร้อม • แผนลับเปิดพร้อมกัน • เลือกกติกาเสริมภาคหลักก่อนเริ่ม" : sky ? "2 คนกดพร้อม • คนเข้าคนแรกเป็น Pilot สีฟ้า คนที่สองเป็น Co-pilot สีส้ม • YUL เที่ยวบินแรก" : duel ? "ทั้งสองคนเลือกคนละบทบาทและกดพร้อม Dracula เริ่มก่อน" : harmonies ? "ผู้เล่น 2–4 คนกดพร้อม • เลือกด้านกระดานร่วมกัน" : pixies ? "ผู้เล่น 2–5 คนกดพร้อม • เล่นสะสมคะแนน 3 รอบ" : jaipur ? "ผู้เล่น 2 คนกดพร้อม • ชนะ 2 รอบเพื่อชนะ match" : wonders ? "ผู้เล่น 2 คนกดพร้อม แล้วเลือก Wonders คนละ 4 ใบ" : calico ? "ผู้เล่น 1 คนเริ่ม Solo · 2–4 คนเล่นร่วมกัน ทุกคนกดพร้อม" : azul ? "รอผู้เล่น 2–4 คนเชื่อมต่อและกดพร้อมครบ" : "รอผู้เล่นอย่างน้อย 3 คนเชื่อมต่อก่อนเริ่ม"}</p>` : ""}</section><aside><h2>ผู้เล่น ${v.players.length}/${game.maxPlayers}</h2><ol class="lobby-players">${v.players.map((p) => `<li>${duel && "character" in p && p.character ? rolePortrait(p.character) : avatar(p)}<strong>${esc(p.name)}</strong><span>${p.connected ? "เชื่อมต่อแล้ว" : "หลุด • รอกลับเข้าห้อง"}</span>${azul ? `<small>${"ready" in p && p.ready ? "พร้อมแล้ว" : "ยังไม่พร้อม"}</small>` : ""}${"character" in p ? `<small>${p.character === "dracula" ? "Dracula" : p.character === "helsing" ? "Van Helsing" : "ยังไม่เลือกบทบาท"} • ${p.ready ? "พร้อมแล้ว" : "ยังไม่พร้อม"}</small>` : ""}</li>`).join("") || "<li>ยังไม่มีผู้เล่น สแกน QR ด้วยมือถือเพื่อเข้าห้อง</li>"}</ol></aside></div></section>`;
+  root.innerHTML = `<section class="platform-lobby"><div class="lobby-heading"><img src="/art/boxes/${game.id}.png" width="640" height="800" alt=""><div><h1 translate="no">${game.name}</h1><p>${game.count}</p></div>${roomCode(v.code)}</div><div class="lobby-grid"><section class="join-panel"><h2>${isPlayer ? "คุณเข้าห้องแล้ว" : "ชวนเพื่อนมาที่กระดานนี้"}</h2>${isPlayer ? "<p>รอเริ่มเกมที่จอกลาง ใช้หน้านี้เลือกการกระทำเมื่อเกมเริ่ม</p>" : `<canvas id="qr" aria-label="QR สำหรับเข้าห้อง"></canvas><a class="join-link" href="${esc(joinURL)}">${esc(joinURL)}</a><p>มือถือกับจอกลางต้องเข้าถึงที่อยู่นี้ได้ บน Wi-Fi ให้เปิดจอกลางด้วย LAN IP ของคอม</p>`}${duel && isPlayer ? `<div class="role-choices">${(["dracula", "helsing"] as const).map((character) => `<button data-character="${character}" aria-label="${character === "dracula" ? "Dracula" : "Van Helsing"}" aria-pressed="${own && "character" in own && own.character === character}" ${blocked || v.players.some((p) => "character" in p && p.id !== mine?.id && p.character === character) ? "disabled" : ""}>${rolePortrait(character)}<strong>${character === "dracula" ? "Dracula" : "Van Helsing"}</strong><span class="role-choice-check">${own && "character" in own && own.character === character ? "✓ ฝั่งของคุณ" : "เลือกฝั่งนี้"}</span></button>`).join("")}</div><button id="lobby-ready" ${blocked || !own || !("character" in own) || !own.character ? "disabled" : ""}>${own && "ready" in own && own.ready ? "ยกเลิกพร้อม" : "พร้อมเล่น"}</button>` : ""}${azul && isPlayer ? `<button id="lobby-ready" ${blocked ? "disabled" : ""}>${own && "ready" in own && own.ready ? "ยกเลิกพร้อม" : "พร้อมเล่น"}</button>` : ""}${host ? `${!duel && !sky && !ck ? `<label>${locus ? "ผู้เริ่มเกม (วันเกิดใกล้ถึงที่สุด)" : harmonies ? "ผู้เริ่มเกม (คนเห็นทิวทัศน์สวยล่าสุด)" : pixies ? "ผู้เริ่มเกม (สุ่มที่ server)" : jaipur ? "ผู้เริ่มเกม (ตกลงร่วมกัน หรือสุ่ม)" : wonders ? "ผู้เริ่มเกม (ตกลงร่วมกันก่อนเลือก Wonders)" : calico ? "ผู้เริ่มเกม (คนลูบแมวล่าสุด)" : azul ? "ผู้เริ่มเกม (เว็บ: เลือกผู้ไปโปรตุเกสล่าสุด หรือสุ่ม)" : "ผู้เริ่มเกม (เลือกคนอายุน้อยที่สุด)"}<select id="starter" name="starter">${azul && !calico && !locus ? `<option value="">สุ่มที่ server</option>` : ""}${v.players.map((p) => `<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select></label>` : ""}<button id="start" type="button" class="entry-go" aria-label="เริ่มเกม" ${blocked || v.players.some((p) => !p.connected) || (!duel && !azul && v.players.length < 3) || (azul && (v.players.length < (calico?1:2) || v.players.some(p => !("ready" in p) || !p.ready))) || (duel && (v.players.length !== 2 || v.players.some((p) => !("ready" in p) || !p.ready || !p.character))) ? "disabled" : ""}>GO</button><p>${locus ? "2–5 คนกดพร้อม • ทุกชุดเลือกการ์ดคนละใบ แล้วกากบาทและต่อโบนัส" : ck ? "2–5 คนกดพร้อม • แผนลับเปิดพร้อมกัน • เลือกกติกาเสริมภาคหลักก่อนเริ่ม" : sky ? "2 คนกดพร้อม • คนเข้าคนแรกเป็น Pilot สีฟ้า คนที่สองเป็น Co-pilot สีส้ม • YUL เที่ยวบินแรก" : duel ? "ทั้งสองคนเลือกคนละบทบาทและกดพร้อม Dracula เริ่มก่อน" : harmonies ? "ผู้เล่น 2–4 คนกดพร้อม • เลือกด้านกระดานร่วมกัน" : pixies ? "ผู้เล่น 2–5 คนกดพร้อม • เล่นสะสมคะแนน 3 รอบ" : jaipur ? "ผู้เล่น 2 คนกดพร้อม • ชนะ 2 รอบเพื่อชนะ match" : wonders ? "ผู้เล่น 2 คนกดพร้อม แล้วเลือก Wonders คนละ 4 ใบ" : calico ? "ผู้เล่น 1 คนเริ่ม Solo · 2–4 คนเล่นร่วมกัน ทุกคนกดพร้อม" : azul ? "รอผู้เล่น 2–4 คนเชื่อมต่อและกดพร้อมครบ" : "รอผู้เล่นอย่างน้อย 3 คนเชื่อมต่อก่อนเริ่ม"}</p>` : ""}</section><aside><h2>ผู้เล่น ${v.players.length}/${game.maxPlayers}</h2><ol class="lobby-players">${v.players.map((p) => `<li>${duel && "character" in p && p.character ? rolePortrait(p.character) : avatar(p)}<strong>${esc(p.name)}</strong><span>${p.connected ? "เชื่อมต่อแล้ว" : "หลุด • รอกลับเข้าห้อง"}</span>${azul ? `<small>${"ready" in p && p.ready ? "พร้อมแล้ว" : "ยังไม่พร้อม"}</small>` : ""}${"character" in p ? `<small>${p.character === "dracula" ? "Dracula" : p.character === "helsing" ? "Van Helsing" : "ยังไม่เลือกบทบาท"} • ${p.ready ? "พร้อมแล้ว" : "ยังไม่พร้อม"}</small>` : ""}</li>`).join("") || "<li>ยังไม่มีผู้เล่น สแกน QR ด้วยมือถือเพื่อเข้าห้อง</li>"}</ol></aside></div></section>`;
   if(ck&&host){if(ckLobbyDraft?.code!==v.code)ckLobbyDraft={code:v.code,restaurateurs:false,tutorial:false};const options=document.createElement("div");options.innerHTML=critterKitchenSetup();root.querySelector("#start")?.before(options);for(const key of ["restaurateurs","tutorial"] as const){const input=options.querySelector<HTMLInputElement>("#ck-"+key)!;input.checked=ckLobbyDraft![key];input.disabled=blocked;input.onchange=()=>{ckLobbyDraft![key]=input.checked;};}}
+  if(ck&&host&&ckLobbyDraft){const all=[...root.querySelectorAll<HTMLDetailsElement>('.ck-setup details')];all.forEach((details,i)=>{details.open=ckLobbyDraft!.expanded?.includes(i)??false;details.ontoggle=()=>{if(details.isConnected)ckLobbyDraft!.expanded=all.flatMap((d,j)=>d.open?[j]:[]);};});}
   if(harmonies&&host){const label=document.createElement("label");label.textContent="ด้านกระดาน (ทุกคนใช้ด้านเดียวกัน)";label.innerHTML+='<select id="hm-side" aria-label="ด้านกระดาน"><option value="A">A • แม่น้ำ</option><option value="B">B • หมู่เกาะ</option></select>';root.querySelector("#start")?.before(label);}
   if(calico && host){
     const label=document.createElement("label");label.textContent="การจัดเกม";

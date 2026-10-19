@@ -659,7 +659,7 @@ test('Critter Kitchen actual Docker: portal, mode, public board, secret plan, st
         await host.locator('#ck-entry-mode').selectOption('full-mobile');
         await host.getByRole('button', { name: 'สร้างห้องบนจอกลาง' }).click();
         await expect(host.locator('#qr')).toBeVisible();
-        code = await host.locator('.room-code strong').innerText();await host.locator('#ck-tutorial').check();await expect(host.locator('.ck-setup')).toContainText('เมื่อเปิด');await expect(host.locator('.ck-setup')).toContainText('เมื่อปิด');await expect(host.locator('.ck-setup')).toContainText('ไม่ใช่ส่วนขยาย');await host.locator('.ck-setup details summary').click();await host.screenshot({path:'data/qa-critter-kitchen/setup-explained.png',fullPage:true});
+        code = await host.locator('.room-code strong').innerText();await host.locator('#ck-tutorial').check();await expect(host.locator('.ck-setup')).toContainText('เมื่อเปิด');await expect(host.locator('.ck-setup')).toContainText('เมื่อปิด');await expect(host.locator('.ck-setup')).toContainText('ไม่ใช่ส่วนขยาย');await host.locator('.ck-option-details > summary').first().click();await host.screenshot({path:'data/qa-critter-kitchen/setup-explained.png',fullPage:true});
         const phones: Page[] = [];
         for (let i = 0; i < 2; i++) {
             const p = await make(true);

@@ -1,0 +1,6 @@
+{
+  "mode": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset type: portrait oval table background for the Name It dog party board game app. Create a polished premium 3D miniature board game table viewed exactly straight down from overhead. Vertically elongated oval with a thick rounded honey oak wooden rim, softly beveled polished edges, deep muted teal felt interior, a subtle stitched seam just inside the rim and a few tiny embossed paw prints very close to the rim. Realistic soft warm shadows and tactile materials. All of the central felt is plain empty space for interactive cards; leave room around the inside edge for colored player badges drawn by the app. Entire oval fits within the portrait 3:4 composition, surrounded by a little pale warm linen. Symmetrical and inviting, match a playful dog memory game with cozy wooden signage. No cards, no dogs, no people, no chairs, no text, no buttons, no UI, no numbers, no fixed colored seat markings.",
+  "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c27c7f0b-20c2-4a11-938d-821445615bb4.png",
+  "output": "public/art/name-it/table-portrait-v3.webp"
+}

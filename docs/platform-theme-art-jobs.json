@@ -1,0 +1,17 @@
+{
+  "generator": "built-in imagegen",
+  "jobs": [
+    {
+      "id": "gameverse-masthead",
+      "prompt": "Generate a polished horizontal GameVerse website masthead LOGO illustration, a cutout on genuinely transparent background, wide 4:1 composition. Exact single text: 'GameVerse', perfectly spelled, prominent cream-gold hand-crafted storybook serif lettering on a slim deep petrol-teal enamel-and-carved-walnut sign. Small dimensional wooden board-game pieces flank the sign: a red meeple, a blue meeple, ivory dice with believable black pips, a golden hex tile and a tiny leaf motif. Elegant illustrated physical tabletop materials, warm studio lighting, tactile edges, premium inviting game-library identity, restrained detail readable at 220px width. Entire sign and all accents visible with 8 percent transparent margins. No other letters or numerals, no subtitle, no website screenshot, no UI buttons, no frame, no floor or backdrop, no giant objects. A compact beautiful native web header asset, not a whole-page mockup.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a4e8e26a-690a-449c-9a29-81ed6da2c8d0.png",
+      "output": "public/art/platform/gameverse-masthead.png"
+    },
+    {
+      "id": "tabletop-background",
+      "prompt": "Create a beautiful seamless-feeling website BACKGROUND ART for a board game library. Landscape 3:2 or 16:9, very high quality original hand-painted tactile tabletop scene viewed straight overhead. Pale honey-oak board-game table lit by soft daylight, a muted petrol-teal fabric playmat partly visible at outer left and top edges, small wooden red/blue/green meeples, ivory dice, amber cubes, patterned ceramic tiles, colorful polyomino tiles, a few understated forest-animal playing cards and stacked hex tiles arranged tastefully around the OUTER EDGES and CORNERS. Keep the central 65 percent very calm, mostly pale wood grain and softly lit ivory fabric, with no objects crossing the center; the website will put a translucent white content sheet over this middle region. Inviting real board-game evening atmosphere, gentle natural shadows, nuanced material textures, balanced warm oak / cream / teal palette, no text, letters, logo, UI, screens or fake web layout, no visible hands, no overwhelming saturation. Crisp dimensional objects at the sides rather than a blurry generic wallpaper.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-dc76f917-04fb-4fb8-a04c-4e014ff39b51.png",
+      "output": "public/art/platform/tabletop-background.webp"
+    }
+  ]
+}

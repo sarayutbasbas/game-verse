@@ -1,0 +1,17 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "key": "masthead",
+      "prompt": "Use case: stylized-concept. Asset type: illustrated masthead for the browser dog memory party game Name It. Generate a polished premium playful 3D clay-and-painted-wood game logo, exact English title \"Name It!\" large and perfectly readable in chunky warm cream letters with deep teal dimensional edges, on an irregular warm honey wooden sign. Friendly expressive dog heads (corgi, dachshund, golden retriever, pug) peek from around and above the sign. Tiny paw impressions and a looping dog leash. Soft studio light, tactile materials, sophisticated cozy board game art, sage teal, golden yellow, terracotta accents. Wide horizontal composition about 2.5:1, all characters and lettering inside image with generous transparent margins. Isolated on genuinely transparent background. No buttons, no UI, no extra words, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0d9d6476-318d-4074-ad2a-5addcdbba08a.png",
+      "output": "public/art/name-it/masthead-v2.png"
+    },
+    {
+      "key": "table",
+      "prompt": "Use case: stylized-concept. Asset type: background illustration for an interactive top-down dog party board game seating table. Create a beautiful premium 3D rendered oval board game table, viewed directly from overhead, symmetrical, filling a horizontal 3:2 canvas. Thick rounded honey oak wooden rim and fine wooden bevel, muted deep teal green felt playing surface, subtle paw print debossing near the rim, warm soft directional lighting and realistic ambient shadows. The center and most of felt must be spacious blank uncluttered so live cards and seat-name badges can be overlaid by the app. Table fills about 88 percent of canvas. Background is warm pale cream linen with very subtle texture. No chairs, no dogs, no cards, no words, no numbers, no UI, no logos. Make it feel like a miniature physical 3D board game table, elegant and inviting.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-48d86ef0-170a-4367-a475-20849416b75f.png",
+      "output": "public/art/name-it/table-v2.webp"
+    }
+  ]
+}

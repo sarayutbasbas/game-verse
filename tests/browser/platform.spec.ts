@@ -1,7 +1,7 @@
 import { GAME_CATALOG } from "../../src/shared/catalog.js";
 import { testAccount } from "./auth-fixture.js";
 import { test, expect, type BrowserContext } from "@playwright/test";
-test("neutral cover gallery and common join UI: errors preserve drafts, pasted code, Enter, duplicate lock, full room, QR and resume", async ({
+test("game box gallery and common join UI: errors preserve drafts, pasted code, Enter, duplicate lock, full room, QR and resume", async ({
   browser,
 }) => {
   const contexts: BrowserContext[] = [];
@@ -19,11 +19,15 @@ test("neutral cover gallery and common join UI: errors preserve drafts, pasted c
   try {
     const host = await make();
     await host.goto("/");
-    await expect(host.locator(".game-cover")).toHaveCount(GAME_CATALOG.length);
-    await expect(host.locator(".game-cover img")).toHaveCount(GAME_CATALOG.length);
+    await expect(host.locator(".game-cover")).toHaveCount(Math.min(10, GAME_CATALOG.length));
+    await expect(host.locator(".all-games .game-box")).toHaveCount(Math.min(10, GAME_CATALOG.length));
+    for (const image of await host.locator('.all-games .game-box').all()) {
+      await image.scrollIntoViewIfNeeded();
+      await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
+    }
     expect(
       await host
-        .locator(".game-cover img")
+        .locator(".all-games .game-box")
         .evaluateAll((images) =>
           images.every(
             (image) =>
@@ -44,6 +48,7 @@ test("neutral cover gallery and common join UI: errors preserve drafts, pasted c
       ),
     ).toBeTruthy();
     await host.setViewportSize({ width: 1366, height: 1024 });
+    await host.getByRole('button', { name: 'หน้า 2', exact: true }).click();
     await host
       .getByRole("link", {
         name: "เลือกเล่น Dracula vs Van Helsing",
@@ -114,7 +119,7 @@ test("neutral cover gallery and common join UI: errors preserve drafts, pasted c
       await phone.evaluate(
         () => getComputedStyle(document.body, "::before").backgroundImage,
       ),
-    ).toBe("none");
+    ).toContain("/art/platform/tabletop-background.webp");
     const id = await phone.locator(".lobby-players strong").first().innerText();
     await phone.reload();
     await expect(
@@ -180,7 +185,7 @@ test("neutral cover gallery and common join UI: errors preserve drafts, pasted c
       await camel.evaluate(
         () => getComputedStyle(document.body, "::before").backgroundImage,
       ),
-    ).toBe("none");
+    ).toContain("/art/platform/tabletop-background.webp");
     await testAccount(camel);
     await camel.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
     await expect(camel.locator("#qr")).toBeVisible();

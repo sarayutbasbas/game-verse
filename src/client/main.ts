@@ -361,19 +361,21 @@ function render() {
 function renderContent() {
   if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
   if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
-  if ((view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
+  if ((!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
     const banner=main.querySelector<HTMLElement>('#notice')!;
     banner.textContent=notice;
     const connection=main.querySelector<HTMLElement>('.connection')!;
     connection.dataset.online=String(connected);
     connection.setAttribute('aria-label',connected?'เชื่อมต่อแล้ว':'หลุด กำลังเชื่อมต่อใหม่');
     connection.innerHTML='<i aria-hidden="true"></i>'+(connected?'ออนไลน์':'หลุด');
-  } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse">GameVerse</a>${!view || view.phase === "lobby" ? '<nav class="header-links" aria-label="เมนูหลัก"><a href="/">เลือกเกม</a><a href="/join">เข้าห้อง</a></nav>' : ""}</div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "locus" && view?.gameId !== "critter-kitchen" && view?.gameId !== "sky-team" && view?.gameId !== "harmonies" && view?.gameId !== "jaipur" && view?.gameId !== "pixies" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
+    const account=main.querySelector('.header-account nav');if(!view&&account&&account.innerHTML!==accountNav())account.innerHTML=accountNav();
+  } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse"><img class="platform-masthead" src="/art/platform/gameverse-masthead.png" alt="" width="800" height="168"><span class="brand-wordmark">GameVerse</span></a></div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "locus" && view?.gameId !== "critter-kitchen" && view?.gameId !== "sky-team" && view?.gameId !== "harmonies" && view?.gameId !== "jaipur" && view?.gameId !== "pixies" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
   main.querySelector<HTMLElement>("#notice")?.classList.toggle("session-toast",stopped&&notice.startsWith("เซสชันนี้เปิด"));
   const content = main.querySelector<HTMLElement>("#content")!;
   turnSound.setCompact(!!view);
   turnSound.setActive(!!view && view.phase!=="lobby");
-  if (view) main.querySelector("header")!.append(turnSound.controls);
+  if (view && view.phase !== "lobby") main.querySelector("header")!.append(turnSound.controls);
+  else turnSound.controls.remove();
   updateGameHeader(main, view, platform.joinOrigin ?? location.origin);
   if (!view) {
     if (role === "login") {
@@ -698,6 +700,25 @@ accountChannel.onmessage = (e) => {
     void refreshAccount().then(render);
   }
 };
+let portalScroll=0,portalHome=location.origin+'/';
+function navigatePortal(target:URL,push:boolean){
+  const next=target.pathname.split('/').filter(Boolean);
+  const allowed=!next.length||(next[0]==='games'&&next.length===2&&!!metadata(next[1])&&metadata(next[1])!.playMode!=='local');
+  if(view||session||!allowed||!(!role||role==='games'))return false;
+  if(!role){portalScroll=scrollY;portalHome=location.href;}
+  if(push&&target.pathname==='/'&&!target.search)target=new URL(portalHome);
+  if(push)history.pushState(null,'',target);
+  route=target.pathname.split('/').filter(Boolean);role=route[0];code='';entryError='';entryPending=false;render();
+  requestAnimationFrame(()=>scrollTo(0,!role?portalScroll:0));return true;
+}
+document.addEventListener('click',event=>{
+  if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.defaultPrevented)return;
+  const link=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('a[href]'):null;
+  if(!link||link.target||link.hasAttribute('download'))return;
+  const url=new URL(link.href);if(url.origin===location.origin&&navigatePortal(url,true))event.preventDefault();
+});
+window.addEventListener('popstate',()=>{if(!navigatePortal(new URL(location.href),false))location.reload();});
+
 render();
 void refreshAccount()
   .catch(() => {

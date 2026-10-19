@@ -2,7 +2,7 @@ import { CRITICS, RESTAURATEURS, RUMORS } from '../games/critter-kitchen/data.js
 
 export function critterKitchenSetup() {
     const basic = RUMORS.filter(r => !r.advanced).length;
-    return `<section class="ck-setup" aria-labelledby="ck-setup-title">
+    const html = `<section class="ck-setup" aria-labelledby="ck-setup-title">
       <h3 id="ck-setup-title">เลือกรูปแบบการประลองครัว</h3>
       <p>ทั้งสองตัวเลือกเปิดร่วมกันได้ ทุกแบบยังเล่น 2–5 คน รวม 7 รอบ วางแผนเชฟลับ ออกตลาด และเสิร์ฟอาหารเหมือนเดิม</p>
       <article class="ck-setup-option"><label for="ck-restaurateurs"><input type="checkbox" id="ck-restaurateurs" name="restaurateurs"><span>เพิ่มความสามารถเจ้าของร้าน<small>Restaurateurs · โมดูลเสริมในกล่องภาคหลัก</small></span></label>
@@ -15,4 +15,10 @@ export function critterKitchenSetup() {
       <p class="ck-setup-tip">ถ้าอยากเริ่มแบบเรียนรู้ง่าย: เปิดโหมดเกมแรก และปิดความสามารถเจ้าของร้าน ถ้าคุ้นแล้วค่อยเปิดเจ้าของร้านหรือใช้การสุ่มเต็มชุด</p></article>
       <p class="ck-setup-scope">ทั้งสองตัวเลือกนี้อยู่ในภาคหลัก ไม่ใช่ส่วนขยาย À La Cart เกมนี้ยังไม่รวม Solo หรือผู้เล่น 6–7 คน</p>
     </section>`;
+    const intro=html.match(/<p>[\s\S]*?<\/p>/)![0];
+    const scope=html.match(/<p class="ck-setup-scope">[\s\S]*?<\/p>/)![0];
+    return html.replace(intro,'').replace(scope,'')
+      .replaceAll('</label>','</label><details class="ck-option-details"><summary>รายละเอียด</summary>')
+      .replaceAll('</article>','</details></article>')
+      .replace('</section>',`<details class="ck-setup-overview"><summary>กติกาที่ใช้ร่วมกัน</summary>${intro}${scope}</details></section>`);
 }
