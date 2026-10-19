@@ -4,6 +4,7 @@ import * as e from '../src/games/critter-kitchen/engine.js';
 import { TOKEN, TOKENS, FOODS, ZOUS, CRITICS, CHALLENGES, RUMORS, RESTAURATEURS, boardConfiguration } from '../src/games/critter-kitchen/data.js';
 import { validateCKState } from '../src/games/critter-kitchen/validation.js';
 import { validateMeals, emptyMeal, scoreFinal, mealQuality, scoreChallenge } from '../src/games/critter-kitchen/scoring.js';
+import {TEAM_COLORS} from '../src/games/critter-kitchen/team-colors.js';
 import { seeded, botAction, criticMeal } from './critter-kitchen-fixtures.js';
 import type { CKState, Meal } from '../src/games/critter-kitchen/types.js';
 const seats = (n: number) => Array.from({ length: n }, (_, i) => ({ id: 'p' + i, name: 'เชฟ ' + i }));
@@ -136,7 +137,7 @@ test('recovery accepts JSON object key reordering like JSONB, but rejects change
 
 test('market pickup stamps persist publicly with fixed team colors without exposing private inventories',()=>{
  const r=seeded(805);let s=e.createInitialState(seats(2),r);const colors=structuredClone(s.teamColors);
- assert.deepEqual(Object.values(colors!).sort(),['blue','red']);
+ assert.equal(new Set(Object.values(colors!)).size,2);assert.ok(Object.values(colors!).every(color=>TEAM_COLORS.includes(color)));
  for(const p of s.players)s=e.applyAction(s,p.id,{type:'ck-plan',epoch:e.decisionKey(s),plan:{mouse:'garden',lizard:'soup',boar:'academy'}},r);
  s=e.applyAction(s,'p0',{type:'ck-run'},r);
  assert.equal(s.pending?.kind,'pick');const pending=s.pending!;const actor=pending.actor;
@@ -175,4 +176,19 @@ test('serving reveal is shared, authenticated, replay-safe and cannot skip into 
  state=e.applyAction(state,'p1',{type:'ck-reveal-results'});assert.equal(state.resultsRevealed,true);assert.equal(e.getDisplayView(state,'ROOM',0).resultsRevealed,true);assert.equal(e.getPlayerView(state,'p0').id,'p0');assert.deepEqual(state.challengeResults,before.challengeResults);assert.throws(()=>e.applyAction(state,'p0',{type:'ck-reveal-results'}));assert.ok(validateCKState(state));
  while(state.phase!=='finished'&&guard++<1800){const next=botAction(state,random);state=e.applyAction(state,next.actor,next.action,random);}
  assert.equal(state.resultsRevealed,false);const scores=state.players.map(p=>p.score);state=e.applyAction(state,'p0',{type:'ck-reveal-results'});assert.deepEqual(state.players.map(p=>p.score),scores);assert.equal(state.phase,'finished');assert.ok(validateCKState(state));assert.throws(()=>e.applyAction(state,'p1',{type:'ck-reveal-results'}));
+});
+
+
+test('new games sample every team color without replacement, with deterministic server randomness',()=>{
+ for(const count of [2,3,4,5]){
+  const firstSeatColors=new Set<string>();
+  for(let seed=1;seed<=40;seed++){
+   const state=e.createInitialState(seats(count),seeded(seed));
+   const assigned=Object.values(state.teamColors!);assert.equal(new Set(assigned).size,count);assert.ok(assigned.every(color=>TEAM_COLORS.includes(color)));
+   firstSeatColors.add(state.teamColors!.p0);
+   assert.deepEqual(e.createInitialState(seats(count),seeded(seed)).teamColors,state.teamColors);
+   const before=structuredClone(state.teamColors);e.getDisplayView(state,'COLOR',1);e.getPlayerView(state,'p0');assert.deepEqual(state.teamColors,before);
+  }
+  assert.deepEqual([...firstSeatColors].sort(),[...TEAM_COLORS].sort());
+ }
 });

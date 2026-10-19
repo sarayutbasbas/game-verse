@@ -2,7 +2,7 @@ let suppressChefClickUntil=0;
 /** Pointer dragging supports touch and mouse without a renderer or drag dependency. */
 export function bindChefDrag(root:HTMLElement, place:(chef:string,location:string)=>void) {
  const events=new AbortController(),{signal}=events;
- let ghost:HTMLElement|undefined,source:HTMLElement|undefined,over:HTMLButtonElement|undefined,startX=0,startY=0,pointer=-1,moved=false;
+ let ghost:HTMLElement|undefined,source:HTMLElement|undefined,over:HTMLElement|undefined,startX=0,startY=0,pointer=-1,moved=false;
  const clear=()=>{ghost?.remove();ghost=undefined;source?.classList.remove('ck-dragging');over?.classList.remove('ck-drop-over');source=undefined;over=undefined;pointer=-1;};
  for(const card of root.querySelectorAll<HTMLElement>('.ck-route-planner [data-chef],.ck-route-planner [data-placed-chef]')){
   card.addEventListener('dragstart',e=>e.preventDefault(),{signal});
@@ -17,8 +17,8 @@ export function bindChefDrag(root:HTMLElement, place:(chef:string,location:strin
    e.preventDefault();
    if(!moved){moved=true;ghost=card.cloneNode(true) as HTMLElement;ghost.removeAttribute('data-chef');ghost.removeAttribute('data-placed-chef');ghost.className='ck-chef-ghost';ghost.setAttribute('aria-hidden','true');ghost.querySelectorAll('img').forEach(img=>{img.loading='eager';img.draggable=false;});document.body.append(ghost);card.classList.add('ck-dragging');}
    ghost!.style.left=`${e.clientX}px`;ghost!.style.top=`${e.clientY}px`;
-   const target=document.elementFromPoint(e.clientX,e.clientY)?.closest<HTMLButtonElement>('.ck-route-planner [data-destination]');
-   over?.classList.remove('ck-drop-over');over=target&&!target.disabled?target:undefined;over?.classList.add('ck-drop-over');
+   const target=document.elementFromPoint(e.clientX,e.clientY)?.closest<HTMLElement>('.ck-route-planner [data-destination]');
+   over?.classList.remove('ck-drop-over');over=target&&target.getAttribute('aria-disabled')!=='true'?target:undefined;over?.classList.add('ck-drop-over');
    const size=(over?.querySelector('.ck-route-slot')??card).getBoundingClientRect();
    ghost!.style.width=`${size.width}px`;ghost!.style.height=`${size.height}px`;
 

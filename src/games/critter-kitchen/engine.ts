@@ -1,4 +1,4 @@
-import {resolveTeamColors} from './team-colors.js';
+import {resolveTeamColors,TEAM_COLORS} from './team-colors.js';
 import { TOKENS, TOKEN, FOODS, BASE_CHEFS, ZOUS, ZOU, CRITICS, CRITIC, CHALLENGES, RESTAURATEURS, RESTAURATEUR, RUMORS, RUMOR, SPECIAL_ALLSPICE, boardConfiguration, type LocationId } from './data.js';
 import { validateMeals, scoreChallenge, scoreFinal, baseValue } from './scoring.js';
 import type { CKState, CKAction, CKView, Player, Plan, Visit, Task, Meal, DisplayMode } from './types.js';
@@ -35,7 +35,8 @@ export function createInitialState(seats: {
             p.offers = s.unusedRestaurateurs.splice(0, 2);
     else
         startRound(s);
-    s.teamColors=resolveTeamColors(s.priority);
+    const colors=shuffle([...TEAM_COLORS],random);
+    s.teamColors=Object.fromEntries(s.players.map((player,index)=>[player.id,colors[index]]));
     return s;
 }
 function draw(s: CKState): string | undefined { while (s.bag.length) {

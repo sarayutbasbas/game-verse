@@ -143,99 +143,147 @@
     },
     {
       "componentId": "critic-mouse",
-      "path": "/art/critter-kitchen/critic-mouse.webp",
+      "path": "/art/critter-kitchen/portrait/critic-mouse.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-4124e09e-80bb-408f-a71d-ffc0d859641a.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-20d42afb-0350-41a4-8707-f68de8d46381.png",
+      "previousPath": "/art/critter-kitchen/critic-mouse.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-4124e09e-80bb-408f-a71d-ffc0d859641a.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-jerboa",
-      "path": "/art/critter-kitchen/critic-jerboa.webp",
+      "path": "/art/critter-kitchen/portrait/critic-jerboa.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-35a0990a-616f-47b6-8bb1-890641b38c65.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9faa9248-e9ca-4ff0-a1dd-0e81f8645656.png",
+      "previousPath": "/art/critter-kitchen/critic-jerboa.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-35a0990a-616f-47b6-8bb1-890641b38c65.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-saint-bernard",
-      "path": "/art/critter-kitchen/critic-saint-bernard.webp",
+      "path": "/art/critter-kitchen/portrait/critic-saint-bernard.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-86430de1-8dc7-4d06-899f-e945062e5bba.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-be09078e-f827-4baa-aaab-292ed0f72ebb.png",
+      "previousPath": "/art/critter-kitchen/critic-saint-bernard.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-86430de1-8dc7-4d06-899f-e945062e5bba.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-badger",
-      "path": "/art/critter-kitchen/critic-badger.webp",
+      "path": "/art/critter-kitchen/portrait/critic-badger.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-22578513-b1ae-44c0-9fe5-b6679c2e28f3.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1bc7aa21-9781-4bd4-9994-03afe838511e.png",
+      "previousPath": "/art/critter-kitchen/critic-badger.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-22578513-b1ae-44c0-9fe5-b6679c2e28f3.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-fruit-bat",
-      "path": "/art/critter-kitchen/critic-fruit-bat.webp",
+      "path": "/art/critter-kitchen/portrait/critic-fruit-bat.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-73510fd2-a572-4156-b137-a2096e56a17a.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8c2b48a1-13ff-45cf-82bb-c0a89c97fe4c.png",
+      "previousPath": "/art/critter-kitchen/critic-fruit-bat.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-73510fd2-a572-4156-b137-a2096e56a17a.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-cow",
-      "path": "/art/critter-kitchen/critic-cow.webp",
+      "path": "/art/critter-kitchen/portrait/critic-cow.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-81828f81-497e-49ce-ab1a-ebe2d34b5bce.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d2f98bc4-01fc-4f13-953f-c73a2357eb52.png",
+      "previousPath": "/art/critter-kitchen/critic-cow.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-81828f81-497e-49ce-ab1a-ebe2d34b5bce.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-capybara",
-      "path": "/art/critter-kitchen/critic-capybara.webp",
+      "path": "/art/critter-kitchen/portrait/critic-capybara.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-9c112541-9813-4356-b91a-3d61675a0bd5.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4766b21b-9159-49ae-beb1-8ec7fcbecb72.png",
+      "previousPath": "/art/critter-kitchen/critic-capybara.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-9c112541-9813-4356-b91a-3d61675a0bd5.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-rabbit",
-      "path": "/art/critter-kitchen/critic-rabbit.webp",
+      "path": "/art/critter-kitchen/portrait/critic-rabbit.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-4a12e594-2b89-4881-93f2-8a14313eda25.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-469ae408-737d-4b2f-acd1-746fc1083f8b.png",
+      "previousPath": "/art/critter-kitchen/critic-rabbit.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-4a12e594-2b89-4881-93f2-8a14313eda25.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-tree-shrew",
-      "path": "/art/critter-kitchen/critic-tree-shrew.webp",
+      "path": "/art/critter-kitchen/portrait/critic-tree-shrew.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-c0880a0b-2d3c-408a-8461-a0b84f387cf6.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d4a2fd19-4705-45e8-9c53-1bafccd39502.png",
+      "previousPath": "/art/critter-kitchen/critic-tree-shrew.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-c0880a0b-2d3c-408a-8461-a0b84f387cf6.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-poodle",
-      "path": "/art/critter-kitchen/critic-poodle.webp",
+      "path": "/art/critter-kitchen/portrait/critic-poodle.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-5f53244f-f972-49ac-a0fd-e55ce23b236a.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0b9c0c02-e334-42f3-aa8d-cf25088abafd.png",
+      "previousPath": "/art/critter-kitchen/critic-poodle.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-5f53244f-f972-49ac-a0fd-e55ce23b236a.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-kangaroo",
-      "path": "/art/critter-kitchen/critic-kangaroo.webp",
+      "path": "/art/critter-kitchen/portrait/critic-kangaroo.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-569a3cf7-d6be-4d42-8ab0-c4738aadbb58.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1cf84a3d-9111-4b53-a7a6-4ff75ad621ca.png",
+      "previousPath": "/art/critter-kitchen/critic-kangaroo.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-569a3cf7-d6be-4d42-8ab0-c4738aadbb58.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "critic-raccoon",
-      "path": "/art/critter-kitchen/critic-raccoon.webp",
+      "path": "/art/critter-kitchen/portrait/critic-raccoon.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-7988d768-41d9-4818-9a98-ad3c979a4384.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-82e62d5f-b9a3-4a33-b627-6ad6f4489fb9.png",
+      "previousPath": "/art/critter-kitchen/critic-raccoon.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-7988d768-41d9-4818-9a98-ad3c979a4384.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "restaurateur-anthony-boardain",
@@ -319,59 +367,87 @@
     },
     {
       "componentId": "challenge-coastal-fusion",
-      "path": "/art/critter-kitchen/challenge-coastal-fusion.webp",
+      "path": "/art/critter-kitchen/portrait/challenge-coastal-fusion.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-ea9a3a82-c93f-4932-abd3-e8e15e25d16e.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-62dc0f87-33ae-451d-a923-c43c144990d9.png",
+      "previousPath": "/art/critter-kitchen/challenge-coastal-fusion.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-ea9a3a82-c93f-4932-abd3-e8e15e25d16e.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "challenge-savory-stack",
-      "path": "/art/critter-kitchen/challenge-savory-stack.webp",
+      "path": "/art/critter-kitchen/portrait/challenge-savory-stack.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-e1a045a2-7122-4999-b934-418a4435fb58.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0a36e516-1ad9-4456-aa25-64f59471b6f2.png",
+      "previousPath": "/art/critter-kitchen/challenge-savory-stack.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-e1a045a2-7122-4999-b934-418a4435fb58.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "challenge-wine-dine",
-      "path": "/art/critter-kitchen/challenge-wine-dine.webp",
+      "path": "/art/critter-kitchen/portrait/challenge-wine-dine.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-6210e63f-ab60-49b6-bfd7-4408b39efdea.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-946a2de3-2dda-4448-b6c6-a6b4bce62adb.png",
+      "previousPath": "/art/critter-kitchen/challenge-wine-dine.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-6210e63f-ab60-49b6-bfd7-4408b39efdea.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "challenge-street-eats",
-      "path": "/art/critter-kitchen/challenge-street-eats.webp",
+      "path": "/art/critter-kitchen/portrait/challenge-street-eats.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-c3435469-a30f-499f-a9ac-476fd0be9880.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-68282829-640b-4b7c-9be9-a995dff6630e.png",
+      "previousPath": "/art/critter-kitchen/challenge-street-eats.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-c3435469-a30f-499f-a9ac-476fd0be9880.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "challenge-ultimate-melt",
-      "path": "/art/critter-kitchen/challenge-ultimate-melt.webp",
+      "path": "/art/critter-kitchen/portrait/challenge-ultimate-melt.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-96347a97-ef92-4fa2-ab75-0a23711cfd55.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c4e9e0f1-a338-4575-a78b-41a51026ccc5.png",
+      "previousPath": "/art/critter-kitchen/challenge-ultimate-melt.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-96347a97-ef92-4fa2-ab75-0a23711cfd55.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "challenge-comfort-food",
-      "path": "/art/critter-kitchen/challenge-comfort-food.webp",
+      "path": "/art/critter-kitchen/portrait/challenge-comfort-food.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-eb91b704-35e4-4d3f-93a5-92ce5b4d0391.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-19808dac-5332-4ff7-b6f1-ef572d3aec49.png",
+      "previousPath": "/art/critter-kitchen/challenge-comfort-food.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-eb91b704-35e4-4d3f-93a5-92ce5b4d0391.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "challenge-tasty-tapas",
-      "path": "/art/critter-kitchen/challenge-tasty-tapas.webp",
+      "path": "/art/critter-kitchen/portrait/challenge-tasty-tapas.webp",
       "status": "generated",
       "generator": "built-in image_gen",
       "transparentBackground": false,
-      "source": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-687f5c2b-b16b-4e1b-88b0-5e0dbd36e1e2.png"
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7ce025ad-ad50-4d72-a86d-383269a219ad.png",
+      "previousPath": "/art/critter-kitchen/challenge-tasty-tapas.webp",
+      "previousSource": "/Users/basukekung/.codex/generated_images/01a13869-d19c-75a2-9ef4-90d666a1093c/exec-687f5c2b-b16b-4e1b-88b0-5e0dbd36e1e2.png",
+      "aspectRatio": "3:4",
+      "revisedAt": "2026-10-19"
     },
     {
       "componentId": "rumor-bread-fanatic",

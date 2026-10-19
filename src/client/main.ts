@@ -369,6 +369,7 @@ function renderContent() {
     connection.setAttribute('aria-label',connected?'เชื่อมต่อแล้ว':'หลุด กำลังเชื่อมต่อใหม่');
     connection.innerHTML='<i aria-hidden="true"></i>'+(connected?'ออนไลน์':'หลุด');
   } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse">GameVerse</a>${!view || view.phase === "lobby" ? '<nav class="header-links" aria-label="เมนูหลัก"><a href="/">เลือกเกม</a><a href="/join">เข้าห้อง</a></nav>' : ""}</div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "locus" && view?.gameId !== "critter-kitchen" && view?.gameId !== "sky-team" && view?.gameId !== "harmonies" && view?.gameId !== "jaipur" && view?.gameId !== "pixies" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
+  main.querySelector<HTMLElement>("#notice")?.classList.toggle("session-toast",stopped&&notice.startsWith("เซสชันนี้เปิด"));
   const content = main.querySelector<HTMLElement>("#content")!;
   turnSound.setCompact(!!view);
   turnSound.setActive(!!view && view.phase!=="lobby");

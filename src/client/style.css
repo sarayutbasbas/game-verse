@@ -1564,3 +1564,6 @@ main .room-code strong { letter-spacing: .08em; }
 .game-toast button { width: 40px; min-height: 40px; padding: 0; border: 0; background: transparent; color: inherit; font-size: 24px; }
 .clipboard-fallback { position: fixed; left: -9999px; }
 @media(max-width: 360px) { main > header.game-header .brand { font-size: 17px; } main > header.game-header { gap: 6px; } }
+
+/* Session takeover stays visible without displacing the game workspace. */
+main>#notice.session-toast{position:fixed;top:max(8px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:500;display:block;width:max-content;max-width:calc(100vw - 24px);min-height:0;box-sizing:border-box;margin:0;padding:10px 14px;border:1px solid #dfba70;border-radius:14px;background:#fff8df;color:#5e431c;font-size:13px;line-height:1.5;text-align:center;box-shadow:0 5px 18px #173f4440}
