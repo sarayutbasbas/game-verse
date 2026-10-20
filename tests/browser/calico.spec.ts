@@ -1,5 +1,5 @@
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import type { CalicoView } from "../../src/games/calico/types.js";
 const read = (p: Page): Promise<CalicoView> =>
   p.evaluate(() => (window as any).__view);
@@ -89,7 +89,7 @@ for (const preset of ["standard", "first"] as const)
       });
       await host.goto("/games/calico");
       await testAccount(host);
-      await host.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+      await createDisplayRoom(host);
       await expect(host.locator("#qr")).toBeVisible();
       code = await host.locator(".room-code strong").innerText();
       if (preset === "first") {
@@ -368,7 +368,7 @@ for (const count of [1, 3, 4])
       ).toBeVisible();
       await host.goto("/games/calico");
       await testAccount(host);
-      await host.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+      await createDisplayRoom(host);
       await expect(host.locator("#qr")).toBeVisible();
       code = await host.locator(".room-code strong").innerText();
       await host.getByLabel("การจัดเกม").selectOption("first");
@@ -559,7 +559,7 @@ test("Calico reward overlays: real earning groups, readable fabric, no duplicate
     await capture(phone);
     await host.goto(url + "/games/calico");
     await testAccount(host, app);
-    await host.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(host);
     await expect(host.locator("#qr")).toBeVisible();
     const code = await host.locator(".room-code strong").innerText();
     await phone.goto(url + "/play/" + code);

@@ -186,6 +186,10 @@ export function platformHandler(
         });
         return true;
       }
+      if(path==='/api/games/harmonies/leaderboard'&&req.method==='GET'){
+        json(res,200,store.harmoniesLeaderboards());
+        return true;
+      }
       if (!p) {
         invalid(res, "กรุณาล็อกอินหรือเลือก Guest ก่อน", 401);
         return true;
@@ -283,6 +287,11 @@ export function platformHandler(
         }
         json(res, 200, { ok: true });
         return true;
+      }
+      if(path==="/api/rooms/visit"&&req.method==="POST"){
+        const data=JSON.parse((await body(req)).toString());
+        if(typeof data.code!=="string"||!/^[A-Z2-9]{6}$/.test(data.code))throw Error("รหัสห้องไม่ถูกต้อง");
+        rooms.visit(p.id,data.code);json(res,200,{ok:true});return true;
       }
       if (path === "/api/rooms/leave" && req.method === "POST") {
         const data = JSON.parse((await body(req)).toString());

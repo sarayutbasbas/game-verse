@@ -1,0 +1,9 @@
+# Restart from the room menu
+
+Every online room game has an owner-only circular restart icon in its room menu. Critter Kitchen and Harmonies use their native hamburger panels; the other games use the shared room menu. Name It is a local game without room ownership and does not use this control.
+
+The confirmation identifies the game, explains that progress/scores will be cleared, and focuses “เล่นต่อ” first. Cancel/Escape keeps game state intact and returns focus to the menu. A revision change closes the confirmation; pending/disconnected controls cannot submit. The server independently rejects non-owners, extra payload fields, lobby resets and stale revisions. Repeating a command ID reuses its receipt.
+
+`room-restart` creates a fresh authoritative game without waiting for the current game to finish. Memberships, room code and authenticated reconnect sessions remain. Room presentation settings and supported modules remain: Critter Kitchen re-deals Restaurateur choices (also when restarting during selection), tutorial and verified packs; Harmonies keeps board side and module options; Calico keeps its preset. Take Time resets to attempt 1, zero bonus, closed hands. Offline seats remain and can reconnect. All clients receive a snapshot after an accepted reset.
+
+Verification covers all 12 online game factories through actual authenticated WebSockets, owner permissions, forged payloads, stale revisions, duplicate receipts, valid stored state and process restoration. Browser checks cover both owner and guest controllers in Critter Kitchen, Harmonies, Pixies and Take Time, plus confirmation, cancel, double click and reload. Take Time also tests cancellation when another player acts during confirmation. Critter Kitchen checks returning from its information tab to visible new head-chef choices.

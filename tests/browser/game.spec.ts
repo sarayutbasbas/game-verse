@@ -1,4 +1,4 @@
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import { test, expect, type Page } from "@playwright/test";
 test("จอกลาง + มือถือ 3 คน เล่นครบเกมและหลุดกลับผู้เล่นเดิม", async ({
   browser,
@@ -11,7 +11,7 @@ test("จอกลาง + มือถือ 3 คน เล่นครบเ�
   display.on("pageerror", (e) => errors.push(e.message));
   await display.goto("/games/camel-up");
     await testAccount(display);
-  await display.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+  await createDisplayRoom(display);
   await expect(display.locator(".room-code strong")).toBeVisible();
   const code = await display.locator(".room-code strong").innerText();
   const players: Page[] = [],
@@ -207,7 +207,7 @@ test("วง 6 คน เลือกบัตรพันธมิตรบน�
   const display = await hostContext.newPage();
   await display.goto("/games/camel-up");
     await testAccount(display);
-  await display.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+  await createDisplayRoom(display);
   await expect(display.locator(".room-code strong")).toBeVisible();
   const code = await display.locator(".room-code strong").innerText();
   const contexts = [],

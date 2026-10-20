@@ -282,3 +282,24 @@ The first-turn draft now wraps each portrait in the ordinary inspect-card struct
 Spirit cards have a gold star seal and warm edge; Whispers have a violet seal and edge. Both stay identifiable in “สัตว์ของคุณ”. Newly accepted acquisition/activation events pulse the seal once and play a short ascending shimmer through the existing effects bus. Existing mute and effects-volume controls apply. Snapshot, presence, duplicate sequence and revision-gap updates do not replay the sound. Reduced motion suppresses the visual pulse; there is no repeating sound or constant flashing.
 
 Exact prompts, original and revised atlas paths, extraction rectangles and runtime outputs are in `spirit-figurine-art-jobs.json`. The generated atlas was revised for separated silhouettes before extraction; final transparent WebPs were inspected together on a dark green background. Rules and expansion scope remain as documented in `expansions.md`.
+
+## Sculpted animals and luminous Whispers — 19 October 2026
+All live normal animals now use 32 original smooth, hand-painted sculpted miniature sprites instead of voxel animals. Board pieces, placement previews, available-piece trays, results and small/large card habitat diagrams share the same resolver and projection. Normal pieces use natural opaque colors with only a dark contact shadow. The earlier cube/voxel presentation is superseded.
+
+All ten Whisper cards now use five luminous object models matching their printed categories: crystals, forest statuettes, flowers, coral and mushrooms. Each category serves its two cards. When sharing a cell, the animal and Whisper shift slightly apart; the Spirit is compacted to keep both silhouettes on the cap. This also applies to previews. Cell accessibility labels name the Whisper and identify Spirits.
+
+Spirits retain their original ten crystal sprites, with stronger colored core/rim glow and a wider halo in both board and habitat diagrams. Whispers have a softer violet/aqua glow; normal animals have no emissive effect. Glow is static, with no new animation, meshes or timers.
+
+The 37 new sprites are transparent 160×184 WebPs, normalized with safe margins. Total compressed size is approximately 369 KiB, maximum 13 KiB per sprite. Versioned `figurines/sculpted-v1` paths avoid the old voxel cache. Exact generation prompts, source files, processing format and Whisper mapping are recorded in `sculpted-figurine-art-jobs.json`. Existing sprites remain available for old clients. Game state, placement rules, scoring and network projection are unchanged.
+
+## Friendly storybook animal pieces — 19 October 2026
+
+User feedback: the first sculpted animal set looked too realistic and frightening. All 32 ordinary species and all 10 Nature Spirits now use original, transparent chibi storybook illustrations: oversized rounded heads, friendly eyes, compact bodies, broad colors and simplified fur/scales. No sharp teeth, realistic skin or photographic miniature rendering. The 42 sprites share a crocodile style reference and remain 160×184 WebP with an 8px transparent margin, 376 KiB total.
+
+Board placements, trays, confirmation previews and both habitat-diagram sizes resolve the same `figurines/cartoon-v2` assets. Ordinary animals keep only the contact shadow. Spirits retain the stronger existing glow; the five Whisper object sprites and their softer glow remain in use. Anchors, scale, camera transforms, stacking and rules are unchanged. The habitat cache key now includes cartoon-v2.
+
+Built-in image_gen prompts, source paths and final workspace paths: [cartoon-figurine-art-jobs.json](cartoon-figurine-art-jobs.json). Source renders were normalized with Sharp (alpha trim, contain bottom-aligned within 144×168, 8px transparent margins), preserving generated transparency. The earlier sculpted files remain as source history; only Whisper objects still use sculpted-v1 at runtime.
+
+## Solo market change button — 19 October 2026
+
+The solo card-change action shares the market's green 28px circular claim-button style and 18px SVG sizing. Two opposing arrows replace the text glyph; the change button sits 4px below the plus button in the same column. It retains the existing confirmation and solo-discard legal action and is disabled while an action is pending.

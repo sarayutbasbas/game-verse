@@ -1807,3 +1807,61 @@ Executed verification:
 
 ### 19 October 2026 — Critter Kitchen replay returns to head-chef selection
 Fixed replay dropping the enabled Restaurateur module when the UI sends only `restart`. The server now inherits the previous game's head-chef choice setting, deals fresh offers and enters selection before the opening briefing. Both confirmation paths describe reselecting. Verification: build and all 58 Critter Kitchen tests pass; actual WebSocket test finishes a valid game and checks authorized replay, fresh private two-card offers, cleared scores, new match identity, duplicate receipt and blocked planning. Browser test clicks replay from final results, verifies both phones return to selection and reload preserves offers. Docker rebuilt with the existing data/auth volume preserved. Logs: ignored `data/ck-replay-*.log`.
+
+### 19 October 2026 — Owner restart from hamburger menus
+Added an owner-only circular restart icon to the native Critter Kitchen/Harmonies hamburger menus and the shared menu for other online games. Native confirmation defaults focus to “เล่นต่อ”, supports Escape/cancel, closes on revision changes and disables submission while pending/disconnected. Native menus retain the control after local presentation rerenders. Critter Kitchen returns to visible new head-chef choices even when restarting from its information tab.
+
+New strict `room-restart` server action recreates the game immediately in the same room, including mid-game. Memberships/authenticated sessions and room/module settings stay; previous progress is discarded. Critter Kitchen preserves head-chef selection/tutorial/verified packs, Harmonies preserves side/options, Calico preserves preset, Take Time resets bonus/attempt/hands. Server ownership, revisions and duplicate receipts remain authoritative; restart broadcasts a snapshot and maps Camel Up to its existing restart event.
+
+Verification: build passes; full suite 287 total, 285 passed, 2 optional PostgreSQL skips. A new actual WS test covers all 12 online games, unauthorized/forged/stale commands, duplicate receipt, private projection and stored-state/process restoration. New browser test passes owner/guest/spectator flows for Critter Kitchen, Harmonies, Pixies and Take Time: cancel, double confirm, fresh setup, reload and stale confirmation cancellation. Inspected mobile confirmation screenshots. Docker rebuilt preserving volume/auth, health ok at5555, actual Docker browser test passes. Ignored evidence: `data/room-restart-*.log`, `data/qa-room-restart/`. No push or production deployment for this change.
+
+### 19 October 2026 — Harmonies sculpted animals and Whisper models
+Replaced the live voxel normal animals with 32 original sculpted, naturally colored miniatures and no emissive effect. Generated five glowing nature-object models serving all ten Whisper cards. Existing ten Spirit sprites now receive stronger colored glow in board, preview, tray, result and card-diagram views. All small/large habitat diagrams use models. Shared animal/Whisper cells separate their silhouettes while staying compact; accessibility labels include both pieces. Rules, saved cell identifiers, scoring and server projections are unchanged.
+
+New assets: 37 transparent160×184 WebPs under versioned `public/art/harmonies/figurines/sculpted-v1/`, 369KiB combined, at most13KiB each. Originals, exact prompts, processing and Whisper mapping are recorded in `docs/games/harmonies/sculpted-figurine-art-jobs.json`. Alpha/dimensions checked for every sprite; normal/Whisper contact sheets inspected.
+
+Validation: build passes; full suite287 total/285 pass/2 optional PostgreSQL skips. Actual Docker Solo and2-player module games complete successfully with reconnect/settlement. Spirit and all52-card model/diagram visual checks pass, including shared cells, stronger Spirit glow, both camera views, mobile layout and reduced motion. Existing all32 card-layout test passes, and dense3D test passes at320×568,390×620 and390×844 including tall-stack feet placement, selection, preview and cameras. The visual fixture was corrected to use proper card wrappers; a separate dense-test run hit a transient404 during a concurrent host build and passed when rerun after the build. Docker rebuilt preserving data/auth, health ok at5555. Ignored evidence: `data/hm-figurines-*.log`, `data/qa-harmonies-reference/sculpted-*.png`. No push or deployment for this change.
+
+### 2026-10-19 — รายละเอียดเกมและประวัติการกลับเข้าห้อง
+
+- รายละเอียดครบ 13 เกมยุบวิธีเล่นพร้อมภาพไว้ก่อน เพิ่มเนื้อหาหลักเป็น 18px และปุ่มกลับหน้าเลือกเกม
+- ลิสต์แสดงเกมทั้งหมดแบบเลื่อนยาว เก็บตัวกรองจำนวนผู้เล่นและตำแหน่งเลื่อนเดิม พร้อมเวลาย้อนหลังใต้เกมล่าสุด
+- ห้องเดิมเรียงจากกิจกรรมล่าสุดของบัญชี แสดงเวลาและไอคอนวงกลมกลับเล่น/เปิดจอกลางที่มีชื่อเข้าถึงและ tooltip
+- เมนูเกมออนไลน์มีออกจากห้องพร้อมยืนยัน กลับรายละเอียดเกมโดยเก็บที่นั่ง/เซสชัน/ความคืบหน้าไว้; ใช้ได้กับเจ้าของ ผู้เล่น และจอสาธารณะ ปุ่ม restart ยังจำกัดเฉพาะเจ้าของ
+- เวลาเข้า/ออกมาจากเซิร์ฟเวอร์ เก็บใน session record เดิม (ไม่เพิ่มตาราง/ไม่ส่ง token หรือประวัติผู้เล่นอื่นสู่ client) เริ่มบันทึกตั้งแต่อัปเดตนี้ ห้องเก่าไม่มีเวลาที่เดาแทนให้ การเข้าห้องรอไม่เพิ่มเกมล่าสุดจนเริ่มเกม
+- Name It ยืนยันออกกลับรายละเอียดเกม; ประวัติเวลาของเกมที่เล่นบนเครื่องเดียวเก็บเฉพาะเบราว์เซอร์นั้น
+- ตรวจ build, unit suite และ browser: คู่มือทุกเกมที่ 320/390px สำหรับสี่เกมหลัก; ห้องหลายเกมพร้อม 25 นาที/2 ชม., ลิสต์ครบไม่มี pagination, back, ยกเลิก/ยืนยันออกและกลับที่นั่งเดิมใน CK/Harmonies/Pixies/Take Time รวมถึงตรวจสิทธิ์และ persistence ของเวลาเล่น
+- ใช้ Docker localhost:5555 และข้อมูลแยกจาก dev เดิม ไม่มี push หรือ deploy งานรอบนี้
+
+### 2026-10-19 — Harmonies เปลี่ยนสัตว์บนไทล์เป็นการ์ตูน
+
+- รับ feedback ว่าชุด sculpted-v1 สมจริงและน่ากลัวเกินไป สร้างใหม่ด้วย built-in image_gen ครบ 32 สัตว์ปกติและ 10 สัตว์วิเศษ เป็น chibi storybook หัวกลม ตาเป็นมิตร ลดรายละเอียดขน/เกล็ดและกายวิภาค
+- ใช้ภาพเดียวกันบนกระดาน ถาด ตัวอย่างยืนยัน และแผนผังถิ่นอาศัยทั้งสองขนาด สัตว์ปกติไม่มีแสงเรือง สัตว์วิเศษใช้แสงเดิมที่เด่นกว่า Whisper; ไม่เปลี่ยนกติกา ขนาด หรือการวางบนไทล์
+- ชุดใหม่ `public/art/harmonies/figurines/cartoon-v2/` มี 42 WebP โปร่งใส 160×184 รวม 376 KiB; ตรวจ alpha และฐานภาพให้อยู่ 8–10px จากขอบล่างทุกตัว เก็บชุดเก่าไว้โดยไม่เขียนทับ
+- Prompt และแหล่งภาพครบใน `docs/games/harmonies/cartoon-figurine-art-jobs.json`; ตรวจ contact sheet ของสัตว์ทุกชนิดและมือถือที่มีตัวอย่างบน token/การ์ดแล้ว
+- Build และ presentation unit ผ่าน; browser cartoon gallery ครบ 52 การ์ด (32+10+10), shared-tile glow และ dense3D tall-stack/camera/mobile ผ่าน 2/2; Docker rebuild ที่ localhost:5555 โดยรักษา volume เดิม ไม่มี push/deploy
+
+### 2026-10-19 — Harmonies global leaderboard
+
+- เพิ่มไอคอนถ้วยวงกลมในหน้ารายละเอียด Harmonies เปิด popup สลับ Solo/แข่งขัน แสดง 10 personal best ต่อโหมดจากทุกบัญชี พร้อมรูป/ชื่อ/คะแนน/วันที่ เน้นสามอันดับแรกด้วยทอง/เงิน/ทองแดง
+- บันทึกคะแนนที่ engine สรุปจริงเฉพาะตอนจบเกม ใน transaction เดียวกับสถานะห้อง จัดอันดับ/ตัดเหลือ 10 แถวต่อโหมด ไม่เก็บคะแนนลับจาก client; public endpoint ไม่ส่ง identity ภายในหรือ reconnect credentials
+- รองรับชื่อ/รูปโปรไฟล์ปัจจุบันและ Guest → member merge, ties ตามเวลาที่ทำคะแนนได้ก่อน, migration additive ทั้ง SQLite/PostgreSQL ข้อมูลอยู่หลัง reconnect/process restart
+- Unit suite 293 / 289 pass / 4 optional PG skip; leaderboard store tests และ full-game/final-race integration ทดสอบ PostgreSQL แยกจริงผ่านทั้งหมด รวม final race ข้าม 2 instances; popup browser ผ่าน loading/empty/retry/refresh, Escape focus, top3, profile/date และมือถือ 320/390px
+- ดูขอบเขต/นโยบายและผลตรวจใน `docs/games/harmonies/leaderboard.md`; ใช้ Docker localhost:5555 กับ volume เดิม ไม่มี push หรือ deploy
+
+### 2026-10-19 — Harmonies Solo circular card-change control
+
+- เปลี่ยน glyph เปลี่ยนการ์ดเป็น SVG ลูกศรสลับสองทิศ ใช้สไตล์สีเขียววงกลม/ขนาด 28×28 และไอคอน 18px ชุดเดียวกับปุ่มบวก วางใต้ปุ่มบวก 4px ในคอลัมน์เดียวกัน
+- คง confirm/cancel และ legal action เดิม เพิ่ม disabled ให้ตรงสถานะ pending/offline
+- Build และ Docker rebuild ผ่าน ตรวจจริงบน localhost:5555 ที่ 320/390/1024px วงกลม/ขนาด/แนวตรงกัน ยกเลิกไม่เปลี่ยน revision ยืนยันเปลี่ยนการ์ดแล้วเหลือเพียงจบตาตามกติกา ไม่มี page errors ห้องทดสอบที่ยังไม่จบถูกปิดแล้ว ไม่เพิ่มคะแนนทดสอบลง leaderboard
+- หลักฐาน: `data/hm-solo-change-{build,docker,browser}.log` และ `data/qa-harmonies-solo-change/`; ไม่ push/deploy
+
+### 2026-10-19 — Leaderboard close icon alignment
+
+ปุ่มปิดใช้ SVG กากบาทแทนตัวอักษร ตั้งวงกลม 44×44 แบบ padding/border เป็นศูนย์ และโฟกัส dialog ตอนเปิดเพื่อไม่ขึ้นกรอบปุ่มอัตโนมัติ ยังคง focus indicator สีเขียวสำหรับคีย์บอร์ด Build, popup browser และ Docker localhost:5555 ผ่าน ตรวจไอคอนกึ่งกลางทั้งสองแกน/วงกลม/ไม่มี border หรือ initial outline ที่ 320/390/1100px และกดปิดได้ ไม่มี push/deploy
+
+### 2026-10-20 — GO creates a ready owner player
+- Every online game-detail GO now requests an atomic room + authenticated owner seat, marks the owner ready, and opens `/play/<code>` directly. Names/avatars/identity come from the server profile. Dracula still requires explicit role selection before readiness/start.
+- Owner-player lobby retains invite QR and start/settings controls and adds a separate-display link. Independent player/host credentials allow both tabs/devices to coexist; duplicate creation, account rejoin and reload reuse the seat. Legacy display-only protocol clients remain supported, and existing shared-display browser suites explicitly use that fixture.
+- Validation: production build and TypeScript pass; full unit/protocol suite 290 passed, 4 optional Postgres skips; focused create test also verifies storage-failure rollback with no session leak. Browser ordinary GO across all 12 online games, separate display, reconnect, Harmonies Solo start and Pixies with an invited player pass; existing four-game owner-restart flow passes.
+- Rebuilt Docker without changing volumes/auth configuration. Actual localhost:5555 browser verification passed GO, owner readiness/management and reload for all 12 games; temporary test rooms closed. Phone screenshot: `data/qa-creator-player/harmonies-owner-phone.png`. No push or deployment.

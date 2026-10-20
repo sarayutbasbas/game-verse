@@ -1,3 +1,4 @@
+import {updateRoomRestart} from './room-restart.js';
 import {illustratedGameGuide} from './game-learning.js';
 import {renderTakeTime,closeTakeTime} from "./take-time.js";
 import {renderLocus} from "./locus.js";
@@ -274,6 +275,7 @@ function render() {
   const activeButton =
     active?.tagName === "BUTTON" ? active.textContent : undefined;
   renderContent();
+  updateRoomRestart(main,view,session?.role === "host" || !!view?.me?.canManage,!!pending || !connected,command);
   bindRoomLinks(main, platform.joinOrigin ?? location.origin);
   main.classList.toggle(
     "display-surface",
@@ -427,7 +429,7 @@ function renderContent() {
         entryPending = true;
         entryError = "";
         notice = "";
-        send({ type: "create", gameId,...displayMode?{displayMode}:{} });
+        send({ type: "create", gameId,joinAsPlayer:true,...displayMode?{displayMode}:{} });
         render();
       },
     );

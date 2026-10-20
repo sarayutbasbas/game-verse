@@ -73,9 +73,9 @@ export function updateGameHeader(
     menu.dataset.code = view.code;
     const url = new URL("/play/" + view.code, joinOrigin).href;
     menu.innerHTML =
-      "<summary>ข้อมูลห้อง</summary><div>" +
+      '<summary aria-label="เมนูเกม" title="เมนูเกม"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg></summary><div>' +
       roomCode(view.code) +
-      '<button type="button" class="shared-illustrated-guide">วิธีเล่นพร้อมภาพ</button><canvas width="160" height="160" aria-label="QR เข้าห้อง"></canvas><a class="join-link">ลิงก์เข้าห้อง</a><a href="/">เลือกเกม / ออกจากหน้าห้อง</a><small>กลับลิงก์เดิมเพื่อเล่นต่อได้</small></div>';
+      '<button type="button" class="shared-illustrated-guide">วิธีเล่นพร้อมภาพ</button><canvas width="160" height="160" aria-label="QR เข้าห้อง"></canvas><a class="join-link">ลิงก์เข้าห้อง</a><small>กลับลิงก์เดิมเพื่อเล่นต่อได้</small></div>';
     menu.querySelector<HTMLButtonElement>('.shared-illustrated-guide')!.onclick=()=>{menu!.open=false;openGameGuide(view.gameId,metadata(view.gameId)!.name);};
     menu.querySelector<HTMLAnchorElement>(".join-link")!.href = url;
     menu.ontoggle = () => {

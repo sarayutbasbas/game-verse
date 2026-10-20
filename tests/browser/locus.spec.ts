@@ -3,7 +3,7 @@ import { mkdtemp, rm, mkdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { startServer } from '../../src/server/index.js';
-import { testAccount } from './auth-fixture.js';
+import {testAccount,createDisplayRoom} from './auth-fixture.js';
 import { botAction, seeded } from '../locus-fixtures.js';
 import { validateLocusState } from '../../src/games/locus/validation.js';
 import type { LocusView, LocusAction } from '../../src/games/locus/types.js';
@@ -24,7 +24,7 @@ test('Locus real phone game: mixed modes, retained preview, touch shapes, bonuse
         await host.goto(url + '/games/locus');
         await testAccount(host, app);
         await host.locator('#ck-entry-mode').selectOption('shared-table');
-        await host.locator('#create').click();
+        await createDisplayRoom(host);
         await expect(host.locator('#qr')).toBeVisible();
         const code = await host.locator('.room-code strong').innerText();
         const phones: Page[] = [];
@@ -179,7 +179,7 @@ for (const count of [3, 4, 5])
             await host.goto(url + '/games/locus');
             await testAccount(host, app);
             await host.locator('#ck-entry-mode').selectOption('full-mobile');
-            await host.locator('#create').click();
+            await createDisplayRoom(host);
             await expect(host.locator('#qr')).toBeVisible();
             const code = await host.locator('.room-code strong').innerText(), phones: Page[] = [];
             for (let i = 0; i < count; i++) {
@@ -225,7 +225,7 @@ test('Locus Docker5555 actual shared display and two phones commit a visible sha
         await host.goto(baseURL + '/games/locus');
         await testAccount(host);
         await host.locator('#ck-entry-mode').selectOption('full-mobile');
-        await host.locator('#create').click();
+        await createDisplayRoom(host);
         await expect(host.locator('#qr')).toBeVisible();
         const code = await host.locator('.room-code strong').innerText(), phones: Page[] = [];
         for (let i = 0; i < 2; i++) {

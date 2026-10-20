@@ -1,0 +1,317 @@
+{
+  "generator": "image_gen.imagegen",
+  "date": "2026-10-19",
+  "transparentBackground": true,
+  "format": "WebP RGBA 160x184; alpha trimmed then normalized to 144x168 inside 8px safe margins",
+  "intent": "Natural non-emissive sculpted animal figurines; five luminous nature objects used by all ten Whisper cards. Existing spirit sprites retained with stronger runtime glow.",
+  "whisperMapping": [
+    "crystal",
+    "statue",
+    "flower",
+    "coral",
+    "mushroom",
+    "flower",
+    "statue",
+    "crystal",
+    "mushroom",
+    "coral"
+  ],
+  "entries": [
+    {
+      "id": "animal-01-model",
+      "kind": "normal",
+      "subject": "crocodile with curled tail and raised head, natural moss green scales",
+      "prompt": "ONE isolated premium sculpted animal miniature of a crocodile with curled tail and raised head, natural moss green scales. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f13cf4fa-e80b-4a84-9c79-acd519cd8ea2.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-01-model.webp"
+    },
+    {
+      "id": "animal-02-model",
+      "kind": "normal",
+      "subject": "stingray with smoothly curved diamond fins and gently curled tail, slate blue gray",
+      "prompt": "ONE isolated premium sculpted animal miniature of a stingray with smoothly curved diamond fins and gently curled tail, slate blue gray. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-89a57c51-c660-4f4e-b814-03f282856739.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-02-model.webp"
+    },
+    {
+      "id": "animal-03-model",
+      "kind": "normal",
+      "subject": "hippopotamus sitting comfortably, natural warm gray skin",
+      "prompt": "ONE isolated premium sculpted animal miniature of a hippopotamus sitting comfortably, natural warm gray skin. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e25109b7-a556-4b71-98b1-220831d78340.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-03-model.webp"
+    },
+    {
+      "id": "animal-04-model",
+      "kind": "normal",
+      "subject": "river otter sitting upright, rich brown fur and cream chest",
+      "prompt": "ONE isolated premium sculpted animal miniature of a river otter sitting upright, rich brown fur and cream chest. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2a379dbd-2bca-4ec0-ac17-c50c7918d5e1.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-04-model.webp"
+    },
+    {
+      "id": "animal-05-model",
+      "kind": "normal",
+      "subject": "frog crouching, natural bright green skin",
+      "prompt": "ONE isolated premium sculpted animal miniature of a frog crouching, natural bright green skin. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ca301561-c777-4bc4-979f-107db471f6b8.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-05-model.webp"
+    },
+    {
+      "id": "animal-06-model",
+      "kind": "normal",
+      "subject": "mallard duck standing, green head and brown chest",
+      "prompt": "ONE isolated premium sculpted animal miniature of a mallard duck standing, green head and brown chest. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9cd0f4c8-ad93-441c-8f43-3a66d44dc8fd.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-06-model.webp"
+    },
+    {
+      "id": "animal-07-model",
+      "kind": "normal",
+      "subject": "flamingo standing with one leg tucked, coral pink feathers",
+      "prompt": "ONE isolated premium sculpted animal miniature of a flamingo standing with one leg tucked, coral pink feathers. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9b8fb298-6fd3-4fda-b039-9c633b2a9dd8.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-07-model.webp"
+    },
+    {
+      "id": "animal-08-model",
+      "kind": "normal",
+      "subject": "small lizard with curled tail, natural leaf green scales",
+      "prompt": "ONE isolated premium sculpted animal miniature of a small lizard with curled tail, natural leaf green scales. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-153bd7f5-795b-4556-bbc0-fdd2270aa583.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-08-model.webp"
+    },
+    {
+      "id": "animal-09-model",
+      "kind": "normal",
+      "subject": "mouse sitting, soft gray fur, pink ears",
+      "prompt": "ONE isolated premium sculpted animal miniature of a mouse sitting, soft gray fur, pink ears. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fdcf6a89-0066-488b-b922-354d909348ba.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-09-model.webp"
+    },
+    {
+      "id": "animal-10-model",
+      "kind": "normal",
+      "subject": "peacock with gently fanned compact blue green tail",
+      "prompt": "ONE isolated premium sculpted animal miniature of a peacock with gently fanned compact blue green tail. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5fa61208-3576-42e6-a0f0-0701224143b1.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-10-model.webp"
+    },
+    {
+      "id": "animal-11-model",
+      "kind": "normal",
+      "subject": "red squirrel sitting upright with bushy tail curled behind",
+      "prompt": "ONE isolated premium sculpted animal miniature of a red squirrel sitting upright with bushy tail curled behind. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2751aea8-3092-472e-a25b-5173b13aef0d.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-11-model.webp"
+    },
+    {
+      "id": "animal-12-model",
+      "kind": "normal",
+      "subject": "hedgehog standing, brown spines and cream face",
+      "prompt": "ONE isolated premium sculpted animal miniature of a hedgehog standing, brown spines and cream face. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7ed0572a-f1e9-4cfe-9a00-18c7b0c1adf3.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-12-model.webp"
+    },
+    {
+      "id": "animal-13-model",
+      "kind": "normal",
+      "subject": "honey bee with translucent wings, yellow black body",
+      "prompt": "ONE isolated premium sculpted animal miniature of a honey bee with translucent wings, yellow black body. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-08c12b6a-ef11-4076-91bb-e102240ef57c.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-13-model.webp"
+    },
+    {
+      "id": "animal-14-model",
+      "kind": "normal",
+      "subject": "brown bear standing on all four paws",
+      "prompt": "ONE isolated premium sculpted animal miniature of a brown bear standing on all four paws. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a8512148-5de5-4ee1-bd6e-e7d8fde5df76.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-14-model.webp"
+    },
+    {
+      "id": "animal-15-model",
+      "kind": "normal",
+      "subject": "hare sitting with tall ears, tawny brown fur",
+      "prompt": "ONE isolated premium sculpted animal miniature of a hare sitting with tall ears, tawny brown fur. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4e690ff3-5c6a-4aeb-97d3-3ea339e4ded6.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-15-model.webp"
+    },
+    {
+      "id": "animal-16-model",
+      "kind": "normal",
+      "subject": "scarlet macaw perched with feet together and compact folded wings, red blue yellow feathers",
+      "prompt": "ONE isolated premium sculpted animal miniature of a scarlet macaw perched with feet together and compact folded wings, red blue yellow feathers. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-677c3514-9f7b-468d-a389-39f362ba8896.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-16-model.webp"
+    },
+    {
+      "id": "animal-17-model",
+      "kind": "normal",
+      "subject": "wild boar standing, dark brown bristles and small tusks",
+      "prompt": "ONE isolated premium sculpted animal miniature of a wild boar standing, dark brown bristles and small tusks. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f1a43504-3c3b-46fc-a0ff-d2d382a5f381.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-17-model.webp"
+    },
+    {
+      "id": "animal-18-model",
+      "kind": "normal",
+      "subject": "koala sitting, fluffy gray fur",
+      "prompt": "ONE isolated premium sculpted animal miniature of a koala sitting, fluffy gray fur. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3db0e718-fe8e-4b4a-8508-41726c294342.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-18-model.webp"
+    },
+    {
+      "id": "animal-19-model",
+      "kind": "normal",
+      "subject": "gray wolf sitting alert with bushy tail curled around feet",
+      "prompt": "ONE isolated premium sculpted animal miniature of a gray wolf sitting alert with bushy tail curled around feet. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-60cd647e-a1db-454a-aa76-086bfbaf24b8.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-19-model.webp"
+    },
+    {
+      "id": "animal-20-model",
+      "kind": "normal",
+      "subject": "kingfisher standing with feet together, vivid natural blue orange feathers",
+      "prompt": "ONE isolated premium sculpted animal miniature of a kingfisher standing with feet together, vivid natural blue orange feathers. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8f9d0fc6-b92d-4fc3-955c-4459e34ecd0e.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-20-model.webp"
+    },
+    {
+      "id": "animal-21-model",
+      "kind": "normal",
+      "subject": "penguin standing, black white plumage",
+      "prompt": "ONE isolated premium sculpted animal miniature of a penguin standing, black white plumage. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d22a4792-8358-4d1a-8b08-89dda168743b.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-21-model.webp"
+    },
+    {
+      "id": "animal-22-model",
+      "kind": "normal",
+      "subject": "small bat hanging in a compact upright pose with wings partly spread, dark brown membrane",
+      "prompt": "ONE isolated premium sculpted animal miniature of a small bat hanging in a compact upright pose with wings partly spread, dark brown membrane. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8ab902ba-2f95-4106-8faf-4d7693fab677.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-22-model.webp"
+    },
+    {
+      "id": "animal-23-model",
+      "kind": "normal",
+      "subject": "fennec fox sitting, sandy cream fur and oversized ears",
+      "prompt": "ONE isolated premium sculpted animal miniature of a fennec fox sitting, sandy cream fur and oversized ears. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-79d15415-8590-4313-b2b0-80c9a7019350.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-23-model.webp"
+    },
+    {
+      "id": "animal-24-model",
+      "kind": "normal",
+      "subject": "snow monkey sitting, soft silver fur and natural pink face",
+      "prompt": "ONE isolated premium sculpted animal miniature of a snow monkey sitting, soft silver fur and natural pink face. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-60cf59c7-ddde-4124-9a33-61582a314632.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-24-model.webp"
+    },
+    {
+      "id": "animal-25-model",
+      "kind": "normal",
+      "subject": "vulture standing with folded wings, cream neck ruff and brown feathers",
+      "prompt": "ONE isolated premium sculpted animal miniature of a vulture standing with folded wings, cream neck ruff and brown feathers. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e183011c-e4e9-4672-8f12-9f627236b40f.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-25-model.webp"
+    },
+    {
+      "id": "animal-26-model",
+      "kind": "normal",
+      "subject": "meerkat standing upright, sandy tan fur",
+      "prompt": "ONE isolated premium sculpted animal miniature of a meerkat standing upright, sandy tan fur. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-db841f16-e609-41dd-9545-f753c4ffa988.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-26-model.webp"
+    },
+    {
+      "id": "animal-27-model",
+      "kind": "normal",
+      "subject": "crow standing with folded wings, natural glossy black feathers",
+      "prompt": "ONE isolated premium sculpted animal miniature of a crow standing with folded wings, natural glossy black feathers. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3df18a5d-1bda-49d9-82ba-3257f3addec2.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-27-model.webp"
+    },
+    {
+      "id": "animal-28-model",
+      "kind": "normal",
+      "subject": "llama standing with slender neck, cream wool and tan ears",
+      "prompt": "ONE isolated premium sculpted animal miniature of a llama standing with slender neck, cream wool and tan ears. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8c88fad1-4bda-4fa6-a074-24b570e036af.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-28-model.webp"
+    },
+    {
+      "id": "animal-29-model",
+      "kind": "normal",
+      "subject": "heron standing with compact folded wings, gray blue plumage",
+      "prompt": "ONE isolated premium sculpted animal miniature of a heron standing with compact folded wings, gray blue plumage. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-31d3a3f0-72eb-4195-901e-53c16db46e32.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-29-model.webp"
+    },
+    {
+      "id": "animal-30-model",
+      "kind": "normal",
+      "subject": "raccoon sitting with curled striped tail, gray fur and black face mask",
+      "prompt": "ONE isolated premium sculpted animal miniature of a raccoon sitting with curled striped tail, gray fur and black face mask. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5898059c-4abd-475d-9d30-0f7c47a59cc2.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-30-model.webp"
+    },
+    {
+      "id": "animal-31-model",
+      "kind": "normal",
+      "subject": "ladybug with rounded red shell and black spots, six visible small legs",
+      "prompt": "ONE isolated premium sculpted animal miniature of a ladybug with rounded red shell and black spots, six visible small legs. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-18eac615-fa3a-46c6-bb05-e81739d29040.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-31-model.webp"
+    },
+    {
+      "id": "animal-32-model",
+      "kind": "normal",
+      "subject": "black panther sitting gracefully, glossy black fur and amber eyes",
+      "prompt": "ONE isolated premium sculpted animal miniature of a black panther sitting gracefully, glossy black fur and amber eyes. Render a charming anatomically recognizable hand-painted matte resin collectible board game figurine, smooth sculpted organic anatomy, fine natural fur/feather/scales details, rounded volume, NOT voxel, NOT cube, NOT low-poly. Whole animal including every foot, tail and ear, centered, compact silhouette that reads at 34 pixels, front three-quarter isometric view from slightly above, facing slightly right. Miniature only, natural opaque material with ordinary soft studio lighting and contact shading on the animal. ABSOLUTELY NO glow, aura, rim halo, luminous particles, magic, emissive light, crystal material, pedestal, tile, base, ground plane, environment, text or logo. Transparent background, generous clear margin around the silhouette. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cee2a8ae-21bb-4d06-ac4f-21b289497f05.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/animal-32-model.webp"
+    },
+    {
+      "id": "whisper-crystal-glow",
+      "kind": "whisper",
+      "subject": "small cluster of three lilac and turquoise quartz crystals, one short central point and two tiny side points",
+      "prompt": "ONE isolated tiny magical nature board-game miniature of small cluster of three lilac and turquoise quartz crystals, one short central point and two tiny side points. Smooth sculpted translucent resin/crystal collectible, softly luminous violet turquoise inner core and delicate colored halo, recognizable organic silhouette, front three-quarter isometric view from slightly above. Entire compact miniature centered with ample transparent margin. Small squat form that reads clearly at 30 pixels and sits on one board-game hex tile. Beautiful crafted material matching premium magical animal figurines. Glow is moderate, with solid colored center and clearly sculpted details. NOT a bright white blob. No tile, pedestal, base, ground, environment, text, letters, logo or extra objects. Transparent background. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e8b25080-be96-495a-a0cc-7ec7836eb319.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/whisper-crystal-glow.webp"
+    },
+    {
+      "id": "whisper-statue-glow",
+      "kind": "whisper",
+      "subject": "small mossy ancient forest statuette, rounded carved woodland guardian face on a squat stone body, emerald green and soft pale gold",
+      "prompt": "ONE isolated tiny magical nature board-game miniature of small mossy ancient forest statuette, rounded carved woodland guardian face on a squat stone body, emerald green and soft pale gold. Smooth sculpted translucent resin/crystal collectible, softly luminous violet turquoise inner core and delicate colored halo, recognizable organic silhouette, front three-quarter isometric view from slightly above. Entire compact miniature centered with ample transparent margin. Small squat form that reads clearly at 30 pixels and sits on one board-game hex tile. Beautiful crafted material matching premium magical animal figurines. Glow is moderate, with solid colored center and clearly sculpted details. NOT a bright white blob. No tile, pedestal, base, ground, environment, text, letters, logo or extra objects. Transparent background. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c58771fa-dd8f-4239-881f-f68c48938974.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/whisper-statue-glow.webp"
+    },
+    {
+      "id": "whisper-flower-glow",
+      "kind": "whisper",
+      "subject": "one compact pink and violet woodland flower with five petals, two green leaves and a very short stem",
+      "prompt": "ONE isolated tiny magical nature board-game miniature of one compact pink and violet woodland flower with five petals, two green leaves and a very short stem. Smooth sculpted translucent resin/crystal collectible, softly luminous violet turquoise inner core and delicate colored halo, recognizable organic silhouette, front three-quarter isometric view from slightly above. Entire compact miniature centered with ample transparent margin. Small squat form that reads clearly at 30 pixels and sits on one board-game hex tile. Beautiful crafted material matching premium magical animal figurines. Glow is moderate, with solid colored center and clearly sculpted details. NOT a bright white blob. No tile, pedestal, base, ground, environment, text, letters, logo or extra objects. Transparent background. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-345c2d24-9dab-4df2-9536-4c34ed19d529.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/whisper-flower-glow.webp"
+    },
+    {
+      "id": "whisper-coral-glow",
+      "kind": "whisper",
+      "subject": "small branching coral with five softly rounded tips, turquoise and coral pink",
+      "prompt": "ONE isolated tiny magical nature board-game miniature of small branching coral with five softly rounded tips, turquoise and coral pink. Smooth sculpted translucent resin/crystal collectible, softly luminous violet turquoise inner core and delicate colored halo, recognizable organic silhouette, front three-quarter isometric view from slightly above. Entire compact miniature centered with ample transparent margin. Small squat form that reads clearly at 30 pixels and sits on one board-game hex tile. Beautiful crafted material matching premium magical animal figurines. Glow is moderate, with solid colored center and clearly sculpted details. NOT a bright white blob. No tile, pedestal, base, ground, environment, text, letters, logo or extra objects. Transparent background. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0c97898a-2157-404f-be35-b56ad7f9ba8a.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/whisper-coral-glow.webp"
+    },
+    {
+      "id": "whisper-mushroom-glow",
+      "kind": "whisper",
+      "subject": "one squat purple mushroom with a spotted lilac cap and short cream stem",
+      "prompt": "ONE isolated tiny magical nature board-game miniature of one squat purple mushroom with a spotted lilac cap and short cream stem. Smooth sculpted translucent resin/crystal collectible, softly luminous violet turquoise inner core and delicate colored halo, recognizable organic silhouette, front three-quarter isometric view from slightly above. Entire compact miniature centered with ample transparent margin. Small squat form that reads clearly at 30 pixels and sits on one board-game hex tile. Beautiful crafted material matching premium magical animal figurines. Glow is moderate, with solid colored center and clearly sculpted details. NOT a bright white blob. No tile, pedestal, base, ground, environment, text, letters, logo or extra objects. Transparent background. One miniature only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8a924cda-1cc4-493b-8992-9389654a8465.png",
+      "path": "public/art/harmonies/figurines/sculpted-v1/whisper-mushroom-glow.webp"
+    }
+  ]
+}

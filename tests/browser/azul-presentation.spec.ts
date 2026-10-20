@@ -1,5 +1,5 @@
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import { startServer } from "../../src/server/index.js";
 import * as azul from "../../src/games/azul/engine.js";
 import { validateAzulState } from "../../src/games/azul/validation.js";
@@ -31,7 +31,7 @@ test("Azul presentation: real artwork, score beyond 100, server overflow preview
     if(cookies)await context.addCookies(cookies);const page=await context.newPage();page.on("pageerror",e=>errors.push(e.message));await hook(page);return page;
   };
   try {
-    const display=await make();await display.goto(url+"/games/azul");await testAccount(display,app);await display.getByRole("button",{name:"สร้างห้องบนจอกลาง"}).click();
+    const display=await make();await display.goto(url+"/games/azul");await testAccount(display,app);await createDisplayRoom(display);
     await expect(display.locator(".room-code strong")).toBeVisible();const code=await display.locator(".room-code strong").innerText();
     const cookies=await display.context().cookies(), phones:Page[]=[];
     for(let i=0;i<2;i++){

@@ -136,3 +136,4 @@ main.in-game > header.game-header.jaipur-header .audio-settings { grid-column: 2
 main.in-game > header.game-header .audio-panel button {width:100%;font-size:13px;line-height:1.7;}
 .audio-panel label {font-size:12px;display:block;margin:0;}
 .audio-panel input[type=range] {width:100%;min-height:30px;margin:0;accent-color:#216c70;}
+.shared-room-menu>summary{width:44px;justify-content:center;border:1px solid #a9c4c7;border-radius:50%;background:#fff9e9;color:#294d63;text-decoration:none;list-style:none}.shared-room-menu>summary::-webkit-details-marker{display:none}.shared-room-menu>summary:focus-visible{outline:3px solid #267d86;outline-offset:3px}

@@ -1,4 +1,4 @@
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import { test, expect, type Page } from "@playwright/test";
 import { startServer } from "../../src/server/index.js";
 
@@ -76,7 +76,7 @@ test("authoritative unit path, tile landing, duplicate/gap/reconnect and desktop
     display.on("pageerror", (e) => errors.push(e.message));
     await display.goto(`${url}/games/camel-up`);
     await testAccount(display, app);
-    await display.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(display);
     await expect(display.locator(".room-code strong")).toBeVisible();
     const code = await display.locator(".room-code strong").innerText();
     const players: Page[] = [];
@@ -270,7 +270,7 @@ test("เดิมพันผู้ชนะและผู้แพ้ทั�
     await capture(display);
     await display.goto(`${url}/games/camel-up`);
     await testAccount(display, app);
-    await display.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(display);
     await expect(display.locator(".room-code strong")).toBeVisible();
     const code = await display.locator(".room-code strong").innerText();
     const players: Page[] = [];

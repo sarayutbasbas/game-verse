@@ -1,5 +1,5 @@
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import type { AzulView } from "../../src/games/azul/types.js";
 async function hook(p: Page) {
   await p.addInitScript(()=>{
@@ -23,7 +23,7 @@ for(const count of [2,3,4]) test(`Azul ${count} players: actual UI, ${count===2?
   };
   try {
     const display=await make();await display.goto("/games/azul");await testAccount(display);
-    await display.getByRole("button",{name:"สร้างห้องบนจอกลาง"}).click();await expect(display.locator(".room-code strong")).toBeVisible();
+    await createDisplayRoom(display);await expect(display.locator(".room-code strong")).toBeVisible();
     const code=await display.locator(".room-code strong").innerText(), phones:Page[]=[];
     const cookies=await display.context().cookies();
     for(let i=0;i<count;i++) {

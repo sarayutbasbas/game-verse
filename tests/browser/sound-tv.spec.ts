@@ -1,6 +1,6 @@
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
 import { startServer } from "../../src/server/index.js";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 async function instrument(page: Page) {
   await page.addInitScript(() => {
     const w = window as any;
@@ -83,7 +83,7 @@ test("all games notify only at turn boundary, mute persists, and TV fallback ret
       const display = await make(game === "dracula-vs-van-helsing");
       await display.goto(url + "/games/" + game);
       await testAccount(display, app);
-      await display.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+      await createDisplayRoom(display);
       await expect(display.locator(".room-code strong")).toBeVisible();
       const code = await display.locator(".room-code strong").innerText(),
         phones: Page[] = [];

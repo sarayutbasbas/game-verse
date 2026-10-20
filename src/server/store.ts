@@ -4,6 +4,7 @@ import { readFileSync, mkdirSync, chmodSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { GAME_CATALOG, metadata, type GameStatus } from "../shared/catalog.js";
 import { PostgresDatabase } from "./postgres.js";
+import type {HarmoniesLeaderboardMode,HarmoniesLeaderboards} from '../shared/harmonies-leaderboard.js';
 export class PlatformStore {
   db: DatabaseSync | PostgresDatabase;
   readonly distributed: boolean;
@@ -17,7 +18,10 @@ export class PlatformStore {
     this.distributed = /^postgres(?:ql)?:/.test(path);
     if (this.distributed) {
       this.db = new PostgresDatabase(path);
-      this.transaction(() => this.db.exec(readFileSync(resolve("migrations/002-postgres.sql"), "utf8")));
+      this.transaction(() => {
+        this.db.exec(readFileSync(resolve("migrations/002-postgres.sql"), "utf8"));
+        this.migrateHarmoniesLeaderboard();
+      });
       return;
     }
     if (path !== ":memory:")
@@ -28,6 +32,36 @@ export class PlatformStore {
       "PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;",
     );
     this.db.exec(readFileSync(resolve("migrations/001-platform.sql"), "utf8"));
+    this.transaction(()=>this.migrateHarmoniesLeaderboard());
+  }
+  private migrateHarmoniesLeaderboard(){
+    this.db.exec(readFileSync(resolve('migrations/003-harmonies-leaderboard.sql'),'utf8'));
+    this.db.prepare('INSERT INTO gv_migrations VALUES(3,?) ON CONFLICT(version) DO NOTHING').run(Date.now());
+  }
+  harmoniesLeaderboards():HarmoniesLeaderboards{
+    const read=(mode:HarmoniesLeaderboardMode)=>this.db.prepare(`SELECT l.score,l.achieved_at,
+      COALESCE(p.name,l.name) AS name,CASE WHEN p.user_id IS NULL THEN l.avatar ELSE p.avatar END AS avatar
+      FROM gv_harmonies_leaderboard l LEFT JOIN gv_profiles p ON p.user_id=l.user_id
+      WHERE l.mode=? ORDER BY l.score DESC,l.achieved_at ASC,l.user_id ASC LIMIT 10`).all(mode)
+      .map((row,i)=>({rank:i+1,name:String(row.name),avatar:row.avatar===null?null:String(row.avatar),score:Number(row.score),achievedAt:Number(row.achieved_at)}));
+    return {solo:read('solo'),competitive:read('competitive')};
+  }
+  /** Called inside the room transaction; keep only each mode's ten best users. */
+  recordHarmoniesScores(mode:HarmoniesLeaderboardMode,entries:{userId:string;name:string;avatar:string|null;score:number}[],achievedAt:number){
+    if(!['solo','competitive'].includes(mode)||!Number.isSafeInteger(achievedAt)||achievedAt<=0||entries.some(e=>!e.userId||!Number.isSafeInteger(e.score)||e.score<0))throw Error('Invalid Harmonies result');
+    const insert=this.db.prepare(`INSERT INTO gv_harmonies_leaderboard(mode,user_id,name,avatar,score,achieved_at) VALUES(?,?,?,?,?,?)
+      ON CONFLICT(mode,user_id) DO UPDATE SET name=excluded.name,avatar=excluded.avatar,score=excluded.score,achieved_at=excluded.achieved_at
+      WHERE excluded.score>gv_harmonies_leaderboard.score OR (excluded.score=gv_harmonies_leaderboard.score AND excluded.achieved_at<gv_harmonies_leaderboard.achieved_at)`);
+    for(const entry of entries)insert.run(mode,entry.userId,entry.name,entry.avatar,entry.score,achievedAt);
+    this.db.prepare(`DELETE FROM gv_harmonies_leaderboard WHERE mode=? AND user_id NOT IN
+      (SELECT user_id FROM gv_harmonies_leaderboard WHERE mode=? ORDER BY score DESC,achieved_at ASC,user_id ASC LIMIT 10)`).run(mode,mode);
+  }
+  /** Guest -> member linking must not leave two ranks for the same account. */
+  mergeHarmoniesScores(oldId:string,newId:string,profile?:{name:string;avatar:string|null}){
+    const previous=this.db.prepare('SELECT * FROM gv_harmonies_leaderboard WHERE user_id=?').all(oldId);
+    this.db.prepare('DELETE FROM gv_harmonies_leaderboard WHERE user_id=?').run(oldId);
+    for(const row of previous)this.recordHarmoniesScores(row.mode as HarmoniesLeaderboardMode,[{userId:newId,name:String(row.name),avatar:row.avatar===null?null:String(row.avatar),score:Number(row.score)}],Number(row.achieved_at));
+    if(profile)this.db.prepare('UPDATE gv_harmonies_leaderboard SET name=?,avatar=? WHERE user_id=?').run(profile.name,profile.avatar,newId);
   }
   transaction<T>(fn: () => T): T {
     if (this.distributed) {

@@ -1,6 +1,6 @@
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
 import { startServer } from "../../src/server/index.js";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import * as duel from "../../src/games/dracula-vs-van-helsing/engine.js";
 import { SUIT_NAME, type DuelAction } from "../../src/games/dracula-vs-van-helsing/types.js";
 const view = (p: Page) => p.evaluate(() => (window as any).__view);
@@ -52,7 +52,7 @@ test("compact controller: original factions, copy join URL, live trump, sticky d
     const display = await make();
     await display.goto(url + "/games/dracula-vs-van-helsing");
     await testAccount(display, app);
-    await display.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(display);
     await expect(display.locator(".room-code strong")).toBeVisible();
     const code = await display.locator(".room-code strong").innerText(),
       phones: Page[] = [];

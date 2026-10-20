@@ -350,8 +350,8 @@ body.harmonies-theme{isolation:isolate}body.harmonies-theme::before{display:bloc
 .hm-root .hm-market-slot{flex:0 0 var(--hm-card-width);width:var(--hm-card-width);height:var(--hm-card-height)}
 .hm-root .hm-market-slot>.hm-animal,.hm-root .hm-market-slot>.hm-animal:not(:has([data-claim])){display:block;position:relative;grid-template-rows:none;height:var(--hm-card-height);width:100%;overflow:visible}
 .hm-root .hm-market .hm-inspect,.hm-root .hm-owned-cards .hm-inspect{display:block;box-sizing:border-box;width:100%;height:var(--hm-card-height);min-height:var(--hm-card-height);max-height:var(--hm-card-height);aspect-ratio:auto}
-.hm-root .hm-market .hm-animal>button[data-claim]{position:absolute;inset:5px 4px auto auto;z-index:8;display:grid;place-items:center;box-sizing:border-box;width:28px;height:28px;min-width:28px;min-height:28px;max-width:none;padding:4px;margin:0;border:1px solid #d8f3d0;border-radius:50%;background:#249956;color:white;box-shadow:0 2px 5px #073e3477}
-.hm-root .hm-market .hm-animal>button[data-claim]:disabled{background:#699379;opacity:.72}.hm-root .hm-market .hm-animal>button[data-claim] svg{display:block;width:18px;height:18px}
+.hm-root .hm-market .hm-animal>button:is([data-claim],.hm-solo-discard){position:absolute;inset:5px 4px auto auto;z-index:8;display:grid;place-items:center;box-sizing:border-box;width:28px;height:28px;min-width:28px;min-height:28px;max-width:none;padding:4px;margin:0;border:1px solid #d8f3d0;border-radius:50%;background:#249956;color:white;box-shadow:0 2px 5px #073e3477}
+.hm-root .hm-market .hm-animal>button:is([data-claim],.hm-solo-discard):disabled{background:#699379;opacity:.72}.hm-root .hm-market .hm-animal>button:is([data-claim],.hm-solo-discard) svg{display:block;width:18px;height:18px}
 .hm-root .hm-animal-market:after{display:none;content:none}
 .hm-root .hm-animal-market>.hm-rail-title,.hm-root .hm-owned-heading{font-family:'Noto Sans Thai',sans-serif;font-size:12px;font-weight:700;line-height:17px;color:#164b4d;text-shadow:none;text-align:left;box-sizing:border-box;min-height:23px;height:23px;margin:0;padding:3px 2px}
 .hm-root .hm-owned-heading{padding-inline:9px}
@@ -825,7 +825,7 @@ html.harmonies-document::before{content:'';position:fixed;inset:0;bottom:auto;he
 .hm-expansion-cube{display:contents}.hm-expansion-cube .hm-cube{filter:drop-shadow(0 0 4px #fff7)}.hm-whisper-cube .hm-cube{--cube-color:#b47de6;transform:translateX(10px) translateY(-7px)}.hm-spirit-cube .hm-cube{filter:brightness(1.65) saturate(.2) drop-shadow(0 0 5px #fff)}.hm-whisper-cube .hm-cube i{background:#bf87df!important;border-color:#6d4386!important}.hm-spirit-cube .hm-cube i{background:#e8e7de!important;border-color:#aaa598!important}
 .hm-expansion-cube-tray{display:block;position:relative;width:44px;height:46px;flex:none}.hm-expansion-cube-tray .hm-cube{position:absolute;inset:15px 10px;--height:0!important}
 .hm-spirit-selection{background:#fff7e5f2;border:1px solid #c8b274;border-radius:18px;padding:18px;grid-column:1/-1;order:-1}.hm-spirit-selection>h2,.hm-spirit-selection>p{text-align:center;margin:0 0 12px}.hm-spirit-selection>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:620px;margin:auto}.hm-spirit-selection article{min-width:0;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}.hm-spirit-selection .hm-animal{position:relative;display:block;width:min(100%,180px);height:auto;aspect-ratio:720/1040;overflow:hidden;border-radius:12px;padding:0}.hm-spirit-selection p{font-size:15px;line-height:1.6}.hm-spirit-selection article>button:last-child{margin-top:auto;min-height:44px;border-radius:24px;background:#22644c;color:#fff5df;padding:8px 14px}
-.hm-animal button.hm-solo-discard{position:absolute;right:4px;top:4px;bottom:auto;width:35px;height:35px;border-radius:50%;z-index:8;background:#fff8df;color:#594027;font-size:25px;box-shadow:0 2px 5px #0004}
+.hm-root .hm-market .hm-animal>button.hm-solo-discard{top:22px;right:-2px;bottom:auto;left:auto;box-shadow:none}
 .hm-solo-suns{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;color:#b27b13;font-size:28px;gap:6px}.hm-solo-suns b{font-size:19px;width:100%}
 @media(max-width:600px){.hm-lobby-options{padding:12px}.hm-expansion-card-name{font-size:11px}.hm-spirit-selection{padding:12px}.hm-spirit-selection>div{gap:10px}.hm-spirit-selection article>p{font-size:14px}}
 .hm-groups.hm-solo-groups{grid-template-columns:repeat(3,minmax(0,1fr))}.hm-market.hm-solo-market{justify-content:center}
@@ -857,3 +857,20 @@ html.harmonies-document::before{content:'';position:fixed;inset:0;bottom:auto;he
 @media(prefers-reduced-motion:reduce){.hm-special-seal,.hm-spirit-model{animation:none!important;transition:none!important}}
 .hm-spirit-confirm-card{position:relative;width:min(45vw,180px);aspect-ratio:720/1040;margin:auto;overflow:hidden;border:2px solid #dfc477;border-radius:12px;background:#164d42;isolation:isolate}
 .hm-spirit-confirm-card .hm-animal-art>img{width:100%;height:100%;object-fit:contain}.hm-spirit-confirm-card .hm-expansion-card-name{left:28px;right:4px;font-size:12px}.hm-spirit-confirm-card .hm-habitat-scene{width:82%;height:35%;left:1%;bottom:5%;--diagram-room:100px}.hm-spirit-confirm-card .hm-card-points{position:absolute;right:3%;top:17%;bottom:40%;width:24px;min-height:0}.hm-spirit-confirm-card .hm-card-points>span>b{font-size:14px}
+
+/* Sculpted normal animals have contact shadows; special pieces carry colored light. */
+.hm-normal-model>img,.hm-normal-pattern>img{filter:drop-shadow(0 2px 1px #173e424d)}
+.hm-whisper-model>img{filter:drop-shadow(0 0 2px #b8f9ef) drop-shadow(0 0 4px #ab74cf9c) drop-shadow(0 2px 1px #173e424d)}
+.hm-spirit-model>img{filter:brightness(1.12) saturate(1.18) drop-shadow(0 0 1px #fff8d5) drop-shadow(0 0 4px var(--spirit-glow,#ffe5a6)) drop-shadow(0 0 8px var(--spirit-glow,#ffe5a6)) drop-shadow(0 2px 1px #234b4980)}
+.hm-root .hm-board .hm-whisper-model>img{width:clamp(24px,9.5cqw,32px);max-height:43px}
+.hm-whisper-model.hm-animal-sprite-tray>img{width:30px;height:35px}
+/* When a whisper shares a tile, keep both small silhouettes inside its cap. */
+.hm-root .hm-board .hm-stack:has(.hm-normal-model):has(.hm-whisper-model)>.hm-normal-model{left:37%}
+.hm-root .hm-board .hm-stack:has(.hm-spirit-model):has(.hm-whisper-model)>.hm-spirit-model{left:37%}
+.hm-root .hm-board .hm-stack:has(.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model{left:70%}
+.hm-root .hm-board .hm-stack:has(.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model>img{width:clamp(20px,8cqw,27px);max-height:36px}
+.hm-pattern-figurine.hm-normal-pattern>img{width:32em;max-height:44em}
+.hm-pattern-figurine.hm-whisper-pattern>img{width:29em;max-height:38em;filter:drop-shadow(0 0 1em #b8f9ef) drop-shadow(0 0 2.5em #ab74cf9c)}
+.hm-habitat-plane .hm-pattern-figurine.hm-spirit-pattern>img{width:38em;max-height:48em;filter:brightness(1.12) saturate(1.18) drop-shadow(0 0 1em #fff8d5) drop-shadow(0 0 3em var(--spirit-glow,#ffe5a6)) drop-shadow(0 0 5em var(--spirit-glow,#ffe5a6))}
+
+.hm-root .hm-board .hm-stack:has(.hm-whisper-model)>.hm-spirit-model>img{width:clamp(26px,10cqw,36px);max-height:48px}

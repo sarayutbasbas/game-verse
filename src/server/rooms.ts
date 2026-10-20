@@ -55,6 +55,7 @@ type Ack = Extract<ServerMessage, { type: "ack" }>;
 interface Session {
   userId?: string;
   guest?: boolean;
+  lastVisitedAt?: number;
   token: string;
   role: "host" | "player";
   playerId?: string;
@@ -208,6 +209,18 @@ export class RoomService {
     try {
       this.store.transaction(() => {
         this.handleInner(ws, raw);
+        // Rank only a newly completed authoritative game, atomically with its save.
+        for(const previous of before){
+          const room=this.rooms.get(previous.code),state=room?.harmonies;
+          if(previous.harmonies?.phase!=='playing'||state?.phase!=='finished')continue;
+          const entries=state.players.flatMap(player=>{
+            const account=room!.players.find(p=>p.id===player.id),score=state.scores?.[player.id]?.total;
+            if(!account?.userId)return [];
+            if(score===undefined)throw Error('Missing final Harmonies score');
+            return [{userId:account.userId,name:account.name,avatar:account.avatar??null,score}];
+          });
+          this.store!.recordHarmoniesScores(state.players.length===1?'solo':'competitive',entries,Date.now());
+        }
         this.store!.saveRooms(this.exportRooms());
       });
       const messages = this.queued;
@@ -250,11 +263,29 @@ export class RoomService {
       )
       .map((r) => ({
         code: r.code,
+        lastVisitedAt: Math.max(0,...r.sessions.filter(s=>s.userId===userId).map(s=>s.lastVisitedAt??0)) || undefined,
         gameId: r.gameId,
         phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.locus?.phase ?? r.ck?.phase ?? r.takeTime?.phase ?? r.sky?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? "lobby",
         owner: r.ownerId === userId,
         player: r.players.some((p) => p.userId === userId),
       }));
+  }
+  private hasStarted(room:Room){
+    return !!(room.game||room.duel||room.azul||room.calico||room.wonders||room.jaipur||room.pixies||room.harmonies||room.sky||room.ck||room.locus||room.takeTime);
+  }
+  /** Navigation activity only: never removes a seat or changes game revision. */
+  visit(userId:string,code:string):void{
+    if(this.store?.distributed&&!this.store.locked)return this.coordinate(()=>this.visit(userId,code));
+    const room=this.rooms.get(code),sessions=room?.sessions.filter(s=>s.userId===userId)??[];
+    if(!room||!sessions.length)throw Error("ไม่พบห้องของคุณ");
+    const previous=sessions.map(session=>session.lastVisitedAt);
+    const write=()=>{
+      for(const session of sessions)session.lastVisitedAt=Date.now();
+      if(this.hasStarted(room))this.store?.started([userId],room.gameId);
+      this.store?.saveRooms(this.exportRooms());
+    };
+    try{if(this.store)this.store.transaction(write);else write();}
+    catch(error){sessions.forEach((session,i)=>{session.lastVisitedAt=previous[i];});throw error;}
   }
   revokeSession(sessionId: string) {
     for (const [ws, p] of this.principal)
@@ -323,6 +354,7 @@ export class RoomService {
               s.guest = false;
             }
         }
+        this.store!.mergeHarmoniesScores(oldId,newId,profile);
         this.store!.db.prepare(
           "INSERT INTO gv_links VALUES(?,?) ON CONFLICT(guest_id) DO UPDATE SET user_id=excluded.user_id",
         ).run(oldId, newId);
@@ -402,6 +434,8 @@ export class RoomService {
   }
   disconnect(ws: WebSocket): void {
     if (this.store?.distributed && !this.store.locked) return this.coordinate(() => this.disconnect(ws));
+    const room=this.attached.get(ws),session=room?.sockets.get(ws);
+    if(room&&session?.userId)this.visit(session.userId,room.code);
     this.detach(ws);
     this.principal.delete(ws);
   }
@@ -415,6 +449,7 @@ export class RoomService {
           this.attached.delete(other);
           other.close(4001, "session replaced");
         }
+    if(session?.userId){session.lastVisitedAt=Date.now();if(this.hasStarted(room))this.store?.started([session.userId],room.gameId);}
     room.sockets.set(ws, session);
     this.attached.set(ws, room);
     if (this.store?.distributed && session) {
@@ -649,6 +684,8 @@ export class RoomService {
       if (m.type === "create") {
         if (this.requireAccount && (!account || account.guest))
           throw Error("กรุณาล็อกอิน Google ก่อนสร้างห้อง");
+        if(m.joinAsPlayer!==undefined&&typeof m.joinAsPlayer!=='boolean')throw Error('รูปแบบการเข้าร่วมไม่ถูกต้อง');
+        if(m.joinAsPlayer&&!account)throw Error('กรุณาล็อกอินก่อนสร้างห้องและเข้าร่วมเล่น');
         if(m.displayMode!==undefined&&(!["critter-kitchen","locus"].includes(m.gameId??"")||!["shared-table","full-mobile"].includes(m.displayMode)))throw Error("รูปแบบหน้าจอไม่ถูกต้อง");
         const chosen = metadata(m.gameId ?? "camel-up");
         if(chosen?.playMode==="local")throw Error("เกมนี้เล่นร่วมกันบนเครื่องเดียว เปิดจากหน้าเกมได้เลย");
@@ -717,14 +754,23 @@ export class RoomService {
           sockets: new Map(),
           updated: Date.now(),
         };
+        // One transaction creates the room and the authenticated owner's ready seat.
+        // The separate host capability stays server-side until an owner opens /display.
+        let creatorSession=session;
+        if(m.joinAsPlayer&&account){
+          const player={id:randomUUID(),name:account.name,userId:account.id,avatar:account.avatar,ready:true};
+          creatorSession={token:randomBytes(32).toString('hex'),role:'player',playerId:player.id,userId:account.id,guest:account.guest,receipts:new Map()};
+          room.players.push(player);room.sessions.push(creatorSession);
+        }
         this.rooms.set(code, room);
         this.send(ws, {
           type: "session",
           code,
-          token: session.token,
-          role: "host",
+          token: creatorSession.token,
+          role: creatorSession.role,
+          playerId: creatorSession.playerId,
         });
-        this.attach(ws, room, session);
+        this.attach(ws, room, creatorSession);
         return;
       }
       if (m.type === "join" || m.type === "resume" || m.type === "watch") {
@@ -938,7 +984,8 @@ export class RoomService {
           throw Error("สถานะเปลี่ยนแล้ว กรุณาดูตาปัจจุบันแล้วเลือกใหม่");
         if (!m.action || typeof m.action !== "object")
           throw Error("เลือกการกระทำก่อน");
-        if(room.gameId==="take-time"){this.takeTimeCommand(room,s,m.action);
+        if(m.action.type==="room-restart"){this.restartRoom(room,s,m.action);
+        }else if(room.gameId==="take-time"){this.takeTimeCommand(room,s,m.action);
         }else if(room.gameId==="locus"){this.locusCommand(room,s,m.action);
         }else if(room.gameId==="critter-kitchen"){this.ckCommand(room,s,m.action);
         }else if(room.gameId==="sky-team"){this.skyCommand(room,s,m.action);
@@ -990,9 +1037,9 @@ export class RoomService {
           room.event = {
             revision: room.revision,
             actorId: s.playerId ?? "host",
-            kind: m.action.type as PublicEvent["kind"],
+            kind: (m.action.type === "room-restart" ? "restart" : m.action.type) as PublicEvent["kind"],
             money:
-              m.action.type === "restart"
+              (m.action.type === "restart" || m.action.type === "room-restart")
                 ? []
                 : room
                     .game!.players.map((p) => ({
@@ -1004,7 +1051,7 @@ export class RoomService {
                     }))
                     .filter((p) => p.amount !== 0),
             legEnded:
-              m.action.type !== "restart" &&
+              m.action.type !== "restart" && m.action.type !== "room-restart" &&
               !!before &&
               (room.game!.leg !== before.leg ||
                 room.game!.settlements.length !== before.settlements.length),
@@ -1020,11 +1067,9 @@ export class RoomService {
             room.event!.position = m.action.position;
         }
         room.updated = Date.now();
-        if (m.action.type === "start" || m.action.type === "restart")
+        if (m.action.type === "start" || m.action.type === "restart" || m.action.type === "room-restart")
           this.store?.started(
-            room.players
-              .map((p) => p.userId)
-              .filter((id): id is string => !!id),
+            [room.ownerId,...room.players.map(p=>p.userId)].filter((id):id is string=>!!id),
             room.gameId,
           );
         ack = { type: "ack", id: m.id, ok: true, revision: room.revision };
@@ -1041,7 +1086,7 @@ export class RoomService {
       if (s.receipts.size > 512)
         s.receipts.delete(s.receipts.keys().next().value!);
       this.send(ws, ack);
-      this.broadcast(room, ack.ok && m.action.type === "restart");
+      this.broadcast(room, ack.ok && (m.action.type === "restart" || m.action.type === "room-restart"));
     } catch (error) {
       this.send(ws, { type: "error", error: (error as Error).message });
     }
@@ -1051,6 +1096,31 @@ export class RoomService {
       session.role === "host" ||
       (!!session.userId && session.userId === room.ownerId)
     );
+  }
+  /** Authoritative fresh deal; keep memberships, reconnect sessions and room settings. */
+  private restartRoom(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+    if(Object.keys(action).join(',')!=='type'||!this.canManage(room,session))throw Error('เริ่มเกมใหม่ได้เฉพาะหัวห้อง');
+    const state=room.game??room.duel??room.azul??room.calico??room.wonders??room.jaipur??room.pixies??room.harmonies??room.sky??room.ck??room.locus??room.takeTime;
+    if(!state)throw Error('เริ่มเกมก่อนจึงจะเริ่มใหม่ได้');
+    if(room.gameId==='name-it')throw Error('เกมนี้เล่นบนเครื่องเดียว');
+    gameAdapters[room.gameId].validatePlayers(room.players);
+    switch(room.gameId){
+      case 'take-time':room.takeTime=takeTimeRules.createInitialState(room.players,this.random);room.takeTime.matchId=randomUUID();break;
+      case 'locus':room.locus=locusRules.createInitialState(room.players,this.random);room.locus.matchId=randomUUID();break;
+      case 'critter-kitchen':{
+        const previous=room.ck!;
+        room.ck=ckRules.createInitialState(room.players,this.random,{restaurateurs:previous.players.some(p=>p.restaurateur!==null||p.offers.length>0),tutorial:!!previous.excludedRumors?.length,expansions:room.ckExpansions});room.ck.matchId=randomUUID();break;
+      }
+      case 'sky-team':room.sky=skyRules.createInitialState(room.players,this.random);room.sky.matchId=randomUUID();break;
+      case 'harmonies':room.harmonies=harmoniesRules.createInitialState(room.players,this.random,undefined,room.harmonies!.side,room.harmonies!.options);room.harmonies.matchId=randomUUID();break;
+      case 'pixies':room.pixies=pixiesRules.createInitialState(room.players,this.random);room.pixies.matchId=randomUUID();break;
+      case 'jaipur':room.jaipur=jaipurRules.createInitialState(room.players,this.random);room.jaipur.matchId=randomUUID();break;
+      case 'seven-wonders-duel':room.wonders=wondersRules.createInitialState(room.players,this.random);break;
+      case 'calico':room.calico=calicoRules.createInitialState(room.players,this.random,undefined,room.calicoPreset??'standard');break;
+      case 'azul':room.azul=azulEngine.start(room.players,this.random,undefined);break;
+      case 'dracula-vs-van-helsing':room.duel=duelEngine.start(room.players,this.random);break;
+      case 'camel-up':room.game=engine.start(room.players,this.random,undefined);break;
+    }
   }
   private locusCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
     const keys=Object.keys(action).sort().join(",");

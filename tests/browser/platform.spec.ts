@@ -1,5 +1,5 @@
 import { GAME_CATALOG } from "../../src/shared/catalog.js";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import { test, expect, type BrowserContext } from "@playwright/test";
 test("game box gallery and common join UI: errors preserve drafts, pasted code, Enter, duplicate lock, full room, QR and resume", async ({
   browser,
@@ -19,8 +19,8 @@ test("game box gallery and common join UI: errors preserve drafts, pasted code, 
   try {
     const host = await make();
     await host.goto("/");
-    await expect(host.locator(".game-cover")).toHaveCount(Math.min(10, GAME_CATALOG.length));
-    await expect(host.locator(".all-games .game-box")).toHaveCount(Math.min(10, GAME_CATALOG.length));
+    await expect(host.locator(".game-cover")).toHaveCount(GAME_CATALOG.length);
+    await expect(host.locator(".all-games .game-box")).toHaveCount(GAME_CATALOG.length);
     for (const image of await host.locator('.all-games .game-box').all()) {
       await image.scrollIntoViewIfNeeded();
       await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
@@ -56,7 +56,7 @@ test("game box gallery and common join UI: errors preserve drafts, pasted code, 
       })
       .click();
     await testAccount(host);
-    await host.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(host);
     await expect(host.locator("#qr")).toBeVisible();
     const code = await host.locator(".room-code strong").innerText();
     expect(
@@ -187,7 +187,7 @@ test("game box gallery and common join UI: errors preserve drafts, pasted code, 
       ),
     ).toContain("/art/platform/tabletop-background.webp");
     await testAccount(camel);
-    await camel.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(camel);
     await expect(camel.locator("#qr")).toBeVisible();
     await camel.screenshot({
       path: "test-results/common-lobby-camel.png",

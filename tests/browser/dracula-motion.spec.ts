@@ -1,4 +1,4 @@
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import { test, expect, type BrowserContext, type Page } from "@playwright/test";
 import { startServer } from "../../src/server/index.js";
 import * as duel from "../../src/games/dracula-vs-van-helsing/engine.js";
@@ -75,7 +75,7 @@ test("manual reveal synchronizes two phones, protects closed cards, handles simu
     const display = await make();
     await display.goto(`${url}/games/dracula-vs-van-helsing`);
     await testAccount(display, app);
-    await display.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(display);
     await expect(display.locator(".room-code strong")).toBeVisible();
     const code = await display.locator(".room-code strong").innerText(),
       phones = [];

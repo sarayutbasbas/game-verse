@@ -1,6 +1,6 @@
 import { GAME_CATALOG } from "../../src/shared/catalog.js";
 import { test, expect } from "@playwright/test";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 test("GameVerse Home filters, Google setup state, Guest/session, profile uploads, shared identity and logout", async ({
   browser,
 }) => {
@@ -77,13 +77,13 @@ test("GameVerse Home filters, Google setup state, Guest/session, profile uploads
     await expect(page.locator(".account-link")).toHaveAttribute("aria-label", "ล็อกอิน");
     await page.goto("/games/camel-up");
     await expect(
-      page.getByRole("button", { name: "สร้างห้องบนจอกลาง" }),
+      page.getByRole("button", { name: "สร้างห้องและเข้าร่วมเล่น" }),
     ).toBeDisabled();
     await testAccount(page);
     await expect(
-      page.getByRole("button", { name: "สร้างห้องบนจอกลาง" }),
+      page.getByRole("button", { name: "สร้างห้องและเข้าร่วมเล่น" }),
     ).toBeEnabled();
-    await page.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(page);
     await expect(page.locator("#qr")).toBeVisible();
     const code = await page.locator(".room-code strong").innerText();
     const second = await ctx.newPage();
@@ -122,7 +122,7 @@ test("owner controls from phone, public display without account, both players re
     const phone = await owner.newPage();
     await phone.goto("/games/dracula-vs-van-helsing");
     await testAccount(phone);
-    await phone.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(phone);
     await expect(phone.locator("#qr")).toBeVisible();
     const code = await phone.locator(".room-code strong").innerText(),
       display = await shared.newPage();

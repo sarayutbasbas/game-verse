@@ -1,5 +1,5 @@
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import type { JaipurView } from "../../src/games/jaipur/types.js";
 const read = (p: Page): Promise<JaipurView> =>
   p.evaluate(() => (window as any).__view);
@@ -107,7 +107,7 @@ test("Jaipur: complete match with display + two phones, previews, private bonus,
       path: "test-results/jaipur-cover.png",
       fullPage: true,
     });
-    await host.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(host);
     await expect(host.locator("#qr")).toBeVisible();
     code = await host.locator(".room-code strong").innerText();
     const phones: Page[] = [];
@@ -663,7 +663,7 @@ test("Jaipur compact table: open eleven-camel herd, full display bank and adjust
     const host = await make();
     await host.goto(url + "/games/jaipur");
     await testAccount(host, app);
-    await host.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(host);
     const code = await host.locator(".room-code strong").innerText();
     const phones: Page[] = [];
     for (const name of ["ร้านผ้า", "ร้านเครื่องเทศ"]) {

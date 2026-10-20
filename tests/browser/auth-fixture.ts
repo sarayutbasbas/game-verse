@@ -5,6 +5,25 @@ import { Pool } from "pg";
 import { appendFileSync, mkdirSync } from "node:fs";
 import type { Page } from "@playwright/test";
 import type { startServer } from "../../src/server/index.js";
+/** Existing game-flow suites explicitly exercise a separate shared-display host.
+ * New creator-player suites use the ordinary GO button without this fixture. */
+export async function createDisplayRoom(page:Page){
+  await page.evaluate(()=>{
+    const original=WebSocket.prototype.send;
+    WebSocket.prototype.send=function(this:WebSocket,data:Parameters<WebSocket['send']>[0]){
+      if(typeof data==='string'){
+        const message=JSON.parse(data);
+        if(message.type==='create'){
+          WebSocket.prototype.send=original;
+          original.call(this,JSON.stringify({...message,joinAsPlayer:false}));return;
+        }
+      }
+      original.call(this,data);
+    };
+  });
+  await page.locator('#create').click();
+  await page.locator('#qr').waitFor();
+}
 export async function testAccount(
   page: Page,
   app?: Awaited<ReturnType<typeof startServer>>,

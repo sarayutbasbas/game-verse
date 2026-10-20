@@ -1,6 +1,6 @@
 import { CARD } from "../../src/games/seven-wonders-duel/data.js";
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import type { WondersView } from "../../src/games/seven-wonders-duel/types.js";
 const read = (p: Page): Promise<WondersView> =>
   p.evaluate(() => (window as any).__view);
@@ -80,7 +80,7 @@ test("7 Wonders Duel: display + two phones, Wonder draft, three Ages, costs, rec
     host = await make();
     await host.goto("/games/seven-wonders-duel");
     await testAccount(host);
-    await host.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(host);
     await expect(host.locator("#qr")).toBeVisible();
     code = await host.locator(".room-code strong").innerText();
     const phones: Page[] = [];
@@ -314,7 +314,7 @@ for (const kind of ["military", "science", "library"] as const)
       const [host, a, b] = pages;
       await host.goto(url + "/games/seven-wonders-duel");
       await testAccount(host, app);
-      await host.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+      await createDisplayRoom(host);
       await expect(host.locator("#qr")).toBeVisible();
       const code = await host.locator(".room-code strong").innerText();
       for (const [i, p] of [a, b].entries()) {

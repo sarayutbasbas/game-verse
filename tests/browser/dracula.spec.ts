@@ -1,6 +1,6 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
-import { testAccount } from "./auth-fixture.js";
+import {testAccount,createDisplayRoom} from "./auth-fixture.js";
 import { test, expect, type Page, type BrowserContext } from "@playwright/test";
 import type { DuelView } from "../../src/games/dracula-vs-van-helsing/types.js";
 async function capture(p: Page) {
@@ -61,7 +61,7 @@ test("portal → Dracula duel, two phones, private draws, atomic reveal, lost AC
     ).toBeVisible();
     await display.getByRole("link", { name: /เลือกเล่น Dracula/ }).click();
     await testAccount(display);
-    await display.getByRole("button", { name: "สร้างห้องบนจอกลาง" }).click();
+    await createDisplayRoom(display);
     await expect(display.locator(".room-code strong")).toBeVisible();
     const code = await display.locator(".room-code strong").innerText();
     const d = await make(true),

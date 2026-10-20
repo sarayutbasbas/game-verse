@@ -22,6 +22,7 @@ export let platform: {
     code: string;
     gameId: string;
     phase: string;
+    lastVisitedAt?: number;
     owner: boolean;
     player: boolean;
   }[];
