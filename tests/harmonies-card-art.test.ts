@@ -47,7 +47,9 @@ test('art option survives projections/restore without changing random setup; rej
  const a=createInitialState(seats,()=>.4,undefined,'A',{cardArt:'illustrated',natureSpirits:true,whispers:true});
  const b=createInitialState(seats,()=>.4,undefined,'A',{cardArt:'sculpted',natureSpirits:true,whispers:true});
  assert.deepEqual({...a,options:undefined},{...b,options:undefined});
- for(const state of [a,b]){
+ const c=createInitialState(seats,()=>.4,undefined,'A',{cardArt:'original',natureSpirits:true,whispers:true});
+ assert.deepEqual({...a,options:undefined},{...c,options:undefined});
+ for(const state of [a,b,c]){
   assert.equal(validateHarmoniesState(JSON.parse(JSON.stringify(state))),true);
   assert.equal(getDisplayView(state,'CODE',1).options?.cardArt,state.options?.cardArt);
  }

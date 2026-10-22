@@ -8,18 +8,18 @@ let confirmationKey='';
 let current:{key:string;allowed:boolean;blocked:boolean}|undefined;
 function close(){dialog?.close();dialog?.remove();dialog=undefined;confirmationKey='';}
 /** Run after the game's own menu has rendered. Permission is also enforced on the server. */
-export function updateRoomRestart(main:HTMLElement,view:RoomView|undefined,allowed:boolean,blocked:boolean,command:(action:RoomAction)=>void){
+export function updateRoomRestart(main:HTMLElement,view:RoomView|undefined,allowed:boolean,blocked:boolean,command:(action:RoomAction)=>void,overlay?:HTMLElement){
  updateRoomExit(main,view);
  const key=view?`${view.code}:${view.revision}`:'';
  current={key,allowed,blocked};
- if(!view||view.phase==='lobby'||!allowed){close();main.querySelectorAll('.room-restart-entry:not(.room-exit-entry)').forEach(el=>el.remove());return;}
+ if(!view||view.phase==='lobby'||!allowed){close();for(const scope of [main,...overlay?[overlay]:[]])scope.querySelectorAll('.room-restart-entry:not(.room-exit-entry)').forEach(el=>el.remove());return;}
  if(dialog&&confirmationKey!==key)close();
  if(dialog)dialog.querySelector<HTMLButtonElement>('[data-confirm-restart]')!.disabled=blocked;
  const triggers:HTMLButtonElement[]=[];
  const finishedRestart=main.querySelector<HTMLButtonElement>('#hm-restart');if(finishedRestart)triggers.push(finishedRestart);
- for(const panel of main.querySelectorAll<HTMLElement>('.ck-menu-panel,.hm-menu-content,.shared-room-menu>div')){
+ for(const panel of [...main.querySelectorAll<HTMLElement>('.ck-menu-panel,.hm-menu-content,.shared-room-menu>div'),...overlay?.querySelectorAll<HTMLElement>('.hm-menu-content')??[]]){
   let entry=panel.querySelector<HTMLElement>('.room-restart-entry:not(.room-exit-entry)');
-  if(!entry){entry=document.createElement('div');entry.className='room-restart-entry';entry.innerHTML=`<button type="button" class="room-restart-button" aria-label="เริ่มเกมใหม่" title="เริ่มเกมใหม่">${restartIcon}</button><span>เริ่มเกมใหม่</span>`;panel.append(entry);}
+  if(!entry){entry=document.createElement('div');entry.className='room-restart-entry';entry.innerHTML=`<button type="button" class="room-restart-button" aria-label="เริ่มเกมใหม่" title="เริ่มเกมใหม่">${restartIcon}</button><span>เริ่มเกมใหม่</span>`;(panel.querySelector('.hm-settings-restart')??panel).append(entry);}
   const button=entry.querySelector<HTMLButtonElement>('button')!;button.disabled=blocked;
   triggers.push(button);
  }

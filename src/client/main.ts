@@ -1,3 +1,5 @@
+import {harmoniesArtStyle} from './harmonies-view-preferences.js';
+import {prepareHarmoniesEntry,harmoniesSplashMarkup,updateHarmoniesSplash,type GardenEntry} from './harmonies-entry.js';
 import {roomRoute,roomPath} from './room-route.js';
 import {updateRoomRestart} from './room-restart.js';
 import {illustratedGameGuide} from './game-learning.js';
@@ -7,9 +9,10 @@ import {mountNameIt} from "./name-it.js";
 import {renderCK,closeCK} from "./critter-kitchen.js";
 import {renderSky} from "./sky-team.js";
 let harmoniesModule:typeof import('./harmonies.js')|undefined;
-let harmoniesLoading:Promise<unknown>|undefined;
+let harmoniesLoading:Promise<typeof import('./harmonies.js')>|undefined;
+let gardenEntry:GardenEntry|undefined;
 let harmoniesFirstMount=true,harmoniesLoadError=false;
-function closeHarmonies(){harmoniesModule?.closeHarmonies();}
+function closeHarmonies(){harmoniesModule?.closeHarmonies();gardenEntry=undefined;harmoniesFirstMount=true;}
 import {renderPixies,closePixiesResults} from "./pixies.js";
 import { completeJaipurCounting } from "./jaipur-results.js";
 import { updateGameHeader } from "./game-header.js";
@@ -279,6 +282,8 @@ function render() {
   const activeButton =
     active?.tagName === "BUTTON" ? active.textContent : undefined;
   renderContent();
+  document.getElementById('hm-boot-splash')?.remove();
+  document.documentElement.removeAttribute('data-hm-boot');
   updateRoomRestart(main,view,session?.role === "host" || !!view?.me?.canManage,!!pending || !connected,command);
   bindRoomLinks(main, platform.joinOrigin ?? location.origin,view?.gameId);
   main.classList.toggle(
@@ -313,6 +318,7 @@ function render() {
   document.body.classList.toggle("azul-theme", azulTheme);
   main.classList.toggle("platform-surface", platformTheme);
   document.body.classList.toggle("platform-theme", platformTheme);
+  document.body.classList.toggle("hm-lobby-theme",view?.gameId==='harmonies'&&view.phase==='lobby');
   main.classList.toggle("duel-surface", duelTheme);
   main.classList.toggle("duel-running", duelTheme && view?.phase === "playing");
   document.body.classList.toggle("duel-theme", duelTheme);
@@ -379,7 +385,7 @@ function render() {
 }
 const initialGardenHint=document.documentElement.dataset.roomTheme==='harmonies';
 function preparingGarden(){return initialGardenHint&&!!code&&!!(session||role==='display')&&!stopped&&!entryError;}
-function gardenLoading(){return `<section class="room-garden-loading" role="status" aria-live="polite"><span class="room-garden-loading-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 52V27M32 36C13 36 11 23 14 12c15 0 23 9 18 24ZM32 44c19 0 21-13 18-24-15 0-23 9-18 24Z" fill="#9dc36c" stroke="#fff4c9" stroke-width="2" stroke-linejoin="round"/></svg></span><p>กำลังโหลดสวน…</p></section>`;}
+function gardenLoading(){return harmoniesSplashMarkup({code:code!,style:harmoniesArtStyle(),loaded:0,total:0,ready:false});}
 function renderContent() {
   if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
   if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
@@ -453,6 +459,7 @@ function renderContent() {
     return;
   }
   if (view.phase === "lobby") {
+    gardenEntry=undefined;harmoniesFirstMount=true;
     lobby(
       content,
       view,
@@ -499,11 +506,19 @@ function renderContent() {
   if(view.gameId==="take-time"){renderTakeTime(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="sky-team"){renderSky(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="harmonies"){
-    if(!harmoniesModule){
+    {
       if(harmoniesLoadError){content.innerHTML='<section class="room-garden-loading room-garden-error" role="alert" aria-labelledby="hm-load-error-title"><span class="room-garden-loading-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 50V27M32 36C16 36 14 25 16 15c13 0 20 8 16 21ZM32 43c16 0 18-11 16-21-13 0-20 8-16 21Z" fill="#9dc36c" stroke="#fff4c9" stroke-width="2" stroke-linejoin="round"/><circle cx="48" cy="47" r="11" fill="#fff4c9" stroke="#075b59" stroke-width="2"/><path d="M48 41v7" stroke="#075b59" stroke-width="3" stroke-linecap="round"/><circle cx="48" cy="53" r="1.5" fill="#075b59"/></svg></span><div class="room-garden-error-copy"><h1 id="hm-load-error-title">ยังเปิดสวนไม่ได้</h1><p>ลองโหลดอีกครั้งเพื่อกลับเข้าสู่เกม</p></div><button id="hm-load-retry" type="button"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 8a8 8 0 1 1-1 7M5 3v5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>ลองอีกครั้ง</button></section>';content.querySelector('#hm-load-retry')!.addEventListener('click',()=>location.reload());return;}
-      content.innerHTML=gardenLoading();harmoniesLoading??=import('./harmonies.js').then(module=>{harmoniesModule=module;render();}).catch(()=>{harmoniesLoadError=true;render();});return;
+      if(!gardenEntry||gardenEntry.code!==view.code){
+       const entry=gardenEntry={code:view.code,style:harmoniesArtStyle(view.options?.cardArt),loaded:0,total:0,ready:false};
+       const snapshot=view;
+       void prepareHarmoniesEntry(entry,async()=>{
+        harmoniesLoading??=import('./harmonies.js');const module=await harmoniesLoading;harmoniesModule=module;
+        return module.harmoniesEntryAssets(snapshot,entry.style);
+       },()=>{if(gardenEntry===entry)updateHarmoniesSplash(content,entry);}).then(()=>{if(gardenEntry===entry)render();}).catch(()=>{if(gardenEntry===entry){harmoniesLoadError=true;render();}});
+      }
+      if(!gardenEntry.ready){content.innerHTML=harmoniesSplashMarkup(gardenEntry);return;}
     }
-    harmoniesModule.renderHarmonies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot||harmoniesFirstMount);harmoniesFirstMount=false;return;
+    harmoniesModule!.renderHarmonies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot||harmoniesFirstMount);harmoniesFirstMount=false;return;
   }
   if(view.gameId==="pixies"){renderPixies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="jaipur"){renderJaipur(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}

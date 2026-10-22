@@ -1956,3 +1956,15 @@ html[data-hm-card-art="original"] .hm-original-cube.hm-animal-sprite-tray>img{wi
 .hm-sanctuary-select:focus-visible{outline:3px solid #d2a634;outline-offset:3px}
 .hm-sanctuary-dialog .hm-sanctuary-select:disabled{background:#d9dfcb;color:#66735f;border-color:#bdc8b0;box-shadow:none;opacity:1}
 .hm-sanctuary-turn-limit{text-align:center;font-weight:700;color:#215e49;margin:12px 0 4px}
+
+/* Completed Sanctuaries retain their terrain stack and add a compact top figure. */
+.hm-root .hm-board .hm-sanctuary-board-model:not(.hm-original-cube){--figure-w:clamp(40px,12cqw,54px);--figure-h:clamp(35px,10.5cqw,47.25px);--hm-figure-front:-6px}
+.hm-root .hm-board .hm-sanctuary-board-model>img{width:var(--figure-w);height:var(--figure-h);max-width:none;max-height:none;object-fit:contain;object-position:center bottom}
+.hm-root.hm-finished .hm-owned-collection>.hm-owned-heading{text-align:left}
+
+/* The restart entry belongs to the settings modal, beneath its camera row. */
+.hm-view-dialog .hm-settings-restart{display:flex;justify-content:center}
+.hm-view-dialog .hm-settings-restart>.room-restart-entry{flex-direction:column;justify-content:center;gap:5px;margin:0;padding:4px 0;border:0;color:#285e50}
+.hm-view-dialog .hm-settings-restart .room-restart-button{display:grid;place-items:center;flex:0 0 52px;width:52px;height:52px;min-width:52px;min-height:52px;margin:0;padding:0;border:2px solid #dfc985;border-radius:50%;background:#256d56;color:#fff8dc;box-shadow:0 3px 0 #164b3c}
+.hm-view-dialog .hm-settings-restart .room-restart-button>svg{width:26px;height:26px}
+.hm-view-dialog .hm-settings-restart .room-restart-button:enabled:hover{background:#185b46}

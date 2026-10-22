@@ -5,7 +5,7 @@ import {join} from 'node:path';
 import {startServer} from '../../src/server/index.js';
 import {testAccount} from './auth-fixture.js';
 
-test('Harmonies lobby clears Solo on player join, retains expansions, and reconnect starts multiplayer',async({browser})=>{
+for(const lobbyArt of ['sculpted','original'])test(`Harmonies ${lobbyArt} lobby clears Solo on player join, retains expansions, and reconnect starts multiplayer`,async({browser})=>{
  const dir=await mkdtemp(join(tmpdir(),'hm-lobby-'));
  const app=await startServer(0,'127.0.0.1',true,()=>.42,{storePath:join(dir,'db.sqlite')});
  const origin=`http://localhost:${(app.server.address() as any).port}`;
@@ -16,7 +16,7 @@ test('Harmonies lobby clears Solo on player join, retains expansions, and reconn
   const code=owner.url().split('/').pop()!;
   await expect(owner.locator('#hm-solo')).toBeChecked();
   await expect(owner.locator('[name="hm-card-art"][value="illustrated"]')).toBeChecked();
-  await owner.locator('[name="hm-card-art"][value="sculpted"]').check();
+  await owner.locator(`[name="hm-card-art"][value="${lobbyArt}"]`).check();
   await display.goto(origin+'/harmonies/display/'+code);await expect(display.locator('.lobby-players>li')).toHaveCount(1);
   await expect(owner.locator('#hm-solo')).toBeChecked();
   await owner.locator('#hm-natureSpirits').check();await owner.locator('#hm-whispers').check();await owner.locator('#hm-side').selectOption('B');
@@ -24,13 +24,17 @@ test('Harmonies lobby clears Solo on player join, retains expansions, and reconn
   await expect(owner.locator('.lobby-players>li')).toHaveCount(2);await expect(display.locator('.lobby-players>li')).toHaveCount(2);
   await expect(owner.locator('#hm-solo')).not.toBeChecked();await expect(owner.locator('#hm-solo')).toBeDisabled();await expect(owner.locator('#start')).toBeDisabled();
   await expect(owner.locator('#hm-natureSpirits')).toBeChecked();await expect(owner.locator('#hm-whispers')).toBeChecked();await expect(owner.locator('#hm-side')).toHaveValue('B');
-  await expect(owner.locator('[name="hm-card-art"][value="sculpted"]')).toBeChecked();
+  await expect(owner.locator(`[name="hm-card-art"][value="${lobbyArt}"]`)).toBeChecked();
   const friendId=app.rooms.rooms.get(code)!.players[1].id;
   await friend.goto('about:blank');await friend.goto(origin+'/harmonies/play/'+code);await expect(friend.locator('#lobby-ready')).toBeVisible();
   expect(app.rooms.rooms.get(code)!.players).toHaveLength(2);expect(app.rooms.rooms.get(code)!.players[1].id).toBe(friendId);await expect(owner.locator('#hm-solo')).not.toBeChecked();
+  let releaseFull=()=>{};const fullSpirit=/\/reference\/spirit-\d+\.webp$/;
+  if(lobbyArt==='sculpted'){const fullGate=new Promise<void>(resolve=>releaseFull=resolve);await owner.route(fullSpirit,async route=>{await fullGate;await route.continue();});}
   await friend.getByRole('button',{name:'พร้อมเล่น',exact:true}).click();await expect(owner.locator('#start')).toBeEnabled();await owner.locator('#start').click();
+  if(lobbyArt==='sculpted'){await expect(owner.locator('.hm-entry-splash')).toBeVisible();await owner.evaluate(()=>new Promise(r=>setTimeout(r,2200)));await expect(owner.locator('.hm-entry-splash')).toBeVisible();await expect(owner.locator('.hm-root')).toHaveCount(0);releaseFull();}
+
   await expect(owner.locator('.hm-root')).toBeVisible();await expect(friend.locator('.hm-root')).toBeVisible();await expect(display.locator('.hm-root')).toBeVisible();
-  for(const page of [owner,friend,display])await expect(page.locator('html')).toHaveAttribute('data-hm-card-art','sculpted');
+  for(const page of [owner,friend,display])await expect(page.locator('html')).toHaveAttribute('data-hm-card-art',lobbyArt);
   const state=app.rooms.rooms.get(code)!.harmonies!;expect(state.players).toHaveLength(2);expect(state.options).toMatchObject({solo:false,natureSpirits:true,whispers:true});expect(state.side).toBe('B');
   // Both players get their own pair before any terrain has been picked.
   await expect(owner.locator('[data-spirit-choice]')).toHaveCount(2);await expect(friend.locator('[data-spirit-choice]')).toHaveCount(2);await expect(display.locator('[data-spirit-choice]')).toHaveCount(0);

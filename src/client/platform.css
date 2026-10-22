@@ -807,3 +807,46 @@ body.platform-theme {
 .lobby-kick-dialog>div{display:flex;align-items:center;justify-content:flex-end;gap:16px;margin-top:20px}
 .lobby-kick-dialog [data-cancel-kick]{min-height:44px;padding:8px 18px}
 .lobby-kick:focus-visible,.lobby-kick-dialog button:focus-visible{outline:3px solid #197e8d;outline-offset:3px}
+
+/* Harmonies waiting room: one open garden sheet, quiet rules and tactile controls. */
+body.platform-theme.hm-lobby-theme::before{background-image:linear-gradient(#eaf1d5bf,#eaf1d5e8),url('/art/harmonies/habitat-v4/background.webp');background-size:cover;background-position:center}
+.hm-lobby{--lobby-ink:#174e40;--lobby-green:#27765a;--lobby-rule:#abc09c;color:var(--lobby-ink);max-width:1060px;margin:auto}
+.hm-lobby .lobby-heading{border:0;padding-bottom:20px;margin-bottom:0;align-items:center}
+.hm-lobby .lobby-grid{grid-template-columns:minmax(0,1fr) 240px;gap:36px}
+.hm-lobby .join-panel,.hm-lobby .lobby-grid>aside{background:none;border:0;border-radius:0;box-shadow:none;padding:0;text-align:left}
+.hm-lobby .join-panel>h2{font-size:20px;margin:0 0 4px}
+.hm-lobby .join-panel>p{font-size:13px;color:#50715e;margin:6px 0 14px}
+.hm-lobby .hm-lobby-invite{display:grid;grid-template-columns:112px minmax(0,1fr);gap:6px 18px;align-content:center;align-items:center;margin:20px 0 26px;padding:18px 0;border-block:1px solid var(--lobby-rule)}
+.hm-lobby .hm-lobby-invite #qr{grid-row:1/4;width:112px!important;height:112px!important;margin:0;border-radius:4px}
+.hm-lobby .hm-lobby-invite .join-link{font-size:12px;line-height:1.6;margin:0;max-width:100%;overflow-wrap:anywhere;color:#266950}
+.hm-lobby .hm-lobby-invite p{margin:0;font-size:12px;color:#54735d}
+.hm-lobby .hm-lobby-invite .lobby-display-link{margin:0;font-size:12px;color:#266950;min-height:32px;align-content:center}
+.hm-lobby .hm-lobby-options{display:block;border:0;margin:24px 0;padding:0;min-width:0;text-align:left;background:none;box-shadow:none}
+.hm-lobby .hm-lobby-modules>legend{float:none;width:auto;font-size:16px;font-weight:800;margin:18px 0 8px;padding:0}
+.hm-lobby .hm-lobby-modules>label{display:flex;align-items:start;gap:12px;padding:14px 0;margin:0;border:0;border-bottom:1px solid #bfd0af;background:none;border-radius:0;text-align:left;cursor:pointer}
+.hm-lobby .hm-lobby-options label span{min-width:0}.hm-lobby .hm-lobby-options b{font-size:14px;line-height:1.6}.hm-lobby .hm-lobby-options small{display:block;font-size:12px;line-height:1.7;color:#52715c;margin-top:3px}
+.hm-lobby input[type=checkbox],.hm-lobby input[type=radio]{appearance:none;-webkit-appearance:none;box-sizing:border-box;flex:0 0 22px;width:22px;height:22px;min-width:22px;margin:2px 0 0;padding:0;border:1.5px solid #7c9e7c;background:#fffbed;box-shadow:none;cursor:pointer;transition:background-color .15s,border-color .15s}
+.hm-lobby input[type=checkbox]{border-radius:6px}
+.hm-lobby input[type=checkbox]:checked{border-color:var(--lobby-green);background:var(--lobby-green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m5 12 4 4 10-10' fill='none' stroke='%23fff9df' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/19px no-repeat}
+.hm-lobby input[type=radio]{border-radius:50%}.hm-lobby input[type=radio]:checked{border-color:var(--lobby-green);background:radial-gradient(circle,var(--lobby-green) 0 40%,#fffbed 45%)}
+.hm-lobby input:focus-visible,.hm-lobby select:focus-visible{outline:3px solid #c79c35;outline-offset:4px}.hm-lobby input:disabled{opacity:.45;cursor:default}
+.hm-lobby .hm-lobby-options .hm-art-picker{clear:both;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 16px;padding:0;border:0;background:none;border-radius:0}
+.hm-lobby .hm-art-picker legend{padding:0;margin-bottom:12px;font-size:16px}
+.hm-lobby .hm-lobby-options .hm-art-picker label{border:0;border-bottom:3px solid transparent;border-radius:0;background:none;box-shadow:none;padding:8px 4px 12px;gap:8px}
+.hm-lobby .hm-lobby-options .hm-art-picker label:has(:checked){border-color:var(--lobby-green);background:#e0ebcf66;box-shadow:none}
+.hm-lobby .hm-art-picker img{width:64px;height:91px;object-fit:cover;border-radius:7px;box-shadow:0 3px 7px #174e4026}.hm-lobby .hm-art-picker input{top:5px;right:3px;left:auto;width:18px;height:18px;min-width:18px}
+.hm-lobby .hm-art-picker b{font-size:13px}.hm-lobby .hm-art-picker small{font-size:11px}
+.hm-lobby select{border:1px solid #9bb797;border-radius:10px;background:#fffbed;color:var(--lobby-ink);min-height:46px;padding:9px 12px;font-size:14px}
+.hm-lobby .hm-lobby-modules>label:has(select){display:grid;grid-template-columns:1fr;gap:8px;border:0;padding-top:20px}
+.hm-lobby .lobby-grid>aside{padding-top:0}.hm-lobby aside h2{font-size:17px;padding-bottom:12px;border-bottom:1px solid var(--lobby-rule);margin-bottom:0}
+.hm-lobby .lobby-players li{border-color:#bfd0af;padding-block:16px}.hm-lobby .lobby-players strong{font-size:14px}.hm-lobby .lobby-players span,.hm-lobby .lobby-players small{font-size:12px;color:#52715c}
+.hm-lobby #lobby-ready{border-radius:999px;background:#e1ebcc;color:#245e47;border:1px solid #9ab18d;min-height:44px}
+@media(max-width:720px){.hm-lobby .lobby-grid{grid-template-columns:1fr;gap:24px}.hm-lobby .lobby-grid>aside{grid-row:1}.hm-lobby .lobby-players{display:flex;gap:14px;overflow:auto}.hm-lobby .lobby-players li{flex:1 0 128px;border-bottom:0;min-width:0}.hm-lobby .lobby-heading{padding-bottom:16px}.hm-lobby .lobby-heading img{width:65px;height:81px}.hm-lobby .lobby-heading .room-code{justify-self:start}.hm-lobby .hm-lobby-invite{grid-template-columns:96px minmax(0,1fr);gap:6px 12px}.hm-lobby .hm-lobby-invite #qr{width:96px!important;height:96px!important}}
+@media(prefers-reduced-motion:reduce){.hm-lobby input{transition:none}}
+
+.hm-lobby .hm-lobby-modules{min-width:0;margin:0;padding:0;border:0;background:none}
+.hm-lobby input[type=checkbox]{min-height:22px;max-height:22px;max-width:22px}
+.hm-lobby .hm-art-picker input[type=radio]{min-height:18px;max-height:18px;max-width:18px}
+.hm-lobby .hm-art-picker label:focus-within{outline:none}
+.hm-lobby .room-code{border:0;background:none;padding:0;color:#174e40;box-shadow:none}
+.hm-lobby .room-code strong{color:#174e40}

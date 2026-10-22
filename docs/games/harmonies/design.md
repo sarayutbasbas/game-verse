@@ -601,3 +601,25 @@ Original board cells, placement previews and animal trays render cubes: gold ord
 The full statistics sheet removes the decorative animal row and aggregate animal/Spirit/Whisper cells. A shared four-column grid shows five landscape scores followed by each owned Animal, Spirit, Whisper and Sanctuary with its actual server-calculated points, including zero-point cards. Token images share a bottom baseline in fixed-height frames; names sit beneath the pieces and scores retain the white reading glow. The grid scrolls internally only when its rows exceed the available viewport allowance. The comparison table retains every player and the compact player buttons switch a single visible detail panel. Winner/tally stages retain their own existing presentation.
 
 Owned Sanctuaries appear between unfinished and finished Animal cards. Sanctuary selection uses a brighter jade fill, cream text, gold edge and distinct disabled appearance; its market states the one-tile-per-turn limit. Confirmed the existing server rule independently allows one Animal and one Sanctuary claim per turn; no rule change was necessary. Serialization/reconnect preserves the consumed allowance, and a successful end-turn resets it.
+
+### Completed Sanctuary figures and fixed collection labels (2026-10-22)
+
+Completed Sanctuaries keep all four terrain tokens and add their existing compact generated temple model on the top cap in 2D/3D. ORIGINAL uses a white cube instead. In-progress stacks have no completion figure. The shared board fitter grounds each model's visible source baseline (per-model alpha bounds) or cube foot in both camera views. Sanctuary resident animals remain available and sit beside the completion figure so it stays visible. No rule/state/scoring changes.
+
+Owned-collection headings use the container's left padding, independently of card completion order or horizontal scrolling. The previous first-DOM-card measurement could push the heading right when completed cards were visually ordered last. The market button now reads only `วิหารกลาง`.
+
+### Settings restart control (2026-10-22)
+
+The room owner's settings modal includes a centered 52px circular restart icon immediately below the camera row, with the Thai accessible label `เริ่มเกมใหม่`. The shared restart binder explicitly accepts the detached modal in addition to the main game root; it refreshes permissions/revision guards during rerenders and reuses the existing cancel/confirm workflow. Confirmation closes settings and resets the game in the same room; cancel restores focus to the icon. Non-owners do not receive the control. The existing end-game restart button is retained.
+
+### Minimal waiting room and three entry scenes (2026-10-22)
+
+The Harmonies lobby uses an open layout with compact QR/link sharing, a quiet player list, three art previews, and line-separated expansion rows. Native checkbox/radio semantics remain intact beneath the custom forest-green visuals, with generous clickable labels, visible keyboard focus and disabled states. Styling is scoped to Harmonies; other game lobbies retain their layout. Copy is shorter while explicitly retaining the reviewed Sanctuary/Pulse subset counts.
+
+The lobby now selects 2D, 3D or ORIGINAL. That value is validated and persisted as the room's default `cardArt`; a device's existing personal preference still takes priority. Choosing a lobby style also updates the creator's personal preference so an older setting cannot override the new choice. The rendering option does not change setup randomness, card inventories, rules or scoring.
+
+Three entirely new animal-gathering illustrations were generated independently with built-in image_gen, not composed from existing animal images. Source masters: `assets/source/harmonies/splash-v1/`. Runtime assets: `public/art/harmonies/splash-v1/{illustrated,sculpted,original}.webp`, each 1086×1448. Exact prompts, generated paths and output hashes: `splash-v1-jobs.json`. The supplied phone video was used only as reference for the full-screen image and bottom progress placement.
+
+Entry waits for both actual readiness and a minimum visible duration. The 2-second minimum starts after the selected splash image decodes and two animation frames allow it to paint. In parallel, the lazy game module/CSS, the first visible card/terrain/model images, the player's full-size Spirit offers and fonts load. Progress is based on completed resources; the splash remains if resources are still pending after the minimum. Failure displays the existing retry screen. Late progress callbacks are scoped to the active entry, preventing navigation from mounting an old room. Fast entry, delayed JS, delayed ordinary images, delayed full-size Spirit cards, errors/retry and reconnect are covered by browser tests.
+
+The HTML entry shell now paints the selected splash scene before the application bundle arrives, replacing the former board-background first paint and interim leaf spinner. Critical splash styling is inline in the head and the boot overlay hands off synchronously after the application renders its splash (or a lobby/error), with no exposed board frame.

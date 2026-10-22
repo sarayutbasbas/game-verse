@@ -2,7 +2,7 @@ import {boardNeighbors} from './boards.js';
 import {ANIMAL,SPIRITS,PROMO_SPIRITS,neighbors,terrain} from './data.js';
 import type {HarmoniesOptions,Player,Side} from './types.js';
 export function optionsFor(input?:Partial<HarmoniesOptions>):HarmoniesOptions{
- if(input!==undefined&&(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(k=>!['solo','natureSpirits','whispers','promoTrex','sanctuaries','pulse','cardArt'].includes(k))||Object.entries(input).some(([k,v])=>k==='cardArt'?!['illustrated','sculpted'].includes(v as string):typeof v!=='boolean')))throw Error('ตัวเลือกโหมด Harmonies ไม่ถูกต้อง');
+ if(input!==undefined&&(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(k=>!['solo','natureSpirits','whispers','promoTrex','sanctuaries','pulse','cardArt'].includes(k))||Object.entries(input).some(([k,v])=>k==='cardArt'?!['illustrated','sculpted','original'].includes(v as string):typeof v!=='boolean')))throw Error('ตัวเลือกโหมด Harmonies ไม่ถูกต้อง');
  return {solo:input?.solo??false,natureSpirits:!!(input?.natureSpirits||input?.promoTrex),whispers:input?.whispers??false,...input?.promoTrex?{promoTrex:true}:{},...input?.sanctuaries?{sanctuaries:true}:{},...input?.pulse?{pulse:true}:{},...input?.cardArt?{cardArt:input.cardArt}:{}};
 }
 export const spiritPool=(options:HarmoniesOptions)=>[...SPIRITS,...options.promoTrex?PROMO_SPIRITS:[]];

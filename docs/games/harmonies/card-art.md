@@ -61,3 +61,9 @@ node scripts/activate-harmonies-original-redrawn.mjs
 ## Sharp 2D token images inside cards — 2026-10-22
 
 Card habitats, Spirit scoring scenarios and Sanctuary stacks now embed the existing precolored `tokens-soft-v1/*.png` directly through `terrainCardPrint`. Those lossless pixels match the color-filtered SVG at its native 256×224 resolution, including alpha, motifs and cylinder geometry. This avoids nesting a live color-filtered SVG inside another SVG diagram, so browser filtering does not soften small or enlarged card tokens. Board rendering, palette, positions, stack spacing, 3D token URLs and baked ORIGINAL images are unchanged.
+
+## Generated entry scenes — 2026-10-22
+
+New full-screen animal gatherings for 2D, 3D and ORIGINAL are in `public/art/harmonies/splash-v1/`, exported as 1086×1448 WebP. These are three fresh built-in image_gen outputs, with independent cartoon/paper, sculpted miniature and geometric print treatments. The animals were not composited from existing assets. All prompts and source/output paths/hashes are in `splash-v1-jobs.json`; high-resolution masters remain local in `assets/source/harmonies/splash-v1/`.
+
+The room's art default can now be selected from all three choices in the lobby. Personal settings remain device-specific. Splash timing and readiness are documented in `design.md`.

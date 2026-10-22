@@ -42,15 +42,18 @@ function alignAnimalSprites(board:HTMLElement){
   if(!scale)return;
   const twinkles=figure.querySelector<HTMLElement>('.hm-model-twinkles');if(twinkles){twinkles.style.width=getComputedStyle(img).width;twinkles.style.height=getComputedStyle(img).height;}
   figure.style.setProperty('--hm-figure-x',`${(x-rect.x-rect.width*.5)/scale}px`);
-  figure.style.setProperty('--hm-figure-y',`${(y-rect.y-rect.height*(figure.classList.contains('hm-original-cube')?64/70:.955))/scale}px`);
+  figure.style.setProperty('--hm-figure-y',`${(y-rect.y-rect.height*(Number(figure.dataset.modelFoot)||(figure.classList.contains('hm-original-cube')?64/70:.955)))/scale}px`);
  };
  for(const cell of board.querySelectorAll<HTMLElement>('.hm-cell')){
   const tokens=[...cell.querySelectorAll<HTMLElement>('.hm-stack>.hm-token>.hm-token-art')],cap=tokens.at(-1)?.getBoundingClientRect();if(!cap)continue;
   const models=[...cell.querySelectorAll<HTMLElement>('.hm-stack>.hm-animal-sprite,.hm-sanctuary-residents>.hm-animal-sprite,.hm-animal-preview>.hm-animal-sprite')],main=models.find(m=>!m.classList.contains('hm-whisper-model'));
   const shared=!!main&&models.some(m=>m.classList.contains('hm-whisper-model'));
+  const temple=models.find(m=>m.classList.contains('hm-sanctuary-board-model'));
+  const residents=temple?models.filter(m=>m.parentElement?.classList.contains('hm-sanctuary-residents')):[];
   for(const figure of models){
-   const whisper=figure.classList.contains('hm-whisper-model');
-   place(figure,cap.x+cap.width*(shared?(whisper?.62:.38):.5),cap.y+cap.height*.48);
+   const whisper=figure.classList.contains('hm-whisper-model'),resident=residents.indexOf(figure);
+   const x=resident>=0?(residents.length===1?.78:[.22,.78,.5][resident]):shared?(whisper?.62:.38):.5;
+   place(figure,cap.x+cap.width*x,cap.y+cap.height*(resident===2?.62:.48));
   }
  }
 }
@@ -135,12 +138,10 @@ export function fitHarmoniesBoards(root:HTMLElement){
   }
   alignTokenSprites(board);alignAnimalSprites(board);alignTerrainOverlays(board);
  }
-  // Centered short rails and scrolling full rails have different card insets.
+  // The heading belongs to the collection's left edge, independent of card order/scroll.
   for(const collection of collections){
-   const heading=collection.querySelector<HTMLElement>('.hm-owned-heading'),cards=collection.querySelector<HTMLElement>('.hm-owned-cards'),first=cards?.querySelector<HTMLElement>('.hm-animal');
-   if(!heading||!cards||!first||!collection.clientWidth)continue;
-   const inset=first.getBoundingClientRect().left+cards.scrollLeft-heading.getBoundingClientRect().left;
-   heading.style.paddingLeft=`${Math.max(0,inset).toFixed(2)}px`;
+   const heading=collection.querySelector<HTMLElement>('.hm-owned-heading'),cards=collection.querySelector<HTMLElement>('.hm-owned-cards');
+   if(heading&&cards)heading.style.paddingLeft=getComputedStyle(cards).paddingLeft;
   }
   // End overlays follow the gaps, without participating in board fitting.
   const chosen=views.find(v=>v.closest('.chosen-board'))??views.find(v=>v.clientWidth>0);

@@ -1,0 +1,37 @@
+{
+  "jobs": [
+    {
+      "id": "illustrated",
+      "prompt": "Use case: illustration-story. Asset: new full-screen loading illustration for a nature board game, portrait 3:4 composition. Paint a completely new coherent scene from scratch, not a collage of existing assets. A joyful gathering of a river otter, red fox, rabbit, panda, deer, kingfisher, flamingo, turtle, owl, butterfly, a friendly small golden T-rex and a gentle rainbow mythical lion, in a lush forest river clearing. Each animal anatomically recognizable, distinct, expressive and charming, arranged naturally together on rocks, branches and riverbank. Concentrate ALL important animal faces within the central 75% width and central 45% height so the gathering survives both phone and landscape crops. Upper quarter atmospheric forest canopy and sky, lower quarter calm dark teal river reflection and foliage providing quiet space for code-rendered loading UI. Rich emerald, deep teal, moss, honey sunlight. Immersive premium game illustration, edge-to-edge artwork. No text, no letters, no logos, no interface, no frames, no score boxes, no tokens, no watermarks. Style: highly artful contemporary children's-book cartoon illustration, textured flat vector cut-paper shapes, expressive sweeping ink contours, screen-printed paper grain, layered saturated jewel colors and warm cream highlights. Playful hand-drawn 2D shapes, intentionally non-photorealistic.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-192cd005-134f-46c8-869e-2d972057185d.png",
+      "tool": "built-in image_gen",
+      "workspaceSource": "assets/source/harmonies/splash-v1/illustrated.png",
+      "asset": "public/art/harmonies/splash-v1/illustrated.webp",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "70d83891c9b3ecd1f701754b17d470d0728e7fe5d7dca87866c7144196ad77ae"
+    },
+    {
+      "id": "sculpted",
+      "prompt": "Use case: illustration-story. Asset: new full-screen loading illustration for a nature board game, portrait 3:4 composition. Paint a completely new coherent scene from scratch, not a collage of existing assets. A joyful gathering of a river otter, red fox, rabbit, panda, deer, kingfisher, flamingo, turtle, owl, butterfly, a friendly small golden T-rex and a gentle rainbow mythical lion, in a lush forest river clearing. Each animal anatomically recognizable, distinct, expressive and charming, arranged naturally together on rocks, branches and riverbank. Concentrate ALL important animal faces within the central 75% width and central 45% height so the gathering survives both phone and landscape crops. Upper quarter atmospheric forest canopy and sky, lower quarter calm dark teal river reflection and foliage providing quiet space for code-rendered loading UI. Rich emerald, deep teal, moss, honey sunlight. Immersive premium game illustration, edge-to-edge artwork. No text, no letters, no logos, no interface, no frames, no score boxes, no tokens, no watermarks. Style: exquisite stylized 3D animated-film miniature diorama. All animals are charming sculpted clay and hand-painted carved wooden toy figurines, tactile rounded volumes, bevelled miniature landscape, beautiful soft cinematic lighting, subtle depth of field while keeping every face clear. Clearly dimensional, artistic toy-world 3D, not photorealistic real animals.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-893eba10-788d-4564-88dc-d2a5a639b617.png",
+      "tool": "built-in image_gen",
+      "workspaceSource": "assets/source/harmonies/splash-v1/sculpted.png",
+      "asset": "public/art/harmonies/splash-v1/sculpted.webp",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "5b94858574b9b94d934e700b1c9870aca39b5312f44bab5e207a7e1151044349"
+    },
+    {
+      "id": "original",
+      "prompt": "Use case: illustration-story. Asset: new full-screen loading illustration for a nature board game, portrait 3:4 composition. Paint a completely new coherent scene from scratch, not a collage of existing assets. A joyful gathering of a river otter, red fox, rabbit, panda, deer, kingfisher, flamingo, turtle, owl, butterfly, a friendly small golden T-rex and a gentle rainbow mythical lion, in a lush forest river clearing. Each animal anatomically recognizable, distinct, expressive and charming, arranged naturally together on rocks, branches and riverbank. Concentrate ALL important animal faces within the central 75% width and central 45% height so the gathering survives both phone and landscape crops. Upper quarter atmospheric forest canopy and sky, lower quarter calm dark teal river reflection and foliage providing quiet space for code-rendered loading UI. Rich emerald, deep teal, moss, honey sunlight. Immersive premium game illustration, edge-to-edge artwork. No text, no letters, no logos, no interface, no frames, no score boxes, no tokens, no watermarks. Style: elegant original European nature board-game illustration in an angular geometric gouache and screen-print aesthetic, faceted simplified flat animal silhouettes, delicate cream hand-inked outlines, lithographic paper grain, layered natural moss greens, turquoise rivers and earthy ochres. More restrained painterly geometric composition, finely textured printed-paper artwork. Flat illustration with no 3D toy rendering.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-431854a1-25ae-4809-a5d8-a84dee87a6b9.png",
+      "tool": "built-in image_gen",
+      "workspaceSource": "assets/source/harmonies/splash-v1/original.png",
+      "asset": "public/art/harmonies/splash-v1/original.webp",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "6a33dad0aba967be8ea8c5862d39ac44f3c13e8d51eec26c348e36334b6ef3a4"
+    }
+  ]
+}
