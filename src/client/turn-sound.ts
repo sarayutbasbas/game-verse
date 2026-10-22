@@ -114,6 +114,11 @@ export class TurnSound {
   setActive(active:boolean){const starting=active&&!this.active;this.active=active;this.updateMusic();if(starting&&this.gameId==='harmonies'&&this.musicEnabled&&!this.unlocked)void this.unlock();}
   private save(){try{localStorage.setItem("gameverse:turn-sound",this.enabled?"on":"off");localStorage.setItem("gameverse:bg-sound",this.musicEnabled?"on":"off");}catch{}}
   private paint(){
+    const muted=!this.enabled&&!this.musicEnabled;
+    this.controls.dataset.muted=String(muted);
+    const summary=this.controls.querySelector('summary')!;
+    summary.setAttribute('aria-label',muted?'ตั้งค่าเสียง · ปิดเสียงทั้งหมด':'ตั้งค่าเสียง');
+    summary.innerHTML=`<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/>${muted?'<path class="audio-muted-slash" d="M3 3 21 21" stroke-width="2.3"/>':'<path d="M17 8q5 4 0 8"/>'}</svg>`;
     this.button.textContent=`เสียงเอฟเฟกต์: ${this.enabled?"เปิด":"ปิด"}`;
     this.musicButton.textContent=`เสียงพื้นหลัง: ${this.musicEnabled?"เปิด":"ปิด"}`;
     this.button.setAttribute("aria-label",this.button.textContent);this.musicButton.setAttribute("aria-label",this.musicButton.textContent);

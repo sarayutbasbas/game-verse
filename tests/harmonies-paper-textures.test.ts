@@ -11,7 +11,7 @@ test('special cards have generated art without rims and large scenario values be
  const manifest=JSON.parse(await readFile('docs/games/harmonies/special-paper-v1-jobs.json','utf8'));assert.equal(manifest.jobs.length,27);
  for(const c of Object.values(ANIMAL))for(const size of [false,true]){const face=cardFace(c.id,0,size,false,false);assert.doesNotMatch(face,/hm-paper-edge/);if(c.kind)assert.match(face,new RegExp(`/special-paper-v1/${c.id}`));if(c.kind==='spirit'){assert.match(face,/hm-scenario-tokens/);assert.match(face,/x="60"[^>]*hm-scenario-number/);}if(c.kind==='whisper')assert.match(face,/font-size:32px">2\/5/);}
 });
-test('four generated Sanctuary miniatures retain transparent backgrounds and uniform export bounds',async()=>{
+test('reviewed Sanctuary miniatures retain transparent backgrounds and uniform export bounds',async()=>{
  const {SANCTUARY}=await import('../src/games/harmonies/sanctuaries.js');const {sanctuaryFace}=await import('../src/client/harmonies-sanctuaries.js');
  for(const id of Object.keys(SANCTUARY)){const {data,info}=await sharp(`public/art/harmonies/sanctuaries-v2/${id}-model.webp`).ensureAlpha().raw().toBuffer({resolveWithObject:true});assert.equal(info.width,256);assert.equal(info.height,224);assert.equal(data[3],0);assert.equal(data.at(-1),0);assert.ok(data.some((v,i)=>i%4===3&&v===255));assert.doesNotMatch(sanctuaryFace(id),/<h3|<p>|<strong|<small/);}
 });

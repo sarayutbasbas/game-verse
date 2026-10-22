@@ -1,0 +1,69 @@
+{
+  "tool": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "cover",
+      "transparent_background": false,
+      "prompt": "Use case: product-mockup. Create a beautiful new premium board-game BOX artwork for DRAFTOSAURUS, a dinosaur drafting zoo game. 3/4 view upright thick square game box, entire box visible with generous clear margin, centered on a deep lush jade studio background. Whimsical richly painted 3D miniature world, terracotta red friendly tyrannosaurus, yellow triceratops, teal diplodocus, purple stegosaurus, orange parasaurolophus and blue spinosaurus emerging from a spectacular tropical zoo with winding turquoise river and tiny timber fences. Golden sunlight, tactile toy-like clay models, sophisticated inviting family game, playful expression, vivid natural colors. Box front title text exactly \"DRAFTOSAURUS\" in bold cream dimensional lettering with dark forest green shadow at top. Side spine same title. No publisher logos, no watermarks, no extra words. Original composition, not a replica of retail box. Square image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-95a9582e-d6c1-4a25-b569-0cabac8e5698.png",
+      "output": "public/art/draftosaurus/cover.webp",
+      "workspaceSource": "assets/source/draftosaurus/cover.png"
+    },
+    {
+      "id": "board",
+      "transparent_background": false,
+      "prompt": "Use case: stylized-concept. Asset: top-down playable summer dinosaur zoo board background, landscape 3:2. Create a sumptuous hand-painted 3D miniature tropical zoological park, six EMPTY grassy enclosures in TWO COLUMNS and THREE ROWS. Broad winding turquoise river occupies the central vertical 12% from top to bottom and expands into a bottom-center lagoon. Enclosure interiors MUST be flat, clear and empty for game pieces and code labels, softly rounded timber fences. Left column x5–43%, right x57–95%; top row y8–30%, middle y37–59%, bottom y67–89%. Top row green woodlands and lush foliage around perimeter; middle-left green woodland; middle-right sunlit grassland; bottom row golden grassland. Tiny wooden food kiosk bottom-left perimeter, tiny restroom building bottom-right perimeter. Little wooden bridge over middle of river. Rich miniature depth in fence posts and surrounding jungle, soft shadows. Warm sunlight, crisp high quality textures. No dinosaurs, no text, no numerals, no UI, no symbols, no dice. Keep all SIX enclosure interiors usable and not obscured by trees. Overhead camera, landscape image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a3e64066-aec5-4980-b07d-387e46f8825e.png",
+      "output": "public/art/draftosaurus/board.webp",
+      "workspaceSource": "assets/source/draftosaurus/board.png"
+    },
+    {
+      "id": "trex",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME animated game sprite strip. EXACTLY two matching cells side by side, left half frame1 and right half frame2, same scale camera lighting and base foot level. Both cells show the SAME terracotta red Tyrannosaurus rex, big head, tiny arms, friendly toothy grin. Beautiful charming tactile sculpted clay miniature with subtle scales, soft subsurface light, dimensional form, 3/4 side view facing slightly left. Full body with NO cropping, ample breathing room. Frame1 neutral resting pose, frame2 tiny head tilt with tail curved differently and mouth slightly changed, both stand on SAME ground line at y85% of image. Each frame centered at x25% and75%, consistent animal size filling 72% of its cell width and height. Warm studio light from upper left. Truly transparent background, no ground, no platform, no drop shadow outside body, no text, no numbers, no border, no grid lines. Landscape image with exactly two equal width cells.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2f7ac0cc-75df-4eb4-b63d-949e346e5be3.png",
+      "output": "public/art/draftosaurus/trex.webp",
+      "workspaceSource": "assets/source/draftosaurus/trex.png"
+    },
+    {
+      "id": "triceratops",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME animated game sprite strip. EXACTLY two matching cells side by side, left half frame1 and right half frame2, same scale camera lighting and base foot level. Both cells show the SAME sunflower yellow Triceratops, three ivory horns and wide head frill. Beautiful charming tactile sculpted clay miniature with subtle scales, soft subsurface light, dimensional form, 3/4 side view facing slightly left. Full body with NO cropping, ample breathing room. Frame1 neutral resting pose, frame2 tiny head tilt with tail curved differently and mouth slightly changed, both stand on SAME ground line at y85% of image. Each frame centered at x25% and75%, consistent animal size filling 72% of its cell width and height. Warm studio light from upper left. Truly transparent background, no ground, no platform, no drop shadow outside body, no text, no numbers, no border, no grid lines. Landscape image with exactly two equal width cells.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-be14d04c-2616-4466-8d4f-91ae7f9e4044.png",
+      "output": "public/art/draftosaurus/triceratops.webp",
+      "workspaceSource": "assets/source/draftosaurus/triceratops.png"
+    },
+    {
+      "id": "diplodocus",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME animated game sprite strip. EXACTLY two matching cells side by side, left half frame1 and right half frame2, same scale camera lighting and base foot level. Both cells show the SAME jade teal Diplodocus, very long curved neck and long tapering tail. Beautiful charming tactile sculpted clay miniature with subtle scales, soft subsurface light, dimensional form, 3/4 side view facing slightly left. Full body with NO cropping, ample breathing room. Frame1 neutral resting pose, frame2 tiny head tilt with tail curved differently and mouth slightly changed, both stand on SAME ground line at y85% of image. Each frame centered at x25% and75%, consistent animal size filling 72% of its cell width and height. Warm studio light from upper left. Truly transparent background, no ground, no platform, no drop shadow outside body, no text, no numbers, no border, no grid lines. Landscape image with exactly two equal width cells.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fdbda965-fb59-45cf-a3e0-1c1267e8135f.png",
+      "output": "public/art/draftosaurus/diplodocus.webp",
+      "workspaceSource": "assets/source/draftosaurus/diplodocus.png"
+    },
+    {
+      "id": "stegosaurus",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME animated game sprite strip. EXACTLY two matching cells side by side, left half frame1 and right half frame2, same scale camera lighting and base foot level. Both cells show the SAME amethyst purple Stegosaurus, tall rose dorsal plates along its back and spiked tail. Beautiful charming tactile sculpted clay miniature with subtle scales, soft subsurface light, dimensional form, 3/4 side view facing slightly left. Full body with NO cropping, ample breathing room. Frame1 neutral resting pose, frame2 tiny head tilt with tail curved differently and mouth slightly changed, both stand on SAME ground line at y85% of image. Each frame centered at x25% and75%, consistent animal size filling 72% of its cell width and height. Warm studio light from upper left. Truly transparent background, no ground, no platform, no drop shadow outside body, no text, no numbers, no border, no grid lines. Landscape image with exactly two equal width cells.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fe8a4bbd-a6a8-4d8f-8c68-368af31ba485.png",
+      "output": "public/art/draftosaurus/stegosaurus.webp",
+      "workspaceSource": "assets/source/draftosaurus/stegosaurus.png"
+    },
+    {
+      "id": "parasaurolophus",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME animated game sprite strip. EXACTLY two matching cells side by side, left half frame1 and right half frame2, same scale camera lighting and base foot level. Both cells show the SAME tangerine orange Parasaurolophus, backward long curved cranial crest, alert playful stance. Beautiful charming tactile sculpted clay miniature with subtle scales, soft subsurface light, dimensional form, 3/4 side view facing slightly left. Full body with NO cropping, ample breathing room. Frame1 neutral resting pose, frame2 tiny head tilt with tail curved differently and mouth slightly changed, both stand on SAME ground line at y85% of image. Each frame centered at x25% and75%, consistent animal size filling 72% of its cell width and height. Warm studio light from upper left. Truly transparent background, no ground, no platform, no drop shadow outside body, no text, no numbers, no border, no grid lines. Landscape image with exactly two equal width cells.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-592aad30-9218-4b90-ab21-0634df33ed92.png",
+      "output": "public/art/draftosaurus/parasaurolophus.webp",
+      "workspaceSource": "assets/source/draftosaurus/parasaurolophus.png"
+    },
+    {
+      "id": "spinosaurus",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME animated game sprite strip. EXACTLY two matching cells side by side, left half frame1 and right half frame2, same scale camera lighting and base foot level. Both cells show the SAME sky blue Spinosaurus, distinct tall turquoise dorsal sail and long crocodilian snout. Beautiful charming tactile sculpted clay miniature with subtle scales, soft subsurface light, dimensional form, 3/4 side view facing slightly left. Full body with NO cropping, ample breathing room. Frame1 neutral resting pose, frame2 tiny head tilt with tail curved differently and mouth slightly changed, both stand on SAME ground line at y85% of image. Each frame centered at x25% and75%, consistent animal size filling 72% of its cell width and height. Warm studio light from upper left. Truly transparent background, no ground, no platform, no drop shadow outside body, no text, no numbers, no border, no grid lines. Landscape image with exactly two equal width cells.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-16bdb0b5-9fd2-4078-9fe4-cd4284bf8816.png",
+      "output": "public/art/draftosaurus/spinosaurus.webp",
+      "workspaceSource": "assets/source/draftosaurus/spinosaurus.png"
+    }
+  ]
+}

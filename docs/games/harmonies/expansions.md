@@ -1,8 +1,8 @@
 # Harmonies — optional modules and Solo
 
-Implemented: boards A/B/C/D, Solo, ten Nature’s Spirits, optional T-rex, ten Crescendo Whispers, **four reviewed Sanctuaries**, and **one reviewed Pulse animal (tiger)**. Modules are independently selectable and combinable. Lobby labels disclose 4/10 and 1/10; missing entries are deliberately excluded, as requested by the user on 2026-10-21. Existing base-game snapshots remain valid. A/B rematches retain their previous random-side behavior; C/D rematches retain the chosen side.
+Implemented: boards A/B/C/D, Solo, ten Nature’s Spirits, optional T-rex, ten Crescendo Whispers, **all ten Sanctuaries**, and **all ten Pulse animals**. Modules are independently selectable and combinable. Lobby labels disclose 10/10 for both modules; missing entries are deliberately excluded, as requested by the user on 2026-10-21. Existing base-game snapshots remain valid. A/B rematches retain their previous random-side behavior; C/D rematches retain the chosen side.
 
-**This is a reviewed subset, not complete Crescendo/Pulse.** Six Sanctuary stacks and nine Pulse patterns remain unreadable in available primary references. Camel and yak (จามรี, not buffalo) belong to Pulse and remain outside the live deck. Tiger uses water1–rock1–leaf1 in a bent chain, destination leaf, scores 3/10/16. Pulse patterns permit six rotations and their six reflections. Names for Sanctuaries are descriptive Thai labels, not official titles.
+**All ten Sanctuaries and all ten Pulse animals are now included.** All ten Pulse score/pattern sets have now been transcribed from the high-resolution printed-card photograph supplied by the user; yak is จามรี, not buffalo. Tiger uses water1–rock1–leaf1 in a bent chain, destination leaf, scores 3/10/16. Pulse patterns permit six rotations and their six reflections. Names for Sanctuaries are descriptive Thai labels, not official titles.
 
 ## C/D boards and Sanctuaries
 
@@ -18,8 +18,14 @@ Reviewed stacks (bottom → top):
 | sanctuary-02 | wood / wood / building / leaf | leaf, building |
 | sanctuary-04 | field / wood / wood / building | building, field |
 | sanctuary-05 | building / rock / rock / rock | rock, building |
+| sanctuary-06 | water / water / wood / building | water, building |
+| sanctuary-03 | field / field / rock / rock | rock, field |
+| sanctuary-07 | water / building / leaf / leaf | leaf, water |
+| sanctuary-08 | rock / rock / wood / leaf | leaf, rock |
+| sanctuary-09 | field / water / water / water | water, field |
+| sanctuary-10 | leaf / leaf / field / field | field, leaf |
 
-Per-face photo references are in `src/games/harmonies/sanctuaries.json`. The box reverse confirms the treehouse ordering; an enlarged final audit corrected it and excluded the obscured canyon tile. Remaining work is recorded in `crescendo-pending-data.json`. [Publisher Pulse rules](https://cdn.svc.asmodee.net/production-libelludv2/uploads/2026/07/HARMONIES_PULSE_RULES_ML.pdf) establish reflection and three-color habitats.
+Per-face photo references are in `src/games/harmonies/sanctuaries.json`. The box reverse confirms the treehouse ordering. A previous audit excluded the obscured canyon tile; the new user close-up now confirms its complete recipe. Remaining work is recorded in `crescendo-pending-data.json`. [Publisher Pulse rules](https://cdn.svc.asmodee.net/production-libelludv2/uploads/2026/07/HARMONIES_PULSE_RULES_ML.pdf) establish reflection and three-color habitats.
 
 Original art generated with built-in image_gen: ten Pulse card scenes, ten paper sprites, ten sculpted sprites and ten Sanctuary scenes. Only verified entries enter play; all forty outputs are viewable at `/art/harmonies/crescendo-review/index.html`. Prompts/source paths: `crescendo-complete-v1-art-jobs.json`. Rebuild exports with `node scripts/build-harmonies-crescendo-art.mjs`; 3:4 full/small/lite backgrounds and 160×184 sprites (baseline 176). Previous 3D assets remain unchanged.
 
@@ -68,3 +74,17 @@ Original generated illustrations, with code-rendered habitat diagrams, cubes and
 ### Spirit presentation update (2026-10-19)
 
 All ten Spirits now have original translucent crystal figurines with distinct colors and a small glow, replacing the white cube representation on boards, trays and habitat examples. Draft and confirmation views use complete portrait cards. Persistent gold (Spirit) / violet (Whisper) star seals identify special cards in the owned collection; one-shot shimmer animation and sound follow accepted acquisition/activation events. Sound respects existing mute/volume settings and never repeats on reconnect; reduced motion keeps the static seals. Art sources and extraction manifest: `spirit-figurine-art-jobs.json`. Rules are unchanged.
+
+2026-10-22: Added the stilt-water pavilion from the user photograph, cross-checked against publisher beauty shot 02 (printed miniature recipe and top two-color badge). The treehouse and windmill in that same user image were already present; no duplicate copies were added. New games mark Sanctuary catalog version 2 and deal five tiles. Existing unversioned four-tile games retain their exact original inventory through restore; version 2 validation still rejects missing, duplicate and unknown tiles.
+
+See [2026-10-22 PDF audit and card inventory](crescendo-audit-2026-10-22.md) for the page-by-page rule comparison, exact newly reviewed Pulse layouts and remaining gaps. Current Sanctuary catalog version 3 has nine tiles; versions absent/2 preserve four/five-tile saved games. Pulse catalog version 3 has ten animals; version 2 and unversioned saves keep their previous four-card/tiger-only inventories.
+
+### Complete Pulse pack (2026-10-22)
+
+The user supplied the all-ten card sheet; its original 3920×2725 photograph makes every printed score, layer and cube location legible. All ten final Pulse cards are now playable and available in a separate HARMONIES PULSE library category, sorted by rail color with three cards per row. See [final-card transcription and source hash](pulse-final-card-review.json) and [full pack checklist](pulse.md). Corrected the earlier camel interpretation: its red stack is a completed building of height two, not one ground token. Beetle and yak use straight lines; the other patterns preserve their printed triangle/bent shape. Existing generated full/small/lite card art and both model styles are reused. No printed art is shipped as runtime graphics.
+
+Pulse catalog version 3 starts new games with all ten cards and 25 Animal cubes. Legacy unversioned tiger-only and version-2 four-card games retain their inventories and earned progress on restore. New cards are not injected into ongoing games. All red Pulse diagrams explicitly show their printed two layers; completed buildings still accept red/wood/rock bases per the base rules.
+
+### Final Sanctuary and detailed help (2026-10-22)
+
+The final terraced-meadow tile is confirmed from the new user photo and publisher beauty shot 02: leaf/leaf/field/field, associated field/leaf. All ten Sanctuaries are playable and visible in the library. New games mark Sanctuary catalog version 4; unversioned and versions 2/3 retain their exact four/five/nine-tile inventories. The card detail description is always expanded below the art, both in the library and ordinary Sanctuary modals: ordered construction, the final-Animal-cube benefit, multiple residents, no Spirit/Whisper residents, 3 per matching adjacent top color, a 9-point example, the 18-point six-neighbor maximum, neighboring Sanctuary colors, incomplete tiles and landscape exclusions. The explanatory score example is separate from the actual current score. Library back controls are 44px icon-only circles with Thai accessible labels and visible keyboard focus.

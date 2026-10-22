@@ -1,3 +1,5 @@
+import type {PerchAction,PerchView} from "../games/perch/types.js";
+import type {DraftosaurusAction,DraftosaurusView} from "../games/draftosaurus/types.js";
 import type {TakeTimeAction,TakeTimeView} from "../games/take-time/types.js";
 import type {LocusAction,LocusView} from "../games/locus/types.js";
 import type {CKAction,CKView,DisplayMode} from "../games/critter-kitchen/types.js";
@@ -119,9 +121,9 @@ export interface View {
     legal: Action[];
   };
 }
-export type GameId = "take-time" | "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
-export type RoomView = (TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView) & {lobbyKickablePlayerIds?:string[]};
-export type RoomAction = {type:"room-kick";playerId:string} | {type:"room-restart"} | TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
+export type GameId = "perch" | "draftosaurus" | "take-time" | "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
+export type RoomView = (PerchView | DraftosaurusView | TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView) & {lobbyKickablePlayerIds?:string[]};
+export type RoomAction = PerchAction | DraftosaurusAction | {type:"room-kick";playerId:string} | {type:"room-restart"} | TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
 export type ClientMessage =
   | { type: "create"; gameId?: GameId; displayMode?:DisplayMode; joinAsPlayer?:boolean }
   | { type: "join"; code: string; name: string }

@@ -1,3 +1,5 @@
+import {renderPerch,closePerch} from "./perch.js";
+import {renderDraftosaurus,closeDraftosaurus} from "./draftosaurus.js";
 import {harmoniesArtStyle} from './harmonies-view-preferences.js';
 import {prepareHarmoniesEntry,harmoniesSplashMarkup,updateHarmoniesSplash,type GardenEntry} from './harmonies-entry.js';
 import {roomRoute,roomPath} from './room-route.js';
@@ -281,7 +283,13 @@ function render() {
   }));
   const activeButton =
     active?.tagName === "BUTTON" ? active.textContent : undefined;
+  // Gate the document before changing any game theme, including lobby → game.
+  // Keep this through lazy imports and decoded assets, not just the first render.
+  const enteringGarden=view?.gameId==='harmonies'&&view.phase!=='lobby'&&(!gardenEntry?.ready||gardenEntry.code!==view.code);
+  document.documentElement.toggleAttribute('data-hm-loading',!!enteringGarden||(!view&&preparingGarden()));
   renderContent();
+  const gardenWaiting=!!main.querySelector('.hm-entry-splash,.room-garden-error');
+  document.documentElement.toggleAttribute('data-hm-loading',gardenWaiting);
   document.getElementById('hm-boot-splash')?.remove();
   document.documentElement.removeAttribute('data-hm-boot');
   updateRoomRestart(main,view,session?.role === "host" || !!view?.me?.canManage,!!pending || !connected,command);
@@ -307,6 +315,10 @@ function render() {
   if(view?.gameId!=="take-time")closeTakeTime();
   document.body.classList.toggle("harmonies-theme",gardenTheme);
   if(view?.gameId!=="harmonies"&&!gardenTheme)closeHarmonies();
+  document.body.classList.toggle("perch-theme",!platformTheme&&view?.gameId==="perch");
+  if(view?.gameId!=="perch")closePerch();
+  document.body.classList.toggle("draftosaurus-theme",!platformTheme&&view?.gameId==="draftosaurus");
+  if(view?.gameId!=="draftosaurus")closeDraftosaurus();
   document.body.classList.toggle("pixies-theme",!platformTheme&&view?.gameId==="pixies");
   if(view?.gameId!=="pixies")closePixiesResults();
   document.body.classList.toggle("jaipur-theme",!platformTheme&&view?.gameId==="jaipur");
@@ -326,7 +338,7 @@ function render() {
     'meta[name="theme-color"]',
   );
   if (themeMeta)
-    themeMeta.content = gardenTheme ? "#075b59" : view?.gameId === "pixies" ? "#143c34" : view?.gameId === "jaipur" ? "#efc36a" : view?.gameId === "seven-wonders-duel" ? "#183b3d" : azulTheme ? "#e4ddcf" : platformTheme
+    themeMeta.content = view?.gameId==="perch" ? "#24385a" : view?.gameId==="draftosaurus" ? "#183f37" : gardenTheme ? "#075b59" : view?.gameId === "pixies" ? "#143c34" : view?.gameId === "jaipur" ? "#efc36a" : view?.gameId === "seven-wonders-duel" ? "#183b3d" : azulTheme ? "#e4ddcf" : platformTheme
       ? "#f0f3f5"
       : duelTheme
         ? "#101f2a"
@@ -389,7 +401,7 @@ function gardenLoading(){return harmoniesSplashMarkup({code:code!,style:harmonie
 function renderContent() {
   if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
   if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
-  if ((!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "take-time" && view.phase!=="lobby" && main.querySelector(".tt-root")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
+  if ((view?.gameId === "perch" && view.phase!=="lobby" && main.querySelector(".pc-root")) || (view?.gameId === "draftosaurus" && view.phase!=="lobby" && main.querySelector(".da-root")) || (!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "take-time" && view.phase!=="lobby" && main.querySelector(".tt-root")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
     const banner=main.querySelector<HTMLElement>('#notice')!;
     banner.textContent=notice;
     const connection=main.querySelector<HTMLElement>('.connection')!;
@@ -402,7 +414,7 @@ function renderContent() {
   const content = main.querySelector<HTMLElement>("#content")!;
   turnSound.setCompact(!!view);
   turnSound.setActive(!!view && view.phase!=="lobby");
-  if (view && view.phase !== "lobby") main.querySelector("header")!.append(turnSound.controls);
+  if (view && view.phase !== "lobby" && (view.gameId!=='harmonies'||gardenEntry?.ready)) main.querySelector("header")!.append(turnSound.controls);
   else turnSound.controls.remove();
   updateGameHeader(main, view, platform.joinOrigin ?? location.origin);
   if (!view) {
@@ -520,6 +532,8 @@ function renderContent() {
     }
     harmoniesModule!.renderHarmonies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot||harmoniesFirstMount);harmoniesFirstMount=false;return;
   }
+  if(view.gameId==="perch"){renderPerch(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
+  if(view.gameId==="draftosaurus"){renderDraftosaurus(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="pixies"){renderPixies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="jaipur"){renderJaipur(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if (view.gameId === "seven-wonders-duel") {

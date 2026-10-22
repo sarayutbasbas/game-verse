@@ -1,6 +1,6 @@
 # GameVerse — เว็บบอร์ดเกมจอกลาง + มือถือ
 
-มี portal ให้เลือก **Sky Team (2 คน, YUL introductory)**, **Harmonies (Solo 1 คน / 2–4 คน, ด้าน A/B, Nature’s Spirits และ Crescendo: Whispers)**, **Pixies ภาคหลัก (2–5 คน)**, **Jaipur ภาคหลัก (2 คน)**, **7 Wonders Duel ภาคหลัก (2 คน)**, **Camel Up Second Edition (3–8 คน)**, **Dracula vs Van Helsing, Mandoo 2023 (2 คน)**, **Azul ภาคหลัก ผนังสีมาตรฐาน (2–4 คน)** และ **Calico ภาคหลัก (1–4 คน)**. Camel Up ใช้ฉบับ 2018 / คู่มือพิมพ์ใหม่ 2024. UI ไทย, QR/รหัสห้อง, มือถือส่วนตัว, server ตัดสินกติกาและสุ่ม, reconnect ด้วย session เดิม. คนสร้างห้องเข้ามาเล่นด้วยมือถืออีกเครื่องได้
+มี portal ให้เลือก **Perch (2–5 คน, ชุดแนะนำเกมแรก)**, **Draftosaurus (2–5 คน, ภาคหลักด้านฤดูร้อน)**, **Sky Team (2 คน, YUL introductory)**, **Harmonies (Solo 1 คน / 2–4 คน, ด้าน A/B/C/D, Nature’s Spirits, Crescendo: Whispers / วิหารครบ 10 แผ่น และ Pulse ครบ 10 ใบ)**, **Pixies ภาคหลัก (2–5 คน)**, **Jaipur ภาคหลัก (2 คน)**, **7 Wonders Duel ภาคหลัก (2 คน)**, **Camel Up Second Edition (3–8 คน)**, **Dracula vs Van Helsing, Mandoo 2023 (2 คน)**, **Azul ภาคหลัก ผนังสีมาตรฐาน (2–4 คน)** และ **Calico ภาคหลัก (1–4 คน)**. Camel Up ใช้ฉบับ 2018 / คู่มือพิมพ์ใหม่ 2024. UI ไทย, QR/รหัสห้อง, มือถือส่วนตัว, server ตัดสินกติกาและสุ่ม, reconnect ด้วย session เดิม. คนสร้างห้องเข้ามาเล่นด้วยมือถืออีกเครื่องได้
 
 Critter Kitchen รองรับภาคหลัก 2–5 คน และเลือกเพิ่ม Lucky Duck Pack (Wolfgang Duck + Cosmo) / Rudy the Reindeer / เชฟ À La Cart สี่ใบ Alex, Peter, Queenie และ Shaggy ก่อนเริ่มได้ พร้อมภาพใหม่และกติกาภาษาไทย ส่วน À La Cart เต็มชุดและ 6–7 คนยังไม่เปิดใช้งาน ดู [สถานะภาคเสริม](docs/games/critter-kitchen/expansions.md)
 
@@ -13,6 +13,10 @@ Harmonies มี [Leaderboard 10 อันดับ](docs/games/harmonies/leader
 Harmonies มี [ชุดภาพการ์ด](docs/games/harmonies/card-art.md) 2D, 3D และ ORIGINAL ให้สลับในตั้งค่าของแต่ละเครื่องได้ ค่าเริ่มต้นเป็น 2D ส่วน ORIGINAL ใช้ภาพวาดใหม่ 43 ใบอิงภาพต้นฉบับที่ผู้ใช้ส่งมา ขนาด 900×1550 ใช้ไฟล์เดียวกันทั้งการ์ดเล็กและใหญ่ และใช้ลูกบาศก์แทนสัตว์บนกระดาน ใบที่ไม่มีภาพต้นฉบับยังใช้ 2D
 
 Harmonies เลือกเพิ่ม [โปรโม T-rex](docs/games/harmonies/trex-promo.md) ในห้องรอได้ โดยเพิ่มการ์ดจิตวิญญาณ 1 ใบลงกองสุ่ม มีภาพการ์ดและโมเดลใหม่ พร้อมโบนัสจากสัตว์ที่เชื่อมต่อถึง T-rex และคำอธิบายคะแนนในเกม
+
+Perch เล่นครบ 5 รอบตามชุดแนะนำเกมแรกของ Inside Up Games (2–5 คน) มีฝูงกลางสำหรับ 2 คน สัตว์ บ้านนก สายฟ้า น้ำพุ คิดคะแนนและเริ่มใหม่ จอกลางเห็นนกทุกสี มือถือรับเฉพาะมือ/ฝูง/คะแนนของตน พร้อมภาพกล่อง สวน นกสองเฟรมและโมเดลสร้างใหม่ ยังไม่ใช้เป้าหมายลับหรือสุ่มแผ่นนอกชุด ดู [ขอบเขตและกติกา](docs/games/perch/rules.md)
+
+Draftosaurus มีจอกลางรวมสวนทุกคน มือถือแสดงเฉพาะมือและสวนของตน ดราฟต์พร้อมกัน ทอยเต๋าแบบมีเอฟเฟกต์ กติกา 2 คน คิดคะแนนและเริ่มใหม่ พร้อมกล่อง กระดานและไดโนเสาร์สองเฟรมที่สร้างใหม่ ดู [กติกาและขอบเขต](docs/games/draftosaurus/rules.md)
 
 ## ติดตั้งและรัน
 

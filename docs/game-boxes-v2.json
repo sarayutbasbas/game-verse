@@ -1,0 +1,25 @@
+{
+  "tool": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "draftosaurus",
+      "prompt": "Use case: product-mockup. Asset: transparent upright board-game box cutout for a game catalog. Generate a newly illustrated premium tactile cardboard game box, standing tall, front at a mild three-quarter angle showing narrow LEFT spine and a sliver of top, nearly frontal. Box front has portrait proportions 4:5, entire visible silhouette including spine about 78% as wide as tall. Entire box fills about 91% of image height, centered, consistent small transparent margins, no crop. Painted illustrated print with beautiful detailed color, crisp title integrated on front. Soft ambient studio light on printed box, subtle material texture. Actual transparent alpha background everywhere outside the box, no environment, no floor, no ground plane, no cast shadow, no backdrop, no pedestal, no extra separate objects, no publisher logos, no rating badges, no watermark. Game: DRAFTOSAURUS. New original box-front illustration: charming lively red tyrannosaur in lush dinosaur sanctuary, smaller golden triceratops, teal long-neck dinosaur behind, turquoise river winding through deep emerald tropical ferns and warm sandstone enclosure paths, golden afternoon sunlight. Inviting sophisticated painted 3D miniature feel consistent with a premium family board game collection. Color palette emerald, turquoise, ochre, warm cream. Large readable playful cream and amber embossed title exactly \"DRAFTOSAURUS\" across upper third; matching smaller title on left spine. Avoid square squat box. Portrait image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-dc8d97fe-4099-459a-9ab3-d80fdc71c2ee.png",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/draftosaurus/cover-v2.png",
+      "outputs": [
+        "public/art/draftosaurus/cover-v2.webp"
+      ]
+    },
+    {
+      "id": "perch",
+      "prompt": "Use case: product-mockup. Asset: transparent upright board-game box cutout for a game catalog. Generate a newly illustrated premium tactile cardboard game box, standing tall, front at a mild three-quarter angle showing narrow LEFT spine and a sliver of top, nearly frontal. Box front has portrait proportions 4:5, entire visible silhouette including spine about 78% as wide as tall. Entire box fills about 91% of image height, centered, consistent small transparent margins, no crop. Painted illustrated print with beautiful detailed color, crisp title integrated on front. Soft ambient studio light on printed box, subtle material texture. Actual transparent alpha background everywhere outside the box, no environment, no floor, no ground plane, no cast shadow, no backdrop, no pedestal, no extra separate objects, no publisher logos, no rating badges, no watermark. Game: PERCH. New original box-front illustration: scarlet cardinal perched prominently on a flowering branch, blue songbird, yellow finch, lime-green and charcoal birds around an elegant tiered stone garden fountain, flowering cottage garden and white picket fence under a honey sunset with twilight blue shadows. Cozy refined painted miniature style, vivid but gentle cornflower-blue, honey, cream, lavender and foliage. Large readable cream playful serif title exactly \"Perch\" across upper third; matching smaller title on left spine. Avoid square squat box. Portrait image.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4ae0c9b1-8fe8-41af-8ce4-96e4f94570d3.png",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/perch/cover-v2.png",
+      "outputs": [
+        "public/art/perch/cover-v2.webp"
+      ]
+    }
+  ]
+}

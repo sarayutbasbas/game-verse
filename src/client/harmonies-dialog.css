@@ -8,3 +8,13 @@
 .hm-info-dialog .hm-info-content{padding:18px;font-size:16px;line-height:1.85}
 .hm-info-dialog:focus{outline:none}.hm-info-dialog button:focus-visible{outline:3px solid #267d86;outline-offset:3px}
 @media(max-width:450px){.hm-info-dialog .hm-info-header{padding:10px 12px}.hm-info-dialog .hm-info-header h2{font-size:17px}.hm-info-dialog .hm-info-content{padding:14px}}
+
+/* The same scoring explanation is readable from the board and the library. */
+.hm-card-scoring,.hm-card-habitat{margin:22px 0 0;text-align:left}
+.hm-card-scoring h3,.hm-card-habitat h3{font-size:17px;margin:0 0 8px;color:#175b49}
+.hm-card-scoring p,.hm-card-habitat p{line-height:1.8}
+.hm-card-point-steps{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.hm-card-point-steps>div{flex:1 1 60px;padding:8px 10px;border-radius:12px;background:#e9edce;text-align:center}
+.hm-card-point-steps dt{font-size:13px}.hm-card-point-steps dd{margin:0;font-weight:800;white-space:nowrap}
+.hm-library-detail .hm-detail-requirements{display:grid;grid-template-columns:repeat(var(--requirement-columns),minmax(0,1fr));gap:8px;font-size:13px}
+.hm-library-detail .hm-detail-requirements dd{margin:0}.hm-library-detail .hm-detail-requirements dd span,.hm-library-detail .hm-detail-requirements dd em{display:block}

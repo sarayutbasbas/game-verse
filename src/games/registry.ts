@@ -1,3 +1,7 @@
+import * as perch from "./perch/engine.js";
+import type {PerchState,PerchAction} from "./perch/types.js";
+import * as draftosaurus from "./draftosaurus/engine.js";
+import type {DraftosaurusState,DraftosaurusAction} from "./draftosaurus/types.js";
 import * as takeTime from "./take-time/engine.js";
 import type {TakeTimeState,TakeTimeAction} from "./take-time/types.js";
 import * as locus from "./locus/engine.js";
@@ -24,6 +28,8 @@ import * as dracula from "./dracula-vs-van-helsing/engine.js";
 import * as azul from "./azul/engine.js";
 import type { AzulState, AzulAction } from "./azul/types.js";
 export const games = {
+ perch,
+ draftosaurus,
  "take-time":takeTime,
  locus,
  "critter-kitchen":critter,
@@ -67,6 +73,8 @@ function common(id: string) {
   };
 }
 export const gameAdapters = {
+ perch:{...common("perch"),start(seats,random,starter){this.validatePlayers(seats);return perch.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>perch.applyAction(s,id,a as PerchAction,random),publicView:perch.getDisplayView,privateView:perch.getPlayerView,isFinished:perch.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),final:s.final})} satisfies GameAdapter<PerchState,ReturnType<typeof perch.getPlayerView>>,
+ draftosaurus:{...common("draftosaurus"),start(seats,random,starter){this.validatePlayers(seats);return draftosaurus.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>draftosaurus.applyAction(s,id,a as DraftosaurusAction,random),publicView:draftosaurus.getDisplayView,privateView:draftosaurus.getPlayerView,isFinished:draftosaurus.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,...draftosaurus.scorePlayer(s,p)}))})} satisfies GameAdapter<DraftosaurusState,ReturnType<typeof draftosaurus.getPlayerView>>,
  "take-time":{...common("take-time"),start(seats,random){this.validatePlayers(seats);return takeTime.createInitialState(seats,random);},apply:(s,id,a,random)=>takeTime.applyAction(s,id,a as TakeTimeAction,random),publicView:takeTime.getDisplayView,privateView:takeTime.getPlayerView,isFinished:takeTime.isFinished,summary:s=>({result:s.result,clock:s.clock,attempt:s.attempt})} satisfies GameAdapter<TakeTimeState,ReturnType<typeof takeTime.getPlayerView>>,
  locus:{...common("locus"),start(seats,random,starter){this.validatePlayers(seats);return locus.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>locus.applyAction(s,id,a as LocusAction,random),publicView:locus.getDisplayView,privateView:locus.getPlayerView,isFinished:locus.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,...scoreLocus(p)}))})} satisfies GameAdapter<LocusState,ReturnType<typeof locus.getPlayerView>>,
  "critter-kitchen":{...common("critter-kitchen"),start(seats,random){this.validatePlayers(seats);return critter.createInitialState(seats,random);},apply:(s,id,a,random)=>critter.applyAction(s,id,a as CKAction,random),publicView:critter.getDisplayView,privateView:critter.getPlayerView,isFinished:critter.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score}))})} satisfies GameAdapter<CKState,ReturnType<typeof critter.getPlayerView>>,

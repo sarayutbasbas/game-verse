@@ -13,7 +13,7 @@ export function createInitialState(seats:{id:string;name:string}[],random:()=>nu
  const sanctuaryDeck=options.sanctuaries?shuffle(SANCTUARIES.map(t=>t.id),random):undefined;
  const spirits=options.natureSpirits?shuffle(spiritPool(options).map(c=>c.id),random):[];
  const spiritDrafts=options.natureSpirits?Object.fromEntries(seats.map(p=>[p.id,spirits.splice(0,2)])):undefined;
- return {options,...sanctuaryDeck?{sanctuaryDeck,sanctuaryMarket:sanctuaryDeck.splice(0,2),sanctuaryTaken:false}:{},discardedTokens:[],discardedCards:[],...(spiritDrafts?{spiritDrafts,spiritUnused:spirits,spiritDiscard:[]}:{}),phase:'playing',side,players:seats.map(p=>emptyPlayer(p.id,p.name,side)),starter:first,turn:first,turnCount:0,bag,groups:Array.from({length:options.solo?3:5},()=>bag.splice(0,3)),deck,market:deck.splice(0,options.solo?3:5),hand:[],picked:false,cardTaken:false,cubeReserve:CUBE_COUNT+(options.pulse?PULSE.reduce((n,c)=>n+c.points.length,0):0),sequence:0,event:{kind:'setup'},winners:[]};
+ return {options,...options.pulse?{pulseCatalogVersion:3}:{},...sanctuaryDeck?{sanctuaryCatalogVersion:4,sanctuaryDeck,sanctuaryMarket:sanctuaryDeck.splice(0,2),sanctuaryTaken:false}:{},discardedTokens:[],discardedCards:[],...(spiritDrafts?{spiritDrafts,spiritUnused:spirits,spiritDiscard:[]}:{}),phase:'playing',side,players:seats.map(p=>emptyPlayer(p.id,p.name,side)),starter:first,turn:first,turnCount:0,bag,groups:Array.from({length:options.solo?3:5},()=>bag.splice(0,3)),deck,market:deck.splice(0,options.solo?3:5),hand:[],picked:false,cardTaken:false,cubeReserve:CUBE_COUNT+(options.pulse?PULSE.reduce((n,c)=>n+c.points.length,0):0),sequence:0,event:{kind:'setup'},winners:[]};
 }
 export function placementReason(cell:Cell,t:Terrain):string|undefined{
  if(cell.sanctuary)return 'ช่องวิหารสร้างได้เฉพาะกองตามแผ่นที่รับมา';
@@ -26,9 +26,9 @@ export function placementReason(cell:Cell,t:Terrain):string|undefined{
  return 'ซ้อนได้เฉพาะหินสูง 1–3 ลำต้นไม่เกิน 2 แล้วปิดพุ่มไม้ หรืออาคารสูง 2';
 }
 export function patternCells(card:string,origin:number,rotation:number,side:Side='A'){const at=boardCoords(side)[origin];if(!at||!Number.isInteger(rotation)||rotation<0||rotation>(ANIMAL[card]?.expansion==='pulse'?11:5)||!ANIMAL[card])return [];return ANIMAL[card].pattern.map(p=>{const q=rotation>=6?-p.q:p.q,r=rotation>=6?p.r+p.q:p.r,v=rotate(q,r,rotation%6);return boardCellAt(side,at.q+v.q,at.r+v.r);});}
-function stackMatches(cell:Cell,stack:Terrain[],whisper=false){const own=cell.stack.map(terrain);if(stack[0]==='building'&&!(whisper&&stack.length===1))return own.length===2&&own[1]==='building'&&['building','wood','rock'].includes(own[0]);return own.length===stack.length&&own.every((t,i)=>t===stack[i]);}
+function stackMatches(cell:Cell,stack:Terrain[],exactRed=false){const own=cell.stack.map(terrain);if(stack[0]==='building'&&!(exactRed&&stack.length===1))return own.length===2&&own[1]==='building'&&['building','wood','rock'].includes(own[0]);return own.length===stack.length&&own.every((t,i)=>t===stack[i]);}
 export function habitatMatches(p:Player,card:string,origin:number,rotation:number,side:Side='A'):Habitat|undefined{
- const c=ANIMAL[card];if(!c)return;const cells=patternCells(card,origin,rotation,side);if(cells.length!==c.pattern.length||cells.some((i,k)=>i<0||!stackMatches(p.board[i],c.pattern[k].stack,c.kind==='whisper')))return;
+ const c=ANIMAL[card];if(!c)return;const cells=patternCells(card,origin,rotation,side);if(cells.length!==c.pattern.length||cells.some((i,k)=>i<0||!stackMatches(p.board[i],c.pattern[k].stack,(c.kind==='whisper'||c.expansion==='pulse'))))return;
  const cell=cells[c.pattern.findIndex(p=>p.cube)];if(p.board[cell].sanctuary)return; if(c.kind==='whisper'?p.board[cell].whisper:p.board[cell].cube)return;return {card,origin,rotation,cell,cells};
 }
 export function habitats(p:Player,side:Side='A'){return p.cards.filter(c=>c.placed<ANIMAL[c.card].points.length).flatMap(c=>boardCoords(side).flatMap((_,origin)=>Array.from({length:ANIMAL[c.card].expansion==='pulse'?12:6},(_,rotation)=>habitatMatches(p,c.card,origin,rotation,side)).filter((m):m is Habitat=>!!m)));}

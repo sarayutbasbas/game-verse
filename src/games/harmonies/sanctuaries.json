@@ -30,6 +30,21 @@
     "reference": "Publisher Crescendo box reverse treehouse face; user treehouse face"
   },
   {
+    "id": "sanctuary-03",
+    "name": "วิหารผาหินอรุณ",
+    "colors": [
+      "rock",
+      "field"
+    ],
+    "stack": [
+      "field",
+      "field",
+      "rock",
+      "rock"
+    ],
+    "reference": "User close-up 2026-10-22, second attached photograph: two yellow below two gray tokens; gray/yellow badge."
+  },
+  {
     "id": "sanctuary-04",
     "name": "วิหารกังหันกลางทุ่ง",
     "colors": [
@@ -58,5 +73,80 @@
       "rock"
     ],
     "reference": "Publisher close-up photograph HARMONIES_CRESCENDO_BEAUTY-SHOT_16-9_11-1"
+  },
+  {
+    "id": "sanctuary-06",
+    "name": "วิหารเรือนวารี",
+    "colors": [
+      "water",
+      "building"
+    ],
+    "stack": [
+      "water",
+      "water",
+      "wood",
+      "building"
+    ],
+    "reference": "User photo 2026-10-22 (stilt pavilion); publisher HARMONIES_CRESCENDO_BEAUTY-SHOT_16-9_02.png, lower-right pavilion: printed recipe bottom-to-top water/water/wood/building; top badge water/building. https://cdn.svc.asmodee.net/production-libelludv2/uploads/2026/08/HARMONIES_CRESCENDO_BEAUTY-SHOT_16-9_02.png"
+  },
+  {
+    "id": "sanctuary-07",
+    "name": "วิหารป่าชุ่มน้ำ",
+    "colors": [
+      "leaf",
+      "water"
+    ],
+    "stack": [
+      "water",
+      "building",
+      "leaf",
+      "leaf"
+    ],
+    "reference": "User explicitly confirms bottom-to-top water/building/leaf/leaf, 2026-10-22; user close-up and Crescendo English rules page 4 show green/blue badge."
+  },
+  {
+    "id": "sanctuary-08",
+    "name": "วิหารซากุระศิลา",
+    "colors": [
+      "leaf",
+      "rock"
+    ],
+    "stack": [
+      "rock",
+      "rock",
+      "wood",
+      "leaf"
+    ],
+    "reference": "User first attached fan photograph 2026-10-22; publisher beauty shot 02 lower-right sakura printed four-token recipe and green/gray badge."
+  },
+  {
+    "id": "sanctuary-09",
+    "name": "วิหารธาราทอง",
+    "colors": [
+      "water",
+      "field"
+    ],
+    "stack": [
+      "field",
+      "water",
+      "water",
+      "water"
+    ],
+    "reference": "User first and second close-ups 2026-10-22: one yellow below three blue tokens; blue/yellow badge."
+  },
+  {
+    "id": "sanctuary-10",
+    "name": "วิหารทุ่งขั้นบันได",
+    "colors": [
+      "field",
+      "leaf"
+    ],
+    "stack": [
+      "leaf",
+      "leaf",
+      "field",
+      "field"
+    ],
+    "reference": "User new three-Sanctuary photograph 2026-10-22 (rightmost terraced meadow), cross-checked with publisher beauty shot 02: printed recipe leaf/leaf/field/field, yellow/green badge. https://cdn.svc.asmodee.net/production-libelludv2/uploads/2026/08/HARMONIES_CRESCENDO_BEAUTY-SHOT_16-9_02.png"
   }
 ]

@@ -1,17 +1,7 @@
 {
-  "status": "excluded-from-play",
-  "reason": "Printed stack/pattern not sufficiently legible; user explicitly requested skipping unverified cards.",
-  "sanctuaries": 6,
-  "pulseAnimals": [
-    "beetle",
-    "seagull",
-    "axolotl",
-    "camel",
-    "panda",
-    "chameleon",
-    "yak",
-    "robin",
-    "piranha"
-  ],
-  "notes": "Art only is available. sanctuary-03 was removed during final enlarged-photo audit; treehouse is wood/wood/building/leaf, bottom to top. Tiger is now reviewed and playable as pulse-10."
+  "status": "reviewed-complete",
+  "reason": "All ten Sanctuary stacks and ten final Pulse card habitats are now verified from user photographs and publisher references.",
+  "sanctuaries": 0,
+  "pulseAnimals": [],
+  "notes": "Completed 2026-10-22: the final terraced-meadow Sanctuary is leaf/leaf/field/field, associated field/leaf, verified against user photo and publisher beauty shot 02. All ten Pulse cards were reviewed from the full-resolution printed-card photograph. No pending Crescendo Sanctuary or Pulse animal entries."
 }

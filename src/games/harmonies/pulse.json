@@ -1,3 +1,397 @@
 [
- {"id":"pulse-10","name":"เสือโคร่ง","animal":"tiger","expansion":"pulse","points":[3,10,16],"pattern":[{"q":0,"r":0,"stack":["water"],"cube":false},{"q":1,"r":-1,"stack":["rock"],"cube":false},{"q":2,"r":-1,"stack":["leaf"],"cube":true}]}
+  {
+    "id": "pulse-01",
+    "name": "ด้วง",
+    "animal": "beetle",
+    "expansion": "pulse",
+    "points": [
+      5,
+      12
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "building",
+          "building"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      },
+      {
+        "q": 2,
+        "r": 0,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      }
+    ],
+    "reference": "Printed final-edition card face, user all-ten photograph 2026-10-22 and original 3920x2725 photograph: https://boardgamegeek.com/image/9647592/harmonies-pulse. Straight line: completed building2 / field1 (cube) / rock1.",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-02",
+    "name": "นกนางนวล",
+    "animal": "seagull",
+    "expansion": "pulse",
+    "points": [
+      5,
+      11
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": -1,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": 2,
+        "r": -1,
+        "stack": [
+          "building",
+          "building"
+        ],
+        "cube": true
+      }
+    ],
+    "reference": "Printed final-edition card face, user all-ten photograph 2026-10-22 and original 3920x2725 photograph: https://boardgamegeek.com/image/9647592/harmonies-pulse. Bent chain: water1 / field1 / completed building2 (cube).",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-03",
+    "name": "แอกโซลอเติล",
+    "animal": "axolotl",
+    "expansion": "pulse",
+    "points": [
+      1,
+      7,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": -1,
+        "stack": [
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      }
+    ],
+    "reference": "User full-face photograph 2026-10-22; publisher beauty shot 09 (attachment 1419) confirms rock2, wood/leaf2, water1 in a triangle; water cube; scores 1/7/16.",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-04",
+    "name": "อูฐ",
+    "animal": "camel",
+    "expansion": "pulse",
+    "points": [
+      4,
+      9,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "building",
+          "building"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": -1,
+        "stack": [
+          "rock"
+        ],
+        "cube": true
+      },
+      {
+        "q": 2,
+        "r": -1,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      }
+    ],
+    "reference": "Printed final-edition card face, user all-ten photograph 2026-10-22 and original 3920x2725 photograph: https://boardgamegeek.com/image/9647592/harmonies-pulse. Corrects the earlier low-resolution interpretation: completed building TWO layers / rock1 (cube) / field1 in a bent chain. Scores 4/9/16.",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-05",
+    "name": "แพนด้า",
+    "animal": "panda",
+    "expansion": "pulse",
+    "points": [
+      5,
+      13
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": -1,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": true
+      }
+    ],
+    "reference": "Printed final-edition card face, user all-ten photograph 2026-10-22 and original 3920x2725 photograph: https://boardgamegeek.com/image/9647592/harmonies-pulse. Triangle: rock1 / tree3 / field1 (cube).",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-06",
+    "name": "กิ้งก่าคาเมเลียน",
+    "animal": "chameleon",
+    "expansion": "pulse",
+    "points": [
+      4,
+      8,
+      15
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": -1,
+        "stack": [
+          "leaf"
+        ],
+        "cube": true
+      },
+      {
+        "q": 2,
+        "r": -1,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      }
+    ],
+    "reference": "User full-face photograph 2026-10-22; publisher attachment 1338 and 1332 confirm blue/green/yellow bent chain, green cube, scores 4/8/15.",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-07",
+    "name": "จามรี",
+    "animal": "yak",
+    "expansion": "pulse",
+    "points": [
+      7,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": 0,
+        "stack": [
+          "rock",
+          "rock"
+        ],
+        "cube": true
+      },
+      {
+        "q": 2,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      }
+    ],
+    "reference": "Printed final-edition card face, user all-ten photograph 2026-10-22 and original 3920x2725 photograph: https://boardgamegeek.com/image/9647592/harmonies-pulse. Straight line: water1 / rock2 (cube) / field1.",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-08",
+    "name": "นกโรบิน",
+    "animal": "robin",
+    "expansion": "pulse",
+    "points": [
+      4,
+      10,
+      17
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": -1,
+        "stack": [
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": 0,
+        "stack": [
+          "building",
+          "building"
+        ],
+        "cube": true
+      }
+    ],
+    "reference": "Printed final-edition card face, user all-ten photograph 2026-10-22 and original 3920x2725 photograph: https://boardgamegeek.com/image/9647592/harmonies-pulse. Triangle: rock1 / leaf1 / completed building2 (cube).",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-09",
+    "name": "ปลาปิรันยา",
+    "animal": "piranha",
+    "expansion": "pulse",
+    "points": [
+      6,
+      13
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "field"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": -1,
+        "stack": [
+          "wood",
+          "wood",
+          "leaf"
+        ],
+        "cube": false
+      },
+      {
+        "q": 2,
+        "r": -1,
+        "stack": [
+          "water"
+        ],
+        "cube": true
+      }
+    ],
+    "reference": "Printed final-edition card face, user all-ten photograph 2026-10-22 and original 3920x2725 photograph: https://boardgamegeek.com/image/9647592/harmonies-pulse. Bent chain: field1 / tree3 / water1 (cube).",
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  },
+  {
+    "id": "pulse-10",
+    "name": "เสือโคร่ง",
+    "animal": "tiger",
+    "expansion": "pulse",
+    "points": [
+      3,
+      10,
+      16
+    ],
+    "pattern": [
+      {
+        "q": 0,
+        "r": 0,
+        "stack": [
+          "water"
+        ],
+        "cube": false
+      },
+      {
+        "q": 1,
+        "r": -1,
+        "stack": [
+          "rock"
+        ],
+        "cube": false
+      },
+      {
+        "q": 2,
+        "r": -1,
+        "stack": [
+          "leaf"
+        ],
+        "cube": true
+      }
+    ],
+    "description": "การ์ด HARMONIES PULSE · หมุนได้ 6 ทิศและสะท้อนรูปแบบได้ · จำนวนชั้น สี และการติดกันต้องตรงกับภาพ"
+  }
 ]

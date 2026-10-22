@@ -25,7 +25,7 @@ test('all online games: only owner can restart mid-game; fresh setup, strict rev
  for(const id of Object.keys(gameAdapters) as (keyof typeof gameAdapters)[]){
   const host=await connect(cookies[0]),hs=await host.send({type:'create',gameId:id},'session');const phones=[];for(let i=0;i<(id==='camel-up'?3:2);i++){const p=await connect(cookies[i]);await p.send({type:'join',code:hs.code,name:'เล่น '+i},'session');phones.push(p);}
   const room=app.rooms.rooms.get(hs.code)!;if(id==='dracula-vs-van-helsing'){room.players[0].character='dracula';room.players[1].character='helsing';}
-  const field=({'take-time':'takeTime',locus:'locus','critter-kitchen':'ck','sky-team':'sky',harmonies:'harmonies',pixies:'pixies',jaipur:'jaipur','seven-wonders-duel':'wonders',calico:'calico',azul:'azul','camel-up':'game','dracula-vs-van-helsing':'duel'} as const)[id];
+  const field=({perch:'perch',draftosaurus:'draftosaurus','take-time':'takeTime',locus:'locus','critter-kitchen':'ck','sky-team':'sky',harmonies:'harmonies',pixies:'pixies',jaipur:'jaipur','seven-wonders-duel':'wonders',calico:'calico',azul:'azul','camel-up':'game','dracula-vs-van-helsing':'duel'} as const)[id];
   let initial=gameAdapters[id].start(room.players,seeded(44),undefined);
   if(id==='critter-kitchen'){room.ckExpansions={luckyDuck:true,rudy:true};initial=ck.createInitialState(room.players,seeded(44),{restaurateurs:true,tutorial:true,expansions:room.ckExpansions});}
   if(id==='harmonies')initial=hm.createInitialState(room.players,seeded(44),undefined,'B',{natureSpirits:true,whispers:true});

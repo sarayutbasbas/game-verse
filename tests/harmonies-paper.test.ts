@@ -5,9 +5,9 @@ import sharp from 'sharp';
 import {ANIMAL} from '../src/games/harmonies/data.js';
 import {cardRailTerrain,paperArtFolder,PAPER_SPIRIT_SCENARIOS,PAPER_TERRAIN_COLORS} from '../src/client/harmonies-paper.js';
 import {cardFace,habitatLayout,setHarmoniesCardArt,illustratedHabitat} from '../src/client/harmonies-presentation.js';
-test('all54 paper cards retain separate terrain-specific rails, catalog layers and shared-size habitats',()=>{
+test('all reviewed paper cards retain separate terrain-specific rails, catalog layers and shared-size habitats',()=>{
  setHarmoniesCardArt('illustrated');const views=new Set<string>(),terrains=new Set<string>();
- assert.equal(Object.keys(ANIMAL).length,54);
+ assert.equal(Object.keys(ANIMAL).length,63);
  for(const c of Object.values(ANIMAL)){
   const target=c.pattern.find(p=>p.cube)!;assert.equal(cardRailTerrain(c.id),target.stack.at(-1));terrains.add(cardRailTerrain(c.id));
   const small=cardFace(c.id,0,false,false,false),large=cardFace(c.id,0,true,false,false);

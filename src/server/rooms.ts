@@ -1,3 +1,8 @@
+import * as perchRules from "../games/perch/engine.js";
+import {COLORS as PERCH_COLORS} from "../games/perch/types.js";
+import type {PerchState,PerchAction,PerchView} from "../games/perch/types.js";
+import * as draftRules from "../games/draftosaurus/engine.js";
+import type {DraftosaurusState,DraftosaurusAction,DraftosaurusView} from "../games/draftosaurus/types.js";
 import * as takeTimeRules from "../games/take-time/engine.js";
 import type {TakeTimeState,TakeTimeAction,TakeTimeView} from "../games/take-time/types.js";
 import * as locusRules from "../games/locus/engine.js";
@@ -73,6 +78,8 @@ interface Room {
   calico?: CalicoState;
   wonders?: WondersState;
   jaipur?: JaipurState;
+  perch?: PerchState;
+  draftosaurus?: DraftosaurusState;
   pixies?: PixiesState;
   harmonies?: HarmoniesState;
   harmoniesMode?:DisplayMode;
@@ -249,7 +256,7 @@ export class RoomService {
           correlationId: randomUUID(),
           gameId: r?.gameId,
           rulesVersion: r?.rulesVersion,
-          phase: r?.game?.phase ?? r?.duel?.phase ?? r?.azul?.phase ?? r?.calico?.phase ?? r?.wonders?.phase ?? r?.jaipur?.phase ?? r?.locus?.phase ?? r?.ck?.phase ?? r?.takeTime?.phase ?? r?.sky?.phase ?? r?.harmonies?.phase ?? r?.pixies?.phase ?? "lobby",
+          phase: r?.game?.phase ?? r?.duel?.phase ?? r?.azul?.phase ?? r?.calico?.phase ?? r?.wonders?.phase ?? r?.jaipur?.phase ?? r?.locus?.phase ?? r?.ck?.phase ?? r?.takeTime?.phase ?? r?.sky?.phase ?? r?.harmonies?.phase ?? r?.pixies?.phase ?? r?.perch?.phase ?? r?.draftosaurus?.phase ?? "lobby",
           revision: r?.revision,
         }),
       );
@@ -277,13 +284,13 @@ export class RoomService {
         code: r.code,
         lastVisitedAt: Math.max(0,...r.sessions.filter(s=>s.userId===userId).map(s=>s.lastVisitedAt??0)) || undefined,
         gameId: r.gameId,
-        phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.locus?.phase ?? r.ck?.phase ?? r.takeTime?.phase ?? r.sky?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? "lobby",
+        phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.locus?.phase ?? r.ck?.phase ?? r.takeTime?.phase ?? r.sky?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? r.perch?.phase ?? r.draftosaurus?.phase ?? "lobby",
         owner: r.ownerId === userId,
         player: r.players.some((p) => p.userId === userId),
       }));
   }
   private hasStarted(room:Room){
-    return !!(room.game||room.duel||room.azul||room.calico||room.wonders||room.jaipur||room.pixies||room.harmonies||room.sky||room.ck||room.locus||room.takeTime);
+    return !!(room.game||room.duel||room.azul||room.calico||room.wonders||room.jaipur||room.perch||room.draftosaurus||room.pixies||room.harmonies||room.sky||room.ck||room.locus||room.takeTime);
   }
   /** Navigation activity only: never removes a seat or changes game revision. */
   visit(userId:string,code:string):void{
@@ -386,7 +393,7 @@ export class RoomService {
     if (!r) throw Error("ไม่พบห้อง");
     if (close && r.ownerId !== userId)
       throw Error("ผู้สร้างห้องเท่านั้นที่ปิดห้องได้");
-    if (!close && (r.game || r.duel || r.azul || r.calico || r.wonders || r.jaipur || r.pixies || r.harmonies || r.sky || r.ck || r.locus || r.takeTime))
+    if (!close && (r.game || r.duel || r.azul || r.calico || r.wonders || r.jaipur || r.perch || r.draftosaurus || r.pixies || r.harmonies || r.sky || r.ck || r.locus || r.takeTime))
       throw Error(
         "เกมเริ่มแล้ว ที่นั่งยังเก็บไว้ให้กลับมาเล่น ออกถาวรได้ในห้องรอ",
       );
@@ -524,6 +531,21 @@ export class RoomService {
         base.displayControl=harmoniesRules.getPlayerView(state,actor);
       }
       if(base.me)base.me.canManage=this.canManage(room,session!);return base;
+    }
+    if(room.gameId==="perch"){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:PerchView=room.perch?(player?perchRules.getPhoneView(room.perch,player,room.code,room.revision):perchRules.getDisplayView(room.perch,room.code,room.revision)):{gameId:'perch',code:room.code,revision:room.revision,phase:'lobby',round:1,sequence:0,order:[],players:room.players.map((p,i)=>({id:p.id,name:p.name,color:PERCH_COLORS[i],ready:!!p.ready})),tiles:[],animals:[],fountain:[],plaza:{},winners:[]};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(player&&!base.me)base.me={id:player,color:base.players.find(p=>p.id===player)!.color,hand:[],roost:28,house:false,zap:false,placed:false,bonusUsed:false,legal:[]};
+      if(base.me)base.me.canManage=this.canManage(room,session!);return base;
+    }
+    if(room.gameId==="draftosaurus"){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:DraftosaurusView=room.draftosaurus?(player?draftRules.getPhoneView(room.draftosaurus,player,room.code,room.revision):draftRules.getDisplayView(room.draftosaurus,room.code,room.revision)):{gameId:'draftosaurus',code:room.code,revision:room.revision,phase:'lobby',round:1,pick:1,rounds:2,picksPerRound:6,rollSerial:0,sequence:0,winners:[],players:room.players.map(p=>({id:p.id,name:p.name,chosen:false,ready:!!p.ready}))};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(player&&!base.me)base.me={id:player,hand:[],zoo:draftRules.emptyZoo(),epoch:'',canRoll:false,legal:[]};
+      if(base.me)base.me.canManage=this.canManage(room,session!);
+      base.canRollDisplay=!player&&!!session&&this.canManage(room,session)&&base.phase==='rolling';return base;
     }
     if(room.gameId==="pixies"){
       const base:PixiesView=room.pixies?pixiesRules.getDisplayView(room.pixies,room.code,room.revision):{gameId:"pixies",code:room.code,revision:room.revision,phase:"lobby",players:room.players.map(p=>({id:p.id,name:p.name,grid:[],scores:[],total:0,score:pixiesRules.scorePlayer(pixiesRules.emptyPlayer(p.id,p.name),1),ready:!!p.ready}))};
@@ -902,7 +924,7 @@ export class RoomService {
         const maxPlayers = metadata(room.gameId)!.maxPlayers;
         if (room.players.length >= maxPlayers)
           throw Error(`ห้องเต็ม มีผู้เล่นครบ ${maxPlayers} คนแล้ว`);
-        if (room.game || room.duel || room.azul || room.calico || room.wonders || room.jaipur || room.pixies || room.harmonies || room.sky || room.ck || room.locus || room.takeTime)
+        if (room.game || room.duel || room.azul || room.calico || room.wonders || room.jaipur || room.perch || room.draftosaurus || room.pixies || room.harmonies || room.sky || room.ck || room.locus || room.takeTime)
           throw Error("เกมเริ่มแล้ว เข้าร่วมเกมใหม่เมื่อสร้างห้องใหม่");
         if (
           typeof m.name !== "string" ||
@@ -987,6 +1009,7 @@ export class RoomService {
       try {
         // Revealing different own cards commutes within this exact settled round.
         // Intent validation still enforces actor, closed slot and round identity.
+        const simultaneousDraft=room.gameId==='draftosaurus'&&!!room.draftosaurus&&room.draftosaurus.phase==='drafting'&&s.role==='player'&&m.action?.type==='draftosaurus-place'&&m.action.epoch===draftRules.decisionKey(room.draftosaurus)&&m.revision<=room.revision;
         const simultaneousReveal=room.gameId==="dracula-vs-van-helsing" && room.duel?.phase!=="playing" &&
           s.role==="player" && m.action?.type==="reveal-result" && "round" in m.action && m.action.round===room.duel?.round && m.revision<=room.revision;
         const simultaneousTakeTime=room.gameId==='take-time'&&!!room.takeTime&&room.takeTime.phase==='discussion'&&s.role==='player'&&m.action?.type==='tt-open'&&m.action.attempt===room.takeTime.attempt&&m.revision<=room.revision;
@@ -1001,7 +1024,7 @@ export class RoomService {
         const simultaneousHarmonies=room.gameId==='harmonies'&&room.harmonies?.phase==='playing'&&s.role==='player'&&
           m.action?.type==='harmonies-spirit'&&!!room.harmonies.matchId&&m.action.epoch===room.harmonies.matchId&&
           !!room.harmonies.spiritDrafts?.[s.playerId!]?.length&&m.revision<=room.revision;
-        if (!Number.isSafeInteger(m.revision) || m.revision<0 || m.revision !== room.revision && !simultaneousReveal && !simultaneousSky && !simultaneousCK && !simultaneousLocus && !simultaneousTakeTime && !simultaneousHarmonies)
+        if (!Number.isSafeInteger(m.revision) || m.revision<0 || m.revision !== room.revision && !simultaneousReveal && !simultaneousSky && !simultaneousCK && !simultaneousLocus && !simultaneousTakeTime && !simultaneousHarmonies && !simultaneousDraft)
           throw Error("สถานะเปลี่ยนแล้ว กรุณาดูตาปัจจุบันแล้วเลือกใหม่");
         if (!m.action || typeof m.action !== "object")
           throw Error("เลือกการกระทำก่อน");
@@ -1012,6 +1035,8 @@ export class RoomService {
         }else if(room.gameId==="critter-kitchen"){this.ckCommand(room,s,m.action);
         }else if(room.gameId==="sky-team"){this.skyCommand(room,s,m.action);
         }else if(room.gameId==="harmonies"){this.harmoniesCommand(room,s,m.action);
+        }else if(room.gameId==="perch"){this.perchCommand(room,s,m.action);
+        }else if(room.gameId==="draftosaurus"){this.draftosaurusCommand(room,s,m.action);
         }else if(room.gameId==="pixies"){this.pixiesCommand(room,s,m.action);
         } else if(room.gameId==="jaipur"){this.jaipurCommand(room,s,m.action);
         } else if (room.gameId === "seven-wonders-duel") {
@@ -1146,7 +1171,7 @@ export class RoomService {
   /** Authoritative fresh deal; keep memberships, reconnect sessions and room settings. */
   private restartRoom(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
     if(Object.keys(action).join(',')!=='type'||!this.canManage(room,session))throw Error('เริ่มเกมใหม่ได้เฉพาะหัวห้อง');
-    const state=room.game??room.duel??room.azul??room.calico??room.wonders??room.jaipur??room.pixies??room.harmonies??room.sky??room.ck??room.locus??room.takeTime;
+    const state=room.game??room.duel??room.azul??room.calico??room.wonders??room.jaipur??room.perch??room.draftosaurus??room.pixies??room.harmonies??room.sky??room.ck??room.locus??room.takeTime;
     if(!state)throw Error('เริ่มเกมก่อนจึงจะเริ่มใหม่ได้');
     if(room.gameId==='name-it')throw Error('เกมนี้เล่นบนเครื่องเดียว');
     gameAdapters[room.gameId].validatePlayers(room.players);
@@ -1159,6 +1184,8 @@ export class RoomService {
       }
       case 'sky-team':room.sky=skyRules.createInitialState(room.players,this.random);room.sky.matchId=randomUUID();break;
       case 'harmonies':room.harmonies=harmoniesRules.createInitialState(room.players,this.random,undefined,room.harmonies!.side,room.harmonies!.options);room.harmonies.matchId=randomUUID();break;
+      case 'perch':room.perch=perchRules.createInitialState(room.players,this.random);room.perch.matchId=randomUUID();break;
+      case 'draftosaurus':room.draftosaurus=draftRules.createInitialState(room.players,this.random);room.draftosaurus.matchId=randomUUID();break;
       case 'pixies':room.pixies=pixiesRules.createInitialState(room.players,this.random);room.pixies.matchId=randomUUID();break;
       case 'jaipur':room.jaipur=jaipurRules.createInitialState(room.players,this.random);room.jaipur.matchId=randomUUID();break;
       case 'seven-wonders-duel':room.wonders=wondersRules.createInitialState(room.players,this.random);break;
@@ -1244,6 +1271,32 @@ export class RoomService {
     if(session.role!=="player"&&!sharedHost)throw Error("เปิดโหมดเล่นร่วมจอกลางโดยผู้สร้างห้องก่อน");
     const actor=sharedHost?(room.harmonies.players.find(p=>room.harmonies!.spiritDrafts?.[p.id]?.length)?.id??room.harmonies.players[room.harmonies.turn].id):session.playerId!;
     room.harmonies=harmoniesRules.applyAction(room.harmonies,actor,action as HarmoniesAction,this.random);
+  }
+  private perchCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.perch||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมได้จากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้ผู้สร้างห้องเริ่มเกม');
+      if(action.type==='start'&&room.perch||action.type==='restart'&&room.perch?.phase!=='finished')throw Error('เกมยังไม่พร้อมเริ่มใหม่');
+      if(room.players.length<2||room.players.length>5||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 2–5 คนเชื่อมต่อและกดพร้อม');
+      room.perch=perchRules.createInitialState(room.players,this.random,action.startingPlayerId);room.perch.matchId=randomUUID();return;
+    }
+    if(!room.perch)throw Error('เริ่มเกมก่อน');if(session.role!=='player'||!session.playerId)throw Error('เลือกนกจากมือถือของคุณ');
+    room.perch=perchRules.applyAction(room.perch,session.playerId,action as PerchAction,this.random);
+  }
+  private draftosaurusCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.draftosaurus||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมได้จากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้ผู้สร้างห้องเริ่มเกม');
+      if(action.type==='start'&&room.draftosaurus||action.type==='restart'&&room.draftosaurus?.phase!=='finished')throw Error('เกมยังไม่พร้อมเริ่มใหม่');
+      if(room.players.length<2||room.players.length>5||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 2–5 คนเชื่อมต่อและกดพร้อม');
+      room.draftosaurus=draftRules.createInitialState(room.players,this.random,action.startingPlayerId);room.draftosaurus.matchId=randomUUID();return;
+    }
+    if(!room.draftosaurus)throw Error('เริ่มเกมก่อน');
+    const id=session.role==='player'?session.playerId:action.type==='draftosaurus-roll'&&this.canManage(room,session)?room.draftosaurus.players[room.draftosaurus.roller].id:undefined;
+    if(!id)throw Error('เลือกไดโนเสาร์จากมือถือของคุณ');
+    room.draftosaurus=draftRules.applyAction(room.draftosaurus,id,action as DraftosaurusAction,this.random);
   }
   private pixiesCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
     const keys=Object.keys(action).sort().join(",");

@@ -11,7 +11,7 @@ export const TERRAIN_PAINT: Record<Terrain, string> = { water: '#008eb9', rock: 
 const PALETTE = TERRAIN_PAINT;
 /** The same flat-top axial projection is used by the interactive board and card miniatures. */
 export function habitatLayout(id: string) { const card = ANIMAL[id]; if (!card)
-    throw Error('Unknown animal card'); const cells = card.pattern.map(p => ({ ...p, ...hexPoint(p.q,p.r), displayStack: p.stack[0] === 'building' && (card.kind!=='whisper'||p.stack.length===2) ? ['rock', 'building'] as Terrain[] : [...p.stack] })); return { cells, minX: Math.min(...cells.map(p => p.x)) - 34, maxX: Math.max(...cells.map(p => p.x)) + 34, minY: Math.min(...cells.map(p => p.y - p.displayStack.length * 8)) - 43, maxY: Math.max(...cells.map(p => p.y)) + 34 }; }
+    throw Error('Unknown animal card'); const cells = card.pattern.map(p => ({ ...p, ...hexPoint(p.q,p.r), displayStack: p.stack[0] === 'building' && card.expansion!=='pulse' && (card.kind!=='whisper'||p.stack.length===2) ? ['rock', 'building'] as Terrain[] : [...p.stack] })); return { cells, minX: Math.min(...cells.map(p => p.x)) - 34, maxX: Math.max(...cells.map(p => p.x)) + 34, minY: Math.min(...cells.map(p => p.y - p.displayStack.length * 8)) - 43, maxY: Math.max(...cells.map(p => p.y)) + 34 }; }
 export type HarmoniesCardArt = 'illustrated'|'sculpted'|'original';
 let cardArt:HarmoniesCardArt='illustrated';
 const V5_BATCH_1=new Set(['animal-01','animal-02','animal-03','animal-04','animal-05','spirit-11','spirit-09','whisper-05','animal-22']);

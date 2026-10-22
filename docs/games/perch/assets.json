@@ -1,0 +1,171 @@
+{
+  "tool": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "cover",
+      "prompt": "Use case: product-mockup. Create a premium new board game BOX for PERCH. Original illustration and composition: lively colorful sculpted songbirds flocking over a magical suburban garden at sunset, wooden bird houses, blooming branches, picket fence, tiered stone fountain, cozy cottage in distance. Friendly red cardinal, blue bird, golden yellow finch, lime green songbird and charcoal black bird. Beautiful tactile miniature 3D diorama, sophisticated illustrated textures, cornflower twilight blue and warm honey light. Entire upright square thick box at 3/4 angle, large clear margin on muted midnight-blue studio backdrop. Front title text exactly \"Perch\" in large cream playful serif lettering, side spine same title. No publisher logos, no extra text or watermark. Not a replica of retail artwork. Square image.",
+      "transparent_background": false,
+      "workspaceSource": "assets/source/perch/cover.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7425e127-c6c0-4b92-9fbd-5c7d2ee68335.png",
+      "outputs": [
+        "public/art/perch/cover.webp"
+      ]
+    },
+    {
+      "id": "garden",
+      "prompt": "Use case: stylized-concept. Asset: landscape 3:2 background for a beautiful 3D miniature bird garden board game. Overhead suburban garden at golden twilight, richly detailed trees and lavender flowers around outer perimeter, tiny cottage at upper left perimeter, rustic fences, quiet pond at far right. Central 80% is a calm softly textured muted dusty blue green lawn with very low contrast, spacious empty playable area where code will place tiles. Warm golden sun and cornflower blue shadows, tactile hand-painted miniature world, dimensional but not photoreal. No birds, text, numerals, UI, boxes, grid, or watermark.",
+      "transparent_background": false,
+      "workspaceSource": "assets/source/perch/garden.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-68f8e226-6471-41b6-87f8-2824bd409a84.png",
+      "outputs": [
+        "public/art/perch/garden.webp"
+      ]
+    },
+    {
+      "id": "fountain",
+      "prompt": "Use case: stylized-concept. Asset: board game fountain artwork, portrait 2:3. A gorgeous sculpted pale stone garden fountain with SIX broad horizontal tiers, narrowest at top, broadest at bottom. Very shallow overhead 3/4 view, harmonious blue and lavender water, golden evening light, little flowers only around outer edge. Each of SIX tiers has a wide flat clear front rim for placing bird tokens in code, no animals or birds already on fountain. Entire fountain visible, lower third is a spacious empty stone plaza. Background muted twilight indigo garden. Whimsical high-end miniature diorama, detailed stone and animated-film quality. No text, numbers, grid, UI, labels or watermark.",
+      "transparent_background": false,
+      "workspaceSource": "assets/source/perch/fountain.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-de29db21-3422-4c55-9e95-75f8e90e3070.png",
+      "outputs": [
+        "public/art/perch/fountain.webp"
+      ]
+    },
+    {
+      "id": "bird-red",
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME game animation sprite strip, two equal square cells side by side. Each cell shows the SAME scarlet red cardinal, tall small crest and dark face, full-body sculpted miniature bird token. Consistent 3/4 side camera facing left, rounded broad flat underside that can visually stack on another bird, short feet tucked under body, distinct tiny beak and tail. Charming premium tactile painted resin toy, dimensional feather details, soft warm studio lighting, readable silhouette. Left cell neutral bird, right cell same bird with tiny head tilt, wing slightly lifted and tail changed. SAME scale, same baseline y85%, centered x25% and x75%. Whole body well inside each cell with generous margin. Genuinely transparent background, no ground, no pedestal, no text, no borders, no grid, no shadows outside body. Exactly TWO separate matching poses, landscape 2:1.",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/perch/bird-red.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-de51f471-1519-4b4f-835f-b176fddc71e9.png",
+      "outputs": [
+        "public/art/perch/bird-red.webp",
+        "public/art/perch/bird-red-still.webp"
+      ]
+    },
+    {
+      "id": "bird-blue",
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME game animation sprite strip, two equal square cells side by side. Each cell shows the SAME bright azure blue songbird with small crest, full-body sculpted miniature bird token. Consistent 3/4 side camera facing left, rounded broad flat underside that can visually stack on another bird, short feet tucked under body, distinct tiny beak and tail. Charming premium tactile painted resin toy, dimensional feather details, soft warm studio lighting, readable silhouette. Left cell neutral bird, right cell same bird with tiny head tilt, wing slightly lifted and tail changed. SAME scale, same baseline y85%, centered x25% and x75%. Whole body well inside each cell with generous margin. Genuinely transparent background, no ground, no pedestal, no text, no borders, no grid, no shadows outside body. Exactly TWO separate matching poses, landscape 2:1.",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/perch/bird-blue.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c23d1825-e3e9-42c2-8548-e8ec553e0fa8.png",
+      "outputs": [
+        "public/art/perch/bird-blue.webp",
+        "public/art/perch/bird-blue-still.webp"
+      ]
+    },
+    {
+      "id": "bird-yellow",
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME game animation sprite strip, two equal square cells side by side. Each cell shows the SAME golden sunflower yellow finch with tiny orange beak, full-body sculpted miniature bird token. Consistent 3/4 side camera facing left, rounded broad flat underside that can visually stack on another bird, short feet tucked under body, distinct tiny beak and tail. Charming premium tactile painted resin toy, dimensional feather details, soft warm studio lighting, readable silhouette. Left cell neutral bird, right cell same bird with tiny head tilt, wing slightly lifted and tail changed. SAME scale, same baseline y85%, centered x25% and x75%. Whole body well inside each cell with generous margin. Genuinely transparent background, no ground, no pedestal, no text, no borders, no grid, no shadows outside body. Exactly TWO separate matching poses, landscape 2:1.",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/perch/bird-yellow.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b0dba9b5-857d-4a4b-af21-ee86b4b9e311.png",
+      "outputs": [
+        "public/art/perch/bird-yellow.webp",
+        "public/art/perch/bird-yellow-still.webp"
+      ]
+    },
+    {
+      "id": "bird-green",
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME game animation sprite strip, two equal square cells side by side. Each cell shows the SAME fresh lime green songbird with small pointed crest, full-body sculpted miniature bird token. Consistent 3/4 side camera facing left, rounded broad flat underside that can visually stack on another bird, short feet tucked under body, distinct tiny beak and tail. Charming premium tactile painted resin toy, dimensional feather details, soft warm studio lighting, readable silhouette. Left cell neutral bird, right cell same bird with tiny head tilt, wing slightly lifted and tail changed. SAME scale, same baseline y85%, centered x25% and x75%. Whole body well inside each cell with generous margin. Genuinely transparent background, no ground, no pedestal, no text, no borders, no grid, no shadows outside body. Exactly TWO separate matching poses, landscape 2:1.",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/perch/bird-green.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-17af62ff-4eed-4df1-9fd2-9f6b15dd8f10.png",
+      "outputs": [
+        "public/art/perch/bird-green.webp",
+        "public/art/perch/bird-green-still.webp"
+      ]
+    },
+    {
+      "id": "bird-black",
+      "prompt": "Use case: stylized-concept. Asset: TWO FRAME game animation sprite strip, two equal square cells side by side. Each cell shows the SAME charcoal black songbird with subtle blue highlights and orange beak, full-body sculpted miniature bird token. Consistent 3/4 side camera facing left, rounded broad flat underside that can visually stack on another bird, short feet tucked under body, distinct tiny beak and tail. Charming premium tactile painted resin toy, dimensional feather details, soft warm studio lighting, readable silhouette. Left cell neutral bird, right cell same bird with tiny head tilt, wing slightly lifted and tail changed. SAME scale, same baseline y85%, centered x25% and x75%. Whole body well inside each cell with generous margin. Genuinely transparent background, no ground, no pedestal, no text, no borders, no grid, no shadows outside body. Exactly TWO separate matching poses, landscape 2:1.",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/perch/bird-black.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2dee4108-e582-4ae5-8a22-f810fae6c567.png",
+      "outputs": [
+        "public/art/perch/bird-black.webp",
+        "public/art/perch/bird-black-still.webp"
+      ]
+    },
+    {
+      "id": "locations-1",
+      "prompt": "Use case: stylized-concept. Asset: board game location TILE ATLAS, exactly EIGHT equally sized square cells in a 4 column by 2 row grid, edge to edge with no gaps. Each cell is an individual beautiful top-down shallow-perspective miniature garden scene. Read left to right, top row then bottom row: 1: snowy scented pine trees; 2: great ash tree by a cottage roof; 3: wooden dog kennel; 4: cozy white country house; 5: precariously hanging empty nest on a branch; 6: rustic bird feeder on a post; 7: lonely elm tree with empty woven nest; 8: hawk nest high on a forest tree. Distinct central subject toward upper/back half of each cell; bottom/front half remains open low-contrast lawn for bird game tokens. Rich hand-painted sculpted diorama textures, raised foliage, sunset honey light with cornflower twilight shadows. Cohesive magical backyard world with beautiful botanical detail. No birds, no text, no numbers, no scores, no borders between cells, no UI, no watermark. Landscape 2:1 sheet, exactly 8 square tiles.",
+      "transparent_background": false,
+      "workspaceSource": "assets/source/perch/locations-1.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-82f9e8a0-1cfe-4d87-b100-3aaab4b1ffa0.png",
+      "outputs": [
+        "public/art/perch/location-00.webp",
+        "public/art/perch/location-01.webp",
+        "public/art/perch/location-02.webp",
+        "public/art/perch/location-03.webp",
+        "public/art/perch/location-04.webp",
+        "public/art/perch/location-05.webp",
+        "public/art/perch/location-06.webp",
+        "public/art/perch/location-07.webp"
+      ]
+    },
+    {
+      "id": "locations-2",
+      "prompt": "Use case: stylized-concept. Asset: board game location TILE ATLAS, exactly EIGHT equally sized square cells in a 4 column by 2 row grid, edge to edge with no gaps. Each cell is an individual beautiful top-down shallow-perspective miniature garden scene. Read left to right, top row then bottom row: 1: mighty oak tree with two empty nests; 2: golden cornfield and straw scarecrow; 3: peeling white birch trees; 4: happy stone birdbath; 5: fox den under tree roots; 6: Japanese plum tree with pink blossoms; 7: wooden park bench; 8: colorful wildflower meadow. Distinct central subject toward upper/back half of each cell; bottom/front half remains open low-contrast lawn for bird game tokens. Rich hand-painted sculpted diorama textures, raised foliage, sunset honey light with cornflower twilight shadows. Cohesive magical backyard world with beautiful botanical detail. No birds, no text, no numbers, no scores, no borders between cells, no UI, no watermark. Landscape 2:1 sheet, exactly 8 square tiles.",
+      "transparent_background": false,
+      "workspaceSource": "assets/source/perch/locations-2.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-90e7ac19-0124-4686-a77a-bf4d56f6c84f.png",
+      "outputs": [
+        "public/art/perch/location-08.webp",
+        "public/art/perch/location-09.webp",
+        "public/art/perch/location-10.webp",
+        "public/art/perch/location-11.webp",
+        "public/art/perch/location-12.webp",
+        "public/art/perch/location-13.webp",
+        "public/art/perch/location-14.webp",
+        "public/art/perch/location-15.webp"
+      ]
+    },
+    {
+      "id": "locations-3",
+      "prompt": "Use case: stylized-concept. Asset: board game location TILE ATLAS, exactly EIGHT equally sized square cells in a 4 column by 2 row grid, edge to edge with no gaps. Each cell is an individual beautiful top-down shallow-perspective miniature garden scene. Read left to right, top row then bottom row: 1: swaying power lines over garden; 2: rookery tree with three empty nests; 3: mossy stone garden statue; 4: weeping willow beside a pond; 5: thorn bush with empty nest; 6: old wooden owl barn; 7: autumn tree and acorns; 8: overstuffed wooden bird house. Distinct central subject toward upper/back half of each cell; bottom/front half remains open low-contrast lawn for bird game tokens. Rich hand-painted sculpted diorama textures, raised foliage, sunset honey light with cornflower twilight shadows. Cohesive magical backyard world with beautiful botanical detail. No birds, no text, no numbers, no scores, no borders between cells, no UI, no watermark. Landscape 2:1 sheet, exactly 8 square tiles.",
+      "transparent_background": false,
+      "workspaceSource": "assets/source/perch/locations-3.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-14a6243b-f42f-4fc8-b2f8-58bee6784c6b.png",
+      "outputs": [
+        "public/art/perch/location-16.webp",
+        "public/art/perch/location-17.webp",
+        "public/art/perch/location-18.webp",
+        "public/art/perch/location-19.webp",
+        "public/art/perch/location-20.webp",
+        "public/art/perch/location-21.webp",
+        "public/art/perch/location-22.webp",
+        "public/art/perch/location-23.webp"
+      ]
+    },
+    {
+      "id": "creatures",
+      "prompt": "Use case: stylized-concept. Asset: transparent board game miniature creature atlas, exactly NINE separate square cells in a 3 by 3 grid. Reading left to right top to bottom: friendly shaggy brown dog; fluffy gray cat; majestic brown hawk; orange red fox; fuzzy bumblebee; rustic straw scarecrow; blue gray cuckoo bird; round brown owl; orange squirrel holding acorn. Each is a charming premium sculpted miniature with tactile painted resin textures, dimensional hand-painted form, consistent warm studio lighting and shallow 3/4 camera. FULL bodies visible within each cell, equal scale and consistent baseline, ample spacing so characters never touch. Truly transparent background, no floor, no bases, no text, no cell lines or borders. Square sheet.",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/perch/creatures.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-34ae50fe-0169-4d79-a55d-a227aadee724.png",
+      "outputs": [
+        "public/art/perch/creature-dog.webp",
+        "public/art/perch/creature-cat.webp",
+        "public/art/perch/creature-hawk.webp",
+        "public/art/perch/creature-fox.webp",
+        "public/art/perch/creature-bee.webp",
+        "public/art/perch/creature-scarecrow.webp",
+        "public/art/perch/creature-cuckoo.webp",
+        "public/art/perch/creature-owl.webp",
+        "public/art/perch/creature-squirrel.webp"
+      ]
+    },
+    {
+      "id": "objects",
+      "prompt": "Use case: stylized-concept. Asset: transparent game object atlas, exactly THREE equally sized square cells in a horizontal row. Left cell a detailed empty woven twig bird nest with an open center; center cell a tiny lovely honey-colored wooden birdhouse roof and shelter token, front round entrance; right cell a bright golden sculpted lightning bolt token. Premium tactile dimensional miniatures with warm studio lighting, 3/4 camera, clear silhouettes, same scale, separated and fully inside their cells. Transparent background, no floor, no text, no borders, no watermark. Landscape 3:1.",
+      "transparent_background": true,
+      "workspaceSource": "assets/source/perch/objects.png",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8db54c21-a565-4ae6-b11b-b38f2d2729ca.png",
+      "outputs": [
+        "public/art/perch/nest.webp",
+        "public/art/perch/house.webp",
+        "public/art/perch/zap.webp"
+      ]
+    }
+  ]
+}

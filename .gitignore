@@ -19,3 +19,5 @@ data/
 
 # High-resolution generation masters stay local; deployable artwork is in public/art.
 assets/source/harmonies/
+assets/source/draftosaurus/
+assets/source/perch/
