@@ -401,3 +401,9 @@ Restaurateur selection displays two portrait cards with names and Thai abilities
 
 ### Replay retains head-chef selection
 Restarting a completed game now inherits the previous game's enabled Restaurateur module unless the manager explicitly overrides it. The server deals two fresh private offers to each player and clears the old head chefs/scores; all selections finish before the round-1 briefing. Both replay confirmations explain the new selection. This derives from persisted completed game state, requiring no new schema or client-trusted setup flag.
+
+## Challenge completion and Fruit Bat wine selection — 2026-10-21
+
+Challenge faces become grayscale once their batch has resolved: cards 1–3 after round 3, cards 4–6 after round 6. The same presentation applies to the information page, public board and detail view; inspecting cards remains available.
+
+Fruit Bat final-serving wine pairing uses a compact toggle below the selected ingredient instead of creating a native dropdown above the pantry for every course. Options pass the existing authoritative meal validator, which enforces matching printed values, one added wine per course and no reuse of physical pieces. Removing a course prunes its wine pairing. A short explanation appears only for Fruit Bat; invalid pairing errors name the violated wine rule. The pantry scrolls vertically when ingredient controls need more room, keeping all choices reachable on small phones. Gameplay and scoring rules remain unchanged.

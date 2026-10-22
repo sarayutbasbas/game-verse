@@ -1,3 +1,4 @@
+import './harmonies-dialog.css';
 import type {HarmoniesLeaderboards,HarmoniesLeaderboardMode} from '../shared/harmonies-leaderboard.js';
 import {esc} from './platform.js';
 import './harmonies-leaderboard.css';
@@ -12,9 +13,9 @@ export function bindHarmoniesLeaderboard(root:HTMLElement){
 }
 function openHarmoniesLeaderboard(trigger:HTMLButtonElement){
  active?.close();
- const dialog=active=document.createElement('dialog');dialog.className='hl-dialog';dialog.tabIndex=-1;dialog.setAttribute('aria-labelledby','hl-title');
+ const dialog=active=document.createElement('dialog');dialog.className='hl-dialog hm-dialog hm-info-dialog hm-ranking-dialog';dialog.tabIndex=-1;dialog.setAttribute('aria-labelledby','hl-title');
  let mode:HarmoniesLeaderboardMode='competitive',data:HarmoniesLeaderboards|undefined,controller:AbortController|undefined;
- dialog.innerHTML=`<header class="hl-heading"><span class="hl-emblem">${trophy}</span><div><p translate="no">Harmonies</p><h2 id="hl-title">อันดับผู้เล่น</h2></div><button type="button" class="hl-close" aria-label="ปิดอันดับผู้เล่น"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header><p class="hl-intro">10 อันดับสูงสุด · คะแนนดีที่สุดของแต่ละคน</p><div class="hl-modes" role="group" aria-label="โหมด leaderboard"><button type="button" data-leaderboard-mode="solo" aria-pressed="false">เล่นคนเดียว</button><button type="button" data-leaderboard-mode="competitive" aria-pressed="true">แข่งขัน</button></div><section class="hl-results" aria-live="polite" aria-label="อันดับโหมดแข่งขัน"></section><footer>บันทึกคะแนนเมื่อเล่นจบเกม รวมด้าน A/B และภาคเสริม<br>คะแนนเท่ากัน เรียงผู้ที่ทำได้ก่อน</footer>`;
+ dialog.innerHTML=`<header class="hm-info-header"><h2 id="hl-title">อันดับผู้เล่น</h2><button type="button" class="hl-close hm-info-close" aria-label="ปิดอันดับผู้เล่น"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header><div class="hm-info-content"><p class="hl-intro">10 อันดับสูงสุด · คะแนนดีที่สุดของแต่ละคน</p><div class="hl-modes" role="group" aria-label="โหมด leaderboard"><button type="button" data-leaderboard-mode="solo" aria-pressed="false">เล่นคนเดียว</button><button type="button" data-leaderboard-mode="competitive" aria-pressed="true">แข่งขัน</button></div><section class="hl-results" aria-live="polite" aria-label="อันดับโหมดแข่งขัน"></section><footer>บันทึกคะแนนเมื่อเล่นจบเกม รวมกระดานและภาคเสริมที่เลือก<br>คะแนนเท่ากัน เรียงผู้ที่ทำได้ก่อน</footer></div>`;
  const results=dialog.querySelector<HTMLElement>('.hl-results')!;
  function render(){
   dialog.querySelectorAll<HTMLButtonElement>('[data-leaderboard-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.leaderboardMode===mode)));
@@ -45,6 +46,8 @@ function openHarmoniesLeaderboard(trigger:HTMLButtonElement){
  dialog.querySelector<HTMLButtonElement>('.hl-close')!.onclick=()=>dialog.close();
  dialog.querySelectorAll<HTMLButtonElement>('[data-leaderboard-mode]').forEach(button=>button.onclick=()=>{mode=button.dataset.leaderboardMode as HarmoniesLeaderboardMode;render();});
  const leavePage=()=>dialog.close();window.addEventListener('popstate',leavePage);
- dialog.onclose=()=>{controller?.abort();dialog.remove();window.removeEventListener('popstate',leavePage);if(active===dialog)active=undefined;(trigger.isConnected?trigger:document.querySelector<HTMLElement>('.harmonies-leaderboard-trigger'))?.focus({preventScroll:true});};
- document.body.append(dialog);dialog.showModal();dialog.focus({preventScroll:true});void load();
+ let outsideDown=false;const outside=(e:MouseEvent)=>{const r=dialog.getBoundingClientRect();return e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom;};
+ dialog.onpointerdown=e=>{outsideDown=e.target===dialog&&outside(e);};dialog.onclick=e=>{if(outsideDown&&e.target===dialog&&outside(e))dialog.close();};
+ dialog.onclose=()=>{document.documentElement.classList.toggle('harmonies-modal-open',!!document.querySelector('.hm-dialog[open]')); controller?.abort();dialog.remove();window.removeEventListener('popstate',leavePage);if(active===dialog)active=undefined;(trigger.isConnected?trigger:document.querySelector<HTMLElement>('.harmonies-leaderboard-trigger'))?.focus({preventScroll:true});};
+ document.body.append(dialog);dialog.showModal();document.documentElement.classList.add('harmonies-modal-open');dialog.focus({preventScroll:true});void load();
 }

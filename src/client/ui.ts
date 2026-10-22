@@ -1,3 +1,4 @@
+import {roomPath} from './room-route.js';
 const escape = (value: string) =>
   value.replace(
     /[&<>"']/g,
@@ -38,14 +39,14 @@ export function roomCode(code: string) {
   return `<button type="button" class="room-code" data-copy-room="${escape(code)}" aria-label="คัดลอกลิงก์เข้าห้อง ${escape(code)}"><span>รหัสห้อง <svg aria-hidden="true" width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor"><rect x="5" y="5" width="9" height="9" rx="1"/><path d="M10 3V1H1v9h2"/></svg></span><strong translate="no">${escape(code)}</strong></button>`;
 }
 const boundRoomLinks = new WeakSet<HTMLButtonElement>();
-export function bindRoomLinks(root: HTMLElement, origin: string) {
+export function bindRoomLinks(root: HTMLElement, origin: string,gameId?:string) {
   root
     .querySelectorAll<HTMLButtonElement>("[data-copy-room]")
     .forEach((button) => {
       if (boundRoomLinks.has(button)) return;
       boundRoomLinks.add(button);
       button.addEventListener("click", async () => {
-        const url = new URL("/play/" + button.dataset.copyRoom, origin).href;
+        const url = new URL(roomPath(gameId,'play',button.dataset.copyRoom!), origin).href;
         try {
           if (navigator.clipboard?.writeText)
             await navigator.clipboard.writeText(url);

@@ -1,0 +1,1508 @@
+{
+  "generator": "built-in image_gen",
+  "cards": [
+    {
+      "id": "animal-01",
+      "name": "จระเข้",
+      "animal": "crocodile",
+      "points": [
+        4,
+        9,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-01.png",
+      "band": "#91ba42",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: crocodiles. Scene and dominant color identity: mangrove river with sinuous turquoise water, lime reeds and ochre mudbanks. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #91ba42. EXACT diagram: Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The wood+wood+leaf stack gets ×3. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fdc323db-6b16-4d1b-80b1-5b368d4d4757.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-bc2d82d0-4968-4254-82b3-3a0e64958e82.png"
+    },
+    {
+      "id": "animal-02",
+      "name": "ปลากระเบน",
+      "animal": "stingray",
+      "points": [
+        4,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 2: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-02.png",
+      "band": "#36a7cb",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: stingrays. Scene and dominant color identity: bright cobalt coral lagoon, sunlight in angular turquoise shafts, pink coral and mint seagrass. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #36a7cb. EXACT diagram: Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 2: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 2: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc.  If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e12c3719-bb16-4e4f-8b3a-5754056da473.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f9d93049-d603-4b59-ba1d-d0cc816f1f05.png"
+    },
+    {
+      "id": "animal-03",
+      "name": "ฮิปโป",
+      "animal": "hippopotamus",
+      "points": [
+        3,
+        6,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock, grey rock], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-03.png",
+      "band": "#6ea5bc",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: hippopotamuses. Scene and dominant color identity: a broad lilac river and emerald reeds under coral dawn skies. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #6ea5bc. EXACT diagram: Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock, grey rock], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Total separate hex bases: 2.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock, grey rock], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+rock+rock stack gets ×3. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-dc1b5750-243c-4d47-84d6-250d6b14a4b3.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6a71e126-849c-4513-a46b-233db460650d.png"
+    },
+    {
+      "id": "animal-04",
+      "name": "นาก",
+      "animal": "otter",
+      "points": [
+        5,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-04.png",
+      "band": "#26a8b8",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: otters. Scene and dominant color identity: meandering turquoise river among emerald fern banks, lime lily pads and small cascades. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #26a8b8. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc.  If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d1171cf1-99e1-4c42-a93d-e7642e6f7787.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-46cadd8c-45af-4b05-bd13-33ea3a47f527.png"
+    },
+    {
+      "id": "animal-05",
+      "name": "กบ",
+      "animal": "frog",
+      "points": [
+        2,
+        4,
+        6,
+        10,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-05.png",
+      "band": "#8bbf42",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: frogs. Scene and dominant color identity: lush jade pond with broad lime lily pads, white lotus flowers and golden reeds. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #8bbf42. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Total separate hex bases: 2.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc.  If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a49ca559-5810-4d90-8c94-f75019ebe0b9.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5f5b860d-a146-4b97-9679-17d368d55637.png"
+    },
+    {
+      "id": "animal-06",
+      "name": "เป็ด",
+      "animal": "duck",
+      "points": [
+        2,
+        4,
+        8,
+        13
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-06.png",
+      "band": "#59a9a0",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: ducks. Scene and dominant color identity: mint green farm pond, pale sky, warm red distant cottage and pale ochre grasses. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #59a9a0. EXACT diagram: Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Total separate hex bases: 2.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+building stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6d598d0c-a685-41b7-9d61-d3188fb956be.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c67f77a2-2293-421f-a7e8-78173d362524.png"
+    },
+    {
+      "id": "animal-07",
+      "name": "ฟลามิงโก",
+      "animal": "flamingo",
+      "points": [
+        4,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-07.png",
+      "band": "#e782a6",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: flamingos. Scene and dominant color identity: salmon pink salt lagoon, coral pink birds, turquoise shallows and pale mauve hills. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #e782a6. EXACT diagram: Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc.  If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-96d451dd-4cdd-4bb0-b22a-e4d5c3978ad6.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6a4a8ce8-de31-4a66-99d6-07b032c77df5.png"
+    },
+    {
+      "id": "animal-08",
+      "name": "กิ้งก่า",
+      "animal": "lizard",
+      "points": [
+        5,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 3: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-08.png",
+      "band": "#e7ad48",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: lizards. Scene and dominant color identity: terracotta sunlit canyon, orange sandstone terraces and lime desert plants. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #e7ad48. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 3: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 3: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+building stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-91a188d7-3f2e-4526-9822-eb213cb30c56.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7a1e47e4-e9f6-43d6-9756-c2cd3706ee3f.png"
+    },
+    {
+      "id": "animal-09",
+      "name": "หนู",
+      "animal": "mouse",
+      "points": [
+        5,
+        10,
+        17
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-09.png",
+      "band": "#d8b341",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: mice. Scene and dominant color identity: golden wheat field with emerald grasses, scarlet poppies and pale cyan sky. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #d8b341. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+building stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7affd4a6-e6f6-4f1f-9dbd-50f050d4056f.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-61eff687-4272-4d64-afca-0cf1ec905a92.png"
+    },
+    {
+      "id": "animal-10",
+      "name": "นกยูง",
+      "animal": "peacock",
+      "points": [
+        5,
+        10,
+        17
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-10.png",
+      "band": "#408e93",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: peacocks. Scene and dominant color identity: royal cobalt and emerald ornamental woodland with lime curling vines and coral flowers. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #408e93. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+building stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-79b8d9da-e175-467a-97d3-641b9d360a1f.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-acbafa10-50ba-4294-8de4-2f54a26544b3.png"
+    },
+    {
+      "id": "animal-11",
+      "name": "กระรอก",
+      "animal": "squirrel",
+      "points": [
+        4,
+        9,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-11.png",
+      "band": "#d6904c",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: squirrels. Scene and dominant color identity: copper orange autumn woodland, burgundy leaves, golden trunks and mint sky. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #d6904c. EXACT diagram: Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top. Total separate hex bases: 2.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The wood+wood+leaf stack gets ×3. The rock+building stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-164185ba-c80b-41d6-9932-30485571eb62.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6d507b68-7da7-44c7-b3dc-e88b59eb0546.png"
+    },
+    {
+      "id": "animal-12",
+      "name": "เม่น",
+      "animal": "hedgehog",
+      "points": [
+        5,
+        12
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and MIDDLE, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-12.png",
+      "band": "#bd7a8d",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: hedgehogs. Scene and dominant color identity: warm plum and coral woodland floor with golden ferns and deep emerald hedges. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #bd7a8d. EXACT diagram: Position 1: RIGHT and MIDDLE, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], no cube. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and MIDDLE, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The wood+leaf stack gets ×2. The rock+building stack gets ×2. The wood+leaf stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0a8eaba6-6c16-4045-8912-a5f69cb80166.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-39509c37-60e7-41cc-8ea9-a87fc25eeb2c.png"
+    },
+    {
+      "id": "animal-13",
+      "name": "ผึ้ง",
+      "animal": "bee",
+      "points": [
+        8,
+        18
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 4: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-13.png",
+      "band": "#c1bd30",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: bees. Scene and dominant color identity: sunny lemon yellow and meadow green wildflower hills with tall white daisies, pale blue swirling sky. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #c1bd30. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 4: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube. Total separate hex bases: 4.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: RIGHT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 4: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The wood+leaf stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-689edcef-2956-47ba-9132-7f581b63c95d.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-154d8b5e-f7d2-4f62-82de-f2902b2a1315.png"
+    },
+    {
+      "id": "animal-14",
+      "name": "หมี",
+      "animal": "bear",
+      "points": [
+        5,
+        11
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and MIDDLE, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-14.png",
+      "band": "#ce9b3e",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: bears. Scene and dominant color identity: deep indigo pine forest, turquoise river and amber setting sun. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #ce9b3e. EXACT diagram: Position 1: RIGHT and MIDDLE, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock], no cube. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and MIDDLE, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, grey rock], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+rock stack gets ×2. The rock+rock stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2a020497-d2e7-44fb-a162-0c02aeefcf82.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-05ae0bf9-945c-4b25-ae04-c7d555f8eab6.png"
+    },
+    {
+      "id": "animal-15",
+      "name": "กระต่ายป่า",
+      "animal": "hare",
+      "points": [
+        5,
+        10,
+        17
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-15.png",
+      "band": "#bbad55",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: hares. Scene and dominant color identity: sage and golden grassy hills, dusty rose clover and pale cobalt distant mountains. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #bbad55. EXACT diagram: Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], with ONE tiny orange animal cube centered on top. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+building stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-77f55056-786d-4c12-b90e-ca8e29322f2d.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-258fab69-fe0e-441d-bb5a-aaa7d8380658.png"
+    },
+    {
+      "id": "animal-16",
+      "name": "นกแก้ว",
+      "animal": "macaw",
+      "points": [
+        4,
+        9,
+        14
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-16.png",
+      "band": "#9db83f",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: macaws. Scene and dominant color identity: emerald lime tropical rainforest, cyan tall waterfall, orange trumpet flowers and curling vines. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #9db83f. EXACT diagram: Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The wood+leaf stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4080faef-68ac-461f-89e3-21bdecbf05d1.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-07d44a85-e7df-4787-8f3c-b68eff649e40.png"
+    },
+    {
+      "id": "animal-17",
+      "name": "หมูป่า",
+      "animal": "boar",
+      "points": [
+        4,
+        8,
+        13
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-17.png",
+      "band": "#a67d51",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: wild boars. Scene and dominant color identity: russet and aubergine oak forest, golden acorns, mint shafts of light. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #a67d51. EXACT diagram: Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top. Total separate hex bases: 2.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+building stack gets ×2. The wood+leaf stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-53946294-78d3-43ac-a0db-7844bb50245f.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cd47e54c-4a5a-4599-93c8-2164b7b2d629.png"
+    },
+    {
+      "id": "animal-18",
+      "name": "โคอาลา",
+      "animal": "koala",
+      "points": [
+        3,
+        6,
+        10,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-18.png",
+      "band": "#78b39d",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: koalas. Scene and dominant color identity: mint eucalyptus canopy, jade leaves, lavender trunks and pale cyan sky. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #78b39d. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top. Total separate hex bases: 2.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [green leaf], no cube; Position 2: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, green leaf], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The wood+leaf stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9755251f-8020-4c26-8e95-5b72785fe271.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e9e808b9-6d0e-485d-a2db-26a147a98242.png"
+    },
+    {
+      "id": "animal-20",
+      "name": "นกกระเต็น",
+      "animal": "kingfisher",
+      "points": [
+        5,
+        11,
+        18
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: RIGHT and LOWER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-20.png",
+      "band": "#a9bd45",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: kingfishers. Scene and dominant color identity: icy blue and mint flooded woodland, tall geometric trunks, ochre branches and curling lime leaves. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #a9bd45. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: RIGHT and LOWER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube; Position 2: RIGHT and LOWER, 3 physical disc(s), exact BOTTOM-TO-TOP colors [brown wood, brown wood, green leaf], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [blue water], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The wood+wood+leaf stack gets ×3. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-78b5c9c1-27fd-4601-9095-30edbead4ccd.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-875c5c51-12c2-4e3c-8c6b-da48d262ffe7.png"
+    },
+    {
+      "id": "animal-23",
+      "name": "จิ้งจอกเฟนเนก",
+      "animal": "fennec fox",
+      "points": [
+        4,
+        9,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-23.png",
+      "band": "#e4b05a",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: fennec foxes. Scene and dominant color identity: apricot and saffron dunes, coral cliffs, tiny jade oasis and pale blue sky. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #e4b05a. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], with ONE tiny orange animal cube centered on top. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: CENTER and MIDDLE, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], no cube; Position 3: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc.  If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-93be99ab-360a-481c-89bc-d8a8ea8b2195.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-bc7433de-470b-4750-97ba-a34499ad9ba4.png"
+    },
+    {
+      "id": "animal-26",
+      "name": "เมียร์แคต",
+      "animal": "meerkat",
+      "points": [
+        2,
+        5,
+        9,
+        14
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], with ONE tiny orange animal cube centered on top",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-26.png",
+      "band": "#b7a33d",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: meerkats. Scene and dominant color identity: sunny amber savannah, terracotta mounds, lime succulents and turquoise distant hills. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #b7a33d. EXACT diagram: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], with ONE tiny orange animal cube centered on top. Total separate hex bases: 2.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], no cube; Position 2: LEFT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock], with ONE tiny orange animal cube centered on top. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc.  If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1d37ee29-62a5-4ca9-9e3d-b01a01c31a40.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e9a205e1-2566-442d-aa6f-0027f8b25f7f.png"
+    },
+    {
+      "id": "animal-27",
+      "name": "อีกา",
+      "animal": "crow",
+      "points": [
+        4,
+        9
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        }
+      ],
+      "displayPattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "rock",
+            "building"
+          ],
+          "cube": false
+        }
+      ],
+      "diagramDescription": "Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: RIGHT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube",
+      "guide": "/Users/basukekung/Projects/games/data/harmonies-habitat-v4/guides/animal-27.png",
+      "band": "#e6bd34",
+      "fullPrompt": "Use case: stylized-concept. Create ONE finished tall portrait 9:16 nature board game card. Reference image 1 is the APPROVED ART STYLE: sophisticated flat graphic illustration, cut-paper geometric foliage, fine decorative contour lines, vivid color fields, subtle printed-paper grain. HABITAT is hero, animals SMALL (12–18% of picture height), not large character portraits, thin ivory contour around main animal. Draw rich layered landscape, flat illustrated animals, no photographic realism or glossy 3D. Full-bleed art with gently rounded corners. Integrated narrow RIGHT BORDER exactly 12% of card width from top to bottom in the specified color, subtle paper texture, pale little terrain motif only at very bottom. Keep upper 75% of right border EMPTY: no score frames or numbers; game draws crisp live scores inside larger frames there. CRITICAL: Reference image 2 is the EXACT MATHEMATICAL TOKEN DIAGRAM for THIS card. Bake a beautifully illustrated version of that exact arrangement directly INTO the bottom 23% of the finished card, on top of scenery, matching approved reference's wooden discs, cream little hex bases, thick visible sidewalls and tiny orange cube. Do not add, remove, reorder, recolor, merge or split any stacks. Stack adjacency, relative positions, disc count, bottom-to-top colors, and orange cube location MUST match the diagram reference. Reference diagram labels are instructional only, OMIT them. Each terrain disc top has its motif: water wavy pale blue lines, rock three pale grey mountain shapes, wood pale concentric growth rings, leaf pale sprouting leaves, field pale tiny flowers, building pale house silhouettes. Make token diagram a harmonious printed part of card illustration, no separate white box. No title, no animal name, no logos, NO printed score numbers. Full-size card has NO ×2/×3 or other height labels: actual visible disc layers alone show height. Scene: crows. Scene and dominant color identity: vast amber gold farmland, vermilion barn, burgundy hedgerows and dark aubergine angular storm clouds. Ordinary natural animals. Cheerful rich natural palette, specific colors from the described habitat. Right border color: #e6bd34. EXACT diagram: Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: RIGHT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube. Total separate hex bases: 3.",
+      "miniPrompt": "Edit this exact card into its SMALL-CARD variant for a mobile board-game garden row. Preserve the same scene, subjects, animal proportions, palette, right border and recognizable composition. Reference image 1 is the finished FULL card; reference image 2 is its precise token diagram. Enlarge ONLY the integrated token diagram so it occupies the bottom 35–39% of card height and about 82% of card width left of the right border. Keep every stack, color, layer, orange cube and relative adjacency exactly as in diagram reference: Position 1: RIGHT and UPPER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube; Position 2: RIGHT and LOWER, 1 physical disc(s), exact BOTTOM-TO-TOP colors [yellow field], with ONE tiny orange animal cube centered on top; Position 3: LEFT and LOWER, 2 physical disc(s), exact BOTTOM-TO-TOP colors [grey rock, red building], no cube. Diagram must remain beautifully illustrated as part of card scenery, no white panel. Preserve full 9:16 card aspect. SMALL version ONLY: print a compact high-contrast cream badge beside each multi-disc stack: “×2” for exactly 2 discs or “×3” for exactly 3 discs. No badge for single disc. The rock+building stack gets ×2. The rock+building stack gets ×2. If there are no multi-disc stacks, no × labels at all. Keep rightmost 12% band empty except its bottom decorative terrain motif; live score frames are drawn by application. No score numbers, no titles or animal names.",
+      "fullPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1558d11a-ae99-4e45-9c29-703aea5c4093.png",
+      "miniPath": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c1e5fd61-a778-4530-a991-8cfe3c140401.png"
+    }
+  ],
+  "extras": [
+    {
+      "id": "background",
+      "prompt": "Use case: illustration-story. Wide 16:9 background for a nature board game. Closely match approved reference card art: sophisticated flat geometric digital illustration, printed paper grain, fine decorative lines, angular layered foliage, vivid harmonious colors. A broad calm turquoise river occupies center and bottom two-thirds with subtle wavy lines, jade and emerald woodland framing edges, golden grasses and pale mint geometric hills at top with warm yellow sunlight. No animals or game pieces, no numbers, no text, no cards, no score frames. Keep central river spacious and uncluttered for a hex board and gameplay overlays. Bright warm nature palette without cinematic 3D or photorealism.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3ca70d30-c0ab-4be3-9e52-65793bfcf222.png"
+    },
+    {
+      "id": "token-building",
+      "prompt": "Use case: stylized-concept. One circular painted WOODEN BOARD GAME TOKEN TOP FACE, orthographic exactly top-down, perfect circle. Solid base #c75050, motif two pale pink small house silhouettes with rectangular door openings centered and sized to 58% of diameter. Match soft printed gouache paper texture and geometric flat illustration of the approved reference card discs. The circle fills 94% of a square canvas. Completely TRANSPARENT background outside the circle. No sidewall, no thickness, no drop shadow, no perspective ellipse, no hex base, no letters, no numbers. Only subtle paper texture and clearly recognizable pale motif on the colored circular face.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e3a834bd-c66c-433b-ab8b-92dbf253a466.png"
+    },
+    {
+      "id": "token-field",
+      "prompt": "Use case: stylized-concept. One circular painted WOODEN BOARD GAME TOKEN TOP FACE, orthographic exactly top-down, perfect circle. Solid base #e7b834, motif three small pale cream five-petal meadow flowers centered and sized to 58% of diameter. Match soft printed gouache paper texture and geometric flat illustration of the approved reference card discs. The circle fills 94% of a square canvas. Completely TRANSPARENT background outside the circle. No sidewall, no thickness, no drop shadow, no perspective ellipse, no hex base, no letters, no numbers. Only subtle paper texture and clearly recognizable pale motif on the colored circular face.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8417691a-1549-47ff-a932-d26331ba5e27.png"
+    },
+    {
+      "id": "token-leaf",
+      "prompt": "Use case: stylized-concept. One circular painted WOODEN BOARD GAME TOKEN TOP FACE, orthographic exactly top-down, perfect circle. Solid base #819b3e, motif a pale yellow-green sprout with oval leaves and a few small seed marks centered and sized to 58% of diameter. Match soft printed gouache paper texture and geometric flat illustration of the approved reference card discs. The circle fills 94% of a square canvas. Completely TRANSPARENT background outside the circle. No sidewall, no thickness, no drop shadow, no perspective ellipse, no hex base, no letters, no numbers. Only subtle paper texture and clearly recognizable pale motif on the colored circular face.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5c7faafc-5102-4f75-8f36-8dcdd3043bdf.png"
+    },
+    {
+      "id": "token-rock",
+      "prompt": "Use case: stylized-concept. One circular painted WOODEN BOARD GAME TOKEN TOP FACE, orthographic exactly top-down, perfect circle. Solid base #858884, motif three simple pale ivory mountain silhouettes centered and sized to 58% of diameter. Match soft printed gouache paper texture and geometric flat illustration of the approved reference card discs. The circle fills 94% of a square canvas. Completely TRANSPARENT background outside the circle. No sidewall, no thickness, no drop shadow, no perspective ellipse, no hex base, no letters, no numbers. Only subtle paper texture and clearly recognizable pale motif on the colored circular face.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4f8d6bc9-3abc-4c4e-9404-e4124b323415.png"
+    },
+    {
+      "id": "token-water",
+      "prompt": "Use case: stylized-concept. One circular painted WOODEN BOARD GAME TOKEN TOP FACE, orthographic exactly top-down, perfect circle. Solid base #228fae, motif three flowing pale turquoise wavy river lines centered and sized to 58% of diameter. Match soft printed gouache paper texture and geometric flat illustration of the approved reference card discs. The circle fills 94% of a square canvas. Completely TRANSPARENT background outside the circle. No sidewall, no thickness, no drop shadow, no perspective ellipse, no hex base, no letters, no numbers. Only subtle paper texture and clearly recognizable pale motif on the colored circular face.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6c94140b-aa02-4d83-9169-d79760d6aa15.png"
+    },
+    {
+      "id": "token-wood",
+      "prompt": "Use case: stylized-concept. One circular painted WOODEN BOARD GAME TOKEN TOP FACE, orthographic exactly top-down, perfect circle. Solid base #965e37, motif fine pale ochre concentric wood growth rings centered and sized to 58% of diameter. Match soft printed gouache paper texture and geometric flat illustration of the approved reference card discs. The circle fills 94% of a square canvas. Completely TRANSPARENT background outside the circle. No sidewall, no thickness, no drop shadow, no perspective ellipse, no hex base, no letters, no numbers. Only subtle paper texture and clearly recognizable pale motif on the colored circular face.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2ce8472d-a768-4f40-b83d-547ddc33cba7.png"
+    }
+  ]
+}

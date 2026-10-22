@@ -1,0 +1,2029 @@
+{
+  "tool": "built-in image_gen",
+  "method": "43 newly generated reference-based scenes; rule-correct SVG scores, original-style token motifs, hex bases and cubes composed into one lossless 900×1550 WebP per card. The same asset is used at every display size. Original reference files are preserved.",
+  "jobs": [
+    {
+      "id": "animal-25",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-25: the vulture in the attached reference; preserve its exact warm grey/yellow rocky gorge composition.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-25.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-364d521e-f354-4f6c-a95b-ad29b5125401.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-25.png",
+      "generated_dimensions": {
+        "width": 971,
+        "height": 1619
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-25.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        11
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock",
+            "rock",
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1312340,
+      "sha256": "90fad26dcbd686ae8d3e30c2b79df16747b6e2301990e5c1b769a28797595e21"
+    },
+    {
+      "id": "animal-19",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-19: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-19.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d2b92c45-abc1-48c5-8e08-ba4ff9983941.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-19.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-19.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1362360,
+      "sha256": "15494405e708693c52d8366bfdb2930fd039db09b3129800e542eba5d1892368"
+    },
+    {
+      "id": "animal-27",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-27: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-27.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6200eb29-dd9a-4bd2-a482-5f863c955cd7.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-27.png",
+      "generated_dimensions": {
+        "width": 1062,
+        "height": 1480
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-27.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        9
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1333812,
+      "sha256": "ad7db9a33b1772e60a4a1ead5d01cd7b3a22c52e523fcbfd71f09374f6e89dd8"
+    },
+    {
+      "id": "animal-06",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-06: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-06.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-49ebb92c-9172-4f21-b843-e15b5bbe7611.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-06.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-06.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        2,
+        4,
+        8,
+        13
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1407360,
+      "sha256": "d62a4625760e6f98e7aa985d92649ec84a3b2fd7427a58a8461450dafdb3bda2"
+    },
+    {
+      "id": "animal-10",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-10: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-10.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6bb944e1-29f7-42dd-b3ba-8188366a0bea.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-10.png",
+      "generated_dimensions": {
+        "width": 1062,
+        "height": 1482
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-10.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        10,
+        17
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1407648,
+      "sha256": "2e7a6a223d0c2910a00cad1b75392273a3f1abd7003f1e82d085e5c123f3d64a"
+    },
+    {
+      "id": "animal-18",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-18: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-18.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5d20c850-e33b-4c99-9905-5d1ed719264a.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-18.png",
+      "generated_dimensions": {
+        "width": 1054,
+        "height": 1492
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-18.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        3,
+        6,
+        10,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1399428,
+      "sha256": "e4b27d4bba8af2ae88b9bbcd5e49abdb39cf48b14e5a2ddfeb1a50b6b94a9fc7"
+    },
+    {
+      "id": "animal-32",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-32: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-32.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b94bf9c9-aac8-4f6d-a357-1e7028837eca.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-32.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-32.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        11
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1364548,
+      "sha256": "5edea3230c7b9c5ed791c4fa6af679af89155165250361c9b503d433900cd139"
+    },
+    {
+      "id": "animal-28",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-28: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-28.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2b7c04c8-6c91-415f-abd6-e4a1d1a6a105.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-28.png",
+      "generated_dimensions": {
+        "width": 1055,
+        "height": 1491
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-28.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        12
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1279678,
+      "sha256": "4d6026efc67d7ceda9d3d36d0d0a05c814f1202ba47ec81b1eacb5dcd09c7da2"
+    },
+    {
+      "id": "animal-22",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-22: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-22.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-69236ed5-ecc0-43f2-85cb-12b30bdd9bc8.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-22.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-22.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        3,
+        6,
+        10,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1344552,
+      "sha256": "aee6052c6cf76384a54b99a1a3dd28fd493b1d79d3fca820690be204d50f5760"
+    },
+    {
+      "id": "animal-11",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-11: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-11.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-500a2381-605c-43dc-b7ba-7b2feebc4176.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-11.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-11.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        9,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1299224,
+      "sha256": "09f1302bfa2523bb45d9cd9c7b8532c49ca34d266e9bb8fff277a4f11995119b"
+    },
+    {
+      "id": "animal-16",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-16: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-16.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4cdb3e35-89a2-4bd8-b1b2-a661b78a475c.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-16.png",
+      "generated_dimensions": {
+        "width": 962,
+        "height": 1635
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-16.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        9,
+        14
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1459562,
+      "sha256": "1b60da7422515626098ddae9a4149c7a98c77d40562400b06b215d2999404cfe"
+    },
+    {
+      "id": "animal-05",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-05: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-05.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-73e9f09b-1a51-4c48-a427-5c84446a0df9.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-05.png",
+      "generated_dimensions": {
+        "width": 1162,
+        "height": 1353
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-05.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        2,
+        4,
+        6,
+        10,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1303676,
+      "sha256": "0d7f48d6d1c36b0d8e44bec9a6ceea36b140672474c088b3fbb6ee8b1a4ff932"
+    },
+    {
+      "id": "animal-24",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-24: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-24.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5db16592-8f46-4688-acf9-124c2ca31501.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-24.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-24.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        11
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1412700,
+      "sha256": "2ddff219b3e07aad32062eb8d2a42dc5c3bdaed41457cf8e31302ab8c58e89fc"
+    },
+    {
+      "id": "animal-14",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-14: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-14.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fc4a6e81-898d-45e1-abe1-ffd990fd9e9a.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-14.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-14.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        11
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1351540,
+      "sha256": "ca9ed7117dfdec6e6f3eea59cf6dab069c25089453b759179bf9fd7657494485"
+    },
+    {
+      "id": "animal-30",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-30: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-30.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-45af61e9-d37b-4c6d-aa25-00a5aa88286a.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-30.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-30.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        6,
+        12
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1404894,
+      "sha256": "1c712f26786c9b2d30841eb307e1277514526d3a4b1ce7809f47b5ebcb669459"
+    },
+    {
+      "id": "animal-07",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-07: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-07.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fa0d8615-2f98-4697-bf2b-6876e98cfd93.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-07.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-07.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1435410,
+      "sha256": "7e5b6cd243978433834f9f5a26fa80822ba39d1ae32ddcd4c60f49207973f1d7"
+    },
+    {
+      "id": "animal-12",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-12: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-12.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9f9cdc39-227f-4f1a-85d5-c32e2c01a0c6.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-12.png",
+      "generated_dimensions": {
+        "width": 1064,
+        "height": 1478
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-12.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        12
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1371604,
+      "sha256": "5bb9b215af1cc035dde7a21ba4fee1138e2eca463f9644ed69d6a937b3f30bb6"
+    },
+    {
+      "id": "animal-17",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-17: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-17.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-439d341e-1aee-49e8-ae65-ba14f728426a.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-17.png",
+      "generated_dimensions": {
+        "width": 948,
+        "height": 1659
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-17.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        8,
+        13
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1459938,
+      "sha256": "b2f3c5ff0268e67b868d24fa7291007b70fe2de44a4b6fb7928f55ae5550d988"
+    },
+    {
+      "id": "animal-15",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-15: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-15.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c6f1f41a-f2d9-4ab3-ae96-414904591d52.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-15.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-15.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        10,
+        17
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "leaf"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1387972,
+      "sha256": "d66440fc8cfe763694f7b8758200c6d6c16afc9d5cf93834ec5f3ae391a799fa"
+    },
+    {
+      "id": "animal-04",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-04: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-04.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c9bbab2c-3c98-4cb1-b8ae-55073f8fb04d.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-04.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-04.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1345256,
+      "sha256": "8308856beb0d99859b944d43334c9c9ad27d72506ba73fd9601345d2a267d9a2"
+    },
+    {
+      "id": "animal-26",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-26: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-26.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ad61d96e-d1e2-4977-a99d-fff5d729e67d.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-26.png",
+      "generated_dimensions": {
+        "width": 1062,
+        "height": 1481
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-26.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        2,
+        5,
+        9,
+        14
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1189720,
+      "sha256": "67a3114f3fe642b591911895c378c6eda26f64614da23a1209c02c4fe288eb1c"
+    },
+    {
+      "id": "animal-13",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-13: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-13.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cd7de633-9cc7-453f-ac6b-62f8ad06c9c8.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-13.png",
+      "generated_dimensions": {
+        "width": 1161,
+        "height": 1355
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-13.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        8,
+        18
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1479258,
+      "sha256": "8e88e53eb32953e628d4b8ae9e55f02f19c14015ae1c2d39fe0057cfac2ce181"
+    },
+    {
+      "id": "animal-31",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-31: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-31.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-10e7fc6f-6144-4d57-bc28-8eed0004e297.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-31.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-31.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        2,
+        5,
+        8,
+        12,
+        17
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1554402,
+      "sha256": "893857fea4ce4afdc01bfe58364d49ca031fa110f719c7f9a415c6af682c6826"
+    },
+    {
+      "id": "animal-01",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-01: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-01.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-07e6614f-2e79-4ea0-91b3-41610a3fa461.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-01.png",
+      "generated_dimensions": {
+        "width": 1162,
+        "height": 1353
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-01.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        9,
+        15
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1333210,
+      "sha256": "1307706f0ab9aac6ba782de41beef2234d962f40a60d3b15c57ee37361e07caa"
+    },
+    {
+      "id": "animal-20",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-20: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-20.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e8ae2978-988e-4cbb-9781-f14c868c427a.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-20.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-20.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        11,
+        18
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1378266,
+      "sha256": "4cff704d60ee5ec40a81efad9c9ddedc61c583f38b9df1f231b515d4facc6f26"
+    },
+    {
+      "id": "animal-02",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-02: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-02.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-32d7b544-11f9-4dac-a992-f4eefeca9a44.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-02.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-02.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1448840,
+      "sha256": "b76e25d4898dc0a6e7b2c8ba356301fe25f8612c9eb9eca0f019c0f42690cbd6"
+    },
+    {
+      "id": "animal-21",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-21: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-21.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1d30234e-2b1a-4492-8b1b-e8e41e3a6652.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-21.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-21.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "rock"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1264210,
+      "sha256": "f8a59302496d2688be6aec56b063f12bb89561a61fccb1b7834a6ca52bf81c43"
+    },
+    {
+      "id": "animal-29",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-29: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-29.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-31195b19-c720-4bf0-ab0f-3b48c9dc713b.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-29.png",
+      "generated_dimensions": {
+        "width": 1063,
+        "height": 1480
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-29.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        10,
+        17
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1369520,
+      "sha256": "871acfec610ad938ee6447c63a240d601a959081daa6010a3cba9bacf431c0ab"
+    },
+    {
+      "id": "animal-09",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-09: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-09.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f94b007c-24cc-4d2b-8d3f-3cc0a4d4f660.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-09.png",
+      "generated_dimensions": {
+        "width": 1062,
+        "height": 1481
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-09.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        10,
+        17
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1332878,
+      "sha256": "3c43dc7c230aeb5e1c31eeaf1c979a2b05b9eadd8a7734b12a862afe9459a9a3"
+    },
+    {
+      "id": "animal-08",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-08: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-08.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0ee6d3e9-0b96-4cfd-99a9-53fc5f258f75.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-08.png",
+      "generated_dimensions": {
+        "width": 1064,
+        "height": 1478
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-08.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        5,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1461788,
+      "sha256": "1bcadb14ca9cafb97fa0cac20d629972e72d4cded1059af47b435e0a5e45812b"
+    },
+    {
+      "id": "animal-03",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-03: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-03.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b3c5ac11-fe87-41f6-93c9-ec0322fc84df.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-03.png",
+      "generated_dimensions": {
+        "width": 971,
+        "height": 1619
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-03.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        3,
+        6,
+        10,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1128244,
+      "sha256": "d431d9749975634724fa3abbf5f64bd950b16533487e224456c2326934895b7e"
+    },
+    {
+      "id": "animal-23",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset animal-23: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/animal-23.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b241463e-64b1-4c01-a211-cb073c05eb42.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/animal-23.png",
+      "generated_dimensions": {
+        "width": 971,
+        "height": 1619
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/animal-23.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        4,
+        9,
+        16
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1223812,
+      "sha256": "07d781a0a431befc48383b1d12106a9b3710657156c67732257eaceb8f1ac7ad"
+    },
+    {
+      "id": "spirit-01",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-01: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-01.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-147c1860-79e6-46c8-b382-30549f421bbc.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-01.png",
+      "generated_dimensions": {
+        "width": 958,
+        "height": 1642
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-01.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1640664,
+      "sha256": "0923a37f50f4f035e4e35496380037ca72322e762fc2dde490480722d8226988"
+    },
+    {
+      "id": "spirit-02",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-02: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-02.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4a51e5cd-4495-4c71-b267-2aa35dda572e.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-02.png",
+      "generated_dimensions": {
+        "width": 971,
+        "height": 1619
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-02.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1329070,
+      "sha256": "7c6432231c06f0a037e46b6e9178f9af96de183163940cab8ef681b3f5a03134"
+    },
+    {
+      "id": "spirit-03",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-03: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-03.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-69078bdb-4ec1-4251-923c-a7305ddd0387.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-03.png",
+      "generated_dimensions": {
+        "width": 960,
+        "height": 1639
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-03.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1332996,
+      "sha256": "5cd3c6567f75e580f223a039a8d8564c375ce0951aeb72f3b136522a9883df18"
+    },
+    {
+      "id": "spirit-04",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-04: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-04.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fc6e3ad2-5e6f-4bdf-b116-631be64405a1.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-04.png",
+      "generated_dimensions": {
+        "width": 956,
+        "height": 1646
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-04.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1347150,
+      "sha256": "02afddd3df17d1d7511a64791ec237680eb816241a9c97f2f1655c082bf11284"
+    },
+    {
+      "id": "spirit-05",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-05: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-05.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-eadc2141-ae20-4b60-b8f9-8fd415c95334.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-05.png",
+      "generated_dimensions": {
+        "width": 958,
+        "height": 1642
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-05.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1328338,
+      "sha256": "ea537a2c717c858ce2f1528f1f96208db1db981bff9f9f7d85e3e72fb30c6ada"
+    },
+    {
+      "id": "spirit-06",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-06: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-06.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4acedb3a-d040-4844-afd4-4448ae87d6d1.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-06.png",
+      "generated_dimensions": {
+        "width": 971,
+        "height": 1619
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-06.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "building"
+          ],
+          "cube": false
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "building"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1322810,
+      "sha256": "96a83c2c770d17123cc7b2d66e1fc8cca33ea802c5993f7689e60c93287e8f36"
+    },
+    {
+      "id": "spirit-07",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-07: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-07.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2dd6b338-03e3-4927-8823-24fef550c242.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-07.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-07.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "rock",
+            "rock",
+            "rock"
+          ],
+          "cube": true
+        }
+      ],
+      "bytes": 1440508,
+      "sha256": "56c01133da731022ee95f03d7ccfc4ca5c439086b26969d63f4aa835b9822ea3"
+    },
+    {
+      "id": "spirit-08",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-08: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-08.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c418666d-93ed-4416-9efe-3d7b1b2dad80.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-08.png",
+      "generated_dimensions": {
+        "width": 1060,
+        "height": 1484
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-08.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 1,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": true
+        },
+        {
+          "q": -1,
+          "r": 2,
+          "stack": [
+            "rock"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1394622,
+      "sha256": "c06e0ae1a3287c52e35b0e83ceefa28b6ae7cb7d61724458ae2c81ed759d62e6"
+    },
+    {
+      "id": "spirit-09",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-09: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-09.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9126604a-8c6e-4491-ae7b-f767952f1256.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-09.png",
+      "generated_dimensions": {
+        "width": 960,
+        "height": 1638
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-09.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1375258,
+      "sha256": "5d60459bd1667c8eb7ea27b9869acf98f570e4ff6c52094d2c075906ef7def5f"
+    },
+    {
+      "id": "spirit-10",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-10: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-10.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7d3ac821-0a16-4081-93a5-5c958acbeb11.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-10.png",
+      "generated_dimensions": {
+        "width": 955,
+        "height": 1647
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-10.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": -1,
+          "r": 1,
+          "stack": [
+            "water"
+          ],
+          "cube": true
+        },
+        {
+          "q": -2,
+          "r": 2,
+          "stack": [
+            "water"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1312900,
+      "sha256": "b7302a65fefd312d166a85950264587f8c2a04a5f6a1ce9d682e205c551549eb"
+    },
+    {
+      "id": "spirit-11",
+      "tool": "built-in image_gen",
+      "prompt": "Use case: illustration-story. Create a BRAND NEW crisp high-resolution portrait 3:5 board game card SCENE from the attached ORIGINAL card reference. The attached image is a composition and style reference, NOT a texture to upscale. Redraw its same animal(s), distinctive poses, habitat, silhouettes, arrangement of cliffs/branches/architecture, atmospheric palette, geometric flat vector linework, cut-paper shapes and delicate screen-print grain. Reconstruct clean edges and fine drawn detail at full resolution; no pixelation, blur, photo glare or halftone scan artifacts. Match the reference's recognizable visual identity and composition closely, do not substitute a generic animal scene or a different art style. IMPORTANT output is ONLY the animal-and-habitat illustration: remove ALL score numbers, score boxes, side color rails, icons, badges, board game tokens, cubes and hex bases from the reference. Repaint those areas with matching background scenery, keeping the main animal(s) in the same upper/middle placement and the lower quarter calm and unobstructed for separate game pieces. Full-bleed rectangular art, no words, no lettering, no frame, no game UI, no new decorative elements. Asset spirit-11: follow the creature and habitat visible in this exact reference, even if a catalog animal name differs. Faithfully redraw all depicted animals and their poses, rather than substituting a generic scene. This is one image in a consistent 43-card set.",
+      "reference": "/Users/basukekung/Projects/games/public/art/harmonies/original-v1/spirit-11.png",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-17d36f74-e6cf-445d-942a-4742ca7aa183.png",
+      "source": "assets/source/harmonies/original-redrawn-v1/spirit-11.png",
+      "generated_dimensions": {
+        "width": 955,
+        "height": 1647
+      },
+      "asset": "/art/harmonies/original-redrawn-v1/spirit-11.webp",
+      "width": 900,
+      "height": 1550,
+      "points": [
+        0
+      ],
+      "pattern": [
+        {
+          "q": -1,
+          "r": 0,
+          "stack": [
+            "rock",
+            "rock",
+            "rock"
+          ],
+          "cube": false
+        },
+        {
+          "q": 0,
+          "r": 0,
+          "stack": [
+            "field"
+          ],
+          "cube": true
+        },
+        {
+          "q": 1,
+          "r": 0,
+          "stack": [
+            "wood",
+            "wood",
+            "leaf"
+          ],
+          "cube": false
+        }
+      ],
+      "bytes": 1328978,
+      "sha256": "541b6992cb08b744a782ae96aabae5a74fbeb2d3b04a6ec9b6e9203e0e7b1c6a"
+    }
+  ]
+}

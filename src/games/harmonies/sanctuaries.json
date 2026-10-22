@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sanctuary-01",
+    "name": "วิหารธาราหินผา",
+    "colors": [
+      "water",
+      "rock"
+    ],
+    "stack": [
+      "rock",
+      "rock",
+      "water",
+      "water"
+    ],
+    "reference": "Publisher Crescendo rules pp5–7; user waterfall face; unboxing 01:25"
+  },
+  {
+    "id": "sanctuary-02",
+    "name": "วิหารเรือนพฤกษา",
+    "colors": [
+      "leaf",
+      "building"
+    ],
+    "stack": [
+      "wood",
+      "wood",
+      "building",
+      "leaf"
+    ],
+    "reference": "Publisher Crescendo box reverse treehouse face; user treehouse face"
+  },
+  {
+    "id": "sanctuary-04",
+    "name": "วิหารกังหันกลางทุ่ง",
+    "colors": [
+      "building",
+      "field"
+    ],
+    "stack": [
+      "field",
+      "wood",
+      "wood",
+      "building"
+    ],
+    "reference": "Photograph of printed tile: https://ludovox.fr/wp-content/uploads/2026/07/Harmonies-crescendo-sanctuaires-construction-ludovox.jpg"
+  },
+  {
+    "id": "sanctuary-05",
+    "name": "วิหารนครศิลา",
+    "colors": [
+      "rock",
+      "building"
+    ],
+    "stack": [
+      "building",
+      "rock",
+      "rock",
+      "rock"
+    ],
+    "reference": "Publisher close-up photograph HARMONIES_CRESCENDO_BEAUTY-SHOT_16-9_11-1"
+  }
+]

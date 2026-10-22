@@ -1,0 +1,29 @@
+{
+  "tool": "built-in image_gen",
+  "transparent": true,
+  "prompt": "Single premium board game category badge, circular embossed medallion, crisp ivory rim, central silhouette, screen-print grain, cut-paper layering, transparent background, no text. Legible at 26px.",
+  "variants": {
+    "dinosaur": "Pearl white and silver friendly Tyrannosaurus head",
+    "spirit": "Rainbow iridescent four-point magical star",
+    "whisper": "Amethyst purple mushroom with tiny sparkle"
+  },
+  "assets": [
+    {
+      "source": "assets/source/harmonies/category-badges-v1/dinosaur.png",
+      "output": "public/art/harmonies/category-badges-v1/dinosaur.webp"
+    },
+    {
+      "source": "assets/source/harmonies/category-badges-v1/spirit.png",
+      "output": "public/art/harmonies/category-badges-v1/spirit.webp"
+    },
+    {
+      "source": "assets/source/harmonies/category-badges-v1/whisper.png",
+      "output": "public/art/harmonies/category-badges-v1/whisper.webp"
+    }
+  ],
+  "prompts": {
+    "spirit": "Create one single premium board game category badge icon for a textured editorial storybook nature card. Subject: a luminous four-point magical star. Color palette: rainbow iridescent. A circular embossed medallion, crisp ivory rim, bold easily readable central silhouette, restrained tiny glints, screen-print grain, artful cut-paper layering, harmonious flat illustration with slight physical depth. Center the entire badge with generous transparent padding, isolated genuinely transparent background. Legible at 26px. No text, letters, numbers, card, scenery, UI, watermark. Square image. This is the spirit category icon.",
+    "whisper": "Create one single premium board game category badge icon for a textured editorial storybook nature card. Subject: a delicate mushroom silhouette with a tiny sparkle. Color palette: amethyst purple. A circular embossed medallion, crisp ivory rim, bold easily readable central silhouette, restrained tiny glints, screen-print grain, artful cut-paper layering, harmonious flat illustration with slight physical depth. Center the entire badge with generous transparent padding, isolated genuinely transparent background. Legible at 26px. No text, letters, numbers, card, scenery, UI, watermark. Square image. This is the whisper category icon.",
+    "dinosaur": "Create one single premium board game category badge icon for a textured editorial storybook nature card. Subject: a friendly Tyrannosaurus head silhouette. Color palette: pearl white and silver. A circular embossed medallion, crisp ivory rim, bold easily readable central silhouette, restrained tiny glints, screen-print grain, artful cut-paper layering, harmonious flat illustration with slight physical depth. Center the entire badge with generous transparent padding, isolated genuinely transparent background. Legible at 26px. No text, letters, numbers, card, scenery, UI, watermark. Square image. This is the dinosaur category icon."
+  }
+}

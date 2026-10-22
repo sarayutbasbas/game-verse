@@ -1,0 +1,89 @@
+{
+  "tool": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "sanctuary-01",
+      "kind": "art",
+      "prompt": "Use case: illustration-story. Asset: portrait 3:4 full-art board game Sanctuary card background. Depict a broad ancient turquoise stone water temple embedded in a rocky waterfall gorge, low ceremonial terraces with flowing channels and luminous pools, teal water and slate stone. Stylized textured flat vector storybook art with bold geometric silhouettes, layered vivid atmospheric nature colors, rich screenprint paper grain, magical sacred feeling and delicate golden light. Architecture is the main recognizable subject in upper two thirds. Leave the lower quarter as a relatively dark calm scenic foreground for separately rendered game pieces. Full bleed rectangular artwork, no card frame, no lettering, no numbers, no token graphics, no badge, no UI.",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-30d07a7d-4d62-4ba2-96f6-a92faba313a9.png",
+      "source": "assets/source/harmonies/sanctuaries-v2/sanctuary-01-art.png",
+      "exports": [
+        "public/art/harmonies/sanctuaries-v2/sanctuary-01.webp",
+        "public/art/harmonies/sanctuaries-v2/sanctuary-01-small.webp"
+      ]
+    },
+    {
+      "id": "sanctuary-01",
+      "kind": "model",
+      "prompt": "Use case: stylized-concept. Asset: one isolated board game sanctuary miniature, actual transparent alpha background. Subject: a broad ancient turquoise stone water temple embedded in a rocky waterfall gorge, low ceremonial terraces with flowing channels and luminous pools, teal water and slate stone. A single compact broad LOW building, squat proportions, one storey with a broad roof, width about 1.5 times height, isometric front view slightly from above. Artistic storybook cartoon miniature, crisp paper-cut painted texture and clear bold silhouette, ornate but not busy, consistent scale and centered layout. The miniature rests directly on its own small architectural foundation, no hex tile, no terrain token, no circular pedestal, no surrounding landscape, no trees sticking out past the building, no text, no lettering, no watermark. Full object visible with 12% transparent margin.",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-305935b6-ff5a-4a24-b1f7-ce6935ae1154.png",
+      "source": "assets/source/harmonies/sanctuaries-v2/sanctuary-01-model.png",
+      "exports": [
+        "public/art/harmonies/sanctuaries-v2/sanctuary-01-model.webp"
+      ]
+    },
+    {
+      "id": "sanctuary-02",
+      "kind": "art",
+      "prompt": "Use case: illustration-story. Asset: portrait 3:4 full-art board game Sanctuary card background. Depict a broad wooden forest sanctuary pavilion cradled in roots of an ancient tree, low sweeping leafy roof and red-clay details, green foliage and warm timber. Stylized textured flat vector storybook art with bold geometric silhouettes, layered vivid atmospheric nature colors, rich screenprint paper grain, magical sacred feeling and delicate golden light. Architecture is the main recognizable subject in upper two thirds. Leave the lower quarter as a relatively dark calm scenic foreground for separately rendered game pieces. Full bleed rectangular artwork, no card frame, no lettering, no numbers, no token graphics, no badge, no UI.",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a697b928-cf75-4105-9055-326389c95fd0.png",
+      "source": "assets/source/harmonies/sanctuaries-v2/sanctuary-02-art.png",
+      "exports": [
+        "public/art/harmonies/sanctuaries-v2/sanctuary-02.webp",
+        "public/art/harmonies/sanctuaries-v2/sanctuary-02-small.webp"
+      ]
+    },
+    {
+      "id": "sanctuary-02",
+      "kind": "model",
+      "prompt": "Use case: stylized-concept. Asset: one isolated board game sanctuary miniature, actual transparent alpha background. Subject: a broad wooden forest sanctuary pavilion cradled in roots of an ancient tree, low sweeping leafy roof and red-clay details, green foliage and warm timber. A single compact broad LOW building, squat proportions, one storey with a broad roof, width about 1.5 times height, isometric front view slightly from above. Artistic storybook cartoon miniature, crisp paper-cut painted texture and clear bold silhouette, ornate but not busy, consistent scale and centered layout. The miniature rests directly on its own small architectural foundation, no hex tile, no terrain token, no circular pedestal, no surrounding landscape, no trees sticking out past the building, no text, no lettering, no watermark. Full object visible with 12% transparent margin.",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a65e47de-1c83-400a-9328-7e58968689b7.png",
+      "source": "assets/source/harmonies/sanctuaries-v2/sanctuary-02-model.png",
+      "exports": [
+        "public/art/harmonies/sanctuaries-v2/sanctuary-02-model.webp"
+      ]
+    },
+    {
+      "id": "sanctuary-04",
+      "kind": "art",
+      "prompt": "Use case: illustration-story. Asset: portrait 3:4 full-art board game Sanctuary card background. Depict a low golden meadow sanctuary with a red-roofed windmill pavilion, wide flower-covered terraces and little wooden wind vanes, sunny wildflower yellow and terracotta. Stylized textured flat vector storybook art with bold geometric silhouettes, layered vivid atmospheric nature colors, rich screenprint paper grain, magical sacred feeling and delicate golden light. Architecture is the main recognizable subject in upper two thirds. Leave the lower quarter as a relatively dark calm scenic foreground for separately rendered game pieces. Full bleed rectangular artwork, no card frame, no lettering, no numbers, no token graphics, no badge, no UI.",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-26cb4aa9-6886-4572-a29f-70ed52afae87.png",
+      "source": "assets/source/harmonies/sanctuaries-v2/sanctuary-04-art.png",
+      "exports": [
+        "public/art/harmonies/sanctuaries-v2/sanctuary-04.webp",
+        "public/art/harmonies/sanctuaries-v2/sanctuary-04-small.webp"
+      ]
+    },
+    {
+      "id": "sanctuary-04",
+      "kind": "model",
+      "prompt": "Use case: stylized-concept. Asset: one isolated board game sanctuary miniature, actual transparent alpha background. Subject: a low golden meadow sanctuary with a red-roofed windmill pavilion, wide flower-covered terraces and little wooden wind vanes, sunny wildflower yellow and terracotta. A single compact broad LOW building, squat proportions, one storey with a broad roof, width about 1.5 times height, isometric front view slightly from above. Artistic storybook cartoon miniature, crisp paper-cut painted texture and clear bold silhouette, ornate but not busy, consistent scale and centered layout. The miniature rests directly on its own small architectural foundation, no hex tile, no terrain token, no circular pedestal, no surrounding landscape, no trees sticking out past the building, no text, no lettering, no watermark. Full object visible with 12% transparent margin.",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-53afd684-3b90-4a8c-87c0-1bc24507a712.png",
+      "source": "assets/source/harmonies/sanctuaries-v2/sanctuary-04-model.png",
+      "exports": [
+        "public/art/harmonies/sanctuaries-v2/sanctuary-04-model.webp"
+      ]
+    },
+    {
+      "id": "sanctuary-05",
+      "kind": "art",
+      "prompt": "Use case: illustration-story. Asset: portrait 3:4 full-art board game Sanctuary card background. Depict a broad low stone sanctuary citadel on red sandstone foundations, stepped slate roofs and a monumental stone doorway, charcoal grey and brick red. Stylized textured flat vector storybook art with bold geometric silhouettes, layered vivid atmospheric nature colors, rich screenprint paper grain, magical sacred feeling and delicate golden light. Architecture is the main recognizable subject in upper two thirds. Leave the lower quarter as a relatively dark calm scenic foreground for separately rendered game pieces. Full bleed rectangular artwork, no card frame, no lettering, no numbers, no token graphics, no badge, no UI.",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c69a3832-ad8b-4029-9a8f-4f77d23b1fad.png",
+      "source": "assets/source/harmonies/sanctuaries-v2/sanctuary-05-art.png",
+      "exports": [
+        "public/art/harmonies/sanctuaries-v2/sanctuary-05.webp",
+        "public/art/harmonies/sanctuaries-v2/sanctuary-05-small.webp"
+      ]
+    },
+    {
+      "id": "sanctuary-05",
+      "kind": "model",
+      "prompt": "Use case: stylized-concept. Asset: one isolated board game sanctuary miniature, actual transparent alpha background. Subject: a broad low stone sanctuary citadel on red sandstone foundations, stepped slate roofs and a monumental stone doorway, charcoal grey and brick red. A single compact broad LOW building, squat proportions, one storey with a broad roof, width about 1.5 times height, isometric front view slightly from above. Artistic storybook cartoon miniature, crisp paper-cut painted texture and clear bold silhouette, ornate but not busy, consistent scale and centered layout. The miniature rests directly on its own small architectural foundation, no hex tile, no terrain token, no circular pedestal, no surrounding landscape, no trees sticking out past the building, no text, no lettering, no watermark. Full object visible with 12% transparent margin.",
+      "generated_path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2cd96d4a-e94c-444f-aa20-e290d90d32c8.png",
+      "source": "assets/source/harmonies/sanctuaries-v2/sanctuary-05-model.png",
+      "exports": [
+        "public/art/harmonies/sanctuaries-v2/sanctuary-05-model.webp"
+      ]
+    }
+  ]
+}

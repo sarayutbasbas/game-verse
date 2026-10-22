@@ -1865,3 +1865,303 @@ Validation: build passes; full suite287 total/285 pass/2 optional PostgreSQL ski
 - Owner-player lobby retains invite QR and start/settings controls and adds a separate-display link. Independent player/host credentials allow both tabs/devices to coexist; duplicate creation, account rejoin and reload reuse the seat. Legacy display-only protocol clients remain supported, and existing shared-display browser suites explicitly use that fixture.
 - Validation: production build and TypeScript pass; full unit/protocol suite 290 passed, 4 optional Postgres skips; focused create test also verifies storage-failure rollback with no session leak. Browser ordinary GO across all 12 online games, separate display, reconnect, Harmonies Solo start and Pixies with an invited player pass; existing four-game owner-restart flow passes.
 - Rebuilt Docker without changing volumes/auth configuration. Actual localhost:5555 browser verification passed GO, owner readiness/management and reload for all 12 games; temporary test rooms closed. Phone screenshot: `data/qa-creator-player/harmonies-owner-phone.png`. No push or deployment.
+
+### 2026-10-20 — Harmonies scoring button and dimensional animal art
+- Added a circular scoring-reference button immediately left of help on player/public/finished views. The illustrated reference shares terrain/animal explanations with help and includes enabled Spirit, Whisper and Solo scoring. Larger readable body text; existing rules and scoring engine unchanged.
+- All32normal/10Spirit sprites now resolve through `figurines/animated-v3/` for board, placement preview, tray and card habitat diagrams. Generated41new cinematic 3D animation images with built-in imagegen; retained the existing sculpted 3D boar after new boar generation was unavailable. The manifest records all source paths/prompts and this reuse. Whisper objects retained. Transparent160×184WebP assets total about484KiB on disk.
+- Animal figures overflow the small selection frames. A padded scrolling shelf protects tall silhouettes and aura while retaining access to four choices and End Turn. Spirits have colored multi-layer aura/light pools; normal animals have contact shadows only.
+- Validation: build/TypeScript and18targeted Harmonies engine/presentation tests pass. Three browser checks pass: all52pieces (including10Whispercards), shared tiles and glow/cameras; scoring on320/390/1100px and separate public display; frame overflow/aura clipping. Screenshots reviewed under `data/qa-harmonies-animation/` and `data/qa-harmonies-reference/animated-*.png`.
+- Rebuilt Docker preserving data/auth. Actual localhost:5555 flow passed normal GO, Solo+modules, scoring popup, Spirit selection, board and320/390/1024px header; temporary room closed before game end. No commit, push or deployment for this change.
+
+### 2026-10-20 — stronger spirit effects, uniform tray size and larger animals
+- Added stronger Spirit aura, breathing light pools and four genuinely animated sparkle particles. Explicitly re-enables only sparkle animation over the prior global disable; reduced-motion keeps static light and stops animation.
+- Sidebar animal frames now match terrain-slot transparency. Normal/Spirit/Whisper selection images share a48×56 stage, top-aligned with tight alpha crops so every figure extends beyond the frame. Enlarged board animal width from22–34 to34–48px, retaining foot anchors and coexistence with Whisper pieces.
+- New smoother 3D-animation crocodile and42cropped sprite outputs in `animated-v4/`; source/prompt manifest in `docs/games/harmonies/animated-v4-art-jobs.json`. Other animals reuse the preceding3D sources; boar generation remained unavailable, retaining its existing sculpted3D model.
+- Validation: build/TypeScript and18targeted Harmonies tests passed. Four browser tests passed:52-piece gallery/lighting/cameras, scoring/mobile/display, equal portrait dimensions/transparency/overflow with real changing sparkle opacity and reduced-motion, plus actual dense3D placement/inspection/camera/reconnect flow. Updated the old smaller-than-tile assertion to permit the requested larger animals while still checking cap anchoring and bounded size.
+- Rebuilt Docker preserving data/auth. Actual localhost:5555 flow checked animated/reduced-motion sparkle CSS in the rendered game, normal GO, Solo+modules, scoring, Spirit selection, board and320/390/1024px header. Fresh room closed. Screenshot `data/qa-harmonies-animation/tray-overflow.png` reviewed. No commit, push or deployment for these changes.
+
+### 2026-10-20 — Harmonies help, circular actions and finished-state presentation
+- Replaced generic help artwork with actual six-token palette, three-token group, stacked terrain and habitat rendering. Scoring button is now a trophy. Popup SVG crosses are centered in44px circles.
+- End is a raised52px circle; keeps its Thai accessible label, disabled conditions and authoritative action path. Finished selected-board sidebar holds circular summary and owner-only replay controls. Removed the inline result section and popup return-to-board button; summary opens the table directly. Finished board tokens/animals dim but retain camera/detail inspection, including Whisper-only cells.
+- Build/TypeScript and diff check pass. Two focused browser checks pass: actual three legal placements enable End; isolated legal final-turn fixture verifies finished owner/friend/public-display views, no inline scores, popup-only summary, centered close icons, dimming/inspection, responsive320/390/1100px circles and synchronized replay; scoring/mobile help check also passes. Existing full-game browser expectations updated for the new summary flow but that long suite was not rerun for this UI change.
+- Rebuilt Docker with existing volume/auth. Actual localhost:5555 check passed real-token help, popup geometry, round End and320/390/1024px layouts. Fresh unfinished test room closed to avoid generating test leaderboard results. Reviewed help/finished/summary screenshots in `data/qa-harmonies-finished/`. No commit, push or deployment.
+
+### 2026-10-20 — Harmonies Android performance mode and visual refinements
+- Added per-device persistent lightweight-effects checkbox in hamburger; defaults on for Android/initial OS reduced motion. Stops CSS/WAAPI decoration, simplifies shadows and card habitats, loads lighter art and avoids building hidden phone gardens. Full popup art and game state/room settings unchanged; users can opt out and still browse other gardens.
+- Generated52lite backgrounds and52figure thumbnails from existing assets. Background bytes fall from1,327,092 to271,556 (80%); code/asset pipeline is `scripts/build-harmonies-lite.mjs`. Added source-backed diagnosis and measurements in `docs/games/harmonies/performance.md`.
+- Reduced single board animals to40px maximum width and paired animal/Whisper figures to29px/24px, bounded Spirit particles to each figure and removed broad board glow pools. Added special-card popup light, brighter finished controls, and separate draft select/name rows.
+- Synthetic4xCPU-throttled Chromium fixture: card DOM563->418, active CSS animations8->0, sampled task time113.1ms->32.1ms. Both modes already had median16.7ms frames on the desktop; this is not an Android FPS measurement. Real-device diagnosis remains unverified.
+- Validation: build/TypeScript, presentation unit and diff check passed;8targeted browser tests passed across lightweight persistence/resolution/state invariance, selected garden navigation, shared-tile/aura/popup presentation, finished flow, scoring/help/tray, all52figures and dense3D actions/cameras/reconnect. Historical close-glyph check updated to the prior centered22px SVG inside44px target.
+- Rebuilt Docker preserving data/auth and verified actual localhost:5555 with Android user-agent: default/override/persistent lightweight mode, full special popup, flat thumbnails, draft labels and reload. Closed the unfinished fresh room; no fake leaderboard result. No physical Android device or Vercel deploy used.
+
+- Harmonies: uniform160x184 v5 figurines (41 fresh; boar generation blocked, old art normalized),2+1 selected terrain tray, matching two-slot animal shelf with overflow, pointer/touch drag previews and proportional enlarged group confirmation. Verified build, presentation unit test,9 targeted browser checks and actual Docker5555 flow at320x667/390x844. No deployment requested.
+
+- Harmonies landscape personal/shared controllers now use left board + right supply/market/owned rails, larger controls and proportionate portrait cards. End-game reveal/winner/summary shows one actual placed figurine per type with scores, excluding unplaced cards. Build and9 targeted browser checks passed; Docker5555 rebuilt/verified at five viewport sizes and shared-controller mode. No push or deployment requested.
+
+- Harmonies: combined supply/market panel; centered garden with a horizontal three-token hand and independently scrolling animal shelf (three reserved frames). Solo retains three original card slots and “เลือกแล้ว” backs across reload. Completed cards retain faded color. Animal placement uses an upright green confirmation pin and mouse/touch drag previews; routine instruction copy removed. Build, presentation unit and ten targeted browser scenarios verified; Docker5555 rebuilt preserving data/auth and checked across five sizes plus shared controller. No push/deployment requested.
+
+- Harmonies follow-up: taken market backs now retain dimmed color and share the completed-card top ribbon. Active terrain/animal placement returned to a vertical right rail: three terrain frames, at least two animal frames, adaptive additional visible animals, scrolling before End. Reserved market headroom prevents clipped plus buttons. Build, presentation unit and ten targeted browser scenarios verified, including mouse/touch animal drag and tall/short five-animal rails. Docker5555 rebuilt with data/auth preserved and checked across six sizes plus shared controller; no push/deployment.
+
+- Harmonies: restored translucent green circular animal confirmation; centered sprout loading state; added game-qualified Harmonies play/display links with backward-compatible role/session normalization. Inline head theme bootstrap/preload fixes the brown refresh flash before the app or lazy game CSS arrives. New startup browser test verifies delayed main/game modules, identity/state preservation through old/new/mismatched prefixes, read-only display and invalid-room recovery. Build and eleven distinct browser scenarios passed, including every-game owner creation/profile. Docker5555 rebuilt and independently verified; no push/deploy.
+
+- Harmonies: animal previews now show the actual model on a green checked cap; clicking the model or tapping the cap confirms. Enlarged five contiguous right-side frames (three terrain + two animals), with proportional discs/models and additional animals peeking behind floating End. Bottom scroll padding makes the final animal fully accessible. Build/presentation unit and eleven targeted browser scenarios passed; Docker5555 rebuilt preserving data/auth and checked across six sizes/shared controller. No push/deploy.
+
+- Harmonies: pending animal models are35% larger with original terrain colors and a green halo; explicit cancel clears the preview. Expanded board behind the foreground rail, six-pixel frame gaps, taller rail animals and restored52/64px End. Empty placement frames disappear when terrain is complete and no animals are available. Verified official optional-animal rule and tested cancel → End while a valid habitat remains, without mutating animal progress. Build/unit and eleven browser scenarios passed; Docker5555 rebuilt/checked across six sizes plus shared controller. No deployment.
+
+- Harmonies: measured projected terrain fitting limits overlap with the rail to10% of a frame width, including resize/camera changes. Capped frames at64px, reduced both card rails10%, centered End and moved animal-preview cancel into the selected animal slot. Build/unit and eleven targeted browser cases passed, with an additional focused layout recheck after circle styling. Docker5555 rebuilt/verified at six sizes plus shared controller, preserving data/auth. No push/deploy.
+
+### Harmonies tap controls and garden panel — 2026-10-20
+
+- Removed drag-and-drop from terrain and animal hand controls; tap selection/board preview/confirmation remains, and animal swipes scroll normally.
+- Moved market cards above supply groups, enlarged supply discs without increasing the44px row, left-aligned both card headings with no owned-heading bottom padding, matched animal/terrain frame backgrounds, and recolored End and Solo exchange controls to the garden palette.
+- Validation: build/typecheck, presentation unit, and targeted browser coverage for mouse/touch tap/swipe behavior, preview cancellation, confirmation-only mutations, responsive geometry, Solo positions/reload, overflow, lightweight mode, loading and finished/restart. Docker rebuilt preserving existing data/auth and checked at six sizes plus interactive shared controller on localhost:5555. Touch uses Chromium emulation; no physical-device or deployment claim.
+
+### Harmonies card spacing, previews and End — 2026-10-20
+
+- Enlarged both animal-card rails5%, tightened market heading spacing, removed heading ornaments, bounded Solo supply discs and added a green border to Solo exchange controls.
+- Centered cancel crosses in the selected terrain/animal frame. Terrain confirmation now shows its original colored cap with a green halo and centered check, using the same preview/confirm contract as animals. Detail popups omit duplicate names inside card art.
+- Leaf-green End glows when enabled and floats across the owned-panel heading on portrait/narrow screens without obscuring cards. Increased the board fitting candidate3.5%, preserving the measured10% maximum rail intrusion.
+- Validation passed: build/typecheck, presentation unit, eleven browser scenarios, and rebuilt Docker5555 at six viewport sizes plus shared-controller mode. Existing Docker data/auth preserved; QA room closed unfinished. No physical-device or deployment claim.
+
+### Harmonies printed token art and consistent piece sizes — 2026-10-20
+
+- Built-in image_gen produced the new six-symbol atlas. Six transparent96px PNG prints (~20KB combined) now appear on board/hand/supply tokens, guides and full/lightweight card diagrams. Source/prompt/rebuild details: `docs/games/harmonies/token-print-prompts.json` and `scripts/build-harmonies-token-prints.mjs`.
+- Hand/animal frames follow the measured board token size with12px padding; terrain faces match the board diameter and projection. Board fitting preserves10% rail clearance. All three terrain contexts share an8px raised edge; supply faces shrink enough to keep that edge inside the same-height row.
+- Passed build/typecheck, presentation unit and eleven browser scenarios. Rebuilt Docker5555 with existing data/auth preserved and checked six viewport sizes plus shared controller. QA room closed unfinished. No push/deployment.
+
+### Harmonies animal selection clarity — 2026-10-20
+
+- Animal hand selection now uses the terrain hand's cyan highlight. Legal animal destination tiles emit a static upward cyan glow, reduced in lightweight mode.
+- Owned headings align precisely with the first card's original edge across centered/scrolling rails and viewport changes.
+- Build/typecheck and relevant browser checks passed; Docker5555 rebuilt preserving data/auth and verified at six sizes plus shared controller. No push/deployment.
+
+### Harmonies garden space and compact frames — 2026-10-20
+
+- Reduced printed motifs from90% to82% face coverage. Added5% to the fitted garden while allowing foreground rail overlap and keeping terrain inside the outer viewport.
+- Terrain/animal frames match board token diameter; hand pieces retain space for their8px edge. Owned-card sections anchor at the bottom with4px spacing, and End stays independent of the card edge.
+- Validation includes build/typecheck, presentation unit, responsive browser flows and rebuilt Docker5555 checks. Existing data/auth preserved; no push/deployment.
+- Final result: eleven browser checks passed; Docker5555 passed six sizes and shared-controller verification with no page scroll after orientation settling. Temporary QA rooms closed unfinished.
+
+### Harmonies visible placement effects and natural End position — 2026-10-20
+
+- Added upright aurora curtains at legal animal destinations, with animation disabled by reduced-motion/lightweight settings. Added white halos to model silhouettes on the board and in small/large card diagrams, preserving special colored effects.
+- End follows the animal rail naturally. The shelf begins scrolling only when the combined content reaches the lower card boundary. Padded scrollports show the full selected cyan frame/glow; supply-panel bottom spacing now visually matches its sides.
+- Passed build/typecheck, presentation unit and eleven browser checks. Docker5555 rebuilt with data/auth preserved and verified at six viewport sizes plus shared controller; temporary QA room closed. No push/deployment.
+
+### Harmonies terrain preview detail and larger End — 2026-10-20
+
+- Pending terrain now retains its print and colored cylinder shadow; a separate green check badge has its own glow and confirms even at its protruding edge. Reduced motif coverage to74% and lightweight prints to20px.
+- End is64px compact /76px wide, preserving natural rail flow. Picked supply groups have a dark-green1px border matching ordinary groups.
+- Build/typecheck and seven relevant browser scenarios passed, including mouse/touch preview confirmation and finished flow. Docker rebuild preserves data/auth; no push/deployment.
+- Final rebuilt Docker5555 passed six viewport sizes and shared-controller checks with no page scroll. The enlarged End stays fully visible; unfinished QA rooms closed and existing data/auth retained.
+
+### Harmonies precise selection outlines — 2026-10-20
+
+- Replaced animal-destination aurora with a clear two-tone hex outline. Unified terrain/animal selected source frames in one CSS declaration, removing the animal-only pale ring.
+- Pending terrain now shows a green badge with a white check and retains its glow. Renamed the visible turn button to “จบ”.
+- Build/typecheck and five relevant browser cases passed, covering mouse/touch placement, matching computed source frames, absent tile aurora, badge edge confirmation and finished flow. Rebuilt Docker5555 and verified six viewport sizes plus shared controller with no page scroll. Existing data/auth preserved; no push/deployment.
+
+### Harmonies completed-card popup consistency — 2026-10-20
+
+- Added the owned-card completion ribbon and shared dim treatment to full-card details. Restored “จบตา” on the round turn button. Popup supply cylinders use the same 8px edge/color as their source group.
+- Build/typecheck and six relevant browser cases passed, including mouse/touch completed vs incomplete popup checks, exact source/popup shadow comparisons, full-detail special aura and finished flow. Completed-card screenshots wait for artwork decoding before visual review.
+- Docker rebuilt with existing data/auth retained; six viewport sizes and the shared controller passed on localhost5555 with no page scroll. No push/deployment.
+
+### Harmonies Solo checkbox follows player joins — 2026-10-20
+
+- A roster with two or more players clears Solo automatically and disables re-selection. Spectators do not affect it; other setup options remain untouched. Server rules/validation are unchanged.
+- Build/typecheck passed. Two relevant browser cases passed: a real owner/friend/public-display join and reconnect retaining expansion/side settings before multiplayer start, plus the existing finished/restart flow.
+- Rebuilt Docker5555 retaining data/auth and verified the running app at six viewport sizes plus shared controller. No push/deployment.
+
+### Harmonies concurrent Spirit setup and retained hand rail — 2026-10-20
+
+- Each player's own private pair is available at setup. Normal actions wait for all choices; accepted choices update the authenticated actor's own cards. The shared-table manager advances through pending offers, while public displays receive only the remaining count.
+- Match-bound draft actions safely accept two independent confirmations from the same revision, preserving duplicate receipts and rejecting wrong-match/forged offers. Another player's choice no longer dismisses an unchanged Spirit confirmation popup.
+- Terrain and animal frames remain after the three terrain pieces are placed; End becomes enabled as before, with optional animal placement and preview confirmation/cancellation preserved.
+- Build/typecheck, 12 engine/transport cases (including full games across module combinations), and seven browser cases passed. Re-ran both expansion-room cases after adding a genuine concurrent same-revision confirmation test; both passed.
+- Rebuilt Docker5555 retaining data/auth. Real two-player browser verification passed simultaneous private offers, waiting, confirmation preservation, visible empty trays with enabled End, and the next player's turn. QA room closed unfinished; no push/deployment.
+
+### Harmonies centered load-failure recovery — 2026-10-20
+
+- Replaced the top-left failed-module paragraph/button with a centered garden status: stationary leaf/alert icon, “ยังเปิดสวนไม่ได้”, short recovery copy and “ลองอีกครั้ง”. Retry preserves the existing room/session through a normal reload.
+- Build/typecheck and the loading/routes browser scenario passed, including aborted game-module download, phone/desktop positioning and recovery without player duplication or game-state reset.
+- Rebuilt Docker5555 preserving data/auth and repeated the failed-download/retry flow on phone and desktop successfully. QA room closed unfinished; no push/deployment.
+
+### Harmonies finished buttons match End — 2026-10-20
+
+- Summary/restart now match End's green raised face, rim and diffuse glow, with equal64px compact /76px wide diameters and larger icons. Finished controls can paint over the owned garden panel without changing page height.
+- Build/typecheck and the real-server finished/restart browser scenario passed. Checks compare End and both finished buttons' computed face/border/glow, sizes and center hit targets at320/390/1100px, plus summary/inspection/restart confirmation and no body scroll.
+- Rebuilt Docker preserving data/auth; localhost5555 responds and serves the updated finished-control stylesheet. No push/deployment.
+
+### Harmonies finished board centering — 2026-10-20
+
+- Finished boards now center their projected tile bounds within the full viewport instead of relying on the square container center. Resize/camera changes recalculate that center, without placement-rail reservation.
+- Build/typecheck and three browser scenarios passed. Finished checks assert left/right center within1px at320/390/1100px and in top/tilt cameras, preserve no page scroll, inspect animals, open summaries and confirm/cancel restart. Playing mouse/touch responsive flows remain passing.
+- Docker rebuilt with existing data/auth preserved; localhost5555 responds and serves the exact verified Harmonies module. No push/deployment.
+
+### Harmonies T-rex promo — 2026-10-21
+
+- Added an opt-in one-card T-rex Nature’s Spirit promo, enabling Nature’s Spirits and shuffling an eleven-card pool. Server validation conserves10/11 inventories, accepts only boolean options and restores the module with the room. Default/base inventories remain unchanged.
+- Implemented the official rock3/field/tree3 straight habitat and two-point reachable Animal-cube scoring, excluding gaps, duplicates/cycles, T-rex itself and lone Whispers. Solo modifier is0 Suns. Added illustrated help/scoring and documented primary source references plus Whispers handling.
+- Generated new original card and transparent figurine assets; optimized full/small/lite WebP card sizes and uniform160×184 model. Golden aura uses existing effects, with a subtle transform-only idle that stops in lightweight/reduced-motion modes.
+- Build/typecheck passed. Eleven engine cases passed (including full base/promo games across counts/modules), two actual room transport/persistence cases passed with promo enabled, and four browser cases passed. New browser flow covers option dependency, private T-rex selection, legal model placement, completed detail, scoring diagrams, reload and both motion-reduction controls. Verified real alpha and model dimensions; reviewed card/board/scoring screenshots.
+- Rebuilt Docker5555 preserving data/auth. Real Docker browser verification passed optional setup, genuine random offers, private selection/reconnect, illustrated scoring/help, new image responses and public display. QA room closed unfinished; no leaderboard score fabricated, no push/deployment.
+
+### 2026-10-21 — Harmonies: reviewed Crescendo/Pulse subset and new boards
+
+- Cross-checked the user's unboxing with publisher Crescendo/Pulse manuals and printed-face photos. User explicitly authorized skipping unreadable entries. Live catalog includes four Sanctuaries (01,02,04,05) and one Pulse tiger (3/10/16); six Sanctuary stacks and nine Pulse animal patterns remain excluded. Lobby labels disclose partial coverage. Camel and yak are Pulse animals, not missing base-deck entries.
+- Implemented side C's 26-cell central-hole topology and four-color/eight-point buildings; side D's 25 cells, 18 dry identities, water restoration, 2/4/9 trees and conditional six-point fields. Shared engine/client coordinates, legal habitats, scoring, persistence and board fitting all use the selected topology. C/D retain their side on rematch; no unpublished Solo Sun thresholds are invented.
+- Sanctuaries support independent once-per-turn drafting, shared four-incomplete-card capacity, bound four-token construction, completion, unlimited matching-color final ordinary Animal cubes, neighbor scoring, terrain exclusions, cube counts and T-rex connectivity. Hidden pile order is not projected. Added inventory/progress validation and authenticated duplicate/out-of-turn/reconnect coverage.
+- Sanctuary offers open from the market; owned faces join the garden rail. They use original scene art plus native token SVGs in the selected 2D/3D style. Completed stacks show their residents; inspection lists all resident cards and eligible final-animal actions. Scores include a Sanctuary subtotal/comparison column. Pulse tiger has its own card, paper/sculpted models and six reflected habitat orientations in addition to rotations.
+- Built-in image_gen produced 40 original assets (10 Pulse scenes, 20 models, 10 Sanctuary scenes). Sources/prompts: `docs/games/harmonies/crescendo-complete-v1-art-jobs.json`; export script `scripts/build-harmonies-crescendo-art.mjs`; gallery `/art/harmonies/crescendo-review/index.html`. Unreviewed art is visible only in the gallery, not in the playable catalog. Prior 3D assets remain unchanged.
+- Verification: `npm run build` passes. Harmonies unit suite: 59 passed, two pre-existing skips (`data/hm-crescendo-all-unit.log`); final expanded Crescendo/Pulse rules suite: eight passed, including complete C/D mixed-module games with 2/4 players. Nine browser checks passed for card art, C/D, hospitality, scoring and finished views; final C/D/hospitality/results regression run: four passed. Logs: `data/hm-crescendo-{final-browser,results-browser,final-rules}.log`.
+- Rebuilt local Docker with `npm run docker:rebuild`, preserving the existing volume/auth isolation. Actual localhost:5555 passed C/D map, claim, token placement, reload and 2D/3D Sanctuary checks; all 40 gallery assets loaded. Evidence: `data/hm-crescendo-live.log`, `data/qa-harmonies-crescendo/`. No push or Vercel deployment.
+
+### Harmonies — softer original 3D token shapes in 2D; vertical special-card scores
+
+- Reused original six 3D terrain PNGs inside code-generated SVG color wrappers. 2D uses lighter rail-derived hues with the same motifs, texture, shadows, alpha and dimensions; stacking/placement geometry remains unchanged. No original 3D asset was overwritten. Rebuild script: `scripts/build-harmonies-soft-tokens.mjs`; color/source-hash manifest: `docs/games/harmonies/soft-token-colors.json`.
+- Spirit/T-rex scenario numbers now sit below their examples, centered and enlarged to 64 units. Updated row/track sizing and top anchors for small cards/popups in both modes; scoring values unchanged.
+- `npm run build` and six targeted unit checks passed, including exact alpha equality for all six token wrappers. Six browser checks passed for every card family, mouse/touch placement and personal view switching; the final score-layout pass rechecked all 54 cards and both popup modes (three passed). Logs: `data/hm-soft-score-{unit,browser,cards-final}.log`.
+- Rebuilt Docker preserving the local volume/auth configuration. Actual localhost:5555 passed enlarged vertical scoring, softened SVG loading, placement, original 3D switching and reload. Screenshots/log: `data/hm-soft-score-docker-*.png`, `data/hm-soft-score-live.log`. No push/deployment.
+
+### 2026-10-22 — Harmonies: larger paired figures, consistent dialogs, floating end message
+
+- Increased board figures about 33%. Shared Animal/Whisper pairs keep equal dimensions and overlap left/right on the same cap baseline; no pairing shrink. Existing model art, cards and rules remain unchanged.
+- Replaced the hamburger with a circular settings gear, removed its obsolete details-class styling, and shared the help/scoring dialog shell with settings and rankings. Retained ranking API, modes, keyboard/focus and retry behavior.
+- Finished-board fitting now ignores banner dimensions and uses the full viewport with only fixed terrain headroom; the end message floats over the board. A browser regression changes the message to 500px tall and confirms board scale stays unchanged.
+- `npm run build` passed. Seven distinct browser checks passed: both model families (front visibility, shared equal size/anchors, near/far scale), mouse/touch placement layouts, settings/guide/rank shell parity and view switching, leaderboard behavior, and finished inspection/results/restart. Final finished fitter rerun also passed. Logs: `data/hm-model-ui-{browser-fix,controls,finished-final}.log`.
+- Rebuilt Docker preserving volumes/auth isolation; actual localhost:5555 checked the settings circle, shared dialog style, pair geometry and reload. Its temporary pair overlay is presentation-only and disappears on reload; it never enters game state or leaderboard results. Live evidence: `data/hm-model-ui-live.log`, `data/hm-model-ui-docker-*.png`. No push or deployment.
+
+### 2026-10-22 — Harmonies: grouped, color-sorted Animal card library
+
+- Added the circular card-library button immediately right of help and spaced all six header controls for 320/390/1180px layouts. The shared popup shows all 54 supported cards in four requested categories and a three-column grid, sorted by destination/rail terrain and Thai name.
+- Reused existing small/full `cardFace` rendering, including the selected 2D/3D art, tokens, scoring and large-card animal model. In-dialog Back restores gallery scroll/focus; close restores toolbar focus. No game actions/state changes or hidden deck/draft information are involved.
+- Build passed. Browser checks passed for both art modes (all entries/categories, color order, exactly three columns, header fit, full artwork loading, detail/back/scroll/focus and unchanged room revision/state) plus the existing settings/view-mode regression. Final catalog rerun passed both modes. Logs: `data/hm-library-{build,browser,final-browser}.log`.
+- Rebuilt Docker with existing volume/auth isolation. Actual localhost:5555 verified all 54 cards, categories, sorting, large view and return in both modes; own test room closed without finishing/recording leaderboard results. Evidence: `data/hm-library-live.log`, `data/qa-harmonies-card-library/`. No push/deployment.
+
+### Harmonies — direct rail colors for 2D tokens (2026-10-22)
+
+Removed the 28% ivory mix from all six 2D token color targets. They now use the card rail RGB values directly, retaining original 3D silhouettes, symbols, texture, shadows and stacking geometry. Original 3D textures remain unchanged. Targeted texture tests pass, including exact alpha comparison against every source pixel.
+Docker rebuilt and verified at localhost:5555: all six served SVGs match regenerated assets and rail RGB targets; source 3D hashes unchanged. Live browser checks passed for 2D placement, switching to original 3D, and reload.
+
+### Harmonies — yellow-rail scores, result models and Sanctuary details (2026-10-22)
+
+Yellow-rail cards now show grey score numerals in both sizes and art modes. Results use default four-layer Sanctuary and Whisper models beside their scoring categories; the garden display includes completed Sanctuaries and their resident animals. Model captions and player names stay on one line with ellipsis and full-name titles. Owned Sanctuary cards omit their title and open an individual large-card popup, retaining resident inspection and final-animal placement. The central Sanctuary market trigger is horizontally centered.
+
+Validation: production build passed; C/D multiplayer, reconnect, individual Sanctuary details/final resident and result models passed in browser tests; all-card library checks passed for both art modes and yellow-rail score colors. Docker rebuilt and live localhost:5555 verified for centered market, nameless owned card, individual popup and grey scores in 2D/3D. Summary screenshots checked on a 390px viewport. Live QA room closed without finishing a game or writing leaderboard scores.
+
+### Harmonies — Sanctuary badge, completion ribbon and clear finished board (2026-10-22)
+
+Generated and integrated a transparent Sanctuary medallion with source/prompt recorded in `docs/games/harmonies/sanctuary-badge-v1.json`. Added the upper-left badge to Sanctuary cards and a completion ribbon reading `ครบแล้ว · 1 แห่ง`. Shared-cap Whispers retain full size but render behind the animal, including previews. Moved the finished-game message over the token supply and results/restart controls over owned cards, preserving board scale.
+
+Validation: production build and six browser scenarios passed, covering both art modes' model occlusion, C/D Sanctuary claims/reconnect, completion/ribbon/final-resident placement, and finished-game results/inspection/restart at phone and desktop widths. Reviewed screenshots for clear animal priority and finished-board visibility.
+Docker rebuilt and healthy at localhost:5555. Live browser verification passed for the generated badge on owned/individual Sanctuary cards and existing card controls; served WebP matches the workspace asset and retains transparent edges. Live QA room closed without finishing a game or adding leaderboard records.
+
+### Harmonies — full card library, rainbow Spirits and ornamental scoring (2026-10-22)
+
+Renamed the library/menu to `คลังการ์ด` and included the four verified Sanctuary tiles as a fifth category, bringing the collection to 58 cards. Retained three columns, terrain-based grouping order, individual large-card display, Back scroll/focus restoration and read-only browsing.
+
+Added a code-native patterned rainbow rail for the ten legendary Spirits across both art modes/sizes; scoring fills retain their existing terrain colors, and T-rex keeps its gold/orange treatment. Spirit/T-rex score panels now have a curved decorative frame, inset accents and a lower ornament, plus extra footer space beneath the last numeral.
+
+Validation: production build, two targeted rendering/texture unit tests, both library browser modes, both popup geometry modes and the complete 54-animal-card overlay audit passed. Screenshots inspected for Sanctuary large views and Spirit panels in both art modes. Docker rebuilt and live localhost:5555 flow passed for the 58-card library, four Sanctuaries, Back navigation, ten rainbow rails and padded Spirit/T-rex panels. QA room closed without finishing a game or adding leaderboard records.
+
+### Harmonies — model contrast, white T-rex scores and horizontal wide-map trays (2026-10-22)
+
+Added white silhouette shadows to 2D board animals/Whispers and rainbow shadows to Spirits/T-rex. T-rex score numerals are white. Top camera is the default on entry, re-entry/reload, room changes and camera reset; tilt remains selectable.
+
+C/D maps now use horizontal terrain/animal controls below the mat, with original slot footprints and horizontal animal scrolling. Board fitting reclaims the full width, reserves bottom controls and fixed stack headroom, and retains uniform tile sizes. A/B keep the right-hand controls. Kept finished controls over owned cards and removed off-screen layout overflow caused by the top-view 3D canvas.
+
+Validation: production build; seven browser scenarios covering both art modes' shadows/layers, card library/T-rex text, C/D multiplayer placement/reconnect and Sanctuary completion; two placement-interaction regressions; and final finished-game inspection/summary/restart regression passed. C/D screenshots reviewed at phone and desktop sizes.
+Docker rebuilt and healthy at localhost:5555. Live browser checks passed for C/D at 320/390/1180px, horizontal control placement, token placement, top-view reload after selecting tilt, white/rainbow 2D shadows, and white T-rex numerals. QA rooms closed without finishing games or adding leaderboard records.
+
+### Harmonies — market spacing/colors and finished boundary overlays (2026-10-22)
+
+Lifted the centered Sanctuary market tab by 6px to clear the card tops without resizing the board. Claim (+) uses muted forest green; Solo swap uses pale sage with darker details and a distinct disabled state. Finished-game text follows the centered drafting/board boundary, while summary/restart coins follow the midpoint between the mat bottom and owned cards. Desktop side-by-side layout keeps these controls above the owned cards and the label within the board's top edge. The drafting panel allows the message to cross its edge without clipping.
+
+Validation: production build and C/D market spacing/color, Sanctuary placement/reconnect, and finished-game summary/inspection/restart browser scenarios passed. Reviewed the 390px finished screenshot for fully visible boundary text and centered controls. Docker build/prune steps were separated and production pruning uses --no-audit --no-fund, eliminating the stalled network audit. Final rebuild completed and the app is healthy at localhost:5555. Live checks passed for Sanctuary spacing, both market action colors, token placement and Solo swap confirmation. The QA room was closed without finishing a game or adding leaderboard scores.
+
+### Harmonies — compact statistics/tally and padded settings (2026-10-22)
+
+Centered all garden model types in one overlapping row. Placed category totals directly over tokens/models with a diffuse white halo and names underneath; hid hex bases. Statistics use a full-width five-column overview table and avatar tabs to view one player's detailed totals at a time. Kept every per-category score and expandable per-card breakdown accessible. Compacted the initial reveal/tally and winner stages without changing scores or sequencing.
+
+Settings now use padded groups, three equally sized camera buttons and avatar-prefixed two-column player tabs, omitted for Solo. Room metadata and QR are centered inside collapsed `รายละเอียดห้อง`; effects/art settings, room permissions and QR generation remain functional.
+
+Validation: production build and six browser scenarios passed, including valid completed-game fixtures with six animal types, all nine scoring categories, 320×667/390×844 no-scroll result layouts, player switching, first tally, Sanctuary completion, multiplayer/reconnect, and settings/art-mode/leaderboard behavior. Reviewed tally, overview and settings screenshots. Docker rebuilt and healthy at localhost:5555; live Solo/multiplayer settings, equal camera sizes, avatar tabs, padding and centered collapsed room/QR details passed. QA rooms closed without finishing games or adding leaderboard records.
+
+### Harmonies — no-scroll winner summary with score/suns first (2026-10-22)
+
+Moved winner score and Solo suns into a compact group above garden models. Kept the models centered in one overlapping row and the full-width `ดูตารางคะแนนทั้งหมด` action last. Preserved winner/tie navigation, Solo sun calculation and the separate detailed statistics view. Production build and five browser scenarios passed; six-type winner screenshots checked at 320/390/1100px with no dialog scroll, score above models and final button below. Docker rebuilt and healthy at localhost:5555; the live Harmonies page and winner-summary JS/CSS match the tested production build. Completed-game fixtures stayed isolated from live leaderboard data.
+
+### Harmonies — generated Sanctuary artwork and low completed models (2026-10-22)
+
+Generated full-art temple backgrounds and transparent low miniatures for the four verified Sanctuary types, preserving old assets. Added normal rounded card corners, special badges, patterned temple rails and centered bottom token patterns without embedded names/instructions. Details appear below large cards. The central picker has three native garden-size previews, individual `เลือก` actions and preview-to-detail navigation. Completed temples replace visible four-token stacks with low models; resident animals sit on their roofs. Added animal-popup shadows, balanced Sanctuary trigger spacing and white earned scores on yellow cards.
+
+Validation: production build, three asset/render unit checks, all 54 animal-card audit cases, both art-mode detail/library scenarios, C/D Sanctuary selection and multiplayer/reload scenarios, completed-temple resident/scoring checks, and compact result regressions passed. One test-only hidden-element geometry/timing assertion was corrected and rerun successfully. Docker rebuilt healthy at localhost:5555. Live authenticated UI verification checked three native-size choices, text-free full-art details with descriptions below, then built a temple through legal turns and confirmed the low model persisted after reload. QA room closed without finishing a live game or adding leaderboard records. Reviewed asset contact sheet, large-card, picker and completed-board screenshots.
+
+### Harmonies — restore Sanctuary stacks and enlarge wide-board trays (2026-10-22)
+
+Restored completed Sanctuaries to four visible stacked tokens on the board, including resident animal placement. Kept generated temple artwork/summary models. Reused the animal cards' canonical hex base and token geometry for Sanctuary card patterns. Centered the detail selection button and made construction help immediately visible. Enlarged bottom token and animal slots for wide boards while retaining horizontal animal scrolling and touch gestures.
+
+Validation: production build passed; both card-library art-mode scenarios passed; C/D selection, shared-display, reconnect, centered selection action, visible construction help, enlarged slots at 320/390/1024px and horizontal overflow checks passed, plus completed four-layer stack/resident and summary regressions (three Crescendo scenarios). Screenshots reviewed for the picker, enlarged mobile trays and completed stack.
+
+Docker rebuilt and healthy at localhost:5555. Live authenticated C-board verification confirmed enlarged bottom trays, matching hex bases, always-visible help and centered detail selection. Built a Sanctuary through legal turns and checked all four token layers remain visible after reload; closed the QA room without finishing a live game or adding a leaderboard record.
+
+### Harmonies — taller wide boards and Sanctuary score panels (2026-10-22)
+
+Reduced active C/D board top/bottom clearance and let the ground layout fill the available height above the bottom trays. Token/animal artwork keeps its proportions. Made the extended background canvas ignore pointer events while retaining interactive cell controls, preventing it from blocking the public supply.
+
+Added an ornamental Sanctuary score panel to every small/large card: two qualifying terrain icons, `3 ต่อช่องติดกัน`, and authoritative `รวม …` on owned cards. Completed cards use a green panel; full explanation and accessible labels state the qualifying top colors. No scoring or state changes.
+
+Validation: production build, both art-mode library scenarios and three Crescendo scenarios passed. Checked C/D at 320/390/1024px for minimal mat clearance, enlarged scrolling trays and unobstructed supply buttons; completed stacks/residents, summaries and reload remained valid. Reviewed large-card/mobile/desktop screenshots. Docker rebuilt healthy at localhost:5555; live UI play built a Sanctuary through legal turns, showed four visible layers and current score, and restored it after reload. QA room closed without finishing a live game or adding leaderboard data.
+
+### Harmonies — remove board haze and simplify Spirit selection (2026-10-22)
+
+Removed ambient board haze, kept supply controls above extended board geometry, and centered regular-board mats vertically. Restored tilted entry/default/reset camera while preserving overhead selection. Removed the separate model under 3D Spirit draft cards, placed card names below their images, used shared dynamic rows for aligned select-only buttons, and removed the 2D green card-top strip. Shortened Sanctuary completion ribbon to `ครบแล้ว(1)`.
+
+Validation: production build and five relevant browser scenarios passed: C/D selection/shared display/reconnect, completed Sanctuary stacks/residents/results, multiplayer Spirit draft in both art modes at 320/390/1100px (including a long wrapped name), default/overhead/reset camera and centered regular mat, and Android effects preference/state persistence. Updated obsolete performance assertions for the current card-art system. Reviewed 2D/3D draft screenshots and wide-board screenshots.
+
+Docker rebuilt and healthy at localhost:5555. Live authenticated Solo verification passed both Spirit draft art modes, aligned select-only actions, below-card names and no external models. Confirmed tilted entry, no haze, clickable C-board supply, legal four-layer Sanctuary construction, compact completion ribbon and reload. Closed the QA room without finishing a live game or adding leaderboard data.
+
+### Harmonies — no 3D flash on entry and clearer picker tokens (2026-10-22)
+
+Changed the early room theme/background preload and default game CSS to illustrated water. Explicit saved 3D preference remains supported before and after lazy loading. Kept early art preference intact during garden preparation. Added six lossless 256×224 picker PNGs, pixel-identical to the colored SVG card textures, and removed duplicate picker squashing/depth decoration. Original card assets/colors and 3D sources remain unchanged.
+
+Validation: production build passed; three asset checks passed including complete RGBA equality between picker PNGs and card SVG renders. Loading and personal-view browser scenarios passed, covering held initial/lazy JS, canonical/legacy routes, explicit saved 3D, error/retry, display/reconnect and 2D/3D pickers. Reviewed picker screenshots. Docker rebuilt healthy at localhost:5555. Live authenticated verification held main JS and confirmed the 2D first paint without any 3D forest-image request, checked full-resolution unsquashed picker textures in both modes, then selected a group, placed a token and reloaded successfully. Closed the QA room without finishing a live game or adding leaderboard data.
+
+### Harmonies — ORIGINAL artwork and board-specific room details (2026-10-22)
+
+Replaced the personal 3D checkbox with equal 2D / 3D / ORIGINAL buttons and active states. Art switching keeps the same modal open, including repeated active-button clicks, scroll position and expanded room details. Saved ORIGINAL preferences restore with the illustrated loading background. Added selected-board explanations to room details for A/B/C/D; D explicitly permits placement on brown hatched dry cells and explains irrigation and tree/field scoring. Checked C/D wording against the publisher rulebook, printed pages 8–9. No rules, legal actions or shared room options changed.
+
+Extracted 43 whole card fronts from user-supplied PDFs/photo: 32 current ordinary animals, ten Spirits and T-rex. Small/large images use the identical native-resolution file. No generated token/score overlays or art gradients cover Original images; proportions are preserved. Whispers, reviewed Pulse tiger and Sanctuaries fall back to 2D. Sources, hashes, actual pages/xrefs, crops, orientation and output dimensions are recorded in `original-art-manifest.json`; source extraction is reproducible with `scripts/extract-harmonies-original.py`. Spirit embedded JPEGs require the PDF's vertical flip, not 180-degree rotation; verified readable right-side scores against rendered PDF pages. No new gameplay from the Melodies campaign PDF was introduced.
+
+Quality limitation: thirty normal fronts are approximately 231×400px crops; Spirits are 322×555px. Two matching normal cards use 823×1418px standalone images and T-rex uses the supplied 970×1680px photo. Files retain source detail without invented upscaling; a sharper large view requires higher-resolution originals.
+
+Validation: production build, two asset tests (43-card coverage, native dimensions, same small/large URL, exact 2D Whisper fallback, ten Spirit orientation comparisons) and five relevant browser scenarios passed. Covered C/D room help, equal active buttons, rapid/repeated switches, Original full/small display, no generated overlays, 2D Whisper library fallback, preference reload, multiplayer draft and loading/legacy/public-display paths. Reviewed card contact sheet, Original detail/selection and settings screenshots. Docker rebuilt healthy at localhost:5555; live authenticated D-board verification passed all modes, whole-card detail, legal token placement on a dry cell, preference/hand restoration after reload and library Original T-rex/2D Whispers. Closed QA rooms without finishing games or adding leaderboard data.
+
+### Harmonies — all 43 ORIGINAL cards redrawn and board cubes (2026-10-22)
+
+Generated 43 distinct new scenes with built-in image_gen, each from its corresponding Original reference. Reviewed a full reference/new contact sheet. Composed fresh native-style terrain rails, score tracks, six token motifs, hex bases and cube positions from the catalog into lossless 900×1550 WebP cards, using one file at all sizes. Reviewed all completed cards and detailed samples. Archived references and previous 2D/3D art remain intact; Whispers/Sanctuaries/reviewed Pulse fallback to 2D as before. Prompt/source/output/hash and rule-geometry provenance are in `original-redrawn-v1-jobs.json`. Generation completed 43/43 without failures.
+
+Original board/tray pieces now use gold ordinary cubes, white Spirit/T-rex cubes and purple Whisper cubes. Preview and committed pieces share the renderer. Added correct cube-foot grounding for both cameras and retained equal-sized shared occupants/front-back layering. Results and 2D/3D animal models remain unchanged. No server rules/state/schema changes.
+
+Validation: production build, two asset/reference tests and four browser scenarios passed. Checked all active images have high resolution and identical small/large URLs, current card data/fallbacks, menu persistence, C/D details, actual normal-cube preview/commit/reload, special colors, three-layer cube grounding in both cameras, shared Whisper placement, and restoration of animal models in other art modes. Docker rebuilt healthy at localhost:5555. Live authenticated Solo verification served all 43 new files, decoded a large card at 900×1550, constructed a real Spirit habitat through legal token actions, verified tray/preview/committed white cubes and restored the cube after reload. QA rooms closed without finishing games or adding leaderboard records.
+
+### Harmonies — individual scores and Sanctuary selection (2026-10-22)
+
+Statistics now show aligned terrain stacks and individual scores for each owned animal/special card/Sanctuary in consistent four-column cells, with no separate animal model row. Zero-point cards remain visible. A bounded internal grid permits unusually large collections while ordinary six-animal results fit 320×667, 390×844 and desktop without dialog scrolling. Comparison table and player detail buttons remain available. Sanctuaries precede finished Animal cards in the owned strip; selection buttons have a brighter jade/gold treatment and a visible per-turn limit.
+
+Verified publisher Crescendo rules p5: one Sanctuary tile per turn independently of the Animal claim. Existing authoritative engine already enforces that limit; added replay/serialization/Solo/multiplayer regression coverage rather than changing the rule. Production build and nine Crescendo rule tests passed. Five relevant browser scenarios passed, including per-card score values, shared picture baselines, no initial scrolling, player switching, completed Sanctuary ordering, C/D claims, reload and shared-display convergence. Fixed an existing viewport test's stale geometry snapshot by polling current bounds. Docker rebuilt healthy; actual localhost:5555 Solo flow confirmed selection color, one Sanctuary claim after reload, independent Animal claim, and next-turn allowance. QA room closed without ending the game or inserting leaderboard results.
+
+### Harmonies — sharper 2D card tokens (2026-10-22)
+
+Switched only card token sources (habitats, special scoring examples and Sanctuary stacks) from nested filtered SVGs to the existing lossless precolored PNGs. Shared geometry, rail colors, alpha and stack positions are preserved; 3D and ORIGINAL remain unchanged. Reviewed small/large card screenshots. Production build, ten focused asset/geometry/Original tests and three browser scenarios passed, covering all 54 available animal/special faces plus both art modes. Updated the geometry comparison's token-path normalization to include the current soft-token family. Docker rebuilt healthy; live verification at localhost:5555 checks small/large 2D PNG sources and asset serving, then switches to verify unchanged 3D and ORIGINAL sources. QA room is closed without completing a game.
+
+### Harmonies — Sanctuary completion ribbon (2026-10-22)
+
+Changed the shared small/large Sanctuary completion ribbon from `ครบแล้ว(1)` to `ครบแล้ว`. Each owned tile builds one Sanctuary; multiple distinct tiles may be acquired across turns. The construction/scoring rules are unchanged. Updated the existing completed-Sanctuary browser expectation.
+
+### Main production release and Google OAuth repair preparation (2026-10-22)
+
+Verified the linked target `sarayuths-projects/game-verse` and main at the existing remote head. Reproduced Google `401 invalid_client`: the live production authorization URL contained a malformed Client ID. Validated the local private OAuth pair at Google's token endpoint using an intentionally invalid code (recognized client: `invalid_grant`) and checked that the canonical production callback reaches the Google sign-in page. Replaced only the production Google ID/secret via stdin as Vercel Secrets. No database, membership or Better Auth session-secret changes. New deployment will apply those values; actual user consent/callback is not simulated by these checks.
+
+Release validation: full unit suite 326 passed, four optional tests skipped, no failures; ten targeted browser scenarios passed (C/D Sanctuaries/reconnect, completed Sanctuary/scoring, individual statistics/player switching, ORIGINAL modes/cube placement, final serving, lobby kicks). Updated two stale art assertions to current rainbow rails/direct PNG tokens and registered previously omitted serving/kick suites. Build passed, Docker rebuilt; private env files and known local credentials excluded from 1,270 staged files. Runtime art exports are included; ignored generation masters remain local.

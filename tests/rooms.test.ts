@@ -443,3 +443,35 @@ test("rematch keeps room/sessions and receipts, resets resources, rejects wrong 
     await app.close();
   }
 });
+
+test('lobby removal is host-only, durable, deduplicated and revokes only the removed seat',async()=>{
+ const app=await startServer(0,'127.0.0.1',true,()=>.42,{storePath:':memory:',legacyHarness:true}),port=(app.server.address() as any).port,clients:Client[]=[];
+ const make=async()=>{const c=await new Client().connect(port);clients.push(c);return c;};
+ try{
+  const host=await make();host.send({type:'create'});await host.wait(m=>m.type==='state');const code=host.session.code;
+  const players:Client[]=[];for(let i=0;i<4;i++){const p=await make();p.send({type:'join',code,name:'เพื่อน '+i});await p.wait(m=>m.type==='state');players.push(p);}
+  const display=await make();display.send({type:'watch',code});await display.wait(m=>m.type==='state'&&m.view.players.length===4);
+  await host.wait(m=>m.type==='state'&&m.view.players.length===4);
+  const victim=players[0],id=victim.session.playerId!,token=victim.session.token;
+  assert.equal((await players[1].command('kick-denied-01',{type:'room-kick',playerId:id},host.view.revision)).ok,false);
+  assert.equal((await host.command('kick-stale-001',{type:'room-kick',playerId:id},0)).ok,false);
+  assert.equal((await host.command('kick-invalid01',{type:'room-kick',playerId:id,extra:true})).ok,false);
+  // A failed durable write must not disconnect or revoke a live participant.
+  const save=app.store.saveRooms.bind(app.store),offset=host.messages.length;
+  app.store.saveRooms=()=>{throw Error('test storage failure');};
+  host.send({type:'command',id:'kick-rollback1',revision:host.view.revision,action:{type:'room-kick',playerId:id}});
+  await host.wait(m=>m.type==='error'&&m.error.includes('บันทึกไม่สำเร็จ'),offset);app.store.saveRooms=save;
+  assert.equal(victim.ws.readyState,WebSocket.OPEN);assert.equal(app.rooms.rooms.get(code)!.players.length,4);
+  const first=await host.command('kick-accepted1',{type:'room-kick',playerId:id});assert.equal(first.ok,true);
+  await display.wait(m=>m.type==='state'&&m.view.players.length===3);
+  await victim.wait(m=>m.type==='error'&&m.error.includes('เจ้าของห้อง'));
+  assert.equal((await host.command('kick-accepted1',{type:'room-kick',playerId:id},0)).revision,first.revision);
+  assert.equal(app.rooms.rooms.get(code)!.players.length,3);
+  assert.equal(app.store.loadRooms().find(r=>r.code===code)!.sessions.some((s:any)=>s.token===token),false);
+  const removed=await make();removed.send({type:'resume',code,token});await removed.wait(m=>m.type==='error');
+  const survivor=players[1],session=survivor.session;survivor.ws.close();const resumed=await make();resumed.send({type:'resume',code,token:session.token});await resumed.wait(m=>m.type==='state');assert.equal(resumed.view.me?.id,session.playerId);
+  await host.command('kick-start-001',{type:'start'});await host.wait(m=>m.type==='state'&&m.view.phase!=='lobby');
+  assert.equal((await host.command('kick-playing01',{type:'room-kick',playerId:session.playerId})).ok,false);
+  assert.equal(app.rooms.rooms.get(code)!.players.length,3);
+ }finally{clients.forEach(c=>c.ws.close());await app.close();}
+});

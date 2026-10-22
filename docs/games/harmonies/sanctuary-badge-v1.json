@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset type: single small board-game card corner badge, transparent background. Create one elegant readable sanctuary icon for a nature board game: a tiny ancient stone temple with two broad pillars and a stepped triangular roof, a small leaf in its center, set in a circular deep teal medallion with a warm cream-gold rim. Textured flat storybook illustration, paper grain, bold simplified geometric shapes, muted turquoise stone and warm ivory highlights. Front view, centered, square composition, generous transparent margin, strong silhouette legible at 28 pixels. No text, no letters, no numbers, no extra objects, no scenery, no watermark. Actual transparent alpha background outside the medallion.",
+  "source": "assets/source/harmonies/badges-v1/sanctuary.png",
+  "output": "public/art/harmonies/badges-v1/sanctuary.webp",
+  "transparent_background": true
+}

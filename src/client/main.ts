@@ -1,3 +1,4 @@
+import {roomRoute,roomPath} from './room-route.js';
 import {updateRoomRestart} from './room-restart.js';
 import {illustratedGameGuide} from './game-learning.js';
 import {renderTakeTime,closeTakeTime} from "./take-time.js";
@@ -78,7 +79,7 @@ let session: Session | undefined,
   entryError = "",
   deferredEntry: ClientMessage | undefined,
   pending: Extract<ClientMessage, { type: "command" }> | undefined;
-let route = location.pathname.split("/").filter(Boolean),
+let route = roomRoute(location.pathname),
   role = route[0],
   code = (
     ["display", "play"].includes(role) ? (route[1] ?? "") : ""
@@ -179,6 +180,9 @@ function connect() {
       const jaipurGap=view?.gameId==="jaipur"&&m.view.gameId==="jaipur"&&view.code===m.view.code&&!m.snapshot&&(m.view.revision>view.revision+1||(view.sequence!==undefined&&m.view.sequence!==undefined&&m.view.sequence>view.sequence+1));
       turnSound.accept(m.view, (!!m.snapshot || !!wondersGap || !!jaipurGap)&&!startingPixies&&!startingHarmonies&&!startingLocus, !!restartingDuel && !reconnectPresentation);
       view = m.view;
+      // Public presentation hint only. Authentication retains the original room/role key.
+      try{localStorage.setItem('gameverse:room-theme:'+view.code,view.gameId==='harmonies'&&view.phase!=='lobby'?'harmonies':'');}catch{}
+      if(['play','display'].includes(role)){const path=roomPath(view.gameId,role as 'play'|'display',view.code);if(location.pathname!==path)history.replaceState(null,'',path);}
       if (view.gameId === "camel-up") loadCamelArt();
       deliverySnapshot = (!!m.snapshot || !!wondersGap || !!jaipurGap)&&!startingPixies&&!startingHarmonies;
       if(wondersGap||jaipurGap)send({type:"sync"});
@@ -276,25 +280,28 @@ function render() {
     active?.tagName === "BUTTON" ? active.textContent : undefined;
   renderContent();
   updateRoomRestart(main,view,session?.role === "host" || !!view?.me?.canManage,!!pending || !connected,command);
-  bindRoomLinks(main, platform.joinOrigin ?? location.origin);
+  bindRoomLinks(main, platform.joinOrigin ?? location.origin,view?.gameId);
   main.classList.toggle(
     "display-surface",
     !!view && session?.role !== "player",
   );
   main.classList.toggle("phone-surface", session?.role === "player");
   main.classList.toggle("many-players", (view?.players.length ?? 0) > 4);
-  const platformTheme = !view || view.phase === "lobby";
+  const gardenTheme=(!view&&preparingGarden())||(view?.gameId==='harmonies'&&view.phase!=='lobby');
+  document.documentElement.toggleAttribute('data-room-theme',gardenTheme);
+  if(gardenTheme)document.documentElement.dataset.roomTheme='harmonies';
+  const platformTheme = !gardenTheme&&(!view || view.phase === "lobby");
   const duelTheme = !platformTheme && view?.gameId === "dracula-vs-van-helsing";
   const azulTheme = !platformTheme && view?.gameId === "azul";
   const critterTheme=!platformTheme&&view?.gameId==='critter-kitchen';
   document.documentElement.classList.toggle('critter-document',critterTheme);
   document.body.classList.toggle('critter-theme',critterTheme);
   if(!critterTheme)closeCK();
-  document.documentElement.classList.toggle("harmonies-document",!platformTheme&&view?.gameId==="harmonies");
+  document.documentElement.classList.toggle("harmonies-document",gardenTheme);
   document.body.classList.toggle("take-time-theme",!platformTheme&&view?.gameId==="take-time");
   if(view?.gameId!=="take-time")closeTakeTime();
-  document.body.classList.toggle("harmonies-theme",!platformTheme&&view?.gameId==="harmonies");
-  if(view?.gameId!=="harmonies")closeHarmonies();
+  document.body.classList.toggle("harmonies-theme",gardenTheme);
+  if(view?.gameId!=="harmonies"&&!gardenTheme)closeHarmonies();
   document.body.classList.toggle("pixies-theme",!platformTheme&&view?.gameId==="pixies");
   if(view?.gameId!=="pixies")closePixiesResults();
   document.body.classList.toggle("jaipur-theme",!platformTheme&&view?.gameId==="jaipur");
@@ -313,7 +320,7 @@ function render() {
     'meta[name="theme-color"]',
   );
   if (themeMeta)
-    themeMeta.content = view?.gameId === "pixies" ? "#143c34" : view?.gameId === "jaipur" ? "#efc36a" : view?.gameId === "seven-wonders-duel" ? "#183b3d" : azulTheme ? "#e4ddcf" : platformTheme
+    themeMeta.content = gardenTheme ? "#075b59" : view?.gameId === "pixies" ? "#143c34" : view?.gameId === "jaipur" ? "#efc36a" : view?.gameId === "seven-wonders-duel" ? "#183b3d" : azulTheme ? "#e4ddcf" : platformTheme
       ? "#f0f3f5"
       : duelTheme
         ? "#101f2a"
@@ -326,9 +333,15 @@ function render() {
       ...main.querySelectorAll<HTMLInputElement | HTMLSelectElement>(
         "input[name], select[name], select[id]",
       ),
-    ].find((el) => (draft.name ? el.name === draft.name : el.id === draft.id));
+    ].find((el) => (draft.id ? el.id === draft.id : el.name === draft.name));
     if (!control) continue;
     if (control instanceof HTMLInputElement && control.readOnly) continue;
+    // Radio/checkbox values identify choices; restoring a draft must never
+    // overwrite them. Their checked state belongs to each lobby's draft.
+    if(control instanceof HTMLInputElement && ['radio','checkbox'].includes(control.type)){
+      if(draft.focused)control.focus({preventScroll:true});
+      continue;
+    }
     if (
       !(control instanceof HTMLSelectElement) ||
       [...control.options].some((option) => option.value === draft.value)
@@ -364,6 +377,9 @@ function render() {
     }
   }
 }
+const initialGardenHint=document.documentElement.dataset.roomTheme==='harmonies';
+function preparingGarden(){return initialGardenHint&&!!code&&!!(session||role==='display')&&!stopped&&!entryError;}
+function gardenLoading(){return `<section class="room-garden-loading" role="status" aria-live="polite"><span class="room-garden-loading-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 52V27M32 36C13 36 11 23 14 12c15 0 23 9 18 24ZM32 44c19 0 21-13 18-24-15 0-23 9-18 24Z" fill="#9dc36c" stroke="#fff4c9" stroke-width="2" stroke-linejoin="round"/></svg></span><p>กำลังโหลดสวน…</p></section>`;}
 function renderContent() {
   if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
   if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
@@ -384,6 +400,7 @@ function renderContent() {
   else turnSound.controls.remove();
   updateGameHeader(main, view, platform.joinOrigin ?? location.origin);
   if (!view) {
+    if(preparingGarden()){content.innerHTML=gardenLoading();return;}
     if (role === "login") {
       login(content);
       return;
@@ -483,8 +500,8 @@ function renderContent() {
   if(view.gameId==="sky-team"){renderSky(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="harmonies"){
     if(!harmoniesModule){
-      if(harmoniesLoadError){content.innerHTML='<p role="alert">โหลดสวนไม่สำเร็จ กรุณาโหลดหน้าใหม่</p><button id="hm-load-retry">โหลดใหม่</button>';content.querySelector('#hm-load-retry')!.addEventListener('click',()=>location.reload());return;}
-      content.innerHTML='<p role="status">กำลังเตรียมสวน…</p>';harmoniesLoading??=import('./harmonies.js').then(module=>{harmoniesModule=module;render();}).catch(()=>{harmoniesLoadError=true;render();});return;
+      if(harmoniesLoadError){content.innerHTML='<section class="room-garden-loading room-garden-error" role="alert" aria-labelledby="hm-load-error-title"><span class="room-garden-loading-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 50V27M32 36C16 36 14 25 16 15c13 0 20 8 16 21ZM32 43c16 0 18-11 16-21-13 0-20 8-16 21Z" fill="#9dc36c" stroke="#fff4c9" stroke-width="2" stroke-linejoin="round"/><circle cx="48" cy="47" r="11" fill="#fff4c9" stroke="#075b59" stroke-width="2"/><path d="M48 41v7" stroke="#075b59" stroke-width="3" stroke-linecap="round"/><circle cx="48" cy="53" r="1.5" fill="#075b59"/></svg></span><div class="room-garden-error-copy"><h1 id="hm-load-error-title">ยังเปิดสวนไม่ได้</h1><p>ลองโหลดอีกครั้งเพื่อกลับเข้าสู่เกม</p></div><button id="hm-load-retry" type="button"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 8a8 8 0 1 1-1 7M5 3v5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>ลองอีกครั้ง</button></section>';content.querySelector('#hm-load-retry')!.addEventListener('click',()=>location.reload());return;}
+      content.innerHTML=gardenLoading();harmoniesLoading??=import('./harmonies.js').then(module=>{harmoniesModule=module;render();}).catch(()=>{harmoniesLoadError=true;render();});return;
     }
     harmoniesModule.renderHarmonies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot||harmoniesFirstMount);harmoniesFirstMount=false;return;
   }

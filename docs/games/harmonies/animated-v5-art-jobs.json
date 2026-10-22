@@ -1,0 +1,556 @@
+{
+  "generator": "image_gen.imagegen (built-in)",
+  "format": "160x184 RGBA; alpha cropped, uniformly fitted144x168; bottom baseline176; spirits use existing runtime aura",
+  "entries": [
+    {
+      "id": "animal-01",
+      "subject": "upright friendly crocodile",
+      "prompt": "Use case: stylized-concept. One isolated CROCODILE animal playing-piece sprite for a family board game. Premium friendly 3D animated film CGI: rounded dimensional sculpted shapes, smooth satin natural moss-green skin, cream belly, expressive gentle eyes, compact closed-mouth smile, warm studio key light. Full body in a compact upright seated three-quarter pose with tail curled close, no long horizontal silhouette. Uniform portrait framing: whole animal fills a vertical 4:5 bounding rectangle, centered, feet and tail on the same baseline near bottom, no empty space below, no floating body. Clearly recognizable crocodile; no realistic scary scales or teeth. True transparent background right to silhouette. No text, border, pedestal, ground shadow, scene, aura, magic or glow.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e53e91fb-fab6-4d8d-9ff5-77d7f9b3d580.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-01.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-03",
+      "subject": "warm gray hippopotamus sitting upright, broad rounded snout, tiny ears, four short feet",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: warm gray hippopotamus sitting upright, broad rounded snout, tiny ears, four short feet. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d0414f38-6c55-4a7e-a92c-1b1ec419a7ac.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-03.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-04",
+      "subject": "rich brown river otter seated upright, cream chest, curved tail tucked close",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: rich brown river otter seated upright, cream chest, curved tail tucked close. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-10e602de-080a-40a5-b489-39d96c71acbe.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-04.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-05",
+      "subject": "bright green frog sitting upright, cream belly, rounded folded hind legs",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: bright green frog sitting upright, cream belly, rounded folded hind legs. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4ab7c851-31b3-4810-ab83-5abac20003ed.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-05.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-02",
+      "kind": "normal",
+      "subject": "stingray with smoothly curved diamond fins and gently curled tail, slate blue gray",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: stingray with smoothly curved diamond fins and gently curled tail, slate blue gray. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ee18b17f-8aba-4166-a97d-0e400c54a033.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-02.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-06",
+      "kind": "normal",
+      "subject": "mallard duck standing, green head and brown chest",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: mallard duck standing, green head and brown chest. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5092597f-ce0a-4446-8282-20abbb99687a.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-06.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-08",
+      "kind": "normal",
+      "subject": "small lizard with curled tail, natural leaf green scales",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: small lizard with curled tail, natural leaf green scales. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7070093e-9435-478d-a8ed-6e7c944692b6.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-08.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-07",
+      "kind": "normal",
+      "subject": "flamingo standing with one leg tucked, coral pink feathers",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: flamingo standing with one leg tucked, coral pink feathers. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-12db30af-8cc8-495f-b249-48a36fddab3d.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-07.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-09",
+      "kind": "normal",
+      "subject": "mouse sitting, soft gray fur, pink ears",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: mouse sitting, soft gray fur, pink ears. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1706196b-1d57-4ccc-b3ca-9a1f8ec516a3.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-09.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-11",
+      "kind": "normal",
+      "subject": "red squirrel sitting upright with bushy tail curled behind",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: red squirrel sitting upright with bushy tail curled behind. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-206d6592-5ab5-466a-83d7-0108931d7fc0.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-11.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-10",
+      "kind": "normal",
+      "subject": "peacock with gently fanned compact blue green tail",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: peacock with gently fanned compact blue green tail. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-aabd105d-2681-4904-9f0a-2fbcfc771ff3.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-10.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-12",
+      "kind": "normal",
+      "subject": "hedgehog standing, brown spines and cream face",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: hedgehog standing, brown spines and cream face. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f8e83680-4e21-4d5f-87db-3894032d68d0.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-12.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-13",
+      "kind": "normal",
+      "subject": "honey bee with translucent wings, yellow black body",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: honey bee with translucent wings, yellow black body. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f4bb0dfa-3f7a-4d1a-84ae-2afda5481100.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-13.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-14",
+      "kind": "normal",
+      "subject": "brown bear standing on all four paws",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: brown bear standing on all four paws. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0bda5778-9345-436b-a71f-d445aba55ad0.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-14.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-15",
+      "kind": "normal",
+      "subject": "hare sitting with tall ears, tawny brown fur",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: hare sitting with tall ears, tawny brown fur. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-440a5f3d-c40b-4cd6-a24b-1f63f346177d.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-15.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-16",
+      "kind": "normal",
+      "subject": "scarlet macaw perched with feet together and compact folded wings, red blue yellow feathers",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: scarlet macaw perched with feet together and compact folded wings, red blue yellow feathers. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-205ba1e6-117b-4a6d-9fc3-e266852f1358.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-16.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-19",
+      "kind": "normal",
+      "subject": "gray wolf sitting alert with bushy tail curled around feet",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: gray wolf sitting alert with bushy tail curled around feet. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-baf551ac-43d8-4d6c-8d9f-a0ae5a94dc64.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-19.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-18",
+      "kind": "normal",
+      "subject": "koala sitting, fluffy gray fur",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: koala sitting, fluffy gray fur. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0ab36713-1a8b-4936-8c32-d3ed31f1c3f8.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-18.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-20",
+      "kind": "normal",
+      "subject": "kingfisher standing with feet together, vivid natural blue orange feathers",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: kingfisher standing with feet together, vivid natural blue orange feathers. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5aab722a-5e6e-4b86-9e0d-6870810feb42.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-20.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-21",
+      "kind": "normal",
+      "subject": "penguin standing, black white plumage",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: penguin standing, black white plumage. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ecec71d5-c8ca-4728-87e8-24e5872619d5.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-21.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-22",
+      "kind": "normal",
+      "subject": "small bat hanging in a compact upright pose with wings partly spread, dark brown membrane",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: small bat hanging in a compact upright pose with wings partly spread, dark brown membrane. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e30e09e2-fed1-4a1c-b4fa-92a9c5c24186.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-22.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-23",
+      "kind": "normal",
+      "subject": "fennec fox sitting, sandy cream fur and oversized ears",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: fennec fox sitting, sandy cream fur and oversized ears. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f6600a20-b593-4106-a2e7-101cd46492cf.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-23.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-24",
+      "kind": "normal",
+      "subject": "snow monkey sitting, soft silver fur and natural pink face",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: snow monkey sitting, soft silver fur and natural pink face. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fb22e074-26fb-4bb0-8c3e-83f2e8300b5c.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-24.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-25",
+      "kind": "normal",
+      "subject": "vulture standing with folded wings, cream neck ruff and brown feathers",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: vulture standing with folded wings, cream neck ruff and brown feathers. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-aebb5989-cf7f-403f-82fe-6de08ba640d2.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-25.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-27",
+      "kind": "normal",
+      "subject": "crow standing with folded wings, natural glossy black feathers",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: crow standing with folded wings, natural glossy black feathers. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0ee7900c-5597-474a-84eb-8029522581c1.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-27.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-30",
+      "kind": "normal",
+      "subject": "raccoon sitting with curled striped tail, gray fur and black face mask",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: raccoon sitting with curled striped tail, gray fur and black face mask. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4b910f48-7009-4930-bbf8-c5c8e5580ffc.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-30.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-29",
+      "kind": "normal",
+      "subject": "heron standing with compact folded wings, gray blue plumage",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: heron standing with compact folded wings, gray blue plumage. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-70e42b3e-3329-4c97-9c47-9e6752f73136.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-29.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-31",
+      "kind": "normal",
+      "subject": "ladybug with rounded red shell and black spots, six visible small legs",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: ladybug with rounded red shell and black spots, six visible small legs. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e9bb8b73-cb40-4a43-8051-668ef935abd9.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-31.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-32",
+      "kind": "normal",
+      "subject": "black panther sitting gracefully, glossy black fur and amber eyes",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, natural animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: black panther sitting gracefully, glossy black fur and amber eyes. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, magic, aura or glow. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d065dcbd-362e-4463-9f1e-0897fc5844e0.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-32.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-03",
+      "kind": "spirit",
+      "subject": "young stag with short branching leafy antlers, mint green and pale cream",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: young stag with short branching leafy antlers, mint green and pale cream. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8e3e2871-9c7b-4750-8ce8-8b927b41fbfe.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-03.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-02",
+      "kind": "spirit",
+      "subject": "butterfly with rounded rainbow lilac wings, lavender and soft rainbow",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: butterfly with rounded rainbow lilac wings, lavender and soft rainbow. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-dd687ca4-c57a-4cc8-abcb-e045b63d41f0.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-02.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-04",
+      "kind": "spirit",
+      "subject": "round fluffy owl with folded wings, periwinkle blue and cream",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: round fluffy owl with folded wings, periwinkle blue and cream. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-62f10d8c-2f62-48be-bb8d-26e02bc818a7.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-04.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-06",
+      "kind": "spirit",
+      "subject": "graceful plump crane with compact folded wings and a fluffy head, coral orange and cream",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: graceful plump crane with compact folded wings and a fluffy head, coral orange and cream. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4fc06898-e5f8-4f73-91df-db71d8d2a02d.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-06.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-05",
+      "kind": "spirit",
+      "subject": "tiny smiling bat with round ears and softly scalloped partly open wings, violet and pale lavender",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: tiny smiling bat with round ears and softly scalloped partly open wings, violet and pale lavender. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a3f27890-9505-4038-95b2-552aad9da4b6.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-05.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-08",
+      "kind": "spirit",
+      "subject": "round marmot sitting upright with paws tucked to chest, peach brown and pale cream",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: round marmot sitting upright with paws tucked to chest, peach brown and pale cream. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-57234d02-dd15-49ef-bc44-db98e2c987bf.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-08.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-07",
+      "kind": "spirit",
+      "subject": "baby mountain goat with tiny rounded horns and short legs, icy pale blue and white",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: baby mountain goat with tiny rounded horns and short legs, icy pale blue and white. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8a822534-4da3-469e-b613-c33bf50986b2.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-07.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-09",
+      "kind": "spirit",
+      "subject": "cute dragonfly with round head and four short rounded wings, turquoise and pale aqua",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: cute dragonfly with round head and four short rounded wings, turquoise and pale aqua. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e0ac99df-0ad2-4da1-9106-703f8d10291f.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-09.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-10",
+      "kind": "spirit",
+      "subject": "round woodland turtle with a leafy dome shell, sage green and pale cream",
+      "prompt": "Use case: stylized-concept. ONE isolated animal playing-piece sprite for a family board game. Premium friendly cinematic 3D animated-film CGI, rounded dimensional sculpted forms, smooth satin surfaces, gentle expressive face, elegant magical animal proportions with compact upright silhouette, warm studio key light, soft rim light. Subject: round woodland turtle with a leafy dome shell, sage green and pale cream. Full body in three-quarter view, whole silhouette fits a vertical 4:5 rectangle, centered and fills frame, lowest feet/body edge on bottom baseline. No floating empty lower half. True transparent background right to silhouette. No text, border, pedestal, floor, shadows, scenery, baked aura, mist or surrounding glow. Magical jewel details only ON the body, aura added later in code. Not realistic wildlife, flat cartoon, clipart, or scary.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ca7e4e57-9882-46c2-9b6d-579a9d8cb2e2.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-10.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-26",
+      "kind": "normal",
+      "subject": "A sandy tan meerkat, standing upright, dark little eye patches and a long slim tail tucked against feet",
+      "prompt": "Use case: stylized-concept. Subject: A sandy tan meerkat, standing upright, dark little eye patches and a long slim tail tucked against feet. One small family-friendly animal toy character. Soft rounded dimensional 3D animation CGI with a smooth satin clay-like surface, sculpted fur clumps rather than realistic hair, bright gentle eyes, friendly closed-mouth expression. Compact upright full-body seated pose (standing for llama/meerkat), three-quarter view. Portrait4:5 silhouette, feet at bottom, natural warm studio lighting. Genuinely transparent background. No scene, base, floor, text, glow, aura, or photographic textures.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-54d23451-78c8-4927-9555-6013095bb681.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-26.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-28",
+      "kind": "normal",
+      "subject": "A creamy white llama, long neck, tall ears, compact body and four short legs",
+      "prompt": "Use case: stylized-concept. Subject: A creamy white llama, long neck, tall ears, compact body and four short legs. One small family-friendly animal toy character. Soft rounded dimensional 3D animation CGI with a smooth satin clay-like surface, sculpted fur clumps rather than realistic hair, bright gentle eyes, friendly closed-mouth expression. Compact upright full-body seated pose (standing for llama/meerkat), three-quarter view. Portrait4:5 silhouette, feet at bottom, natural warm studio lighting. Genuinely transparent background. No scene, base, floor, text, glow, aura, or photographic textures.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-238e2706-fcdb-4294-933b-c37cfb92c6b4.png",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-28.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "spirit-01",
+      "kind": "spirit",
+      "subject": "A magical golden lion, large sculpted amber mane and a small ruby jewel on forehead",
+      "prompt": "Use case: stylized-concept. Subject: A magical golden lion, large sculpted amber mane and a small ruby jewel on forehead. One small family-friendly animal toy character. Soft rounded dimensional 3D animation CGI with a smooth satin clay-like surface, sculpted fur clumps rather than realistic hair, bright gentle eyes, friendly closed-mouth expression. Compact upright full-body seated pose (standing for llama/meerkat), three-quarter view. Portrait4:5 silhouette, feet at bottom, natural warm studio lighting. Genuinely transparent background. No scene, base, floor, text, glow, aura, or photographic textures.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-77879342-2505-4300-9efa-16ecbfb49243.png",
+      "path": "public/art/harmonies/figurines/animated-v5/spirit-01.webp",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      },
+      "originalSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e85d1671-d626-4596-b582-e802bcaa6549.png",
+      "cleanupPrompt": "Remove the small meerkat companion completely. Keep ONLY the single golden lion, with the same friendly sculpted 3D animation style, golden mane and ruby forehead jewel. Preserve lion's complete four paws, seated body and curled tail; make the newly exposed side complete and natural. Isolated transparent background, no other animal, no aura, ground or shadows. One lion only."
+    },
+    {
+      "id": "animal-17",
+      "kind": "normal",
+      "subject": "boar",
+      "source": "public/art/harmonies/figurines/animated-v4/animal-17.webp",
+      "path": "public/art/harmonies/figurines/animated-v5/animal-17.webp",
+      "generationStatus": "fallback: existing image normalized; built-in image generation returned moderation_blocked on repeated new-image and redraw attempts",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    }
+  ],
+  "errors": [
+    {
+      "id": "animal-17",
+      "reason": "Built-in generator rejected all fresh/redraw attempts; no CLI fallback used."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "generator": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "animal-01",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly crocodile with raised head and curved tail. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-33e2d226-71d6-48de-bffd-a6ff46bed0b7.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-02",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly stingray with gracefully lifted wings and tail curled upward. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-81a136e7-269b-4c7d-b489-1acea3f2bc82.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-03",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly hippopotamus. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-877ddb83-df8e-4500-aa50-7e47c0eeffe4.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-04",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly otter standing upright. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a8ae271e-6fb2-471d-ad45-9261e51c0c5c.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-05",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly frog seated upright. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-61926a98-7122-4861-bdbc-5d299411f634.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-06",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly duck. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-addaa133-9d2b-485d-9e67-7ac8b6dbad00.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-07",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly flamingo with curled neck. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7382410e-9c41-46ff-a3b7-3c801e391f39.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-08",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly lizard with lifted head and curled tail. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-188174a7-c6a5-4ff3-8827-f5bab833e33d.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-09",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly mouse. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-94e28092-de37-4f95-9840-5c586823c278.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-10",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly peacock with fanned tail. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-df6fde15-b4d7-47c7-9191-3b9f989b914b.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-11",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly squirrel. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3cf9c844-f813-4c10-bcf1-45f08cba6e65.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-12",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly hedgehog. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f788e7fa-e887-42d2-a529-0b04eda8ebb5.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    },
+    {
+      "id": "animal-13",
+      "prompt": "Use case: stylized-concept. Asset: one isolated game-piece animal cutout for a small nature board game token. Transparent background. Flat 2D cut-paper illustration with fine expressive ink linework and restrained gouache paper grain, NOT 3D, no realistic fur, no photograph. Bold saturated jewel colors, playful bright cheerful nature palette (emerald, turquoise, sunny yellow, coral pink, lilac). A thick clean ivory-WHITE CUTOUT OUTLINE around entire silhouette, clearly readable at 40 pixels. Front three-quarter view, compact upright silhouette centered filling canvas, all feet near bottom baseline, full subject entirely visible including ears/wings/tail, no cropping. Portrait 160:184 footprint. No ground, no platform, no cast shadow, no scenery, no text, no icons or numbers. Only one subject. Subject: friendly bee hovering upright. Ordinary animal, natural markings stylized in vivid inks, no magical stars.",
+      "path": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-191f65a5-91ba-49b4-898f-6ef98105a026.png",
+      "canvas": {
+        "width": 160,
+        "height": 184,
+        "baseline": 176
+      }
+    }
+  ]
+}

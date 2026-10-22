@@ -15,10 +15,16 @@ export function updateRoomRestart(main:HTMLElement,view:RoomView|undefined,allow
  if(!view||view.phase==='lobby'||!allowed){close();main.querySelectorAll('.room-restart-entry:not(.room-exit-entry)').forEach(el=>el.remove());return;}
  if(dialog&&confirmationKey!==key)close();
  if(dialog)dialog.querySelector<HTMLButtonElement>('[data-confirm-restart]')!.disabled=blocked;
+ const triggers:HTMLButtonElement[]=[];
+ const finishedRestart=main.querySelector<HTMLButtonElement>('#hm-restart');if(finishedRestart)triggers.push(finishedRestart);
  for(const panel of main.querySelectorAll<HTMLElement>('.ck-menu-panel,.hm-menu-content,.shared-room-menu>div')){
   let entry=panel.querySelector<HTMLElement>('.room-restart-entry:not(.room-exit-entry)');
   if(!entry){entry=document.createElement('div');entry.className='room-restart-entry';entry.innerHTML=`<button type="button" class="room-restart-button" aria-label="เริ่มเกมใหม่" title="เริ่มเกมใหม่">${restartIcon}</button><span>เริ่มเกมใหม่</span>`;panel.append(entry);}
   const button=entry.querySelector<HTMLButtonElement>('button')!;button.disabled=blocked;
+  triggers.push(button);
+ }
+ for(const button of triggers){
+  button.disabled=blocked;
   button.onclick=()=>{
    if(current?.key!==key||!current.allowed||current.blocked)return;
    const enclosing=button.closest('details');if(enclosing)enclosing.open=false;
@@ -26,8 +32,9 @@ export function updateRoomRestart(main:HTMLElement,view:RoomView|undefined,allow
    close();confirmationKey=key;const d=dialog=document.createElement('dialog');d.className='room-restart-dialog';d.setAttribute('aria-labelledby','room-restart-title');d.setAttribute('aria-describedby','room-restart-description');
    d.innerHTML=`<div class="room-restart-emblem">${restartIcon}</div><h2 id="room-restart-title">เริ่มเกมใหม่?</h2><p class="room-restart-game"></p><p id="room-restart-description">ล้างความคืบหน้าและคะแนนของเกมนี้ แล้วแจกของใหม่ตั้งแต่ต้น ทุกคนยังอยู่ในห้องเดิมและใช้ตัวเลือกเกมเดิม</p><div class="room-restart-actions"><button type="button" data-cancel-restart>เล่นต่อ</button><button type="button" data-confirm-restart>ยืนยันเริ่มใหม่</button></div>`;
    d.querySelector('.room-restart-game')!.textContent=metadata(view.gameId)!.name;
+   if(view.phase==='finished')d.querySelector('[data-cancel-restart]')!.textContent='ยกเลิก';
    d.querySelector<HTMLButtonElement>('[data-cancel-restart]')!.onclick=()=>{close();restoreFocus();};
-   d.querySelector<HTMLButtonElement>('[data-confirm-restart]')!.onclick=()=>{if(current?.key!==key||!current.allowed||current.blocked)return;close();for(const menu of main.querySelectorAll<HTMLDetailsElement>('details:has(.room-restart-entry)'))menu.open=false;command({type:'room-restart'});};
+   d.querySelector<HTMLButtonElement>('[data-confirm-restart]')!.onclick=()=>{if(current?.key!==key||!current.allowed||current.blocked)return;close();for(const menu of main.querySelectorAll<HTMLDetailsElement>('details:has(.room-restart-entry)'))menu.open=false;command({type:button.id==='hm-restart'?'restart':'room-restart'});};
    d.oncancel=e=>{e.preventDefault();close();restoreFocus();};
    document.body.append(d);d.showModal();d.querySelector<HTMLButtonElement>('[data-cancel-restart]')!.focus();
   };

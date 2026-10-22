@@ -1,0 +1,17 @@
+[
+  {
+    "id": "spirit-11",
+    "name": "ทีเร็กซ์ · จิตวิญญาณดึกดำบรรพ์",
+    "animal": "trex",
+    "kind": "spirit",
+    "points": [0],
+    "spiritScoring": "animal-connected",
+    "description": "หลังวาง T-rex แล้ว ได้ 2 คะแนนต่อสัตว์ปกติที่เชื่อมต่อถึง T-rex ผ่านช่องที่มีสัตว์ต่อกัน ไม่จำกัดแค่ช่องติดกัน ไม่นับ T-rex เอง และ Solo ไม่เพิ่มดวงอาทิตย์",
+    "soloSuns": 0,
+    "pattern": [
+      {"q": -1, "r": 0, "stack": ["rock", "rock", "rock"], "cube": false},
+      {"q": 0, "r": 0, "stack": ["field"], "cube": true},
+      {"q": 1, "r": 0, "stack": ["wood", "wood", "leaf"], "cube": false}
+    ]
+  }
+]

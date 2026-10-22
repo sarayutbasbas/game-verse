@@ -1,0 +1,113 @@
+{
+  "method": "Unmodified 3D source embedded in SVG; sRGB luminance-preserving color transfer only; alpha identity; direct card-rail RGB targets, without ivory lightening",
+  "tokens": [
+    {
+      "terrain": "water",
+      "source": "public/art/harmonies/tokens-v5/water.png",
+      "sha256": "dcc4c0b93bc20c4a3e0ef0c89314c7d3e3e36f38f9b297a74fb577401447e578",
+      "rail": "#1689ad",
+      "target": [
+        22,
+        137,
+        173
+      ],
+      "sourceCap": [
+        3,
+        138,
+        188
+      ],
+      "output": "public/art/harmonies/tokens-soft-v1/water.svg",
+      "pickerOutput": "public/art/harmonies/tokens-soft-v1/water.png"
+    },
+    {
+      "terrain": "rock",
+      "source": "public/art/harmonies/tokens-v5/rock.png",
+      "sha256": "7e4af71798cc7372d15f0d01877e33a243a001894637c39901dbaee2eabe7a60",
+      "rail": "#62696b",
+      "target": [
+        98,
+        105,
+        107
+      ],
+      "sourceCap": [
+        66,
+        72,
+        80
+      ],
+      "output": "public/art/harmonies/tokens-soft-v1/rock.svg",
+      "pickerOutput": "public/art/harmonies/tokens-soft-v1/rock.png"
+    },
+    {
+      "terrain": "wood",
+      "source": "public/art/harmonies/tokens-v5/wood.png",
+      "sha256": "a2a6b77386323b06159a0b70425484403eb9e4255a115d89eb6777ab36ed3e1d",
+      "rail": "#a35c32",
+      "target": [
+        163,
+        92,
+        50
+      ],
+      "sourceCap": [
+        150,
+        74,
+        36
+      ],
+      "output": "public/art/harmonies/tokens-soft-v1/wood.svg",
+      "pickerOutput": "public/art/harmonies/tokens-soft-v1/wood.png"
+    },
+    {
+      "terrain": "leaf",
+      "source": "public/art/harmonies/tokens-v5/leaf.png",
+      "sha256": "0c37de51e4d4be6409c833a6e678dcd7377ce6a34e2a2f8aea8878420a742053",
+      "rail": "#95a62b",
+      "target": [
+        149,
+        166,
+        43
+      ],
+      "sourceCap": [
+        98,
+        134,
+        42
+      ],
+      "output": "public/art/harmonies/tokens-soft-v1/leaf.svg",
+      "pickerOutput": "public/art/harmonies/tokens-soft-v1/leaf.png"
+    },
+    {
+      "terrain": "field",
+      "source": "public/art/harmonies/tokens-v5/field.png",
+      "sha256": "cb69d9bff9102075cb1df186173649a5773855089ae551e6373c1469a08dcef0",
+      "rail": "#e6b522",
+      "target": [
+        230,
+        181,
+        34
+      ],
+      "sourceCap": [
+        239,
+        172,
+        3
+      ],
+      "output": "public/art/harmonies/tokens-soft-v1/field.svg",
+      "pickerOutput": "public/art/harmonies/tokens-soft-v1/field.png"
+    },
+    {
+      "terrain": "building",
+      "source": "public/art/harmonies/tokens-v5/building.png",
+      "sha256": "a022409d33f06bf69eb1e4e0dbc494ee6d6b63611b974d269acb3f53dd96b92d",
+      "rail": "#c44d3e",
+      "target": [
+        196,
+        77,
+        62
+      ],
+      "sourceCap": [
+        234,
+        58,
+        48
+      ],
+      "output": "public/art/harmonies/tokens-soft-v1/building.svg",
+      "pickerOutput": "public/art/harmonies/tokens-soft-v1/building.png"
+    }
+  ]
+}

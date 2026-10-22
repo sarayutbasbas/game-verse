@@ -1,0 +1,32 @@
+import {test,expect} from '@playwright/test';
+import {mkdtemp,rm,mkdir} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {startServer} from '../../src/server/index.js';
+import {testAccount} from './auth-fixture.js';
+import {ANIMAL,COORDS,terrain} from '../../src/games/harmonies/data.js';
+import * as rules from '../../src/games/harmonies/engine.js';
+import {validateHarmoniesState} from '../../src/games/harmonies/validation.js';
+
+test('T-rex promo: lobby option, private draft, illustrated scoring, legal model placement, persistence and reduced motion',async({browser})=>{
+ const dir=await mkdtemp(join(tmpdir(),'hm-promo-ui-')),app=await startServer(0,'127.0.0.1',true,()=>.099,{storePath:join(dir,'db.sqlite')}),origin=`http://localhost:${(app.server.address() as any).port}`,context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage();
+ try{
+  await mkdir('data/qa-harmonies-promo',{recursive:true});await page.goto(origin+'/games/harmonies');await testAccount(page,app);await page.locator('#create').click();await expect(page.locator('#qr')).toBeVisible();const code=page.url().split('/').pop()!;
+  await expect(page.locator('#hm-promoTrex')).not.toBeChecked();await page.locator('#hm-promoTrex').check();await expect(page.locator('#hm-natureSpirits')).toBeChecked();await page.locator('#hm-natureSpirits').uncheck();await expect(page.locator('#hm-promoTrex')).not.toBeChecked();await page.locator('#hm-promoTrex').check();await page.locator('#hm-whispers').check();await page.locator('#start').click();
+  await expect(page.locator('[data-spirit-choice]')).toHaveCount(2);await expect(page.locator('[data-spirit-choice="spirit-11"]')).toBeVisible();const room=app.rooms.rooms.get(code)!;expect(room.harmonies!.options).toMatchObject({promoTrex:true,natureSpirits:true,whispers:true});
+  await page.locator('.hm-spirit-offer [data-detail="spirit-11"]').click();await expect(page.locator('#hm-detail-title')).toContainText('ทีเร็กซ์');await expect(page.locator('.hm-detail-content>p').first()).toContainText('2 คะแนน');await page.locator('.hm-detail .hm-animal-art img').evaluate((img:HTMLImageElement)=>img.decode());await page.screenshot({path:'data/qa-harmonies-promo/card-phone.png'});await page.locator('.hm-close').click();
+  await page.locator('[data-spirit-choice="spirit-11"]').click();await page.locator('#hm-choice-confirm').click();await expect(page.locator('.hm-spirit-selection')).toHaveCount(0);await page.reload();expect(room.harmonies!.players[0].cards).toEqual([{card:'spirit-11',placed:0}]);
+  await page.locator('#hm-scoring').click();await expect(page.locator('#hm-guide-trex')).toContainText('12 คะแนน');await expect(page.locator('#hm-guide-trex [data-pattern-card="spirit-11"]')).toBeVisible();await page.locator('#hm-guide-trex').scrollIntoViewIfNeeded();await page.screenshot({path:'data/qa-harmonies-promo/scoring-phone.png'});await page.locator('.hm-info-close').click();
+  // Isolated valid nine-token fixture: a complete T-rex habitat and two spare fields.
+  const state=structuredClone(room.harmonies!),pool=[...state.bag,...state.groups.flat(),...state.hand],actor=state.players[0];
+  const take=(t:string)=>{const i=pool.findIndex(id=>terrain(id)===t);if(i<0)throw Error('Missing fixture token');return pool.splice(i,1)[0]};
+  const originCell=COORDS.findIndex((_,i)=>rules.patternCells('spirit-11',i,0).every(j=>j>=0)),cells=rules.patternCells('spirit-11',originCell,0);
+  ANIMAL['spirit-11'].pattern.forEach((p,i)=>actor.board[cells[i]].stack=p.stack.map(take));for(let k=0;k<2;k++)actor.board.find(c=>!c.stack.length)!.stack=[take('field')];
+  state.hand=[];state.groups=[[],pool.splice(0,3),pool.splice(0,3)];state.bag=pool;state.picked=true;state.turnCount=2;state.sequence=100;expect(validateHarmoniesState(state)).toBe(true);room.harmonies=state;room.revision++;app.store.saveRooms(app.rooms.exportRooms());await page.reload();
+  const source=page.locator('[data-available-animal="spirit-11"]');await expect(source).toBeVisible();const trayModel=source.locator('img');await trayModel.evaluate((img:HTMLImageElement)=>img.decode());expect(await trayModel.evaluate((img:HTMLImageElement)=>[img.naturalWidth,img.naturalHeight])).toEqual([160,184]);await expect(trayModel).toHaveCSS('animation-name','hm-trex-breathe');
+  await source.click();await page.locator('.chosen-board .hm-cell.habitat .hm-cell-hit').first().click();await expect(page.locator('.chosen-board .hm-stack>.hm-spirit-model.is-preview>img')).toBeVisible();await page.screenshot({path:'data/qa-harmonies-promo/preview-phone.png'});await page.locator('#hm-confirm .hm-placement-check').click();await expect.poll(()=>room.harmonies!.players[0].cards[0].placed).toBe(1);const revision=room.revision,sequence=room.harmonies!.sequence;
+  const model=page.locator('.chosen-board .hm-stack .hm-spirit-model[data-cube-card="spirit-11"]>img');await expect(model).toBeVisible();await expect(model).toHaveCSS('animation-name','hm-trex-breathe');await expect(model).toHaveAttribute('src','/art/harmonies/figurines/magic-paper-v1/spirit-11.webp');const twinkle=model.locator('..').locator('.hm-model-twinkles>i').first();await expect(twinkle).toHaveCSS('animation-name','hm-paper-twinkle');await page.screenshot({path:'data/qa-harmonies-promo/board-phone.png'});
+  await page.locator('.chosen-board [data-detail="spirit-11"]').click();await expect(page.locator('.hm-detail .hm-paper-edge')).toHaveCount(0);await expect(page.locator('.hm-detail .hm-complete-ribbon')).toHaveText('ครบแล้ว');await page.locator('.hm-close').click();
+  await page.locator('#hm-menu').click();await page.locator('#hm-low-effects').check();await expect(model).toHaveCSS('animation-name','none');await expect(twinkle).toHaveCSS('animation-name','none');await page.reload();await expect(model).toBeVisible();await expect(model).toHaveCSS('animation-name','none');await page.locator('#hm-menu').click();await page.locator('#hm-low-effects').uncheck();await expect(model).toHaveCSS('animation-name','hm-trex-breathe');await page.emulateMedia({reducedMotion:'reduce'});await expect(model).toHaveCSS('animation-name','none');await expect(twinkle).toHaveCSS('animation-name','none');expect(room.revision).toBe(revision);expect(room.harmonies!.sequence).toBe(sequence);expect(validateHarmoniesState(room.harmonies)).toBe(true);
+ }finally{await context.close();await app.close();await rm(dir,{recursive:true,force:true});}
+});

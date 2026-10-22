@@ -1,0 +1,1433 @@
+{
+  "schema_version": "1.0.0",
+  "game": "Harmonies",
+  "language": "th",
+  "data_authority": "ข้อมูลตาม Catalog และ scoring engine ที่อยู่ในโปรเจกต์ GameVerse นี้ ไม่ใช่การถอดข้อมูลจากรูปภาพ; ชื่อภาษาไทยเป็นชื่อเรียกในโปรเจกต์",
+  "sources": [
+    {
+      "path": "src/games/harmonies/catalog.json",
+      "sha256": "69830b3c67b352b9eb73696c4881c1b846829a188dd58c2a7290e906316fa168"
+    },
+    {
+      "path": "src/games/harmonies/spirits.json",
+      "sha256": "40c04a6211384277e5dc9c694c9eb5b7fbe6feebafaa6a84ebf828f50caae5a0"
+    },
+    {
+      "path": "src/games/harmonies/promos.json",
+      "sha256": "ed639536e380a42d941bbbe8f5d39a516f7add64547bd1f50a613fec6404ac03"
+    },
+    {
+      "path": "src/games/harmonies/whispers.json",
+      "sha256": "67f73c13705275226a8891aa8de21994bc78f80526a028fc1a17ade6f6eefc7d"
+    }
+  ],
+  "scoring_engine_sources": [
+    "src/games/harmonies/engine.ts",
+    "src/games/harmonies/expansions.ts"
+  ],
+  "counts": {
+    "total": 4,
+    "base_animals": 1,
+    "natures_spirits": 1,
+    "t_rex_promo": 1,
+    "crescendo_whispers": 1
+  },
+  "selected_review_card_ids": [
+    "spirit-11",
+    "spirit-09",
+    "whisper-05",
+    "animal-01"
+  ],
+  "terrain_legend": [
+    {
+      "id": "water",
+      "name_th": "น้ำ",
+      "reference_color_hex": "#238eaa",
+      "motif_th": "ลายเส้นคลื่นสีอ่อนแบบโทเคนต้นฉบับ"
+    },
+    {
+      "id": "rock",
+      "name_th": "หิน",
+      "reference_color_hex": "#858a90",
+      "motif_th": "กลุ่มเศษหิน/รูปทรงเหลี่ยมสีเทาอ่อนแบบต้นฉบับ"
+    },
+    {
+      "id": "wood",
+      "name_th": "ลำต้น",
+      "reference_color_hex": "#a96c45",
+      "motif_th": "สีน้ำตาลลำต้น/วงปีตามโทเคนต้นฉบับ"
+    },
+    {
+      "id": "leaf",
+      "name_th": "พุ่มไม้",
+      "reference_color_hex": "#82a342",
+      "motif_th": "กลุ่มใบ/วงรีสีเหลืองอ่อนแบบต้นฉบับ อยู่กลางฝา"
+    },
+    {
+      "id": "field",
+      "name_th": "ทุ่งดอกไม้",
+      "reference_color_hex": "#e9be39",
+      "motif_th": "กลุ่มดอกไม้ห้ากลีบสีอ่อนแบบต้นฉบับ อยู่กลางฝา"
+    },
+    {
+      "id": "building",
+      "name_th": "อาคาร",
+      "reference_color_hex": "#d34d65",
+      "motif_th": "รูปอาคาร/หลังคาสีอ่อนบนโทเคนแดงแบบต้นฉบับ"
+    }
+  ],
+  "crystal_legend": [
+    {
+      "id": "animal-gold",
+      "applies_to": "normal",
+      "color_th": "ทอง/อำพัน",
+      "sparkles": false
+    },
+    {
+      "id": "spirit-rainbow",
+      "applies_to": "spirit",
+      "color_th": "รุ้งใส",
+      "sparkles": true
+    },
+    {
+      "id": "whisper-purple",
+      "applies_to": "whisper",
+      "color_th": "ม่วงอเมทิสต์",
+      "sparkles": false
+    },
+    {
+      "id": "dinosaur-white",
+      "applies_to": "dinosaur",
+      "color_th": "ขาวใส/โอปอล",
+      "sparkles": true
+    }
+  ],
+  "geometry": {
+    "coordinate_system": "axial_flat_top",
+    "origin": "catalog q=0,r=0; relative habitat origin, not card top-left",
+    "x_formula": "x = q * 49.5",
+    "y_formula": "y = (r + q / 2) * 56",
+    "step_x": 49.5,
+    "step_y": 56,
+    "logical_base_width": 66,
+    "logical_base_height": 56,
+    "visual_base_scale": 0.965,
+    "visual_base_note_th": "ย่อเฉพาะรูปฐานเล็กน้อยเพื่อให้มีร่องห่างตามภาพที่อนุมัติ ไม่ย้ายศูนย์กลางช่อง",
+    "logical_token_width": 52,
+    "logical_token_image_height": 46,
+    "logical_layer_rise": 17,
+    "logical_cube_width": 25,
+    "logical_cube_height": 28,
+    "no_mirroring": true,
+    "no_per_cell_nudges": true,
+    "uniform_scale_only": true
+  },
+  "image_spec": {
+    "aspect_ratio_width_to_height": "300:430",
+    "large": {
+      "width": 900,
+      "height": 1290
+    },
+    "small": {
+      "width": 300,
+      "height": 430
+    },
+    "rail_width_fraction": 0.133333,
+    "artwork_area_width_fraction": 0.866667,
+    "habitat_group_center_x_fraction": 0.433333,
+    "normalized_to_pixels": "pixel_x = normalized_x * output_width; pixel_y = normalized_y * output_height",
+    "layout_note_th": "artwork.layout เป็นตัวอย่างพิกัดสำหรับ AI จัดภาพ ไม่ใช่ตำแหน่งจากรูปต้นฉบับ และไม่เปลี่ยน q/r หรือกติกา ใช้ชุดนี้กับ Large; Small อาจขยายทั้งกลุ่มแบบ uniform โดยคง q/r และชั้นไว้",
+    "baked_single_image": true,
+    "full_bleed": true,
+    "rounded_alpha_corners": true,
+    "score_font_th": "ใช้รูปทรงตัวเลขแคบแบบงานพิมพ์ใน reference เดียวกันทุกใบ",
+    "token_style_th": "ยึดลายโทเคนต้นฉบับตามภาพที่ผู้ใช้ให้ ลายอยู่กลางฝา ขนาดสมส่วน ไม่เปลี่ยนเป็นลายใหม่",
+    "cube_contact_shadow": true,
+    "foreground_shadow_bottom": true,
+    "large_show_height_multipliers": false,
+    "small_show_height_multipliers": true,
+    "small_multiplier_font_px_at_300_width": 15
+  },
+  "critical_notes_th": [
+    "source_stack_bottom_to_top คือข้อมูลดิบ ห้ามนับจำนวนสมาชิกเป็นความสูงโดยไม่อ่าน stack_rule โดยเฉพาะ building",
+    "render_stack_bottom_to_top คือจำนวน/ลำดับชิ้นที่ต้องวาดจริง",
+    "cube_destination คือช่องวางคิวบ์ ไม่ใช่โทเคนอีกหนึ่งชั้น",
+    "คะแนนสัตว์ธรรมดาเป็นค่าตามจำนวนคิวบ์ ไม่ใช่ผลรวมของค่าทุกช่อง",
+    "Spirit source_points=[0] ห้ามนำ 0 ไปวาดเป็นคะแนน ใช้ scoring.scenarios",
+    "Whisper ต้องมีช่อง 2/5 สองช่อง ไม่ใช่คะแนนสะสม 2 แล้ว 5",
+    "connected_group คือกลุ่มที่ต่อกันผ่านขอบหกเหลี่ยม",
+    "ส่ง reference ภาพต้นฉบับให้ AI พร้อม JSON เพราะข้อความ JSON ไม่สามารถเก็บลวดลายและฟอนต์ให้เหมือนพิกเซลได้"
+  ],
+  "full_catalog_counts": {
+    "total": 53,
+    "base_animals": 32,
+    "natures_spirits": 10,
+    "t_rex_promo": 1,
+    "crescendo_whispers": 10
+  },
+  "cards": [
+    {
+      "id": "spirit-11",
+      "name_th": "ทีเร็กซ์ · จิตวิญญาณดึกดำบรรพ์",
+      "subject_key": "trex",
+      "card_type": "dinosaur",
+      "set": "t_rex_promo",
+      "source_file": "src/games/harmonies/promos.json",
+      "crystal_kind": "dinosaur-white",
+      "scoring": {
+        "type": "spirit_scenario_bonus",
+        "source_points": [
+          0
+        ],
+        "source_points_note_th": "[0] เป็นช่องคิวบ์ของข้อมูลเกม ห้ามวาดคะแนน 0; วาด scenario ด้านล่างแทน",
+        "activation": "place_this_card_crystal_first",
+        "rule_id": "animal-connected",
+        "description_th": "หลังวาง T-rex แล้ว ได้ 2 คะแนนต่อสัตว์ปกติที่เชื่อมต่อถึง T-rex ผ่านช่องที่มีสัตว์ต่อกัน ไม่จำกัดแค่ช่องติดกัน ไม่นับ T-rex เอง และ Solo ไม่เพิ่มดวงอาทิตย์",
+        "formula": "2 * N",
+        "scenarios": [
+          {
+            "condition": {
+              "unit": "normal_animal_cube",
+              "connected_to": "this_trex",
+              "through": "adjacent_normal_animal_cubes"
+            },
+            "points": 2,
+            "pictogram_th": "คิวบ์ทีเร็กซ์สีขาว เชื่อมคิวบ์สัตว์ปกติสีทอง/ส้ม → ตัวละ 2"
+          }
+        ],
+        "notes_th": "N คือจำนวนคิวบ์สัตว์ปกติที่เดินเชื่อมต่อจากทีเร็กซ์ผ่านช่องที่มีคิวบ์สัตว์ปกติติดกัน ไม่นับทีเร็กซ์เอง ไม่จำกัดเฉพาะช่องติดทีเร็กซ์โดยตรง คิวบ์ Spirit อื่นและ Whisper ไม่ใช่สะพานเชื่อม",
+        "total_note_th": "เป็นโบนัสที่บวกเข้าคะแนนอื่นตาม engine ของโปรเจกต์",
+        "score_track": {
+          "type": "scenario_diagram",
+          "rows": [
+            {
+              "condition": {
+                "unit": "normal_animal_cube",
+                "connected_to": "this_trex",
+                "through": "adjacent_normal_animal_cubes"
+              },
+              "points": 2,
+              "pictogram_th": "คิวบ์ทีเร็กซ์สีขาว เชื่อมคิวบ์สัตว์ปกติสีทอง/ส้ม → ตัวละ 2"
+            }
+          ]
+        },
+        "cube_supply": 1
+      },
+      "habitat": {
+        "stack_order": "bottom_to_top",
+        "rotation_allowed_degrees": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "mirror_allowed": false,
+        "base_count": 3,
+        "total_rendered_terrain_tokens": 7,
+        "cube_destination_cell_id": "cell-2",
+        "cells": [
+          {
+            "cell_id": "cell-1",
+            "q": -1,
+            "r": 0,
+            "logical_center": {
+              "x": -49.5,
+              "y": -28
+            },
+            "source_stack_bottom_to_top": [
+              "rock",
+              "rock",
+              "rock"
+            ],
+            "render_stack_bottom_to_top": [
+              "rock",
+              "rock",
+              "rock"
+            ],
+            "render_stack_height": 3,
+            "cube_destination": false,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "rock",
+                "rock",
+                "rock"
+              ]
+            },
+            "small_height_label": "×3"
+          },
+          {
+            "cell_id": "cell-2",
+            "q": 0,
+            "r": 0,
+            "logical_center": {
+              "x": 0,
+              "y": 0
+            },
+            "source_stack_bottom_to_top": [
+              "field"
+            ],
+            "render_stack_bottom_to_top": [
+              "field"
+            ],
+            "render_stack_height": 1,
+            "cube_destination": true,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "field"
+              ]
+            },
+            "small_height_label": null
+          },
+          {
+            "cell_id": "cell-3",
+            "q": 1,
+            "r": 0,
+            "logical_center": {
+              "x": 49.5,
+              "y": 28
+            },
+            "source_stack_bottom_to_top": [
+              "wood",
+              "wood",
+              "leaf"
+            ],
+            "render_stack_bottom_to_top": [
+              "wood",
+              "wood",
+              "leaf"
+            ],
+            "render_stack_height": 3,
+            "cube_destination": false,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "wood",
+                "wood",
+                "leaf"
+              ]
+            },
+            "small_height_label": "×3"
+          }
+        ]
+      },
+      "artwork": {
+        "rail_color_source": "top terrain of cube destination, except Whisper uses purple theme",
+        "rail_terrain": "field",
+        "large_score_anchor": "top_right",
+        "small_score_anchor": "bottom_right",
+        "small_bottom_rail_motif": false,
+        "large_bottom_rail_motif": true,
+        "layout": {
+          "status": "suggested_artwork_layout_not_a_rule",
+          "units": "normalized_0_to_1",
+          "reference_canvas": {
+            "width": 300,
+            "height": 430
+          },
+          "uniform_scale_logical_to_reference_px": 0.716049,
+          "translation_reference_px": {
+            "x": 130,
+            "y": 361.604938
+          },
+          "group_bounds": {
+            "left": 0.23642,
+            "top": 0.68774,
+            "right": 0.630247,
+            "bottom": 0.944186
+          },
+          "cells": [
+            {
+              "cell_id": "cell-1",
+              "base_center": {
+                "x": 0.315185,
+                "y": 0.794315
+              },
+              "base_size": {
+                "width": 0.152017,
+                "height": 0.089989
+              },
+              "token_layers": [
+                {
+                  "terrain": "rock",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.315185,
+                    "y": 0.774332
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.253128,
+                      "y": 0.744358
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                },
+                {
+                  "terrain": "rock",
+                  "layer_index_bottom_0": 1,
+                  "cap_center": {
+                    "x": 0.315185,
+                    "y": 0.746024
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.253128,
+                      "y": 0.716049
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                },
+                {
+                  "terrain": "rock",
+                  "layer_index_bottom_0": 2,
+                  "cap_center": {
+                    "x": 0.315185,
+                    "y": 0.717715
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.253128,
+                      "y": 0.68774
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                }
+              ],
+              "cube": null,
+              "small_height_label": {
+                "text": "×3",
+                "anchor": {
+                  "x": 0.374856,
+                  "y": 0.840942
+                }
+              }
+            },
+            {
+              "cell_id": "cell-2",
+              "base_center": {
+                "x": 0.433333,
+                "y": 0.840942
+              },
+              "base_size": {
+                "width": 0.152017,
+                "height": 0.089989
+              },
+              "token_layers": [
+                {
+                  "terrain": "field",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.433333,
+                    "y": 0.820959
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.371276,
+                      "y": 0.790985
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                }
+              ],
+              "cube": {
+                "kind": "dinosaur-white",
+                "contact_point": {
+                  "x": 0.433333,
+                  "y": 0.820959
+                },
+                "visible_bounds": {
+                  "top_left": {
+                    "x": 0.403498,
+                    "y": 0.774332
+                  },
+                  "width": 0.059671,
+                  "height": 0.046626
+                },
+                "note_th": "contact_point คือจุดสัมผัสล่างของคิวบ์บนฝาโทเคนชั้นบน ไม่ใช่จุดกึ่งกลางรูปคิวบ์ วางทับลายและใส่เงาสัมผัสที่จุดนี้"
+              },
+              "small_height_label": null
+            },
+            {
+              "cell_id": "cell-3",
+              "base_center": {
+                "x": 0.551481,
+                "y": 0.887568
+              },
+              "base_size": {
+                "width": 0.152017,
+                "height": 0.089989
+              },
+              "token_layers": [
+                {
+                  "terrain": "wood",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.551481,
+                    "y": 0.867585
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.489424,
+                      "y": 0.837611
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                },
+                {
+                  "terrain": "wood",
+                  "layer_index_bottom_0": 1,
+                  "cap_center": {
+                    "x": 0.551481,
+                    "y": 0.839276
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.489424,
+                      "y": 0.809302
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                },
+                {
+                  "terrain": "leaf",
+                  "layer_index_bottom_0": 2,
+                  "cap_center": {
+                    "x": 0.551481,
+                    "y": 0.810968
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.489424,
+                      "y": 0.780993
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                }
+              ],
+              "cube": null,
+              "small_height_label": {
+                "text": "×3",
+                "anchor": {
+                  "x": 0.611152,
+                  "y": 0.934195
+                }
+              }
+            }
+          ],
+          "draw_order_back_to_front": [
+            "cell-1",
+            "cell-2",
+            "cell-3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit-09",
+      "name_th": "แมลงปอสายน้ำ",
+      "subject_key": "dragonfly",
+      "card_type": "spirit",
+      "set": "natures_spirits",
+      "source_file": "src/games/harmonies/spirits.json",
+      "crystal_kind": "spirit-rainbow",
+      "scoring": {
+        "type": "spirit_scenario_bonus",
+        "source_points": [
+          0
+        ],
+        "source_points_note_th": "[0] เป็นช่องคิวบ์ของข้อมูลเกม ห้ามวาดคะแนน 0; วาด scenario ด้านล่างแทน",
+        "activation": "place_this_card_crystal_first",
+        "rule_id": "water-groups",
+        "description_th": "กลุ่มน้ำที่มีตั้งแต่ 2 ช่องขึ้นไป ได้กลุ่มละ 7 คะแนน",
+        "formula": "7 * number_of_connected_water_groups_with_size_at_least_2",
+        "scenarios": [
+          {
+            "condition": {
+              "top": "water",
+              "connected_group_size_min": 2
+            },
+            "points": 7,
+            "pictogram_th": "กลุ่มน้ำติดกันอย่างน้อย 2 ช่อง → กลุ่มละ 7"
+          }
+        ],
+        "total_note_th": "เป็นโบนัสที่บวกเข้าคะแนนอื่นตาม engine ของโปรเจกต์",
+        "score_track": {
+          "type": "scenario_diagram",
+          "rows": [
+            {
+              "condition": {
+                "top": "water",
+                "connected_group_size_min": 2
+              },
+              "points": 7,
+              "pictogram_th": "กลุ่มน้ำติดกันอย่างน้อย 2 ช่อง → กลุ่มละ 7"
+            }
+          ]
+        },
+        "cube_supply": 1
+      },
+      "habitat": {
+        "stack_order": "bottom_to_top",
+        "rotation_allowed_degrees": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "mirror_allowed": false,
+        "base_count": 3,
+        "total_rendered_terrain_tokens": 5,
+        "cube_destination_cell_id": "cell-2",
+        "cells": [
+          {
+            "cell_id": "cell-1",
+            "q": 0,
+            "r": 0,
+            "logical_center": {
+              "x": 0,
+              "y": 0
+            },
+            "source_stack_bottom_to_top": [
+              "wood",
+              "leaf"
+            ],
+            "render_stack_bottom_to_top": [
+              "wood",
+              "leaf"
+            ],
+            "render_stack_height": 2,
+            "cube_destination": false,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "wood",
+                "leaf"
+              ]
+            },
+            "small_height_label": "×2"
+          },
+          {
+            "cell_id": "cell-2",
+            "q": -1,
+            "r": 1,
+            "logical_center": {
+              "x": -49.5,
+              "y": 28
+            },
+            "source_stack_bottom_to_top": [
+              "water"
+            ],
+            "render_stack_bottom_to_top": [
+              "water"
+            ],
+            "render_stack_height": 1,
+            "cube_destination": true,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "water"
+              ]
+            },
+            "small_height_label": null
+          },
+          {
+            "cell_id": "cell-3",
+            "q": -2,
+            "r": 2,
+            "logical_center": {
+              "x": -99,
+              "y": 56
+            },
+            "source_stack_bottom_to_top": [
+              "wood",
+              "leaf"
+            ],
+            "render_stack_bottom_to_top": [
+              "wood",
+              "leaf"
+            ],
+            "render_stack_height": 2,
+            "cube_destination": false,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "wood",
+                "leaf"
+              ]
+            },
+            "small_height_label": "×2"
+          }
+        ]
+      },
+      "artwork": {
+        "rail_color_source": "top terrain of cube destination, except Whisper uses purple theme",
+        "rail_terrain": "water",
+        "large_score_anchor": "top_right",
+        "small_score_anchor": "bottom_right",
+        "small_bottom_rail_motif": false,
+        "large_bottom_rail_motif": true,
+        "layout": {
+          "status": "suggested_artwork_layout_not_a_rule",
+          "units": "normalized_0_to_1",
+          "reference_canvas": {
+            "width": 300,
+            "height": 430
+          },
+          "uniform_scale_logical_to_reference_px": 0.8,
+          "translation_reference_px": {
+            "x": 169.6,
+            "y": 334
+          },
+          "group_bounds": {
+            "left": 0.213333,
+            "top": 0.689302,
+            "right": 0.653333,
+            "bottom": 0.944186
+          },
+          "cells": [
+            {
+              "cell_id": "cell-1",
+              "base_center": {
+                "x": 0.565333,
+                "y": 0.776744
+              },
+              "base_size": {
+                "width": 0.16984,
+                "height": 0.10054
+              },
+              "token_layers": [
+                {
+                  "terrain": "wood",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.565333,
+                    "y": 0.754419
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.496,
+                      "y": 0.72093
+                    },
+                    "width": 0.138667,
+                    "height": 0.085581
+                  }
+                },
+                {
+                  "terrain": "leaf",
+                  "layer_index_bottom_0": 1,
+                  "cap_center": {
+                    "x": 0.565333,
+                    "y": 0.722791
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.496,
+                      "y": 0.689302
+                    },
+                    "width": 0.138667,
+                    "height": 0.085581
+                  }
+                }
+              ],
+              "cube": null,
+              "small_height_label": {
+                "text": "×2",
+                "anchor": {
+                  "x": 0.632,
+                  "y": 0.828837
+                }
+              }
+            },
+            {
+              "cell_id": "cell-2",
+              "base_center": {
+                "x": 0.433333,
+                "y": 0.828837
+              },
+              "base_size": {
+                "width": 0.16984,
+                "height": 0.10054
+              },
+              "token_layers": [
+                {
+                  "terrain": "water",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.433333,
+                    "y": 0.806512
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.364,
+                      "y": 0.773023
+                    },
+                    "width": 0.138667,
+                    "height": 0.085581
+                  }
+                }
+              ],
+              "cube": {
+                "kind": "spirit-rainbow",
+                "contact_point": {
+                  "x": 0.433333,
+                  "y": 0.806512
+                },
+                "visible_bounds": {
+                  "top_left": {
+                    "x": 0.4,
+                    "y": 0.754419
+                  },
+                  "width": 0.066667,
+                  "height": 0.052093
+                },
+                "note_th": "contact_point คือจุดสัมผัสล่างของคิวบ์บนฝาโทเคนชั้นบน ไม่ใช่จุดกึ่งกลางรูปคิวบ์ วางทับลายและใส่เงาสัมผัสที่จุดนี้"
+              },
+              "small_height_label": null
+            },
+            {
+              "cell_id": "cell-3",
+              "base_center": {
+                "x": 0.301333,
+                "y": 0.88093
+              },
+              "base_size": {
+                "width": 0.16984,
+                "height": 0.10054
+              },
+              "token_layers": [
+                {
+                  "terrain": "wood",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.301333,
+                    "y": 0.858605
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.232,
+                      "y": 0.825116
+                    },
+                    "width": 0.138667,
+                    "height": 0.085581
+                  }
+                },
+                {
+                  "terrain": "leaf",
+                  "layer_index_bottom_0": 1,
+                  "cap_center": {
+                    "x": 0.301333,
+                    "y": 0.826977
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.232,
+                      "y": 0.793488
+                    },
+                    "width": 0.138667,
+                    "height": 0.085581
+                  }
+                }
+              ],
+              "cube": null,
+              "small_height_label": {
+                "text": "×2",
+                "anchor": {
+                  "x": 0.368,
+                  "y": 0.933023
+                }
+              }
+            }
+          ],
+          "draw_order_back_to_front": [
+            "cell-1",
+            "cell-2",
+            "cell-3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "whisper-05",
+      "name_th": "เห็ดริมน้ำ",
+      "subject_key": "whisper",
+      "card_type": "whisper",
+      "set": "crescendo_whispers",
+      "source_file": "src/games/harmonies/whispers.json",
+      "crystal_kind": "whisper-purple",
+      "scoring": {
+        "type": "per_cube_conditional_sum",
+        "source_points": [
+          2,
+          5
+        ],
+        "source_points_note_th": "[2,5] คือเงื่อนไข 2 หรือ 5 ต่อคิวบ์ ไม่ใช่คะแนนสะสมจากคิวบ์ชิ้นที่ 1 และ 2",
+        "description_th": "คิวบ์เสียงกระซิบแต่ละชิ้นได้ 2 คะแนนเมื่ออยู่เดี่ยว หรือ 5 คะแนนเมื่ออยู่ช่องเดียวกับสัตว์หรือจิตวิญญาณธรรมชาติ วางได้ช่องละ 1 คิวบ์เสียงกระซิบ รวมใบละ 2 ชิ้น",
+        "cube_supply": 2,
+        "max_whisper_cubes_per_cell": 1,
+        "formula": "sum(for_each_placed_whisper_cube: has_normal_or_spirit_cube_on_same_cell ? 5 : 2)",
+        "scenarios": [
+          {
+            "condition": {
+              "shares_cell_with_normal_or_spirit_cube": false
+            },
+            "points": 2,
+            "pictogram_th": "คิวบ์ม่วงอยู่เดี่ยว → 2"
+          },
+          {
+            "condition": {
+              "shares_cell_with_normal_or_spirit_cube": true
+            },
+            "points": 5,
+            "pictogram_th": "คิวบ์ม่วงอยู่ร่วมช่องกับคิวบ์สัตว์/จิตวิญญาณ → 5"
+          }
+        ],
+        "score_track": {
+          "type": "conditional_slots",
+          "top_to_bottom": [
+            "2/5",
+            "2/5"
+          ]
+        }
+      },
+      "habitat": {
+        "stack_order": "bottom_to_top",
+        "rotation_allowed_degrees": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "mirror_allowed": false,
+        "base_count": 2,
+        "total_rendered_terrain_tokens": 3,
+        "cube_destination_cell_id": "cell-1",
+        "cells": [
+          {
+            "cell_id": "cell-1",
+            "q": 0,
+            "r": 0,
+            "logical_center": {
+              "x": 0,
+              "y": 0
+            },
+            "source_stack_bottom_to_top": [
+              "wood",
+              "leaf"
+            ],
+            "render_stack_bottom_to_top": [
+              "wood",
+              "leaf"
+            ],
+            "render_stack_height": 2,
+            "cube_destination": true,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "wood",
+                "leaf"
+              ]
+            },
+            "small_height_label": "×2"
+          },
+          {
+            "cell_id": "cell-2",
+            "q": 1,
+            "r": 0,
+            "logical_center": {
+              "x": 49.5,
+              "y": 28
+            },
+            "source_stack_bottom_to_top": [
+              "water"
+            ],
+            "render_stack_bottom_to_top": [
+              "water"
+            ],
+            "render_stack_height": 1,
+            "cube_destination": false,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "water"
+              ]
+            },
+            "small_height_label": null
+          }
+        ]
+      },
+      "artwork": {
+        "rail_color_source": "top terrain of cube destination, except Whisper uses purple theme",
+        "rail_terrain": "leaf",
+        "large_score_anchor": "top_right",
+        "small_score_anchor": "bottom_right",
+        "small_bottom_rail_motif": false,
+        "large_bottom_rail_motif": true,
+        "layout": {
+          "status": "suggested_artwork_layout_not_a_rule",
+          "units": "normalized_0_to_1",
+          "reference_canvas": {
+            "width": 300,
+            "height": 430
+          },
+          "uniform_scale_logical_to_reference_px": 0.8,
+          "translation_reference_px": {
+            "x": 110.2,
+            "y": 356.4
+          },
+          "group_bounds": {
+            "left": 0.279333,
+            "top": 0.689302,
+            "right": 0.587333,
+            "bottom": 0.944186
+          },
+          "cells": [
+            {
+              "cell_id": "cell-1",
+              "base_center": {
+                "x": 0.367333,
+                "y": 0.828837
+              },
+              "base_size": {
+                "width": 0.16984,
+                "height": 0.10054
+              },
+              "token_layers": [
+                {
+                  "terrain": "wood",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.367333,
+                    "y": 0.806512
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.298,
+                      "y": 0.773023
+                    },
+                    "width": 0.138667,
+                    "height": 0.085581
+                  }
+                },
+                {
+                  "terrain": "leaf",
+                  "layer_index_bottom_0": 1,
+                  "cap_center": {
+                    "x": 0.367333,
+                    "y": 0.774884
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.298,
+                      "y": 0.741395
+                    },
+                    "width": 0.138667,
+                    "height": 0.085581
+                  }
+                }
+              ],
+              "cube": {
+                "kind": "whisper-purple",
+                "contact_point": {
+                  "x": 0.367333,
+                  "y": 0.774884
+                },
+                "visible_bounds": {
+                  "top_left": {
+                    "x": 0.334,
+                    "y": 0.722791
+                  },
+                  "width": 0.066667,
+                  "height": 0.052093
+                },
+                "note_th": "contact_point คือจุดสัมผัสล่างของคิวบ์บนฝาโทเคนชั้นบน ไม่ใช่จุดกึ่งกลางรูปคิวบ์ วางทับลายและใส่เงาสัมผัสที่จุดนี้"
+              },
+              "small_height_label": {
+                "text": "×2",
+                "anchor": {
+                  "x": 0.434,
+                  "y": 0.88093
+                }
+              }
+            },
+            {
+              "cell_id": "cell-2",
+              "base_center": {
+                "x": 0.499333,
+                "y": 0.88093
+              },
+              "base_size": {
+                "width": 0.16984,
+                "height": 0.10054
+              },
+              "token_layers": [
+                {
+                  "terrain": "water",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.499333,
+                    "y": 0.858605
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.43,
+                      "y": 0.825116
+                    },
+                    "width": 0.138667,
+                    "height": 0.085581
+                  }
+                }
+              ],
+              "cube": null,
+              "small_height_label": null
+            }
+          ],
+          "draw_order_back_to_front": [
+            "cell-1",
+            "cell-2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "animal-01",
+      "name_th": "จระเข้",
+      "subject_key": "crocodile",
+      "card_type": "normal",
+      "set": "base_animals",
+      "source_file": "src/games/harmonies/catalog.json",
+      "crystal_kind": "animal-gold",
+      "scoring": {
+        "type": "cumulative_by_placed_cube_count",
+        "source_points": [
+          4,
+          9,
+          15
+        ],
+        "cube_supply": 3,
+        "description_th": "นับจำนวนคิวบ์ที่วางจากการ์ดนี้ แล้วใช้คะแนนตามช่องนั้นเพียงค่าเดียว ไม่บวกคะแนนของทุกช่องเข้าด้วยกัน",
+        "points_by_placed_count": [
+          {
+            "placed": 0,
+            "points": 0
+          },
+          {
+            "placed": 1,
+            "points": 4
+          },
+          {
+            "placed": 2,
+            "points": 9
+          },
+          {
+            "placed": 3,
+            "points": 15
+          }
+        ],
+        "formula": "placed === 0 ? 0 : source_points[placed - 1]",
+        "score_track": {
+          "type": "number_inside_socket",
+          "top_to_bottom": [
+            15,
+            9,
+            4
+          ],
+          "bottom_to_top": [
+            4,
+            9,
+            15
+          ]
+        }
+      },
+      "habitat": {
+        "stack_order": "bottom_to_top",
+        "rotation_allowed_degrees": [
+          0,
+          60,
+          120,
+          180,
+          240,
+          300
+        ],
+        "mirror_allowed": false,
+        "base_count": 3,
+        "total_rendered_terrain_tokens": 5,
+        "cube_destination_cell_id": "cell-3",
+        "cells": [
+          {
+            "cell_id": "cell-1",
+            "q": 0,
+            "r": 0,
+            "logical_center": {
+              "x": 0,
+              "y": 0
+            },
+            "source_stack_bottom_to_top": [
+              "wood",
+              "wood",
+              "leaf"
+            ],
+            "render_stack_bottom_to_top": [
+              "wood",
+              "wood",
+              "leaf"
+            ],
+            "render_stack_height": 3,
+            "cube_destination": false,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "wood",
+                "wood",
+                "leaf"
+              ]
+            },
+            "small_height_label": "×3"
+          },
+          {
+            "cell_id": "cell-2",
+            "q": -1,
+            "r": 1,
+            "logical_center": {
+              "x": -49.5,
+              "y": 28
+            },
+            "source_stack_bottom_to_top": [
+              "water"
+            ],
+            "render_stack_bottom_to_top": [
+              "water"
+            ],
+            "render_stack_height": 1,
+            "cube_destination": false,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "water"
+              ]
+            },
+            "small_height_label": null
+          },
+          {
+            "cell_id": "cell-3",
+            "q": -2,
+            "r": 2,
+            "logical_center": {
+              "x": -99,
+              "y": 56
+            },
+            "source_stack_bottom_to_top": [
+              "water"
+            ],
+            "render_stack_bottom_to_top": [
+              "water"
+            ],
+            "render_stack_height": 1,
+            "cube_destination": true,
+            "stack_rule": {
+              "type": "exact",
+              "required_bottom_to_top": [
+                "water"
+              ]
+            },
+            "small_height_label": null
+          }
+        ]
+      },
+      "artwork": {
+        "rail_color_source": "top terrain of cube destination, except Whisper uses purple theme",
+        "rail_terrain": "water",
+        "large_score_anchor": "top_right",
+        "small_score_anchor": "bottom_right",
+        "small_bottom_rail_motif": false,
+        "large_bottom_rail_motif": true,
+        "layout": {
+          "status": "suggested_artwork_layout_not_a_rule",
+          "units": "normalized_0_to_1",
+          "reference_canvas": {
+            "width": 300,
+            "height": 430
+          },
+          "uniform_scale_logical_to_reference_px": 0.716049,
+          "translation_reference_px": {
+            "x": 165.444444,
+            "y": 341.555556
+          },
+          "group_bounds": {
+            "left": 0.23642,
+            "top": 0.68774,
+            "right": 0.630247,
+            "bottom": 0.944186
+          },
+          "cells": [
+            {
+              "cell_id": "cell-1",
+              "base_center": {
+                "x": 0.551481,
+                "y": 0.794315
+              },
+              "base_size": {
+                "width": 0.152017,
+                "height": 0.089989
+              },
+              "token_layers": [
+                {
+                  "terrain": "wood",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.551481,
+                    "y": 0.774332
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.489424,
+                      "y": 0.744358
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                },
+                {
+                  "terrain": "wood",
+                  "layer_index_bottom_0": 1,
+                  "cap_center": {
+                    "x": 0.551481,
+                    "y": 0.746024
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.489424,
+                      "y": 0.716049
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                },
+                {
+                  "terrain": "leaf",
+                  "layer_index_bottom_0": 2,
+                  "cap_center": {
+                    "x": 0.551481,
+                    "y": 0.717715
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.489424,
+                      "y": 0.68774
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                }
+              ],
+              "cube": null,
+              "small_height_label": {
+                "text": "×3",
+                "anchor": {
+                  "x": 0.611152,
+                  "y": 0.840942
+                }
+              }
+            },
+            {
+              "cell_id": "cell-2",
+              "base_center": {
+                "x": 0.433333,
+                "y": 0.840942
+              },
+              "base_size": {
+                "width": 0.152017,
+                "height": 0.089989
+              },
+              "token_layers": [
+                {
+                  "terrain": "water",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.433333,
+                    "y": 0.820959
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.371276,
+                      "y": 0.790985
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                }
+              ],
+              "cube": null,
+              "small_height_label": null
+            },
+            {
+              "cell_id": "cell-3",
+              "base_center": {
+                "x": 0.315185,
+                "y": 0.887568
+              },
+              "base_size": {
+                "width": 0.152017,
+                "height": 0.089989
+              },
+              "token_layers": [
+                {
+                  "terrain": "water",
+                  "layer_index_bottom_0": 0,
+                  "cap_center": {
+                    "x": 0.315185,
+                    "y": 0.867585
+                  },
+                  "visible_token_bounds": {
+                    "top_left": {
+                      "x": 0.253128,
+                      "y": 0.837611
+                    },
+                    "width": 0.124115,
+                    "height": 0.076601
+                  }
+                }
+              ],
+              "cube": {
+                "kind": "animal-gold",
+                "contact_point": {
+                  "x": 0.315185,
+                  "y": 0.867585
+                },
+                "visible_bounds": {
+                  "top_left": {
+                    "x": 0.28535,
+                    "y": 0.820959
+                  },
+                  "width": 0.059671,
+                  "height": 0.046626
+                },
+                "note_th": "contact_point คือจุดสัมผัสล่างของคิวบ์บนฝาโทเคนชั้นบน ไม่ใช่จุดกึ่งกลางรูปคิวบ์ วางทับลายและใส่เงาสัมผัสที่จุดนี้"
+              },
+              "small_height_label": null
+            }
+          ],
+          "draw_order_back_to_front": [
+            "cell-1",
+            "cell-2",
+            "cell-3"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -35,7 +35,7 @@ export type Action =
 export type HostAction = {
   type: "start" | "restart";
   startingPlayerId?: string;
-  boardSide?: "A"|"B";
+  boardSide?: import("../games/harmonies/types.js").Side;
   harmoniesOptions?:Partial<import("../games/harmonies/types.js").HarmoniesOptions>;
   restaurateurs?:boolean;
   tutorial?:boolean;
@@ -120,8 +120,8 @@ export interface View {
   };
 }
 export type GameId = "take-time" | "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
-export type RoomView = TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView;
-export type RoomAction = {type:"room-restart"} | TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
+export type RoomView = (TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView) & {lobbyKickablePlayerIds?:string[]};
+export type RoomAction = {type:"room-kick";playerId:string} | {type:"room-restart"} | TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
 export type ClientMessage =
   | { type: "create"; gameId?: GameId; displayMode?:DisplayMode; joinAsPlayer?:boolean }
   | { type: "join"; code: string; name: string }

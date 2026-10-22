@@ -1,0 +1,17 @@
+{
+  "status": "excluded-from-play",
+  "reason": "Printed stack/pattern not sufficiently legible; user explicitly requested skipping unverified cards.",
+  "sanctuaries": 6,
+  "pulseAnimals": [
+    "beetle",
+    "seagull",
+    "axolotl",
+    "camel",
+    "panda",
+    "chameleon",
+    "yak",
+    "robin",
+    "piranha"
+  ],
+  "notes": "Art only is available. sanctuary-03 was removed during final enlarged-photo audit; treehouse is wood/wood/building/leaf, bottom to top. Tiger is now reviewed and playable as pulse-10."
+}

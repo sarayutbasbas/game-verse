@@ -1,0 +1,616 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "public/art/harmonies/figurines/paper-v4/animal-04.webp",
+  "canvas": {
+    "width": 160,
+    "height": 184,
+    "fitWidth": 144,
+    "fitHeight": 168,
+    "baseline": 176
+  },
+  "entries": [
+    {
+      "id": "spirit-01",
+      "name": "ราชสีห์แสงทอง",
+      "category": "rainbow",
+      "subject": "a majestic friendly golden lion, stylized large circular blue-and-gold mane, seated, tiny star accents",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a majestic friendly golden lion, stylized large circular blue-and-gold mane, seated, tiny star accents. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-01.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-01.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-931a3c25-4d07-4226-b0cc-0c3dc38280cf.png",
+      "content": {
+        "width": 144,
+        "height": 162,
+        "baseline": 176
+      },
+      "sha256": "e25aa1fb9bcd49760c15c15d82efe4384f39796bef39936b9b32c4c68acd5ff3"
+    },
+    {
+      "id": "spirit-02",
+      "name": "ผีเสื้อสายรุ้ง",
+      "category": "rainbow",
+      "subject": "a magical rainbow butterfly with four patterned wings and a distinct tiny insect body",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a magical rainbow butterfly with four patterned wings and a distinct tiny insect body. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-02.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-02.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-963aa8d7-c792-401f-ae3a-abbe7b22e3b8.png",
+      "content": {
+        "width": 139,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "86c384555600cfcab9c3e4b48a6e13ca7b0a3c8a2fe71573fcf9b9b39a81ce21"
+    },
+    {
+      "id": "spirit-03",
+      "name": "กวางพฤกษา",
+      "category": "rainbow",
+      "subject": "a forest stag with leafy antlers, compact standing pose",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a forest stag with leafy antlers, compact standing pose. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-03.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-03.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-035bd6ac-4ac8-436e-b1df-9e794f0b2749.png",
+      "content": {
+        "width": 124,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "3672bf76934f1449db2d9a413eea8b37196867026f55969d55539ed0dd314112"
+    },
+    {
+      "id": "spirit-04",
+      "name": "นกฮูกรัตติกาล",
+      "category": "rainbow",
+      "subject": "a midnight owl, folded patterned wings, round expressive eyes, small moon accent",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a midnight owl, folded patterned wings, round expressive eyes, small moon accent. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-04.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-04.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a19200aa-76ea-49eb-9b59-2951cb718463.png",
+      "content": {
+        "width": 127,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "1579d6c6fc8d56bc5f5ecb98b59182d2f6fe7825feeeae05d04b540e5d157be2"
+    },
+    {
+      "id": "spirit-05",
+      "name": "ค้างคาวเงาจันทร์",
+      "category": "rainbow",
+      "subject": "a mystical purple bat with large ears and half-open wings, small moon detail",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a mystical purple bat with large ears and half-open wings, small moon detail. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-05.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-05.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e24b2c87-0a35-4a74-a505-fce723185a66.png",
+      "content": {
+        "width": 143,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "a42ecdba1289aac74cce262ce56d4691cdec6f5853623afe5867ae90ace1c0fa"
+    },
+    {
+      "id": "spirit-06",
+      "name": "กระเรียนเพลิง",
+      "category": "rainbow",
+      "subject": "a graceful fire-colored crane, folded red-orange patterned wings, legs visible",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a graceful fire-colored crane, folded red-orange patterned wings, legs visible. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-06.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-06.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ffcf3814-0caf-4e68-9843-395f2aaff8c2.png",
+      "content": {
+        "width": 108,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "b5652eab8c4099c6b31fea84cbf3bf84a777271525a65f703b7c6e0fafa5f7e0"
+    },
+    {
+      "id": "spirit-07",
+      "name": "แพะผลึกภูเขา",
+      "category": "rainbow",
+      "subject": "a mountain goat with curved horns and small crystal-like markings, seated",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a mountain goat with curved horns and small crystal-like markings, seated. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-07.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-07.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c66d4157-ebdf-44ff-817f-3a6da6108a66.png",
+      "content": {
+        "width": 110,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "da3037cd6acaf22d465c9b6c548908ba2e321c138a42bd745a57f282dbdfdde1"
+    },
+    {
+      "id": "spirit-08",
+      "name": "มาร์มอตขุนเขา",
+      "category": "rainbow",
+      "subject": "a cheerful mountain marmot sitting upright, tiny paws together",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a cheerful mountain marmot sitting upright, tiny paws together. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-08.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-08.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-90f78a13-215e-409c-ac76-ad03b7768be9.png",
+      "content": {
+        "width": 126,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "69b2cb1d5259fe1c96379c8b87da713cf70be2a1a41d3b82c406d4eca1b2bfed"
+    },
+    {
+      "id": "spirit-09",
+      "name": "แมลงปอสายน้ำ",
+      "category": "rainbow",
+      "subject": "a magical turquoise dragonfly, four transparent patterned wings, large gentle eyes, unmistakable insect anatomy",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a magical turquoise dragonfly, four transparent patterned wings, large gentle eyes, unmistakable insect anatomy. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-09.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-09.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0769ceaf-dafb-495b-b44f-69affc2838e0.png",
+      "content": {
+        "width": 144,
+        "height": 158,
+        "baseline": 176
+      },
+      "sha256": "9ef1090c3be78e148889d9969363f7c5d6acd2e2aada1b6e8340ca2eb739c174"
+    },
+    {
+      "id": "spirit-10",
+      "name": "เต่าพฤกษา",
+      "category": "rainbow",
+      "subject": "a friendly green turtle with a layered leaf-pattern shell, all four feet visible",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a friendly green turtle with a layered leaf-pattern shell, all four feet visible. Clearly visible RAINBOW colored inks across the creature body, fur, scales or wing markings: red-orange, golden yellow, leaf green, turquoise, cobalt and violet. Balanced prismatic colors visible even when rendered tiny. Do not use only one natural species color. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-10.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-10.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-fb99f7a3-1a8e-467f-9c29-6c9e42e6c6ca.png",
+      "content": {
+        "width": 144,
+        "height": 154,
+        "baseline": 176
+      },
+      "sha256": "c348e996bfbedb67dca0f5e8bc76d432fcb91f774dca43a9b52b47ec82d5a020"
+    },
+    {
+      "id": "spirit-11",
+      "name": "ทีเร็กซ์ · จิตวิญญาณดึกดำบรรพ์",
+      "category": "gold",
+      "subject": "a playful orange Tyrannosaurus rex, short arms, strong hind legs, curled tail, ivory belly",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: a playful orange Tyrannosaurus rex, short arms, strong hind legs, curled tail, ivory belly. Radiant luminous GOLD palette across the entire dinosaur body: warm antique gold, honey yellow, pale golden highlights, darker amber ink shading. Charming gold creature, not a metallic 3D sculpture. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/spirit-11.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/spirit-11.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d687c74b-a757-4443-ad24-db0d14754123.png",
+      "content": {
+        "width": 130,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "d8041cb14c5eb4054a91d107c13e8ee4a5a1cbe7e151bb8a14c8a4c3ab18f7b7"
+    },
+    {
+      "id": "whisper-01",
+      "name": "ผลึกกลางป่า",
+      "category": "purple",
+      "subject": "one cluster of angular forest crystals, turquoise and lavender, no face",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one cluster of angular forest crystals, turquoise and lavender, no face. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-01.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-01.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-792f76d2-34db-48df-b292-b049664f20df.png",
+      "content": {
+        "width": 128,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "dab16eedba2607811f2e5eeada9d4017288b685f8141c2704376ab71a55cde93"
+    },
+    {
+      "id": "whisper-02",
+      "name": "รูปสลักใต้ใบไม้",
+      "category": "purple",
+      "subject": "one small weathered carved woodland stone idol with a leaf detail, no pedestal",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one small weathered carved woodland stone idol with a leaf detail, no pedestal. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-02.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-02.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a3edc6c5-a453-4f71-a71f-467c4aba0a13.png",
+      "content": {
+        "width": 107,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "9d37d6f012c3ce48f67b1cc8411836865beb4cff4b820af5013e73f46e90c816"
+    },
+    {
+      "id": "whisper-03",
+      "name": "ดอกไม้ข้างตอไม้",
+      "category": "purple",
+      "subject": "one bright wildflower blossom with two leaves and a very short stem, no pot",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one bright wildflower blossom with two leaves and a very short stem, no pot. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-03.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-03.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3e463503-4ecd-48af-96e2-b1b286c16029.png",
+      "content": {
+        "width": 144,
+        "height": 163,
+        "baseline": 176
+      },
+      "sha256": "231b0a087d84ec6c85d8db0be4f9ea1fb1d36262f3e21849899c85d868671d7c"
+    },
+    {
+      "id": "whisper-04",
+      "name": "ปะการังข้างไม้ลอยน้ำ",
+      "category": "purple",
+      "subject": "one compact branching pink-and-blue coral, no ocean scenery",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one compact branching pink-and-blue coral, no ocean scenery. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-04.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-04.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cec64757-6210-4d9a-b84c-a43c770c5a19.png",
+      "content": {
+        "width": 144,
+        "height": 164,
+        "baseline": 176
+      },
+      "sha256": "2c498f5080c11b2b47f6f176fc4e6ca64b15e69589a705878dcb5d05ab2dc21e"
+    },
+    {
+      "id": "whisper-05",
+      "name": "เห็ดริมน้ำ",
+      "category": "purple",
+      "subject": "one purple spotted woodland mushroom, cream gills and short stem, no scenery",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one purple spotted woodland mushroom, cream gills and short stem, no scenery. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-05.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-05.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7844c567-c652-43ab-b3df-ffc4458e73a4.png",
+      "content": {
+        "width": 144,
+        "height": 156,
+        "baseline": 176
+      },
+      "sha256": "639d43c992863c67da167b8d5eed23b2928e7d8abe4c95b60e19c5332afaa192"
+    },
+    {
+      "id": "whisper-06",
+      "name": "ดอกไม้ข้างบ้าน",
+      "category": "purple",
+      "subject": "one warm coral-and-gold wildflower with two green leaves and short stem, no pot",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one warm coral-and-gold wildflower with two green leaves and short stem, no pot. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-06.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-06.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ecaef0d0-f32b-4d47-9487-c88db7ac401f.png",
+      "content": {
+        "width": 144,
+        "height": 166,
+        "baseline": 176
+      },
+      "sha256": "00527520b59e1c197081b7961f92b4b987b65477a6b223b5e6f9b6d26d82b778"
+    },
+    {
+      "id": "whisper-07",
+      "name": "รูปสลักข้างตอไม้",
+      "category": "purple",
+      "subject": "one compact carved moss-green stone woodland idol with subtle spiral lines, no pedestal",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one compact carved moss-green stone woodland idol with subtle spiral lines, no pedestal. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-07.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-07.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b49880d2-9cdc-448f-a2ad-4afe7a422ad5.png",
+      "content": {
+        "width": 98,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "b37e25e95d6da84804972eeb720d9d8e14bff9f4c1a8365d7dccb15cdba9baf5"
+    },
+    {
+      "id": "whisper-08",
+      "name": "ผลึกริมน้ำ",
+      "category": "purple",
+      "subject": "one compact group of azure river crystals with subtle white facets, no water scenery",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one compact group of azure river crystals with subtle white facets, no water scenery. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-08.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-08.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-30a70876-ec74-4749-8f4a-c859908baac6.png",
+      "content": {
+        "width": 136,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "3c107f7b6979f0987881517ad946fb96dda607470f455fd158e83289f1e53fa2"
+    },
+    {
+      "id": "whisper-09",
+      "name": "เห็ดข้างก้อนหิน",
+      "category": "purple",
+      "subject": "one small violet-and-russet mushroom with a rounded spotted cap and cream stem",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one small violet-and-russet mushroom with a rounded spotted cap and cream stem. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-09.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-09.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-49968c04-9e72-435f-939e-190e97986f48.png",
+      "content": {
+        "width": 144,
+        "height": 166,
+        "baseline": 176
+      },
+      "sha256": "c97c22dfa2003786370dec7a3e4cae3e6f3b976c2c9692e667ea3f9dbfabe3da"
+    },
+    {
+      "id": "whisper-10",
+      "name": "ปะการังกลางทุ่ง",
+      "category": "purple",
+      "subject": "one compact branching golden-and-teal coral, no scenery",
+      "prompt": "Use case: illustration-story. Generate ONE NEW isolated transparent 2D board-game playing-piece sprite. Image 1 is ONLY a STYLE reference: match the expressive dark ink contour, fine hatching, flat gouache, screen-print paper grain, warm ivory cutout silhouette and playful picture-book quality of this otter drawing. New subject: one compact branching golden-and-teal coral, no scenery. Epic AMETHYST PURPLE palette across the entire form: lavender, violet, plum, pale lilac highlights and cream ink accents. A purple magical storybook object, never ordinary green or brown. Full subject entirely visible, compact upright or seated three-quarter pose, unmistakably recognizable form. Keep wings/tail/antlers within a portrait rectangle. All feet or lowest body/stem rest on one level bottom baseline. Same occupied scale as the reference, no giant empty lower half, modest transparent padding. Crisp hand-painted highlights and two or three tiny four-point sparkle marks INSIDE the silhouette only; runtime adds animated twinkles separately. Truly transparent background. No glow cloud, scenery, ground shadow, floor, base, pedestal, token, disc, tile, cube, UI, badge, text, letters, numbers, logo, extra subject or cropped anatomy. No photorealism, 3D rendering, plastic toy or smooth generic vector. Match a uniform 160x184 sprite canvas with a 144x168 content fit and baseline176.",
+      "output": "public/art/harmonies/figurines/magic-paper-v1/whisper-10.webp",
+      "source": "assets/source/harmonies/magic-paper-v1/whisper-10.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f0433941-77cf-497f-9c3d-7b25b2e8fadc.png",
+      "content": {
+        "width": 133,
+        "height": 168,
+        "baseline": 176
+      },
+      "sha256": "f9228f43364bfbc2327eeff08fae57516e997f94d779ec4b3fcc453141da91e5"
+    }
+  ],
+  "preserved3D": [
+    {
+      "id": "animal-01",
+      "path": "/art/harmonies/figurines/animated-v5/animal-01.webp",
+      "sha256": "5af9e44028ca108175901b3ed471fc5ecf65dd435586939661776b97cea6eae4"
+    },
+    {
+      "id": "animal-02",
+      "path": "/art/harmonies/figurines/animated-v5/animal-02.webp",
+      "sha256": "12ad9bf4330ef7158bf0de79e1841900d12ff4622bdf7c432ef95782ba9f464a"
+    },
+    {
+      "id": "animal-03",
+      "path": "/art/harmonies/figurines/animated-v5/animal-03.webp",
+      "sha256": "c7ec595049402a1c702ec5b344583ce226db5f3120a0e764d7ef58cd7aed6756"
+    },
+    {
+      "id": "animal-04",
+      "path": "/art/harmonies/figurines/animated-v5/animal-04.webp",
+      "sha256": "af0af19404bd201316e8a84fbe8058a70e5f237e25d65cd79010371045ab9834"
+    },
+    {
+      "id": "animal-05",
+      "path": "/art/harmonies/figurines/animated-v5/animal-05.webp",
+      "sha256": "b88c60f00a32d2d7cb90b7488bf6be5b0917eb34b250de409acb9125033dc30e"
+    },
+    {
+      "id": "animal-06",
+      "path": "/art/harmonies/figurines/animated-v5/animal-06.webp",
+      "sha256": "1d7a0d5b8144e570a4b95167bcd90a46fece1e7d1a434c3951c214891ec12b37"
+    },
+    {
+      "id": "animal-07",
+      "path": "/art/harmonies/figurines/animated-v5/animal-07.webp",
+      "sha256": "ab144e47e272874fe0bf6c90fa481c351a49f62411e6aa7f34708b143cddf7c8"
+    },
+    {
+      "id": "animal-08",
+      "path": "/art/harmonies/figurines/animated-v5/animal-08.webp",
+      "sha256": "93498c6d1256bacee86b3fd7f00f90d0deab6713ef695b8412c30681fb8dfbcd"
+    },
+    {
+      "id": "animal-09",
+      "path": "/art/harmonies/figurines/animated-v5/animal-09.webp",
+      "sha256": "539a6f29e35ba2bd6a892d76e62bee757af2a4d3bf97692635c7ae3630219351"
+    },
+    {
+      "id": "animal-10",
+      "path": "/art/harmonies/figurines/animated-v5/animal-10.webp",
+      "sha256": "81058bd6dbb0fc39df4a6137f4c75a50455eca39314062dcab4b43c31d0ebf88"
+    },
+    {
+      "id": "animal-11",
+      "path": "/art/harmonies/figurines/animated-v5/animal-11.webp",
+      "sha256": "5db8cfdf4c5c939347c00b45c6fcb94baeb8a3d8a66c4dcb5e031e11a2e4e54d"
+    },
+    {
+      "id": "animal-12",
+      "path": "/art/harmonies/figurines/animated-v5/animal-12.webp",
+      "sha256": "c8ba9c2d5344f321a045cae513029e6a138366109f7d18ad18c5ab98b255fc32"
+    },
+    {
+      "id": "animal-13",
+      "path": "/art/harmonies/figurines/animated-v5/animal-13.webp",
+      "sha256": "d18be7c75dfee3c659d31db9da906cf9ed1c0ba98defdb316c65bb2b907c98a4"
+    },
+    {
+      "id": "animal-14",
+      "path": "/art/harmonies/figurines/animated-v5/animal-14.webp",
+      "sha256": "9ec2acc61568e3de914e0d6fa36c296ac5cffdc779bb69b8bd507c67db1db9dd"
+    },
+    {
+      "id": "animal-15",
+      "path": "/art/harmonies/figurines/animated-v5/animal-15.webp",
+      "sha256": "3843f6070e0b0c129ea775d65ed4a1f67e23fe72982495cf59c5ce2bbcf3ff02"
+    },
+    {
+      "id": "animal-16",
+      "path": "/art/harmonies/figurines/animated-v5/animal-16.webp",
+      "sha256": "f33fa0ee1acb2a44cf6232f7855f28939c4d2ec73cb758faebadf72d734efe33"
+    },
+    {
+      "id": "animal-17",
+      "path": "/art/harmonies/figurines/animated-v5/animal-17.webp",
+      "sha256": "e70d89494efcf0aa723dbdd3bde8922c0278eaacfa7c76d89444b2f415ab3811"
+    },
+    {
+      "id": "animal-18",
+      "path": "/art/harmonies/figurines/animated-v5/animal-18.webp",
+      "sha256": "34c37773652d9dc67fcff7230000b192c045e92fc46793a05db59293623d7f8c"
+    },
+    {
+      "id": "animal-19",
+      "path": "/art/harmonies/figurines/animated-v5/animal-19.webp",
+      "sha256": "cda4baf0aaab81486afc04efeefb2fd07b0f67a47698fb396f67fb97b83fe146"
+    },
+    {
+      "id": "animal-20",
+      "path": "/art/harmonies/figurines/animated-v5/animal-20.webp",
+      "sha256": "968d97f27d36d2a5ba3ff12daf7fd4850186224387cd9d1f5e6222b850f2d34f"
+    },
+    {
+      "id": "animal-21",
+      "path": "/art/harmonies/figurines/animated-v5/animal-21.webp",
+      "sha256": "36461760471dd3e6a6b40986c1185fda4e71e31a1a5a9bf858bab56d7e90d544"
+    },
+    {
+      "id": "animal-22",
+      "path": "/art/harmonies/figurines/animated-v5/animal-22.webp",
+      "sha256": "4e61a484f372068fb955b5fb1ddb2d317934bcd62989e2de3852b92e043d99ab"
+    },
+    {
+      "id": "animal-23",
+      "path": "/art/harmonies/figurines/animated-v5/animal-23.webp",
+      "sha256": "a5b12da71e3ecac26a33f1c0f1bb81af5799162e8afe63121b265dae1fa1fff0"
+    },
+    {
+      "id": "animal-24",
+      "path": "/art/harmonies/figurines/animated-v5/animal-24.webp",
+      "sha256": "e184f5354779e10cf6524289bccf846226adfc8f35993ea376ff43ccb60e9de6"
+    },
+    {
+      "id": "animal-25",
+      "path": "/art/harmonies/figurines/animated-v5/animal-25.webp",
+      "sha256": "6e7921bb2f666535093a45b9ba31266ec907680e36594616d2ded9b1169f237b"
+    },
+    {
+      "id": "animal-26",
+      "path": "/art/harmonies/figurines/animated-v5/animal-26.webp",
+      "sha256": "26c9dbdbfdc774358f7d52e48c3f03dd0a4191474534b050a089c354a51e8452"
+    },
+    {
+      "id": "animal-27",
+      "path": "/art/harmonies/figurines/animated-v5/animal-27.webp",
+      "sha256": "55268d835aeeebaf814790ec8d7f5db3bd3db39d3e684f62f11844a6f7da021b"
+    },
+    {
+      "id": "animal-28",
+      "path": "/art/harmonies/figurines/animated-v5/animal-28.webp",
+      "sha256": "bfa23418d5af3544000ad75bda81db3e8593a16facb245437015c320a3005d98"
+    },
+    {
+      "id": "animal-29",
+      "path": "/art/harmonies/figurines/animated-v5/animal-29.webp",
+      "sha256": "0077db2d02f6f97d1cc92251880398fbfa400f0c3ee0ff0f715c236a1a1891ca"
+    },
+    {
+      "id": "animal-30",
+      "path": "/art/harmonies/figurines/animated-v5/animal-30.webp",
+      "sha256": "28683a150ca647ababd6ecf21bb96d0df8ae4a23732fdedeb780cff8d9c07f46"
+    },
+    {
+      "id": "animal-31",
+      "path": "/art/harmonies/figurines/animated-v5/animal-31.webp",
+      "sha256": "4e5655fe115674190646d86faee789af62d9e9e8dae0f71c5fe08a07fb8692de"
+    },
+    {
+      "id": "animal-32",
+      "path": "/art/harmonies/figurines/animated-v5/animal-32.webp",
+      "sha256": "1eb3a6b57a978e9c52365fc8cf970b2fe2d35647e292ecabbf74ff90c8ace90e"
+    },
+    {
+      "id": "spirit-01",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-01.webp",
+      "sha256": "8ff94c5cf5b45b6c211930a40870af64f4f2acfaa1020b9a597e80278dac1691"
+    },
+    {
+      "id": "spirit-02",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-02.webp",
+      "sha256": "09a749bfb9515eeaef4b27de011f4e512a75f879b8ecd340df692e77516a1a57"
+    },
+    {
+      "id": "spirit-03",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-03.webp",
+      "sha256": "ab166bc5b2ae1669d57c9a95966851b86d7dbe68ce5b4c63e02a72242c0fabf9"
+    },
+    {
+      "id": "spirit-04",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-04.webp",
+      "sha256": "96d86556bba8de92e8c287a7e4c62d0b7f38196713f682ad6c005946e1e86c64"
+    },
+    {
+      "id": "spirit-05",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-05.webp",
+      "sha256": "f95d61971fae8dbed2446532f56f60674cb3e48595f7af81b799d35d307fd950"
+    },
+    {
+      "id": "spirit-06",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-06.webp",
+      "sha256": "8aaf52dc94672bd62eb026a881e4642bc029c2dc831c5d64c373f88b77b597a2"
+    },
+    {
+      "id": "spirit-07",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-07.webp",
+      "sha256": "dd50c911aa0cc687418da2865a061a8fcdd79d29eee88b98ed3f331ab87b4677"
+    },
+    {
+      "id": "spirit-08",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-08.webp",
+      "sha256": "b5329a065c116a88d1498e942100aaed1b4dd97b4f483b6fc49f7e5ac0234ca0"
+    },
+    {
+      "id": "spirit-09",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-09.webp",
+      "sha256": "8139ccde277f956964e2220d3f0da5b7203ae3884bccaa3dddbe71e8e844da9c"
+    },
+    {
+      "id": "spirit-10",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-10.webp",
+      "sha256": "8335d87a411fd864420091c5467b7baf26a31ccc34114bd4d81dc612c44d4fcf"
+    },
+    {
+      "id": "spirit-11",
+      "path": "/art/harmonies/figurines/animated-v5/spirit-11.webp",
+      "sha256": "625ac7e996d6da3a232342694487b645caa7f8f1950e041e43103327f2b59a9d"
+    },
+    {
+      "id": "whisper-01",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-crystal-glow.webp",
+      "sha256": "c1a207af80c5cd96202dd64bb7670a314d213c250b7f3631b7b8e92042377395"
+    },
+    {
+      "id": "whisper-02",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-statue-glow.webp",
+      "sha256": "d829714dacc76f805e3e42fe840b1a0ddfbe6e5d3a4b2c715652a0565786882b"
+    },
+    {
+      "id": "whisper-03",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-flower-glow.webp",
+      "sha256": "c461a9e39af8cdfd6084a44d51348d3914369c9c0a235db222d07b101f94cf4d"
+    },
+    {
+      "id": "whisper-04",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-coral-glow.webp",
+      "sha256": "cd3b1b9d66dc64d3e8dc3ac0d34714a35431ba2a5f904a91831f47176ab86df2"
+    },
+    {
+      "id": "whisper-05",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-mushroom-glow.webp",
+      "sha256": "860a3ca7a9fc957849534dfea0f1c0618269f5e8d7077aa2d3302e1c2a2f6312"
+    },
+    {
+      "id": "whisper-06",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-flower-glow.webp",
+      "sha256": "c461a9e39af8cdfd6084a44d51348d3914369c9c0a235db222d07b101f94cf4d"
+    },
+    {
+      "id": "whisper-07",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-statue-glow.webp",
+      "sha256": "d829714dacc76f805e3e42fe840b1a0ddfbe6e5d3a4b2c715652a0565786882b"
+    },
+    {
+      "id": "whisper-08",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-crystal-glow.webp",
+      "sha256": "c1a207af80c5cd96202dd64bb7670a314d213c250b7f3631b7b8e92042377395"
+    },
+    {
+      "id": "whisper-09",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-mushroom-glow.webp",
+      "sha256": "860a3ca7a9fc957849534dfea0f1c0618269f5e8d7077aa2d3302e1c2a2f6312"
+    },
+    {
+      "id": "whisper-10",
+      "path": "/art/harmonies/figurines/sculpted-v1/whisper-coral-glow.webp",
+      "sha256": "cd3b1b9d66dc64d3e8dc3ac0d34714a35431ba2a5f904a91831f47176ab86df2"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="1200" viewBox="0 0 120 1200">
+  <defs>
+    <linearGradient id="rainbow" x1="0" y1="0" x2=".3" y2="1">
+      <stop stop-color="#bd699d"/><stop offset=".19" stop-color="#b77e51"/><stop offset=".36" stop-color="#c7b248"/><stop offset=".54" stop-color="#63a57e"/><stop offset=".73" stop-color="#398db1"/><stop offset="1" stop-color="#9673b6"/>
+    </linearGradient>
+    <linearGradient id="edge"><stop stop-color="#fff8dc" stop-opacity=".65"/><stop offset=".25" stop-color="#fff8dc" stop-opacity=".12"/><stop offset="1" stop-color="#fff8dc" stop-opacity="0"/></linearGradient>
+    <pattern id="vine" width="120" height="180" patternUnits="userSpaceOnUse"><g fill="none" stroke="#fff4ce" stroke-width="1.5" opacity=".3"><path d="M66 0C20 44 110 95 66 180M65 28Q25 18 35 57Q62 57 65 28ZM68 92Q111 83 98 123Q70 122 68 92Z"/><path d="m65 151 7 10-7 10-7-10Z"/></g></pattern>
+    <clipPath id="clip"><path d="M0 0H94Q120 0 120 26V1174Q120 1200 94 1200H0Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)"><path d="M0 0H120V1200H0Z" fill="url(#rainbow)"/><path d="M0 0H120V1200H0Z" fill="url(#edge)"/><path d="M0 0H120V1200H0Z" fill="url(#vine)"/><path d="M8 0V1200" stroke="#fff4ce" stroke-opacity=".6" stroke-width="6"/>
+    <g fill="#fff4ce" opacity=".86"><path d="m65 1023 8 25 24 8-24 8-8 25-8-25-24-8 24-8ZM91 1114l4 12 12 4-12 4-4 12-4-12-12-4 12-4ZM40 1140l5 15 15 5-15 5-5 15-5-15-15-5 15-5Z"/></g>
+  </g>
+</svg>

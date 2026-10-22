@@ -1,0 +1,217 @@
+{
+  "animal-25": {
+    "asset": "/art/harmonies/original-v1/animal-25.png",
+    "width": 231,
+    "height": 408
+  },
+  "animal-19": {
+    "asset": "/art/harmonies/original-v1/animal-19.png",
+    "width": 231,
+    "height": 408
+  },
+  "animal-27": {
+    "asset": "/art/harmonies/original-v1/animal-27.png",
+    "width": 231,
+    "height": 408
+  },
+  "animal-06": {
+    "asset": "/art/harmonies/original-v1/animal-06.png",
+    "width": 231,
+    "height": 408
+  },
+  "animal-10": {
+    "asset": "/art/harmonies/original-v1/animal-10.png",
+    "width": 231,
+    "height": 408
+  },
+  "animal-18": {
+    "asset": "/art/harmonies/original-v1/animal-18.png",
+    "width": 231,
+    "height": 401
+  },
+  "animal-32": {
+    "asset": "/art/harmonies/original-v1/animal-32.png",
+    "width": 231,
+    "height": 401
+  },
+  "animal-28": {
+    "asset": "/art/harmonies/original-v1/animal-28.png",
+    "width": 231,
+    "height": 394
+  },
+  "animal-22": {
+    "asset": "/art/harmonies/original-v1/animal-22.png",
+    "width": 231,
+    "height": 394
+  },
+  "animal-11": {
+    "asset": "/art/harmonies/original-v1/animal-11.png",
+    "width": 231,
+    "height": 394
+  },
+  "animal-16": {
+    "asset": "/art/harmonies/original-v1/animal-16.png",
+    "width": 231,
+    "height": 393
+  },
+  "animal-05": {
+    "asset": "/art/harmonies/original-v1/animal-05.png",
+    "width": 231,
+    "height": 393
+  },
+  "animal-24": {
+    "asset": "/art/harmonies/original-v1/animal-24.png",
+    "width": 231,
+    "height": 407
+  },
+  "animal-14": {
+    "asset": "/art/harmonies/original-v1/animal-14.png",
+    "width": 231,
+    "height": 407
+  },
+  "animal-30": {
+    "asset": "/art/harmonies/original-v1/animal-30.png",
+    "width": 231,
+    "height": 399
+  },
+  "animal-07": {
+    "asset": "/art/harmonies/original-v1/animal-07.png",
+    "width": 231,
+    "height": 399
+  },
+  "animal-12": {
+    "asset": "/art/harmonies/original-v1/animal-12.png",
+    "width": 231,
+    "height": 399
+  },
+  "animal-17": {
+    "asset": "/art/harmonies/original-v1/animal-17.png",
+    "width": 231,
+    "height": 399
+  },
+  "animal-15": {
+    "asset": "/art/harmonies/original-v1/animal-15.png",
+    "width": 231,
+    "height": 407
+  },
+  "animal-04": {
+    "asset": "/art/harmonies/original-v1/animal-04.png",
+    "width": 231,
+    "height": 407
+  },
+  "animal-26": {
+    "asset": "/art/harmonies/original-v1/animal-26.png",
+    "width": 231,
+    "height": 400
+  },
+  "animal-13": {
+    "asset": "/art/harmonies/original-v1/animal-13.png",
+    "width": 231,
+    "height": 393
+  },
+  "animal-31": {
+    "asset": "/art/harmonies/original-v1/animal-31.png",
+    "width": 231,
+    "height": 393
+  },
+  "animal-01": {
+    "asset": "/art/harmonies/original-v1/animal-01.png",
+    "width": 231,
+    "height": 402
+  },
+  "animal-20": {
+    "asset": "/art/harmonies/original-v1/animal-20.png",
+    "width": 231,
+    "height": 402
+  },
+  "animal-02": {
+    "asset": "/art/harmonies/original-v1/animal-02.png",
+    "width": 231,
+    "height": 404
+  },
+  "animal-21": {
+    "asset": "/art/harmonies/original-v1/animal-21.png",
+    "width": 231,
+    "height": 404
+  },
+  "animal-29": {
+    "asset": "/art/harmonies/original-v1/animal-29.png",
+    "width": 231,
+    "height": 398
+  },
+  "animal-09": {
+    "asset": "/art/harmonies/original-v1/animal-09.png",
+    "width": 231,
+    "height": 398
+  },
+  "animal-08": {
+    "asset": "/art/harmonies/original-v1/animal-08.png",
+    "width": 231,
+    "height": 398
+  },
+  "animal-03": {
+    "asset": "/art/harmonies/original-v1/animal-03.png",
+    "width": 823,
+    "height": 1418
+  },
+  "animal-23": {
+    "asset": "/art/harmonies/original-v1/animal-23.png",
+    "width": 823,
+    "height": 1418
+  },
+  "spirit-01": {
+    "asset": "/art/harmonies/original-v1/spirit-01.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-02": {
+    "asset": "/art/harmonies/original-v1/spirit-02.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-03": {
+    "asset": "/art/harmonies/original-v1/spirit-03.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-04": {
+    "asset": "/art/harmonies/original-v1/spirit-04.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-05": {
+    "asset": "/art/harmonies/original-v1/spirit-05.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-06": {
+    "asset": "/art/harmonies/original-v1/spirit-06.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-07": {
+    "asset": "/art/harmonies/original-v1/spirit-07.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-08": {
+    "asset": "/art/harmonies/original-v1/spirit-08.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-09": {
+    "asset": "/art/harmonies/original-v1/spirit-09.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-10": {
+    "asset": "/art/harmonies/original-v1/spirit-10.png",
+    "width": 322,
+    "height": 555
+  },
+  "spirit-11": {
+    "asset": "/art/harmonies/original-v1/spirit-11.png",
+    "width": 970,
+    "height": 1680
+  }
+}

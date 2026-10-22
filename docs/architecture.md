@@ -156,3 +156,11 @@ Public projections whitelist opaque deal IDs, suit backs, placement owner/order 
 ### Room creator joins automatically
 
 The game-detail GO button sends `create` with `joinAsPlayer: true`. In the same room transaction the server creates a ready player seat using the authenticated owner profile and returns only that player session, routing the browser to `/play/<code>`. A distinct host session remains server-side; opening `/display/<code>` with the owner account obtains it through the existing authenticated watch flow. The two devices do not replace each other. Repeated create and account-based join reuse the existing session/seat. Legacy display-only protocol clients can omit the flag or send false. Local-only Name It has no room. Role selection (Dracula) still requires an explicit choice and readiness.
+
+## Harmonies startup routes and presentation hint
+Harmonies links now use `/harmonies/play/<code>` and `/harmonies/display/<code>`; original `/play/<code>` and `/display/<code>` continue working. Game-qualified paths normalize to the existing role/code before credential and pending-action lookup. Only the server snapshot establishes the room's real game/permissions, and corrects any mismatched prefix. Other games keep their existing generated links.
+An inline HTML head bootstrap applies the river theme before loading the app for Harmonies paths, or for legacy paths with an existing public theme hint. The hint is presentation metadata only, stored separately from credentials; it cannot create/resume a session. The common SPA/static fallback already serves these paths in Docker and the Vercel configuration; no server-side redirect or state projection changes are needed.
+
+## Lobby player removal
+
+The shared lobby exposes an icon-only cross beside other seats for the owner/authorized host, with an explicit confirmation dialog before sending `room-kick`. The authoritative command accepts only a target player ID, uses the existing revision/receipt protocol, rejects other players, the owner's seat and every started game, and removes the target's seat and reconnect sessions in one durable mutation. Transport notification/closure runs only after the save succeeds; a failed save preserves the live seat. Other players and displays receive the new lobby. Removal releases the seat; it does not ban the account from explicitly joining again.

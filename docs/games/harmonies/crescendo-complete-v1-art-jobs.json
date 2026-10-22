@@ -1,0 +1,325 @@
+{
+  "generator": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "pulse-01",
+      "kind": "card",
+      "name": "ด้วง",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a bright jewel beetle, expressive playful personality, clearly recognizable, full face visible, in wildflower meadow. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-01.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-01.webp"
+    },
+    {
+      "id": "pulse-01",
+      "kind": "paper-model",
+      "name": "ด้วง",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a bright jewel beetle. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-01.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-01.webp"
+    },
+    {
+      "id": "pulse-01",
+      "kind": "sculpted-model",
+      "name": "ด้วง",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a bright jewel beetle. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-01.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-01.webp"
+    },
+    {
+      "id": "pulse-02",
+      "kind": "card",
+      "name": "นกนางนวล",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a playful seagull, expressive playful personality, clearly recognizable, full face visible, in seaside wooden posts and blue sea. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-02.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-02.webp"
+    },
+    {
+      "id": "pulse-02",
+      "kind": "paper-model",
+      "name": "นกนางนวล",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a playful seagull. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-02.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-02.webp"
+    },
+    {
+      "id": "pulse-02",
+      "kind": "sculpted-model",
+      "name": "นกนางนวล",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a playful seagull. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-02.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-02.webp"
+    },
+    {
+      "id": "pulse-03",
+      "kind": "card",
+      "name": "แอกโซลอเติล",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a smiling pink axolotl with feathery gills, expressive playful personality, clearly recognizable, full face visible, in clear freshwater stream and orange water flowers. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-03.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-03.webp"
+    },
+    {
+      "id": "pulse-03",
+      "kind": "paper-model",
+      "name": "แอกโซลอเติล",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a smiling pink axolotl with feathery gills. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-03.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-03.webp"
+    },
+    {
+      "id": "pulse-03",
+      "kind": "sculpted-model",
+      "name": "แอกโซลอเติล",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a smiling pink axolotl with feathery gills. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-03.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-03.webp"
+    },
+    {
+      "id": "pulse-04",
+      "kind": "card",
+      "name": "อูฐ",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a friendly two-humped Bactrian camel, expressive playful personality, clearly recognizable, full face visible, in warm desert dunes and an oasis. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-04.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-04.webp"
+    },
+    {
+      "id": "pulse-04",
+      "kind": "paper-model",
+      "name": "อูฐ",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a friendly two-humped Bactrian camel. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-04.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-04.webp"
+    },
+    {
+      "id": "pulse-04",
+      "kind": "sculpted-model",
+      "name": "อูฐ",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a friendly two-humped Bactrian camel. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-04.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-04.webp"
+    },
+    {
+      "id": "pulse-05",
+      "kind": "card",
+      "name": "แพนด้า",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a playful black-and-white panda, expressive playful personality, clearly recognizable, full face visible, in bamboo grove. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-05.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-05.webp"
+    },
+    {
+      "id": "pulse-05",
+      "kind": "paper-model",
+      "name": "แพนด้า",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a playful black-and-white panda. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-05.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-05.webp"
+    },
+    {
+      "id": "pulse-05",
+      "kind": "sculpted-model",
+      "name": "แพนด้า",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a playful black-and-white panda. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-05.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-05.webp"
+    },
+    {
+      "id": "pulse-06",
+      "kind": "card",
+      "name": "กิ้งก่าคาเมเลียน",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a curled-tail green chameleon with large eyes, expressive playful personality, clearly recognizable, full face visible, in tropical leafy branches. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-06.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-06.webp"
+    },
+    {
+      "id": "pulse-06",
+      "kind": "paper-model",
+      "name": "กิ้งก่าคาเมเลียน",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a curled-tail green chameleon with large eyes. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-06.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-06.webp"
+    },
+    {
+      "id": "pulse-06",
+      "kind": "sculpted-model",
+      "name": "กิ้งก่าคาเมเลียน",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a curled-tail green chameleon with large eyes. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-06.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-06.webp"
+    },
+    {
+      "id": "pulse-07",
+      "kind": "card",
+      "name": "จามรี",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a shaggy ivory Himalayan yak with curved horns, expressive playful personality, clearly recognizable, full face visible, in alpine mountains and golden grasses. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-07.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-07.webp"
+    },
+    {
+      "id": "pulse-07",
+      "kind": "paper-model",
+      "name": "จามรี",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a shaggy ivory Himalayan yak with curved horns. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-07.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-07.webp"
+    },
+    {
+      "id": "pulse-07",
+      "kind": "sculpted-model",
+      "name": "จามรี",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a shaggy ivory Himalayan yak with curved horns. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-07.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-07.webp"
+    },
+    {
+      "id": "pulse-08",
+      "kind": "card",
+      "name": "นกโรบิน",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a small orange-breasted European robin, expressive playful personality, clearly recognizable, full face visible, in a snowy birch woodland. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-08.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-08.webp"
+    },
+    {
+      "id": "pulse-08",
+      "kind": "paper-model",
+      "name": "นกโรบิน",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a small orange-breasted European robin. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-08.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-08.webp"
+    },
+    {
+      "id": "pulse-08",
+      "kind": "sculpted-model",
+      "name": "นกโรบิน",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a small orange-breasted European robin. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-08.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-08.webp"
+    },
+    {
+      "id": "pulse-09",
+      "kind": "card",
+      "name": "ปลาปิรันยา",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a bright violet and coral piranha fish, expressive playful personality, clearly recognizable, full face visible, in submerged tropical river grasses. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-09.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-09.webp"
+    },
+    {
+      "id": "pulse-09",
+      "kind": "paper-model",
+      "name": "ปลาปิรันยา",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a bright violet and coral piranha fish. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-09.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-09.webp"
+    },
+    {
+      "id": "pulse-09",
+      "kind": "sculpted-model",
+      "name": "ปลาปิรันยา",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a bright violet and coral piranha fish. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-09.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-09.webp"
+    },
+    {
+      "id": "pulse-10",
+      "kind": "card",
+      "name": "เสือโคร่ง",
+      "prompt": "One original board-game card illustration only, full-bleed 3:4 portrait. Subject: a playful orange tiger with clear black stripes, expressive playful personality, clearly recognizable, full face visible, in lush riverbank jungle. Textured flat gouache and screen-print picture-book illustration, bold geometric shapes layered with fine dark ink contours, rich paper grain, vibrant natural palette. Creature occupies upper two thirds and left 80 percent. Bottom 30 percent and right 16 percent are quiet continuous nature colors for separate game pieces/UI. No tokens, hexes, discs, cubes, scoreboard, frames, border, lettering, text, logos or watermark. Do not copy an existing game illustration. No realism, photography or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/card/pulse-10.png",
+      "output": "public/art/harmonies/pulse-v1/pulse-10.webp"
+    },
+    {
+      "id": "pulse-10",
+      "kind": "paper-model",
+      "name": "เสือโคร่ง",
+      "prompt": "ONE original isolated 2D board-game animal sprite: a playful orange tiger with clear black stripes. Playful storybook cartoon with expressive fine dark ink contour and hatching, flat gouache color shapes, warm paper grain and crisp ivory cutout silhouette. Natural species colors. Full creature centered, compact upright or seated three-quarter pose, appendages tucked to fit portrait shape. Actual transparent background and small padding. Feet/lowest body on one level bottom baseline. For a uniform 160x184 canvas with 144x168 content fit and baseline176. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals, diffuse glow, photorealism, 3D or cropped anatomy.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/paper-model/pulse-10.png",
+      "output": "public/art/harmonies/figurines/pulse-paper-v1/pulse-10.webp"
+    },
+    {
+      "id": "pulse-10",
+      "kind": "sculpted-model",
+      "name": "เสือโคร่ง",
+      "prompt": "ONE original isolated premium board-game animal figurine sprite: a playful orange tiger with clear black stripes. Friendly artful cartoon collectible, warm matte painted wood/clay surface, soft sculptural detail and crisp outline, subtle natural shading. Natural species colors, compact upright or seated three-quarter pose, all appendages inside frame. Full creature centered with feet/lowest body on one ground baseline. Actual transparent background. Small padding. For a uniform 160x184 game sprite. No floor, scenery, ground shadow, pedestal, token, tile, cube, text, badge, logo, extra animals or cropped anatomy. Charming toy illustration, not wildlife photography.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sculpted-model/pulse-10.png",
+      "output": "public/art/harmonies/figurines/pulse-sculpted-v1/pulse-10.webp"
+    },
+    {
+      "id": "sanctuary-01",
+      "kind": "sanctuary",
+      "name": "towering blue basalt waterfall canyon",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: towering blue basalt waterfall canyon. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-01.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-01.webp"
+    },
+    {
+      "id": "sanctuary-02",
+      "kind": "sanctuary",
+      "name": "forest treehouse among tall green foliage",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: forest treehouse among tall green foliage. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-02.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-02.webp"
+    },
+    {
+      "id": "sanctuary-03",
+      "kind": "sanctuary",
+      "name": "golden sandstone mesas above a warm flowering desert",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: golden sandstone mesas above a warm flowering desert. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-03.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-03.webp"
+    },
+    {
+      "id": "sanctuary-04",
+      "kind": "sanctuary",
+      "name": "rainbow cliffs and turquoise pools",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: rainbow cliffs and turquoise pools. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-04.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-04.webp"
+    },
+    {
+      "id": "sanctuary-05",
+      "kind": "sanctuary",
+      "name": "sakura trees blooming on a windswept ridge",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: sakura trees blooming on a windswept ridge. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-05.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-05.webp"
+    },
+    {
+      "id": "sanctuary-06",
+      "kind": "sanctuary",
+      "name": "sunlit terraced green meadows",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: sunlit terraced green meadows. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-06.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-06.webp"
+    },
+    {
+      "id": "sanctuary-07",
+      "kind": "sanctuary",
+      "name": "an ancient stone city with red hanging bridges",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: an ancient stone city with red hanging bridges. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-07.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-07.webp"
+    },
+    {
+      "id": "sanctuary-08",
+      "kind": "sanctuary",
+      "name": "a silver misty river valley",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: a silver misty river valley. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-08.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-08.webp"
+    },
+    {
+      "id": "sanctuary-09",
+      "kind": "sanctuary",
+      "name": "forest ponds under gigantic deep green leaves",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: forest ponds under gigantic deep green leaves. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-09.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-09.webp"
+    },
+    {
+      "id": "sanctuary-10",
+      "kind": "sanctuary",
+      "name": "golden flower fields beside red woodland buildings",
+      "prompt": "One original full-bleed 3:4 portrait board-game landscape card ART ONLY: golden flower fields beside red woodland buildings. A spectacular protected sanctuary, tranquil epic natural landscape. Textured flat gouache, layered geometric cut-paper shapes, expressive ink details and rich screen-print paper grain. Modern artistic picture-book style, vibrant jewel colors and a strong sense of place. Main landscape details in upper 60 percent, bottom 35 percent quiet dark nature colors reserved for separate terrain stacks. Rightmost 18 percent low detail. Paint all edges; no frames or white margins. No animals, tokens, cylinders, hexagons, cubes, game pieces, scoreboard, numbers, text, letters, logo or watermark. No photorealism or 3D render.",
+      "source": "assets/source/harmonies/crescendo-complete-v1/sanctuary/sanctuary-10.png",
+      "output": "public/art/harmonies/sanctuaries-v1/sanctuary-10.webp"
+    }
+  ]
+}

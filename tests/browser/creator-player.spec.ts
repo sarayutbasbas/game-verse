@@ -14,7 +14,7 @@ test('ordinary GO in every online game joins a ready owner; reconnect, independe
   for(const gameId of Object.keys(gameAdapters)){
    await page.goto(url+'/games/'+gameId);await page.locator('#create').click();await expect(page).toHaveURL(/\/play\/[A-Z0-9]{6}$/);await expect(page.locator('#qr')).toBeVisible();
    const code=page.url().split('/').pop()!,room=app.rooms.rooms.get(code)!;expect(room.players).toHaveLength(1);expect(room.players[0].ready).toBe(true);const playerId=room.players[0].id;
-   await expect(page.getByRole('textbox',{name:'ชื่อของคุณ'})).toHaveCount(0);await expect(page.locator('#start')).toBeVisible();await expect(page.locator('.lobby-display-link')).toHaveAttribute('href','/display/'+code);
+   await expect(page.getByRole('textbox',{name:'ชื่อของคุณ'})).toHaveCount(0);await expect(page.locator('#start')).toBeVisible();await expect(page.locator('.lobby-display-link')).toHaveAttribute('href',(gameId==='harmonies'?'/harmonies':'')+'/display/'+code);
    await page.reload();await expect(page.locator('#start')).toBeVisible();expect(room.players).toHaveLength(1);expect(room.players[0].id).toBe(playerId);
    const display=await context.newPage();await display.goto(url+'/display/'+code);await expect(display.locator('#qr')).toBeVisible();expect([...room.sockets.values()].filter(s=>s?.role==='player')).toHaveLength(1);expect([...room.sockets.values()].some(s=>s?.role==='host')).toBe(true);await expect(page.locator('#start')).toBeVisible();await display.close();
    if(gameId==='harmonies'){

@@ -1,0 +1,350 @@
+{
+  "generator": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "spirit-01",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a majestic friendly golden lion, stylized large circular blue-and-gold mane, seated, tiny star accents in sunlit golden savanna and graphic acacias. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-01.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-01.webp",
+        "public/art/harmonies/special-paper-v1/spirit-01-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-01-lite.webp"
+      ],
+      "sha256": "67f69c399f9c4d8bb3fa2fe0d905240d53a0c65ec6c451daf016681e5aa8f046"
+    },
+    {
+      "id": "spirit-02",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a magical rainbow butterfly with four patterned wings and a distinct tiny insect body in a wildflower meadow with rainbow-hued petals. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-02.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-02.webp",
+        "public/art/harmonies/special-paper-v1/spirit-02-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-02-lite.webp"
+      ],
+      "sha256": "b0f231417119371450ada446c045e9eb304940b0493846d9374df4f2ba34fcba"
+    },
+    {
+      "id": "spirit-03",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a forest stag with leafy antlers, compact standing pose in ancient woodland with iridescent leaves. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-03.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-03.webp",
+        "public/art/harmonies/special-paper-v1/spirit-03-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-03-lite.webp"
+      ],
+      "sha256": "017efc9b97ea6c8f59558c7763fa74d1bc41701c40866e2b747e78e1afe3f7fd"
+    },
+    {
+      "id": "spirit-04",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a midnight owl, folded patterned wings, round expressive eyes, small moon accent in a midnight forest with spectral rainbow starlight. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-04.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-04.webp",
+        "public/art/harmonies/special-paper-v1/spirit-04-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-04-lite.webp"
+      ],
+      "sha256": "3e094ebe484a3e9b09e06b93af98447c68be38f720f720003340b4e944118fe5"
+    },
+    {
+      "id": "spirit-05",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a mystical purple bat with large ears and half-open wings, small moon detail in a moonlit limestone forest with rainbow mineral reflections. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-05.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-05.webp",
+        "public/art/harmonies/special-paper-v1/spirit-05-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-05-lite.webp"
+      ],
+      "sha256": "20a8dea528655024ecc12fd37bd4e95e21eb2afd181d7e3e8d2b39cbfcb1f8e1"
+    },
+    {
+      "id": "spirit-06",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a graceful fire-colored crane, folded red-orange patterned wings, legs visible in a reed marsh at sunrise, prismatic red and blue water. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-06.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-06.webp",
+        "public/art/harmonies/special-paper-v1/spirit-06-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-06-lite.webp"
+      ],
+      "sha256": "e0847733ffa83564147ff60714fc767478731fdeaba11b3fccb2d09e70841471"
+    },
+    {
+      "id": "spirit-07",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a mountain goat with curved horns and small crystal-like markings, seated in layered mountain cliffs with rainbow mineral strata. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-07.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-07.webp",
+        "public/art/harmonies/special-paper-v1/spirit-07-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-07-lite.webp"
+      ],
+      "sha256": "4c5862f3070cc7e8cf35ea74417572e9236a16d56eea7f139cd9b16eb95b0868"
+    },
+    {
+      "id": "spirit-08",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a cheerful mountain marmot sitting upright, tiny paws together in an alpine meadow with prismatic wildflowers. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-08.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-08.webp",
+        "public/art/harmonies/special-paper-v1/spirit-08-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-08-lite.webp"
+      ],
+      "sha256": "168e9f9d39fbe65dac99a4347e4e59a5329a86fe599e9db154e6cbe8ae50a488"
+    },
+    {
+      "id": "spirit-09",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a magical turquoise dragonfly, four transparent patterned wings, large gentle eyes, unmistakable insect anatomy in a cascading turquoise river with rainbow reflections. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-09.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-09.webp",
+        "public/art/harmonies/special-paper-v1/spirit-09-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-09-lite.webp"
+      ],
+      "sha256": "7e34fba1ac6bfeee5c0b6b3aa1895279fac8276ed38c9ddb81c6694b59b609d2"
+    },
+    {
+      "id": "spirit-10",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a friendly green turtle with a layered leaf-pattern shell, all four feet visible in a misty woodland pool with rainbow foliage. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Rich rainbow iridescent colors integrated throughout the habitat and creature markings, magical prismatic leaves and water, luminous colored inks without blurred bloom. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-10.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-10.webp",
+        "public/art/harmonies/special-paper-v1/spirit-10-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-10-lite.webp"
+      ],
+      "sha256": "5d77e4e648421f7079ce9e18fd6f22e6a15ac9777e734193d922f3851e8df9f1"
+    },
+    {
+      "id": "spirit-11",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a playful orange Tyrannosaurus rex, short arms, strong hind legs, curled tail, ivory belly in an ancient river canyon, golden ferns, amber cliffs, distant volcano in luminous gold sunlight. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Splendid golden and amber epic atmosphere, radiant warm gold across the entire landscape, ochre and metallic-ink-inspired highlights, gilded sunlight, rich shadows. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/spirit-11.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/spirit-11.webp",
+        "public/art/harmonies/special-paper-v1/spirit-11-small.webp",
+        "public/art/harmonies/special-paper-v1/spirit-11-lite.webp"
+      ],
+      "sha256": "f899f0305d9c310cee42ec8a259c5bfe28a0d87dcf8e6f7517d927a0f37af730"
+    },
+    {
+      "id": "whisper-01",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. crystals among woodland roots in crystals among woodland roots. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-01.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-01.webp",
+        "public/art/harmonies/special-paper-v1/whisper-01-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-01-lite.webp"
+      ],
+      "sha256": "91a1f3fecec6f9eee52797cc914544ea9fdbd33cddc1268fe8cd6ee14d93c9e6"
+    },
+    {
+      "id": "whisper-02",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. an old carved stone woodland idol under leaves in an old carved stone woodland idol under leaves. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-02.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-02.webp",
+        "public/art/harmonies/special-paper-v1/whisper-02-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-02-lite.webp"
+      ],
+      "sha256": "422832ed3039ec4ffb9f09b41169c9f1dbbe54d45c67f46399eff8c54694318a"
+    },
+    {
+      "id": "whisper-03",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a wildflower beside an old stump in a wildflower beside an old stump. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-03.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-03.webp",
+        "public/art/harmonies/special-paper-v1/whisper-03-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-03-lite.webp"
+      ],
+      "sha256": "293a43918d58ac62d9cce33f6eafd45cf0e30a33f00b617d270c07566f675200"
+    },
+    {
+      "id": "whisper-04",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. coral beside a floating river branch in coral beside a floating river branch. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-04.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-04.webp",
+        "public/art/harmonies/special-paper-v1/whisper-04-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-04-lite.webp"
+      ],
+      "sha256": "f1a96ef6191feed15326bc90f6cebfb36675f63f60e41e1c0f8780b8e6f38841"
+    },
+    {
+      "id": "whisper-05",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. large mushrooms beside a winding river in large mushrooms beside a winding river. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-05.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-05.webp",
+        "public/art/harmonies/special-paper-v1/whisper-05-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-05-lite.webp"
+      ],
+      "sha256": "797effbc1cd9ef8ec71e653d3f8ea21918496eab4d54b9333cf5b21252ee1266"
+    },
+    {
+      "id": "whisper-06",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a wildflower near a small woodland house in a wildflower near a small woodland house. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-06.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-06.webp",
+        "public/art/harmonies/special-paper-v1/whisper-06-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-06-lite.webp"
+      ],
+      "sha256": "1c2eb3c2b1cef4ac9a1b556f8de1ade414f2f0dba7bee9aa7d55264db174b7f6"
+    },
+    {
+      "id": "whisper-07",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. an ancient carved woodland idol beside a stump in an ancient carved woodland idol beside a stump. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-07.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-07.webp",
+        "public/art/harmonies/special-paper-v1/whisper-07-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-07-lite.webp"
+      ],
+      "sha256": "cc235db1666ed10c415b2fc36637265b2e8cdabb4e4eded789213fa033e4481a"
+    },
+    {
+      "id": "whisper-08",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. angular crystals at a riverbank in angular crystals at a riverbank. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-08.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-08.webp",
+        "public/art/harmonies/special-paper-v1/whisper-08-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-08-lite.webp"
+      ],
+      "sha256": "719f396fc4d5c2c16f80c29b69dbf743560d26f291429e632b89595008d42469"
+    },
+    {
+      "id": "whisper-09",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. a mushroom beside a mossy boulder in a mushroom beside a mossy boulder. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-09.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-09.webp",
+        "public/art/harmonies/special-paper-v1/whisper-09-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-09-lite.webp"
+      ],
+      "sha256": "3e5677d3e63562201482adefd6379aaa4ef7f697a421dd890c638a12e83985c2"
+    },
+    {
+      "id": "whisper-10",
+      "kind": "card",
+      "sourceDir": "assets/source/harmonies/special-paper-v1",
+      "prompt": "One full-bleed portrait board-game card ARTWORK ONLY, 3:4 aspect ratio. colorful coral near a dreamlike meadow stream in colorful coral near a dreamlike meadow stream. Textured flat editorial storybook illustration, expressive ink contour, bold layered geometric nature shapes, cut-paper screen-print grain, matching a warm artful cartoon animal collection. Epic mysterious purple world, deep violet and plum landscape, lavender highlights, magnificent moonlit atmosphere, graphic silver stars, magical richness without blurred neon glow. Main subject recognizable, playful artistic personality, composed in the upper two thirds and the left 80 percent. Reserve bottom 30 percent for separately rendered game tokens: continuous quiet habitat colors with low-detail scenery, no objects there. Reserve rightmost 16 percent as quiet continuous full-bleed art, no stripe. Entire rectangular canvas painted to all four edges; do not draw rounded corners, frame or border. No text, numbers, letters, tokens, discs, hexagons, cubes, score panels, badges, logos or UI. No 3D render or photorealism. Strong crisp silhouette, no cropped face.",
+      "source": "assets/source/harmonies/special-paper-v1/whisper-10.png",
+      "outputs": [
+        "public/art/harmonies/special-paper-v1/whisper-10.webp",
+        "public/art/harmonies/special-paper-v1/whisper-10-small.webp",
+        "public/art/harmonies/special-paper-v1/whisper-10-lite.webp"
+      ],
+      "sha256": "7cf05f737931119bbd1c461ccc86c19b040873610cff4fbed3716afe04bbe35b"
+    },
+    {
+      "id": "water",
+      "kind": "token",
+      "sourceDir": "assets/source/harmonies/terrain-paper-v1",
+      "color": "#1689ad",
+      "prompt": "Create a square flat illustrated paper texture for ONE 2D board-game token top face. Entire square is colored #1689ad; dominant color must match this hex exactly. Textured gouache / screen-print on subtly fibrous matte paper, artful cartoon storybook style with restrained grain. Centered motif: two broad ivory flowing wave lines, bold and minimal, occupies middle 48 percent. Only this one motif. Flat front-on texture, no perspective, no circle outline, no cylinder, no 3D depth, no bevel, no lighting gradient, no shadows, no border, no text, letters, numerals, logo or UI. Keep corners filled with the same paper color. Elegant simple shapes readable on a 30-pixel token. The engine will map this texture onto its canonical disc geometry.",
+      "source": "assets/source/harmonies/terrain-paper-v1/water.png",
+      "outputs": [
+        "public/art/harmonies/tokens-paper-v1/water.png"
+      ],
+      "sha256": "1a9863081ed365aea84a21ed2fe678d6adf540921ce4832626b52cccf0888ac1"
+    },
+    {
+      "id": "rock",
+      "kind": "token",
+      "sourceDir": "assets/source/harmonies/terrain-paper-v1",
+      "color": "#62696b",
+      "prompt": "Create a square flat illustrated paper texture for ONE 2D board-game token top face. Entire square is colored #62696b; dominant color must match this hex exactly. Textured gouache / screen-print on subtly fibrous matte paper, artful cartoon storybook style with restrained grain. Centered motif: one simple ivory group of three mountain peaks, bold and minimal, occupies middle 48 percent. Only this one motif. Flat front-on texture, no perspective, no circle outline, no cylinder, no 3D depth, no bevel, no lighting gradient, no shadows, no border, no text, letters, numerals, logo or UI. Keep corners filled with the same paper color. Elegant simple shapes readable on a 30-pixel token. The engine will map this texture onto its canonical disc geometry.",
+      "source": "assets/source/harmonies/terrain-paper-v1/rock.png",
+      "outputs": [
+        "public/art/harmonies/tokens-paper-v1/rock.png"
+      ],
+      "sha256": "be445c021ec7caf57ee03361b26cc890cedb07c816e6ed23be07e4fe0f9d8e3b"
+    },
+    {
+      "id": "wood",
+      "kind": "token",
+      "sourceDir": "assets/source/harmonies/terrain-paper-v1",
+      "color": "#a35c32",
+      "prompt": "Create a square flat illustrated paper texture for ONE 2D board-game token top face. Entire square is colored #a35c32; dominant color must match this hex exactly. Textured gouache / screen-print on subtly fibrous matte paper, artful cartoon storybook style with restrained grain. Centered motif: three simple cream tree-growth rings, bold and minimal, occupies middle 48 percent. Only this one motif. Flat front-on texture, no perspective, no circle outline, no cylinder, no 3D depth, no bevel, no lighting gradient, no shadows, no border, no text, letters, numerals, logo or UI. Keep corners filled with the same paper color. Elegant simple shapes readable on a 30-pixel token. The engine will map this texture onto its canonical disc geometry.",
+      "source": "assets/source/harmonies/terrain-paper-v1/wood.png",
+      "outputs": [
+        "public/art/harmonies/tokens-paper-v1/wood.png"
+      ],
+      "sha256": "004d7b800e21c9905ad4b0a5aa29270a909b138cf53c383d429803d4baf9fabb"
+    },
+    {
+      "id": "leaf",
+      "kind": "token",
+      "sourceDir": "assets/source/harmonies/terrain-paper-v1",
+      "color": "#95a62b",
+      "prompt": "Create a square flat illustrated paper texture for ONE 2D board-game token top face. Entire square is colored #95a62b; dominant color must match this hex exactly. Textured gouache / screen-print on subtly fibrous matte paper, artful cartoon storybook style with restrained grain. Centered motif: one clean ivory leaf pair, bold and minimal, occupies middle 48 percent. Only this one motif. Flat front-on texture, no perspective, no circle outline, no cylinder, no 3D depth, no bevel, no lighting gradient, no shadows, no border, no text, letters, numerals, logo or UI. Keep corners filled with the same paper color. Elegant simple shapes readable on a 30-pixel token. The engine will map this texture onto its canonical disc geometry.",
+      "source": "assets/source/harmonies/terrain-paper-v1/leaf.png",
+      "outputs": [
+        "public/art/harmonies/tokens-paper-v1/leaf.png"
+      ],
+      "sha256": "c83e34b21fe522f87c284d5fb2a2a8e520fcdde1b890f5dbb3c4a53ee7af8c78"
+    },
+    {
+      "id": "field",
+      "kind": "token",
+      "sourceDir": "assets/source/harmonies/terrain-paper-v1",
+      "color": "#e6b522",
+      "prompt": "Create a square flat illustrated paper texture for ONE 2D board-game token top face. Entire square is colored #e6b522; dominant color must match this hex exactly. Textured gouache / screen-print on subtly fibrous matte paper, artful cartoon storybook style with restrained grain. Centered motif: one simple cream five-petal flower, bold and minimal, occupies middle 48 percent. Only this one motif. Flat front-on texture, no perspective, no circle outline, no cylinder, no 3D depth, no bevel, no lighting gradient, no shadows, no border, no text, letters, numerals, logo or UI. Keep corners filled with the same paper color. Elegant simple shapes readable on a 30-pixel token. The engine will map this texture onto its canonical disc geometry.",
+      "source": "assets/source/harmonies/terrain-paper-v1/field.png",
+      "outputs": [
+        "public/art/harmonies/tokens-paper-v1/field.png"
+      ],
+      "sha256": "9cae6a0c656224da9ee9ddca5804b430aa35a558450040a7a829bb08b2f06189"
+    },
+    {
+      "id": "building",
+      "kind": "token",
+      "sourceDir": "assets/source/harmonies/terrain-paper-v1",
+      "color": "#c44d3e",
+      "prompt": "Create a square flat illustrated paper texture for ONE 2D board-game token top face. Entire square is colored #c44d3e; dominant color must match this hex exactly. Textured gouache / screen-print on subtly fibrous matte paper, artful cartoon storybook style with restrained grain. Centered motif: one simple ivory house silhouette, bold and minimal, occupies middle 48 percent. Only this one motif. Flat front-on texture, no perspective, no circle outline, no cylinder, no 3D depth, no bevel, no lighting gradient, no shadows, no border, no text, letters, numerals, logo or UI. Keep corners filled with the same paper color. Elegant simple shapes readable on a 30-pixel token. The engine will map this texture onto its canonical disc geometry.",
+      "source": "assets/source/harmonies/terrain-paper-v1/building.png",
+      "outputs": [
+        "public/art/harmonies/tokens-paper-v1/building.png"
+      ],
+      "sha256": "4482dea93eab90e2e438cd840155af9b92406e2a879e816ddaacaad0209fccf8"
+    }
+  ]
+}

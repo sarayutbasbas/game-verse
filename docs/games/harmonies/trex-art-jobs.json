@@ -1,0 +1,20 @@
+{
+  "version": "trex-v1",
+  "generator": "Built-in image_gen",
+  "date": "2026-10-21",
+  "card": {
+    "source": "exec-1613702a-7b86-42d3-9f07-36eb4e2542d2.png",
+    "prompt": "Original portrait illustration: friendly feathered Tyrannosaurus rex nature spirit in a lush ancient river valley, ivory and warm golden feathers, emerald teal accents, amber eyes, soft gold aura, tiny two-finger arms and balancing tail. Cinematic dimensional animated-feature style with painterly foliage and warm sunlight, inviting and not frightening. Dinosaur in upper two thirds, lower quarter quiet dark fern meadow for code-rendered habitat overlay. No text, borders, logos, numbers or symbols.",
+    "outputs": ["/art/harmonies/reference/spirit-11.webp", "/art/harmonies/reference/spirit-11-small.webp", "/art/harmonies/reference/spirit-11-lite.webp"]
+  },
+  "model": {
+    "source": "exec-c3e792f6-8b57-4895-9f53-79d087b6e019.png",
+    "prompt": "One isolated friendly feathered T-rex figurine on a genuinely transparent background. Dimensional cinematic animated-feature style, ivory/gold feathers with teal accents and amber eyes, broad recognizable T-rex head, tiny two-finger arms, big feet on a shared baseline, curled tail inside portrait silhouette. Full body, three-quarter view, gentle closed-mouth expression, readable at 40px. Soft close gold contour glow, no pedestal, terrain, floor plane, text or symbols.",
+    "alpha": true,
+    "size": [160, 184],
+    "output": "/art/harmonies/figurines/animated-v5/spirit-11.webp"
+  },
+  "build": "node scripts/build-harmonies-trex-assets.mjs <generated-card.png> <generated-transparent-model.png>",
+  "rulesReferenceOnly": ["https://www.libellud.com/en/our-games/harmonies/", "https://cdn.svc.asmodee.net/production-hobbynext/uploads/sites/3/2024/02/Gallery-3_500x320-3.jpg"],
+  "note": "Publisher images are references for rules only. All shipped T-rex illustrations are newly generated. Habitat tokens and score UI are rendered from authoritative catalog data."
+}

@@ -66,3 +66,5 @@ Production `BETTER_AUTH_URL` and `GAMEVERSE_JOIN_ORIGIN` use `https://games.basn
 ### Database timeout recovery
 
 A timed-out synchronous DB worker is discarded. Its transaction must be abandoned before the next request creates a worker with a fresh reply buffer; uncertain queries are never replayed. Client reconnect plus durable receipts resolve command outcomes. Isolated Postgres tests force both connection termination and worker wait timeout. `/health` checks HTTP liveness; use `/api/platform` and an actual room action to check database-backed behavior. Hosted test budgets allow the bounded 15s DB failure plus reconnect, and public-view assertions wait for presence convergence across instances.
+
+Release assets: generated high-resolution Harmonies masters remain local under ignored `assets/source/harmonies/`. Checked-in `public/art/harmonies/` contains all runtime exports, including both older mode assets and the 43 new ORIGINAL cards; scripts and prompt/provenance manifests are committed. Neither private `.env*` files nor ignored QA databases/logs are part of the release.

@@ -25,3 +25,5 @@ Migration แบบ additive `migrations/003-harmonies-leaderboard.sql` ใช�
 - `tests/harmonies-leaderboard-rooms.test.ts`: จบเกมจริง Solo/แข่งขัน, forged score, final host/phone race, receipt retry, จำลอง storage failure, process restart/reconnect และ public payload; PostgreSQL ตรวจ final race ข้ามสอง server instances ด้วย
 - `tests/browser/harmonies-leaderboard.spec.ts`: popup อ่าน endpoint จริง, loading/mode race, ครบสิบอันดับ/สามเหรียญ, escaped names, รูป/วันที่, โหลดใหม่, retry, empty, focus และ desktop/390/320px
 - หลักฐานเฉพาะเครื่องอยู่ `data/hm-leaderboard-*.log` และ `data/qa-harmonies-leaderboard/`
+
+The in-game toolbar also opens this same top-ten dialog from the trophy button immediately left of the scoring button. Scoring uses a bar-chart icon to distinguish the two actions. Solo and competitive tabs use the existing leaderboard endpoint, including its loading, empty and failure states; opening the dialog never changes game state.

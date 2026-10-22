@@ -1,4 +1,4 @@
-body.harmonies-theme{background:#e4d5ac;color:#234b4d;font-family:'Noto Sans Thai',sans-serif;background-image:linear-gradient(#f5e8bfd9,#eee0b8e8),url('/art/harmonies/table.webp');background-attachment:fixed;background-size:cover;}body.harmonies-theme::before{background:linear-gradient(#f5e8bfd9,#eee0b8ed),url('/art/harmonies/table.webp') center/cover;}.harmonies-theme main{max-width:1500px;background:transparent;color:inherit;}.hm-root{--sea:#236b72;--sand:#f5e8bf;--rose:#d34d65;--grass:#82a342;padding-bottom:30px;}.hm-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;}.hm-heading h1{font-size:clamp(30px,4vw,48px);line-height:1.3;letter-spacing:-1px;margin:0;color:#236b72;}.hm-heading p{font-size:13px;margin:0;}.hm-heading>b{text-align:right;font-size:20px;}.hm-heading small{display:block;font-size:12px;}.hm-turn{background:#236b72;color:#fff7dc;padding:10px 14px;border-radius:6px;font-weight:700;font-size:14px;line-height:1.8;min-height:44px;}.hm-root h2{font-size:17px;margin:8px 0;}.hm-root h2 small{font-weight:400;font-size:12px;margin-left:auto;}.hm-supply{padding:12px;background:#fff5d6c7;border:1px solid #c5ae74;border-radius:12px;}.hm-supply h2{display:flex;justify-content:space-between;gap:8px;align-items:center;}.hm-groups{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;}.hm-groups button{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px;min-width:0;margin:0;padding:8px 4px;background:#e9ddbb;color:#294b4d;border:1px solid #b69b5c;min-height:60px;}.hm-groups strong{font-size:12px;width:100%;}.hm-groups button:disabled{opacity:.55;}.hm-groups button>span:not(.hm-disk){font-size:11px;}.hm-disk{display:inline-grid;place-items:center;flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--paint);box-shadow:0 3px 0 color-mix(in srgb,var(--paint),#333 30%);color:#fff5d2;border:1px solid #fff6;}.hm-disk svg{width:65%;height:65%;}.hm-market,.hm-owned-cards{display:flex;gap:9px;overflow-x:auto;padding:5px 2px 10px;scrollbar-width:thin;}.hm-animal{flex:0 0 104px;min-width:0;background:#fff9e7;border:1px solid #d2bb7f;border-radius:8px;overflow:hidden;color:#254e50;}.hm-animal .hm-inspect{display:block;padding:0;margin:0;width:100%;border:0;background:transparent;color:inherit;min-height:0;border-radius:0;}.hm-animal-art{display:block;position:relative;aspect-ratio:360/420;overflow:hidden;background:#9fbc89;}.hm-animal-art img{width:100%;height:100%;object-fit:cover;display:block;}.hm-animal-art b{position:absolute;inset:auto 0 0;background:#173f4acc;color:#fff4ce;font-size:12px;padding:3px;}.hm-diagram{display:block;width:100%;height:65px;background:#fff8df;}.hm-card-points{display:flex;justify-content:center;gap:2px;flex-wrap:wrap;padding:3px;font-size:10px;}.hm-card-points>span{background:#e1bb5e44;border-radius:3px;padding:1px 3px;}.hm-card-points .earned{background:#39765d;color:#fff;}.hm-animal>button:not(.hm-inspect){min-height:40px;width:calc(100% - 8px);font-size:12px;padding:4px;margin:4px;}.hm-animal>small{display:block;text-align:center;font-size:11px;padding:3px;}.hm-animal.complete{border-color:#447d5f;background:#e9f0d6;}.hm-tabs,.hm-camera{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}.hm-root button{touch-action:manipulation;}.hm-tabs button,.hm-camera button{margin:0;min-height:44px;font-size:12px;padding:5px 10px;}.hm-root button[aria-pressed=true]{background:#ebc45d;color:#234b4d;border-color:#8b6b25;}.hm-root button:focus-visible{outline:3px solid #a93370;outline-offset:3px;}.hm-gardens{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px;align-items:start;}.hm-player{min-width:0;background:#faf0cfb3;border:2px solid #bbac7b;border-radius:10px;padding:10px;}.hm-player.active{border-color:#236b72;box-shadow:0 0 0 2px #236b7230;}.hm-player header{display:flex;align-items:center;gap:8px;border:0;margin:0;padding:0;}.hm-player header>div{min-width:0;}.hm-player h2{margin:0;font-size:15px;overflow-wrap:anywhere;}.hm-player header>b{margin-left:auto;text-align:right;font-size:23px;}.hm-player header small{display:block;font-size:11px;}.hm-player .profile-avatar{width:34px;height:34px;min-width:34px;max-width:34px;flex:0 0 34px;border-radius:50%;object-fit:cover;}.hm-board-viewport{position:relative;isolation:isolate;container-type:inline-size;aspect-ratio:1;perspective:1000px;overflow:hidden;margin:8px -5px;background:#c9bb8d url('/art/harmonies/board-A.webp') center/cover;border:1px solid #b09c60;border-radius:18px;}.hm-board{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--tilt)) rotateZ(var(--angle)) scale(var(--zoom));transform-origin:50% 50%;}.hm-cell{position:absolute;left:var(--x);top:var(--y);width:23%;aspect-ratio:1;transform:translate(-50%,-50%);transform-style:preserve-3d;}.hm-cell-hit{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;min-height:0;border:0;background:#f9e9be!important;color:#9c8e63;clip-path:polygon(25% 7%,75% 7%,100% 50%,75% 93%,25% 93%,0 50%);border-radius:0;}.hm-cell-number{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;}.hm-cell.legal .hm-cell-hit{background:#d9eab4!important;}.hm-cell.selected .hm-cell-hit{background:#efc247!important;}.hm-cell.habitat .hm-cell-hit,.hm-cell.pattern-match .hm-cell-hit{background:#edae7c!important;}.hm-stack{position:absolute;inset:17%;transform-style:preserve-3d;pointer-events:none;}.hm-token{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(calc(var(--level)*12px + 7px));}.hm-cap{position:absolute;inset:0;display:grid;place-items:center;border-radius:50%;background:var(--paint);border:1px solid #fff5;transform:translateZ(6px);box-shadow:inset -3px -3px 6px #0002;backface-visibility:hidden;}.hm-cap svg{width:61%;height:61%;color:#fff1bd;}.hm-wall{position:absolute;left:40.2%;top:50%;width:19.9%;height:12px;background:var(--paint);filter:brightness(.76);transform-origin:50% 0;transform:translateZ(-6px) rotateZ(calc(var(--facet)*22.5deg)) translateY(-7.6cqw) rotateX(90deg);border:0;}.hm-token.ghost{opacity:.5;}.hm-token.ghost .hm-cap{outline:3px dashed #fff;}.hm-cube{position:absolute;left:33%;top:28%;width:18px;height:18px;transform-style:preserve-3d;transform:translateZ(calc(var(--height)*12px + 10px));}.hm-cube i{position:absolute;inset:0;background:#f2ae2bbd;border:1px solid #9d6a1e;box-shadow:inset 2px 2px #ffe49b99;}.hm-cube i:nth-child(1){transform:translateZ(9px);}.hm-cube i:nth-child(2){transform:rotateY(90deg) translateZ(9px);}.hm-cube i:nth-child(3){transform:rotateY(180deg) translateZ(9px);}.hm-cube i:nth-child(4){transform:rotateY(270deg) translateZ(9px);}.hm-cube i:nth-child(5){transform:rotateX(90deg) translateZ(9px);}.hm-cube i:nth-child(6){transform:rotateX(-90deg) translateZ(9px);}.hm-height{position:absolute;right:5%;bottom:0;font-size:11px;background:#fff8df;color:#235452;border-radius:4px;padding:0 3px;pointer-events:none;transform:translateZ(50px);}.hm-cube-preview{position:absolute;inset:0;text-align:center;font-size:28px;color:#e5a329;transform:translateZ(60px);}.is-flat .hm-token{transform:none;}.is-flat .hm-wall{display:none;}.is-flat .hm-cap{transform:none;}.is-flat .hm-cube{transform:none;}.is-flat .hm-cube i:not(:first-child){display:none;}.is-flat .hm-cube i:first-child{transform:none;}.hm-actions{padding:12px;background:#fff8e3;border:2px solid #236b72;border-radius:8px;margin:12px 0;}.hm-actions h2{margin:0;}.hm-hand{display:flex;gap:8px;flex-wrap:wrap;margin:7px 0;}.hm-hand button{display:flex;align-items:center;gap:6px;min-height:44px;margin:0;padding:6px 10px;font-size:12px;}.hm-actions>p{min-height:24px;font-size:13px;margin:4px 0;}.hm-commit{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}.hm-commit button{margin:0;padding:8px 12px;font-size:13px;min-height:44px;}.hm-habitat-choices{display:flex;flex-wrap:wrap;gap:4px;max-height:130px;overflow:auto;margin:8px 0;}.hm-habitat-choices button{margin:0;font-size:12px;padding:7px;min-height:44px;}.hm-rules{font-size:14px;line-height:1.9;margin-top:15px;}.hm-rules summary{min-height:44px;cursor:pointer;}.hm-dialog{font-family:'Noto Sans Thai',sans-serif;background:#faf0cf;color:#234b4d;border:2px solid #8b9d62;border-radius:12px;max-width:calc(100vw - 24px);max-height:88svh;overflow:auto;overscroll-behavior:contain;padding:18px;}.hm-dialog::backdrop{background:#163e4288;backdrop-filter:blur(5px);}.hm-detail{width:370px;}.hm-close{position:absolute;right:10px;top:10px;width:40px;min-height:40px;margin:0;padding:0;z-index:4;}.hm-detail h2{font-size:22px;margin:0 40px 12px 0;}.hm-large-card{max-width:270px;margin:auto;}.hm-large-card .hm-diagram{height:140px;}.hm-large-card .hm-card-points{font-size:14px;}.hm-large-card .hm-animal-art{aspect-ratio:1.3;}.hm-detail p{font-size:13px;}.hm-results{width:650px;}.hm-score-player{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:8px;background:#fff8e6;border:1px solid #b5a473;padding:12px;margin:8px 0;}.hm-score-player.winner{border:3px solid #b98d28;background:#fff1b9;}.hm-score-player h3{font-size:16px;margin:0;overflow-wrap:anywhere;}.hm-score-player h3 small{display:block;font-size:11px;font-weight:400;}.hm-score-player>b{font-size:28px;}.hm-score-player .profile-avatar{width:32px;height:32px;min-width:32px;border-radius:50%;}.hm-score-player dl{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:0;}.hm-score-player dl>div{background:#e9ddb9;text-align:center;padding:4px;}.hm-score-player dt{font-size:11px;}.hm-score-player dd{margin:0;font-weight:700;}.hm-score-player details{grid-column:1/-1;font-size:12px;}.hm-result-buttons{display:flex;justify-content:center;gap:10px;position:sticky;bottom:-18px;background:#faf0cf;padding:8px;}.hm-result-buttons button{margin:0;min-height:44px;}.hm-score-table{margin:15px 0;}.hm-score-table>button{min-height:44px;}html.harmonies-modal-open{overflow:hidden;}
+body.harmonies-theme{background:#e4d5ac;color:#234b4d;font-family:'Noto Sans Thai',sans-serif;background-image:linear-gradient(#f5e8bfd9,#eee0b8e8),url('/art/harmonies/table.webp');background-attachment:fixed;background-size:cover;}body.harmonies-theme::before{background:linear-gradient(#f5e8bfd9,#eee0b8ed),url('/art/harmonies/table.webp') center/cover;}.harmonies-theme main{max-width:1500px;background:transparent;color:inherit;}.hm-root{--sea:#236b72;--sand:#f5e8bf;--rose:#d34d65;--grass:#82a342;padding-bottom:30px;}.hm-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;}.hm-heading h1{font-size:clamp(30px,4vw,48px);line-height:1.3;letter-spacing:-1px;margin:0;color:#236b72;}.hm-heading p{font-size:13px;margin:0;}.hm-heading>b{text-align:right;font-size:20px;}.hm-heading small{display:block;font-size:12px;}.hm-turn{background:#236b72;color:#fff7dc;padding:10px 14px;border-radius:6px;font-weight:700;font-size:14px;line-height:1.8;min-height:44px;}.hm-root h2{font-size:17px;margin:8px 0;}.hm-root h2 small{font-weight:400;font-size:12px;margin-left:auto;}.hm-supply{padding:12px;background:#fff5d6c7;border:1px solid #c5ae74;border-radius:12px;}.hm-supply h2{display:flex;justify-content:space-between;gap:8px;align-items:center;}.hm-groups{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;}.hm-groups button{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px;min-width:0;margin:0;padding:8px 4px;background:#e9ddbb;color:#294b4d;border:1px solid #b69b5c;min-height:60px;}.hm-groups strong{font-size:12px;width:100%;}.hm-groups button:disabled{opacity:.55;}.hm-groups button>span:not(.hm-disk){font-size:11px;}.hm-disk{display:inline-grid;place-items:center;flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--paint);box-shadow:0 3px 0 color-mix(in srgb,var(--paint),#333 30%);color:#fff5d2;border:1px solid #fff6;}.hm-disk svg{width:65%;height:65%;}.hm-market,.hm-owned-cards{display:flex;gap:9px;overflow-x:auto;padding:5px 2px 10px;scrollbar-width:thin;}.hm-animal{flex:0 0 104px;min-width:0;background:#fff9e7;border:1px solid #d2bb7f;border-radius:8px;overflow:hidden;color:#254e50;}.hm-animal .hm-inspect{display:block;padding:0;margin:0;width:100%;border:0;background:transparent;color:inherit;min-height:0;border-radius:0;}.hm-animal-art{display:block;position:relative;aspect-ratio:360/420;overflow:hidden;background:#9fbc89;}.hm-animal-art img{width:100%;height:100%;object-fit:cover;display:block;}.hm-animal-art b{position:absolute;inset:auto 0 0;background:#173f4acc;color:#fff4ce;font-size:12px;padding:3px;}.hm-diagram{display:block;width:100%;height:65px;background:#fff8df;}.hm-card-points{display:flex;justify-content:center;gap:2px;flex-wrap:wrap;padding:3px;font-size:10px;}.hm-card-points>span{background:#e1bb5e44;border-radius:3px;padding:1px 3px;}.hm-card-points .earned{background:#39765d;color:#fff;}.hm-animal>button:not(.hm-inspect){min-height:40px;width:calc(100% - 8px);font-size:12px;padding:4px;margin:4px;}.hm-animal>small{display:block;text-align:center;font-size:11px;padding:3px;}.hm-animal.complete{border-color:#447d5f;background:#e9f0d6;}.hm-tabs,.hm-camera{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}.hm-root button{touch-action:manipulation;}.hm-tabs button,.hm-camera button{margin:0;min-height:44px;font-size:12px;padding:5px 10px;}.hm-root button[aria-pressed=true]{background:#ebc45d;color:#234b4d;border-color:#8b6b25;}.hm-root button:focus-visible{outline:3px solid #a93370;outline-offset:3px;}.hm-gardens{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px;align-items:start;}.hm-player{min-width:0;background:#faf0cfb3;border:2px solid #bbac7b;border-radius:10px;padding:10px;}.hm-player.active{border-color:#236b72;box-shadow:0 0 0 2px #236b7230;}.hm-player header{display:flex;align-items:center;gap:8px;border:0;margin:0;padding:0;}.hm-player header>div{min-width:0;}.hm-player h2{margin:0;font-size:15px;overflow-wrap:anywhere;}.hm-player header>b{margin-left:auto;text-align:right;font-size:23px;}.hm-player header small{display:block;font-size:11px;}.hm-player .profile-avatar{width:34px;height:34px;min-width:34px;max-width:34px;flex:0 0 34px;border-radius:50%;object-fit:cover;}.hm-board-viewport{position:relative;isolation:isolate;container-type:inline-size;aspect-ratio:1;perspective:1000px;overflow:hidden;margin:8px -5px;background:#c9bb8d url('/art/harmonies/board-A.webp') center/cover;border:1px solid #b09c60;border-radius:18px;}.hm-board{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--tilt)) rotateZ(var(--angle)) scale(var(--zoom));transform-origin:50% 50%;}.hm-cell{position:absolute;left:var(--x);top:var(--y);width:23%;aspect-ratio:1;transform:translate(-50%,-50%);transform-style:preserve-3d;}.hm-cell-hit{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;min-height:0;border:0;background:#f9e9be!important;color:#9c8e63;clip-path:polygon(25% 7%,75% 7%,100% 50%,75% 93%,25% 93%,0 50%);border-radius:0;}.hm-cell-number{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;}.hm-cell.legal .hm-cell-hit{background:#d9eab4!important;}.hm-cell.selected .hm-cell-hit{background:#efc247!important;}.hm-cell.habitat .hm-cell-hit,.hm-cell.pattern-match .hm-cell-hit{background:#edae7c!important;}.hm-stack{position:absolute;inset:17%;transform-style:preserve-3d;pointer-events:none;}.hm-token{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(calc(var(--level)*12px + 7px));}.hm-cap{position:absolute;inset:0;display:grid;place-items:center;border-radius:50%;background:var(--paint);border:1px solid #fff5;transform:translateZ(6px);box-shadow:inset -3px -3px 6px #0002;backface-visibility:hidden;}.hm-cap svg{width:61%;height:61%;color:#fff1bd;}.hm-wall{position:absolute;left:40.2%;top:50%;width:19.9%;height:12px;background:var(--paint);filter:brightness(.76);transform-origin:50% 0;transform:translateZ(-6px) rotateZ(calc(var(--facet)*22.5deg)) translateY(-7.6cqw) rotateX(90deg);border:0;}.hm-token.ghost{opacity:.5;}.hm-token.ghost .hm-cap{outline:3px dashed #fff;}.hm-cube{position:absolute;left:33%;top:28%;width:18px;height:18px;transform-style:preserve-3d;transform:translateZ(calc(var(--height)*12px + 10px));}.hm-cube i{position:absolute;inset:0;background:#f2ae2bbd;border:1px solid #9d6a1e;box-shadow:inset 2px 2px #ffe49b99;}.hm-cube i:nth-child(1){transform:translateZ(9px);}.hm-cube i:nth-child(2){transform:rotateY(90deg) translateZ(9px);}.hm-cube i:nth-child(3){transform:rotateY(180deg) translateZ(9px);}.hm-cube i:nth-child(4){transform:rotateY(270deg) translateZ(9px);}.hm-cube i:nth-child(5){transform:rotateX(90deg) translateZ(9px);}.hm-cube i:nth-child(6){transform:rotateX(-90deg) translateZ(9px);}.hm-height{position:absolute;right:5%;bottom:0;font-size:11px;background:#fff8df;color:#235452;border-radius:4px;padding:0 3px;pointer-events:none;transform:translateZ(50px);}.hm-cube-preview{position:absolute;inset:0;text-align:center;font-size:28px;color:#e5a329;transform:translateZ(60px);}.is-flat .hm-token{transform:none;}.is-flat .hm-wall{display:none;}.is-flat .hm-cap{transform:none;}.is-flat .hm-cube{transform:none;}.is-flat .hm-cube i:not(:first-child){display:none;}.is-flat .hm-cube i:first-child{transform:none;}.hm-actions{padding:12px;background:#fff8e3;border:2px solid #236b72;border-radius:8px;margin:12px 0;}.hm-actions h2{margin:0;}.hm-hand{display:flex;gap:8px;flex-wrap:wrap;margin:7px 0;}.hm-hand button{display:flex;align-items:center;gap:6px;min-height:44px;margin:0;padding:6px 10px;font-size:12px;}.hm-actions>p{min-height:24px;font-size:13px;margin:4px 0;}.hm-commit{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}.hm-commit button{margin:0;padding:8px 12px;font-size:13px;min-height:44px;}.hm-habitat-choices{display:flex;flex-wrap:wrap;gap:4px;max-height:130px;overflow:auto;margin:8px 0;}.hm-habitat-choices button{margin:0;font-size:12px;padding:7px;min-height:44px;}.hm-rules{font-size:14px;line-height:1.9;margin-top:15px;}.hm-rules summary{min-height:44px;cursor:pointer;}.hm-dialog{font-family:'Noto Sans Thai',sans-serif;background:#faf0cf;color:#234b4d;border:2px solid #8b9d62;border-radius:12px;max-width:calc(100vw - 24px);max-height:88svh;overflow:auto;overscroll-behavior:contain;padding:18px;}.hm-dialog::backdrop{background:#163e4288;backdrop-filter:blur(5px);}.hm-detail{width:370px;}.hm-close{position:absolute;right:10px;top:10px;width:40px;min-height:40px;margin:0;padding:0;z-index:4;}.hm-detail h2{font-size:22px;margin:0 40px 12px 0;}.hm-large-card{max-width:270px;margin:auto;}.hm-large-card .hm-diagram{height:140px;}.hm-large-card .hm-card-points{font-size:14px;}.hm-large-card .hm-animal-art{aspect-ratio:1.3;}.hm-detail p{font-size:13px;}.hm-results{width:650px;}.hm-score-player{display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:8px;background:#fff8e6;border:1px solid #b5a473;padding:12px;margin:8px 0;}.hm-score-player.winner{border:3px solid #b98d28;background:#fff1b9;}.hm-score-player h3{font-size:16px;margin:0;min-width:0;}.hm-score-player h3 small{display:block;font-size:11px;font-weight:400;}.hm-score-player>b{font-size:28px;}.hm-score-player .profile-avatar{width:32px;height:32px;min-width:32px;border-radius:50%;}.hm-score-player dl{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:0;}.hm-score-player dl>div{background:#e9ddb9;text-align:center;padding:4px;}.hm-score-player dt{font-size:11px;}.hm-score-player dd{margin:0;font-weight:700;}.hm-score-player details{grid-column:1/-1;font-size:12px;}.hm-result-buttons{display:flex;justify-content:center;gap:10px;position:sticky;bottom:-18px;background:#faf0cf;padding:8px;}.hm-result-buttons button{margin:0;min-height:44px;}.hm-score-table{margin:15px 0;}.hm-score-table>button{min-height:44px;}html.harmonies-modal-open{overflow:hidden;}
 @media(max-width:899px){.hm-phone .hm-player:not(.chosen-board){display:none;}.hm-display .hm-gardens{grid-template-columns:repeat(2,minmax(0,1fr));}.hm-phone .hm-gardens{grid-template-columns:1fr;}.hm-animal{flex-basis:88px;}.hm-heading{margin:9px 0;}.hm-supply{padding:8px;}.hm-groups .hm-disk{flex-basis:20px;width:20px;height:20px;}.hm-groups button{gap:2px;padding:5px 2px;}.hm-groups .hm-disk:last-child{margin-top:2px;}.hm-camera{gap:4px;}.hm-camera button{padding:5px 7px;}.hm-board-viewport{container-type:inline-size;}.hm-player{padding:8px;}.hm-market{gap:6px;}.hm-player .hm-owned-cards{gap:7px;}.hm-turn{font-size:12px;}.hm-gardens{gap:10px;}.hm-display .hm-player h2{font-size:12px;}.hm-display .hm-player header small{font-size:9px;}.hm-display .hm-player header>b{font-size:17px;}.hm-display .hm-player .profile-avatar{display:none;}}
 @media(prefers-reduced-motion:reduce){.hm-root *{animation:none!important;transition:none!important;}}
 @supports not(transform-style:preserve-3d){.hm-board,.hm-token,.hm-cap,.hm-cube{transform:none!important;}.hm-wall{display:none;}}
@@ -152,12 +152,12 @@ body.harmonies-theme,body.harmonies-theme::before{background:#075b59 url('/art/h
 .hm-supply{padding:14px 16px;background:#fff8e0f5;border:1px solid #e8d8a4;border-radius:24px;box-shadow:0 5px 12px #003d3d35}.hm-supply h2{font-size:clamp(17px,2.5vw,24px);margin:0 0 9px;color:#113f4b}.hm-supply h2 small{font-size:10px;color:#5b7569}.hm-groups{display:flex;gap:7px;overflow-x:auto;overscroll-behavior-x:contain;padding:3px 2px 6px;scrollbar-width:thin}.hm-root .hm-groups button{position:relative;flex:1 0 90px;min-width:90px;min-height:105px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto;gap:2px;padding:8px 7px 14px;background:#f3e4bb88;border:1px solid #d4bb7b;border-radius:18px;box-shadow:inset 0 2px 1px #fff9}.hm-root .hm-groups button:disabled{background:#f3e4bb88;border-color:#d4bb7b}.hm-groups button:focus-visible,.hm-root .hm-groups button[aria-pressed=true]{outline:3px solid #009bb5;outline-offset:0}.hm-groups .hm-disk:first-child{grid-row:1;grid-column:1}.hm-groups .hm-disk:nth-child(2){grid-row:1;grid-column:2}.hm-groups .hm-disk:last-child{grid-row:2;grid-column:1/-1}.hm-groups .hm-disk{width:clamp(31px,5.5vw,58px);height:clamp(31px,5.5vw,58px);transform:scaleY(.83);margin-top:-2px;box-shadow:0 5px 0 color-mix(in srgb,var(--paint),#122f24 40%),0 7px 0 color-mix(in srgb,var(--paint),#122f24 62%),0 10px 5px #4e421e60,inset 0 2px 3px #fff8}.hm-disk{background:radial-gradient(circle at 30% 18%,#ffffff26,transparent 65%),var(--paint);border:1px solid color-mix(in srgb,var(--paint),#fff 30%);color:#fff7d2}.hm-disk svg{width:65%;height:65%}.hm-groups.is-waiting button{opacity:.75}.hm-shared-table .hm-groups button{flex-basis:52px;min-width:52px;min-height:55px;padding:5px;background:#f6e8c8}.hm-shared-table .hm-groups .hm-disk{display:none}.hm-shared-table .hm-groups button:before{content:attr(data-group-label);font-size:20px;font-weight:800;grid-area:1/1/3/3}.hm-shared-table .hm-groups button:after{content:'ชุด';font-size:9px;position:absolute;bottom:3px;left:0;right:0}.hm-shared-table .hm-animal-market{display:none}
 .hm-gardens{margin-top:12px;gap:18px}.hm-root .hm-player{background:transparent;border:0;border-radius:0;padding:0;box-shadow:none;overflow:visible}.hm-player>header{background:#fff7dded;border:1px solid #e2cc8a;border-radius:12px;padding:6px 10px;min-height:50px;gap:8px}.hm-player>header h2{font-size:13px;margin:0}.hm-player>header small{font-size:9px}.hm-player>header>.profile-avatar{width:30px;height:30px;min-width:30px;flex-basis:30px}.hm-player>header>b{font-size:18px;color:#0d5360}.hm-player.active>header{border:2px solid #e8bc38}.hm-header-hand{margin-left:auto;gap:6px}.hm-header-hand button{padding:3px;min-height:35px;min-width:35px;border-radius:50%;background:#fff5d6;border:1px solid transparent}.hm-header-hand button[aria-pressed=true]{border:2px solid #00a6b9;box-shadow:0 0 0 2px #fff5}.hm-header-hand .hm-disk{width:28px;height:28px;transform:scaleY(.86)}
 .hm-board-viewport,.hm-board-viewport[data-side=B]{isolation:auto;aspect-ratio:1.05;margin:2px -4px 0;border:0;border-radius:0;background:transparent;overflow:visible;perspective:1100px}.hm-board-viewport:has(.hm-board-controls){aspect-ratio:auto;padding-bottom:0}.hm-board-viewport:has(.hm-board-controls)>.hm-board{height:100%;bottom:auto}.hm-board{height:100%;transform-origin:50% 45%;top:0;inset:0;will-change:auto}.hm-board-viewport:has(.hm-board-controls){height:auto;min-height:440px;padding-top:98%}.hm-board-viewport:has(.hm-board-controls)>.hm-board{position:absolute;height:calc(100% - 148px);min-height:340px;top:0}.hm-cell{isolation:auto}.hm-cell-hit{background:#f5d681 url('/art/harmonies/reference/sand.webp') center/210px!important;box-shadow:inset 0 0 0 3px #fff3bb;color:transparent;transform:translateZ(1px);background-blend-mode:multiply}.hm-cell-number{opacity:0}.hm-cell-hit:before{content:'';position:absolute;inset:4px;clip-path:inherit;background:transparent;border:1px solid #ffefb080}.hm-hex-wall{position:absolute;inset:0;clip-path:polygon(25% 7%,75% 7%,100% 50%,75% 93%,25% 93%,0 50%);background:linear-gradient(105deg,#a27032,#edbd62 22%,#ae792d 55%,#d2a453 85%);transform:translate3d(0,8px,-9px);pointer-events:none}.hm-cell.legal .hm-cell-hit{background-color:#f5d681!important}.hm-cell.habitat .hm-cell-hit,.hm-cell.pattern-match .hm-cell-hit{background-color:#83dece!important;box-shadow:inset 0 0 0 4px #04bdd1}.hm-cell.selected .hm-cell-hit{background-color:#b6efe3!important;box-shadow:inset 0 0 0 4px #04bdd1}.hm-cell.habitat:after,.hm-cell.pattern-match:after{content:'';position:absolute;inset:1px;clip-path:polygon(25% 7%,75% 7%,100% 50%,75% 93%,25% 93%,0 50%);background:#16c5dc50;transform:translateZ(2px);pointer-events:none}.hm-stack{inset:16%;}.hm-cap{border:0;box-shadow:inset 0 2px 2px #fff6,inset -3px -4px 5px #0002}.hm-cap svg{color:#fff5d2}.hm-wall{background:linear-gradient(90deg,#0002,transparent 35%,#fff1 70%,#0002),var(--paint);filter:brightness(.8)}.hm-token.has-same-stack .hm-wall{border-top:1px solid color-mix(in srgb,var(--paint),#153d26 50%)}.hm-height{display:none}.hm-cube,.hm-cube-preview{position:absolute;inset:auto;left:calc(50% - 9px);top:calc(50% - 9px);width:18px;height:18px;transform-style:preserve-3d;transform:translateZ(calc(var(--height)*12px + 10px));pointer-events:none}.hm-cube i{background:linear-gradient(135deg,#ffe29bba,#f6b224d9);border:1px solid #ffd875;box-shadow:inset 2px 2px #fff5}.hm-cube-preview{opacity:.62}.is-inspecting .hm-cell:not(.animal-location) .hm-cube i{background:#183c38;border-color:#244f44;box-shadow:none}.hm-board-viewport.is-inspecting,.hm-board-viewport.is-inspecting[data-side=B]{background:transparent}.hm-board-modes{position:relative;display:flex;justify-content:center;gap:8px;margin:4px 0}.hm-board-modes button{font-size:11px;min-height:34px;padding:4px 12px;margin:0;border:1px solid #d7c798;background:#fff5d9;color:#075761}.hm-board-modes button[aria-pressed=true]{background:#08798a;color:#fff5d9}.hm-board-controls{position:relative;inset:auto;bottom:auto;width:100%;padding:6px;background:#fff6dccf;border:1px solid #d4c386;border-radius:12px;min-height:95px}.hm-board-controls>p{font-size:11px;margin:0 3px 5px;min-height:20px}.hm-board-controls #hm-end{min-height:43px;font-size:14px;padding:8px 18px;background:#00788b;color:#fff7dd}.hm-board-controls #hm-cancel{font-size:11px;min-height:40px;background:#f7e9c6;color:#17535a}.hm-tile-confirm{font-size:9px;min-height:30px;min-width:39px;border-radius:8px;background:#007b91;color:#fff8df;border:1px solid #bbf8ed}.hm-board-choices{display:flex;gap:5px;overflow-x:auto;padding:5px}.hm-board-choices button{font-size:11px;flex-shrink:0}.hm-available-stage{height:43px;width:38px}.hm-available-plane{position:static;transform:none}.hm-available-plane img{height:43px;width:34px;object-fit:cover;border-radius:4px}.hm-board-controls .hm-animal-choices button{min-width:48px;height:68px}.hm-animal-choices small{font-size:8px}
-.hm-animal-market{background:transparent;padding:12px 0}.hm-animal-market>h2{display:flex;align-items:center;justify-content:space-between;color:#fff7dd;font-size:16px;text-shadow:0 2px 3px #004747}.hm-market,.hm-owned-cards{display:flex;overflow-x:auto;gap:12px;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:6px 2px 12px;scrollbar-width:thin}.hm-market-slot{flex:0 0 clamp(172px,44vw,252px)}.hm-animal,.hm-market-slot>.hm-animal{flex:0 0 clamp(172px,44vw,252px);min-width:0;max-width:none;background:transparent;border:0;border-radius:19px;padding:0;scroll-snap-align:start;overflow:visible}.hm-animal .hm-inspect{position:relative;display:block;flex:none;width:100%;aspect-ratio:360/520;padding:0;margin:0;min-height:0;border:2px solid #d4ddad;border-radius:18px;overflow:hidden;background:#0c4b44;color:#fff5d6;box-shadow:0 4px 10px #003a3955;isolation:isolate}.hm-inspect:after{content:'';position:absolute;inset:40% 0 0;z-index:1;background:linear-gradient(transparent,#033c2a99 70%,#073d32cc);pointer-events:none}.hm-animal-art{position:absolute;inset:0;aspect-ratio:auto;width:100%;height:100%;margin:0;display:block}.hm-animal-art img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;max-height:none}.hm-animal-art b{position:absolute;top:9px;left:10px;right:32px;min-height:0;display:block;text-align:left;padding:0;color:#fff6da;background:transparent;text-shadow:0 2px 5px #003a2a,0 0 8px #003a2a;font-size:clamp(15px,2.5vw,23px);line-height:1.3;z-index:3}.hm-animal .hm-diagram,.hm-habitat-scene{position:absolute;left:3%;right:13%;bottom:4%;width:84%;height:30%;min-height:0;padding:0;margin:0;flex:none;background:transparent;border:0;border-radius:0;z-index:3;--diagram-room:100px}.hm-habitat-plane{transform:translate(-50%,-50%) rotateX(36deg) rotateZ(-5deg);font-size:min(calc(92cqw / var(--scene-w)),calc(var(--diagram-room) / var(--scene-h)))}.hm-pattern-base{position:absolute;inset:-14em -12em;background:#f5d78d;clip-path:polygon(25% 7%,75% 7%,100% 50%,75% 93%,25% 93%,0 50%);transform:translateZ(-3em);box-shadow:inset 0 0 0 3em #fff2c4}.hm-pattern-stack{filter:none}.hm-root .hm-card-points,.hm-dialog .hm-card-points{position:absolute;z-index:4;right:3%;top:11%;bottom:28%;width:27px;display:flex;flex-direction:column-reverse;align-items:center;justify-content:space-evenly;gap:1px;min-height:0;margin:0;padding:4px 2px;background:#053e3d99;border:1px solid #e8be48;border-radius:18px;font-size:12px;flex-wrap:nowrap}.hm-root .hm-card-points>span,.hm-dialog .hm-card-points>span{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 1 auto;gap:1px;min-width:0;padding:0;margin:0;border:0;background:transparent;color:#fff4c4;line-height:1}.hm-card-points>span>i{font-style:normal;font-size:16px;line-height:1;color:#f4c75a}.hm-card-points>span>b{font-size:14px;line-height:1.4;min-width:19px;border-radius:5px;background:#fff0bd;color:#133f42}.hm-card-points>span.earned>i{color:#8cdda5}.hm-card-points>span.earned>b{background:#efc94c}.hm-animal>button:not(.hm-inspect){font-size:11px;min-height:35px;padding:5px 7px;margin:5px 0 0;background:#fff7dd;color:#164b4d;border:1px solid #d7c28d;border-radius:9px}.hm-animal>small{display:block;background:#fff5d9e8;color:#164b4d;font-size:10px;padding:3px 6px}.hm-market-empty{aspect-ratio:360/520;height:auto;background:#07463c url('/art/harmonies/reference/back.webp') center/cover;border:2px solid #c0cda2;border-radius:18px}.hm-market-empty span{background:#063a32c9;color:#fff6d7;padding:6px}.hm-deck i{background-image:url('/art/harmonies/reference/back.webp')}.hm-owned-cards>p{font-size:11px;color:#fff9de;background:#084c4690;padding:7px;border-radius:9px}.hm-animal.complete .hm-inspect{border-color:#efc747}.hm-large-card{position:relative;aspect-ratio:360/520;max-width:490px;width:100%;border-radius:16px;overflow:hidden;background:#07483d}.hm-large-card:after{content:'';position:absolute;inset:40% 0 0;z-index:1;background:linear-gradient(transparent,#033c2a99 70%,#073d32cc);pointer-events:none}.hm-large-card .hm-animal-art{aspect-ratio:auto}.hm-large-card .hm-animal-art img{object-fit:cover}.hm-large-card .hm-habitat-scene{--diagram-room:160px;height:30%}.hm-large-card .hm-card-points{width:36px;right:3%}.hm-large-card .hm-card-points>span>b{font-size:18px;min-width:25px}.hm-detail{width:490px;padding:12px;background:#fff6dd;border-color:#cdbb83}.hm-detail-header{background:#fff6dd}.hm-detail-content{padding-top:0}.hm-detail p{color:#1c4b4e}.hm-rules{color:#fff5dd;background:#06473dba;border:1px solid #afc18b;border-radius:12px;padding:10px 14px}.hm-score-table{background:#fff5dded;padding:12px;border-radius:18px}
+.hm-animal-market{background:transparent;padding:12px 0}.hm-animal-market>h2{display:flex;align-items:center;justify-content:space-between;color:#fff7dd;font-size:16px;text-shadow:0 2px 3px #004747}.hm-market,.hm-owned-cards{display:flex;overflow-x:auto;gap:12px;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:6px 2px 12px;scrollbar-width:thin}.hm-market-slot{flex:0 0 clamp(172px,44vw,252px)}.hm-animal,.hm-market-slot>.hm-animal{flex:0 0 clamp(172px,44vw,252px);min-width:0;max-width:none;background:transparent;border:0;border-radius:19px;padding:0;scroll-snap-align:start;overflow:visible}.hm-animal .hm-inspect{position:relative;display:block;flex:none;width:100%;aspect-ratio:360/520;padding:0;margin:0;min-height:0;border:2px solid #d4ddad;border-radius:18px;overflow:hidden;background:#0c4b44;color:#fff5d6;box-shadow:0 4px 10px #003a3955;isolation:isolate}.hm-inspect:after{content:'';position:absolute;inset:40% 0 0;z-index:1;background:linear-gradient(transparent,#033c2a99 70%,#073d32cc);pointer-events:none}.hm-animal-art{position:absolute;inset:0;aspect-ratio:auto;width:100%;height:100%;margin:0;display:block}.hm-animal-art img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;max-height:none}.hm-animal-art b{position:absolute;top:9px;left:10px;right:32px;min-height:0;display:block;text-align:left;padding:0;color:#fff6da;background:transparent;text-shadow:0 2px 5px #003a2a,0 0 8px #003a2a;font-size:clamp(15px,2.5vw,23px);line-height:1.3;z-index:3}.hm-animal .hm-diagram,.hm-habitat-scene{position:absolute;left:3%;right:13%;bottom:4%;width:84%;height:30%;min-height:0;padding:0;margin:0;flex:none;background:transparent;border:0;border-radius:0;z-index:3;--diagram-room:100px}.hm-habitat-plane{transform:translate(-50%,-50%) rotateX(36deg) rotateZ(-5deg);font-size:min(calc(92cqw / var(--scene-w)),calc(var(--diagram-room) / var(--scene-h)))}.hm-pattern-base{position:absolute;inset:-14em -12em;background:#f5d78d;clip-path:polygon(25% 7%,75% 7%,100% 50%,75% 93%,25% 93%,0 50%);transform:translateZ(-3em);box-shadow:inset 0 0 0 3em #fff2c4}.hm-pattern-stack{filter:none}.hm-root .hm-card-points,.hm-dialog .hm-card-points{position:absolute;z-index:4;right:3%;top:11%;bottom:28%;width:27px;display:flex;flex-direction:column-reverse;align-items:center;justify-content:space-evenly;gap:1px;min-height:0;margin:0;padding:4px 2px;background:#053e3d99;border:1px solid #e8be48;border-radius:18px;font-size:12px;flex-wrap:nowrap}.hm-root .hm-card-points>span,.hm-dialog .hm-card-points>span{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 1 auto;gap:1px;min-width:0;padding:0;margin:0;border:0;background:transparent;color:#fff4c4;line-height:1}.hm-card-points>span>i{font-style:normal;font-size:16px;line-height:1;color:#f4c75a}.hm-card-points>span>b{font-size:14px;line-height:1.4;min-width:19px;border-radius:5px;background:#fff0bd;color:#133f42}.hm-card-points>span.earned>i{color:#8cdda5}.hm-card-points>span.earned>b{background:#efc94c}.hm-animal>button:not(.hm-inspect){font-size:11px;min-height:35px;padding:5px 7px;margin:5px 0 0;background:#fff7dd;color:#164b4d;border:1px solid #d7c28d;border-radius:9px}.hm-animal>small{display:block;background:#fff5d9e8;color:#164b4d;font-size:10px;padding:3px 6px}.hm-market-empty{aspect-ratio:360/520;height:auto;background:#07463c url('/art/harmonies/reference/back.webp') center/cover;border:2px solid #c0cda2;border-radius:18px}.hm-market-empty span{background:#063a32c9;color:#fff6d7;padding:6px}.hm-deck i{background-image:url('/art/harmonies/reference/back.webp')}.hm-owned-cards>p{font-size:11px;color:#fff9de;background:#084c4690;padding:7px;border-radius:9px}.hm-animal.complete .hm-inspect{border-color:#efc747}.hm-large-card{position:relative;aspect-ratio:360/520;max-width:490px;width:100%;border-radius:16px;overflow:hidden;background:#07483d}.hm-large-card:after,.hm-detail-face:after{content:'';position:absolute;inset:40% 0 0;z-index:1;background:linear-gradient(transparent,#033c2a99 70%,#073d32cc);pointer-events:none}.hm-large-card .hm-animal-art{aspect-ratio:auto}.hm-large-card .hm-animal-art img{object-fit:cover}.hm-large-card .hm-habitat-scene{--diagram-room:160px;height:30%}.hm-large-card .hm-card-points{width:36px;right:3%}.hm-large-card .hm-card-points>span>b{font-size:18px;min-width:25px}.hm-detail{width:490px;padding:12px;background:#fff6dd;border-color:#cdbb83}.hm-detail-header{background:#fff6dd}.hm-detail-content{padding-top:0}.hm-detail p{color:#1c4b4e}.hm-rules{color:#fff5dd;background:#06473dba;border:1px solid #afc18b;border-radius:12px;padding:10px 14px}.hm-score-table{background:#fff5dded;padding:12px;border-radius:18px}
 .hm-action-tray{position:fixed;z-index:20;bottom:max(8px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(900px,calc(100% - 20px));display:flex;align-items:center;gap:10px;padding:12px;background:#fff8dff5;border:1px solid #ecdfa7;border-radius:20px;box-shadow:0 5px 22px #00332e70;color:#103e45}.hm-tray-preview{flex:0 0 45px;display:grid;place-items:center}.hm-tray-preview img{width:44px;height:54px;object-fit:cover;border-radius:7px}.hm-tray-preview .hm-disk{width:38px;height:38px;transform:scaleY(.83);box-shadow:0 6px 0 color-mix(in srgb,var(--paint),#143d26 45%)}.hm-tray-copy{min-width:0;flex:1}.hm-tray-copy>b{font-size:15px;display:block;line-height:1.4}.hm-tray-copy>small{font-size:11px;display:block}.hm-action-tray button{min-height:48px;margin:0;padding:8px 16px;border:1px solid #d4c18b;border-radius:12px;font-size:14px;background:#f3e8c8;color:#17484e}.hm-action-tray #hm-tray-confirm{background:#007a8e;color:#fff8df;border:1px solid #79d4d9}.hm-action-tray button:disabled{opacity:.45}.hm-display .hm-action-tray{display:none}
 @media(min-width:1000px){.hm-phone{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.8fr);gap:14px 22px}.hm-view-options{grid-column:1/-1}.hm-supply{grid-column:1/-1}.hm-phone .hm-gardens{grid-column:1}.hm-phone .hm-animal-market{grid-column:2;align-self:start;max-width:100%}.hm-phone .hm-owned-cards{max-width:100%}.hm-phone .hm-rules,.hm-phone .hm-score-table{grid-column:1/-1}.hm-phone .hm-gardens{grid-template-columns:1fr}.hm-phone .hm-player:not(.chosen-board){display:none}.hm-phone .hm-market{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:1000px;overflow:auto}.hm-phone .hm-market-slot{min-width:0;width:100%}.hm-phone .hm-market-slot>.hm-animal{width:100%}.hm-display .hm-gardens{grid-template-columns:repeat(2,minmax(0,1fr))}.hm-display .hm-animal-market{max-width:1300px;margin:auto}.hm-root .hm-groups button{min-height:125px}.hm-root .hm-animal .hm-habitat-scene{--diagram-room:120px}}
 @media(max-width:599px){.harmonies-theme main{padding:8px 10px}.harmonies-theme .game-header{gap:6px;min-height:58px}.harmonies-theme .game-header .brand:after{font-size:27px}.harmonies-theme .game-header .shared-turn{padding:7px 9px;min-height:36px;min-width:65px;font-size:12px;max-width:125px}.harmonies-theme .game-header .profile-avatar{width:37px;height:37px;min-width:37px}.harmonies-theme .audio-toggle{height:38px;width:38px;min-height:38px}.hm-view-options{font-size:10px;margin-bottom:4px}.hm-supply{padding:10px 8px;border-radius:20px}.hm-supply h2{font-size:16px}.hm-supply h2 small{font-size:8px}.hm-root .hm-groups button{flex-basis:73px;min-width:73px;min-height:87px;gap:0;padding:7px 4px 12px;border-radius:13px}.hm-groups .hm-disk{height:30px;width:30px}.hm-shared-table .hm-groups button{flex-basis:49px;min-width:49px;min-height:48px}.hm-player>header h2{font-size:11px}.hm-player>header small{font-size:8px}.hm-player>header>.profile-avatar{display:none}.hm-board-viewport:has(.hm-board-controls){min-height:400px;padding-top:99%}.hm-board-viewport:has(.hm-board-controls)>.hm-board{height:calc(100% - 137px);min-height:310px}.hm-board-controls{padding:4px;min-height:89px}.hm-board-modes{margin:1px 0 4px}.hm-board-viewport{perspective:850px}.hm-animal-market{padding:8px 0}.hm-animal-market>h2{font-size:14px}.hm-root .hm-card-points{width:25px}.hm-action-tray{gap:7px;padding:9px;border-radius:16px}.hm-action-tray button{font-size:11px;padding:6px 10px;min-height:44px}.hm-tray-copy>b{font-size:12px}.hm-tray-copy>small{font-size:10px}.hm-tray-preview{flex-basis:30px}.hm-tray-preview .hm-disk{width:29px;height:29px}.hm-tray-preview img{width:30px;height:42px}.hm-root{padding-bottom:125px}.hm-display .hm-gardens{grid-template-columns:1fr}.hm-root .hm-player{min-width:0}.hm-root .hm-market,.hm-root .hm-owned-cards{gap:9px}.hm-animal .hm-diagram{--diagram-room:85px}.hm-large-card .hm-habitat-scene{--diagram-room:150px}.hm-root .hm-header-hand .hm-disk{width:24px;height:24px}}
 @media(prefers-reduced-motion:reduce){.hm-root *,.hm-dialog *{animation:none!important;transition:none!important}}
-html.harmonies-document{background:#075b59 url('/art/harmonies/reference/forest-river.webp') center top/cover fixed}body.harmonies-theme{background:transparent!important}body.harmonies-theme::before{display:none}body.harmonies-theme main{background:transparent!important;overflow-x:clip}.harmonies-theme .game-header{display:grid!important;grid-template-columns:minmax(0,1fr) auto 42px 42px;align-items:center;gap:7px;position:relative}.harmonies-theme .game-header .header-brand{grid-column:1;min-width:0;max-width:100%}.harmonies-theme .game-header .brand{font-size:0!important;line-height:0!important;letter-spacing:0;color:transparent!important;display:block;padding:0;white-space:nowrap}.harmonies-theme .game-header .brand:after{font-size:clamp(23px,3.5vw,40px);line-height:1.2;content:'Harmonies';color:#fff6d5}.harmonies-theme .game-header .shared-turn{grid-column:2;grid-row:1;width:auto!important;max-width:115px;min-width:65px;margin:0;padding:7px 9px;font-size:12px}.harmonies-theme .game-header .header-account{grid-column:4;grid-row:1;min-width:0}.harmonies-theme .game-header .audio-settings{grid-column:3;grid-row:1;min-width:0;width:42px;justify-self:center}.harmonies-theme .game-header .shared-room-menu{top:48px;left:0}.harmonies-theme .game-header .header-links,.harmonies-theme .game-header .connection{display:none}.hm-action-tray{box-sizing:border-box;max-width:calc(100vw - 20px);overflow:hidden}.hm-action-tray button{box-sizing:border-box;min-width:0;flex:0 0 auto;max-width:90px;white-space:nowrap}.hm-tray-copy{overflow:hidden;overflow-wrap:anywhere}.hm-tray-copy>b,.hm-tray-copy>small{white-space:normal}.hm-hex-wall{box-shadow:none}.hm-cell-hit:before{inset:3px;background:linear-gradient(#fff2,transparent),url('/art/harmonies/reference/sand.webp') center/200px;box-shadow:inset 0 0 10px #a9803c44;pointer-events:none}.hm-cell.habitat .hm-cell-hit:before,.hm-cell.selected .hm-cell-hit:before,.hm-cell.pattern-match .hm-cell-hit:before{background:linear-gradient(#55dcde55,#31b7ba44),url('/art/harmonies/reference/sand.webp') center/200px}
+html.harmonies-document{background:#4a9c9a url('/art/harmonies/habitat-v4/background.webp') center top/cover fixed}body.harmonies-theme{background:transparent!important}body.harmonies-theme::before{display:none}body.harmonies-theme main{background:transparent!important;overflow-x:clip}.harmonies-theme .game-header{display:grid!important;grid-template-columns:minmax(0,1fr) auto 42px 42px;align-items:center;gap:7px;position:relative}.harmonies-theme .game-header .header-brand{grid-column:1;min-width:0;max-width:100%}.harmonies-theme .game-header .brand{font-size:0!important;line-height:0!important;letter-spacing:0;color:transparent!important;display:block;padding:0;white-space:nowrap}.harmonies-theme .game-header .brand:after{font-size:clamp(23px,3.5vw,40px);line-height:1.2;content:'Harmonies';color:#fff6d5}.harmonies-theme .game-header .shared-turn{grid-column:2;grid-row:1;width:auto!important;max-width:115px;min-width:65px;margin:0;padding:7px 9px;font-size:12px}.harmonies-theme .game-header .header-account{grid-column:4;grid-row:1;min-width:0}.harmonies-theme .game-header .audio-settings{grid-column:3;grid-row:1;min-width:0;width:42px;justify-self:center}.harmonies-theme .game-header .shared-room-menu{top:48px;left:0}.harmonies-theme .game-header .header-links,.harmonies-theme .game-header .connection{display:none}.hm-action-tray{box-sizing:border-box;max-width:calc(100vw - 20px);overflow:hidden}.hm-action-tray button{box-sizing:border-box;min-width:0;flex:0 0 auto;max-width:90px;white-space:nowrap}.hm-tray-copy{overflow:hidden;overflow-wrap:anywhere}.hm-tray-copy>b,.hm-tray-copy>small{white-space:normal}.hm-hex-wall{box-shadow:none}.hm-cell-hit:before{inset:3px;background:linear-gradient(#fff2,transparent),url('/art/harmonies/reference/sand.webp') center/200px;box-shadow:inset 0 0 10px #a9803c44;pointer-events:none}.hm-cell.habitat .hm-cell-hit:before,.hm-cell.selected .hm-cell-hit:before,.hm-cell.pattern-match .hm-cell-hit:before{background:linear-gradient(#55dcde55,#31b7ba44),url('/art/harmonies/reference/sand.webp') center/200px}
 .hm-board-controls{background:transparent;border:0;padding:4px 0}.hm-board-controls>p{color:#fff8dd;text-shadow:0 1px 3px #003b37}.hm-board-choices button{background:#fff8dc;color:#174d4d}.hm-board-footer{gap:9px}.hm-pattern-base{box-shadow:inset 0 0 0 2em #fff4c6}
 body.harmonies-theme{isolation:isolate}body.harmonies-theme::before{display:block;position:fixed;inset:0;z-index:-1;background:#075b59 url('/art/harmonies/reference/forest-river.webp') center/cover;pointer-events:none}
 @media(max-width:599px){.harmonies-theme .game-header{grid-template-columns:minmax(126px,1fr) minmax(60px,92px) 38px 38px;gap:6px}.harmonies-theme .game-header .brand:after{font-size:22px}.harmonies-theme .game-header .shared-turn{min-width:0!important;max-width:92px!important;font-size:11px}.harmonies-theme .game-header .audio-settings{width:38px}}
@@ -269,7 +269,6 @@ body.harmonies-theme{isolation:isolate}body.harmonies-theme::before{display:bloc
 .hm-root>.hm-view-options[open]{z-index:70}
 .harmonies-theme .game-header .audio-settings>summary{display:grid;place-items:center;box-sizing:border-box;width:34px;height:34px;min-height:34px;padding:5px;border-radius:50%;background:#006b77;border:1px solid #b5dfd7;color:#fff7df;box-shadow:0 2px 4px #063d3d55}
 .hm-invite{font-size:12px;margin:4px 0}.hm-invite>summary{cursor:pointer;min-height:32px}.hm-invite canvas{display:block;margin:3px auto;max-width:100%}
-.hm-root.hm-phone.hm-finished{height:auto;min-height:0;grid-template-rows:95px 160px 430px auto}.hm-finished>.hm-score-table{grid-row:4;grid-column:1/-1;margin:0}.hm-phone.hm-finished .hm-gardens{height:430px}
 /* Reserve a separate strip for available animals so no corner tile sits behind a control. */
 .hm-root .hm-player .hm-board{width:min(100cqw,calc((100cqh - 40px)*1.16));top:calc(50% - 20px)}
 .hm-root .hm-board-modes{display:none}
@@ -307,7 +306,6 @@ body.harmonies-theme{isolation:isolate}body.harmonies-theme::before{display:bloc
 .hm-root .hm-board-controls{right:67px}.hm-root .hm-animal-choices{max-width:100%;margin-left:0;margin-right:auto}
 .hm-root .hm-board-controls>p{display:block;position:absolute;bottom:34px;left:3px;right:0;margin:0;font-size:9px;text-align:left;line-height:1.3;color:#fff8dd;text-shadow:0 1px 3px #003b37;pointer-events:none;min-height:0}
 .hm-root .hm-board-choices{bottom:35px;max-height:100px}
-.hm-root.hm-phone.hm-finished{grid-template-rows:64px 155px 480px auto}.hm-phone.hm-finished .hm-gardens{height:480px}
 @media(max-height:680px) and (max-width:699px){.hm-root.hm-phone{min-height:520px;grid-template-rows:60px 119px minmax(315px,1fr)}.hm-root.hm-phone .hm-player{grid-template-rows:minmax(190px,1fr) 23px 112px}.hm-root .hm-groups .hm-disk{width:24px;height:24px;margin-left:-10px}.hm-root .hm-groups .hm-disk:first-child{margin-left:0}}
 @media(min-width:1000px){.hm-root.hm-display{grid-template-rows:64px 190px auto}.hm-display .hm-supply{height:64px}.hm-display .hm-player .hm-board-viewport{height:400px}}
 .hm-root .hm-groups button{flex-wrap:nowrap}
@@ -358,7 +356,6 @@ body.harmonies-theme{isolation:isolate}body.harmonies-theme::before{display:bloc
 .hm-root .hm-owned-cards{gap:6px;padding:3px 7px 5px;height:calc(var(--hm-card-height) + 25px);box-sizing:border-box;align-items:start}
 .hm-root .hm-owned-cards>.hm-animal{display:flex;flex-direction:column;flex:0 0 var(--hm-card-width);width:var(--hm-card-width);height:calc(var(--hm-card-height) + 17px);gap:3px;position:relative}
 .hm-root .hm-market-empty{height:var(--hm-card-height)}
-.hm-root.hm-phone.hm-finished{grid-template-rows:64px calc(var(--hm-card-height) + 29px) 480px auto}
 @media(min-width:1000px){.hm-root.hm-display{grid-template-rows:64px calc(var(--hm-card-height) + 29px) auto}.hm-display .hm-animal-market{height:calc(var(--hm-card-height) + 29px)}.hm-display .hm-market-slot{flex-basis:var(--hm-card-width)}}
 /* Keep fixed confirmation anchored to the viewport; both rails share one explicit width. */
 .hm-root{container-type:normal;--hm-card-width:calc((min(650px,calc(100vw - 20px)) - 46px)/4.25)}
@@ -497,7 +494,7 @@ body.harmonies-theme{isolation:isolate}body.harmonies-theme::before{display:bloc
 /* Completed habitats are quiet and move behind all unfinished cards. */
 .hm-root .hm-owned-cards{overflow-anchor:none}
 .hm-root .hm-owned-cards>.hm-animal.complete .hm-inspect{filter:grayscale(1);opacity:.6;border:1px solid #949d98}
-.hm-root .hm-complete-ribbon{position:absolute;z-index:7;top:0;left:0;right:0;display:block;padding:1px 1px;border-radius:8px 8px 0 0;background:#59675eeb;color:#fff;font:700 11px/1.4 'Noto Sans Thai',sans-serif;text-align:center;pointer-events:none}
+.hm-root .hm-complete-ribbon,.hm-detail .hm-complete-ribbon{position:absolute;z-index:7;top:0;left:0;right:0;display:block;padding:1px 1px;border-radius:8px 8px 0 0;background:#59675eeb;color:#fff;font:700 11px/1.4 'Noto Sans Thai',sans-serif;text-align:center;pointer-events:none}
 /* Both rails use one bottom anchor and the same height per score step. */
 .hm-root .hm-animal .hm-card-points,.hm-root .hm-market .hm-card-points{top:auto;bottom:2px;height:calc(var(--score-steps) * ((var(--hm-card-height) - 30px) / 5) + 10px)}
 .hm-dialog .hm-large-card .hm-card-points{top:auto;bottom:29%;height:calc(var(--score-steps) * 11% + 4%)}
@@ -535,11 +532,10 @@ body.harmonies-theme{isolation:isolate}body.harmonies-theme::before{display:bloc
 /* Reserve heading, floating add-button clearance, the full card and bottom inset. */
 .hm-root .hm-animal-market,.hm-root.hm-display>.hm-animal-market{height:calc(var(--hm-card-height) + 44px);min-height:calc(var(--hm-card-height) + 44px);align-self:start;padding:3px 7px 7px}
 .hm-root.hm-phone{grid-template-rows:64px calc(var(--hm-card-height) + 44px) minmax(330px,1fr)}
-.hm-root.hm-phone.hm-finished{grid-template-rows:64px calc(var(--hm-card-height) + 44px) 480px auto}
 @media(min-width:800px){.hm-root.hm-display{grid-template-rows:calc(var(--hm-card-height) + 44px) auto}}
 /* A single viewport layer stays still even on mobile browsers that ignore fixed backgrounds. */
 html.harmonies-document{background:#075b59;isolation:isolate}
-html.harmonies-document::before{content:'';position:fixed;inset:0;bottom:auto;height:100lvh;z-index:-1;pointer-events:none;background:#075b59 url('/art/harmonies/reference/forest-river.webp') center top/cover no-repeat}
+html.harmonies-document::before{content:'';position:fixed;inset:0;bottom:auto;height:100lvh;z-index:-1;pointer-events:none;background:#4a9c9a url('/art/harmonies/habitat-v4/background.webp') center top/cover no-repeat}
 
 /* Turn habitat markers across their terrain plane to expose three distinct faces. */
 .hm-habitat-plane .hm-habitat-cube{transform:translateY(calc((var(--cube-level) - 1) * -2em)) translateZ(calc(var(--cube-level)*12em + 10em)) rotateZ(32deg)}
@@ -842,8 +838,6 @@ html.harmonies-document::before{content:'';position:fixed;inset:0;bottom:auto;he
 .hm-pattern-figurine:has(img[src*="spirit-"])>img{width:38em;max-height:48em;filter:drop-shadow(0 0 1.5em #fff3c6)}
 .hm-special-seal{position:absolute;top:5px;left:5px;width:22px;height:22px;display:grid;place-items:center;z-index:6;border:1px solid #ffe8a3;border-radius:50%;background:#275650;color:#ffdd80;box-shadow:0 0 6px #ffe3a580;pointer-events:none}
 .hm-special-seal svg{display:block;width:80%;height:80%}.hm-special-seal[data-special="whisper"]{background:#51336c;color:#edcbff;border-color:#deb2f5;box-shadow:0 0 6px #dfb1ff80}
-.hm-root .hm-special-card[data-card-kind="spirit"]>.hm-inspect{border-color:#f5d887;box-shadow:0 0 0 1px #8d6c35,0 0 9px #f5d88766}
-.hm-root .hm-special-card[data-card-kind="whisper"]>.hm-inspect{border-color:#d5a8ed;box-shadow:0 0 0 1px #6c4285,0 0 8px #d5a8ed66}
 .hm-owned-cards .hm-special-seal{width:18px;height:18px;top:3px;left:3px}
 .hm-large-card .hm-special-seal{width:34px;height:34px;top:10px;left:10px}
 /* Spirit draft cards use the same inspect wrapper as ordinary portrait cards. */
@@ -865,12 +859,1100 @@ html.harmonies-document::before{content:'';position:fixed;inset:0;bottom:auto;he
 .hm-root .hm-board .hm-whisper-model>img{width:clamp(24px,9.5cqw,32px);max-height:43px}
 .hm-whisper-model.hm-animal-sprite-tray>img{width:30px;height:35px}
 /* When a whisper shares a tile, keep both small silhouettes inside its cap. */
-.hm-root .hm-board .hm-stack:has(.hm-normal-model):has(.hm-whisper-model)>.hm-normal-model{left:37%}
-.hm-root .hm-board .hm-stack:has(.hm-spirit-model):has(.hm-whisper-model)>.hm-spirit-model{left:37%}
+
+
 .hm-root .hm-board .hm-stack:has(.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model{left:70%}
 .hm-root .hm-board .hm-stack:has(.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model>img{width:clamp(20px,8cqw,27px);max-height:36px}
 .hm-pattern-figurine.hm-normal-pattern>img{width:32em;max-height:44em}
 .hm-pattern-figurine.hm-whisper-pattern>img{width:29em;max-height:38em;filter:drop-shadow(0 0 1em #b8f9ef) drop-shadow(0 0 2.5em #ab74cf9c)}
 .hm-habitat-plane .hm-pattern-figurine.hm-spirit-pattern>img{width:38em;max-height:48em;filter:brightness(1.12) saturate(1.18) drop-shadow(0 0 1em #fff8d5) drop-shadow(0 0 3em var(--spirit-glow,#ffe5a6)) drop-shadow(0 0 5em var(--spirit-glow,#ffe5a6))}
 
-.hm-root .hm-board .hm-stack:has(.hm-whisper-model)>.hm-spirit-model>img{width:clamp(26px,10cqw,36px);max-height:48px}
+
+
+/* The scoring reference sits immediately left of the existing help control. */
+.hm-root>.hm-scoring-button{right:137px}
+@media(min-width:1100px){.hm-root>.hm-scoring-button{right:calc((100vw - 1100px)/2 + 137px)}}
+.hm-guide-dialog .hm-info-content{font-size:16px;line-height:1.85}
+.hm-guide-dialog .hm-guide-examples figcaption,.hm-guide-dialog table{font-size:14px}
+.hm-scoring-intro{padding:12px 14px;border-radius:14px;background:#e5ebcf}
+.hm-scoring-spirits{display:grid;gap:12px}
+.hm-scoring-spirits article{display:grid;grid-template-columns:62px minmax(0,1fr);align-items:center;gap:12px;padding:12px 0;border-top:1px solid #e2d7b4}
+.hm-scoring-spirits .hm-animal-sprite-tray{width:62px;height:70px;overflow:visible}
+.hm-scoring-spirits .hm-animal-sprite-tray>img{width:58px;height:68px}
+.hm-scoring-spirits h4{margin:0;font-size:16px;color:#155d4b}
+.hm-scoring-spirits p{font-size:15px}
+
+/* Figures overflow their frames; an inset scrolling shelf reserves space for
+   tall silhouettes and aura while keeping all four choices and End Turn usable. */
+.hm-root .hm-board-sidebar,
+.hm-root .hm-board-sidebar .hm-animal-choices button,
+.hm-root .hm-board-sidebar .hm-animal-sprite-tray{overflow:visible}
+.hm-root .hm-board-sidebar .hm-animal-choices{width:66px;min-width:66px;max-width:66px;gap:18px;padding:22px 12px 16px;position:relative;z-index:3;overflow-x:hidden;overflow-y:auto;scrollbar-width:none}
+.hm-root .hm-board-sidebar .hm-animal-choices button{display:block;isolation:isolate}
+.hm-root .hm-board-sidebar .hm-animal-sprite-tray>img{width:40px;height:48px;bottom:-2px;max-width:none;object-fit:contain;object-position:center bottom}
+.hm-root .hm-board-sidebar .hm-spirit-model>img{width:46px;height:54px}
+.hm-root .hm-board-sidebar .hm-available-count{z-index:3}
+.hm-spirit-model>img{filter:brightness(1.08) saturate(1.12) drop-shadow(0 0 2px #fff6d6) drop-shadow(0 0 5px var(--spirit-glow,#ffe5a6)) drop-shadow(0 0 9px var(--spirit-glow,#ffe5a6)) drop-shadow(0 2px 1px #234b4980)}
+.hm-spirit-model.hm-animal-sprite-tray:before{content:'';position:absolute;width:38px;height:20px;left:50%;bottom:0;transform:translateX(-50%);background:radial-gradient(ellipse,var(--spirit-glow,#ffe5a6),transparent 70%);opacity:.65;pointer-events:none}
+.hm-guide-dialog:focus{outline:none}
+
+/* Equal portrait stages: every animal's head rises above the token-sized frame. */
+.hm-root .hm-board-sidebar .hm-animal-choices{width:82px;min-width:82px;max-width:82px;padding:28px 20px 18px;gap:22px}
+.hm-root .hm-board-sidebar .hm-animal-choices button{background:#fff5d7b3}
+.hm-root .hm-board-sidebar .hm-animal-choices button[aria-pressed=true]{background:#fff5d7b3;border-color:#009aa9}
+.hm-root .hm-board-sidebar .hm-animal-choices .hm-animal-sprite-tray>img{width:48px;height:56px;max-width:none;max-height:none;bottom:-2px;object-fit:contain;object-position:center top}
+
+/* Larger figures keep their feet fixed on the upper terrain cap in both cameras. */
+.hm-root .hm-board .hm-stack>.hm-animal-sprite:is(.hm-normal-model,.hm-spirit-model)>img{width:clamp(34px,14cqw,48px);height:clamp(40px,16.5cqw,58px);max-height:none;object-fit:contain;object-position:center bottom}
+.hm-root .hm-board .hm-whisper-model>img{width:clamp(26px,10.5cqw,36px);max-height:46px}
+
+/* Spirits breathe light and shed small moving stars; the figurine itself stays anchored. */
+.hm-spirit-model>img{filter:brightness(1.12) saturate(1.2) drop-shadow(0 0 2px #fffde8) drop-shadow(0 0 6px var(--spirit-glow,#ffe5a6)) drop-shadow(0 0 12px var(--spirit-glow,#ffe5a6)) drop-shadow(0 2px 1px #234b4980)}
+.hm-spirit-model:before,.hm-spirit-model.hm-animal-sprite-tray:before{content:'';position:absolute;left:50%;bottom:-4px;width:56px;height:50px;transform:translateX(-50%);background:radial-gradient(ellipse,color-mix(in srgb,var(--spirit-glow,#ffe5a6),transparent 20%),transparent 70%);opacity:.7;pointer-events:none;animation:hm-spirit-aura-breathe 2.8s ease-in-out infinite}
+.hm-spirit-sparkles{position:absolute;left:50%;bottom:0;width:56px;height:64px;transform:translateX(-50%);pointer-events:none;z-index:2}
+.hm-spirit-sparkles>i{position:absolute;width:7px;height:9px;background:#fffde2;clip-path:polygon(50% 0,63% 36%,100% 50%,63% 64%,50% 100%,37% 64%,0 50%,37% 36%);filter:drop-shadow(0 0 3px var(--spirit-glow,#ffe5a6));animation:hm-spirit-twinkle 2.2s ease-in-out infinite!important;opacity:.2}
+.hm-spirit-sparkles>i:nth-child(1){left:2px;top:26px;animation-delay:-.3s!important}
+.hm-spirit-sparkles>i:nth-child(2){right:3px;top:8px;width:6px;height:8px;animation-delay:-1.2s!important}
+.hm-spirit-sparkles>i:nth-child(3){right:4px;bottom:5px;width:5px;height:7px;animation-delay:-1.8s!important}
+.hm-spirit-sparkles>i:nth-child(4){left:18px;top:0;width:4px;height:6px;animation-delay:-.8s!important}
+@keyframes hm-spirit-aura-breathe{0%,100%{opacity:.45;transform:translateX(-50%) scale(.88)}50%{opacity:.9;transform:translateX(-50%) scale(1.12)}}
+@keyframes hm-spirit-twinkle{0%,100%{opacity:.12;transform:translateY(2px) scale(.45)}50%{opacity:1;transform:translateY(-4px) scale(1.15)}}
+@media(prefers-reduced-motion:reduce){.hm-spirit-model:before,.hm-spirit-model.hm-animal-sprite-tray:before,.hm-spirit-sparkles>i{animation:none!important;opacity:.65}}
+
+/* The help guide uses exactly the same terrain caps and habitat scenes as play. */
+.hm-guide-token-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 4px;justify-items:center;margin:12px 0}
+.hm-guide-token-gallery figure{margin:0;text-align:center}.hm-guide-token-gallery figcaption{font-size:14px;font-weight:700}
+.hm-guide-dialog h4{font-size:16px;color:#155d4b;margin:18px 0 7px}
+.hm-guide-group{background:#e8e9ce;border:1px solid #d5d5ab;border-radius:18px;padding:6px}
+.hm-guide-habitat{position:relative;height:220px;width:min(100%,300px);margin:12px auto;--diagram-room:210px}
+.hm-guide-habitat .hm-habitat-scene{position:relative;inset:auto;width:100%;height:100%}
+
+/* SVG crosses have a geometric center independent of font baselines. */
+.hm-dialog :is(.hm-info-close,.hm-close,#hm-ok),.hm-root #hm-menu-close{box-sizing:border-box;display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;min-width:44px;max-width:44px;min-height:44px;max-height:44px;padding:0;margin:0;border-radius:50%;line-height:1;aspect-ratio:1}
+.hm-dialog :is(.hm-info-close,.hm-close,#hm-ok)>svg,.hm-root #hm-menu-close>svg{display:block;width:22px;height:22px;margin:0;transform:none}
+
+/* Coin-like board controls share one face, rim and raised bottom edge. */
+.hm-root .hm-board-sidebar :is(#hm-end,.hm-round-action){box-sizing:border-box;display:grid;place-items:center;flex:0 0 52px;width:52px;height:52px;min-width:52px;max-width:52px;min-height:52px;max-height:52px;margin:0;padding:0;border:2px solid #e9d194;border-radius:50%;background:radial-gradient(circle at 35% 22%,#4caa83,#23765c 52%,#12533f);color:#fff6d8;box-shadow:inset 0 2px 1px #fff7,inset 0 -2px 2px #003c3544,0 5px 0 #073e32,0 7px 5px #00362d55;font:800 15px/1 'Noto Sans Thai',sans-serif;text-shadow:0 1px 1px #00382d;cursor:pointer}
+.hm-root .hm-board-sidebar #hm-end{margin-top:auto}
+.hm-root .hm-board-sidebar .hm-round-action>svg{display:block;width:24px;height:24px}
+.hm-root .hm-board-sidebar .hm-round-action:not(:disabled):active{transform:translateY(3px);box-shadow:inset 0 2px 1px #fff5,0 2px 0 #073e32}
+.hm-root .hm-board-sidebar #hm-end:disabled,.hm-root .hm-board-sidebar .hm-round-action:disabled{background:linear-gradient(#bdc8b6,#8c9f90);color:#eaf0dc;opacity:.7;box-shadow:inset 0 1px 1px #fff5,0 4px 0 #627c6e;cursor:not-allowed}
+.hm-root .hm-board-sidebar .hm-final-actions{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;margin:auto 0;padding:0;flex:0 0 auto}
+.hm-root.hm-finished .hm-board .hm-cap{filter:brightness(.72) saturate(.65)}
+.hm-root.hm-finished .hm-board .hm-animal-sprite>img{opacity:1}
+.hm-root.hm-finished .hm-board .hm-spirit-model:before{opacity:.2;animation:none!important}
+.hm-root.hm-finished .hm-board .hm-spirit-sparkles>i{animation:none!important;opacity:.3}
+
+/* Keep glow on its own silhouette, rather than painting a broad pool over neighbors. */
+.hm-root .hm-board .hm-animal-sprite{--figure-w:clamp(22.5px,9cqw,30px);--figure-h:clamp(27px,10.8cqw,36px)}
+.hm-root .hm-board .hm-stack>.hm-animal-sprite:is(.hm-normal-model,.hm-spirit-model)>img{width:var(--figure-w);height:var(--figure-h)}
+.hm-root .hm-board .hm-spirit-model:before{display:none}
+.hm-root .hm-board .hm-spirit-model>img{filter:drop-shadow(0 0 1px #fffbe1) drop-shadow(0 0 3px var(--spirit-glow)) drop-shadow(0 0 5px var(--spirit-glow)) drop-shadow(0 2px 1px #173e424d)}
+.hm-root .hm-board .hm-spirit-sparkles{width:var(--figure-w);height:var(--figure-h)}
+.hm-root .hm-board .hm-spirit-sparkles>i:nth-child(n+3){display:none}
+
+.hm-root .hm-board .hm-stack:has(.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model{left:77%}
+.hm-root .hm-board .hm-stack:has(.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model>img{width:clamp(18px,7.2cqw,24px);height:clamp(22px,8.8cqw,29px);max-height:none}
+.hm-root .hm-board .hm-stack:has(.hm-whisper-model) .hm-spirit-sparkles{width:var(--figure-w);height:var(--figure-h)}
+.hm-root .hm-board .hm-stack:has(.hm-whisper-model) .hm-spirit-sparkles>i{width:4px;height:6px}
+
+.hm-card-aura{display:none}
+.hm-dialog .hm-card-aura{display:block;position:absolute;inset:2px;border:2px solid #f7d788;border-radius:inherit;box-shadow:inset 0 0 20px #ffe8a766,0 0 10px #ffdf91aa;z-index:7;pointer-events:none}
+.hm-dialog .hm-card-aura[data-special=whisper]{border-color:#d6b2ef;box-shadow:inset 0 0 20px #d5a5f366,0 0 10px #dcaff5aa}
+.hm-dialog .hm-large-card:has(.hm-card-aura){box-shadow:0 0 0 2px #e1be65,0 0 20px #f5d37b80}
+.hm-dialog .hm-large-card:has(.hm-card-aura[data-special=whisper]){box-shadow:0 0 0 2px #bd8fe0,0 0 20px #c99be880}
+.hm-root .hm-board-sidebar .hm-final-actions .hm-round-action{box-shadow:inset 0 2px 1px #fff7,inset 0 -2px 2px #003c3544,0 5px 0 #073e32,0 0 0 4px #fff5,0 0 20px 6px #ffdf8ca6}
+.hm-spirit-selection article>button[data-spirit-choice]{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;line-height:1.45}
+.hm-spirit-pick-label{font-size:11px;font-weight:500}.hm-spirit-selection [data-spirit-choice]>strong{font-size:14px}
+.hm-effects-control{display:flex;align-items:flex-start;gap:9px;padding:10px;border:1px solid #c9c997;border-radius:12px;background:#e9ebd6}
+.hm-effects-control input{width:20px;height:20px;min-width:20px;margin:2px 0;accent-color:#17654f}
+.hm-effects-control span{font-size:14px;font-weight:700}.hm-effects-control small{display:block;font-size:11px;font-weight:400;line-height:1.6;margin-top:3px}
+.hm-habitat-lite>svg{width:100%;height:100%;display:block;overflow:visible}
+
+/* Per-device lightweight mode: flat card miniatures, no ambient animation/blur. */
+.hm-low-effects :is(.hm-root,.hm-dialog) *,.hm-low-effects :is(.hm-root,.hm-dialog) *::before,.hm-low-effects :is(.hm-root,.hm-dialog) *::after{animation:none!important;transition:none!important;backdrop-filter:none!important}
+.hm-low-effects .hm-spirit-sparkles,.hm-low-effects .hm-spirit-model:before{display:none!important}
+.hm-low-effects .hm-normal-model>img,.hm-low-effects .hm-whisper-model>img{filter:none}
+.hm-low-effects .hm-spirit-model>img,.hm-low-effects .hm-root .hm-board .hm-spirit-model>img{filter:drop-shadow(0 0 2px var(--spirit-glow))}
+.hm-low-effects .hm-special-seal{box-shadow:none}
+.hm-low-effects .hm-dialog .hm-card-aura{box-shadow:inset 0 0 8px #fff4}
+.hm-spirit-selection article>button[data-spirit-choice]{width:100%;min-width:0;padding:8px 6px}
+.hm-spirit-selection [data-spirit-choice]>strong{font-size:clamp(11px,3.3vw,14px);white-space:nowrap}
+.hm-spirit-selection .hm-spirit-pick-label{font-size:10px}
+
+/* Taken garden cards remain recognizable as unavailable, without color. */
+.hm-root .hm-market-empty{filter:grayscale(1)}
+.hm-dialog .hm-large-card .hm-expansion-card-name{font-size:clamp(16px,4vw,22px);line-height:1.4}
+.hm-dialog .hm-large-card:not(:has(.hm-special-seal)) .hm-expansion-card-name{left:6%;right:6%}
+
+/* The hand is a compact 2+1 tray; animal frames share its dimensions. */
+.hm-root:not(.hm-finished) .hm-board-sidebar{--hm-slot-size:clamp(30px,calc((100cqh - 126px)/4),44px);width:calc(var(--hm-slot-size)*2 + 8px);gap:0}
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport{--board-edge:min(calc(100cqw - 100px),calc((100cqh - 28px)*1.16))}
+.hm-root:not(.hm-finished) .hm-player .hm-board{left:calc(50% - 48px)}
+.hm-root .hm-board-sidebar .hm-header-hand{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:100%;min-width:0;max-width:none;justify-items:center;flex:none}
+.hm-root .hm-board-sidebar .hm-header-hand>:is(button,.hm-hand-slot,.hm-observed-token){grid-column:span 2;display:grid;place-items:center;box-sizing:border-box;flex:none;width:var(--hm-slot-size);height:var(--hm-slot-size);min-width:0;max-width:none;min-height:0;margin:0;padding:0;border:2px solid #d9c68e;border-radius:10px;background:#fff5d7b3}
+.hm-root .hm-board-sidebar .hm-header-hand>:nth-child(3){grid-column:2/span 2}
+.hm-root .hm-board-sidebar .hm-header-hand .hm-disk{width:calc(var(--hm-slot-size)*.84);height:calc(var(--hm-slot-size)*.84);min-width:0;min-height:0;flex:none;transform:scaleY(.83)}
+.hm-root .hm-board-sidebar [data-token]{touch-action:manipulation;user-select:none;-webkit-user-select:none;cursor:pointer}
+.hm-root .hm-board-sidebar [data-token][aria-pressed=true]{border-color:#00efe4;background:#d7ffeb;outline:2px solid #075d55;outline-offset:2px;box-shadow:0 0 0 4px #fff5c6,0 0 10px #00cbbb88}
+.hm-root .hm-board-sidebar [data-token]:focus-visible{outline:3px solid #fff7bf;outline-offset:3px}
+.hm-root .hm-board-sidebar .hm-animal-choices{box-sizing:border-box;flex:0 1 auto;display:flex;align-items:center;width:100%;min-width:0;max-width:none;height:calc(var(--hm-slot-size)*2 + 44px);min-height:0;gap:22px;padding:18px 12px 4px;margin:12px 0 0;overflow-x:hidden;overflow-y:auto;scrollbar-width:none;overscroll-behavior:contain;scroll-padding-block:18px 4px}
+.hm-root .hm-board-sidebar .hm-animal-choices>:is(button,.hm-animal-slot){position:relative;box-sizing:border-box;display:block;isolation:isolate;flex:0 0 var(--hm-slot-size);width:var(--hm-slot-size);height:var(--hm-slot-size);min-width:0;max-width:none;min-height:0;padding:0;margin:0;border:2px solid #9bd8be;border-radius:10px;background:#215d567a;box-shadow:inset 0 0 0 1px #fff3}
+.hm-root .hm-board-sidebar .hm-animal-slot{opacity:.4;border-style:dashed}
+.hm-root .hm-board-sidebar .hm-animal-choices button[aria-pressed=true]{border-color:#ffed94;background:#277a67b3;outline:2px solid #fff1ab;outline-offset:2px}
+.hm-root .hm-board-sidebar .hm-animal-choices .hm-animal-sprite-tray{position:absolute;inset:auto;left:50%;bottom:0;width:calc(var(--hm-slot-size) + 8px);height:calc(var(--hm-slot-size) + 16px);transform:translateX(-50%)}
+.hm-root .hm-board-sidebar .hm-animal-choices .hm-animal-sprite-tray>img{width:100%;height:100%;max-width:none;max-height:none;bottom:-2px;object-fit:contain;object-position:center bottom}
+.hm-root .hm-board-sidebar #hm-end{margin-top:auto;flex-shrink:0}
+.hm-root .hm-board-sidebar .hm-observer-label{margin-top:auto}
+/* Same round disc, icon ratio, perspective and overlap as the supply, enlarged. */
+.hm-choice-tokens .hm-disk{box-sizing:content-box;flex:0 0 64px;width:64px;height:64px;min-width:64px;max-width:64px;min-height:64px;max-height:64px;aspect-ratio:1;transform:scaleY(.83);box-shadow:0 8px 0 color-mix(in srgb,var(--paint),#241c10 45%)}
+.hm-choice-tokens .hm-disk svg{width:65%;height:65%}
+
+.hm-choice-tokens .hm-disk{margin-left:calc(-1 * var(--hm-choice-overlap,20px));box-shadow:0 8px 0 color-mix(in srgb,var(--paint),#172c20 38%)}
+.hm-choice-tokens .hm-disk:first-child{margin-left:0}
+
+/* Portrait keeps the familiar stack, with matching card proportions on both rails. */
+@media(orientation:portrait) and (min-height:740px){
+ .hm-root.hm-phone{--hm-card-height:clamp(112px,17svh,210px);--hm-card-width:calc(var(--hm-card-height)*.6923)}
+ .hm-root.hm-phone .hm-market-slot{flex-basis:var(--hm-card-width)}
+}
+/* On a wide personal screen the landscape stays left; all card decisions stay right. */
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ html.harmonies-document{--hm-toolbar-edge:max(16px,calc((100vw - 1600px)/2 + 16px))}
+ .harmonies-theme main.in-game{max-width:1600px;padding-inline:16px}
+ .harmonies-theme main.in-game>.game-header{min-height:56px;padding-bottom:8px}
+ .harmonies-theme .game-header .brand{font-size:36px}
+ .hm-root.hm-player-layout:not(.hm-choosing-spirit){--hm-card-height:clamp(150px,calc((100svh - 330px)/2),270px);--hm-card-width:calc(var(--hm-card-height)*.6923);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(360px,1fr);grid-template-rows:96px minmax(0,1fr) minmax(0,1fr);gap:14px;max-width:none;width:100%;height:calc(100svh - 72px - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:0;margin:0;padding:0}
+ .hm-root.hm-player-layout>.hm-supply{grid-column:2;grid-row:1;container-type:inline-size;height:100%;width:100%;max-width:none;box-sizing:border-box;margin:0;padding:8px 10px;border-radius:18px}
+ .hm-root.hm-player-layout>.hm-animal-market{grid-column:2;grid-row:2;height:100%;min-height:0;max-height:none;align-self:stretch;padding:8px 10px 10px;border-radius:18px;overflow:hidden}
+ .hm-root.hm-player-layout>.hm-gardens,.hm-root.hm-player-layout .hm-gardens>.hm-player.chosen-board{display:contents}
+ .hm-root.hm-player-layout .hm-gardens>.hm-player:not(.chosen-board),.hm-root.hm-player-layout .hm-gardens>.hm-player>header{display:none}
+ .hm-root.hm-player-layout .hm-player .hm-board-viewport{grid-column:1;grid-row:1/span 3;width:100%;height:100%;min-width:0;max-width:none;perspective:1800px;--board-edge:min(calc(100cqw - 180px),calc((100cqh - 120px)*1.08))}
+ .hm-root.hm-player-layout .hm-player .hm-board{left:calc(50% - 52px);top:calc(50% - 10px);width:var(--board-edge)}
+ .hm-root.hm-player-layout .hm-owned-collection{grid-column:2;grid-row:3;align-self:stretch;justify-self:stretch;width:100%;max-width:none;min-height:0;padding:8px 10px 10px;border-radius:18px}
+ .hm-root.hm-player-layout .hm-owned-collection:has(.hm-owned-empty){background:#fff6d9dc}
+ .hm-root.hm-player-layout .hm-owned-collection:has(.hm-owned-empty) .hm-owned-heading{visibility:visible}
+ .hm-root.hm-player-layout .hm-owned-cards{display:flex;container-type:normal;width:100%;height:calc(100% - 28px);min-height:0;max-height:none;overflow-x:auto;overflow-y:hidden;padding:6px 2px 8px;gap:10px;justify-content:flex-start}
+ .hm-root.hm-player-layout .hm-owned-cards[data-owned-count="0"]{display:grid;height:calc(100% - 28px);min-height:0}
+ .hm-root.hm-player-layout .hm-owned-cards>.hm-animal{flex:0 0 var(--hm-card-width);width:var(--hm-card-width);height:var(--hm-card-height)}
+ .hm-root.hm-player-layout .hm-market{height:calc(100% - 28px);padding:10px 2px 8px;gap:10px;margin-left:0;align-items:flex-start}
+ .hm-root.hm-player-layout .hm-market-slot{flex:0 0 var(--hm-card-width);width:var(--hm-card-width);height:var(--hm-card-height)}
+ .hm-root.hm-player-layout .hm-market-slot>.hm-animal,.hm-root.hm-player-layout .hm-market .hm-inspect{height:100%}
+ .hm-root.hm-player-layout .hm-market .hm-inspect,.hm-root.hm-player-layout .hm-owned-cards .hm-inspect{border-radius:12px}
+ .hm-root.hm-player-layout :is(.hm-supply h2,.hm-animal-market>.hm-rail-title,.hm-owned-heading){height:28px;min-height:28px;padding:2px;font-size:16px;line-height:24px;text-align:center}
+ .hm-root.hm-player-layout .hm-groups{height:calc(100% - 28px);gap:7px}
+ .hm-root.hm-player-layout .hm-groups button{border-radius:12px;min-height:44px}
+ .hm-root.hm-player-layout .hm-groups .hm-disk{--hm-supply-token-size:clamp(30px,7cqw,44px);width:var(--hm-supply-token-size);height:var(--hm-supply-token-size);margin-left:calc(var(--hm-supply-token-size)*-.28)}
+ .hm-root.hm-player-layout .hm-groups .hm-disk:first-child{margin-left:0}
+ .hm-root.hm-player-layout .hm-market .hm-animal>button[data-claim],.hm-root.hm-player-layout .hm-market .hm-animal>button[data-solo-discard]{width:42px;min-width:42px;height:42px;min-height:42px;max-height:42px;padding:8px;right:1px;left:auto;top:-9px}
+ .hm-root.hm-player-layout .hm-market .hm-animal>button[data-solo-discard]{top:39px}
+ .hm-root.hm-player-layout .hm-market .hm-animal>button:is([data-claim],[data-solo-discard])>svg{width:24px;height:24px}
+ .hm-root.hm-player-layout .hm-board-sidebar{--hm-slot-size:clamp(54px,4.5vw,72px);width:calc(var(--hm-slot-size)*2 + 8px);top:50%;bottom:auto;height:auto;max-height:calc(100% - 24px);transform:translateY(-50%);padding-block:8px;gap:0}
+ .hm-root.hm-player-layout .hm-board-sidebar #hm-end{margin-top:20px}
+ .hm-root.hm-player-layout .hm-board-sidebar :is(#hm-end,.hm-round-action){flex:0 0 64px;width:64px;height:64px;min-width:64px;max-width:64px;min-height:64px;max-height:64px;font-size:18px}
+ .hm-root.hm-player-layout .hm-board-sidebar .hm-round-action>svg{width:30px;height:30px}
+ .hm-root.hm-player-layout .hm-board-controls>p{font-size:13px;line-height:1.7;bottom:0}
+ .hm-root.hm-player-layout .hm-board .hm-animal-sprite{--figure-w:clamp(28.5px,7.5cqw,45px);--figure-h:clamp(34.5px,9cqw,54px)}
+
+
+ .hm-root>.hm-help-button,.hm-root>.hm-view-options,.hm-root>.hm-view-options[open],.hm-root>.hm-view-options:not([open]),.hm-root .hm-view-options>summary{width:44px;height:44px;min-height:44px;top:6px}
+ .hm-root>.hm-view-options,.hm-root>.hm-view-options[open],.hm-root>.hm-view-options:not([open]){right:var(--hm-toolbar-edge)}
+ .harmonies-theme .game-header .audio-settings{right:calc(var(--hm-toolbar-edge) + 52px);top:6px}
+ .harmonies-theme .game-header .audio-settings>summary{width:44px;height:44px;min-height:44px}
+ .hm-root>.hm-help-button{right:calc(var(--hm-toolbar-edge) + 104px)}
+ .hm-root>.hm-scoring-button{right:calc(var(--hm-toolbar-edge) + 156px)}
+}
+
+/* A final garden portrait contains each successfully placed type once. */
+.hm-score-player>b small{display:block;font:600 11px/1.5 'Noto Sans Thai',sans-serif;text-align:center}
+.hm-score-menagerie{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:16px 10px;grid-column:1/-1;padding:18px 8px 12px;min-width:0;background:linear-gradient(transparent,#d8e4c6b3);border-radius:18px}
+.hm-score-menagerie figure{display:grid;justify-items:center;align-content:end;gap:5px;width:76px;margin:0}
+.hm-score-menagerie .hm-result-model{position:relative;display:block;width:72px;height:84px}
+.hm-score-menagerie .hm-animal-sprite-tray{position:absolute;inset:0;width:100%;height:100%}
+.hm-score-menagerie .hm-animal-sprite-tray>img{width:72px;height:84px;max-width:none;max-height:none;bottom:0;object-fit:contain;object-position:center bottom}
+.hm-score-menagerie figcaption{max-width:100%;color:#23534b;text-align:center;font:600 11px/1.5 'Noto Sans Thai',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-score-no-animals{font-size:13px;color:#587060;text-align:center;margin:4px}
+.hm-winner-spotlight .hm-score-menagerie{width:min(100%,480px);box-sizing:border-box}
+@media(min-width:900px){.hm-score-player>b{font-size:38px}.hm-score-menagerie .hm-result-model{width:88px;height:102px}.hm-score-menagerie .hm-animal-sprite-tray>img{width:88px;height:102px}.hm-score-menagerie figure{width:92px}.hm-score-menagerie figcaption{font-size:12px}}
+
+.hm-score-paw{display:block;width:80px;height:86px;max-width:100%;margin:auto}
+@media(orientation:portrait) and (min-height:740px){
+ .hm-root.hm-phone .hm-owned-cards:not(.has-overflow){overflow-x:auto}
+ .hm-root.hm-phone .hm-owned-cards:not(.has-overflow):has(>.hm-animal:nth-child(4)){justify-content:flex-start}
+}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout .hm-owned-cards:not(.has-overflow){overflow-x:auto;justify-content:flex-start}
+}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout .hm-board-sidebar .hm-available-count{font-size:12px;min-width:20px;line-height:1.5;right:1px;bottom:1px}
+}
+
+/* One compact drafting surface leaves the garden as the visual center. */
+.hm-root .hm-drafting-panel{box-sizing:border-box;min-width:0;overflow:hidden;border:1px solid #e8d8a4;border-radius:18px;background:#fff8e0ed;padding:4px 8px;--hm-supply-height:44px}
+.hm-root .hm-drafting-panel:has(.hm-final-round-supply){--hm-supply-height:64px}
+.hm-root .hm-drafting-panel>.hm-supply{container-type:inline-size;box-sizing:border-box;width:100%;max-width:none;height:var(--hm-supply-height);margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.hm-root .hm-drafting-panel .hm-supply h2{display:none}
+.hm-root .hm-drafting-panel .hm-final-round-supply h2{display:flex;height:20px;min-height:20px;margin:0;padding:0;font-size:10px}
+.hm-root .hm-drafting-panel .hm-groups{display:flex;height:44px;gap:4px;margin:0;padding:2px 0 4px;box-sizing:border-box}
+.hm-root .hm-drafting-panel .hm-groups button{display:flex;flex:1 1 0;min-width:0;min-height:0;height:36px;gap:0;padding:0 2px;border-radius:9px}
+.hm-root .hm-drafting-panel .hm-groups .hm-disk{width:clamp(23px,6cqw,36px);height:clamp(23px,6cqw,36px);flex:none;margin:0 0 0 -8px}
+.hm-root .hm-drafting-panel .hm-groups .hm-disk:first-child{margin-left:0}
+.hm-root .hm-drafting-panel>.hm-animal-market{box-sizing:border-box;width:100%;max-width:none;height:calc(var(--hm-card-height) + 28px);min-height:0;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.hm-root .hm-drafting-panel .hm-animal-market>.hm-rail-title{height:18px;min-height:18px;margin:0;padding:0;font-size:11px;line-height:18px;text-align:center}
+.hm-root .hm-drafting-panel .hm-market{display:flex;height:calc(var(--hm-card-height) + 10px);max-height:none;box-sizing:border-box;margin:0;padding:5px 2px;gap:8px;align-items:flex-start;overflow-x:auto;overflow-y:hidden}
+.hm-root .hm-drafting-panel .hm-market-slot{flex:0 0 var(--hm-card-width);width:var(--hm-card-width);height:var(--hm-card-height)}
+.hm-root .hm-drafting-panel .hm-market-slot>.hm-animal,.hm-root .hm-drafting-panel .hm-market .hm-inspect{height:100%}
+.hm-root.hm-choosing-spirit>.hm-drafting-panel{display:none}
+.hm-root.hm-phone:not(.hm-choosing-spirit){--hm-supply-height:44px;grid-template-rows:calc(var(--hm-card-height) + var(--hm-supply-height) + 38px) minmax(0,1fr);min-height:0}
+.hm-root.hm-phone:has(.hm-final-round-supply){--hm-supply-height:64px}
+.hm-root.hm-phone>.hm-drafting-panel{grid-row:1;grid-column:1}
+.hm-root.hm-phone>.hm-gardens{grid-row:2;grid-column:1;min-height:0}
+.hm-root.hm-phone .hm-player,.hm-root.hm-phone .hm-player:has(.hm-owned-empty){grid-template-rows:minmax(0,1fr) calc(var(--hm-card-height) + 31px)}
+.hm-root .hm-owned-cards>.hm-animal.complete .hm-inspect,.hm-detail .hm-large-card.complete>.hm-detail-face{filter:saturate(.8);opacity:.65;border:1px solid #a4b49b}
+.hm-root .hm-complete-ribbon,.hm-detail .hm-complete-ribbon{background:#4a7959e8;color:#fff9df}
+
+/* A fixed terrain hand, followed by an independently scrolling animal shelf. */
+.hm-root .hm-player .hm-board-viewport{--hm-slot-size:clamp(30px,8.2vw,44px);--hm-tray-height:calc(var(--hm-slot-size) + 34px);--board-edge:min(calc(100cqw - 30px),calc((100cqh - var(--hm-tray-height) - 28px)*1.16))}
+.hm-root .hm-player .hm-board{left:50%;top:calc((100% - var(--hm-tray-height))/2 - 5px);width:var(--board-edge)}
+.hm-root .hm-player .hm-board-sidebar{--hm-slot-size:inherit;position:absolute;left:0;right:0;top:auto;bottom:0;transform:none;width:100%;max-height:none;height:var(--hm-tray-height);box-sizing:border-box;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px;padding:16px 4px 4px}
+.hm-root .hm-board-sidebar .hm-header-hand{display:flex;flex-direction:row;width:auto;max-width:none;min-width:0;gap:4px;flex:0 0 auto}
+.hm-root .hm-board-sidebar .hm-header-hand>:is(button,.hm-hand-slot,.hm-observed-token){width:var(--hm-slot-size);height:var(--hm-slot-size)}
+.hm-root .hm-board-sidebar .hm-animal-choices{display:flex;flex-direction:row;flex:1 1 0;width:0;max-width:none;min-width:0;height:calc(var(--hm-slot-size) + 30px);gap:14px;margin:0 0 0 4px;padding:18px 4px 6px;overflow-x:auto;overflow-y:hidden;scroll-padding:4px;touch-action:pan-x}
+.hm-root .hm-board-sidebar .hm-animal-choices>:is(button,.hm-animal-slot){flex:0 0 var(--hm-slot-size);width:var(--hm-slot-size);height:var(--hm-slot-size);touch-action:pan-y;cursor:pointer}
+.hm-root .hm-board-sidebar #hm-end{margin:0;flex:0 0 48px;width:48px;height:48px;min-width:48px;min-height:48px;max-height:48px}
+.hm-root .hm-board-sidebar .hm-observer-label{margin:0;font-size:9px;flex:none}
+.hm-root .hm-board-sidebar .hm-final-actions{flex:1;flex-direction:row;justify-content:center;margin:0;gap:24px}
+.hm-root .hm-board-controls{left:0;right:0;bottom:var(--hm-tray-height);pointer-events:none}
+.hm-root .hm-board-controls:empty{display:none}
+.hm-root .hm-board-controls>.hm-board-error{bottom:0;text-align:center;background:#173f39db;border-radius:8px;padding:4px}
+.hm-root .hm-board-controls .hm-board-choices{pointer-events:auto;display:flex;justify-content:center;gap:4px}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout:not(.hm-choosing-spirit){grid-template-rows:calc(var(--hm-card-height) + 82px) minmax(0,1fr)}
+ .hm-root.hm-player-layout>.hm-drafting-panel{grid-column:2;grid-row:1}
+ .hm-root.hm-player-layout .hm-player .hm-board-viewport{grid-row:1/span 2;--hm-slot-size:clamp(54px,4.5vw,72px);--board-edge:min(calc(100cqw - 70px),calc((100cqh - var(--hm-tray-height) - 100px)*1.02))}
+ .hm-root.hm-player-layout .hm-owned-collection{grid-row:2}
+ .hm-root.hm-player-layout .hm-player .hm-board{left:50%;top:calc((100% - var(--hm-tray-height))/2 - 5px)}
+ .hm-root.hm-player-layout .hm-board-sidebar #hm-end{margin:0;flex:0 0 64px;width:64px;height:64px;min-width:64px;min-height:64px;max-height:64px}
+}
+.hm-root.hm-display:not(.hm-player-layout)>.hm-drafting-panel{grid-column:1/-1;grid-row:1;--hm-card-height:140px;--hm-card-width:97px}
+.hm-root:not(.hm-finished) .hm-player .hm-board{left:50%;top:calc((100% - var(--hm-tray-height))/2 - 5px)}
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport{--board-edge:min(calc(100cqw - 30px),calc((100cqh - var(--hm-tray-height) - 28px)*1.16))}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board-viewport{--board-edge:min(calc(100cqw - 70px),calc((100cqh - var(--hm-tray-height) - 100px)*1.02))}
+}
+.hm-root.hm-finished .hm-player .hm-board-sidebar{padding:4px}
+.hm-root .hm-board-sidebar .hm-animal-slot{opacity:.75;background:#174f498f;border-color:#b5dfc5;cursor:default}
+
+/* Taken and completed cards share one undimmed top ribbon and muted color face. */
+.hm-root .hm-market-empty{filter:none;background:#e9f0d6}
+.hm-root .hm-market-empty:before{content:'';position:absolute;inset:0;background:url('/art/harmonies/reference/back.webp') center/cover;filter:saturate(.8);opacity:.65}
+.hm-root .hm-market-empty>.hm-complete-ribbon{padding:1px;background:#4a7959e8;color:#fff9df;font:700 11px/1.4 'Noto Sans Thai',sans-serif}
+/* Reserve headroom within the horizontal scroller for the overhanging actions. */
+.hm-root .hm-drafting-panel>.hm-animal-market{height:calc(var(--hm-card-height) + 36px)}
+.hm-root .hm-drafting-panel .hm-market{height:calc(var(--hm-card-height) + 18px);padding:12px 6px 6px}
+.hm-root.hm-phone:not(.hm-choosing-spirit){grid-template-rows:calc(var(--hm-card-height) + var(--hm-supply-height) + 46px) minmax(0,1fr)}
+
+/* A vertical right rail gives the board its full height back. */
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport{--hm-slot-size:clamp(26px,calc((100cqh - 138px)/5),44px);--hm-rail-width:max(56px,calc(var(--hm-slot-size) + 20px));--hm-tray-height:0px;--board-edge:min(calc(100cqw - var(--hm-rail-width) - 22px),calc((100cqh - 30px)*1.16))}
+.hm-root:not(.hm-finished) .hm-player .hm-board{left:calc((100% - var(--hm-rail-width))/2);top:calc(50% - 6px)}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar{left:auto;right:0;top:6px;bottom:6px;width:var(--hm-rail-width);height:auto;max-height:none;transform:none;flex-direction:column;justify-content:flex-start;gap:7px;padding:4px}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-header-hand{flex-direction:column;gap:4px;width:100%;flex:none}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices{flex:1 1 0;flex-direction:column;width:100%;min-width:0;max-width:none;min-height:calc(var(--hm-slot-size)*2 + 38px);height:auto;gap:18px;margin:0;padding:18px 4px 6px;overflow-x:hidden;overflow-y:auto;scroll-padding-block:18px 6px;touch-action:pan-y}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices>:is(button,.hm-animal-slot){touch-action:pan-y}
+.hm-root:not(.hm-finished) .hm-board-sidebar #hm-end{margin:0;flex-shrink:0}
+.hm-root:not(.hm-finished) .hm-board-controls{right:var(--hm-rail-width);bottom:0}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout:not(.hm-choosing-spirit){grid-template-rows:calc(var(--hm-card-height) + 90px) minmax(0,1fr)}
+ .hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board-viewport{--hm-slot-size:clamp(54px,4.5vw,72px);--hm-rail-width:calc(var(--hm-slot-size) + 24px);--board-edge:min(calc(100cqw - var(--hm-rail-width) - 70px),calc((100cqh - 100px)*1.02))}
+}
+
+/* Preview at the actual animal scale, with a green checked cap beneath its feet. */
+.hm-root .hm-cell .hm-tile-confirm.hm-animal-preview{inset:16%;width:auto;height:auto;min-width:0;min-height:0;padding:0;border:0;border-radius:50%;background:none;box-shadow:none;transform:translateZ(calc((var(--confirm-level) - 1)*12px + 14px));transform-style:preserve-3d;overflow:visible;opacity:1}
+.hm-animal-confirm-cap{position:absolute;inset:0;display:block;border-radius:50%;background:#168251;box-shadow:inset 0 2px 2px #fff6,0 3px 0 #075334;opacity:.9;pointer-events:none}
+.hm-root .hm-cell .hm-animal-preview .hm-animal-confirm-cap>svg{position:absolute;right:1%;bottom:5%;width:45%;height:45%;color:#fffbdc}
+.hm-root .hm-board .hm-animal-preview>.hm-animal-sprite{opacity:1;--stack-shift:0px;pointer-events:none}
+.hm-root .hm-board .hm-animal-preview>.hm-animal-sprite>img{width:var(--figure-w);height:var(--figure-h);object-fit:contain;pointer-events:auto;cursor:pointer}
+
+/* Five contiguous frames, with further animals scrolling behind the floating End. */
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport{--hm-slot-size:max(30px,calc((100cqh - 76px)/5));--hm-rail-width:calc(var(--hm-slot-size) + 12px);--hm-end-size:clamp(32px,calc(var(--hm-slot-size)*.8),64px)}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar{gap:0;padding:4px;isolation:isolate}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-header-hand{gap:0}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-header-hand>:is(button,.hm-hand-slot,.hm-observed-token){border-radius:8px;flex:0 0 var(--hm-slot-size)}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices{position:relative;gap:0;min-height:0;margin:0;padding:0 0 calc(var(--hm-end-size) + 4px);scroll-padding-block:0 calc(var(--hm-end-size) + 4px);scrollbar-width:none}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices>:is(button,.hm-animal-slot){border-radius:8px;flex:0 0 var(--hm-slot-size)}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices .hm-animal-sprite-tray{inset:2px;left:2px;bottom:2px;width:calc(var(--hm-slot-size) - 4px);height:calc(var(--hm-slot-size) - 4px);transform:none}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices .hm-animal-sprite-tray>img{bottom:0;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar #hm-end{position:absolute;z-index:3;bottom:4px;right:6px;width:var(--hm-end-size);height:var(--hm-end-size);min-width:0;min-height:0;max-height:none;flex:none;margin:0;opacity:.9}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-observer-label{position:absolute;bottom:4px;right:4px;z-index:3;background:#075b59cc;color:#fff4d0;border-radius:8px;padding:3px}
+.hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board-viewport{--hm-slot-size:max(30px,calc((100cqh - 76px)/5));--hm-rail-width:calc(var(--hm-slot-size) + 12px)}
+
+/* The awaiting-confirmation model is deliberately larger, with a green halo. */
+.hm-animal-confirm-cap{background:var(--paint);opacity:1;box-shadow:inset 0 2px 2px #fff6,0 0 0 3px #4fffa1,0 0 15px 5px #19e67b99}
+.hm-root .hm-cell .hm-animal-preview .hm-animal-confirm-cap>svg{background:#087f50;border-radius:50%;padding:2px;box-sizing:border-box}
+.hm-root .hm-board .hm-animal-preview>.hm-animal-sprite>img{width:calc(var(--figure-w)*1.35);height:calc(var(--figure-h)*1.35);filter:drop-shadow(0 0 5px #29ff99)}
+.hm-root .hm-board-controls #hm-cancel-placement{position:absolute;right:4px;bottom:8px;display:grid;place-items:center;width:40px;height:40px;min-width:40px;min-height:40px;margin:0;padding:8px;border:2px solid #fff2c4;border-radius:50%;background:#075b59e6;color:#fff9dc;pointer-events:auto;box-shadow:0 3px 0 #034039}
+.hm-root .hm-board-controls #hm-cancel-placement>svg{width:100%;height:100%;pointer-events:none}
+
+/* Enlarge the garden beneath the foreground control rail. */
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport{--board-edge:min(calc(100cqw - var(--hm-rail-width)*.3 - 16px),calc((100cqh - 20px)*1.16));--hm-end-size:52px}
+.hm-root:not(.hm-finished) .hm-player .hm-board{left:calc((100% - var(--hm-rail-width)*.5)/2)}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar{top:0;bottom:4px;padding:0 4px;z-index:20}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-header-hand{gap:6px}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices{gap:6px;margin-top:-2px;padding-top:8px}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices .hm-animal-sprite-tray{inset:auto;left:50%;bottom:0;width:calc(var(--hm-slot-size) + 4px);height:calc(var(--hm-slot-size) + 12px);transform:translateX(-50%)}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar #hm-end{opacity:1;right:4px}
+.hm-root:not(.hm-finished) .hm-board-sidebar.hm-turn-ready{justify-content:center}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar.hm-turn-ready #hm-end{bottom:4px}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board-viewport{--board-edge:min(calc(100cqw - var(--hm-rail-width)*.4 - 45px),calc((100cqh - 75px)*1.04));--hm-end-size:64px}
+ .hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board{left:calc((100% - var(--hm-rail-width)*.3)/2)}
+}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices{margin-top:-6px;padding-top:12px}
+.hm-root:not(.hm-finished) .hm-board-controls{width:auto;z-index:21}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices .hm-animal-sprite-tray{width:var(--hm-slot-size);height:calc(var(--hm-slot-size) + 8px)}
+.hm-root .hm-board .hm-animal-preview>.hm-animal-sprite>img{max-width:none;max-height:none}
+
+/* Bound the control rail and reserve its width before fitting projected terrain. */
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport,.hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board-viewport{--hm-slot-size:clamp(30px,calc((100cqh - 76px)/5),64px);--hm-rail-width:max(60px,calc(var(--hm-slot-size) + 12px));--board-edge:min(calc(100cqw - var(--hm-rail-width) + var(--hm-slot-size)*.1 - 12px),calc((100cqh - 36px)*1.12))}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar #hm-end{left:50%;right:auto;transform:translateX(-50%)}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices>.hm-available-slot{position:relative;display:block;isolation:isolate;flex:0 0 var(--hm-slot-size);width:var(--hm-slot-size);height:var(--hm-slot-size)}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>[data-available-animal],.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>.hm-observed-animal{position:relative;display:block;width:100%;height:100%;min-width:0;min-height:0;margin:0;padding:0;border:2px solid #9bd8be;border-radius:8px;background:#215d567a;box-sizing:border-box;touch-action:pan-y}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>[aria-pressed=true]{border-color:#ffed94;outline:2px solid #fff1ab;outline-offset:1px}
+.hm-root .hm-available-slot .hm-cancel-animal{position:absolute;z-index:4;right:1px;top:1px;display:grid;place-items:center;width:30px;height:30px;min-width:30px;min-height:30px;padding:5px;margin:0;border:2px solid #fff4cd;border-radius:50%;background:#075b59f2;color:#fff8db;box-shadow:0 2px 3px #003b3b55;touch-action:manipulation}
+.hm-root .hm-available-slot .hm-cancel-animal svg{width:100%;height:100%;pointer-events:none}
+/* Both card rails shrink by the same 10%, preserving their aspect ratios. */
+.hm-root{--hm-card-height:clamp(83.16px,15.12svh,127.575px);--hm-card-width:calc((100cqw - 46px)/4.25*.945)}
+@media(orientation:portrait) and (min-height:740px){.hm-root.hm-phone{--hm-card-height:clamp(105.84px,16.065svh,198.45px);--hm-card-width:calc(var(--hm-card-height)*.6923)}}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){.hm-root.hm-player-layout:not(.hm-choosing-spirit){--hm-card-height:clamp(141.75px,calc((100svh - 330px)*.4725),255.15px);--hm-card-width:calc(var(--hm-card-height)*.6923)}}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>[data-available-animal],.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>.hm-observed-animal{max-width:none;max-height:none}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>.hm-cancel-animal{position:absolute;pointer-events:auto;max-width:30px;max-height:30px;box-sizing:border-box}
+.hm-root.hm-display:not(.hm-player-layout)>.hm-drafting-panel{--hm-card-height:132.3px;--hm-card-width:91.665px}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>.hm-cancel-animal{display:grid;place-items:center;flex:none;top:1px;right:1px;width:30px;height:30px;min-width:30px;min-height:30px;margin:0;padding:5px;border:2px solid #fff4cd;border-radius:50%;background:#075b59f2;color:#fff8db;box-shadow:0 2px 3px #003b3b55;touch-action:manipulation}
+
+/* Tap-to-place controls and the garden's cream / gold palette. */
+.hm-root .hm-drafting-panel .hm-groups{padding:2px 0;height:44px}
+.hm-root .hm-drafting-panel .hm-groups button{height:40px;container-type:inline-size}
+.hm-root .hm-drafting-panel .hm-groups .hm-disk{width:min(42px,calc((100cqw + 12px)/3));height:min(42px,calc((100cqw + 12px)/3));transform:scaleY(.83)}
+.hm-root .hm-drafting-panel .hm-animal-market>.hm-rail-title,
+.hm-root.hm-player-layout .hm-drafting-panel .hm-animal-market>.hm-rail-title,
+.hm-root .hm-owned-heading,
+.hm-root.hm-player-layout .hm-owned-collection>.hm-owned-heading{text-align:left;padding-left:2px;padding-bottom:0}
+.hm-root .hm-market .hm-animal>button[data-solo-discard]{background:#fff;color:#23834c;border-color:#fff;box-shadow:0 2px 3px #16452a33}
+.hm-root .hm-market .hm-animal>button[data-solo-discard]:disabled{background:#fff;color:#78a98b;opacity:.65}
+.hm-root .hm-board-sidebar #hm-end{background:radial-gradient(circle at 35% 25%,#fffdf0,#f7e7ad 70%,#dfc47e);color:#17574d;border:2px solid #fff6ce;box-shadow:0 0 0 1px #b79b55,0 5px 0 #8c773f,0 7px 6px #183f3b55;text-shadow:0 1px #fff}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>[data-available-animal],
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>.hm-observed-animal,
+.hm-root .hm-board-sidebar .hm-animal-choices>:is(button,.hm-observed-animal,.hm-animal-slot){background:#fff5d7b3;border-color:#d9c68e;opacity:1;touch-action:pan-y;cursor:pointer}
+
+.hm-root .hm-board-sidebar #hm-end:disabled{background:linear-gradient(#f1ead3,#d0c7a9);color:#7c8977;box-shadow:0 0 0 1px #b5a679,0 4px 0 #a49a79;opacity:.75}
+
+/* Tighter card rail, centered cancel controls and matching placement previews. */
+.hm-root .hm-animal-market h2:before,.hm-root .hm-owned-heading:before{content:none}
+.hm-root .hm-drafting-panel>.hm-animal-market{height:calc(var(--hm-card-height) + 28px)}
+.hm-root .hm-drafting-panel .hm-market{margin-top:-8px}
+.hm-root .hm-drafting-panel .hm-solo-groups .hm-disk{width:min(36px,calc((100cqw + 12px)/3));height:min(36px,calc((100cqw + 12px)/3));box-shadow:0 2px 0 color-mix(in srgb,var(--paint),#333 30%)}
+.hm-root .hm-market .hm-animal>button[data-solo-discard]{border:1px solid #23834c}
+.hm-root .hm-board-sidebar #hm-end:not(:disabled),.hm-root.hm-finished .hm-board-sidebar .hm-final-actions :is(#hm-show-results,#hm-restart):not(:disabled){background:radial-gradient(circle at 35% 25%,#b4d96c,#689c39 65%,#3c732e);color:#fffce8;border-color:#f0e9b5;text-shadow:0 1px 2px #254d20;box-shadow:inset 0 2px 2px #fff7,0 5px 0 #315326,0 0 14px 5px #c8ec7b99,0 0 28px 8px #7bce7966;opacity:1}
+.hm-root .hm-header-hand>.hm-token-slot{position:relative;isolation:isolate;flex:0 0 var(--hm-slot-size);width:var(--hm-slot-size);height:var(--hm-slot-size)}
+.hm-root .hm-board-sidebar .hm-token-slot>[data-token]{position:relative;display:grid;place-items:center;box-sizing:border-box;width:100%;height:100%;min-width:0;min-height:0;max-width:none;max-height:none;margin:0;padding:0;background:#fff5d7b3;border:2px solid #d9c68e;border-radius:8px}
+.hm-root .hm-board-sidebar .hm-token-slot>[data-token][aria-pressed=true]{border-color:#00efe4;background:#d7ffeb}
+.hm-root:not(.hm-finished) .hm-board-sidebar :is(.hm-available-slot,.hm-token-slot)>#hm-cancel-placement{position:absolute;z-index:4;display:grid;place-items:center;top:50%;left:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);box-sizing:border-box;flex:none;width:30px;height:30px;min-width:30px;min-height:30px;max-width:30px;max-height:30px;margin:0;padding:5px;border:2px solid #fff4cd;border-radius:50%;background:#075b59f2;color:#fff8db;box-shadow:0 2px 3px #003b3b55;touch-action:manipulation}
+.hm-root .hm-token-slot>#hm-cancel-placement>svg{width:100%;height:100%;pointer-events:none}
+.hm-root .hm-cell .hm-tile-confirm.hm-terrain-preview{inset:16%;width:auto;height:auto;min-width:0;min-height:0;padding:0;border:0;border-radius:50%;background:none;box-shadow:none;transform:translateZ(calc((var(--confirm-level) - 1)*12px + 14px));overflow:visible;opacity:1}
+.hm-root .hm-cell .hm-terrain-preview .hm-terrain-confirm-cap>svg{position:absolute;inset:22.5%;width:55%;height:55%;color:#fffde3;filter:drop-shadow(0 1px 2px #075334)}
+@media(orientation:portrait),(max-width:899px){
+ .hm-root:not(.hm-finished) .hm-player .hm-board-sidebar #hm-end{bottom:-21px}
+}
+
+/* Let the floating End cover the owned panel heading without clipping. */
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport{z-index:16}
+
+/* Printed wooden pieces share their face, rim color and 8px raised edge. */
+.hm-cap>svg.hm-token-print,.hm-disk>svg.hm-token-print{display:block;width:74%;height:74%;opacity:.78;pointer-events:none}
+.hm-root .hm-board .hm-cap,.hm-root .hm-board-sidebar .hm-header-hand .hm-disk,.hm-root .hm-drafting-panel .hm-groups .hm-disk{border:1px solid #fff7;box-shadow:0 8px 0 color-mix(in srgb,var(--paint),#172c20 38%)}
+.hm-root .hm-board-sidebar .hm-header-hand .hm-disk{box-sizing:border-box;width:var(--hm-hand-diameter,calc(var(--hm-slot-size) - 12px));height:var(--hm-hand-diameter,calc(var(--hm-slot-size) - 12px));transform:translateY(-4px) scaleY(var(--hm-hand-squash,.83))}
+.hm-root .hm-drafting-panel .hm-groups .hm-disk{box-sizing:border-box;width:min(34px,calc((100cqw + 12px)/3));height:min(34px,calc((100cqw + 12px)/3));transform:translateY(-3.4px) scaleY(.83)}
+.hm-root .hm-drafting-panel .hm-solo-groups .hm-disk{width:min(34px,calc((100cqw + 12px)/3));height:min(34px,calc((100cqw + 12px)/3))}
+
+
+/* Keep owned cards at the bottom; End no longer dictates their position. */
+.hm-root.hm-phone .hm-player,.hm-root.hm-phone .hm-player:has(.hm-owned-empty){grid-template-rows:minmax(0,1fr) calc(var(--hm-card-height) + 35px)}
+.hm-root .hm-owned-collection{align-self:end;margin-bottom:4px}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar #hm-end{bottom:4px}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout .hm-owned-collection{align-self:end;height:calc(var(--hm-card-height) + 60px);margin-bottom:4px}
+ .hm-root.hm-player-layout .hm-owned-cards{height:calc(var(--hm-card-height) + 14px);min-height:0}
+}
+
+/* Model silhouettes have a white halo; special animals keep their colored aura. */
+.hm-animal-sprite>img,.hm-root .hm-board .hm-animal-sprite.hm-normal-model>img{filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #ffffffbb)}
+.hm-animal-sprite.hm-spirit-model>img,.hm-root .hm-board .hm-animal-sprite.hm-spirit-model>img{filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #ffffffbb) drop-shadow(0 0 7px var(--spirit-glow))}
+.hm-animal-sprite.hm-whisper-model>img,.hm-root .hm-board .hm-animal-sprite.hm-whisper-model>img{filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #ffffffbb) drop-shadow(0 0 6px #c4a5ef99)}
+.hm-pattern-figurine.hm-normal-pattern>img{filter:drop-shadow(0 0 1.5em #fff) drop-shadow(0 0 4em #ffffffbb)}
+.hm-habitat-plane .hm-pattern-figurine.hm-spirit-pattern>img{filter:drop-shadow(0 0 1.5em #fff) drop-shadow(0 0 4em #ffffffbb) drop-shadow(0 0 5em var(--spirit-glow))}
+.hm-pattern-figurine.hm-whisper-pattern>img{filter:drop-shadow(0 0 1.5em #fff) drop-shadow(0 0 4em #ffffffbb) drop-shadow(0 0 3em #ab74cf9c)}
+.hm-habitat-lite image[href*="/figurines/"]{filter:drop-shadow(0 0 2px #fff)}
+.hm-root .hm-board .hm-animal-preview>.hm-animal-sprite>img{filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #29ff99)}
+.hm-low-effects .hm-animal-sprite>img,.hm-low-effects .hm-root .hm-board .hm-animal-sprite>img{filter:drop-shadow(0 0 2px #fff)}
+.hm-low-effects .hm-root .hm-board .hm-animal-sprite.hm-spirit-model>img{filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px var(--spirit-glow))}
+
+/* Natural-height animal rail: only shrink/scroll once End reaches the bottom. */
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar{gap:6px;bottom:6px;overflow:visible}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-header-hand{flex:0 0 auto}
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-animal-choices{flex:0 1 auto;align-self:center;width:calc(var(--hm-slot-size) + 28px);min-width:0;max-width:none;height:auto;max-height:none;min-height:0;gap:6px;margin:-12px 0 0;padding:12px 14px;overflow-x:hidden;overflow-y:auto;scroll-padding-block:12px;box-sizing:border-box}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar #hm-end{position:relative;inset:auto;left:auto;right:auto;bottom:auto;transform:none;align-self:center;flex:0 0 var(--hm-end-size);margin:-12px 0 0;z-index:4}
+.hm-root:not(.hm-finished) .hm-board-sidebar.hm-turn-ready{justify-content:flex-start}
+@media(orientation:portrait),(max-width:899px){.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar{bottom:-20px}}
+.hm-root .hm-drafting-panel{align-self:start;height:auto;padding:4px 8px 6px}
+
+.hm-root.hm-player-layout:not(.hm-choosing-spirit){grid-template-rows:calc(var(--hm-card-height) + var(--hm-supply-height,44px) + 40px) minmax(0,1fr)}
+.hm-root.hm-player-layout:has(.hm-final-round-supply){--hm-supply-height:64px}
+
+/* A pending terrain piece keeps its own print and colored wooden edge. */
+.hm-root .hm-cell .hm-terrain-preview .hm-terrain-confirm-cap{display:grid;place-items:center;box-sizing:border-box;border:1px solid #fff7;background:var(--paint);box-shadow:inset 0 1px #ffffff60,0 8px 0 color-mix(in srgb,var(--paint),#172c20 38%),0 0 8px 2px color-mix(in srgb,var(--paint),transparent 55%)}
+.hm-root .hm-cell .hm-terrain-preview .hm-terrain-confirm-cap>svg.hm-token-print{position:static;inset:auto;width:74%;height:74%;filter:none;opacity:.78}
+.hm-root .hm-cell .hm-terrain-preview .hm-terrain-confirm-cap>.hm-terrain-check{position:absolute;inset:auto;right:-10%;bottom:-12%;width:46%;height:46%;padding:2px;box-sizing:border-box;color:#fff;background:#078948;border-radius:50%;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #55ffa8);pointer-events:auto}
+.hm-root .hm-cell:has(.hm-terrain-preview) .hm-token.ghost>.hm-cap{outline:0}
+.hm-root .hm-drafting-panel .hm-groups button[aria-pressed=true]{border:1px solid #62904b;opacity:1}
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport,.hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board-viewport{--hm-end-size:64px}
+.hm-root:not(.hm-finished) .hm-player .hm-board-sidebar #hm-end{width:var(--hm-end-size);height:var(--hm-end-size);min-width:var(--hm-end-size);max-width:var(--hm-end-size);min-height:var(--hm-end-size);max-height:var(--hm-end-size);font-size:16px}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board-viewport{--hm-end-size:76px}
+ .hm-root.hm-player-layout .hm-board-sidebar #hm-end{font-size:18px}
+}
+
+.hm-root .hm-cell .hm-terrain-check>svg{display:block;width:100%;height:100%;pointer-events:none}
+
+/* Exact shared blue / dark-blue / ink selection frame for both hand controls. */
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-token-slot>[data-token][aria-pressed=true],
+.hm-root:not(.hm-finished) .hm-board-sidebar .hm-available-slot>[data-available-animal][aria-pressed=true]{box-sizing:border-box;border:2px solid #00efe4;background:#d7ffeb;outline:2px solid #073b43;outline-offset:2px;box-shadow:inset 0 0 0 1px #08768a,0 0 0 4px #0aaabd,0 0 10px #00cbbb88}
+/* Destination light is replaced by a precise two-tone hex edge. */
+.hm-root .hm-board .hm-cell.habitat .hm-cell-hit{filter:none}
+.hm-root .hm-board .hm-cell.habitat .hm-cell-hit:after{content:'';background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='25,7 75,7 100,50 75,93 25,93 0,50' fill='none' stroke='%23003d58' stroke-width='9' stroke-linejoin='round'/%3E%3Cpolygon points='25,7 75,7 100,50 75,93 25,93 0,50' fill='none' stroke='%2325eaff' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+
+/* Detail artwork shares the owned-card dim treatment; the status ribbon stays clear. */
+.hm-detail .hm-detail-face{position:absolute;inset:0;border-radius:inherit;overflow:hidden;box-sizing:border-box}
+.hm-detail .hm-large-card:has(>.hm-detail-face):after{content:none}
+.hm-choice-tokens .hm-disk{border:1px solid #fff7}
+
+/* Finished controls keep End's full coin size and light, above the owned garden. */
+.hm-root.hm-finished .hm-player .hm-board-viewport{--hm-end-size:64px;z-index:16;overflow:visible}
+.hm-root.hm-finished .hm-board-sidebar .hm-final-actions :is(#hm-show-results,#hm-restart){flex:0 0 var(--hm-end-size);width:var(--hm-end-size);height:var(--hm-end-size);min-width:var(--hm-end-size);max-width:var(--hm-end-size);min-height:var(--hm-end-size);max-height:var(--hm-end-size)}
+.hm-root.hm-finished .hm-board-sidebar .hm-final-actions :is(#hm-show-results,#hm-restart)>svg{width:30px;height:30px}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){
+ .hm-root.hm-player-layout.hm-finished .hm-player .hm-board-viewport{--hm-end-size:76px}
+ .hm-root.hm-player-layout.hm-finished .hm-board-sidebar .hm-final-actions :is(#hm-show-results,#hm-restart)>svg{width:36px;height:36px}
+}
+
+/* T-rex keeps its feet anchored; lightweight and reduced motion stop the idle. */
+.hm-root .hm-animal-sprite[data-animal=trex]>img{transform-origin:50% 100%;animation:hm-trex-breathe 3.8s ease-in-out infinite!important}
+@keyframes hm-trex-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.015,1.025)}}
+.hm-low-effects .hm-root .hm-animal-sprite[data-animal=trex]>img{animation:none!important}
+@media(prefers-reduced-motion:reduce){.hm-root .hm-animal-sprite[data-animal=trex]>img{animation:none!important}}
+#hm-guide-trex{scroll-margin-top:70px}
+#hm-guide-trex .hm-guide-habitat{height:180px}
+#hm-guide-trex .hm-habitat-scene{--diagram-room:180px}
+
+/* Opt-in artwork family; geometry, scoring overlays and figurines stay shared. */
+html[data-room-theme="harmonies"]:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]){background-image:url('/art/harmonies/illustrated-v1/background.webp')}
+.hm-illustrated-logo{display:block;width:clamp(120px,20vw,180px);height:40px;object-fit:contain;object-position:left center}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-root .hm-board-sidebar :is(#hm-end,#hm-show-results,#hm-restart):not(:disabled){background-color:#23664e;background-image:url('/art/harmonies/illustrated-v1/button.webp');background-size:100% 100%;background-position:center;border-color:#e9d996;color:#fff4d5}
+html.harmonies-document:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"])::before,
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-reveal-dialog{background-image:url('/art/harmonies/illustrated-v1/background.webp')}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .harmonies-theme .game-header .brand::after{content:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-root.hm-finished .hm-board-sidebar .hm-final-actions :is(#hm-show-results,#hm-restart):not(:disabled){background-color:#23664e;background-image:url('/art/harmonies/illustrated-v1/button.webp');background-size:100% 100%;background-position:center;border-color:#e9d996;color:#fff4d5}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-root .hm-market-empty::before,html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-root .hm-market-empty,html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-deck i{background-image:url('/art/harmonies/illustrated-v1/back.webp')}
+
+/* Habitat art: printed terrain belongs to the bitmap; live scores remain crisp. */
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-root,.hm-root.hm-phone,.hm-root.hm-player-layout:not(.hm-choosing-spirit),.hm-root.hm-display:not(.hm-player-layout)>.hm-drafting-panel){--hm-card-width:calc(var(--hm-card-height)*.6976744)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal{--card-w:calc(var(--hm-card-height)*.6976744)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-inspect,.hm-market-empty,.hm-large-card){aspect-ratio:300/430}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-inspect,.hm-detail-face,.hm-large-card)::after{content:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal-art img{object-fit:fill}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-root,.hm-dialog) .hm-integrated-points{right:0;top:2%;bottom:30%;width:21%;background:none;border:0;border-radius:0;padding:0;gap:2%;justify-content:flex-end;flex-direction:column-reverse}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-root,.hm-dialog) .hm-integrated-points>span{position:relative;flex:0 1 auto;box-sizing:border-box;width:100%;aspect-ratio:1;max-height:calc(100% / var(--score-steps));gap:0;padding:0;isolation:isolate}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-integrated-points>span>i{position:absolute;inset:0;display:block;z-index:-1;width:100%;height:100%}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-integrated-points>span>i>svg{display:block;width:100%;height:100%}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-root,.hm-dialog) .hm-integrated-points>span>b{display:grid;place-items:center;position:absolute;inset:0 0 4%;background:none;color:#fff7d1;min-width:0;border-radius:0;font-size:clamp(11px,calc(var(--hm-card-height,180px)*.085),21px);font-weight:900;line-height:1;text-shadow:0 1px 1px #102c21}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-root,.hm-dialog) .hm-integrated-points>span.earned>b{color:#baf4ad}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-integrated-points>span.current-score{filter:drop-shadow(0 0 3px #fce584)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card .hm-integrated-points{width:16%;top:2%;bottom:35%;gap:3%;--hm-card-height:350px}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card .hm-integrated-points>span>b{font-size:clamp(19px,4.5vw,28px)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-special-seal{width:15%;height:auto;aspect-ratio:1}
+.hm-token .hm-cap .hm-painted-token,.hm-disk .hm-painted-token{width:100%;height:100%;max-width:none;max-height:none;display:block}
+html.harmonies-document:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"])::before,
+html[data-room-theme="harmonies"]:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]),
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-reveal-dialog{background-color:#4a9c9a;background-image:url('/art/harmonies/habitat-v4/background.webp')}
+.hm-detail-model-preview{float:left;position:relative;display:grid;place-items:center;width:76px;height:84px;margin:8px 12px 4px 0;overflow:visible}
+.hm-detail-model-preview .hm-animal-sprite-tray{position:relative;inset:auto;transform:none;width:72px;height:82px;display:block}
+.hm-detail-model-preview .hm-animal-sprite-tray>img{inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:contain}
+.hm-detail-requirements{clear:both}
+
+/* Cards v5 Batch 1: generated full-bleed art with deterministic rules overlays. */
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5){overflow:visible;border-color:transparent;background:transparent}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-inspect:has(.hm-card-v5),
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-detail-face:has(.hm-card-v5){overflow:visible}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v5{inset:0;overflow:hidden;border-radius:inherit;background:#135b62}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v5>img{display:block;width:100%;height:100%;object-fit:fill}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-side-rail{position:absolute;z-index:2;top:0;right:0;width:13.0556%;height:100%;display:block;object-fit:fill;pointer-events:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-habitat-v5{left:6%;right:auto;bottom:5%;width:54%;height:24%;--diagram-room:clamp(56px,8svh,82px);overflow:visible;background:transparent;z-index:3}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card:has(.hm-card-v5) .hm-habitat-v5{left:7%;bottom:6%;width:42%;height:22%;--diagram-room:clamp(105px,25vw,155px)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-habitat-plane{transform:translate(-50%,-50%) rotateZ(-5deg)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-pattern-stack{width:60em;height:60em}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-pattern-stack:before{content:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-pattern-base{position:absolute;z-index:1;left:50%;top:50%;width:60em;height:60em;max-width:none;object-fit:contain;transform:translate(-50%,-50%);background:none;box-shadow:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-token{z-index:calc(var(--level) + 2);inset:-1em;transform:translateY(calc(var(--level) * -10em))}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-token-art{width:58em;height:58em}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-placement-marker{position:absolute;left:50%;top:50%;z-index:7;width:27em;height:27em;max-width:none;object-fit:contain;transform:translate(-50%,calc(-72% - (var(--cube-level) - 1)*10em));filter:none;pointer-events:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card .hm-habitat-v5 .hm-pattern-height{display:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5{right:-1%;top:44%;bottom:auto;width:max(23px,17%);height:calc(var(--score-steps)*10%);padding:0;gap:3%;overflow:visible;z-index:5}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5>span{flex:0 1 auto;width:100%;aspect-ratio:1;max-height:calc(100%/var(--score-steps))}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5>span>b{font-family:'Noto Sans Thai',sans-serif;font-weight:900;font-variant-numeric:tabular-nums;font-size:clamp(11px,calc(var(--hm-card-height,180px)*.07),18px);border:0;text-shadow:0 1px 1px #183e32}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card:has(.hm-card-v5) .hm-score-v5{right:-1%;top:2%;bottom:auto;width:14%;height:calc(var(--score-steps)*10.5%);gap:3%;overflow:visible}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card:has(.hm-card-v5) .hm-score-v5>span>b{font-family:'Harmonies Score','Noto Sans Thai',sans-serif;font-size:clamp(18px,4vw,25px)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5 .hm-score-background{display:block;width:100%;height:100%;object-fit:contain}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5>span{isolation:auto}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5>span>i{z-index:1}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5>span>b{z-index:10;overflow:visible}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5 .hm-score-number{display:block;width:100%;height:100%;overflow:visible}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5 .hm-score-number text{fill:#fff8df;stroke:#173f35;stroke-width:1.2px;paint-order:stroke;font-family:'Noto Sans Thai',sans-serif;font-size:25px;font-weight:900;font-variant-numeric:tabular-nums}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-pattern-height{z-index:10;right:-4em;bottom:-3em;padding:1em 3em;border:0;border-radius:4em;background:#174f43;color:#fff8d7;font-size:7em;line-height:1.2;box-shadow:0 1em 2em #102d274d}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5>span.current-score>i{background:none;border-radius:0}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-root,.hm-dialog) .hm-score-v5>span.current-score>b{background:none;border:0;box-shadow:none;color:#d8ffd0}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-score-v5[data-card-theme="spirit"],.hm-score-v5[data-card-theme="whisper"],.hm-score-v5[data-card-theme="dinosaur"])>span>i{filter:saturate(1.15)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-painted-token{width:100%;height:100%;max-width:none;max-height:none;filter:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 .hm-cap{background:transparent;border:0;box-shadow:none}
+.hm-token-art{position:absolute;left:50%;top:50%;display:block;width:122%;height:122%;max-width:none;object-fit:contain;transform:translate(-50%,-50%);filter:none;pointer-events:none}
+.hm-root .hm-board .hm-token-art{width:125%;height:125%}
+.hm-root .hm-board .hm-painted-token,.hm-root .hm-disk .hm-painted-token{width:122%;height:122%;max-width:none;max-height:none;object-fit:contain;filter:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-root :is(.hm-disk,.hm-groups .hm-disk,.hm-board-sidebar .hm-header-hand .hm-disk,.hm-choice-tokens .hm-disk){background:transparent;border:0;box-shadow:none;transform:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-detail:has(.hm-card-v5) .hm-detail-model-preview{display:none}
+@media(prefers-reduced-motion:reduce){html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v5,html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-habitat-v5 *{animation:none!important;transition:none!important}}
+
+/* Terrain PNGs contain their own face, sidewall and shadow in every art mode. */
+.harmonies-theme :is(.hm-root,.hm-dialog) .hm-disk,
+.harmonies-theme .hm-choice-tokens .hm-disk{background:transparent!important;border:0!important;box-shadow:none!important;transform:none!important}
+.harmonies-theme .hm-disk>.hm-painted-token{display:block;width:122%;height:122%;max-width:none;max-height:none;object-fit:contain;filter:none}
+.harmonies-theme .hm-disk::before,.harmonies-theme .hm-disk::after{content:none!important}
+.hm-root .hm-cell .hm-terrain-preview .hm-terrain-confirm-cap{background:transparent;border:0;box-shadow:none}
+.hm-root .hm-cell .hm-terrain-preview .hm-terrain-confirm-cap>.hm-painted-token{width:125%;height:125%;max-width:none;object-fit:contain;filter:none}
+
+/* Wider portrait cards reserve a separate rail and a centered tabletop diagram. */
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v5>img{width:86.9444%;height:100%;object-fit:fill}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-animal,.hm-large-card):has(.hm-card-v5) .hm-printed-habitat{left:3%;right:auto;bottom:3%;width:80%;height:32%;overflow:visible;container-type:normal}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-printed-habitat>svg{display:block;width:100%;height:100%;overflow:visible}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-printed-habitat .hm-pattern-stack{transform:none;filter:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-printed-habitat .hm-pattern-height{transform:none;display:block;font-size:12px}
+
+/* Compact reference-sized habitat clusters and printed special scoring keys. */
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-animal,.hm-large-card):has(.hm-card-v5) .hm-printed-habitat{left:9%;width:69%;height:26%;bottom:3.5%}
+.harmonies-theme .hm-disk>.hm-painted-token{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:122%;height:122%}
+.harmonies-theme .hm-disk{position:relative;flex-shrink:0}
+.hm-root .hm-board .hm-token-art{transform:translate(-50%,-50%) rotateX(calc(-1 * var(--tilt,0deg)))}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-animal,.hm-large-card):has(.hm-card-v5) .hm-score-v5:is([data-card-theme="dinosaur"],[data-card-theme="spirit"]){height:21%;width:17%;right:0;top:12%}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5:is([data-card-theme="dinosaur"],[data-card-theme="spirit"])>span{height:100%;max-height:none;aspect-ratio:2/3;flex:1}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5:is([data-card-theme="dinosaur"],[data-card-theme="spirit"]) .hm-score-background{object-fit:fill}
+.hm-special-score-diagram{width:100%;height:100%;display:block}
+/* Keep each live score inside a separate row, with distinct reading directions. */
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5{top:33%;bottom:auto;height:39%;width:16%;right:0;display:flex;flex-direction:column-reverse;gap:4px}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5>span{flex:1 1 0;min-height:0;max-height:none;aspect-ratio:auto;width:100%}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card:has(.hm-card-v5) .hm-score-v5{flex-direction:column;gap:5px}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5>span>i,html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5>span>b{inset:0;min-height:0}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-score-v5 .hm-score-number{overflow:hidden}
+.hm-root .hm-board .hm-crystal-marker{--figure-w:clamp(28px,9cqw,46px);--figure-h:clamp(28px,9cqw,46px)}
+.hm-root .hm-board .hm-crystal-marker>img{filter:drop-shadow(0 2px 2px #46361666)}
+.hm-root .hm-board .hm-crystal-marker.hm-spirit-model>img{filter:drop-shadow(0 0 2px #fff)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5:not([data-card-theme="dinosaur"]):not([data-card-theme="spirit"]){top:auto;bottom:28%;height:calc(var(--score-steps)*9.5%);width:19%;gap:2px}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-number text{font-size:32px}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-background{object-fit:fill}
+
+/* Canonical flat-top board geometry: one uniformly scaled 300-unit square. */
+.hm-root .hm-player .hm-board{height:auto;aspect-ratio:1}
+.hm-root .hm-board .hm-cell{width:22%;height:auto;aspect-ratio:66/56}
+.hm-root .hm-board :is(.hm-cell-hit,.hm-hex-wall){clip-path:polygon(0 50%,25% 0,75% 0,100% 50%,75% 100%,25% 100%)}
+/* Clip art, rail, habitat and score together; add buttons remain sibling controls. */
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-inspect:has(.hm-card-v5),
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-detail-face:has(.hm-card-v5){overflow:hidden;border-radius:inherit;isolation:isolate}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-printed-habitat{left:12%;width:42%;height:27%;bottom:6%;overflow:visible}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card:has(.hm-card-v5) .hm-printed-habitat{left:17%;width:38%;height:28%;bottom:6%;overflow:visible}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5,
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5:not([data-card-theme="dinosaur"]):not([data-card-theme="spirit"]){top:auto;bottom:6%;right:2%;width:20%;height:calc(var(--score-steps)*8.5%);flex-direction:column-reverse;gap:2px}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-large-card:has(.hm-card-v5) .hm-score-v5{top:4%;bottom:auto;right:1.5%;flex-direction:column-reverse}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal:has(.hm-card-v5) .hm-score-v5:is([data-card-theme="dinosaur"],[data-card-theme="spirit"]){top:auto;bottom:6%;height:20%}
+.hm-root .hm-board .hm-crystal-marker .hm-spirit-sparkles{display:none}
+.hm-root .hm-board .hm-crystal-marker>img{animation:none!important;filter:none!important;object-fit:contain;object-position:center}
+.hm-root .hm-board .hm-crystal-marker{--figure-w:clamp(25px,8cqw,40px);--figure-h:clamp(28px,9cqw,45px)}
+.hm-root .hm-board .hm-stack{overflow:visible}
+.hm-root .hm-board .hm-token-art{width:146.7%;height:146.7%;object-fit:contain;object-position:center;clip-path:none}
+.hm-root .hm-board-sidebar .hm-header-hand [data-token]{overflow:visible;padding:4px}
+.hm-root .hm-board-sidebar .hm-header-hand .hm-disk{overflow:visible}
+.harmonies-theme .hm-disk>.hm-painted-token{width:100%;height:100%;object-fit:contain;object-position:center}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-inspect:has(.hm-card-v5){border-radius:8px}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-detail-face:has(.hm-card-v5){border-radius:14px}
+/* Paper v6: every illustration is art-only; six terrain rails and exact habitats are separate layers. */
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-root,.hm-root.hm-phone,.hm-root.hm-player-layout:not(.hm-choosing-spirit),.hm-root.hm-display:not(.hm-player-layout)>.hm-drafting-panel){--hm-card-width:calc(var(--hm-card-height)*.75)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal{--card-w:calc(var(--hm-card-height)*.75)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-inspect,.hm-market-empty,.hm-large-card){aspect-ratio:3/4}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-inspect,.hm-detail-face):has(.hm-card-v6){overflow:hidden;border-radius:12px;isolation:isolate;background:#174e46}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-inspect,.hm-detail-face,.hm-large-card):has(.hm-card-v6):after{content:none}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v6{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;border-radius:inherit}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v6>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-paper-rail{width:13.333333%;height:100%;right:0;top:0;border-radius:0 12px 12px 0;z-index:2}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-animal,.hm-large-card):has(.hm-card-v6) .hm-printed-habitat{left:4%;right:auto;width:78.666667%;height:37%;bottom:4.5%;overflow:visible;z-index:3;container-type:normal}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v6~.hm-printed-habitat>svg{display:block;width:100%;height:100%;overflow:visible}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points{position:absolute;display:flex;flex-direction:column-reverse;justify-content:flex-start;align-items:stretch;gap:3px;right:1%;top:auto;bottom:5%;width:21%;height:auto;max-height:58%;padding:0;margin:0;background:none;border:0;border-radius:0;z-index:5;overflow:visible}
+html[data-hm-card-art] .hm-large-card .hm-paper-points{top:3%;bottom:auto;width:18.5%;max-height:60%}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points>.hm-paper-score-row{position:relative;display:block;flex:none;width:100%;aspect-ratio:1;padding:0;margin:0;border:0;background:none;min-height:0}
+.hm-paper-score-row>svg,.hm-paper-spirit-panel>svg{display:block;width:100%;height:100%;overflow:visible}
+.hm-paper-score-number{font-family:'Harmonies Score','Noto Sans Thai',sans-serif;font-weight:700;fill:#fff6d1;paint-order:stroke;stroke:#17392c44;stroke-width:.6px}
+.hm-paper-score-row.earned{--paper-score-fill:#315e47}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points>.hm-paper-spirit-panel{display:block;flex:none;aspect-ratio:auto;width:100%;height:auto;padding:0;margin:0;min-height:0}
+html[data-hm-card-art] .hm-paper-points:has(.hm-paper-spirit-panel){width:19%;max-height:none}
+html[data-hm-card-art] .hm-large-card .hm-paper-points:has(.hm-paper-spirit-panel){width:18.5%}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-inspect:has(.hm-card-v6){border:0;box-shadow:0 2px 5px #103b3650}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal.complete .hm-inspect:has(.hm-card-v6){box-shadow:0 0 0 2px #efc747}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v6~.hm-printed-habitat .hm-pattern-height{font-size:18px;font-family:'Noto Sans Thai',sans-serif;pointer-events:none}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points:has(.hm-paper-spirit-panel){height:max-content;max-height:none;gap:0}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points>.hm-paper-spirit-panel{max-height:none}
+.hm-paper-spirit-panel>svg{height:auto;aspect-ratio:inherit}
+/* Explicit track heights avoid a percentage-width/flex intrinsic-size cycle. */
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points{height:calc(var(--paper-score-height) + var(--paper-score-gaps));max-height:none}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points>.hm-paper-score-row{flex:1 1 0;aspect-ratio:auto;height:0;min-height:0;max-height:none}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points:has(.hm-paper-spirit-panel){height:var(--paper-small-panel-height)}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-large-card .hm-paper-points:has(.hm-paper-spirit-panel){height:var(--paper-large-panel-height)}
+
+/* Ground the sprite at the center of its bottom ellipse. The depth clearance
+   prevents tile intersection; its projected Y offset is cancelled. Undo board
+   yaw before billboard pitch so every camera angle uses the same hex center. */
+.hm-root .hm-board .hm-token{
+ --hm-sprite-height:calc(22cqw * 56 / 66 * .68 * 1.467);
+ --hm-token-lift:calc(var(--hm-sprite-height) * .25 * sin(var(--tilt,0deg)) + 1px);
+ transform:translateZ(calc(var(--level)*12px + var(--hm-token-lift))) rotateZ(calc(-1 * var(--angle,0deg))) translateY(calc(var(--hm-token-lift) * tan(var(--tilt,0deg))))}
+.hm-root .hm-board .hm-token-art{transform-origin:50% 64%;transform:translate(-50%,-64%) rotateX(calc(-1 * var(--tilt,0deg))) translate(var(--hm-ground-x,0px),var(--hm-ground-y,0px))}
+.hm-cell-origin{position:absolute;left:50%;top:50%;width:0;height:0;pointer-events:none}
+/* One SVG habitat, identical projection and spacing in 2D and 3D. */
+:is(.hm-root,.hm-dialog) :is(.hm-animal,.hm-large-card) .hm-printed-habitat,
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) :is(.hm-animal,.hm-large-card):has(.hm-card-v6) .hm-printed-habitat{
+ position:absolute;left:2.333333%;right:auto;width:82%;height:47%;bottom:4.5%;overflow:visible;z-index:3;container-type:normal;transform:none;perspective:none}
+:is(.hm-root,.hm-dialog) .hm-printed-habitat>svg{display:block;width:100%;height:100%;overflow:visible}
+:is(.hm-root,.hm-dialog) .hm-printed-habitat .hm-pattern-stack{transform:none;filter:none}
+:is(.hm-root,.hm-dialog) .hm-printed-habitat .hm-pattern-height,
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-card-v6~.hm-printed-habitat .hm-pattern-height{display:block;transform:none;font-size:26px;font-family:'Noto Sans Thai',sans-serif;pointer-events:none}
+/* Shade the illustration, leaving printed pieces, rails and scores above it. */
+:is(.hm-root,.hm-dialog) .hm-animal-art::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#061d2473 48%,#061d24d9);pointer-events:none}
+.hm-root .hm-owned-cards .hm-card-points>span.earned,
+.hm-root .hm-owned-cards .hm-card-points>span:not(.earned){opacity:1}
+.hm-root .hm-owned-cards>.hm-animal.complete .hm-inspect,
+.hm-detail .hm-large-card.complete>.hm-detail-face{opacity:1;filter:none}
+.hm-animal.complete .hm-animal-art,.hm-large-card.complete .hm-animal-art{filter:saturate(.8);opacity:.65}
+/* Sprite padding is compensated once; the three choices stay centered. */
+.harmonies-theme .hm-disk>.hm-painted-token{width:138%;height:138%;left:50%;top:50%;transform:translate(-50%,-50%);object-fit:contain}
+.hm-root .hm-drafting-panel .hm-groups button>span:not(.hm-disk){justify-content:center;align-items:center}
+.hm-root .hm-drafting-panel .hm-groups .hm-disk{width:min(34px,calc((100cqw + 12px)/3));height:min(34px,calc((100cqw + 12px)/3))}
+.hm-choice-tokens{justify-content:center}
+
+/* Reserve padding around the terrain image inside each right-hand slot. */
+.harmonies-theme .hm-root .hm-board-sidebar .hm-header-hand .hm-disk>.hm-painted-token{width:110%;height:110%;object-fit:contain;object-position:center}
+
+/* Keep model billboards ahead of the terrain planes. The fitter anchors their
+   feet back to the upper cap, independent of stack height and camera tilt. */
+.hm-root .hm-board .hm-animal-sprite{
+ left:50%;top:50%;
+ transform:translateZ(calc(var(--height)*12px + 64px + var(--hm-figure-front,0px))) rotateZ(calc(-1 * var(--angle,0deg))) rotateX(calc(-1 * var(--tilt,0deg))) translate(var(--hm-figure-x,0px),var(--hm-figure-y,0px))}
+.hm-root .hm-board .hm-stack:has(>.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model{left:50%;--hm-figure-front:-8px}
+.hm-root .hm-board .hm-stack:has(>.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model>img,
+.hm-root .hm-board .hm-cell:has(.hm-stack>.hm-animal-sprite:not(.hm-whisper-model)) .hm-animal-preview>.hm-whisper-model>img{
+ width:calc(var(--figure-w)*.5);height:calc(var(--figure-h)*.5);max-height:none}
+.hm-root .hm-board .hm-cell:has(.hm-stack>.hm-animal-sprite:not(.hm-whisper-model)) .hm-animal-preview>.hm-whisper-model{--hm-figure-front:-8px}
+
+/* Final terrain and its confirmation share one sprite; only the check overlays it. */
+.hm-root .hm-board .hm-token.ghost{opacity:1}
+.hm-root .hm-board .hm-height,
+.hm-root .hm-cell .hm-tile-confirm.hm-terrain-preview{
+ position:absolute;inset:auto;left:50%;top:50%;margin:0;
+ transform:translateZ(160px) rotateZ(calc(-1 * var(--angle,0deg))) rotateX(calc(-1 * var(--tilt,0deg))) translate(var(--hm-overlay-x,0px),var(--hm-overlay-y,0px)) translate(-50%,-50%)}
+.hm-root .hm-board .hm-height{display:block;width:max-content;padding:2px 4px;border:1px solid #fff5c4;border-radius:5px;background:#153e36;color:#fff8df;font:900 12px/1 'Noto Sans Thai',sans-serif;box-shadow:0 1px 3px #102f2780;pointer-events:none}
+.hm-root .hm-cell .hm-tile-confirm.hm-terrain-preview{width:24px;height:24px;min-width:0;min-height:0;padding:0;border:2px solid #fff7d7;border-radius:50%;background:#078948;color:#fff;box-shadow:0 1px 4px #123b34a0;overflow:visible;pointer-events:auto}
+.hm-root .hm-terrain-preview>.hm-terrain-check{display:grid;place-items:center;width:100%;height:100%;pointer-events:none}
+.hm-root .hm-terrain-preview>.hm-terrain-check>svg{width:85%;height:85%}
+/* Center the entire alpha-padded token, independently of button grid/line height. */
+.hm-root .hm-board-sidebar .hm-header-hand>:is(button,.hm-observed-token){position:relative}
+.harmonies-theme .hm-root .hm-board-sidebar .hm-header-hand .hm-disk{position:absolute;left:50%;top:50%;margin:0;transform:translate(-50%,-50%)!important;align-self:auto;justify-self:auto}
+/* Larger readable score sockets on market/owned miniatures. */
+html[data-hm-card-art] .hm-root .hm-animal .hm-paper-points{width:27%;right:1%}
+html[data-hm-card-art] .hm-root .hm-animal .hm-paper-points:has(.hm-paper-spirit-panel){width:25%}
+.hm-category-badge{position:absolute;left:2%;top:2%;width:24%;aspect-ratio:1;z-index:7;pointer-events:none;filter:drop-shadow(0 2px 2px #102f2770)}
+.hm-category-badge>img{display:block;width:100%;height:100%;object-fit:contain}
+.hm-large-card .hm-category-badge{width:17%}
+.hm-printed-habitat .hm-habitat-model{filter:drop-shadow(0 2px 1px #152d2650);pointer-events:none}
+
+.hm-card-points[data-card-theme="dinosaur"]:not(.hm-paper-points) .hm-score-frame>path:first-child{fill:#bd501c}
+.hm-card-points[data-card-theme="dinosaur"]:not(.hm-paper-points)>span{background:#bd501c;color:#fff6d1}
+.hm-root .hm-animal .hm-card-points:not(.hm-paper-points){width:27%}
+
+/* A shared board message area, below the hex field, for errors and last turns. */
+.hm-root .hm-board-controls>.hm-final-round-status{display:block;pointer-events:auto;width:100%;max-width:100%;min-height:0;height:auto;margin:0;padding:4px 7px;border:0;border-radius:8px;background:#d9ac35;color:#193f35;font:800 11px/1.3 'Noto Sans Thai',sans-serif;text-align:center;box-shadow:none}
+/* The completion label is clipped with the card illustration. */
+.hm-root .hm-inspect>.hm-complete-ribbon,.hm-detail-face>.hm-complete-ribbon,.hm-cell-card-picker .hm-inspect>.hm-complete-ribbon{z-index:6;top:0;left:0;right:0;border-radius:inherit;pointer-events:none;opacity:1}
+.hm-cell-card-picker{width:min(440px,calc(100vw - 20px));padding:12px;background:#fff5d9}
+.hm-cell-card-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.hm-cell-card-choices>.hm-animal{display:block;width:100%;min-width:0;border:0;background:transparent;overflow:visible}
+.hm-cell-card-choices .hm-inspect{position:relative;display:block;aspect-ratio:3/4;width:100%;height:auto;min-height:0;margin:0;padding:0;overflow:hidden;border-radius:12px}
+.hm-cell-card-name{display:block;margin-top:6px;color:#174d44;text-align:center;font:700 12px/1.4 'Noto Sans Thai',sans-serif}
+.hm-cell-card-picker .hm-complete-ribbon{position:absolute;display:block;padding:1px;background:#4a7959e8;color:#fff9df;text-align:center;font:700 11px/1.4 'Noto Sans Thai',sans-serif}
+/* Animal previews add no terrain: a model on the actual stack plus a free check. */
+.hm-root .hm-board .hm-stack>.hm-animal-sprite.is-preview{opacity:1}
+.hm-root .hm-board .hm-stack>.hm-animal-sprite.is-preview>img{pointer-events:auto;cursor:pointer}
+.hm-root .hm-cell .hm-tile-confirm.hm-animal-preview{position:absolute;inset:auto;left:50%;top:50%;width:24px;height:24px;min-width:0;min-height:0;margin:0;padding:0;border:2px solid #fff7d7;border-radius:50%;background:#078948;color:#fff;box-shadow:0 1px 4px #123b34a0;overflow:visible;opacity:1;pointer-events:auto;transform:translateZ(160px) rotateZ(calc(-1 * var(--angle,0deg))) rotateX(calc(-1 * var(--tilt,0deg))) translate(var(--hm-overlay-x,0px),var(--hm-overlay-y,0px)) translate(-50%,-50%)}
+.hm-root .hm-animal-preview>.hm-placement-check{display:grid;place-items:center;width:100%;height:100%;pointer-events:none}
+.hm-root .hm-animal-preview>.hm-placement-check>svg{width:85%;height:85%}
+
+html[data-hm-card-art] .hm-cell-card-picker .hm-animal .hm-paper-points{width:27%;right:1%}
+html[data-hm-card-art] .hm-cell-card-picker .hm-animal .hm-paper-points:has(.hm-paper-spirit-panel){width:25%}
+
+/* Uniform board footprint in both art modes; tray and popup sizes stay unchanged. */
+.hm-root .hm-board .hm-stack>.hm-whisper-model>img{width:var(--figure-w);height:var(--figure-h);max-height:none;object-fit:contain}
+/* Shared Whispers still occupy half their companion's footprint. */
+.hm-root .hm-board .hm-stack:has(>.hm-animal-sprite:not(.hm-whisper-model))>.hm-whisper-model>img{width:calc(var(--figure-w)*.5);height:calc(var(--figure-h)*.5)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-animal-sprite>img,
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-root .hm-board .hm-animal-sprite:is(.hm-normal-model,.hm-spirit-model,.hm-whisper-model)>img{filter:drop-shadow(0 2px 1px #173e424d)}
+
+/* Personal view settings use the same modal shell as the illustrated guides. */
+.hm-root>.hm-menu-trigger{position:fixed;right:8px;top:5px;z-index:72;display:grid;place-items:center;width:36px;height:36px;min-height:36px;margin:0;padding:0;border:1px solid #ead69e;border-radius:50%;background:#fff4ce;color:#164b4d;box-shadow:none}
+.hm-root>.hm-ranking-button{right:178px}
+.harmonies-theme .game-header .header-brand{max-width:calc(100vw - 210px)}
+.harmonies-theme .game-header .hm-illustrated-logo{max-width:100%;height:40px}
+.hm-view-dialog{width:min(480px,calc(100vw - 20px))}
+.hm-view-dialog .hm-menu-content{position:static;display:block;max-height:none;overflow:visible;padding:0}
+.hm-view-dialog .hm-effects-control{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #d1c69d;font-size:15px}
+.hm-view-dialog .hm-effects-control>input{width:24px;height:24px;flex:none;accent-color:#166250}
+.hm-view-dialog .hm-effects-control small{display:block;font-size:12px;line-height:1.6;color:#4a6858}
+.hm-view-dialog .hm-camera,.hm-view-dialog .hm-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.hm-view-dialog button[aria-pressed=true]{background:#166250;color:#fff6d7}
+.hm-view-dialog .hm-menu-room{overflow-wrap:anywhere}
+.hm-view-dialog .hm-menu-content select{display:block;width:100%}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){.hm-root>.hm-menu-trigger{right:var(--hm-toolbar-edge);top:6px;width:44px;height:44px;min-height:44px}.hm-root>.hm-ranking-button{right:calc(var(--hm-toolbar-edge) + 208px)}.harmonies-theme .game-header .header-brand{max-width:calc(100vw - 290px)}}
+.hm-root .hm-board .hm-token.ghost>.hm-token-art{pointer-events:auto;cursor:pointer}
+/* Compact on-board counts, larger dark-backed counts on card miniatures. */
+.hm-root .hm-board .hm-height{padding:1px 3px;font-size:9px;border-radius:4px}
+:is(.hm-root,.hm-dialog) .hm-printed-habitat .hm-pattern-height{font-size:32px!important;font-weight:900;stroke:none;pointer-events:none}
+/* Equal-height numerals for normal/Whisper cards; vertical Spirit scenarios. */
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-animal .hm-paper-points[data-card-theme="whisper"]{width:33%}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-animal .hm-paper-points:has(.hm-paper-spirit-panel){width:30%}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-large-card .hm-paper-points:has(.hm-paper-spirit-panel){width:27%}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-large-card .hm-paper-points[data-card-theme="whisper"]{width:25%}
+
+/* Parallel projection keeps distant and near pieces at identical visual scale. */
+.hm-root .hm-player .hm-board-viewport,.hm-root.hm-player-layout .hm-player .hm-board-viewport{perspective:none}
+.hm-root .hm-board-mat{position:absolute;left:0%;top:-1.333333%;width:92%;height:97.333333%;box-sizing:border-box;background:#f2e3bdbd;border:1px solid #e9d7ab;border-radius:5px;box-shadow:0 5px 0 #a48a60,0 7px 5px #153e4240;transform:translateZ(-12px);pointer-events:none}
+.hm-game-finished-message{position:absolute;top:100%;left:50%;transform:translate(-50%,-50%);z-index:24;display:flex;align-items:center;justify-content:center;gap:8px;width:max-content;max-width:calc(100% - 12px);padding:7px 13px;border:1px solid #d8c387;border-radius:10px;background:#fff4d4;color:#194f44;text-align:center;font:600 12px/1.5 'Noto Sans Thai',sans-serif;box-sizing:border-box;pointer-events:none}
+.hm-game-finished-message>strong{font-size:15px;white-space:nowrap}
+.hm-game-finished-message>span{white-space:nowrap}
+@media(max-width:380px){.hm-game-finished-message{gap:1px;flex-direction:column;padding:4px 12px}}
+/* Small painted stars, anchored to each paper figure; no expanding glow cloud. */
+.hm-model-twinkles{position:absolute;left:50%;bottom:0;width:40px;height:48px;transform:translateX(-50%);z-index:2;pointer-events:none;--magic-star:#fff7c5}
+.hm-model-twinkles[data-magic-tone=purple]{--magic-star:#f4d6ff}
+.hm-model-twinkles[data-magic-tone=rainbow]{--magic-star:#edffff}
+.hm-model-twinkles>i{position:absolute;width:5px;height:7px;clip-path:polygon(50% 0,63% 36%,100% 50%,63% 64%,50% 100%,37% 64%,0 50%,37% 36%);background:var(--magic-star);animation:hm-paper-twinkle 2.8s ease-in-out infinite!important;opacity:.45}
+.hm-model-twinkles>i:nth-child(1){left:8%;top:27%;animation-delay:-.3s!important}
+.hm-model-twinkles>i:nth-child(2){right:8%;top:8%;animation-delay:-1.2s!important}
+.hm-model-twinkles>i:nth-child(3){right:12%;bottom:15%;width:4px;height:5px;animation-delay:-2s!important}
+.hm-paper-model-stars{fill:#fff5ce;pointer-events:none}
+.hm-paper-model-stars>path{transform-box:fill-box;transform-origin:center;animation:hm-paper-twinkle 2.8s ease-in-out infinite!important}
+.hm-paper-model-stars>path:nth-child(2){animation-delay:-1.2s!important}
+.hm-paper-model-stars>path:nth-child(3){animation-delay:-2s!important}
+@keyframes hm-paper-twinkle{0%,100%{opacity:.3;scale:.65}40%{opacity:1;scale:1}65%{opacity:.4;scale:.8}}
+@media(prefers-reduced-motion:reduce){.hm-model-twinkles>i,.hm-paper-model-stars>path{animation:none!important;opacity:.75;scale:1}}
+.hm-low-effects .hm-model-twinkles>i,.hm-low-effects .hm-paper-model-stars>path{animation:none!important;opacity:.65;scale:1}
+
+.hm-root .hm-board .hm-cell{width:var(--hm-cell-width,22%)}
+.hm-root .hm-board .hm-cell.is-dry>.hm-cell-hit:before{background:repeating-linear-gradient(42deg,transparent 0 15px,#987b5366 16px 17px,transparent 18px 26px),#c0a781;box-shadow:inset 0 0 4px #765c3c66}
+.hm-root .hm-board-viewport[data-side=C] .hm-board-mat{background:#eedbb8}
+.hm-root .hm-board-viewport[data-side=D] .hm-board-mat{background:#ddc6a1}
+/* Sanctuary faces use the game's terrain renderer; generated art contains no rules UI. */
+.hm-sanctuary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px}.hm-sanctuary-grid>section{min-width:0;display:flex;flex-direction:column;gap:8px}.hm-sanctuary-dialog{width:min(860px,94vw);max-height:90dvh}.hm-sanctuary-dialog button{min-height:44px}.hm-sanctuary-face{position:relative;background:#f5edd6;border:2px solid #918465;border-radius:36% 12% 12px 12px / 4% 3% 12px 12px;overflow:hidden;isolation:isolate;min-height:310px;color:#fff;text-align:center;padding:20px 12px 12px;display:flex;flex-direction:column;justify-content:end;box-shadow:0 5px 12px #192b2840}.hm-sanctuary-face>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.hm-sanctuary-face:before{content:'';position:absolute;inset:0;background:linear-gradient(transparent 20%,#102b23ed);z-index:-1}.hm-sanctuary-face h3{font-size:18px;margin:0}.hm-sanctuary-face p,.hm-sanctuary-face small{font-size:12px;margin:6px 0}.hm-sanctuary-stack{height:120px;display:grid;place-items:center}.hm-sanctuary-stack svg{width:120px;height:120px}.hm-sanctuary-toolbar{display:flex;gap:12px;align-items:center;justify-content:center;position:relative;z-index:3}.hm-sanctuary-toolbar button,.hm-sanctuary-market-trigger{border-radius:10px;padding:6px 12px;background:#f4e8ba;color:#234a3b;border:1px solid #af9f68;font-weight:700}.hm-sanctuary-market-trigger{position:absolute;top:0;right:0;z-index:2;font-size:11px}.hm-sanctuary-residents{display:contents}.hm-sanctuary-residents>.hm-animal-sprite:nth-child(1){scale:.65;translate:-18% 5%}.hm-sanctuary-residents>.hm-animal-sprite:nth-child(2){scale:.65;translate:18% 5%}.hm-sanctuary-residents>.hm-animal-sprite:nth-child(3){scale:.55;translate:0 -18%}.hm-sanctuary-residents>b{position:absolute;z-index:7;bottom:90%;background:#133c2f;color:white;border-radius:5px;padding:2px}
+.hm-root .hm-board .hm-sanctuary-residents>.hm-animal-sprite>img{width:var(--figure-w);height:var(--figure-h);max-height:none;object-fit:contain;object-position:center bottom}
+.hm-sanctuary-face .hm-mini-scene{width:110px;height:120px;overflow:visible}
+.hm-root .hm-board .hm-cell.is-dry>.hm-cell-hit{background:repeating-linear-gradient(42deg,transparent 0 9px,#785b4770 10px 11px,transparent 12px 19px),#c6ad8d!important}
+.hm-root .hm-owned-sanctuary>button{display:block;padding:0!important;margin:0!important;width:100%!important;height:100%;border:0;background:none}.hm-owned-sanctuary .hm-sanctuary-face{height:100%;min-height:0;padding:8px 5px;border:0;border-radius:0}.hm-owned-sanctuary .hm-sanctuary-face h3{font-size:12px}.hm-owned-sanctuary .hm-sanctuary-face p,.hm-owned-sanctuary .hm-sanctuary-face small{display:none}.hm-owned-sanctuary .hm-sanctuary-face strong{font-size:10px}.hm-owned-sanctuary .hm-sanctuary-stack{height:65px}.hm-owned-sanctuary .hm-mini-scene{scale:.65;transform-origin:center bottom}
+.hm-root .hm-sanctuary-market-trigger{position:static;float:right;padding:0 5px;margin:0;min-height:23px;font-size:10px;line-height:21px;white-space:nowrap}
+.hm-root .hm-sanctuary-market-trigger{position:absolute;float:none;top:0;left:50%;right:auto;transform:translateX(-50%);height:23px;min-height:23px;z-index:4}
+.hm-root .hm-owned-sanctuary .hm-inspect{position:relative;inset:auto;display:block;height:100%;padding:0;margin:0}.hm-root .hm-owned-sanctuary .hm-sanctuary-face{box-sizing:border-box;width:100%;height:100%}
+.hm-owned-sanctuary .hm-sanctuary-stack>svg{width:75px;height:75px;overflow:visible}.hm-owned-sanctuary .hm-sanctuary-stack{height:85px;flex:0 0 85px}
+
+/* Keep the taller scenario track above the habitat on small cards and popups. */
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-paper-points:has(.hm-paper-spirit-panel){top:3%;bottom:auto}
+/* Larger board figures; sharing a cap changes position only, never scale. */
+.hm-root .hm-board .hm-animal-sprite{--figure-w:clamp(30px,12cqw,40px);--figure-h:clamp(36px,14.4cqw,48px)}
+.hm-root .hm-board .hm-cell .hm-stack>.hm-animal-sprite.hm-whisper-model>img,
+.hm-root .hm-board .hm-cell .hm-animal-preview>.hm-animal-sprite.hm-whisper-model>img{width:var(--figure-w);height:var(--figure-h);max-height:none;object-fit:contain;object-position:center bottom}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){.hm-root.hm-player-layout .hm-board .hm-animal-sprite{--figure-w:clamp(38px,10cqw,60px);--figure-h:clamp(46px,12cqw,72px)}}
+/* Settings is a regular toolbar button, free of the former details/summary rules. */
+.hm-root>#hm-menu.hm-menu-trigger{box-sizing:border-box;aspect-ratio:1;min-width:36px;border:1px solid #ead69e;border-radius:50%;background:#fff4ce;display:grid;place-items:center;overflow:visible}
+.hm-root>#hm-menu.hm-menu-trigger>svg{display:block;width:22px;height:22px;pointer-events:none}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){.hm-root>#hm-menu.hm-menu-trigger{min-width:44px}}
+/* The card catalog sits immediately right of help; all six toolbar controls fit. */
+.hm-root>#hm-card-library{right:96px}.hm-root>#hm-help{right:140px}.hm-root>#hm-scoring{right:184px}.hm-root>.hm-ranking-button{right:228px}
+.harmonies-theme .game-header .header-brand{max-width:max(36px,calc(100vw - 278px))}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){.hm-root>#hm-card-library{right:calc(var(--hm-toolbar-edge) + 104px)}.hm-root>#hm-help{right:calc(var(--hm-toolbar-edge) + 156px)}.hm-root>#hm-scoring{right:calc(var(--hm-toolbar-edge) + 208px)}.hm-root>.hm-ranking-button{right:calc(var(--hm-toolbar-edge) + 260px)}.harmonies-theme .game-header .header-brand{max-width:calc(100vw - 342px)}}
+.hm-card-library [hidden]{display:none!important}.hm-card-library .hm-info-header h2{flex:1;min-width:0;overflow-wrap:anywhere}.hm-card-library .hm-library-back{flex:none;min-height:44px;padding:5px 10px;margin:0;border:1px solid #dcc57e;border-radius:10px;background:#fff4d0;color:#164f42;font:700 14px 'Noto Sans Thai',sans-serif}.hm-card-library .hm-library-list>p{margin:0 0 18px;font-size:14px}.hm-card-library .hm-library-category{margin:0 0 26px}.hm-card-library .hm-library-category h3{margin:0 0 12px;font-size:18px;color:#174e43}.hm-card-library h3 small{font-size:12px;font-weight:400;margin-left:6px}.hm-card-library .hm-library-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:600px;margin-inline:auto}.hm-card-library .hm-library-grid>.hm-animal{display:block;position:relative;container-type:inline-size;width:100%;min-width:0;max-width:none;height:auto;aspect-ratio:3/4;padding:0;border:0;border-radius:12px;background:none;overflow:visible}.hm-card-library .hm-library-grid .hm-inspect{--hm-card-width:100cqw;--hm-card-height:calc(100cqw * 4 / 3);display:block;position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;padding:0;border:0;border-radius:12px;overflow:hidden;isolation:isolate}.hm-card-library .hm-library-grid .hm-animal-art{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}.hm-card-library .hm-library-grid .hm-animal-art>img{width:100%;height:100%;object-fit:cover}.hm-card-library .hm-library-detail{display:grid;place-items:center}.hm-card-library .hm-library-detail .hm-large-card{position:relative;width:min(100%,calc((88svh - 124px)*.75));max-width:100%;height:auto;aspect-ratio:3/4;margin:0;overflow:hidden;isolation:isolate;border-radius:12px}.hm-card-library .hm-library-detail .hm-detail-face{position:absolute;inset:0;overflow:hidden;border-radius:inherit}
+@media(max-width:450px){.hm-card-library .hm-library-grid{gap:8px}.hm-card-library .hm-library-category h3{font-size:16px}.hm-card-library .hm-library-list>p{font-size:12px}}
+.hm-card-library .hm-library-detail .hm-animal-art{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}.hm-card-library .hm-library-detail .hm-animal-art>img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:450px){.harmonies-theme .game-header .brand:after{font-size:clamp(8px,calc((100vw - 278px)/6),24px)}}
+
+/* Yellow terrain rails use grey numerals in both card sizes and art modes. */
+.hm-paper-points[data-score-terrain="field"] .hm-paper-score-number{fill:#454b4d;stroke:none}
+.hm-result-player-name{display:block;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-winner-spotlight>.hm-result-player-name{width:100%}
+.hm-score-default-model{position:relative;display:block;width:100%;height:86px}
+.hm-score-default-model>.hm-animal-sprite-tray{position:absolute;inset:0;width:100%;height:100%}
+.hm-score-default-model>.hm-animal-sprite-tray>img{width:70px;height:80px;max-width:100%;max-height:100%;object-fit:contain;object-position:center bottom}
+.hm-result-sanctuary>svg,.hm-score-sanctuary-model>svg{display:block;width:100%;height:100%}
+.hm-sanctuary-detail-dialog{width:min(520px,calc(100vw - 24px))}
+.hm-sanctuary-detail-card{width:min(100%,320px);margin:0 auto}
+.hm-sanctuary-detail-card>.hm-sanctuary-face{box-sizing:border-box;aspect-ratio:3/4}
+
+/* Sanctuary badges and completed sites use the same card ribbon as animals. */
+.hm-sanctuary-face>img.hm-sanctuary-badge{position:absolute;inset:auto;top:4px;left:4px;width:15%;min-width:22px;max-width:48px;height:auto;aspect-ratio:1;object-fit:contain;z-index:8}
+.hm-sanctuary-face>.hm-sanctuary-complete{position:absolute;top:0;left:0;right:0;z-index:6;margin:0;padding:4px 8px 4px 26px;background:#4a7959e8;color:#fff9df;font:700 11px/1.4 'Noto Sans Thai',sans-serif;text-align:center}
+.hm-owned-sanctuary .hm-sanctuary-face>.hm-sanctuary-complete{font-size:9px;padding:4px 2px 4px 23px}
+.hm-supply{position:relative}
+.hm-root.hm-finished{--hm-end-size:64px}
+.hm-root.hm-finished .hm-owned-collection{position:relative;overflow:visible;z-index:20}
+.hm-root.hm-finished .hm-owned-collection>.hm-finished-controls{position:absolute;inset:auto;left:50%;top:-8px;bottom:auto;transform:translate(-50%,-50%);display:flex;flex-direction:row;align-items:center;justify-content:center;width:max-content;max-width:calc(100vw - 24px);height:var(--hm-end-size);min-height:0;padding:0;margin:0;border:0;background:none;z-index:25;pointer-events:auto}
+.hm-root.hm-finished .hm-finished-controls>.hm-final-actions{flex:0 0 auto;flex-wrap:nowrap;gap:20px;margin:0}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){.hm-root.hm-player-layout.hm-finished{--hm-end-size:76px}}
+/* At shared caps, ordinary animals remain in front of the equal-size whisper. */
+.hm-root .hm-board .hm-cell:has(.hm-whisper-model) .hm-animal-sprite:not(.hm-whisper-model){--hm-figure-front:8px}
+.hm-root .hm-board .hm-cell .hm-animal-sprite.hm-whisper-model{--hm-figure-front:-8px}
+
+/* Sanctuary thumbnails join the same three-column card library. */
+.hm-card-library .hm-library-grid .hm-sanctuary-face{box-sizing:border-box;width:100%;height:100%;min-height:0;padding:5px;border:0;border-radius:inherit}
+.hm-card-library .hm-library-grid .hm-sanctuary-face p,.hm-card-library .hm-library-grid .hm-sanctuary-face small{display:none}
+.hm-card-library .hm-library-grid .hm-sanctuary-face strong{font-size:10px;line-height:1.4}
+.hm-card-library .hm-library-grid .hm-sanctuary-stack{height:70%;min-height:0}
+.hm-card-library .hm-library-grid .hm-sanctuary-stack>svg{width:100%;height:100%}
+.hm-card-library .hm-library-detail .hm-sanctuary-face{box-sizing:border-box;width:100%;height:100%;min-height:0}
+/* The same patterned rainbow rail overlays legendary art in both modes. */
+.hm-rainbow-rail{position:absolute;z-index:2;top:0;right:0;width:13.333333%;height:100%;display:block;object-fit:fill;border-radius:0 12px 12px 0;pointer-events:none}
+
+/* Crisp model silhouettes in the illustrated board; magical animals glow in rainbow. */
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-root .hm-board .hm-cell .hm-animal-sprite>img{filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px #fff) drop-shadow(0 2px 2px #153d3e80)}
+html:is([data-hm-card-art="illustrated"],[data-hm-card-art="original"]) .hm-root .hm-board .hm-cell .hm-animal-sprite:is(.hm-spirit-model,.hm-dinosaur-model)>img{filter:drop-shadow(-2px -1px 2px #ff8bc4) drop-shadow(2px -1px 2px #ffe789) drop-shadow(1px 2px 2px #77efd5) drop-shadow(-1px 2px 3px #a798ff) drop-shadow(0 2px 1px #153d3e80)}
+.hm-paper-points[data-card-theme="dinosaur"] .hm-paper-score-number{fill:#fff;stroke:#71331866}
+/* Wide terrain maps reclaim the right edge; controls keep their original footprints. */
+.hm-root:not(.hm-finished) .hm-player .hm-board-viewport[data-board-shape="wide"]{--hm-slot-size:clamp(44px,13cqw,60px);--hm-tray-height:calc(max(var(--hm-slot-size),var(--hm-end-size)) + 28px);--board-edge:min(calc(100cqw - 12px),calc((100cqh - var(--hm-tray-height) - 20px)*1.5))}
+.hm-root:not(.hm-finished) .hm-player [data-board-shape="wide"]>.hm-board-sidebar{position:absolute;left:0;right:0;top:auto;bottom:0;transform:none;flex-direction:row;align-items:center;justify-content:center;gap:8px;width:100%;height:var(--hm-tray-height);padding:10px 4px;max-height:none}
+.hm-root:not(.hm-finished) [data-board-shape="wide"] .hm-header-hand{flex:0 0 auto;flex-direction:row;width:auto;gap:6px}
+.hm-root:not(.hm-finished) [data-board-shape="wide"] .hm-animal-choices{flex:1 1 0;flex-direction:row;align-self:center;justify-content:flex-start;gap:6px;width:0;min-width:0;max-width:none;height:calc(var(--hm-slot-size) + 28px);min-height:0;max-height:none;margin:0;padding:12px 8px;overflow-x:auto;overflow-y:hidden;touch-action:pan-x;scroll-padding-inline:8px}
+.hm-root:not(.hm-finished) .hm-player [data-board-shape="wide"] .hm-board-sidebar #hm-end{flex:0 0 var(--hm-end-size);align-self:center;margin:0}
+.hm-root:not(.hm-finished) [data-board-shape="wide"]>.hm-board-controls{left:0;right:0;bottom:var(--hm-tray-height);width:100%}
+@media(min-width:900px) and (min-height:600px) and (orientation:landscape){.hm-root.hm-player-layout:not(.hm-finished) .hm-player .hm-board-viewport[data-board-shape="wide"]{--hm-slot-size:clamp(64px,5.5vw,84px)}}
+/* Discard off-screen layout overflow from the top-view 3D canvas after finishing. */
+.hm-root.hm-player-layout.hm-finished{overflow:clip}
+
+/* Lift the centered Sanctuary tab clear of the card tops without shrinking the board. */
+.hm-root .hm-sanctuary-market-trigger{top:-6px}
+html[data-hm-card-art] .hm-root .hm-market .hm-animal>button[data-claim]{background:#49745d;color:#fff8dc;border-color:#b8cda4;box-shadow:0 2px 3px #173f3344}
+html[data-hm-card-art] .hm-root .hm-market .hm-animal>button[data-solo-discard]{background:#d6e1bd;color:#315b49;border-color:#7d9871;box-shadow:0 2px 3px #173f332b}
+html[data-hm-card-art] .hm-root .hm-market .hm-animal>button:is([data-claim],[data-solo-discard]):disabled{background:#d0d8c2;color:#788573;border-color:#a8b69a;opacity:.8}
+/* Let the finished label cross the drafting panel's lower edge. */
+.hm-root.hm-finished .hm-drafting-panel{overflow:visible}
+
+/* A compact statistics sheet: one centered model row and scores over their pieces. */
+.hm-reveal-dialog{box-sizing:border-box;max-height:calc(100svh - 24px);padding:0}
+.hm-reveal-dialog [hidden]{display:none!important}
+.hm-reveal-dialog .hm-reveal-header{position:sticky;top:0;z-index:8;padding:10px 12px}
+.hm-reveal-dialog .hm-reveal-content{min-height:0;margin:8px;padding:10px;border-radius:18px}
+.hm-reveal-dialog .hm-reveal-title{display:none}
+.hm-reveal-dialog .hm-comparison-scroll{margin:0 0 8px;border-radius:12px}
+.hm-reveal-dialog .hm-score-player{gap:5px;padding:10px;margin:8px 0 0;border-radius:16px;box-shadow:none}
+.hm-reveal-dialog .hm-score-player h3{font-size:14px}
+.hm-reveal-dialog .hm-score-player>b{font-size:30px}
+.hm-reveal-dialog .hm-score-menagerie{flex-wrap:nowrap;align-items:end;justify-content:center;gap:0;padding:4px 18px;margin:0;min-height:78px;background:none;border-radius:0}
+.hm-reveal-dialog .hm-score-menagerie figure{flex:0 1 72px;min-width:0;width:72px;max-width:72px;gap:0}
+.hm-reveal-dialog .hm-score-menagerie .hm-result-model{width:64px;height:62px}
+.hm-reveal-dialog .hm-score-menagerie .hm-animal-sprite-tray>img{width:64px;height:62px;max-width:none;max-height:none}
+.hm-reveal-dialog .hm-score-menagerie figcaption{width:100%;font-size:10px;line-height:1.5}
+.hm-reveal-dialog .hm-category-scores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin:0}
+.hm-reveal-dialog .hm-category-scores>div{position:relative;min-width:0;min-height:74px;padding:0 0 16px;background:none;border:0;border-radius:0;text-align:center}
+.hm-reveal-dialog .hm-category-scores .hm-mini-scene{display:block;width:70px;max-width:100%;height:58px;margin:auto}
+.hm-category-scores .hm-mini-tile,.hm-category-scores .hm-score-sanctuary-model polygon,.hm-result-sanctuary polygon{display:none}
+.hm-reveal-dialog .hm-category-scores .hm-score-default-model{position:relative;display:block;width:100%;height:58px}
+.hm-reveal-dialog .hm-category-scores .hm-score-default-model .hm-animal-sprite-tray>img{width:56px;height:58px;max-width:100%;object-fit:contain}
+.hm-reveal-dialog .hm-category-scores .hm-score-paw{width:62px;height:58px}
+.hm-reveal-dialog .hm-category-scores dt{position:absolute;left:0;right:0;bottom:0;font-size:10px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-reveal-dialog .hm-category-scores dd{position:absolute;top:19px;left:0;right:0;z-index:3;margin:0;color:#174d42;font:700 28px/1 'Harmonies Score','Noto Sans Thai',sans-serif;text-shadow:0 0 2px #fff,0 0 5px #fff,0 0 9px #fff,0 0 13px #fff;pointer-events:none}
+.hm-score-player-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.hm-reveal-dialog .hm-score-player-tabs button{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0;min-height:36px;margin:0;padding:4px 8px;border-radius:10px;background:#e5ead2;color:#285842;box-shadow:none}
+.hm-score-player-tabs .profile-avatar{width:24px;height:24px;min-width:24px;border-radius:50%}
+.hm-score-player-tabs span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.hm-reveal-dialog .hm-score-player-tabs button[aria-pressed=true]{background:#27634e;color:#fff6d7}
+/* The first tally keeps each stage in the same compact popup footprint. */
+.hm-reveal-dialog .hm-reveal-intro{min-height:0;padding:20px 0}
+.hm-reveal-dialog .hm-reveal-player{padding:6px 10px;border-radius:12px}
+.hm-reveal-dialog .hm-reveal-player .profile-avatar{width:36px;height:36px;min-width:36px}
+.hm-reveal-dialog .hm-reveal-player h3{margin:0;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-reveal-dialog .hm-reveal-status{margin:6px 0;font-size:12px}
+.hm-reveal-dialog .hm-reveal-animals{display:flex;flex-wrap:nowrap;justify-content:center;align-items:end;gap:0;min-height:100px;max-height:none;padding:2px 16px;overflow:visible}
+.hm-reveal-dialog .hm-revealed-animal{flex:0 1 72px;min-width:0;max-width:72px;padding:0;margin:0;border:0;border-radius:0;background:none;box-shadow:none}
+.hm-reveal-model{position:relative;display:block;width:64px;height:60px;margin:auto}
+.hm-reveal-model .hm-animal-sprite-tray>img{width:64px;height:60px;max-height:none}
+.hm-reveal-dialog .hm-revealed-animal figcaption{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-reveal-dialog .hm-revealed-animal figcaption b{display:block;font-size:20px;line-height:1.2}
+.hm-reveal-dialog .hm-reveal-subtotal{margin:6px 0;padding:5px 12px;border-radius:12px}
+.hm-reveal-dialog .hm-reveal-subtotal b{font-size:26px}
+.hm-reveal-dialog .hm-reveal-terrain h4{margin:5px 0;font-size:13px}
+.hm-reveal-dialog #hm-reveal-next{display:block;width:100%;min-height:40px;margin:8px 0 0;padding:6px 12px}
+.hm-reveal-dialog .hm-winner-spotlight{gap:5px;padding:4px 0}
+.hm-reveal-dialog .hm-winner-spotlight>.profile-avatar{width:52px;height:52px;min-width:52px;border-width:2px}
+.hm-reveal-dialog .hm-winner-crown .hm-crown{width:40px;height:32px}
+.hm-reveal-dialog .hm-winner-spotlight h3{font-size:20px}
+.hm-reveal-dialog .hm-winner-spotlight>b{font-size:44px}
+.hm-reveal-dialog .hm-winner-pause{min-height:0;gap:5px;padding:20px 0}
+/* Settings are padded groups; camera and player choices fill equal grid cells. */
+.hm-view-dialog .hm-menu-content{display:grid;gap:12px}
+.hm-view-dialog .hm-menu-content>.hm-effects-control,.hm-view-dialog .hm-display-settings,.hm-view-dialog .hm-invite{box-sizing:border-box;padding:14px;margin:0;border:1px solid #c9c997;border-radius:12px;background:#e9ebd6}
+.hm-view-dialog .hm-effects-control>input{margin:2px 0}
+.hm-view-dialog .hm-display-settings{display:grid;gap:8px}
+.hm-view-dialog .hm-menu-content select{box-sizing:border-box;min-height:44px;padding:8px}
+.hm-view-dialog .hm-menu-content .hm-camera{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:0;margin:0}
+.hm-view-dialog .hm-menu-content .hm-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0;margin:0}
+.hm-view-dialog .hm-camera button,.hm-view-dialog .hm-tabs button{box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;width:100%;min-width:0;min-height:48px;margin:0;padding:10px 6px;border:1px solid #b8c99f;border-radius:10px;background:#e3e9ce;color:#254f3e;font-size:12px}
+.hm-view-dialog .hm-menu-content button[aria-pressed=true]{background:#27634e;color:#fff6d7}
+.hm-view-dialog .hm-tabs .profile-avatar{width:26px;height:26px;min-width:26px;border-radius:50%}
+.hm-view-dialog .hm-tabs span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-view-dialog #hm-overview{grid-column:1/-1}
+.hm-view-dialog .hm-invite>summary{min-height:24px;cursor:pointer;font-weight:700}
+.hm-view-dialog .hm-room-details{text-align:center;padding-top:12px}
+.hm-view-dialog .hm-room-details p{margin:8px 0;font-size:13px;overflow-wrap:anywhere}
+.hm-view-dialog .hm-room-details canvas{display:block;margin:10px auto}
+.hm-view-dialog .hm-room-details a{color:#166250;text-decoration:underline}
+
+.hm-reveal-dialog .hm-comparison{table-layout:fixed;min-width:0;font-size:11px}
+.hm-reveal-dialog .hm-comparison caption{padding:6px}
+.hm-reveal-dialog .hm-comparison th,.hm-reveal-dialog .hm-comparison td{padding:6px 5px}
+.hm-reveal-dialog .hm-comparison th:first-child{width:88px;max-width:88px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hm-reveal-dialog .hm-score-player-tabs .profile-avatar{flex:0 0 24px;max-width:24px}
+.hm-view-dialog .hm-tabs .profile-avatar{flex:0 0 26px;max-width:26px}
+.hm-reveal-dialog .hm-comparison caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.hm-reveal-dialog .hm-comparison th,.hm-reveal-dialog .hm-comparison td{font-size:10px;line-height:1.35;padding:5px}
+.hm-reveal-dialog .hm-score-player>b{font-size:30px;line-height:1.05}
+.hm-reveal-dialog .hm-score-player>b small{line-height:1.3;font-size:10px}
+.hm-reveal-dialog .hm-score-player h3{line-height:1.35}
+.hm-reveal-dialog .hm-score-player h3 small{font-size:10px;line-height:1.4}
+.hm-reveal-dialog .hm-score-player details{min-height:0;line-height:1.5}
+.hm-reveal-dialog .hm-score-player details>summary{min-height:24px;padding:0;line-height:24px}
+.hm-reveal-dialog .hm-score-menagerie figure{grid-template-columns:minmax(0,1fr)}
+
+.hm-reveal-dialog .hm-comparison th:first-child{width:26%;max-width:none}
+
+/* Winner summary: score and Solo suns first, one model row, final action last. */
+.hm-reveal-dialog .hm-winner-spotlight{display:flex;flex-direction:column;align-items:center;gap:6px;min-height:0;padding:4px 0}
+.hm-winner-score{display:flex;align-items:center;justify-content:center;gap:20px;width:100%;padding:6px 0}
+.hm-winner-score>[data-winner-total]{display:block;color:#145b48;font:700 52px/1 'Harmonies Score',Georgia,serif}
+.hm-winner-score>[data-winner-total]>small{display:block;margin-top:4px;font:700 12px/1.4 'Noto Sans Thai',sans-serif}
+.hm-reveal-dialog .hm-winner-score .hm-solo-suns{display:flex;flex-direction:column;flex-wrap:nowrap;gap:4px;margin:0;font-size:20px;line-height:1.2}
+.hm-reveal-dialog .hm-winner-score .hm-solo-suns b{width:auto;font-size:12px;line-height:1.4}
+.hm-reveal-dialog .hm-winner-spotlight .hm-score-menagerie{display:flex;flex-wrap:nowrap;justify-content:center;align-items:end;width:min(100%,480px);min-height:78px;gap:0;margin:4px 0}
+.hm-reveal-dialog #hm-winner-next{display:block;flex:none;width:100%;min-height:44px;margin:4px 0 0;padding:8px 12px}
+
+/* Sanctuary cards share the animal silhouette: art only, special rail, low habitat. */
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-sanctuary-face{position:relative;display:block;box-sizing:border-box;width:100%;height:100%;min-height:0;padding:0;border:0;border-radius:12px;aspect-ratio:3/4;overflow:hidden;isolation:isolate}
+.hm-sanctuary-face>img.hm-sanctuary-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hm-sanctuary-face>img.hm-sanctuary-rail{position:absolute;inset:0 0 0 auto;width:13.333333%;height:100%;object-fit:fill;z-index:2}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-sanctuary-face .hm-sanctuary-stack{position:absolute;left:43.333333%;bottom:3%;transform:translateX(-50%);display:block;width:60%;height:34%;min-height:0;flex:none;margin:0;z-index:3}
+html[data-hm-card-art] :is(.hm-root,.hm-dialog) .hm-sanctuary-face .hm-sanctuary-stack>svg{display:block;width:100%;height:100%;overflow:visible}
+.hm-sanctuary-miniature{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 2px #153e4266)}
+.hm-result-sanctuary>.hm-sanctuary-miniature,.hm-score-sanctuary-model>.hm-sanctuary-miniature{width:100%;height:100%;object-fit:contain}
+.hm-sanctuary-dialog .hm-sanctuary-grid{display:grid;grid-template-columns:repeat(3,var(--hm-sanctuary-card-width,90px));justify-content:center;align-items:start;gap:10px;margin:0 auto}
+.hm-sanctuary-dialog .hm-sanctuary-grid>section{display:flex;flex-direction:column;gap:8px;min-width:0}
+.hm-sanctuary-dialog .hm-sanctuary-preview{display:block;width:var(--hm-sanctuary-card-width,90px);height:var(--hm-sanctuary-card-height,120px);min-height:0;margin:0;padding:0;border:0;border-radius:12px;background:none;overflow:hidden}
+.hm-sanctuary-dialog .hm-sanctuary-select{box-sizing:border-box;width:100%;min-height:40px;margin:0;padding:6px;border:1px solid #b8c99f;border-radius:10px;background:#49745d;color:#fff8dc}
+.hm-sanctuary-select:disabled{opacity:.5}
+.hm-sanctuary-help{margin-top:16px;font-size:13px}
+.hm-sanctuary-help>summary{min-height:32px;cursor:pointer}
+.hm-sanctuary-description{width:100%;font-size:13px;line-height:1.7;text-align:left}
+.hm-sanctuary-detail-card{width:min(100%,320px);aspect-ratio:3/4;margin:auto;overflow:hidden;border-radius:12px}
+.hm-sanctuary-detail-dialog .hm-info-content>button{min-height:44px}
+
+.hm-dialog .hm-habitat-model{filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px #fff) drop-shadow(0 2px 2px #153d3e80)}
+.hm-dialog .hm-habitat-model[data-model-card^="spirit-"]{filter:drop-shadow(-2px -1px 2px #ff8bc4) drop-shadow(2px -1px 2px #ffe789) drop-shadow(1px 2px 2px #77efd5) drop-shadow(-1px 2px 3px #a798ff)}
+.hm-paper-points[data-score-terrain="field"] .hm-paper-score-row.earned .hm-paper-score-number{fill:#fff;stroke:#17392c66}
+/* The Sanctuary heading reserves balanced space around its centered tab. */
+.hm-root .hm-animal-market>.hm-rail-title:has(.hm-sanctuary-market-trigger){height:31px;min-height:31px}
+.hm-root .hm-sanctuary-market-trigger{top:4px}
+.hm-root .hm-drafting-panel>.hm-animal-market:has(.hm-sanctuary-market-trigger){height:calc(var(--hm-card-height) + 44px)}
+.hm-root.hm-phone:has(.hm-sanctuary-market-trigger):not(.hm-choosing-spirit),.hm-root.hm-player-layout:has(.hm-sanctuary-market-trigger):not(.hm-choosing-spirit){grid-template-rows:calc(var(--hm-card-height) + var(--hm-supply-height,44px) + 48px) minmax(0,1fr)}
+
+/* Wide boards keep larger pieces in the bottom trays, with horizontal animal browsing. */
+.hm-root:not(.hm-finished) [data-board-shape="wide"] .hm-animal-choices>:is(button,.hm-animal-slot,.hm-available-slot),.hm-root:not(.hm-finished) [data-board-shape="wide"] .hm-animal-choices .hm-available-slot>[data-available-animal]{touch-action:pan-x}
+.hm-sanctuary-detail-dialog [data-sanct-claim]{display:block;width:min(100%,200px);margin:12px auto 0;text-align:center}
+.hm-sanctuary-help>h3{margin:0 0 8px;font-size:14px}
+.hm-sanctuary-help>p{margin:0}
+
+/* A legible per-neighbor rule and live total, without covering the temple pattern. */
+.hm-sanctuary-points{position:absolute;right:2%;top:16%;width:29%;height:auto;overflow:visible;z-index:4;filter:drop-shadow(0 2px 2px #102f3d70);font-family:'Noto Sans Thai',sans-serif}
+.hm-sanctuary-points text{paint-order:stroke fill;stroke:#17392c55;stroke-width:.6px}
+/* The extended canvas must not intercept the supply above the visible mat. */
+.hm-root .hm-board-viewport[data-board-shape="wide"]>.hm-board{pointer-events:none}
+.hm-root .hm-board-viewport[data-board-shape="wide"] .hm-cell-hit{pointer-events:auto}
+
+/* Keep the draft clickable and the mat clear of ambient haze. */
+.hm-root .hm-player .hm-board:before{content:none;background:none;box-shadow:none}
+.hm-root>.hm-drafting-panel{position:relative;z-index:8}
+.hm-root .hm-spirit-selection .hm-animal,.hm-root .hm-spirit-selection .hm-animal>.hm-inspect{aspect-ratio:3/4;border:0;background:transparent}
+.hm-root .hm-spirit-selection>div{grid-template-rows:auto auto auto auto}
+.hm-root .hm-spirit-selection .hm-spirit-offer{display:grid;grid-template-rows:subgrid;grid-row:span 4;justify-items:center;align-items:start;row-gap:10px}
+.hm-spirit-choice-name{margin:0;font-size:clamp(14px,3.3vw,18px);line-height:1.5;overflow-wrap:anywhere}
+.hm-root .hm-spirit-selection .hm-spirit-offer>p{margin:0}
+.hm-root .hm-spirit-selection .hm-spirit-offer>[data-spirit-choice]{align-self:end;font-size:15px}
+
+/* The loading shell defaults to paper art; only an explicit 3D choice uses the forest. */
+html.harmonies-document[data-hm-card-art="sculpted"]::before,html[data-room-theme="harmonies"][data-hm-card-art="sculpted"]{background-color:#075b59;background-image:url('/art/harmonies/reference/forest-river.webp')}
+/* Texture art already includes its cylinder shape; do not squash it a second time. */
+.harmonies-theme .hm-root .hm-drafting-panel .hm-groups .hm-disk,.harmonies-theme .hm-choice-tokens .hm-disk{transform:none!important;border:0;box-shadow:none;background:transparent}
+.harmonies-theme .hm-root .hm-board-sidebar .hm-header-hand .hm-disk{background:transparent;border:0;box-shadow:none}
+
+.hm-art-settings{padding:14px;border:1px solid #c9c997;border-radius:12px;background:#e9ebd6}
+.hm-art-settings>h3{margin:0 0 10px;font-size:14px}
+.hm-art-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.hm-view-dialog .hm-art-buttons>button{box-sizing:border-box;width:100%;min-width:0;min-height:48px;margin:0;padding:10px 6px;border:1px solid #b8c99f;border-radius:10px;background:#e3e9ce;color:#254f3e;font-size:12px}
+.hm-art-settings>small{display:block;margin-top:8px;font-size:11px;line-height:1.6}
+.hm-board-help{padding-top:8px;border-top:1px solid #c9c997;text-align:left}
+.hm-board-help h3{font-size:14px;margin:0 0 8px}.hm-board-help ul{padding-left:20px;margin:0;font-size:12px;line-height:1.75}.hm-board-help li+li{margin-top:6px}
+html[data-hm-card-art="original"] :is(.hm-root,.hm-dialog) .hm-original-art{position:absolute;inset:0;display:block;width:100%;height:100%;aspect-ratio:auto;background:transparent}
+html[data-hm-card-art="original"] .hm-original-art>img{width:100%;height:100%;object-fit:contain}
+html[data-hm-card-art="original"] :is(.hm-inspect,.hm-large-card,.hm-detail-face,.hm-spirit-confirm-card):has(.hm-original-art){aspect-ratio:900/1550}
+html[data-hm-card-art="original"] .hm-root .hm-animal:has(.hm-original-art){--card-w:calc(var(--hm-card-height)*900/1550);--hm-card-width:calc(var(--hm-card-height)*900/1550)}
+html[data-hm-card-art="original"] .hm-root .hm-spirit-selection .hm-animal,html[data-hm-card-art="original"] .hm-root .hm-spirit-selection .hm-animal>.hm-inspect{aspect-ratio:900/1550}
+
+html[data-hm-card-art="original"] .hm-original-art::after{content:none}
+html[data-hm-card-art="original"] .hm-original-art>img{filter:none;opacity:1;mix-blend-mode:normal}
+html[data-hm-card-art="original"] :is(.hm-root,.hm-root.hm-phone,.hm-root.hm-player-layout:not(.hm-choosing-spirit),.hm-root.hm-display:not(.hm-player-layout)>.hm-drafting-panel){--hm-card-width:calc(var(--hm-card-height)*900/1550)}
+html[data-hm-card-art="original"] :is(.hm-market-slot,.hm-animal):has(.hm-card-v6),html[data-hm-card-art="original"] .hm-owned-sanctuary{--hm-card-width:calc(var(--hm-card-height)*.75);--card-w:calc(var(--hm-card-height)*.75)}
+html[data-hm-card-art="original"] .hm-library-grid>.hm-animal:has(.hm-original-art){aspect-ratio:900/1550}
+html[data-hm-card-art="original"] .hm-dialog .hm-large-card:has(.hm-original-art){width:min(100%,calc((88svh - 124px)*900/1550))}
+
+html[data-hm-card-art="original"] .hm-root .hm-board .hm-original-cube{--figure-w:clamp(22px,7.5cqw,34px);--figure-h:clamp(24px,8.2cqw,37px)}
+html[data-hm-card-art="original"] .hm-root .hm-board .hm-original-cube>img{filter:none!important;animation:none!important}
+html[data-hm-card-art="original"] .hm-original-cube.hm-animal-sprite-tray>img{width:36px;height:40px;filter:none;animation:none}
+
+/* Statistics: equal score cells, grounded token art, and one entry per owned card. */
+.hm-reveal-dialog .hm-category-scores .hm-score-terrain{position:relative;width:70px;height:62px;perspective:none}
+.hm-reveal-dialog .hm-score-terrain>img{position:absolute;left:50%;bottom:calc(var(--score-layer)*8px);width:70px;height:62px;max-width:none;transform:translateX(-50%);object-fit:contain}
+.hm-reveal-dialog .hm-individual-scores{grid-column:1/-1;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:82px;gap:6px 4px;max-height:min(346px,calc(100svh - 305px));overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable;padding:0 2px}
+.hm-reveal-dialog .hm-individual-scores>div{min-height:0;height:82px;padding:0;background:none}
+.hm-reveal-dialog .hm-individual-scores .hm-score-default-model{height:62px}
+.hm-reveal-dialog .hm-individual-scores .hm-score-default-model>.hm-animal-sprite-tray{inset:0;width:100%;height:62px;transform:none}
+.hm-reveal-dialog .hm-individual-scores .hm-score-default-model>.hm-animal-sprite-tray>img{position:absolute;left:50%;bottom:0;width:62px;height:62px;max-width:none;max-height:none;transform:translateX(-50%);object-fit:contain;object-position:center bottom}
+.hm-reveal-dialog .hm-individual-scores dt{bottom:0;line-height:18px;font-size:10px}
+.hm-reveal-dialog .hm-individual-scores dd{top:30px;font-size:27px}
+.hm-reveal-dialog .hm-score-player-tabs{display:flex;gap:5px;overflow-x:auto;flex-wrap:nowrap;margin:6px 0}
+.hm-reveal-dialog .hm-score-player-tabs button{flex:1 0 0;min-width:0;min-height:40px}
+.hm-reveal-dialog .hm-score-player-tabs .profile-avatar{flex:0 0 20px;width:20px;height:20px;min-width:20px}
+.hm-sanctuary-dialog .hm-sanctuary-select,.hm-sanctuary-detail-dialog .hm-sanctuary-select{background:#21856a;color:#fffbea;border:2px solid #f0d58a;box-shadow:0 3px 0 #0f5947;font-weight:800;min-height:44px}
+.hm-sanctuary-dialog .hm-sanctuary-select:enabled:hover,.hm-sanctuary-detail-dialog .hm-sanctuary-select:enabled:hover{background:#126a50}
+.hm-sanctuary-select:focus-visible{outline:3px solid #d2a634;outline-offset:3px}
+.hm-sanctuary-dialog .hm-sanctuary-select:disabled{background:#d9dfcb;color:#66735f;border-color:#bdc8b0;box-shadow:none;opacity:1}
+.hm-sanctuary-turn-limit{text-align:center;font-weight:700;color:#215e49;margin:12px 0 4px}

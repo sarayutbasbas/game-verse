@@ -3,7 +3,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN npm run build && npm prune --omit=dev
+RUN npm run build
+RUN npm prune --omit=dev --no-audit --no-fund
 
 FROM node:24-bookworm-slim
 ENV NODE_ENV=production PORT=5555

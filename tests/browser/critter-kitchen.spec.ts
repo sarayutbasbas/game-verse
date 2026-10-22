@@ -634,6 +634,10 @@ for (const count of [2, 3])
             if(count===3)expect(rumorChecked).toBeGreaterThan(0);
             console.log(`CK ${count} complete: ${actions} actions, refrigerator=${fridge}`);
             await confirmButton(host, host.locator('#ck-result-restart'));
+            // Restart retains the enabled head-chef module and redeals its offers.
+            await expect(host.locator('.ck-root')).toHaveAttribute('data-phase', 'restaurateurs');
+            await continueOpening(host);
+            for(const p of phones)await confirmButton(p,p.locator('[data-rest]').first());
             await expect(host.locator('.ck-root')).toHaveAttribute('data-phase', 'planning');
         }
         finally {

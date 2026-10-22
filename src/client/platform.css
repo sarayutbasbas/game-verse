@@ -796,3 +796,14 @@ body.platform-theme {
 .entry-back{display:inline-flex;align-items:center;min-height:44px;padding:6px 10px;margin-bottom:12px;color:#285d67;font-weight:700;text-decoration:none}.entry-back:hover{text-decoration:underline}.entry-back:focus-visible,.room-circle-link:focus-visible{outline:3px solid #267d86;outline-offset:3px}
 .game-room-links .room-circle-link{display:inline-grid;place-items:center;width:44px;height:44px;min-width:44px;box-sizing:border-box;flex-shrink:0;border:1px solid #a9c4c7;border-radius:50%;background:#eff7f6;color:#276471;text-decoration:none;padding:0}.game-room-links .room-circle-link:hover{background:#daeae9}.room-game-identity .relative-time{display:block;font-size:13px;color:#536f76;line-height:1.7}.game-room-links{gap:8px}.game-last-played{display:block;margin-top:5px;color:#41616b;font:400 14px/1.7 'Noto Sans Thai',sans-serif}.game-last-played .relative-time{display:block}
 @media(max-width:480px){.game-rooms>div{flex-wrap:wrap;gap:10px}.game-rooms>div>.game-room-links{margin-left:auto}}
+
+/* Host-only lobby removal: keep the visible control to one cross icon. */
+.lobby-players li:has(.lobby-kick){position:relative;padding-right:52px}
+.lobby-kick,.lobby-kick-confirm{display:grid;place-items:center;width:44px;height:44px;min-width:44px;padding:0;border:1px solid #bd7770;border-radius:50%;background:#fff4ef;color:#9e302a;font-size:30px;line-height:1}
+.lobby-players .lobby-kick{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.lobby-kick-dialog{width:min(360px,calc(100vw - 32px));box-sizing:border-box;padding:24px;border:1px solid #b8cbd0;border-radius:20px;background:#fffdf5;color:#213e43;box-shadow:0 18px 60px #102d4055}
+.lobby-kick-dialog::backdrop{background:#10252d99}
+.lobby-kick-dialog h2{margin:0 0 12px;font-size:22px}.lobby-kick-dialog p{overflow-wrap:anywhere}
+.lobby-kick-dialog>div{display:flex;align-items:center;justify-content:flex-end;gap:16px;margin-top:20px}
+.lobby-kick-dialog [data-cancel-kick]{min-height:44px;padding:8px 18px}
+.lobby-kick:focus-visible,.lobby-kick-dialog button:focus-visible{outline:3px solid #197e8d;outline-offset:3px}

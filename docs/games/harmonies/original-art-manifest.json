@@ -1,0 +1,722 @@
+{
+  "method": "Direct lossless extraction/cropping; no generation, retouching or upscaling. The same image is used at every card size.",
+  "sources": [
+    {
+      "file": "bgg387027.pdf",
+      "sha256": "c8b70671c642895be93141d696fe5c36e65a040c446d069f94e18dce8fde0e04"
+    },
+    {
+      "file": "bgg454647.pdf",
+      "sha256": "c08cf4fa5e4edbcaf2ecb31dc679daf225dc49bb691bab20235d75aa409f2fb1"
+    },
+    {
+      "file": "bgg440017.pdf",
+      "sha256": "8029ebac15891d40d5e1fa58592ba414a10a7222403e19b26f5a2129afa9b50e"
+    }
+  ],
+  "cards": [
+    {
+      "id": "animal-25",
+      "source": "bgg387027.pdf",
+      "xref": 35,
+      "pages": [
+        2
+      ],
+      "crop": [
+        0,
+        0,
+        231,
+        408
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 408,
+      "asset": "/art/harmonies/original-v1/animal-25.png"
+    },
+    {
+      "id": "animal-19",
+      "source": "bgg387027.pdf",
+      "xref": 35,
+      "pages": [
+        2
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        408
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 408,
+      "asset": "/art/harmonies/original-v1/animal-19.png"
+    },
+    {
+      "id": "animal-27",
+      "source": "bgg387027.pdf",
+      "xref": 36,
+      "pages": [
+        2
+      ],
+      "crop": [
+        0,
+        0,
+        231,
+        408
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 408,
+      "asset": "/art/harmonies/original-v1/animal-27.png"
+    },
+    {
+      "id": "animal-06",
+      "source": "bgg387027.pdf",
+      "xref": 36,
+      "pages": [
+        2
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        408
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 408,
+      "asset": "/art/harmonies/original-v1/animal-06.png"
+    },
+    {
+      "id": "animal-10",
+      "source": "bgg387027.pdf",
+      "xref": 36,
+      "pages": [
+        2
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        408
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 408,
+      "asset": "/art/harmonies/original-v1/animal-10.png"
+    },
+    {
+      "id": "animal-18",
+      "source": "bgg387027.pdf",
+      "xref": 37,
+      "pages": [
+        2
+      ],
+      "crop": [
+        0,
+        0,
+        231,
+        401
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 401,
+      "asset": "/art/harmonies/original-v1/animal-18.png"
+    },
+    {
+      "id": "animal-32",
+      "source": "bgg387027.pdf",
+      "xref": 37,
+      "pages": [
+        2
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        401
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 401,
+      "asset": "/art/harmonies/original-v1/animal-32.png"
+    },
+    {
+      "id": "animal-28",
+      "source": "bgg387027.pdf",
+      "xref": 38,
+      "pages": [
+        2
+      ],
+      "crop": [
+        0,
+        0,
+        231,
+        394
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 394,
+      "asset": "/art/harmonies/original-v1/animal-28.png"
+    },
+    {
+      "id": "animal-22",
+      "source": "bgg387027.pdf",
+      "xref": 38,
+      "pages": [
+        2
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        394
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 394,
+      "asset": "/art/harmonies/original-v1/animal-22.png"
+    },
+    {
+      "id": "animal-11",
+      "source": "bgg387027.pdf",
+      "xref": 38,
+      "pages": [
+        2
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        394
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 394,
+      "asset": "/art/harmonies/original-v1/animal-11.png"
+    },
+    {
+      "id": "animal-16",
+      "source": "bgg387027.pdf",
+      "xref": 42,
+      "pages": [
+        3
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        393
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 393,
+      "asset": "/art/harmonies/original-v1/animal-16.png"
+    },
+    {
+      "id": "animal-05",
+      "source": "bgg387027.pdf",
+      "xref": 42,
+      "pages": [
+        3
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        393
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 393,
+      "asset": "/art/harmonies/original-v1/animal-05.png"
+    },
+    {
+      "id": "animal-24",
+      "source": "bgg387027.pdf",
+      "xref": 43,
+      "pages": [
+        3
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        407
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 407,
+      "asset": "/art/harmonies/original-v1/animal-24.png"
+    },
+    {
+      "id": "animal-14",
+      "source": "bgg387027.pdf",
+      "xref": 43,
+      "pages": [
+        3
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        407
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 407,
+      "asset": "/art/harmonies/original-v1/animal-14.png"
+    },
+    {
+      "id": "animal-30",
+      "source": "bgg387027.pdf",
+      "xref": 44,
+      "pages": [
+        3
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        399
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 399,
+      "asset": "/art/harmonies/original-v1/animal-30.png"
+    },
+    {
+      "id": "animal-07",
+      "source": "bgg387027.pdf",
+      "xref": 44,
+      "pages": [
+        3
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        399
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 399,
+      "asset": "/art/harmonies/original-v1/animal-07.png"
+    },
+    {
+      "id": "animal-12",
+      "source": "bgg387027.pdf",
+      "xref": 45,
+      "pages": [
+        3
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        399
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 399,
+      "asset": "/art/harmonies/original-v1/animal-12.png"
+    },
+    {
+      "id": "animal-17",
+      "source": "bgg387027.pdf",
+      "xref": 45,
+      "pages": [
+        3
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        399
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 399,
+      "asset": "/art/harmonies/original-v1/animal-17.png"
+    },
+    {
+      "id": "animal-15",
+      "source": "bgg387027.pdf",
+      "xref": 46,
+      "pages": [
+        3
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        407
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 407,
+      "asset": "/art/harmonies/original-v1/animal-15.png"
+    },
+    {
+      "id": "animal-04",
+      "source": "bgg387027.pdf",
+      "xref": 46,
+      "pages": [
+        3
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        407
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 407,
+      "asset": "/art/harmonies/original-v1/animal-04.png"
+    },
+    {
+      "id": "animal-26",
+      "source": "bgg387027.pdf",
+      "xref": 50,
+      "pages": [
+        4
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        400
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 400,
+      "asset": "/art/harmonies/original-v1/animal-26.png"
+    },
+    {
+      "id": "animal-13",
+      "source": "bgg387027.pdf",
+      "xref": 51,
+      "pages": [
+        4
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        393
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 393,
+      "asset": "/art/harmonies/original-v1/animal-13.png"
+    },
+    {
+      "id": "animal-31",
+      "source": "bgg387027.pdf",
+      "xref": 51,
+      "pages": [
+        4
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        393
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 393,
+      "asset": "/art/harmonies/original-v1/animal-31.png"
+    },
+    {
+      "id": "animal-01",
+      "source": "bgg387027.pdf",
+      "xref": 52,
+      "pages": [
+        4
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        402
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 402,
+      "asset": "/art/harmonies/original-v1/animal-01.png"
+    },
+    {
+      "id": "animal-20",
+      "source": "bgg387027.pdf",
+      "xref": 52,
+      "pages": [
+        4
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        402
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 402,
+      "asset": "/art/harmonies/original-v1/animal-20.png"
+    },
+    {
+      "id": "animal-02",
+      "source": "bgg387027.pdf",
+      "xref": 53,
+      "pages": [
+        4
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        404
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 404,
+      "asset": "/art/harmonies/original-v1/animal-02.png"
+    },
+    {
+      "id": "animal-21",
+      "source": "bgg387027.pdf",
+      "xref": 53,
+      "pages": [
+        4
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        404
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 404,
+      "asset": "/art/harmonies/original-v1/animal-21.png"
+    },
+    {
+      "id": "animal-29",
+      "source": "bgg387027.pdf",
+      "xref": 54,
+      "pages": [
+        4
+      ],
+      "crop": [
+        0,
+        0,
+        231,
+        398
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 398,
+      "asset": "/art/harmonies/original-v1/animal-29.png"
+    },
+    {
+      "id": "animal-09",
+      "source": "bgg387027.pdf",
+      "xref": 54,
+      "pages": [
+        4
+      ],
+      "crop": [
+        231,
+        0,
+        462,
+        398
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 398,
+      "asset": "/art/harmonies/original-v1/animal-09.png"
+    },
+    {
+      "id": "animal-08",
+      "source": "bgg387027.pdf",
+      "xref": 54,
+      "pages": [
+        4
+      ],
+      "crop": [
+        462,
+        0,
+        693,
+        398
+      ],
+      "verticalFlip": false,
+      "width": 231,
+      "height": 398,
+      "asset": "/art/harmonies/original-v1/animal-08.png"
+    },
+    {
+      "id": "animal-03",
+      "source": "bgg454647.pdf",
+      "xref": 26,
+      "pages": [
+        3
+      ],
+      "crop": null,
+      "verticalFlip": false,
+      "width": 823,
+      "height": 1418,
+      "asset": "/art/harmonies/original-v1/animal-03.png"
+    },
+    {
+      "id": "animal-23",
+      "source": "bgg454647.pdf",
+      "xref": 7,
+      "pages": [
+        1
+      ],
+      "crop": null,
+      "verticalFlip": false,
+      "width": 823,
+      "height": 1418,
+      "asset": "/art/harmonies/original-v1/animal-23.png"
+    },
+    {
+      "id": "spirit-01",
+      "source": "bgg440017.pdf",
+      "xref": 32,
+      "pages": [
+        2
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-01.png"
+    },
+    {
+      "id": "spirit-02",
+      "source": "bgg440017.pdf",
+      "xref": 33,
+      "pages": [
+        2
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-02.png"
+    },
+    {
+      "id": "spirit-03",
+      "source": "bgg440017.pdf",
+      "xref": 19,
+      "pages": [
+        1
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-03.png"
+    },
+    {
+      "id": "spirit-04",
+      "source": "bgg440017.pdf",
+      "xref": 20,
+      "pages": [
+        1
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-04.png"
+    },
+    {
+      "id": "spirit-05",
+      "source": "bgg440017.pdf",
+      "xref": 36,
+      "pages": [
+        2
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-05.png"
+    },
+    {
+      "id": "spirit-06",
+      "source": "bgg440017.pdf",
+      "xref": 34,
+      "pages": [
+        2
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-06.png"
+    },
+    {
+      "id": "spirit-07",
+      "source": "bgg440017.pdf",
+      "xref": 17,
+      "pages": [
+        1
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-07.png"
+    },
+    {
+      "id": "spirit-08",
+      "source": "bgg440017.pdf",
+      "xref": 18,
+      "pages": [
+        1
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-08.png"
+    },
+    {
+      "id": "spirit-09",
+      "source": "bgg440017.pdf",
+      "xref": 35,
+      "pages": [
+        2
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-09.png"
+    },
+    {
+      "id": "spirit-10",
+      "source": "bgg440017.pdf",
+      "xref": 21,
+      "pages": [
+        1
+      ],
+      "crop": null,
+      "verticalFlip": true,
+      "width": 322,
+      "height": 555,
+      "asset": "/art/harmonies/original-v1/spirit-10.png"
+    },
+    {
+      "id": "spirit-11",
+      "source": "pic8162737.jpg",
+      "width": 970,
+      "height": 1680,
+      "asset": "/art/harmonies/original-v1/spirit-11.png"
+    }
+  ]
+}

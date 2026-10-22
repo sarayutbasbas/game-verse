@@ -1,0 +1,14 @@
+{
+  "generator": "Built-in image_gen",
+  "selectedPrompt": "Use case: logo-brand. Production asset: a 3 by 2 sprite sheet of six FLAT BLACK INK screen-print motifs. Genuine transparent background. This is NOT an illustration or a luminous effect. Top-left four slender flowing wavy river lines; top-middle one large diagonal oval leaf with five small oval leaves around it; top-right one large angular mountain triangle and four smaller triangles around it. Bottom-left three simple five-petal flowers with transparent centers; bottom-middle two blocky simple house silhouettes with transparent doorways; bottom-right three irregular concentric tree growth ring OUTLINES with wide transparent spaces between the rings. Equal square cells, symbols centered and occupying 75 percent of each cell. Completely pure uniform BLACK shapes, crisp hard edges, no gray shading. All surrounding empty pixels and holes must be 100 percent transparent. Absolutely no glow, no shadows, no haze, no texture, no discs, no white or colored background, no gradient, no labels, no words. Simple chunky print shapes readable at 24px. Aspect ratio 3:2.",
+  "source": "public/art/harmonies/tokens/printed-v1/atlas.png",
+  "derivatives": [
+    "public/art/harmonies/tokens/printed-v1/water.png",
+    "public/art/harmonies/tokens/printed-v1/leaf.png",
+    "public/art/harmonies/tokens/printed-v1/rock.png",
+    "public/art/harmonies/tokens/printed-v1/field.png",
+    "public/art/harmonies/tokens/printed-v1/building.png",
+    "public/art/harmonies/tokens/printed-v1/wood.png"
+  ],
+  "processing": "Crop equal atlas cells, trim transparent margins, resize/pad to 96px, tint black ink warm ivory; preserve alpha. Rebuild with node scripts/build-harmonies-token-prints.mjs."
+}

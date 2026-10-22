@@ -68,11 +68,11 @@ export function validateMeals(s: MealContext, p: MealPlayer, meals: Meal[], fina
                 err();
             if (m.wine?.length) {
                 if (s.critic !== 'fruit-bat' || new Set(m.wine.map(a => a.course)).size !== m.wine.length)
-                    err();
+                    err('จับคู่ไวน์ได้เฉพาะ Fruit Bat และเพิ่มได้ช่องอาหารละ 1 ชิ้น');
                 for (const a of m.wine) {
                     const t = TOKEN[a.token], course = m.items.filter(x => x.as === a.course);
                     if (!p.storage.includes(a.token) || t?.kind !== 'ingredient' || t.food !== 'wine' || !course.length || t.value !== Math.max(...course.map(x => TOKEN[x.token].value!)))
-                        err();
+                        err('ไวน์จับคู่ต้องมีเลขพิมพ์ตรงกับวัตถุดิบในช่องอาหาร และเป็นไวน์ที่อยู่ในครัวของคุณ');
                     all.push(a.token);
                 }
             }

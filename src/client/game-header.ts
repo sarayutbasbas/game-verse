@@ -1,3 +1,4 @@
+import {roomPath} from './room-route.js';
 import {openGameGuide,closeGameGuide} from './game-learning.js';
 import {metadata} from '../shared/catalog.js';
 import type { RoomView } from "../shared/types.js";
@@ -71,7 +72,7 @@ export function updateGameHeader(
   }
   if (menu.dataset.code !== view.code) {
     menu.dataset.code = view.code;
-    const url = new URL("/play/" + view.code, joinOrigin).href;
+    const url = new URL(roomPath(view.gameId,'play',view.code), joinOrigin).href;
     menu.innerHTML =
       '<summary aria-label="เมนูเกม" title="เมนูเกม"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg></summary><div>' +
       roomCode(view.code) +

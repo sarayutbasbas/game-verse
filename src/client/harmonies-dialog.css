@@ -1,0 +1,10 @@
+/* Shared shell for help, scoring, settings and player rankings. */
+.hm-dialog.hm-info-dialog{box-sizing:border-box;width:min(700px,calc(100vw - 24px));max-height:88svh;overflow:auto;overscroll-behavior:contain;margin:auto;padding:0;border:2px solid #dfc47f;border-radius:22px;background:#fff7df;color:#204f43;font-family:'Noto Sans Thai',sans-serif;text-align:left;box-shadow:0 24px 80px #143c3a66}
+.hm-dialog.hm-info-dialog::backdrop{background:#103f3cbd;backdrop-filter:none}
+.hm-info-dialog .hm-info-header{position:sticky;top:0;z-index:6;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;background:#104f43;color:#fff2c5}
+.hm-info-dialog .hm-info-header h2{font:700 19px/1.5 'Noto Sans Thai',sans-serif;margin:0}
+.hm-dialog.hm-info-dialog .hm-info-close{box-sizing:border-box;flex:0 0 44px;display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;margin:0;padding:0;border:1px solid #dcc57e;border-radius:50%;background:#fff4d0;color:#164f42;box-shadow:none;line-height:1;cursor:pointer}
+.hm-info-dialog .hm-info-close>svg{display:block;width:22px;height:22px;pointer-events:none}
+.hm-info-dialog .hm-info-content{padding:18px;font-size:16px;line-height:1.85}
+.hm-info-dialog:focus{outline:none}.hm-info-dialog button:focus-visible{outline:3px solid #267d86;outline-offset:3px}
+@media(max-width:450px){.hm-info-dialog .hm-info-header{padding:10px 12px}.hm-info-dialog .hm-info-header h2{font-size:17px}.hm-info-dialog .hm-info-content{padding:14px}}

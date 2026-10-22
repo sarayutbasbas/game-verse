@@ -1567,3 +1567,29 @@ main .room-code strong { letter-spacing: .08em; }
 
 /* Session takeover stays visible without displacing the game workspace. */
 main>#notice.session-toast{position:fixed;top:max(8px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:500;display:block;width:max-content;max-width:calc(100vw - 24px);min-height:0;box-sizing:border-box;margin:0;padding:10px 14px;border:1px solid #dfba70;border-radius:14px;background:#fff8df;color:#5e431c;font-size:13px;line-height:1.5;text-align:center;box-shadow:0 5px 18px #173f4440}
+
+.room-garden-loading{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff6d5;text-shadow:0 2px 5px #003b3b;font:600 17px/1.6 'Noto Sans Thai',sans-serif}
+.room-garden-loading p{margin:0}.room-garden-loading-icon{position:relative;display:grid;place-items:center;width:92px;height:92px;border-radius:50%;background:#075b59cc;box-shadow:0 4px 24px #003b3b55}
+.room-garden-loading-icon:before{content:'';position:absolute;inset:-5px;border:3px solid #fff4c944;border-top-color:#fff4c9;border-radius:50%;animation:room-garden-spin 1.2s linear infinite}
+.room-garden-loading-icon svg{width:64px;height:64px}@keyframes room-garden-spin{to{transform:rotate(1turn)}}
+@media(prefers-reduced-motion:reduce){.room-garden-loading-icon:before{animation:none}}
+
+/* A failed garden import stays centered over the game theme, with a clear retry. */
+.room-garden-error{box-sizing:border-box;padding:24px;text-align:center;gap:18px}
+.room-garden-error .room-garden-loading-icon:before{animation:none;border-color:#fff4c966}
+.room-garden-error-copy{max-width:calc(100vw - 48px)}
+.room-garden-error #hm-load-error-title{margin:0 0 6px;color:#fff6d5;font:700 clamp(23px,5vw,30px)/1.5 'Noto Sans Thai',sans-serif}
+.room-garden-error p{font-size:16px;line-height:1.7}
+.room-garden-error #hm-load-retry{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;margin:0;padding:10px 22px;border:1px solid #d9e6a2;border-radius:999px;background:#fff4d4;color:#075b59;font:700 16px/1.5 'Noto Sans Thai',sans-serif;box-shadow:0 4px 0 #075b59,0 6px 18px #003b3b44;text-shadow:none}
+.room-garden-error #hm-load-retry:focus-visible{outline:3px solid #fff4c9;outline-offset:5px}
+
+/* Illustrated deck preview: native radios remain accessible on touch and keyboard. */
+.hm-lobby-options .hm-art-picker{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px;border:1px solid #b7b488;border-radius:14px;background:#fff9e9}
+.hm-art-picker legend{font-weight:700;color:#234f43}
+.hm-lobby-options .hm-art-picker label{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 5px;border:2px solid #d8cfaa;border-radius:10px;cursor:pointer;background:#eee9d9;text-align:center}
+.hm-lobby-options .hm-art-picker label:has(:checked){border-color:#24735b;background:#e5efd7;box-shadow:0 0 0 2px #24735b22}
+.hm-art-picker input{position:absolute;top:7px;left:7px;accent-color:#24735b}
+.hm-art-picker img{width:72px;height:104px;object-fit:cover;border-radius:5px;box-shadow:0 3px 5px #183b3433}
+.hm-art-picker b,.hm-art-picker small{display:block}
+.hm-art-picker small{font-size:12px}
+.hm-art-picker label:focus-within{outline:3px solid #247d94;outline-offset:3px}

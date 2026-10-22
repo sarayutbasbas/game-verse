@@ -303,3 +303,301 @@ Built-in image_gen prompts, source paths and final workspace paths: [cartoon-fig
 ## Solo market change button — 19 October 2026
 
 The solo card-change action shares the market's green 28px circular claim-button style and 18px SVG sizing. Two opposing arrows replace the text glyph; the change button sits 4px below the plus button in the same column. It retains the existing confirmation and solo-discard legal action and is disabled while an action is pending.
+
+### 2026-10-20 — cinematic animal figurines and scoring reference
+- Normal and Nature Spirit board/tray/pattern sprites now use `figurines/animated-v3/`: dimensional 3D animation rendering with warm key light, cool rim light and friendly natural proportions. Normal animals retain only contact shadows; nature spirits receive a colored multi-layer aura and a soft light pool in the selection tray. Whisper objects retain their existing sculpted sprites.
+- Available-animal frames allow the figurines to overflow. The scrolling shelf reserves transparent padding for tall silhouettes and aura, preserving access to all choices and End Turn on small screens.
+- A circular calculator button immediately left of help opens an illustrated scoring reference. Terrain/animal examples share the existing help content; enabled modules add all ten spirit bonus descriptions, Whisper examples and Solo sun thresholds. This changes explanations and rendering only.
+- Prompts and sources: `animated-figurine-art-jobs.json`. Runtime assets are transparent WebP at160×184; the visible body is fitted within144×168 and bottom-aligned. No new rendering dependency.
+
+### 2026-10-20 — uniform protruding portraits and animated spirit light
+- Current board/tray/pattern sprite source is `figurines/animated-v4/`, tightly alpha-trimmed without internal letterboxing. All sidebar portraits share a48×56px top-aligned image stage; frame fill exactly matches the semi-transparent terrain-token slots. Selection changes only the border. Shelf padding accommodates protruding portraits, light and scrolling choices.
+- Board animals now use34–48px width /40–58px height (previously22–34px width), preserving the terrain-cap anchor and both cameras. Whispers remain smaller where sharing a tile.
+- Nature Spirits have stronger colored bloom, a breathing light pool and four offset twinkling stars. Only these decorative particles override the historical global animation-disable rule. Reduced-motion disables both star movement and aura breathing; the animal body does not move off its tile.
+- Replaced the crocodile with a smoother, compact upright animated-film character generated using built-in imagegen. Full prompts/source and crop output paths are recorded in `animated-v4-art-jobs.json`; other species reuse the previous3D sources.
+
+### 2026-10-20 — in-game help and finished-board controls
+- Help now composes the actual board token caps, stacked terrain, habitat pattern and animal sprites through `harmonies-how-to.ts`; no separate generic guide art. The scoring shortcut uses a trophy SVG.
+- Informational/results/detail popup crosses use geometric SVGs centered in44px circles. End is a52px raised circular button with End text and unchanged server legality gates.
+- After finish, the selected board sidebar replaces End with raised circular summary/replay controls. Summary opens the score table directly in a popup; no inline score table or return-to-board button. Replay remains owner-only. Existing automatic reveal invitation remains available immediately at game end.
+- Finished terrain caps are dimmed to72% brightness and animal sprites to62% opacity; special light is static/dim. Board camera navigation and animal/Whisper inspection remain usable.
+
+### 2026-10-20 — Android lightweight effects and clearer shared tiles
+- Hamburger checkbox selects a persistent per-browser lightweight mode; Android/initial OS reduced-motion defaults on. Normal mode remains available. Phone lightweight views instantiate only the selected garden, with friend tabs unchanged; shared displays retain all boards.
+- Lightweight cards use120x174background art plus64px figures in flat SVG habitat diagrams with real terrain symbols/heights. Large detail popups keep full resolution. Derived assets rebuild with `node scripts/build-harmonies-lite.mjs`. See `performance.md` for measurements and physical-device limits.
+- Board animals now max40px; paired figures use29px/24px caps and distinct anchors. Board aura uses silhouette light and dimension-matched particles, with broad pools removed. Special detail/confirmation cards have static gold/purple light borders. Finished circular controls have static bright backlighting. Draft buttons separate the small select label and the animal name.
+
+### 2026-10-20 — Finished board controls replace token slots
+- Finished sidebars omit all three empty token slots. Summary and owner restart circles replace the slots, centered vertically in the existing sidebar. Finished phones reuse the playing grid: obsolete fixed480px garden and extra score row removed to avoid page scrolling. Verified at320x667/390x844/1100x844 with summary, inspection and restart.
+
+- Finished restart opens the shared accessible confirmation dialog, with cancel/Escape preserving the finished board and confirmation invoking the original replay action. Owner permission and revision guards remain in effect.
+
+### 2026-10-20 — Card names and taken garden slots
+- Small Spirit cards omit the overlaid animal name. Full-size detail cards display names for every animal type, in addition to the accessible popup heading. Taken garden slots retain their hidden card back and pickup label with grayscale applied to the entire slot.
+
+### 2026-10-20 — Uniform figurines and2+1 placement tray
+- New built-in imagegen set `figurines/animated-v5`:41 freshly generated normal/Spirit figures plus normalized existing boar, whose generation was rejected repeatedly. Every image is RGBA160x184, fitted144x168 and bottom-aligned to y176; prompts/provenance are in `animated-v5-art-jobs.json`. Rebuild with `node scripts/build-harmonies-figurines-v5.mjs`, then `node scripts/build-harmonies-lite.mjs`. Existing runtime Spirit aura and lightweight preference remain.
+- Terrain hand uses two frames above one centered frame. Selected terrain has a bright inset fill, cyan border and double outline. Animal frames share dimensions with terrain, use a distinct dark teal fill, have portrait headroom and spacing, and show two candidates with scrolling for more. Slot size responds to board viewport height; End retains its bottom anchor and finished controls retain their centered placement.
+- Mouse/touch pointer dragging previews only server-provided legal placements on the player's own board. Dropping outside only selects the token; confirmation remains required. Re-render/reconnect cancels any active drag; a dropped pointer's synthetic click cannot clear the preview.
+- Group confirmation uses the same terrain discs, perspective, icon ratio, order and source-relative overlap/shadow, enlarged to64px with a fixed flex basis to prevent stretching.
+
+- Validation: all42 alpha images have160x184canvas and opaque baseline y175; presentation unit check and9 targeted browser checks passed, including mouse/touch drag, two visible animal slots/scroll, aura, summary/restart and lightweight mode. Actual rebuilt Docker5555 verified group popup, drag preview/commit and no page scroll at320x667 and390x844; temporary room closed unfinished.
+
+### 2026-10-20 — Landscape workstation and final garden portraits
+- Personal controllers and interactive shared controllers at900px+ width,600px+ height and landscape orientation place the selected garden on the left. Supply, market and owned cards form aligned rows on the right. CSS grid uses display:contents on the existing selected player wrappers, preserving DOM identity, click/drag listeners and friend navigation. Public multi-garden displays keep their overview. Draft selection remains unchanged.
+- Wide screens use proportional219–270px card faces,54–72px terrain/animal frames,64px End/result controls,44px header controls and increased board figure size. A longer1800px perspective keeps large lower-edge terrain caps within the board viewport. Both card rails scroll horizontally when needed and keep complete card faces visible vertically.
+- Portrait screens retain supply/market/board/collection ordering, with matching card aspect ratios and heights;4-card collections can scroll rather than clip the last card.
+- Results show a score-labelled plaque and one full figurine per type actually present on the final board (including Spirits/Whispers). Multiple cubes of one type do not duplicate the portrait, and unplaced cards are omitted. The reveal narrative groups the same types and aggregates their existing card scores; scoring rules are unchanged.
+
+- Verified: build and9 targeted browser checks pass; landscape1024x768/1180x820/1366x1024/1600x900 keeps full terrain caps and full-height cards in view; portrait390x844/768x1024 preserves the stack and access to all4 owned cards. Mouse drag confirmation and friend-tab navigation work across orientation changes. Results tests use2 placed crocodiles plus an unplaced card and show1 model type in reveal, winner and summary. Rebuilt Docker5555 independently checked five viewport sizes and interactive shared controller; temporary room closed unfinished.
+
+### 2026-10-20 — Compact drafting panel and horizontal placement shelf
+- Supply and animal market share one compact panel. Personal/interactive controllers keep the garden centered with three adjacent terrain frames beneath it, followed by a separate horizontal animal shelf and End. The shelf reserves three empty frames, displays every available animal, and scrolls independently when space is tight. Landscape retains the larger board-left/cards-right arrangement.
+- Solo market reserves all three visual positions. Public card-ID slot history is stored per room in sessionStorage so a claimed card remains a face-down “เลือกแล้ว” placeholder in its original position after reload. No private deck data or authentication tokens are stored. Completed owned cards retain softly faded color and their ribbon.
+- Removed routine placement instruction copy; actual errors and alternative habitat choices remain accessible. Animal previews use a green map pin behind the upright figurine; either the figurine or pin confirms the server-provided legal habitat. Mouse/touch dragging supports both terrain and animals, previews without mutation, and clears on rerender/cancel. Horizontal touch gestures scroll the animal shelf; upward gestures drag.
+- Verified TypeScript/build, presentation unit test and ten browser scenarios covering original Solo positions/reload, terrain/animal mouse and touch dragging, compact/wide/portrait layouts, overflow, completed color, reduced effects, help/scoring and finished/restart flows. Rebuilt Docker with existing data/auth preserved and independently checked localhost:5555 at five sizes plus interactive shared controller; temporary room closed unfinished. Touch testing used Chromium emulation, not a physical device.
+
+### 2026-10-20 — Right placement rail and consistent taken-card treatment
+- Returned the active placement controls to a vertical right rail: three terrain frames, then an animal shelf with two reserved frames, then End. The shelf consumes remaining board height, exposes additional animals on taller screens and scrolls vertically only when needed. The board regains its full vertical area. Finished controls retain their centered layout.
+- Taken market slots keep their original positions and colored card backs, softly faded with the same saturation/opacity treatment as completed owned faces. Both use the shared top ribbon component; “เลือกแล้ว” replaces the former middle label. No grayscale filter remains on taken cards.
+- Added headroom/padding inside the market's horizontal scroller so plus buttons visibly extend beyond card tops without clipping, including mobile screens. Vertical touch swipes scroll the animal rail; sideways gestures drag an animal onto the garden with the existing preview/confirmation flow.
+- Verified build/TypeScript, presentation unit and ten browser scenarios. Coverage includes mouse/touch dragging, preserved Solo positions and reload, colored top-ribbon placeholders, overhanging plus hit targets, five animals fitting a tall rail and scrolling on a short rail, End positioning, finished controls and lightweight mode. Docker rebuilt preserving existing data/auth; actual5555 checked at six viewport sizes and shared controller, with the temporary room closed unfinished. No physical-device or deployment verification claimed.
+
+### 2026-10-20 — Quiet confirmation and themed startup
+- Animal drops now show the same green circular check used for terrain, with opacity.58 (.9 on hover/focus), instead of a large animal/pin overlay. No animal is added until confirmation; mouse/touch preview and authoritative legal-habitat commands are unchanged.
+- Lazy game-module loading and authenticated reconnect loading use a fixed centered sprout icon, subtle rotating ring and Thai status. Reduced motion disables the ring rotation.
+- Harmonies room links, lobby/share QR, copied links and recent-room links use `/harmonies/play/<code>` or `/harmonies/display/<code>`. The router accepts game-qualified room surfaces and normalizes them to the original internal role/code. Legacy URLs still work and resume with identical authentication/pending-command keys. An authorized server snapshot determines the actual game and canonical URL even if the supplied game prefix is wrong.
+- The previous brown flash came from the platform/base theme before the room snapshot and lazy Harmonies CSS arrived. An inline head bootstrap now paints/preloads the existing river background before the main module executes, based on the explicit Harmonies path or a public per-room theme hint for legacy links. The hint contains no credentials, private state or permissions. Normal lobby/platform/invalid-room rendering clears the startup theme.
+- Verified build, eleven distinct browser scenarios (including all-game owner creation and profile flow). The startup test holds the main module to inspect the pre-app background, delays the game module to inspect the centered loader, checks legacy/new/mismatched-prefix resume identity/state, public display and invalid-room recovery. Docker5555 is rebuilt and independently checked with the same delayed-module startup and legacy/new paths, preserving data/auth and closing the unfinished QA room. No deployment requested.
+
+### 2026-10-20 — Animal-on-token confirmation and five-frame rail
+- Animal placement previews now render the actual figurine upright on a green checked terrain-sized cap. The green cap shares the real stack plane; the figurine uses board-model sizing rather than a large map pin. Both cap and figurine confirm through the same server-authorized placement action. The preview alone leaves the game state unchanged.
+- The right rail fits three terrain frames and two animal frames contiguously, sizing all five from board viewport height. Terrain discs and animal art grow with their frames. Animal models fit within the frames, avoiding overlaps between adjacent slots. Extra animals extend into the remaining bottom area behind a floating End control; their exposed edges/top indicate overflow. Vertical scrolling, with bottom padding, brings the last animal fully above End without moving the control.
+- Validation: build, presentation unit and eleven browser scenarios passed, including mouse drag/model click, touch drag/cap tap, contiguous hand frames, green preview before mutation, matching terrain/animal frame sizes, three-plus animals visible behind End, scrolling the final animal clear of End, layout sizes, startup, finished/restart and lightweight effects. Docker5555 rebuilt with existing data/auth preserved and verified at six viewport sizes plus interactive shared controller; fresh QA room closed unfinished. No deployment requested.
+
+### 2026-10-20 — Larger confirmation model, expanded board and optional animals
+- Awaiting-confirmation figurines render35% larger in both dimensions than placed models, without the old image max-height constraint. The cap retains its original terrain color, with a strong static green halo and a small check badge. Clicking the cap/model commits; a separate circular cancel control clears the local preview without a server action.
+- The board expands partially behind the foreground right rail. The rail begins six pixels below the drafting panel on portrait screens, with six-pixel gaps between frames. Animal figures project slightly above their frames with enough shelf headroom. End returns to52px on phones/64px on wide layouts and can overlap the scrollable animal shelf; bottom scroll padding keeps the last animal reachable.
+- Official rules, current English PDF pp.4/6: all three selected terrain tokens are mandatory; animal-cube placement is optional. Existing server legality already implements this correctly. End remains usable after terrain is complete even if valid animal habitats remain. Canceling a preview re-enables End. Once terrain is complete and there are no available animals, empty placement frames disappear, leaving End. Optional card acquisition remains available through the market.
+- Verified build, presentation unit and eleven browser scenarios. The extended finished-flow test preserves a valid animal habitat while legally placing all terrain, cancels its preview and ends without placing the animal; server progress stays unchanged. Other checks cover original terrain colors/halo, larger preview dimensions, mouse/touch drag and confirmation, enlarged terrain bounds, rail scrolling/spacing, startup and lightweight effects. Docker5555 rebuilt preserving data/auth and checked at six sizes plus shared controller; unfinished QA room closed. No push/deployment requested.
+
+### 2026-10-20 — Measured board clearance and bounded controls
+- Added `harmonies-board-fit.ts`: measures projected hex/cap rectangles against the actual control frame, recenters the usable garden area and reduces its width when necessary. Horizontal intrusion is limited to10% of one frame width, with a one-pixel margin; viewport top/left/bottom stay clear too. Fitting runs on render/viewport resize, with observer/frame cleanup when leaving the game; it does not run an animation loop or alter rules/state.
+- Terrain/animal frames now cap at64px, preserving the smaller responsive size on short phones. End is horizontally centered on the same rail. Both market and owned card dimensions decrease10% together, including wide controllers; small-card aspect ratios and horizontal overflow behavior are preserved.
+- Available animal slots now use a wrapper with sibling choose/cancel buttons. The cancel cross appears only in the selected animal's slot during a pending habitat preview, uses a circle and never starts a source drag. Terrain preview cancellation remains beside the board. Existing optional-animal End behavior is unchanged.
+- Verified build/presentation unit and eleven browser scenarios. Layout checks measure the10% clearance,64px size cap, End alignment and exact90% wide card height across landscape/portrait320–1600px, both cameras, mouse/touch drag, slot-local cancel and confirmation. Docker5555 rebuilt with data/auth preserved and independently checked at six sizes plus shared controller; unfinished QA room closed. No physical-device or deployment claim.
+
+### Tap placement and drafting order — 2026-10-20
+
+- Removed terrain/animal drag bindings and the obsolete drag helper. Tap a hand token or available animal, tap a legal board cell, then confirm; swipes do not preview or commit placements. Animal controls retain native vertical scrolling and figurine images remain non-draggable.
+- Market cards precede supply groups in DOM and visual order. Existing panel/board heights stay unchanged. Supply groups retain44px height with2px vertical padding; terrain discs grow within each group's available width while preserving their proportions.
+- Garden/owned headings align left on phone and landscape layouts; owned-heading bottom padding is0. Solo exchange controls use white faces and green icons. End uses a cream/gold raised face with green lettering and a muted disabled treatment. Animal hand frames share the terrain frame's translucent cream background.
+- Verification covers mouse/touch swipes producing no placement, tap preview/cancel/confirmation, actual server mutation only on confirmation, Solo placeholder persistence, matching frame colors, heading alignment, overflow/scrolling and unchanged finished/optional-animal behavior. Local Docker5555 rebuild preserves data/auth. No deployment is included.
+
+### Compact card spacing and placement confirmation — 2026-10-20
+
+- Both card rails grow5% relative to their previous sizes. Market faces begin4px below the heading, retaining internal scroller headroom for the overhanging plus controls. Removed decorative icons from both card headings.
+- Only Solo supply discs are capped at36px, with a2px cylinder edge, to stay inside their40px buttons. Competitive five-group sizing is unchanged. Solo exchange controls gain a thin green border.
+- Pending terrain uses its original terrain paint, the same green halo as an animal preview, and a centered check. Terrain and animal cancellation each appear in the center of the selected hand frame; both are sibling buttons, never nested controls. Preview/cancel remains local; confirmation alone sends the server action.
+- Enabled End has a leaf-green face and soft static glow. On narrow/portrait screens it extends into the owned-card heading area, stopping before the card face; board stacking keeps the complete circular control visible and clickable. Disabled End stays muted. No animation loop was added.
+- Board fitting starts3.5% larger, then clamps measured terrain bounds to the existing10% rail overlap limit and viewport bounds. Detail popups retain names in their header and omit duplicate card-face names while preserving special-card aura.
+- Verified build/typecheck, presentation unit and eleven browser checks, including centered cancels, terrain preview/cancel/confirm, popup names,5% card sizes, heading gap, Solo containment and End hit testing over the owned panel. Rebuilt Docker5555 with data/auth preserved and checked six sizes plus the interactive shared controller. Touch is Chromium emulation. No push or deployment.
+
+### Printed token faces and board-sized hand pieces — 2026-10-20
+
+- Generated a six-motif transparent sprite atlas with the built-in image_gen tool: water lines, leaves, mountain chips, flowers, village houses and growth rings. Selected source and six96px alpha-preserving warm-ink derivatives live under `public/art/harmonies/tokens/printed-v1/`; the selected prompt and paths are in `token-print-prompts.json`. `scripts/build-harmonies-token-prints.mjs` rebuilds the cropped/padded/tinted derivatives. Runtime assets total about20KB; the original atlas is not requested by the UI.
+- Native SVG wrappers embed the PNG prints in board caps, hand/supply discs, help/popups and card miniatures, including flat lightweight diagrams. Terrain colors, accessible names and all server state remain unchanged.
+- Hand and animal frames now size from the median projected board-cap diameter, with12px extra room for the painted cylinder edge and padding. Hand faces use that diameter and the measured board-face aspect ratio. Empty gardens derive the face size from projected cell geometry. The fitter settles board/control widths together, retains the10% maximum board intrusion, and caches hand measurements per viewport using a WeakMap. No continuous animation or layout loop.
+- Board, hand and supply now use the same8px painted edge and38% darkened terrain shadow color. Supply faces cap at34px and shift upward to fit the full thick edge within the existing40px button; Solo and competitive row heights are unchanged. Animal shelves scroll when larger matched frames need additional space.
+- Validation: build/typecheck, presentation unit and eleven browser checks passed. Checks compare actual hand/board widths, matching8px edges, generated print references, supply face-plus-shadow containment, both cameras, mouse/touch preview/cancel/confirm, responsive layout, scroll access, lightweight effects, startup and finished/restart. Alpha/dimension inspection confirmed all six96px PNGs retain transparent backgrounds. Docker5555 rebuilt preserving data/auth and verified at six viewport sizes plus interactive shared-controller mode; temporary room closed unfinished. No physical-device or deployment claim.
+
+### Animal selection feedback and owned-heading inset — 2026-10-20
+
+- Selected available-animal frames now share the terrain hand's cyan border, pale mint face, outline and soft cyan glow. The existing pressed state remains the interaction source.
+- Legal animal destinations gain an upward cyan drop-shadow on the hex surface. The glow is static, scoped to destination cells, and smaller in lightweight mode; previews, cancellation and server legality are unchanged.
+- The existing resize fitter aligns each owned heading with its first card's unscrolled position, accounting for centered short rails, scrolling full rails and wide-layout padding. Collection resize observations share the same scheduled frame and cleanup as board fitting.
+- Validated build/typecheck, browser mouse/touch selection and responsive heading alignment, finished/inspection/restart and lightweight mode. Rebuilt Docker5555 with existing data/auth preserved; checked six viewport sizes and shared-controller mode, including one-card heading alignment. No deployment.
+
+### Larger garden and bottom-anchored cards — 2026-10-20
+
+- Printed terrain motifs use82% of their cap/disc face, reduced from90%; flat lightweight diagrams also use smaller22px prints.
+- The fitted board gains an additional5% scale. The full viewport bounds still constrain it, but the foreground command rail may overlap the enlarged garden; this supersedes the previous10% intrusion restriction for the final enlarged board. Native controls retain their foreground layer and hit areas.
+- Terrain/animal frame width now matches the median projected board token diameter, replacing the previous12px frame allowance. Hand discs fit inside that frame with room for their unchanged8px edge, including top-camera projection. Animal overflow remains scrollable.
+- Owned cards anchor at the bottom with4px spacing. Wide collections use content height instead of stretching a large empty panel through the remaining row. Portrait gardens keep the remaining middle row. End returns to the bottom of its board rail and no longer extends into or dictates the owned-card section.
+- Verification covers viewport containment after orientation settling, frame/board face size agreement, header/card alignment, bottom anchoring, End independence, preview/cancel/confirmation and finished controls. Docker rebuild preserves existing data/auth. No deployment.
+- Final checks passed: presentation unit and eleven browser scenarios. Docker5555 verified six viewport sizes plus shared controller after waiting for resize rendering to settle; no body scroll. Existing data/auth retained and unfinished QA rooms closed.
+
+### Hex auroras, model halos and content-sized animal rail — 2026-10-20
+
+- Legal animal destinations render three upright translucent cyan/mint/violet curtains emerging from the hex. CSS transform/opacity motion is enabled specifically for these curtains, overriding the older global motion reset only when OS reduced motion and lightweight mode are both off. Curtains never intercept clicks; those modes retain static light.
+- Board/shelf models and ordinary/special card pattern figurines have a white silhouette halo. Nature's Spirits retain colored aura, Whispers retain their tint, and confirmation retains green light. Lightweight SVG model thumbnails also have a small white shadow; lightweight normal models use a single2px white shadow.
+- End participates in the placement rail's vertical flow immediately after animal slots. The animal shelf keeps its natural height when everything fits, and flexes/scrolls only when End reaches the lower boundary. On portrait/narrow screens that boundary stops before the actual owned card faces. This supersedes the earlier always-expanded shelf and floating End overlay.
+- Animal scrollports reserve14px horizontal padding and12px vertical padding so selected cyan outlines and glows are fully visible. Terrain/animal highlights share their border, face, outline and glow. Margin compensation retains6px visible gaps between frames and End.
+- Drafting-panel bottom padding accounts for the supply row's own2px inset, matching the visible side spacing. The root row follows this content height instead of leaving extra empty panel space; final-round headers retain their extra height.
+- Passed build/typecheck, presentation unit and eleven browser scenarios, including normal-height versus constrained-height rail scrolling, all five animals accessible, selected-frame glow room, white model halos in detail view, animated/static aurora modes, and preview/cancel/confirmation. Docker5555 rebuilt preserving data/auth and checked six sizes plus shared controller with no body scroll; temporary room closed unfinished. No physical-device or deployment claim.
+
+### Printed pending terrain and larger End — 2026-10-20
+
+- Pending terrain keeps its generated print, original terrain paint,8px darkened wooden edge and a soft glow tinted to that terrain. The green confirmation check is a separate pale-backed badge with white/mint glow so it does not replace the print. Its protruding edge remains clickable/tappable through the confirmation button. Removed the old dashed ghost outline while that preview is active.
+- Terrain print coverage is74% of the face, reduced from82%; flat lightweight diagram prints are20px, reduced from22px.
+- End grows to64px on compact screens and76px on wide landscape screens, with larger text. Its existing natural rail flow and conditional shelf scrolling remain.
+- Picked supply groups use an opaque green fill with a1px darker green border, matching ordinary group border thickness.
+- Validation covers generated print/colored-edge presence, green check/glow, confirmation by mouse and touch at the protruding badge edge, picked-group border, responsive End sizing, natural-height versus constrained-height rails, and finished/inspection/restart. Build/typecheck passed. Docker data/auth retained; no deployment.
+- Final verification passed: seven relevant browser scenarios, including screen-coordinate mouse/touch hits on the protruding HTML check badge. Docker5555 rebuilt with data/auth preserved and checked at six sizes plus shared controller; larger End remains fully inside the browser viewport. Temporary QA rooms closed unfinished.
+
+### Precise animal destinations and shared selection frames — 2026-10-20
+
+- Removed legal-destination aurora markup and light filters. Legal animal cells use a crisp cyan hex edge with a dark outer stroke, keeping each destination unambiguous. Model halos and special-animal effects remain.
+- Terrain and animal source buttons share one selected-style rule: cyan border, dark-blue inset, blue outer ring and dark outline. There is no pale/white ring unique to animals.
+- Pending terrain confirmation uses a green badge with a white check; its existing soft glow and protruding-edge hit area remain. The round turn action reads “จบ”.
+
+### Completed details and consistent supply depth — 2026-10-20
+
+- Full-card details now read completion from the same owned-card progress as the thumbnail. A completed face shares saturation .8 / opacity .65 with the owned card, while the green “ครบแล้ว” ribbon stays clear above it. Incomplete/unowned cards remain undimmed; the popup title remains the only animal-name label.
+- The round turn action now reads “จบตา”. Supply-confirmation tokens retain enlarged faces/overlap but use the source group's exact 8px colored edge and shade, rather than scaling an outdated 4px shadow.
+
+### Solo lobby follows roster — 2026-10-20
+
+- When a second player joins, clear the host's Solo draft and disable the Solo checkbox while more than one player remains in the roster. Spectators do not count; disconnected players retain their seat, so reconnect does not re-enable Solo. Nature’s Spirits, Whispers and board-side selections remain untouched. Server start validation stays authoritative.
+
+### Simultaneous Spirit setup and persistent placement trays — 2026-10-20
+
+- Each player sees their private two-card Spirit offer at game start and may choose without waiting for the turn owner. Confirmations remain open when another player's independent choice arrives. Once selected, a waiting panel shows the remaining player count; normal turns unlock when everyone chooses.
+- The placement rail no longer disappears when all three terrain pieces have been placed. Three empty terrain frames and the animal shelf remain, with “จบตา” enabled when legal. Pending placement confirmation still must be confirmed/cancelled; animal placement remains optional.
+
+### Centered garden load failure — 2026-10-20
+
+- Failed game-module downloads use the full-viewport garden status layout: a stationary leaf/alert icon, “ยังเปิดสวนไม่ได้”, short recovery copy, and a round-ended “ลองอีกครั้ง” button. All content is centered over the river theme and the status is announced as an alert.
+- Retry still reloads the existing authenticated room; it does not create a new player or reset game state. Keyboard focus remains visible and the failure icon does not spin.
+
+### Full-size glowing finished actions — 2026-10-20
+
+- Summary and restart buttons now share the enabled End button's green radial face, cream rim, raised edge and soft green glow. Both match End's 64px diameter on compact screens and 76px on wide landscape; their existing icons grow to 30/36px.
+- Finished board controls render above the owned garden panel and allow overflow, preserving the centered row and viewport height. Existing summary popup and restart confirmation behavior remain.
+
+### Center the finished hex field — 2026-10-20
+
+- The board fitter now observes finished viewports as well. Finished boards center the projected left/right tile edges within their full viewport, without reserving room for the former placement rail. This corrects the hex field's offset inside its square CSS container across camera and viewport changes.
+- Playing-board fitting, finished action placement, board inspection and page height remain unchanged.
+
+### T-rex promo option and original assets — 2026-10-21
+
+- Added an opt-in promo checkbox beside the existing lobby modules. It adds one T-rex to the Spirit pool and includes Nature’s Spirits, preserving simultaneous private setup. The label explains random inclusion rather than promising T-rex every game.
+- Newly generated feathered gold/teal T-rex art has full/small/lite card variants and a transparent160×184 figurine. Existing card geometry, completion UI, paired-animal layout and gold aura are reused. The board/tray has a subtle foot-anchored breathing idle, disabled by lightweight mode or OS Reduce Motion.
+- Scoring/help include the exact habitat and connected-animal bonus example. The game menu names the active promo. See trex-promo.md and trex-art-jobs.json for source rules and asset provenance.
+
+### Reviewed expansion UI (2026-10-21)
+
+The host may select A/B/C/D and independently enable the reviewed Sanctuary (4/10) and Pulse (1/10) subsets. The Sanctuary market button opens a native dialog with the visible pile top and two side offers; owned wave-top landscape faces occupy the existing garden rail, preserving mobile/desktop grid placement. Four-layer token diagrams are SVG compositions of the selected mode's terrain assets. Board maps and hit regions share axial coordinates; dry D cells have a distinct cracked-ground pattern. Completed Sanctuary stacks can carry several final Animal residents and expose the list on inspection. Results include Sanctuary totals; C/D Solo results show the numerical score without inventing a Sun chart.
+
+### Board figures, shared popup shell and finished overlay — 2026-10-22
+
+Board figures are about one third larger (mobile 30–40px wide; desktop 38–60px). Ordinary Animals/Spirits and co-located Whispers retain identical image boxes and share a cap baseline; pairing shifts them left/right with permitted overlap, never scales either down. Standalone figures remain centered. Previews use the same anchoring logic. Existing models and game rules are unchanged.
+
+Settings uses a gear inside the same circular toolbar treatment as help/scoring. The button no longer inherits obsolete `details`/`summary` styling. Help, scoring, settings and rankings share `harmonies-dialog.css`: green sticky header, ivory body, gold border, matching close button, width, scroll limits and backdrop. Ranking mode selection/data loading remain unchanged; its shell is also available on the entry page.
+
+The end-of-game message remains an absolute overlay within each board viewport. The finished fitter ignores its dimensions, maximizes the board in the available viewport and reserves only the fixed terrain-stack depth used during play. Enlarging or wrapping the message cannot shrink the board. Animals remain opaque after game end.
+
+### In-game card library — 2026-10-22
+
+A circular card-library button sits immediately right of help. Its shared-shell dialog includes all 54 supported Animal cards independently of the room's selected modules: 33 ordinary Animals (including reviewed Pulse tiger), ten Whispers, ten Spirits and one T-rex. Sanctuaries and unverified expansion cards are not Animal entries. Each category keeps exactly three columns at phone/tablet/desktop widths. Sorting uses the actual cube destination terrain (the same `cardRailTerrain` as the right rail): field, rock, leaf, wood, water, building, then Thai name.
+
+Thumbnails and full cards reuse the live `cardFace` renderer in the device's current 2D/3D style. Selecting a thumbnail replaces the dialog body with a viewport-fitted full card; the in-dialog Back button restores the original grid, scroll and focused thumbnail. Escape/close/outside click dismiss the library and return focus to its toolbar trigger. It is entirely read-only and never consumes a game action or reveals deck order/draft membership.
+
+### Result captions and Sanctuary inspection (2026-10-22)
+
+Result model captions and player names remain a single line with ellipsis; full text is retained in titles. Default score illustrations include the four-layer Sanctuary model and Whisper crystal. Completed Sanctuaries and their resident animal types also appear in the final garden models. Owned Sanctuary thumbnails omit their title and open a dedicated large-card info dialog with the existing placement/inspection actions. The shared Sanctuary market trigger is centered above the market. All cards whose terrain rail is field/yellow use grey score numerals, across both sizes and art modes.
+
+### Sanctuary badge and finished-board visibility (2026-10-22)
+
+Generated a new transparent teal-and-gold Sanctuary medallion using the built-in image tool. Original: `assets/source/harmonies/badges-v1/sanctuary.png`; runtime: `public/art/harmonies/badges-v1/sanctuary.webp`; exact prompt/provenance: `sanctuary-badge-v1.json`. Every Sanctuary face displays it at the upper left. Completed Sanctuary faces show the animal-style completion ribbon with `ครบแล้ว · 1 แห่ง` (each distinct tile represents one site).
+
+Animals and Whispers sharing a cap retain equal sizes and their existing left/right anchors, with the animal's depth in front of the Whisper. This also applies to placement previews. The finished message floats over the terrain supply, while results/restart coins float within the owned-card collection. Neither overlay reserves layout height or shrinks the board.
+
+### Full card library and legendary score frames (2026-10-22)
+
+The menu and dialog are now named `คลังการ์ด`. The library includes the four verified Sanctuary tiles in a fifth category, for 58 supported cards total, retaining three columns and large/back navigation. Sanctuaries are read-only references in this popup; no market or placement actions are exposed. Unverified expansion tiles remain excluded.
+
+Legendary Spirits (excluding T-rex) now have a shared rainbow rail with vine and sparkle motifs in both art modes and sizes. Scoring panels still use the terrain-based fill. T-rex keeps its gold rail and orange scoring fill. Spirit and T-rex panels use a curved ornamental silhouette, inset border accents and a decorative foot, with an expanded footer below the final score. Ordinary animal and Whisper score frames remain unchanged.
+
+### Top camera and wide-board controls (2026-10-22)
+
+Entering or re-entering a game, reloading, switching rooms and resetting the camera use the top view. Tilt remains an explicit setting. Boards whose mat is wider than tall (C/D) place their terrain hand and animal choices in a horizontal row underneath the mat. Slots retain fixed footprints; animal choices scroll horizontally if necessary. The fitter uses the full viewport width and reserves only the bottom control strip and normal stack headroom. A/B retain the right-hand controls. Finished-game controls retain their owned-card placement.
+
+Illustrated board models use a white outline shadow; Spirits and T-rex instead use a multicolored rainbow shadow. The effect is scoped to board models, preserving sculpted-mode rendering and tray/card artwork. T-rex score numerals are white in both sizes/modes. Fixed finished-game frames clip off-screen layout overflow from the top-view CSS 3D canvas without changing the board scale.
+
+### Boundary overlays and muted green market actions (2026-10-22)
+
+The Sanctuary market tab sits 6px higher to leave a visible gap above the card tops without changing board size. Claim (+) uses muted forest green with cream details; Solo swap uses pale sage with darker green details. Disabled states remain distinct.
+
+After finishing, the message floats at the centered boundary between the drafting panel and the board viewport. Summary/restart coins float at the midpoint between the mat's bottom and the owned collection's top. On desktop where cards sit beside the board, the label stays inside the board's upper edge and coins sit above the owned cards. These positions follow resize and camera fitting without reserving layout height. The finished drafting panel allows the label to cross its boundary without clipping.
+
+### Compact statistics, first tally and settings (2026-10-22)
+
+Statistics show all players in a compact five-column comparison (player, total, terrain, animals, special categories combined). Details below show one selected player at a time; avatar buttons switch players without changing game state. All individual Spirit/Whisper/Sanctuary totals remain visible in that player's category scores. Garden models occupy one centered row, allowing overlap; captions stay on one line. Category numerals overlay their pieces with a diffuse white text shadow, category names sit below, and hex bases are hidden. Expanded per-card text remains available on demand.
+
+The initial tally uses a single model row with per-type points and compact terrain totals, retaining reveal sequencing, skip/winner flow and timer cleanup. Intro/winner stages use the same compact dialog. Verified six model types and nine category totals without vertical scrolling at 320×667 and 390×844; comparison tables fit horizontally.
+
+Settings groups have internal padding. All three camera buttons fill equal grid cells. Player tabs are omitted for Solo; multiplayer tabs include avatars in two equal columns. Public room code, join link, QR, deck count, expansion modes and board identity are centered inside the collapsed `รายละเอียดห้อง` section. Display-role controls, personal effects/art preferences and access checks remain unchanged.
+
+### Winner summary order (2026-10-22)
+
+The skipped-to/final winner spotlight puts total score and Solo suns together above the model row. Garden models remain centered on a single overlapping row with compact captions. The full-width comparison-table action is the final element, below all models. Co-winner navigation and official Solo sun values remain unchanged. Verified six model types fit without scrolling at 320×667, 390×844 and desktop sizes.
+
+### Full-art Sanctuary cards and low temple miniatures (2026-10-22)
+
+All four verified Sanctuary types use newly generated temple artwork, with separate full-size/small exports and transparent miniature sprites. Original assets remain available. Source images and generation prompts/exports are recorded in `sanctuaries-v2-jobs.json`. Cards use normal rounded rectangular corners, an upper-left special badge, a patterned temple rail and a centered lower token pattern. Names and instructions are outside the card; detail dialogs and the library show descriptions below the artwork.
+
+The central Sanctuary picker shows three garden-sized small cards in one row. Each preview opens its full-size detail; the separate claim action reads `เลือก`. The central trigger has equal top/bottom spacing. Completed Sanctuaries hide their four token sprites visually while retaining geometry anchors, then display the corresponding low miniature. Resident animals anchor to the temple roof; game state, token costs and scoring remain unchanged.
+
+Animal detail models use the same white/rainbow shadow treatment as the board. Earned scores on yellow-rail cards are white over green score sockets, while unearned yellow-rail values retain gray text.
+
+### Sanctuary stack restoration and wide-board trays (2026-10-22)
+
+Completed Sanctuaries on the board now retain the visible four-layer token stack; resident animals anchor to its top cap. Generated temple miniatures remain available for summary displays. Sanctuary card patterns use the same flat-top hex geometry, side depth, token scale and layer spacing as animal cards. The detail claim action is centered, and the market's construction help is always visible rather than collapsed.
+
+Bottom token/animal slots on wide C/D boards are enlarged to 44–60px on compact screens and 64–84px on desktop. Animal trays keep horizontal overflow and horizontal touch scrolling, including the individual animal buttons. Regular-board rails are unchanged.
+
+### Wide-mat height and Sanctuary score panels (2026-10-22)
+
+Active wide C/D mats fill the available height between the drafting panel and bottom trays with only a small gap. Ground cell heights follow the longer mat; terrain and animal billboards retain their original proportions and stacking anchors. Regular boards and completed-board fitting keep their existing behavior.
+
+Every Sanctuary card now has an ornamental score panel showing its two qualifying terrain icons and `3 ต่อช่องติดกัน`. Owned cards additionally show the authoritative current total (`รวม …`); completed cards use a green panel. The same panel appears in small market/garden/library cards and large details. The full wording remains available below the large image and in the panel's accessible label. Scoring rules and state remain unchanged.
+
+### Clear board surface, aligned Spirit draft and tilted default (2026-10-22)
+
+Removed the board's ambient radial haze and raised the drafting panel above the board canvas so wide-board geometry cannot intercept token-group controls. Regular boards center their visible mat vertically in the available board region rather than shifting downward to reserve asymmetric headroom.
+
+New game entry, room changes and camera reset use the tilted camera again. Overhead remains an explicit setting. The Spirit draft has no separate model below the card in either art mode. Card names appear below the image, followed by their descriptions; shared content rows keep `เลือก` buttons aligned even when one name wraps. Transparent, borderless portrait wrappers remove the green strip above 2D draft images. Sanctuary completion ribbons now read `ครบแล้ว(1)`.
+
+### Illustrated first paint and crisp picker textures (2026-10-22)
+
+The early HTML room theme now defaults to the same 2D water background as the running game and preloads that image. A saved explicit 3D preference selects/preloads the forest instead. Base Harmonies CSS also defaults to 2D; only explicit `sculpted` mode enables the forest. Preparing the garden no longer clears its early art preference while waiting for the lazy module.
+
+Picker token images use lossless precolored 256×224 PNG exports from the same color-transferred sources as the SVG card tokens. Pixel colors, alpha and geometry are identical to the card textures; filters no longer rasterize at small picker sizes. Cards and board patterns retain their existing SVG assets, and 3D retains the original PNGs. Removed duplicate squashing and cylinder borders/shadows on image-based selection tokens while preserving hand centering.
+
+### ORIGINAL image mode and board explanations (2026-10-22)
+
+Settings replace the 3D checkbox with three equal, active-state buttons: `2D`, `3D`, `ORIGINAL`. The preference remains local to the device and persists across reloads; it does not change room state, scoring or other players' views. The early loading shell recognizes ORIGINAL and uses the illustrated background.
+
+ORIGINAL draws 43 live card fronts from user-provided PDFs/photo: 32 ordinary animals, ten Spirits and T-rex. One native-resolution PNG is used at every size; printed illustrations, scoring and token patterns are not regenerated or overlaid with new patterns/score boxes. The renderer removes its usual art gradient and preserves the original portrait proportions. Whispers, the reviewed Pulse tiger and Sanctuaries retain their 2D art where no original is supplied. Their rules/decks remain unchanged.
+
+The manifest `original-art-manifest.json` records source hashes, image references, crop rectangles, orientation transforms, native dimensions and output paths. `scripts/extract-harmonies-original.py` recreates the exports with PyMuPDF. The Spirit reference PDF places embedded JPEGs with a negative Y scale; extraction flips image rows to match the displayed PDF, preserving right-side scores and readable digits. The Melodies PDF is used as an image source, without enabling its optional campaign rules.
+
+Source quality is retained rather than invented: 30 ordinary faces are approximately 231×400px crops, two matching ordinary faces have 823×1418px standalone images, ten Spirits are 322×555px, and the supplied T-rex photograph is 970×1680px. Large display cannot recover detail absent from these source images; no AI repainting or upscaling is claimed.
+
+Room details now explain the selected A/B/C/D board. D explicitly allows normal token placement and habitats on brown hatched dry cells, explains adjacent-water irrigation and end-game 2/4/9 tree / 6-point field conditions. C explains the central hole and 8-point buildings requiring four distinct adjacent top colors. A explains river scoring; B explains 5-point islands, including connected empty land. C/D wording was checked against the publisher's Crescendo rules, printed pages 8–9.
+
+### ORIGINAL redrawn card set and cube board markers (2026-10-22)
+
+Replaced the 43 active Original card files with new reference-based imagegen artwork. Each scene follows the supplied card's animals, poses, habitat and palette. Scores, native-style six-terrain rails, token motifs, hex bases and cube destinations are composed deterministically from the catalog into one lossless 900×1550 WebP per card. Small and large cards use that same file. Score numbers and habitat geometry are never taken from AI-generated lettering. Native PDF/photo extractions remain archived as references; 2D/3D sets and unsupported-original 2D fallbacks are preserved.
+
+`original-redrawn-v1-jobs.json` records all 43 built-in image_gen prompts, reference paths, generated-source paths/dimensions, output hashes, scores and patterns. Rebuild vector tokens with `scripts/build-harmonies-original-tokens.mjs`, bake with `npx tsx scripts/build-harmonies-original-redrawn.ts`, and activate only the complete set with `scripts/activate-harmonies-original-redrawn.mjs`. PDF extraction now updates a separate reference map, avoiding accidental replacement of the generated set.
+
+Original board cells, placement previews and animal trays render cubes: gold ordinary animals, white Spirits/T-rex, purple Whispers. Shared occupants retain the existing side-by-side and front/back arrangement. The fitter anchors each cube's actual SVG foot (64/70 of its image height) to the top cap, including three-layer stacks and both cameras. Results still use animal models; other art modes retain their models. Rules, legal actions, server state and scoring are unchanged.
+
+### Individual statistics cells and Sanctuary visibility (2026-10-22)
+
+The full statistics sheet removes the decorative animal row and aggregate animal/Spirit/Whisper cells. A shared four-column grid shows five landscape scores followed by each owned Animal, Spirit, Whisper and Sanctuary with its actual server-calculated points, including zero-point cards. Token images share a bottom baseline in fixed-height frames; names sit beneath the pieces and scores retain the white reading glow. The grid scrolls internally only when its rows exceed the available viewport allowance. The comparison table retains every player and the compact player buttons switch a single visible detail panel. Winner/tally stages retain their own existing presentation.
+
+Owned Sanctuaries appear between unfinished and finished Animal cards. Sanctuary selection uses a brighter jade fill, cream text, gold edge and distinct disabled appearance; its market states the one-tile-per-turn limit. Confirmed the existing server rule independently allows one Animal and one Sanctuary claim per turn; no rule change was necessary. Serialization/reconnect preserves the consumed allowance, and a successful end-turn resets it.
