@@ -30,7 +30,7 @@ RoomService บัฟเฟอร์ messages ขณะทำ transition; transa
 
 ## Lifecycle
 
-- ทุกสถานะ (lobby/playing/settling/results/finished) ไม่มีการเข้าร่วมจริงหรือคำสั่งที่สำเร็จ **เกิน 10 ชั่วโมง**: ลบ room record/presence และปิด sockets; recent game history ยังอยู่
+- ทุกสถานะ (lobby/playing/settling/results/finished) ไม่มีการเข้าร่วมจริงหรือคำสั่งที่สำเร็จ **เกิน 30 วันสำหรับ Harmonies หรือ 10 ชั่วโมงสำหรับเกมอื่น**: ลบ room record/presence และปิด sockets; recent game history ยังอยู่
 - การ watch/resume/sync/heartbeat และ retry ID เดิมไม่ต่ออายุ จึงไม่เก็บห้องตลอดไปจาก TV ค้างหรือ Vercel reconnect. ไม่มีการข้ามตาผู้เล่นที่หลุด
 - ตรวจล้างเมื่อเปิด server/รับรายการ/refresh shared state และทุกนาทีที่ process ทำงาน; Vercel ที่ scale to zero จะล้างเมื่อมี request ถัดไป ไม่รับประกัน cron ลบตรงวินาทีที่ครบเวลา
 - ผู้เล่นออกถาวรได้เฉพาะ lobby; เมื่อเล่นแล้วการออกจากหน้าหรือ logout เก็บที่นั่งเดิม

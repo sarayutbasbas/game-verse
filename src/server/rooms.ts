@@ -56,6 +56,7 @@ import { metadata } from "../shared/catalog.js";
 import type { PlatformStore } from "./store.js";
 import type { Principal } from "./auth.js";
 export const ROOM_IDLE_MS = 10 * 60 * 60 * 1000;
+export const HARMONIES_ROOM_IDLE_MS = 30 * 24 * 60 * 60 * 1000;
 type Ack = Extract<ServerMessage, { type: "ack" }>;
 interface Session {
   userId?: string;
@@ -1458,14 +1459,17 @@ export class RoomService {
     this.expireRooms(now);
   }
   private expireRooms(now: number) {
-    for (const [code, room] of this.rooms) if (now - room.updated > ROOM_IDLE_MS) {
+    for (const [code, room] of this.rooms) {
+      const idleMs = room.gameId === "harmonies" ? HARMONIES_ROOM_IDLE_MS : ROOM_IDLE_MS;
+      if (now - room.updated <= idleMs) continue;
       this.store?.db.prepare("DELETE FROM gv_rooms WHERE code=?").run(code);
       if (this.store?.distributed) for (const session of room.sessions)
         this.store.db.prepare("DELETE FROM gv_presence WHERE token=?").run(session.token);
       for (const ws of room.sockets.keys()) {
         this.attached.delete(ws);
         this.connections.delete(ws);
-        this.send(ws, { type: "error", error: "ห้องหมดอายุหลังไม่มีการใช้งานเกิน 10 ชั่วโมง กรุณาสร้างห้องใหม่" });
+        const duration = room.gameId === "harmonies" ? "30 วัน" : "10 ชั่วโมง";
+        this.send(ws, { type: "error", error: `ห้องหมดอายุหลังไม่มีการใช้งานเกิน ${duration} กรุณาสร้างห้องใหม่` });
         const close = () => ws.close(4004, "room expired");
         if (this.store) this.store.afterCommit(close); else close();
       }

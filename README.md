@@ -119,7 +119,7 @@ GAMEVERSE_E2E_DOCKER=1 npx playwright test --config playwright.docker.config.ts
 
 ## ขอบเขตและข้อจำกัด
 
-- ห้อง/engine state/revision/receipts เก็บ SQLite และกู้หลัง restart. ต้องรักษา `data/` และ auth secret เดิม; จำกัด 200 ห้อง. ทุกสถานะหมดอายุเมื่อไม่มีการเข้าร่วมหรือคำสั่งสำเร็จเกิน 10 ชั่วโมง; watch/resume/sync/heartbeat ไม่ต่ออายุห้อง. รายละเอียด [storage/recovery policy](docs/platform-storage.md)
+- ห้อง/engine state/revision/receipts เก็บ SQLite และกู้หลัง restart. ต้องรักษา `data/` และ auth secret เดิม; จำกัด 200 ห้อง. ทุกสถานะหมดอายุเมื่อไม่มีการเข้าร่วมหรือคำสั่งสำเร็จเกิน 30 วันสำหรับ Harmonies และ 10 ชั่วโมงสำหรับเกมอื่น; watch/resume/sync/heartbeat ไม่ต่ออายุห้อง. รายละเอียด [storage/recovery policy](docs/platform-storage.md)
 - player หลุดไม่ข้ามตา; ห้องพักไว้จนกลับมา. Owner account ปิดห้องได้และกลับจากอุปกรณ์อื่นได้ ไม่มี kick/โอน host/reset ระหว่างเล่น. Guest upgrade ใช้ verified provider hook; account ที่มีสองที่นั่งชนกันถูกปฏิเสธ ไม่รวมการ์ด/ที่นั่ง
 - เก็บ receipt คำสั่งล่าสุด 512 รายการต่อ session. Retry เดิมคืนผลเดิมก่อนตรวจ revision; คำสั่งเก่าที่พ้นหน้าต่างนี้ถูก revision ปฏิเสธ. Accepted transition synchronous/atomic ใน single process
 - จำกัด frame 8 KiB, message 40/10 วินาทีต่อ socket, connection/auth 120/นาทีต่อ IP. บน Vercel เชื่อ IP ที่ ingress ของ Vercel เขียนทับเฉพาะเมื่อ runtime ตั้ง `VERCEL=1`; dev/VM ไม่เชื่อ forwarding headers จาก client. VM ที่มี proxy อื่นต้องกำหนดนโยบายเอง

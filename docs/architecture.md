@@ -28,7 +28,7 @@ Display projection แสดง board, เงิน, leg tickets/pyramids, turn,
 
 การเชื่อมต่อหลุดไม่ reset หรือข้าม turn. WS heartbeat ทุก 30 วินาที ตรวจหลุดเงียบไม่เกินประมาณ 60 วินาที; client retry ทุก 1.5 วินาที. Bad frame/shape, payload >8 KiB, wrong turn/resources/role, unknown token และ stale revision ถูกปฏิเสธ. Origin ต้องตรง Host; bounded message/auth quotas ระบุใน README
 
-SQLite-backed 200 ห้อง; commit state/revision/receipts ก่อน ACK/broadcast และ restore หลัง restart. ทุกสถานะใช้ idle TTL10h จาก join/accepted command; automatic resume/watch/sync ไม่ต่ออายุ. ตรวจล้างทั้ง cold restore และระหว่างใช้งาน. Unsupported rules/schema/state quarantine โดยไม่ลบ. หนึ่ง coordinator instance เท่านั้น. Authentication และ lifecycle เพิ่มเติมอยู่ใน docs/platform-storage.md
+SQLite-backed 200 ห้อง; commit state/revision/receipts ก่อน ACK/broadcast และ restore หลัง restart. ทุกสถานะใช้ idle TTL 30 วันสำหรับ Harmonies และ 10 ชั่วโมงสำหรับเกมอื่น จาก join/accepted command; automatic resume/watch/sync ไม่ต่ออายุ. ตรวจล้างทั้ง cold restore และระหว่างใช้งาน. Unsupported rules/schema/state quarantine โดยไม่ลบ. หนึ่ง coordinator instance เท่านั้น. Authentication และ lifecycle เพิ่มเติมอยู่ใน docs/platform-storage.md
 
 ## Deploy direction
 
@@ -119,7 +119,7 @@ Pixies selection permits replacing a pending market pick without consuming a tur
 
 `harmonies` uses the common registry, metadata, authenticated rooms, ready lobby, memberships, receipts/revisions and durable store. Host selects one shared board side A/B during start; restart defaults to current side. Pure axial23cell engine owns120stable terrain IDs, shuffled bags/decks, five supply groups,32animal definitions, cube identities and score breakdown. Optional card/cube actions can interleave with the three mandatory terrain placements. The public projection contains current hand/boards/cards/cube progress, but never bag/deck order or credentials. Private projection adds only the authenticated seat's exact legal intents and candidate habitats.
 
-Stored state validation checks token/card conservation, legal ordered stacks, per-player terrain counts against completed/pending turns, unique card ownership, cube IDs/progress, incomplete card limits, starter/turn/end-round alignment and final scores/winners. Current turn's remaining hand and cardTaken/picked flags survive restart. CSS3D/HTML geometry only renders and selects intents; no scene position decides a rule or score. The common10hour idle expiry and single-process coordinator remain unchanged.
+Stored state validation checks token/card conservation, legal ordered stacks, per-player terrain counts against completed/pending turns, unique card ownership, cube IDs/progress, incomplete card limits, starter/turn/end-round alignment and final scores/winners. Current turn's remaining hand and cardTaken/picked flags survive restart. CSS3D/HTML geometry only renders and selects intents; no scene position decides a rule or score. Harmonies rooms retain all phases for 30 idle days since the last explicit join or accepted command, including existing stored rooms; other games retain their 10-hour policy. Watch/resume/sync/retries do not refresh this window. The same policy applies during cold restore and distributed coordination.
 
 
 ## Sky Team introductory integration
