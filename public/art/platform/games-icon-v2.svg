@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>GameVerse — ลูกเต๋า การ์ด และหมาก</title>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#edcf8b"/><stop offset="1" stop-color="#c49b50"/>
+    </linearGradient>
+  </defs>
+  <!-- The three game pieces share the silhouette of the GAMES collection mark. -->
+  <path d="M65 164 251 54q10-6 20 0l169 98q15 9 0 18l-95 56-42-24-61 36Z" fill="#143e3a" stroke="#c7a15b" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m97 161 88-53 21 12-63 67Z" fill="#f5edda"/>
+  <path d="m161 196 65-91 25 15-41 104Z" fill="#f5edda"/>
+  <path d="m230 218 55-96 111 49-97 55Z" fill="#f5edda"/>
+  <path d="M290 151c-12-20-36-4-27 13l27 35 27-35c9-17-15-33-27-13Z" fill="#e97b50"/>
+  <path d="m65 177 166 96v179L75 362q-10-6-10-18Z" fill="url(#gold)" stroke="#c7a15b" stroke-width="5" stroke-linejoin="round"/>
+  <g fill="#143e3a" transform="matrix(1 .577 0 1 0 -47)">
+    <circle cx="112" cy="218" r="18"/><circle cx="161" cy="254" r="18"/><circle cx="112" cy="290" r="18"/>
+  </g>
+  <path d="m244 275 91-53 110 63v73q0 8-8 13L261 473q-8 5-17-1Z" fill="#143e3a" stroke="#c7a15b" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M331 283c-20 0-28 17-23 32l-31 15q-13 7-4 19l24 7-16 41q-3 9 8 9h24l18-27 18 27h24q11 0 8-9l-16-41 24-7q9-12-4-19l-31-15c5-15-3-32-23-32Z" fill="#f5edda"/>
+</svg>

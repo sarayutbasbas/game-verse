@@ -1,0 +1,25 @@
+{
+  "name": "GameVerse app icon",
+  "scope": "Favicon, Apple touch icon and installed-app icons. Preserve the existing GameVerse masthead, product name and page layout.",
+  "masthead": "public/art/platform/gameverse-masthead.png",
+  "compactIcon": {
+    "source": "public/art/platform/games-icon-v2.svg",
+    "method": "Native SVG adaptation of the selected emblem for small browser and app icons, preserving the die/card/meeple G concept and colors.",
+    "outputs": [
+      "public/art/platform/games-icon-v2-32.png",
+      "public/art/platform/games-icon-v2-64.png",
+      "public/art/platform/games-icon-v2-192.png",
+      "public/art/platform/games-icon-v2-512.png",
+      "public/art/platform/games-icon-v2-maskable-512.png",
+      "public/art/platform/games-icon-v2-apple-180.png",
+      "public/icon.svg"
+    ]
+  },
+  "designReference": {
+    "tool": "built-in image_gen",
+    "prompt": "Use case: logo-brand. Asset: final production brand logo for a premium browser-based collection of many BOARD GAMES, played together around a shared table. Brand name text exactly \"GAMES\", uppercase G A M E S, no other wording. Design a distinctive professionally art-directed identity, unmistakably a many-game destination, sophisticated yet welcoming. Genuine transparent alpha background, no background rectangle, no mockup, no surrounding page, no watermark, no extra words, no tagline. One horizontal logo lockup, clean centered composition, generous transparent margin, emblem on left and large extremely readable custom wordmark on right, shared optical baseline. Overall visible silhouette approximately 4.3:1. Crisp precision contours, sharp typography, excellent legibility at a 220px wide website header. Palette must suit a refined illustrated board-game catalog: deep evergreen #143e3a, champagne brass #c7a15b, ivory #f5edda, a tiny restrained warm coral accent if helpful. Premium means confident composition, crafted forms and superb typography. Avoid crowns, laurels, ribbons, shields, cartoon faces, gamer neon, game controllers, casino/poker imagery, glow, excessive ornament, huge extruded bevels, plastic, and generic clipart. Alternative direction: a more contemporary geometric collection mark, a single bold interlocking G-shaped hexagonal emblem assembled from exactly three recognizable pieces: a die face, a fanned-card corner, and a simple meeple negative-space cutout. Ingenious coherent geometry, not separate floating icons. Flat polished brand artwork, two-tone evergreen and champagne gold with ivory negative space, very subtle tactile foil only on gold. Wordmark: sculpted custom geometric capitals with gently flared corners, strong weight and measured spacing, evergreen. Warm luxury board-game club quality, editorial restraint. One strong symbol and one clear wordmark, no underline. Premium and playful through precision, not decoration.",
+    "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f492c550-e239-4c73-935a-d22ad063aa9f.png",
+    "workspaceSource": "assets/source/platform/games-logo-v2.png",
+    "note": "The GAMES wordmark was a local design study; its die/card/meeple emblem informed the small native SVG. The generated wordmark is not shipped."
+  }
+}
