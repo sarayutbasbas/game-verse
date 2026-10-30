@@ -319,7 +319,7 @@ export function platformHandler(
               rulesVersion: r.rulesVersion,
               schemaVersion: r.schemaVersion,
               revision: r.revision,
-              phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? r.perch?.phase ?? r.draftosaurus?.phase ?? "lobby",
+              phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? r.soundsFishy?.phase ?? r.perch?.phase ?? r.draftosaurus?.phase ?? "lobby",
               players: r.players.length,
               connected: r.sockets.size,
               updatedAt: r.updated,

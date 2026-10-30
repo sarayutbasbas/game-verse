@@ -1,0 +1,35 @@
+{
+  "tool": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "cover",
+      "prompt": "Use case: product-mockup. Generate an original premium tabletop party game BOX for SOUNDS FISHY, a collection catalog cutout. Entire upright PORTRAIT rectangular box, mild three-quarter view with narrow left spine, small top sliver, centered and fills 91% height, matching other 640x800 board-game box assets. True transparent background outside box, no floor or backdrop, no shadow cloud. New original illustration: a witty cobalt-blue fish hiding among a swirling school of coral-red fish, cream-paper ocean, midnight-navy seaweed, waves and tiny bubbles, clever playful secret identities. Elegant tactile painted paper-cut relief, sophisticated navy/cobalt/coral/warm ivory, premium friendly family game, not childish. Large very readable title exactly \"SOUNDS FISHY\" on two lines; spine title same. No other text, no logos, no watermarks, no age/player badges, no retailer art reproduction.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-27c8894f-cced-439c-ba03-a9c7b7fc308e.png",
+      "workspaceSource": "assets/source/sounds-fishy/cover.png",
+      "outputs": [
+        "public/art/sounds-fishy/cover.webp"
+      ]
+    },
+    {
+      "id": "fish-icons",
+      "prompt": "Use case: stylized-concept. Asset: transparent 2 by 2 sprite atlas, FOUR equal square cells, isolated elegant tactile painted board-game fish tokens, polished paper-cut relief. Top left one coral RED fish, top right one cobalt BLUE fish, bottom left one neutral IVORY fish silhouette with a dark navy question mark centered on its body, bottom right one small GOLD shell-shaped score token with a subtle embossed star. Each token centered, same scale, ample transparent gap and margin, no overlaps across cells. Friendly witty fish silhouettes with expressive small eyes, clearly visible tail and fins, premium board-game look, no photorealism. Pure genuine transparent alpha outside each object, no backgrounds or boxes or labels, no extra objects, no watermark. Strong readable silhouettes for 64px UI icons.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7090299e-d6ce-4739-8260-679963568fe3.png",
+      "workspaceSource": "assets/source/sounds-fishy/fish-icons.png",
+      "outputs": [
+        "public/art/sounds-fishy/red.webp",
+        "public/art/sounds-fishy/blue.webp",
+        "public/art/sounds-fishy/back.webp",
+        "public/art/sounds-fishy/score.webp"
+      ]
+    },
+    {
+      "id": "table",
+      "prompt": "Use case: illustration-story. Asset: wide 3:2 background for a premium playful bluffing party board game. Refined deep midnight-navy ocean paper texture, illustrated rippling cobalt water and tiny coral-red fish only around outer edges, delicate champagne bubbles and cream seaweed confined to corners. CENTRAL 85 PERCENT EMPTY calm low-contrast dark navy for placing readable UI cards. Sophisticated cut-paper illustration, subtle grain, warm friendly board-game tactile atmosphere. No text, no lettering, no UI, no frame, no cards, no logos, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a31d0ceb-b16c-4fba-a55c-50ab4a8d4c41.png",
+      "workspaceSource": "assets/source/sounds-fishy/table.png",
+      "outputs": [
+        "public/art/sounds-fishy/table.webp"
+      ]
+    }
+  ]
+}

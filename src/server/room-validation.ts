@@ -1,3 +1,4 @@
+import {validateSoundsFishyState} from "../games/sounds-fishy/validation.js";
 import {validatePerchState} from "../games/perch/validation.js";
 import {validateDraftosaurusState} from "../games/draftosaurus/validation.js";
 import {validateTakeTimeState} from "../games/take-time/validation.js";
@@ -43,8 +44,8 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
-  if ([r.perch, r.draftosaurus, r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus, r.takeTime].filter(Boolean).length > 1) return false;
-  const s = r.perch ?? r.draftosaurus ?? r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus ?? r.takeTime;
+  if ([r.soundsFishy,r.perch, r.draftosaurus, r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus, r.takeTime].filter(Boolean).length > 1) return false;
+  const s = r.soundsFishy ?? r.perch ?? r.draftosaurus ?? r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus ?? r.takeTime;
   if(r.locusMode!==undefined&&!["shared-table","full-mobile"].includes(r.locusMode))return false;
   if(r.harmoniesMode!==undefined&&!["shared-table","full-mobile"].includes(r.harmoniesMode))return false;
   if(r.ckMode!==undefined&&!["shared-table","full-mobile"].includes(r.ckMode))return false;
@@ -64,6 +65,7 @@ export function validateRoomRecord(r: any): boolean {
   if(r.ck)return r.gameId==="critter-kitchen"&&validateCKState(s);
   if(r.sky)return r.gameId==="sky-team"&&validateSkyState(s);
   if(r.harmonies)return r.gameId==="harmonies"&&validateHarmoniesState(s);
+  if(r.soundsFishy)return r.gameId==="sounds-fishy"&&validateSoundsFishyState(s);
   if(r.perch)return r.gameId==="perch"&&validatePerchState(s);
   if(r.draftosaurus)return r.gameId==="draftosaurus"&&validateDraftosaurusState(s);
   if(r.pixies)return r.gameId==="pixies"&&validatePixiesState(s);

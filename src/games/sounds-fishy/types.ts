@@ -1,0 +1,6 @@
+export type Fish='red'|'blue';
+export type Phase='thinking'|'guessing'|'round-end'|'finished';
+export interface Round {question:string;guesser:string;blue:string;flips:string[];outcome:'bank'|'blue'|'all-red';points:Record<string,number>}
+export interface SoundsFishyState {players:{id:string;name:string;score:number}[];phase:Phase;round:number;totalRounds:number;starter:number;guesser:number;question:string;deck:string[];roles:Record<string,Fish>;ready:string[];flips:string[];history:Round[];openedAt:number;sequence:number;matchId?:string;winners:string[]}
+export type SoundsFishyAction={type:'sf-ready';epoch:string}|{type:'sf-begin'}|{type:'sf-flip';player:string}|{type:'sf-bank'}|{type:'sf-next'};
+export interface SoundsFishyView {gameId:'sounds-fishy';code:string;revision:number;phase:'lobby'|Phase;round:number;totalRounds:number;sequence:number;openedAt:number;turn?:string;question?:{text:string;category:string};answer?:string;source?:string;outcome?:Round['outcome'];players:{id:string;name:string;score:number;ready?:boolean;connected?:boolean;avatar?:string|null;flipped:boolean;fish?:Fish;delta?:number}[];me?:{id:string;fish?:Fish;answer?:string;ready:boolean;isGuesser:boolean;legal:SoundsFishyAction[];canManage?:boolean};winners:string[];canControl?:boolean}

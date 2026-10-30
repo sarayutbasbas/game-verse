@@ -1,3 +1,5 @@
+import * as soundsFishy from "./sounds-fishy/engine.js";
+import type {SoundsFishyState,SoundsFishyAction} from "./sounds-fishy/types.js";
 import * as perch from "./perch/engine.js";
 import type {PerchState,PerchAction} from "./perch/types.js";
 import * as draftosaurus from "./draftosaurus/engine.js";
@@ -28,6 +30,7 @@ import * as dracula from "./dracula-vs-van-helsing/engine.js";
 import * as azul from "./azul/engine.js";
 import type { AzulState, AzulAction } from "./azul/types.js";
 export const games = {
+ "sounds-fishy":soundsFishy,
  perch,
  draftosaurus,
  "take-time":takeTime,
@@ -73,6 +76,7 @@ function common(id: string) {
   };
 }
 export const gameAdapters = {
+ "sounds-fishy":{...common("sounds-fishy"),start(seats,random,starter){this.validatePlayers(seats);return soundsFishy.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>soundsFishy.applyAction(s,id,a as SoundsFishyAction,random),publicView:soundsFishy.getDisplayView,privateView:soundsFishy.getPlayerView,isFinished:soundsFishy.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score}))})} satisfies GameAdapter<SoundsFishyState,ReturnType<typeof soundsFishy.getPlayerView>>,
  perch:{...common("perch"),start(seats,random,starter){this.validatePlayers(seats);return perch.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>perch.applyAction(s,id,a as PerchAction,random),publicView:perch.getDisplayView,privateView:perch.getPlayerView,isFinished:perch.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),final:s.final})} satisfies GameAdapter<PerchState,ReturnType<typeof perch.getPlayerView>>,
  draftosaurus:{...common("draftosaurus"),start(seats,random,starter){this.validatePlayers(seats);return draftosaurus.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>draftosaurus.applyAction(s,id,a as DraftosaurusAction,random),publicView:draftosaurus.getDisplayView,privateView:draftosaurus.getPlayerView,isFinished:draftosaurus.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,...draftosaurus.scorePlayer(s,p)}))})} satisfies GameAdapter<DraftosaurusState,ReturnType<typeof draftosaurus.getPlayerView>>,
  "take-time":{...common("take-time"),start(seats,random){this.validatePlayers(seats);return takeTime.createInitialState(seats,random);},apply:(s,id,a,random)=>takeTime.applyAction(s,id,a as TakeTimeAction,random),publicView:takeTime.getDisplayView,privateView:takeTime.getPlayerView,isFinished:takeTime.isFinished,summary:s=>({result:s.result,clock:s.clock,attempt:s.attempt})} satisfies GameAdapter<TakeTimeState,ReturnType<typeof takeTime.getPlayerView>>,

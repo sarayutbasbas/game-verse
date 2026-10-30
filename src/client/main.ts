@@ -1,3 +1,4 @@
+import {renderSoundsFishy,closeSoundsFishy} from "./sounds-fishy.js";
 import {renderPerch,closePerch} from "./perch.js";
 import {renderDraftosaurus,closeDraftosaurus} from "./draftosaurus.js";
 import {harmoniesArtStyle} from './harmonies-view-preferences.js';
@@ -315,6 +316,9 @@ function render() {
   if(view?.gameId!=="take-time")closeTakeTime();
   document.body.classList.toggle("harmonies-theme",gardenTheme);
   if(view?.gameId!=="harmonies"&&!gardenTheme)closeHarmonies();
+  document.documentElement.classList.toggle("sf-document",view?.gameId==="sounds-fishy"&&view.phase!=="lobby");
+  document.body.classList.toggle("sf-theme",view?.gameId==="sounds-fishy"&&view.phase!=="lobby");
+  if(view?.gameId!=="sounds-fishy")closeSoundsFishy();
   document.body.classList.toggle("perch-theme",!platformTheme&&view?.gameId==="perch");
   if(view?.gameId!=="perch")closePerch();
   document.body.classList.toggle("draftosaurus-theme",!platformTheme&&view?.gameId==="draftosaurus");
@@ -401,7 +405,7 @@ function gardenLoading(){return harmoniesSplashMarkup({code:code!,style:harmonie
 function renderContent() {
   if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
   if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
-  if ((view?.gameId === "perch" && view.phase!=="lobby" && main.querySelector(".pc-root")) || (view?.gameId === "draftosaurus" && view.phase!=="lobby" && main.querySelector(".da-root")) || (!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "take-time" && view.phase!=="lobby" && main.querySelector(".tt-root")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
+  if ((view?.gameId === "sounds-fishy" && view.phase!=="lobby" && main.querySelector(".sf-root")) || (view?.gameId === "perch" && view.phase!=="lobby" && main.querySelector(".pc-root")) || (view?.gameId === "draftosaurus" && view.phase!=="lobby" && main.querySelector(".da-root")) || (!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "take-time" && view.phase!=="lobby" && main.querySelector(".tt-root")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
     const banner=main.querySelector<HTMLElement>('#notice')!;
     banner.textContent=notice;
     const connection=main.querySelector<HTMLElement>('.connection')!;
@@ -532,6 +536,7 @@ function renderContent() {
     }
     harmoniesModule!.renderHarmonies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot||harmoniesFirstMount);harmoniesFirstMount=false;return;
   }
+  if(view.gameId==="sounds-fishy"){renderSoundsFishy(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
   if(view.gameId==="perch"){renderPerch(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="draftosaurus"){renderDraftosaurus(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="pixies"){renderPixies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}

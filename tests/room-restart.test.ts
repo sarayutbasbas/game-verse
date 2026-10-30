@@ -21,11 +21,11 @@ test('all online games: only owner can restart mid-game; fresh setup, strict rev
  const identity=async(owner=false)=>{const r=await fetch(url+'/api/auth/sign-in/anonymous',{method:'POST',headers:{Origin:url,'Content-Type':'application/json'},body:'{}'});const data=await r.json();if(owner)await(await app.auth.$context).internalAdapter.updateUser(data.user.id,{isAnonymous:false});return r.headers.getSetCookie().map(c=>c.split(';')[0]).join('; ');};
  const connect=async(cookie:string)=>{const p=await new Peer().connect(url,cookie);peers.push(p);return p;};
  try{
- const cookies=[await identity(true),await identity(),await identity()];let last:{code:string;token:string;state:unknown}|undefined;
+ const cookies=[await identity(true),await identity(),await identity(),await identity()];let last:{code:string;token:string;state:unknown}|undefined;
  for(const id of Object.keys(gameAdapters) as (keyof typeof gameAdapters)[]){
-  const host=await connect(cookies[0]),hs=await host.send({type:'create',gameId:id},'session');const phones=[];for(let i=0;i<(id==='camel-up'?3:2);i++){const p=await connect(cookies[i]);await p.send({type:'join',code:hs.code,name:'เล่น '+i},'session');phones.push(p);}
+  const host=await connect(cookies[0]),hs=await host.send({type:'create',gameId:id},'session');const phones=[];for(let i=0;i<(id==='sounds-fishy'?4:id==='camel-up'?3:2);i++){const p=await connect(cookies[i]);await p.send({type:'join',code:hs.code,name:'เล่น '+i},'session');phones.push(p);}
   const room=app.rooms.rooms.get(hs.code)!;if(id==='dracula-vs-van-helsing'){room.players[0].character='dracula';room.players[1].character='helsing';}
-  const field=({perch:'perch',draftosaurus:'draftosaurus','take-time':'takeTime',locus:'locus','critter-kitchen':'ck','sky-team':'sky',harmonies:'harmonies',pixies:'pixies',jaipur:'jaipur','seven-wonders-duel':'wonders',calico:'calico',azul:'azul','camel-up':'game','dracula-vs-van-helsing':'duel'} as const)[id];
+  const field=({'sounds-fishy':'soundsFishy',perch:'perch',draftosaurus:'draftosaurus','take-time':'takeTime',locus:'locus','critter-kitchen':'ck','sky-team':'sky',harmonies:'harmonies',pixies:'pixies',jaipur:'jaipur','seven-wonders-duel':'wonders',calico:'calico',azul:'azul','camel-up':'game','dracula-vs-van-helsing':'duel'} as const)[id];
   let initial=gameAdapters[id].start(room.players,seeded(44),undefined);
   if(id==='critter-kitchen'){room.ckExpansions={luckyDuck:true,rudy:true};initial=ck.createInitialState(room.players,seeded(44),{restaurateurs:true,tutorial:true,expansions:room.ckExpansions});}
   if(id==='harmonies')initial=hm.createInitialState(room.players,seeded(44),undefined,'B',{natureSpirits:true,whispers:true});
