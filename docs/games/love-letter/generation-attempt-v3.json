@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-31",
+  "generator": "built-in image_gen",
+  "purpose": "User requested fresh sharp recognizable stylized Marvel characters, without exact original likeness.",
+  "sample": "h-ironman",
+  "prompt": "Use case: stylized-concept. Create a brand-new high-resolution portrait card illustration of Iron Man from Marvel comics, reimagined in a charming premium illustrated 3D storybook board-game style. Recognizable red and gold armored superhero, glowing round white chest reactor, white eye slits, open repulsor palm facing the viewer. Rounded stylized proportions, polished sculptural materials, crisp painted edges and cinematic warm highlights, dynamic heroic flying pose against deep teal and gold cosmic clouds. A fresh pose and composition, not a reproduction of any existing card, comic panel or movie still; no actor likeness. Portrait 2:3, entire helmet and raised hand comfortably inside frame, character upper two thirds, quieter dark atmosphere at bottom for Thai ability text added in HTML later. No text, no numbers, no logos, no border, no text box. Sharp detailed artwork, no blur or grain.",
+  "status": "failed",
+  "failure": {
+    "http": 400,
+    "code": "moderation_blocked",
+    "stage": "output",
+    "category": "other",
+    "requestId": "894206c8-780c-436c-a553-c4ed5a87debe"
+  },
+  "runtimeAssetsChanged": false
+}

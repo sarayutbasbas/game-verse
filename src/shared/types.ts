@@ -1,3 +1,9 @@
+import type {BombAction,BombView} from "../games/bomb-busters/types.js";
+import type {CourtAction,CourtView} from "../games/courtisans/types.js";
+import type {TrioAction,TrioView} from "../games/trio/types.js";
+import type {CastleAction,CastleView} from "../games/castle-combo/types.js";
+import type {PowerPetsAction,PowerPetsView} from "../games/power-hungry-pets/types.js";
+import type {LoveLetterAction,LoveLetterView} from "../games/love-letter/types.js";
 import type {SoundsFishyAction,SoundsFishyView} from "../games/sounds-fishy/types.js";
 import type {PerchAction,PerchView} from "../games/perch/types.js";
 import type {DraftosaurusAction,DraftosaurusView} from "../games/draftosaurus/types.js";
@@ -122,9 +128,9 @@ export interface View {
     legal: Action[];
   };
 }
-export type GameId = "sounds-fishy" | "perch" | "draftosaurus" | "take-time" | "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
-export type RoomView = (SoundsFishyView | PerchView | DraftosaurusView | TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView) & {lobbyKickablePlayerIds?:string[]};
-export type RoomAction = SoundsFishyAction | PerchAction | DraftosaurusAction | {type:"room-kick";playerId:string} | {type:"room-restart"} | TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
+export type GameId = "bomb-busters" | "courtisans" | "trio" | "castle-combo" | "power-hungry-pets" | "love-letter" | "sounds-fishy" | "perch" | "draftosaurus" | "take-time" | "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
+export type RoomView = (BombView | CourtView | TrioView | CastleView | PowerPetsView | LoveLetterView | SoundsFishyView | PerchView | DraftosaurusView | TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView) & {lobbyKickablePlayerIds?:string[]};
+export type RoomAction = BombAction | {type:"bb-mission";mission:number} | {type:"bb-next";mission:number} | CourtAction | TrioAction | {type:"tr-options";mode:"simple"|"spicy";teams:boolean} | CastleAction | PowerPetsAction | LoveLetterAction | {type:"ll-mode";mode:"base"|"marvel"} | SoundsFishyAction | PerchAction | DraftosaurusAction | {type:"room-kick";playerId:string} | {type:"room-restart"} | TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
 export type ClientMessage =
   | { type: "create"; gameId?: GameId; displayMode?:DisplayMode; joinAsPlayer?:boolean }
   | { type: "join"; code: string; name: string }

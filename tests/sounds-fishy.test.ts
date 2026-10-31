@@ -1,14 +1,14 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import * as E from '../src/games/sounds-fishy/engine.js';
-import {QUESTIONS} from '../src/games/sounds-fishy/questions.js';
+import {QUESTIONS,CURRENT_QUESTION_PACK,LEGACY_QUESTION_PACK,questionBank,getQuestion} from '../src/games/sounds-fishy/questions.js';
 import {validateSoundsFishyState as valid} from '../src/games/sounds-fishy/validation.js';
 import type {SoundsFishyAction} from '../src/games/sounds-fishy/types.js';
 const seats=(n=4)=>Array.from({length:n},(_,i)=>({id:'p'+i,name:'ผู้เล่น '+i}));
 function seeded(seed:number){return ()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};}
 test('Sounds Fishy: 200 original Thai questions, unique IDs/text, ten balanced categories, source metadata',()=>{
  assert.equal(QUESTIONS.length,200);assert.equal(new Set(QUESTIONS.map(q=>q.id)).size,200);assert.equal(new Set(QUESTIONS.map(q=>q.text)).size,200);
- const categories=new Map<string,number>();for(const q of QUESTIONS){assert.ok(q.answer.trim()&&q.text.trim());if(q.source)assert.match(q.source,/^https:\/\//);else assert.equal('kind' in q?q.kind:undefined,'wordplay');assert.equal(q.origin,'original-thai');categories.set(q.category,(categories.get(q.category)??0)+1);}assert.equal(categories.size,10);assert.ok([...categories.values()].every(n=>n===20));
+ const categories=new Map<string,number>();for(const q of QUESTIONS){assert.ok(q.answer.trim()&&q.text.trim());assert.match(q.source,/^https:\/\//);assert.equal(q.pack,CURRENT_QUESTION_PACK);assert.equal(q.origin,'original-thai');categories.set(q.category,(categories.get(q.category)??0)+1);}assert.equal(categories.size,10);assert.ok([...categories.values()].every(n=>n===20));
 });
 test('Sounds Fishy: explicit official scoring examples, including blue in flipped count',()=>{
  const p=seats(5);assert.deepEqual(E.scoreRound(p,'p0','p1',[],'bank'),{p0:0,p1:0,p2:0,p3:0,p4:0});
@@ -16,6 +16,20 @@ test('Sounds Fishy: explicit official scoring examples, including blue in flippe
  assert.deepEqual(E.scoreRound(p,'p0','p1',['p1'],'blue'),{p0:0,p1:3,p2:1,p3:1,p4:1});
  assert.deepEqual(E.scoreRound(p,'p0','p1',['p2','p1'],'blue'),{p0:0,p1:2,p2:0,p3:2,p4:2});
  assert.deepEqual(E.scoreRound(p,'p0','p1',['p2','p3','p4'],'all-red'),{p0:4,p1:0,p2:0,p3:0,p4:0});
+});
+test('Sounds Fishy: new matches use the advanced deck; saved pre-versioned and archived matches retain their questions/answers',()=>{
+ const s=E.createInitialState(seats(),()=>.4);assert.equal(s.questionPack,CURRENT_QUESTION_PACK);
+ const legacy=structuredClone(s);delete legacy.questionPack;
+ assert.ok(valid(legacy));const q=getQuestion(legacy.question,LEGACY_QUESTION_PACK);
+ assert.equal(E.getDisplayView(legacy,'ABC',1).question!.text,q.text);
+ assert.equal(E.getPhoneView(legacy,'p1','ABC',1).me!.answer,q.answer);
+ assert.notEqual(q.text,getQuestion(s.question,CURRENT_QUESTION_PACK).text);
+ let next=E.applyAction(legacy,'p0',{type:'sf-begin'},()=>.4);next=E.applyAction(next,'p0',{type:'sf-bank'},()=>.4);
+ assert.equal(E.getDisplayView(next,'ABC',2).answer,q.answer);next=E.applyAction(next,'p0',{type:'sf-next'},()=>.4);
+ assert.equal(next.questionPack,undefined);assert.ok(valid(next));assert.equal(E.getDisplayView(next,'ABC',3).question!.text,getQuestion(next.question).text);
+ assert.equal(questionBank(CURRENT_QUESTION_PACK).length,200);assert.equal(questionBank(LEGACY_QUESTION_PACK).length,200);
+ const bad=structuredClone(s);bad.questionPack='unrecognized';assert.equal(valid(bad),false);assert.throws(()=>getQuestion(s.question,'unrecognized'));
+ const display=E.getDisplayView(s,'ABC',1);assert.equal(display.answer,undefined);assert.equal(display.source,undefined);assert.equal(display.me,undefined);
 });
 test('Sounds Fishy: 140 seeded full games, every seat guesses correct count, no repeat and valid persisted scores',()=>{
  for(let n=4;n<=10;n++)for(let seed=1;seed<=20;seed++){

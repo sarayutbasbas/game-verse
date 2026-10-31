@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-31",
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "id": "t-mind",
+      "color": "yellow",
+      "prompt": "Use case: illustration-story. Create a new standalone vertical 2:3 comic-book illustration of one radiant yellow faceted cosmic gemstone. An elongated irregular crystal, brilliant white core, sharp yellow-gold angular facets, pale energy filaments and small sparks. Suspended in deep indigo starry space. The complete gem silhouette centered in the upper two thirds with generous room around it; lower quarter mostly dark cosmic atmosphere for later Thai text. Rich saturated colors, crisp ink contours, beautiful painted highlights, premium collectible card illustration. Full bleed. No card frame, no text boxes, no lettering, no numbers, no symbols or logos. Artwork only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-02eb15c0-ae36-458b-9100-464810ecf44c.png",
+      "master": "assets/source/love-letter/generated-v2/t-mind.png",
+      "output": "public/art/love-letter/generated-v2/t-mind.webp"
+    },
+    {
+      "id": "t-soul",
+      "color": "orange",
+      "prompt": "Use case: illustration-story. Create a new standalone vertical 2:3 comic-book illustration of one radiant orange faceted cosmic gemstone. An elongated irregular crystal, brilliant white core, sharp orange angular facets, pale energy filaments and small sparks. Suspended in deep indigo starry space. The complete gem silhouette centered in the upper two thirds with generous room around it; lower quarter mostly dark cosmic atmosphere for later Thai text. Rich saturated colors, crisp ink contours, beautiful painted highlights, premium collectible card illustration. Full bleed. No card frame, no text boxes, no lettering, no numbers, no symbols or logos. Artwork only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-03bbfd18-9c4b-4645-b33d-d1c900953ed0.png",
+      "master": "assets/source/love-letter/generated-v2/t-soul.png",
+      "output": "public/art/love-letter/generated-v2/t-soul.webp"
+    },
+    {
+      "id": "t-space",
+      "color": "cyan-blue",
+      "prompt": "Use case: illustration-story. Create a new standalone vertical 2:3 comic-book illustration of one radiant cyan-blue faceted cosmic gemstone. An elongated irregular crystal, brilliant white core, sharp cyan-blue angular facets, pale energy filaments and small sparks. Suspended in deep indigo starry space. The complete gem silhouette centered in the upper two thirds with generous room around it; lower quarter mostly dark cosmic atmosphere for later Thai text. Rich saturated colors, crisp ink contours, beautiful painted highlights, premium collectible card illustration. Full bleed. No card frame, no text boxes, no lettering, no numbers, no symbols or logos. Artwork only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4b5ca0d9-af09-47b3-926e-f7cf84dbaefa.png",
+      "master": "assets/source/love-letter/generated-v2/t-space.png",
+      "output": "public/art/love-letter/generated-v2/t-space.webp"
+    },
+    {
+      "id": "t-power",
+      "color": "magenta-purple",
+      "prompt": "Use case: illustration-story. Create a new standalone vertical 2:3 comic-book illustration of one radiant magenta-purple faceted cosmic gemstone. An elongated irregular crystal, brilliant white core, sharp magenta-purple angular facets, pale energy filaments and small sparks. Suspended in deep indigo starry space. The complete gem silhouette centered in the upper two thirds with generous room around it; lower quarter mostly dark cosmic atmosphere for later Thai text. Rich saturated colors, crisp ink contours, beautiful painted highlights, premium collectible card illustration. Full bleed. No card frame, no text boxes, no lettering, no numbers, no symbols or logos. Artwork only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e35062fc-21fe-48ac-9a62-b01a94b09a76.png",
+      "master": "assets/source/love-letter/generated-v2/t-power.png",
+      "output": "public/art/love-letter/generated-v2/t-power.webp"
+    },
+    {
+      "id": "t-reality",
+      "color": "ruby-red",
+      "prompt": "Use case: illustration-story. Create a new standalone vertical 2:3 comic-book illustration of one radiant ruby-red faceted cosmic gemstone. An elongated irregular crystal, brilliant white core, sharp ruby-red angular facets, pale energy filaments and small sparks. Suspended in deep indigo starry space. The complete gem silhouette centered in the upper two thirds with generous room around it; lower quarter mostly dark cosmic atmosphere for later Thai text. Rich saturated colors, crisp ink contours, beautiful painted highlights, premium collectible card illustration. Full bleed. No card frame, no text boxes, no lettering, no numbers, no symbols or logos. Artwork only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-bdf36abf-ffb3-460f-b0ab-cb5e631aa162.png",
+      "master": "assets/source/love-letter/generated-v2/t-reality.png",
+      "output": "public/art/love-letter/generated-v2/t-reality.webp"
+    },
+    {
+      "id": "t-time",
+      "color": "emerald-green",
+      "prompt": "Use case: illustration-story. Create a new standalone vertical 2:3 comic-book illustration of one radiant emerald-green faceted cosmic gemstone. An elongated irregular crystal, brilliant white core, sharp emerald-green angular facets, pale energy filaments and small sparks. Suspended in deep indigo starry space. The complete gem silhouette centered in the upper two thirds with generous room around it; lower quarter mostly dark cosmic atmosphere for later Thai text. Rich saturated colors, crisp ink contours, beautiful painted highlights, premium collectible card illustration. Full bleed. No card frame, no text boxes, no lettering, no numbers, no symbols or logos. Artwork only.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3c65909c-9ebb-409d-a856-27ed0336e49f.png",
+      "master": "assets/source/love-letter/generated-v2/t-time.png",
+      "output": "public/art/love-letter/generated-v2/t-time.webp"
+    }
+  ]
+}

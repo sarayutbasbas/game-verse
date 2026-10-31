@@ -1,0 +1,12 @@
+export type Place=1|2;
+export interface Condition {type:string;shield?:number;shields?:number[];line?:boolean;column?:boolean;count?:number;cost?:number;orGreater?:boolean;banner?:number;banners?:number[];limit?:number;position?:boolean[][];condition?:Condition}
+export interface Effect {type:string;castle?:number;village?:number;gain?:number;opponentsGain?:number;condition?:Condition;river?:Place;token?:number;gold?:number;cardsLimit?:number;effect1?:Effect;effect2?:Effect}
+export interface Card {id:number;name:string;place:Place;cost:number;shields:number[];move:boolean;effects:Effect[];points:number;condition:Condition}
+export interface Tile {card:number;x:number;y:number;down:boolean;stored:number}
+export interface Player {id:string;name:string;gold:number;keys:number;tableau:Tile[];ready:boolean}
+export interface Pending {kind:'choose'|'discard'|'neighbor'|'fill';effect:Effect;card:number}
+export interface CastleState {players:Player[];phase:'playing'|'effect'|'purses'|'finished';turn:number;starter:number;round:number;sequence:number;matchId?:string;messenger:Place;decks:Record<Place,number[]>;markets:Record<Place,number[]>;discards:Record<Place,number[]>;removed:number[];closed:Place[];keyUsed:boolean;lastCard?:number;effects:Effect[];pending?:Pending;events:{id:number;text:string}[];winners:string[];scores:Score[]}
+export interface Score {id:string;total:number;keys:number;gold:number;cards:{card:number;points:number}[]}
+export type CastleAction={type:'cc-key';mode:'move'|'refresh'}|{type:'cc-buy';card:number;x:number;y:number;down:boolean}|{type:'cc-choose';option:0|1}|{type:'cc-discard';card:number}|{type:'cc-neighbor';player:string}|{type:'cc-fill';cards:number[]}|{type:'cc-store';allocations:{card:number;gold:number}[]};
+export interface PublicTile extends Omit<Tile,'card'>{card:number|null}
+export interface CastleView {gameId:'castle-combo';code:string;revision:number;phase:CastleState['phase']|'lobby';round:number;sequence:number;active:string;turn:string;messenger:Place;markets:Record<Place,number[]>;discards:Record<Place,number[]>;deckCounts:Record<Place,number>;closed:Place[];keyUsed:boolean;players:{id:string;name:string;gold:number;keys:number;tableau:PublicTile[];ready:boolean;avatar?:string|null;connected?:boolean}[];pending?:Pending;events:CastleState['events'];winners:string[];scores:Score[];me?:{id:string;legal:CastleAction[];canManage?:boolean};canControl?:boolean}

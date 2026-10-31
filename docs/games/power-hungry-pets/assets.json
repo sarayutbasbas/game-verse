@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-31",
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "id": "pet-10",
+      "prompt": "Use case: illustration-story. New original character illustration for a playful animal card game. A magnificent fluffy orange tabby cat wearing a big slightly crooked golden crown and a small coral velvet royal cape, proudly sitting on a cushion like an adorable smug king. Expressive round face, enormous cute paws, mischievous confident eyes. Whimsical illustrated 3D storybook style with crisp contours and finely painted fur, tactile paper/clay charm, saturated teal, coral and warm gold. Portrait 2:3, full head and crown entirely visible in upper two thirds with breathing room; lower quarter quiet teal palace atmosphere for Thai ability text added later. Fresh original artwork, not an existing game character. Full bleed, no text, no numbers, no card frame or text boxes, no logo.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-da3604cc-6f25-41af-b8d0-9a7e39e55a26.png",
+      "master": "assets/source/power-hungry-pets/pet-10.png",
+      "output": "public/art/power-hungry-pets/pet-10.webp"
+    },
+    {
+      "id": "cover",
+      "prompt": "Use case: product-mockup. One premium original 3D upright board game box, portrait 4:5, slight left spine visible, transparent outer background, no floor or scene outside the box. Exact large playful legible title on front: \"POWER HUNGRY PETS\". New original cartoon animal ensemble: a smug fluffy orange tabby king in a gold crown, a brave bunny with carrot shield, a cheerful puppy with a bone, a turquoise turtle, a goldfish in a glowing crystal bowl and a tiny crowned robot vacuum. They playfully compete for a golden paw medal in a whimsical animal palace. Vibrant deep teal, tangerine orange, coral pink and buttery gold. Beautifully painted rounded 3D storybook illustration, clean crisp detail, joyful mischievous expressions. Fill 92 percent canvas height with the one box. No publisher logos, no other text, no watermark. New artwork, not a copy of retail packaging.",
+      "transparent_background": true,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b983aa3b-e30e-403b-b7d0-15e210792d06.png",
+      "master": "assets/source/power-hungry-pets/cover.png",
+      "output": "public/art/power-hungry-pets/cover.webp"
+    },
+    {
+      "id": "back",
+      "prompt": "Use case: illustration-story. Original back of a portrait animal card: a large elegant golden paw print wearing a small golden crown, centered on a rich deep teal field with tiny coral and gold pet-themed flourishes, subtle symmetrical ornamental pattern of paw prints, bones and playful curls. Rounded tactile illustrated 3D storybook rendering, clean sophisticated composition, crisp contours. Portrait 2:3, full bleed. No letters, words, numbers or text boxes, no border, no watermark. This is a card back design, do not show any animal faces or card ranks.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2c5bedc9-0b8b-4d2a-a566-e61f56763ff5.png",
+      "master": "assets/source/power-hungry-pets/back.png",
+      "output": "public/art/power-hungry-pets/back.webp"
+    },
+    {
+      "id": "pet-0",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: a tiny round turquoise robot vacuum wearing a small golden crown, happy glowing eyes, chasing golden paw prints across a royal palace rug, comically determined. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b1e5dbf8-3ac4-486d-b79e-e2ff080b2471.png",
+      "master": "assets/source/power-hungry-pets/pet-0.png",
+      "output": "public/art/power-hungry-pets/pet-0.webp"
+    },
+    {
+      "id": "pet-4",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: a cheerful small turquoise turtle with a beautifully patterned golden-brown shell, protected by a glowing translucent magical shield bubble, determined cute expression, palace courtyard. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a17f4f88-beb0-42f6-ad7a-38031ca5fdab.png",
+      "master": "assets/source/power-hungry-pets/pet-4.png",
+      "output": "public/art/power-hungry-pets/pet-4.webp"
+    },
+    {
+      "id": "pet-1",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: a cheerful round orange goldfish inside an ornate glowing crystal fishbowl on a small gold stand, magical divination sparkles, curious expressive eyes, palace study. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3dda62c6-dfba-4e5a-acee-106e876f39de.png",
+      "master": "assets/source/power-hungry-pets/pet-1.png",
+      "output": "public/art/power-hungry-pets/pet-1.webp"
+    },
+    {
+      "id": "pet-2",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: a clever cream and orange kitten studying an elaborate harmless cheese bait contraption, a tiny cheerful gray mouse watching nearby, comical planning expression, whimsical palace workshop, no trapped or injured animal. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-df1786e2-f7cb-4ce5-90b6-1ed1afe8d035.png",
+      "master": "assets/source/power-hungry-pets/pet-2.png",
+      "output": "public/art/power-hungry-pets/pet-2.webp"
+    },
+    {
+      "id": "pet-5",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: a friendly emerald green snake wearing a comically oversized violet wizard hat, curled around a magic wand, floating sparkling playing cards, mischievous smile, whimsical royal library. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-24ce11dd-addb-4eda-8630-09ecaba5de52.png",
+      "master": "assets/source/power-hungry-pets/pet-5.png",
+      "output": "public/art/power-hungry-pets/pet-5.webp"
+    },
+    {
+      "id": "pet-3",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: an adorable brave white and tan bunny in tiny teal fantasy armor and a coral cape, holding a wooden practice sword and a carrot-shaped shield, heroic playful stance, castle garden, no violence or injuries. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8528e2a7-1f2c-414f-9b00-7f4675772869.png",
+      "master": "assets/source/power-hungry-pets/pet-3.png",
+      "output": "public/art/power-hungry-pets/pet-3.webp"
+    },
+    {
+      "id": "pet-6",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: an adorable golden brown puppy wearing a tiny explorer scarf, digging up a mysterious glowing buried treasure card beside a bone, excited curious face, sunny royal garden, wholesome and playful, no graves or remains. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-e85865b1-3fb4-427f-b307-0523fbbf0d75.png",
+      "master": "assets/source/power-hungry-pets/pet-6.png",
+      "output": "public/art/power-hungry-pets/pet-6.webp"
+    },
+    {
+      "id": "pet-7",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: an anxious but cute fluffy hamster juggler balancing on a small cushion and juggling several magical blank playing cards in a swirling arc, big worried eyes, dynamic funny pose, palace performance hall. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-caf7f04c-6ee1-48d4-928c-e5adbbc9ce28.png",
+      "master": "assets/source/power-hungry-pets/pet-7.png",
+      "output": "public/art/power-hungry-pets/pet-7.webp"
+    },
+    {
+      "id": "pet-8",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: a charming coral red hermit crab proudly exchanging two elaborate miniature seashell houses, one turquoise and one golden, big expressive eyes, playful royal tidepool setting. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d6895398-5446-4f27-8190-c20dce2d6bdd.png",
+      "master": "assets/source/power-hungry-pets/pet-8.png",
+      "output": "public/art/power-hungry-pets/pet-8.webp"
+    },
+    {
+      "id": "pet-9",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: a tiny mischievous violet fantasy dragon peeking out of a pet carrier that is far too small, little wings and cute horns, cheeky innocent grin, trying to pretend to be a house pet, royal palace hallway. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold. Portrait 2:3. Full head and key props entirely visible with breathing room in upper two thirds. Lower quarter quiet teal palace atmosphere for Thai ability text added later. Full bleed. No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a88e7bef-aeeb-4148-bbfc-feb523de444b.png",
+      "master": "assets/source/power-hungry-pets/pet-9.png",
+      "output": "public/art/power-hungry-pets/pet-9.webp"
+    },
+    {
+      "id": "table",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: a richly illustrated empty teal velvet tabletop in a whimsical animal palace, subtle golden paw embroidery along the far edges, soft coral curtains and warm tiny fairy lights in the distant background, broad quiet dark teal center for card-game UI, landscape 16:9, no animals in center. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold.  No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": false,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9b465976-f63b-4b4b-8a0d-a15252b0383a.png",
+      "master": "assets/source/power-hungry-pets/table.png",
+      "output": "public/art/power-hungry-pets/table.webp"
+    },
+    {
+      "id": "token",
+      "prompt": "Use case: illustration-story. New original artwork for a playful animal card game. Subject: one beautiful round golden paw medal with a tiny crown motif above the raised paw, three-quarter slight angle but readable circular face, polished gold and warm highlights, transparent outer background, no other objects. Match a premium whimsical illustrated 3D storybook look: crisp contours, finely painted detail, tactile paper/clay charm, expressive cute characters, saturated deep teal, coral and warm gold.  No text, letters, numbers, logos, card frames, text boxes or watermark. Original character design, not an existing retail game illustration.",
+      "transparent_background": true,
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-21a4c30d-e698-414d-9505-257488678950.png",
+      "master": "assets/source/power-hungry-pets/token.png",
+      "output": "public/art/power-hungry-pets/token.webp"
+    }
+  ]
+}

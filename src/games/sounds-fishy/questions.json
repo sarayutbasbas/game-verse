@@ -1,1642 +1,1802 @@
 [
   {
     "id": "sf-001",
-    "category": "อวกาศ",
-    "text": "ร้อนกว่าใครทั้งที่ไม่ได้อยู่ใกล้สุด ดาวเคราะห์ดวงไหนเป็นสายแซ่บตัวจริง?",
-    "answer": "ดาวศุกร์",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "สหรัฐฯ ทิ้งระเบิดปรมาณูที่ฮิโรชิมาและนางาซากิในปี ค.ศ. ใด?",
+    "answer": "ค.ศ. 1945",
+    "source": "https://www.nps.gov/mapr/learn/manhattan-project.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-002",
-    "category": "อวกาศ",
-    "text": "ในแก๊งดาวเคราะห์แปดดวง ดวงไหนตัวเล็กสุด แต่ไม่ได้แปลว่าเด็กสุด?",
-    "answer": "ดาวพุธ",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "สนธิสัญญาชุดใดในปี 1648 ยุติสงครามสามสิบปีในยุโรป?",
+    "answer": "สันติภาพเวสต์ฟาเลีย (Peace of Westphalia)",
+    "source": "https://blogs.loc.gov/law/2017/10/the-peace-of-westphalia/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-003",
-    "category": "อวกาศ",
-    "text": "ถ้าดาวเคราะห์จัดประกวดไซซ์ ใครครองตำแหน่งใหญ่สุดในระบบสุริยะ?",
-    "answer": "ดาวพฤหัสบดี",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "การเจรจาสันติภาพเวสต์ฟาเลียเกี่ยวข้องกับสองเมืองหลักใดในเยอรมนี?",
+    "answer": "มึนสเตอร์และออสนาบรึค (Münster / Osnabrück)",
+    "source": "https://blogs.loc.gov/law/2017/10/the-peace-of-westphalia/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-004",
-    "category": "อวกาศ",
-    "text": "ตัวออกจะใหญ่ แต่ความหนาแน่นน้อยกว่าน้ำ ดาวเคราะห์ดวงไหนเบาหวิวขนาดนั้น?",
-    "answer": "ดาวเสาร์",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "สนธิสัญญาแวร์ซายหลังสงครามโลกครั้งที่หนึ่งลงนามวันที่เท่าใด?",
+    "answer": "28 มิถุนายน ค.ศ. 1919",
+    "source": "https://www.ungeneva.org/en/about/league-of-nations/covenant",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-005",
-    "category": "อวกาศ",
-    "text": "ดวงอื่นหมุนตัวตรง ๆ แต่ดวงนี้เอียงจนเหมือนนอนกลิ้ง ดาวเคราะห์อะไร?",
-    "answer": "ดาวยูเรนัส",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "สันนิบาตชาติเริ่มมีผลอย่างเป็นทางการพร้อมสนธิสัญญาแวร์ซายในปีใด?",
+    "answer": "ค.ศ. 1920",
+    "source": "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/league-of-nations/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-006",
-    "category": "อวกาศ",
-    "text": "ไกลจนเหมือนโดนเทไปท้ายระบบสุริยะ ดาวเคราะห์ดวงไหนอยู่ไกลสุดในแปดดวง?",
-    "answer": "ดาวเนปจูน",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "สนธิสัญญาทอร์เดซิยาสแบ่งเขตอิทธิพลข้ามมหาสมุทรระหว่างสองราชอาณาจักรใด?",
+    "answer": "สเปนกับโปรตุเกส",
+    "source": "https://www.unesco.org/es/memory-world/treaty-tordesillas",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-007",
-    "category": "อวกาศ",
-    "text": "ดาวอังคารหน้าแดงทั้งดวง จริง ๆ แล้วโดนสารอะไรเคลือบผิวอยู่?",
-    "answer": "เหล็กออกไซด์หรือสนิมเหล็ก",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "เส้นแบ่งตามสนธิสัญญาทอร์เดซิยาสปี 1494 อยู่ห่างหมู่เกาะเคปเวิร์ดไปตะวันตกกี่ลีก?",
+    "answer": "370 ลีก",
+    "source": "https://www.unesco.org/es/memory-world/treaty-tordesillas",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-008",
-    "category": "อวกาศ",
-    "text": "หมุนตัวหนึ่งทียังไม่เสร็จ ก็ผ่านไปหนึ่งปีแล้ว ดาวเคราะห์ดวงไหนช้าขนาดนั้น?",
-    "answer": "ดาวศุกร์",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "พระมหากษัตริย์อังกฤษพระองค์ใดประทับตราแมกนาคาร์ตาที่รันนีมีดในปี 1215?",
+    "answer": "พระเจ้าจอห์น (King John)",
+    "source": "https://www.archives.gov/exhibits/featured-documents/magna-carta",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-009",
-    "category": "อวกาศ",
-    "text": "ดวงอื่นมีบริวาร แต่สองดวงนี้ไม่มีดวงจันทร์เลย คู่ไหนโสดสนิท?",
-    "answer": "ดาวพุธและดาวศุกร์",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "การฟื้นฟูเมจิซึ่งคืนอำนาจทางการเมืองแก่จักรพรรดิญี่ปุ่นเกิดในปีใด?",
+    "answer": "ค.ศ. 1868",
+    "source": "https://www.ndl.go.jp/modern/e/cha1/description03.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-010",
-    "category": "อวกาศ",
-    "text": "ยอดโอลิมปัสมอนส์ที่สูงจนภูเขาโลกต้องหลบ อยู่บนดาวอะไร?",
-    "answer": "ดาวอังคาร",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "เฮติประกาศเอกราชจากฝรั่งเศสและก่อตั้งรัฐในปีใด?",
+    "answer": "ค.ศ. 1804",
+    "source": "https://history.state.gov/countries/haiti",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-011",
-    "category": "อวกาศ",
-    "text": "จุดแดงใหญ่ของดาวพฤหัสบดี ดูเหมือนสิว แต่จริง ๆ เป็นอะไร?",
-    "answer": "พายุขนาดยักษ์",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "การประชุมเอเชีย–แอฟริกาที่บันดุง ซึ่งเป็นหมุดหมายของโลกหลังอาณานิคม จัดในปีใด?",
+    "answer": "ค.ศ. 1955",
+    "source": "https://history.state.gov/milestones/1953-1960/bandung-conf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-012",
-    "category": "อวกาศ",
-    "text": "ใส่วงแหวนอลังการขนาดนั้น ดาวเสาร์ประดับตัวด้วยวัสดุอะไรเป็นส่วนใหญ่?",
-    "answer": "อนุภาคน้ำแข็ง",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "การแบ่งบริติชอินเดียเป็นอินเดียกับปากีสถานเกิดในปีใด?",
+    "answer": "ค.ศ. 1947",
+    "source": "https://www.nationalarchives.gov.uk/education/teaching-resources/partition-of-british-india/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-013",
-    "category": "อวกาศ",
-    "text": "ทะเลบนไททันไม่ใช่น้ำแบบบางแสน แล้วของเหลวหลักในนั้นคืออะไร?",
-    "answer": "มีเทนและอีเทนเหลว",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "กฤษฎีกากุลฮาเนที่เริ่มยุคปฏิรูปตันซิมัตของออตโตมันประกาศในปีใด?",
+    "answer": "ค.ศ. 1839",
+    "source": "https://tile.loc.gov/storage-services/service/ll/llglrd/2018299338/2018299338.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-014",
-    "category": "อวกาศ",
-    "text": "ไอโอร้อนแรงจนภูเขาไฟขึ้นเพียบ เป็นดวงจันทร์ของดาวเคราะห์อะไร?",
-    "answer": "ดาวพฤหัสบดี",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "จักรพรรดิโมกุลพระองค์ใดเป็นผู้ริเริ่มแนวทางดินอิลาฮีในคริสต์ศตวรรษที่ 16?",
+    "answer": "อักบาร์ (Akbar)",
+    "source": "https://www.metmuseum.org/essays/the-art-of-the-mughals-before-1600",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-015",
-    "category": "อวกาศ",
-    "text": "แดดเมืองไทยร้อนทันใจ แต่แสงอาทิตย์ต้องเดินทางมากี่นาทีถึงโลกโดยประมาณ?",
-    "answer": "ประมาณ 8 นาที",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "ช่างจีนผู้คิดตัวพิมพ์เรียงได้จากดินเผาในสมัยซ่งคือใคร?",
+    "answer": "ปี้เซิง (Bi Sheng)",
+    "source": "https://ich.unesco.org/doc/src/06405-EN.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-016",
-    "category": "อวกาศ",
-    "text": "เหยียบแล้วทิ้งรอยไว้นานมาก บนดวงจันทร์ขาดตัวลบรอยตามธรรมชาติแบบไหน?",
-    "answer": "ลมและฝนที่คอยกัดเซาะ",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "เจิ้งเหอออกเดินเรือครั้งแรกในฐานะผู้นำกองเรือราชวงศ์หมิงในปีใด?",
+    "answer": "ค.ศ. 1405",
+    "source": "https://en.unesco.org/silkroad/sites/default/files/knowledge-bank-article/recent_studies_in_china_on_admiral_zheng_he.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-017",
-    "category": "อวกาศ",
-    "text": "ดาวหางเจอดวงอาทิตย์แล้วสะบัดหาง โดยทั่วไปหางชี้ไปทางไหน?",
-    "answer": "โดยทั่วไปชี้ออกจากดวงอาทิตย์",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "กาหลิบอับบาซิดพระองค์ใดสถาปนาแบกแดดเป็นเมืองหลวงในปี 762?",
+    "answer": "อัลมันศูร (Al-Mansur)",
+    "source": "https://es.unesco.org/silkroad/sites/default/files/knowledge-bank-article/vol_IVa%20silk%20road_central%20asia%20under%20the%20umayyads%20and%20the%20early%20abbasids.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-018",
-    "category": "อวกาศ",
-    "text": "ดาวฤกษ์ที่ใกล้เราที่สุด ไม่ต้องจองตั๋วไปดู ชื่ออะไร?",
-    "answer": "ดวงอาทิตย์",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "วัตถุเบนินจำนวนมากถูกกองทหารอังกฤษยึดจากนครเบนินในการสำรวจลงโทษปีใด?",
+    "answer": "ค.ศ. 1897",
+    "source": "https://www.britishmuseum.org/sites/default/files/2019-09/Benin_art_Nov2015.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-019",
-    "category": "อวกาศ",
-    "text": "ดาวตกที่ขอพรแล้ววิ่งผ่านตา จริง ๆ เส้นแสงนั้นเกิดในบริเวณไหน?",
-    "answer": "ในชั้นบรรยากาศโลก",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "สุลต่านออตโตมันพระองค์ใดยึดกรุงคอนสแตนติโนเปิลได้ในปี 1453?",
+    "answer": "เมห์เหม็ดที่ 2 (Mehmed II)",
+    "source": "https://www.metmuseum.org/essays/constantinople-after-1261",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-020",
-    "category": "อวกาศ",
-    "text": "เคยอยู่แก๊งดาวเคราะห์ แต่พลูโตถูกจัดกลุ่มใหม่ ตอนนี้เรียกว่าอะไร?",
-    "answer": "ดาวเคราะห์แคระ",
-    "source": "https://science.nasa.gov/solar-system/",
-    "origin": "original-thai"
+    "category": "ประวัติศาสตร์โลก",
+    "text": "คำประกาศสิทธิมนุษยชนและพลเมืองฝรั่งเศสฉบับปี 1789 มีทั้งหมดกี่มาตรา?",
+    "answer": "17 มาตรา",
+    "source": "https://www.elysee.fr/en/french-presidency/the-declaration-of-the-rights-of-man-and-of-the-citizen",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-021",
-    "category": "ใต้ทะเล",
-    "text": "รักเดียวไม่พอหรือเปล่า หมึกสายถึงมีหัวใจทั้งหมดกี่ดวง?",
-    "answer": "สามดวง",
-    "source": "https://www.noaa.gov/stories/love-is-in-air-and-sea-5-facts-about-affections-of-marine-creatures",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "ตามผลสำรวจจีนที่ประกาศปี 2012 แนวกำแพงเมืองจีนรวมหลายยุคยาวประมาณกี่กิโลเมตร?",
+    "answer": "21,196.18 กิโลเมตร (ประมาณ 21,196 กม.)",
+    "source": "https://wwj.beijing.gov.cn/bjww/resource/cms/article/bjww_362762/10985749/2021051314333734528.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-022",
-    "category": "ใต้ทะเล",
-    "text": "ไม่ได้เป็นลูกคุณหนู แต่เลือดหมึกสายที่มีออกซิเจนเป็นสีอะไร?",
-    "answer": "สีน้ำเงิน",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "รอยต่อระหว่างเปลือกโลกกับเนื้อโลกที่ตรวจจากคลื่นไหวสะเทือนเรียกว่าอะไร?",
+    "answer": "รอยไม่ต่อเนื่องโมโฮโรวิซิช หรือโมโฮ (Moho)",
+    "source": "https://pubs.usgs.gov/gip/interior/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-023",
-    "category": "ใต้ทะเล",
-    "text": "ฉลามดูแข็งกร้าว แต่โครงร่างข้างในใช้วัสดุอะไรแทนกระดูกแข็ง?",
-    "answer": "กระดูกอ่อน",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "แผ่นธรณีภาควางตัวอยู่เหนือชั้นเนื้อโลกที่เปลี่ยนรูปได้ชื่ออะไร?",
+    "answer": "ฐานธรณีภาค (Asthenosphere)",
+    "source": "https://pubs.usgs.gov/gip/dynamic/inside.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-024",
-    "category": "ใต้ทะเล",
-    "text": "คู่นี้คุณพ่อรับหน้าที่อุ้มท้อง ปลาชนิดไหนสลับบทกันแบบนั้น?",
-    "answer": "ม้าน้ำ",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "ธรณีภาคประกอบด้วยเปลือกโลกและส่วนใดของเนื้อโลก?",
+    "answer": "เนื้อโลกส่วนบนสุดที่แข็งเกร็ง",
+    "source": "https://pubs.usgs.gov/gip/dynamic/inside.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-025",
-    "category": "ใต้ทะเล",
-    "text": "ยืนสวยเหมือนต้นไม้ใต้ทะเล แต่ปะการังจริง ๆ อยู่ในกลุ่มสิ่งมีชีวิตอะไร?",
-    "answer": "สัตว์",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "อายุโลกจากการหาอายุเชิงรังสีของหินและอุกกาบาตอยู่ที่ประมาณกี่พันล้านปี?",
+    "answer": "4.54 พันล้านปี",
+    "source": "https://pubs.usgs.gov/gip/geotime/age.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-026",
-    "category": "ใต้ทะเล",
-    "text": "ถ้าจัดอันดับตัวใหญ่แบบยังมีชีวิต สัตว์ชนิดไหนกินขาดทั้งโลก?",
-    "answer": "วาฬสีน้ำเงิน",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "การหมุนเวียนเทอร์โมเฮไลน์อาศัยความหนาแน่นน้ำทะเลที่ขึ้นกับตัวแปรสองชนิดใด?",
+    "answer": "อุณหภูมิและความเค็ม",
+    "source": "https://oceanservice.noaa.gov/education/tutorial_currents/05conveyor1.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-027",
-    "category": "ใต้ทะเล",
-    "text": "ตัวใหญ่จนชื่อฟังเหมือนสองสัตว์รวมกัน ปลาที่ใหญ่ที่สุดในโลกคือฉลามอะไร?",
-    "answer": "ฉลามวาฬ",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "การไหลขึ้นของน้ำลึกสู่ผิวมหาสมุทร ซึ่งพาธาตุอาหารขึ้นมาด้วย เรียกว่าอะไร?",
+    "answer": "อัปเวลลิง (Upwelling)",
+    "source": "https://oceanservice.noaa.gov/facts/upwelling.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-028",
-    "category": "ใต้ทะเล",
-    "text": "นาร์วาลมีแท่งยาวยื่นจากหัว ดูคล้ายเขา แต่จริง ๆ เป็นอะไรที่งอกยาว?",
-    "answer": "ฟันที่ยืดยาวออกมา",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "แผ่นธรณีภาคใดเป็นฝ่ายมุดตัวลงใต้แนวร่องลึกมาเรียนา?",
+    "answer": "แผ่นแปซิฟิก (Pacific Plate)",
+    "source": "https://www.fisheries.noaa.gov/s3/2024-06/Mariana-Trench-Marine-National-Monument-Management-Plan-202405-FINAL.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-029",
-    "category": "ใต้ทะเล",
-    "text": "แมงกะพรุนลอยไปวัน ๆ ข้างในมีสมองส่วนกลางให้คิดมากไหม?",
-    "answer": "ไม่มีสมองส่วนกลาง",
-    "source": "https://oceanservice.noaa.gov/facts/jellyfish.html",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "จุดลึกแชลเลนเจอร์ดีปอยู่ในร่องลึกมหาสมุทรใด?",
+    "answer": "ร่องลึกมาเรียนา",
+    "source": "https://www.fisheries.noaa.gov/s3/2024-06/Mariana-Trench-Marine-National-Monument-Management-Plan-202405-FINAL.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-030",
-    "category": "ใต้ทะเล",
-    "text": "หอยทำของแพงไว้ข้างใน มุกของมันมีสารประกอบอะไรเป็นส่วนหลัก?",
-    "answer": "แคลเซียมคาร์บอเนต",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "แนวสันเขากลางมหาสมุทรเกิดเด่นที่ขอบแผ่นธรณีภาคประเภทใด?",
+    "answer": "ขอบแผ่นธรณีภาคแบบแยกออกจากกัน",
+    "source": "https://pubs.usgs.gov/gip/dynamic/understanding.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-031",
-    "category": "ใต้ทะเล",
-    "text": "ปลิงทะเลสละอวัยวะในตัวหนีศัตรู แล้วทำอะไรกับส่วนที่เสียไปได้อีก?",
-    "answer": "สร้างขึ้นใหม่ได้",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "รอยเลื่อนซานแอนเดรียสเป็นขอบแผ่นธรณีภาคแบบใด?",
+    "answer": "แบบเลื่อนผ่านกัน (Transform boundary)",
+    "source": "https://pubs.usgs.gov/gip/dynamic/understanding.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-032",
-    "category": "ใต้ทะเล",
-    "text": "ดาวทะเลไม่มีรองเท้า แต่ใช้ส่วนเล็ก ๆ อะไรจำนวนมากพาตัวเองเดิน?",
-    "answer": "ท่อเท้า",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "มาตราขนาดโมเมนต์ของแผ่นดินไหวใช้สัญลักษณ์ย่อว่าอะไร?",
+    "answer": "Mw",
+    "source": "https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-033",
-    "category": "ใต้ทะเล",
-    "text": "หอยเชลล์ไม่รอให้ใครแงะ เจอผู้ล่าแล้วขยับฝาหนียังไง?",
-    "answer": "หุบเปิดฝาแล้วพ่นน้ำเพื่อว่ายหนี",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "ขนาดแผ่นดินไหวเพิ่ม 1 หน่วย หมายถึงพลังงานเพิ่มประมาณกี่เท่า?",
+    "answer": "ประมาณ 32 เท่า",
+    "source": "https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-034",
-    "category": "ใต้ทะเล",
-    "text": "ปลาหมึกกระดองมีอะไรอยู่ข้างใน คอยช่วยไม่ให้จมหรือลอยเกินไป?",
-    "answer": "กระดองภายในที่เรียกว่าลิ้นทะเล",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "สารกัมมันตรังสีคาร์บอน-14 มีครึ่งชีวิตประมาณกี่ปี?",
+    "answer": "5,730 ปี",
+    "source": "https://www.nist.gov/how-do-you-measure-it/how-do-you-know-age-fossils-and-other-old-things",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-035",
-    "category": "ใต้ทะเล",
-    "text": "ฟองน้ำทะเลไม่มีร้านข้าวประจำ มันเอาอาหารเข้าตัวด้วยวิธีไหน?",
-    "answer": "กรองน้ำผ่านลำตัว",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "การหาอายุยูเรเนียม–ตะกั่วมักใช้แร่ใดที่รับยูเรเนียมเข้าโครงผลึกได้ดี?",
+    "answer": "เซอร์คอน (Zircon)",
+    "source": "https://www.usgs.gov/publications/method-determining-age-igneous-rocks-using-accessory-minerals",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-036",
-    "category": "ใต้ทะเล",
-    "text": "โลมาอยู่ในน้ำก็จริง แต่ตอนหายใจใช้อวัยวะอะไรเหมือนเรา?",
-    "answer": "ปอด",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "เส้นไอโซบาร์บนแผนที่อากาศเชื่อมจุดที่มีค่าใดเท่ากัน?",
+    "answer": "ความกดอากาศ",
+    "source": "https://www.noaa.gov/jetstream/analyze-appair-pressure-map",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-037",
-    "category": "ใต้ทะเล",
-    "text": "หาดบางคืนสว่างเหมือนมีคนเปิดไฟ สิ่งมีชีวิตกลุ่มไหนมักเป็นคนทำ?",
-    "answer": "แพลงก์ตอนเรืองแสง",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "การเคลื่อนที่ในซีกโลกเหนือเบี่ยงไปทางขวาในกรอบอ้างอิงโลกเพราะผลใด?",
+    "answer": "ผลคอริออลิส (Coriolis effect)",
+    "source": "https://www.noaa.gov/jetstream/synoptic/origin-of-wind",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-038",
-    "category": "ใต้ทะเล",
-    "text": "แนวภูเขาที่ยาวที่สุดในโลก ซ่อนตัวอยู่ที่ไหนจนคนไม่ค่อยเห็น?",
-    "answer": "ใต้มหาสมุทร",
-    "source": "https://oceanservice.noaa.gov/facts/midoceanridge.html",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "ในระบบเคิพเพิน อักษรกลุ่มภูมิอากาศ B หมายถึงภูมิอากาศประเภทใด?",
+    "answer": "ภูมิอากาศแห้งแล้ง",
+    "source": "https://www.noaa.gov/jetstream/global/climate-zones",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-039",
-    "category": "ใต้ทะเล",
-    "text": "คลื่นยักษ์สึนามิไม่ได้เกิดเพราะลมแรงอย่างเดียว มวลน้ำโดนทำอะไรเป็นหลัก?",
-    "answer": "การเคลื่อนตัวของมวลน้ำอย่างฉับพลัน เช่น แผ่นดินไหวใต้ทะเล",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "ทะเลสาบไบคาลซึ่งเป็นทะเลสาบน้ำจืดลึกที่สุด อยู่ในประเทศใด?",
+    "answer": "รัสเซีย",
+    "source": "https://whc.unesco.org/en/list/754/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-040",
-    "category": "ใต้ทะเล",
-    "text": "ทะเลเค็มโดยไม่ต้องเติมน้ำปลา เพราะมีสารอะไรละลายอยู่มาก?",
-    "answer": "เกลือแร่ โดยเฉพาะโซเดียมคลอไรด์",
-    "source": "https://oceanservice.noaa.gov/facts/",
-    "origin": "original-thai"
+    "category": "ภูมิศาสตร์และธรณีวิทยา",
+    "text": "ภูเขาชิมโบราโซโดดเด่นกว่ายอดเอเวอเรสต์เมื่อวัดระยะจากจุดอ้างอิงใด?",
+    "answer": "ศูนย์กลางโลก",
+    "source": "https://oceanservice.noaa.gov/facts/highestpoint.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-041",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "ถ่ายออกมาเป็นเหลี่ยมเหมือนลูกเต๋า สัตว์อะไรเอาความกลมไว้ที่อื่น?",
-    "answer": "วอมแบต",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "นกชนิดใดมีขนาดเล็กที่สุดในโลก โดยต้องระบุชนิด ไม่ใช่เพียงวงศ์นก?",
+    "answer": "บีฮัมมิงเบิร์ด (Bee hummingbird; Mellisuga helenae)",
+    "source": "https://animals.sandiegozoo.org/animals/hummingbird",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-042",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "กระรอกบินแค่ร่อน แล้วสัตว์เลี้ยงลูกด้วยนมกลุ่มไหนกระพือปีกบินได้จริง?",
-    "answer": "ค้างคาว",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "โคดอนในรหัสพันธุกรรมมาตรฐานที่ทำหน้าที่เป็นสัญญาณหยุดมีทั้งหมดกี่แบบ?",
+    "answer": "3 แบบ ได้แก่ UAA, UAG และ UGA",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-043",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "ฟลามิงโกชมพูไม่ได้เพราะเขิน มันรับสีเข้าตัวจากอะไร?",
-    "answer": "สารสีในอาหารที่กิน",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "ส่วนใดของยีนถูกตัดออกจาก pre-mRNA ระหว่างการสไปลซิงก่อนเป็น mRNA สมบูรณ์?",
+    "answer": "อินทรอน (Intron)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-044",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "ผีเสื้อจะชิมต้นไม้ก่อนวางไข่ ต้องเอาส่วนไหนของตัวไปแตะ?",
-    "answer": "เท้า",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "กระบวนการต่อเอกซอนของยีนเดียวกันได้หลายแบบเพื่อให้โปรตีนต่างกันเรียกว่าอะไร?",
+    "answer": "อัลเทอร์เนทีฟสไปลซิง (Alternative splicing)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-045",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "หมีขั้วโลกขาวทั้งตัว พอแหวกขนดูผิวจริงกลับเป็นสีอะไร?",
-    "answer": "สีดำ",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "หน่วยเซนติมอร์แกน 1 cM สอดคล้องกับโอกาสเกิดรีคอมบิเนชันระหว่างมาร์กเกอร์กี่เปอร์เซ็นต์?",
+    "answer": "1 เปอร์เซ็นต์",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-046",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "คอยีราฟยาวจนคนต้องเงย แต่กระดูกคอมีกี่ชิ้นเมื่อเทียบกับคน?",
-    "answer": "เจ็ดชิ้นเท่ากัน",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "โปรตีนหลักกลุ่มใดช่วยพันและจัดบรรจุ DNA ในโครมาตินของยูคาริโอต?",
+    "answer": "ฮิสโตน (Histones)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-047",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "หน้าเป็ด ตัวมีขน แถมวางไข่ สัตว์เลี้ยงลูกด้วยนมอะไรสับขาหลอกเก่งขนาดนี้?",
-    "answer": "ตุ่นปากเป็ด",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "บริเวณลำดับ DNA ซ้ำที่ปลายโครโมโซมและช่วยปกป้องปลายสายเรียกว่าอะไร?",
+    "answer": "เทโลเมียร์ (Telomere)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-048",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "มีหนาม กินมด อยู่แถบออสเตรเลีย แถมออกลูกเป็นไข่ สัตว์อะไร?",
-    "answer": "อีคิดนา",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "การที่อัลลีลทั้งสองแสดงออกแยกกันในเฮเทอโรไซโกต เช่น หมู่เลือด AB เรียกว่าอะไร?",
+    "answer": "การเด่นร่วม (Codominance)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-049",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "เรียกกันว่าหมีโคอาลา แต่เจ้าตัวจริง ๆ เป็นสัตว์เลี้ยงลูกด้วยนมกลุ่มไหน?",
-    "answer": "สัตว์มีกระเป๋าหน้าท้อง",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "การแลกชิ้นส่วน DNA ระหว่างโครโมโซมคู่เหมือนในไมโอซิสเรียกว่าอะไร?",
+    "answer": "ครอสซิงโอเวอร์ (Crossing over)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-050",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "ตัวเล็กแต่ถอยเก่ง นกอะไรบินถอยหลังได้คล่องโดยไม่ต้องเข้าเกียร์?",
-    "answer": "นกฮัมมิงเบิร์ด",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "ความแปรผันที่จำนวนสำเนาของช่วง DNA ต่างกันระหว่างบุคคล ใช้ตัวย่ออะไร?",
+    "answer": "CNV หรือ Copy Number Variation",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-051",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "เพนกวินมีปีกแต่ไม่ขึ้นฟ้า มันเก็บปีกไว้ใช้ทำอะไร?",
-    "answer": "ว่ายน้ำ",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "เทคโนโลยี CRISPR ดัดแปลงมาจากระบบป้องกันสารพันธุกรรมแปลกปลอมของสิ่งมีชีวิตกลุ่มใด?",
+    "answer": "แบคทีเรีย",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-052",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "เท้านกกระจอกเทศโตเต็มวัย ข้างหนึ่งมีนิ้วให้จิ้มทั้งหมดกี่นิ้ว?",
-    "answer": "สองนิ้ว",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "การเพิ่มจำนวนชิ้น DNA เป้าหมายในหลอดทดลองด้วยการเปลี่ยนอุณหภูมิเป็นรอบ ๆ เรียกว่าอะไร?",
+    "answer": "ปฏิกิริยาลูกโซ่พอลิเมอเรส (PCR)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-053",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "โตแล้วบินเล่น แต่ตอนยังเด็กแมลงปอใช้ชีวิตอยู่ที่ไหน?",
-    "answer": "ในน้ำ",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "โครโมโซมที่มีจำนวนเกินหรือขาดไปเป็นรายแท่ง แทนการเปลี่ยนทั้งชุด เรียกภาวะอะไร?",
+    "answer": "แอนยูพลอยดี (Aneuploidy)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-054",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "หนอนผีเสื้อเก็บตัวเปลี่ยนลุค ช่วงก่อนกางปีกเรียกระยะอะไร?",
-    "answer": "ดักแด้",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "ตำแหน่งเฉพาะของยีนหรือเครื่องหมายบนโครโมโซม เรียกด้วยศัพท์ว่าอะไร?",
+    "answer": "โลคัส (Locus)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-055",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "งานในรังผึ้งใครแบกไว้ ผึ้งงานส่วนใหญ่เป็นเพศอะไร?",
-    "answer": "เพศเมีย",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "การเปลี่ยนลำดับ DNA ที่สูญเสียนิวคลีโอไทด์หนึ่งตัวหรือหลายตัวเรียกว่าอะไร?",
+    "answer": "ดีลีชัน หรือการลบ (Deletion)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-056",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "ผึ้งเจอแหล่งของกินแล้วไม่ส่งโลเคชัน มันใช้ท่าอะไรบอกเพื่อน?",
-    "answer": "การเต้นรำส่ายท้อง",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "แฝดที่เกิดจากไข่ที่ปฏิสนธิใบเดียวแล้วแยกตัว เรียกศัพท์พันธุศาสตร์ว่าอะไร?",
+    "answer": "โมโนไซโกติก (Monozygotic twins)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-057",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "สัตว์ฟันแทะตัวไหนกัดไม้จนมีผลงานก่อสร้างเป็นเขื่อน?",
-    "answer": "บีเวอร์",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "ออร์แกเนลล์ใดมี DNA ของตนเองและทำหน้าที่หลักผลิตพลังงานผ่านการหายใจระดับเซลล์?",
+    "answer": "ไมโทคอนเดรีย",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-058",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "หนามเม่นแอฟริกาดูแข็ง แต่พัฒนามาจากส่วนไหนของร่างกาย?",
-    "answer": "เส้นขน",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "การเปลี่ยนแปลงการควบคุมการทำงานของยีนโดยไม่เปลี่ยนลำดับเบส DNA เรียกศาสตร์ด้านใด?",
+    "answer": "อีพิเจเนติกส์ (Epigenetics)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-059",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "แพนด้ามีตัวช่วยจับไผ่เหมือนนิ้วเพิ่ม ที่จริงเป็นกระดูกส่วนไหนขยายใหญ่?",
-    "answer": "กระดูกข้อมือ",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "RNA ชนิดใดมีแอนติโคดอนจับคู่กับโคดอนและนำกรดอะมิโนสู่ไรโบโซม?",
+    "answer": "ทรานสเฟอร์อาร์เอ็นเอ (tRNA)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-060",
-    "category": "สัตว์น่าทึ่ง",
-    "text": "ถ้าเสือโดนโกนขน ลายยังไม่ยอมหลุด เพราะติดอยู่ตรงไหนอีก?",
-    "answer": "ผิวหนัง",
-    "source": "https://nationalzoo.si.edu/animals",
-    "origin": "original-thai"
+    "category": "ชีววิทยาและพันธุศาสตร์",
+    "text": "การรวบชิ้นลำดับ DNA ที่ทับซ้อนกันเป็นลำดับต่อเนื่องในการประกอบจีโนม เรียกว่าอะไร?",
+    "answer": "คอนทิก (Contig)",
+    "source": "https://www.genome.gov/genetics-glossary",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-061",
-    "category": "ร่างกาย",
-    "text": "ยาวที่สุดในตัวคน แต่ไม่ใช่อย่างที่บางคนคิด กระดูกชิ้นไหน?",
-    "answer": "กระดูกต้นขา",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "ขีดจำกัดจันทรเศขรของดาวแคระขาวที่ไม่หมุน มีค่าประมาณกี่เท่าของมวลดวงอาทิตย์?",
+    "answer": "ประมาณ 1.4 เท่า",
+    "source": "https://imagine.gsfc.nasa.gov/science/objects/dwarfs2.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-062",
-    "category": "ร่างกาย",
-    "text": "กระดูกเล็กที่สุดของคน ซุกอยู่ในอวัยวะไหน?",
-    "answer": "หูชั้นกลาง",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "แรงดันเชิงควอนตัมจากอนุภาคชนิดใดเป็นตัวหลักพยุงดาวแคระขาวไม่ให้ยุบตัว?",
+    "answer": "อิเล็กตรอน หรือแรงดันดีเจนเนอเรซีของอิเล็กตรอน",
+    "source": "https://imagine.gsfc.nasa.gov/science/objects/dwarfs2.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-063",
-    "category": "ร่างกาย",
-    "text": "ห่อคนได้ทั้งคน แถมเป็นอวัยวะด้วย สิ่งนั้นคืออะไร?",
-    "answer": "ผิวหนัง",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "พัลซาร์โดยทั่วไปเป็นดาวประเภทใดที่หมุนและกวาดลำรังสีผ่านผู้สังเกต?",
+    "answer": "ดาวนิวตรอน",
+    "source": "https://science.nasa.gov/universe/glossary/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-064",
-    "category": "ร่างกาย",
-    "text": "หัวใจคนปกติแบ่งไว้กี่ห้อง โดยไม่ต้องนับคนคุย?",
-    "answer": "สี่ห้อง",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "ดาวนิวตรอนที่มีสนามแม่เหล็กรุนแรงเป็นพิเศษเรียกว่าอะไร?",
+    "answer": "แมกนีทาร์ (Magnetar)",
+    "source": "https://science.nasa.gov/universe/glossary/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-065",
-    "category": "ร่างกาย",
-    "text": "เลือดพาออกซิเจนไปส่งทั่วตัว อาศัยโปรตีนชื่ออะไรเป็นคนขน?",
-    "answer": "ฮีโมโกลบิน",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "ขอบเขตที่สัญญาณแสงจากด้านในหลุมดำไม่สามารถเดินทางออกมาถึงภายนอกเรียกว่าอะไร?",
+    "answer": "ขอบฟ้าเหตุการณ์ (Event horizon)",
+    "source": "https://science.nasa.gov/universe/black-holes/anatomy/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-066",
-    "category": "ร่างกาย",
-    "text": "ของแข็งที่หุ้มฟันไว้ชั้นนอกสุด เรียกว่าอะไร?",
-    "answer": "เคลือบฟัน",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "จานสสารร้อนที่หมุนวนรอบหลุมดำก่อนตกลงไป เรียกว่าอะไร?",
+    "answer": "จานพอกพูนมวล (Accretion disk)",
+    "source": "https://science.nasa.gov/universe/black-holes/anatomy/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-067",
-    "category": "ร่างกาย",
-    "text": "ทั้งที่งอกจากหัวและปลายนิ้ว ผมกับเล็บใช้โปรตีนหลักตัวเดียวกันชื่ออะไร?",
-    "answer": "เคราติน",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "การบิดเส้นทางแสงโดยความโน้มถ่วงของวัตถุมวลมากเรียกปรากฏการณ์ใด?",
+    "answer": "เลนส์ความโน้มถ่วง (Gravitational lensing)",
+    "source": "https://science.nasa.gov/universe/black-holes/anatomy/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-068",
-    "category": "ร่างกาย",
-    "text": "ตาสวยสีต่างกัน ส่วนไหนเป็นคนกำหนดสีที่เราเห็น?",
-    "answer": "ม่านตา",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "หลุมดำมวลยิ่งยวดบริเวณศูนย์กลางทางช้างเผือกมีชื่อว่าอะไร?",
+    "answer": "แซจิแทเรียสเอสตาร์ (Sagittarius A*)",
+    "source": "https://science.nasa.gov/universe/black-holes/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-069",
-    "category": "ร่างกาย",
-    "text": "ดำ ๆ กลางตาไม่ใช่เม็ดลูกตา แต่เป็นช่องแสงชื่ออะไร?",
-    "answer": "รูม่านตา",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "ภาพเงาหลุมดำที่ EHT เผยแพร่ครั้งแรกในปี 2019 มาจากกาแล็กซีใด?",
+    "answer": "เมสสิเยร์ 87 หรือ M87",
+    "source": "https://science.nasa.gov/universe/black-holes-seeing-the-invisible/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-070",
-    "category": "ร่างกาย",
-    "text": "ชอบพูดว่ามีน้ำดี แล้วอวัยวะไหนเป็นโรงงานผลิตน้ำดีจริง ๆ?",
-    "answer": "ตับ",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "วิธีค้นหาดาวเคราะห์นอกระบบจากความสว่างดาวฤกษ์ที่ลดลงเป็นคาบเรียกว่าอะไร?",
+    "answer": "วิธีผ่านหน้า หรือ Transit method",
+    "source": "https://science.nasa.gov/resource/the-search-for-other-earths-fact-sheet/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-071",
-    "category": "ร่างกาย",
-    "text": "โรงงานผลิตน้ำดีอยู่ที่หนึ่ง แต่โกดังเก็บอยู่ที่อวัยวะอะไร?",
-    "answer": "ถุงน้ำดี",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "วิธีความเร็วแนวเล็งของดาวฤกษ์ตรวจการเคลื่อนที่โดยใช้การเลื่อนของอะไร?",
+    "answer": "เส้นสเปกตรัมจากผลดอปเพลอร์",
+    "source": "https://science.nasa.gov/resource/the-search-for-other-earths-fact-sheet/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-072",
-    "category": "ร่างกาย",
-    "text": "ตัวโตแล้วมีของแข็งอยู่ทั่วร่าง กระดูกผู้ใหญ่ปกติมีประมาณกี่ชิ้น?",
-    "answer": "206 ชิ้น",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "เมื่อมวลดาวเคราะห์น้อยกว่าดาวฤกษ์มาก ค่ามวลที่ได้จากวิธีความเร็วแนวเล็งเมื่อไม่รู้มุมเอียง i เขียนเป็นรูปใด?",
+    "answer": "มวลขั้นต่ำ หรือ m sin i",
+    "source": "https://assets.science.nasa.gov/content/dam/science/astro/programs/exep/nnexplore/files/EPRV_Final_Report.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-073",
-    "category": "ร่างกาย",
-    "text": "ถ้าฟันแท้มาครบ รวมฟันกรามซี่สุดท้าย เรามีของไว้เคี้ยวกี่ซี่?",
-    "answer": "32 ซี่",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "การเพิ่มความสว่างของดาวฉากหลังชั่วคราวจากเลนส์ของวัตถุที่เคลื่อนผ่าน ใช้ชื่อวิธีค้นหาดาวเคราะห์ใด?",
+    "answer": "ไมโครเลนซิง (Microlensing)",
+    "source": "https://science.nasa.gov/resource/the-search-for-other-earths-fact-sheet/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-074",
-    "category": "ร่างกาย",
-    "text": "เลือดออกจากหัวใจต้องวิ่งผ่านหลอดเลือดชนิดไหน?",
-    "answer": "หลอดเลือดแดง",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "รังสีไมโครเวฟพื้นหลังของจักรวาลมีอุณหภูมิเฉลี่ยปัจจุบันประมาณกี่เคลวิน?",
+    "answer": "ประมาณ 2.725 เคลวิน",
+    "source": "https://lambda.gsfc.nasa.gov/product/cobe/firas_overview.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-075",
-    "category": "ร่างกาย",
-    "text": "พอเลือดไหล ตัวไหนในเลือดช่วยรวมตัวอุดแผลให้?",
-    "answer": "เกล็ดเลือด",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "หน่วยพาร์เซกนิยามจากระยะที่รัศมีวงโคจรโลก 1 AU ทำมุมพารัลแลกซ์เท่าใด?",
+    "answer": "1 พิลิปดา หรือ 1 อาร์กวินาที",
+    "source": "https://science.nasa.gov/universe/glossary/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-076",
-    "category": "ร่างกาย",
-    "text": "หายใจเข้าออกทีไร แผ่นกล้ามเนื้อกั้นอกกับท้องตัวไหนต้องขยับ?",
-    "answer": "กะบังลม",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "หน่วยของค่าคงที่ฮับเบิลที่นิยมใช้ในจักรวาลวิทยาคืออะไร?",
+    "answer": "กิโลเมตรต่อวินาทีต่อเมกะพาร์เซก (km/s/Mpc)",
+    "source": "https://science.nasa.gov/mission/hubble/multimedia/hubble-glossary/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-077",
-    "category": "ร่างกาย",
-    "text": "กระเพาะกับลำไส้บีบตัวได้เอง กล้ามเนื้อชนิดไหนทำงานนี้?",
-    "answer": "กล้ามเนื้อเรียบ",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "เฮนเรียตตา สวอน ลีวิตต์พบความสัมพันธ์ระหว่างคาบกับความส่องสว่างของดาวแปรแสงชนิดใด?",
+    "answer": "ดาวแปรแสงเซเฟอิด (Cepheid variables)",
+    "source": "https://airandspace.si.edu/stories/editorial/remembering-astronomer-henrietta-swan-leavitt",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-078",
-    "category": "ร่างกาย",
-    "text": "สมองส่งต่อข้อความ เซลล์ประสาทคุยกันผ่านรอยต่อชื่ออะไร?",
-    "answer": "ไซแนปส์",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "เส้นสเปกตรัมวิทยุไฮโดรเจนเป็นกลางที่ใช้ทำแผนที่กาแล็กซี มีความยาวคลื่นประมาณเท่าใด?",
+    "answer": "21 เซนติเมตร",
+    "source": "https://science.nrao.edu/opportunities/courses/era/lecture-summaries",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-079",
-    "category": "ร่างกาย",
-    "text": "กระดูกสะบ้าไม่ได้อยู่ที่ปาก แล้วอยู่ตรงข้อต่อไหน?",
-    "answer": "เข่า",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "กล้องเจมส์เวบบ์โคจรรอบจุดลากร็องจ์ดวงอาทิตย์–โลกจุดใด?",
+    "answer": "L2",
+    "source": "https://science.nasa.gov/asset/webb/webbs-orbit-at-sun-earth-lagrange-point-2-l2/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-080",
-    "category": "ร่างกาย",
-    "text": "ดื่มเข้าไปแล้วต้องมีคนกรอง อวัยวะอะไรกรองเลือดจนได้ปัสสาวะ?",
-    "answer": "ไต",
-    "source": "https://medlineplus.gov/anatomy.html",
-    "origin": "original-thai"
+    "category": "ดาราศาสตร์และจักรวาล",
+    "text": "ซูเปอร์โนวาชนิด Ia ในแบบจำลองมาตรฐานเกี่ยวข้องกับการระเบิดเชิงเทอร์โมนิวเคลียร์ของดาวชนิดใด?",
+    "answer": "ดาวแคระขาว",
+    "source": "https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-stellar-explosions/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-081",
-    "category": "ครัวและพืช",
-    "text": "กลิ่นวานิลลาในขนมไทยประยุกต์ มาจากฝักของดอกไม้ตระกูลไหน?",
-    "answer": "กล้วยไม้",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "นิยามกิโลกรัมในระบบ SI ตั้งแต่ปี 2019 ผูกกับการตรึงค่าคงที่ใด?",
+    "answer": "ค่าคงที่พลังค์ h",
+    "source": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-082",
-    "category": "ครัวและพืช",
-    "text": "ขดเป็นแท่ง หอมจนอยากดม อบเชยทำจากส่วนไหนของต้น?",
-    "answer": "เปลือกต้น",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "นิยามเคลวินในระบบ SI ใช้การตรึงค่าคงที่ใด?",
+    "answer": "ค่าคงที่โบลต์ซมันน์ k",
+    "source": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-083",
-    "category": "ครัวและพืช",
-    "text": "กานพลูเสียบหมูอบ หอมทั้งดอก ที่จริงเก็บส่วนไหนของต้นมาใช้?",
-    "answer": "ดอกตูมแห้ง",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "นิยามโมลในระบบ SI ใช้การตรึงค่าคงที่ใด?",
+    "answer": "ค่าคงที่อาโวกาโดร NA",
+    "source": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-084",
-    "category": "ครัวและพืช",
-    "text": "เครื่องเทศหญ้าฝรั่นแพงจนต้องหยิบทีละนิด ส่วนที่เด็ดจากดอกโครคัสคืออะไร?",
-    "answer": "ยอดเกสรเพศเมีย",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "นิยามแอมแปร์ในระบบ SI ใช้การตรึงค่าคงที่ใด?",
+    "answer": "ประจุมูลฐาน e",
+    "source": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-085",
-    "category": "ครัวและพืช",
-    "text": "ถั่วลิสงไม่ได้ขึ้นต้นแบบอัลมอนด์ มันอยู่ในกลุ่มพืชตระกูลอะไร?",
-    "answer": "พืชตระกูลถั่ว",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "อะตอมไอโซโทปใดใช้กำหนดความถี่อ้างอิงในนิยามวินาทีของ SI?",
+    "answer": "ซีเซียม-133",
+    "source": "https://www.bipm.org/en/measurement-units",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-086",
-    "category": "ครัวและพืช",
-    "text": "สับปะรดหนึ่งลูกที่แม่ค้าปอกขาย เกิดจากดอกเดียวหรือหลายดอกรวมกัน?",
-    "answer": "ดอกจำนวนมากรวมกัน",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "ค่าความเร็วแสงในสุญญากาศที่นิยามให้เที่ยงตรงใน SI คือกี่เมตรต่อวินาที?",
+    "answer": "299,792,458 เมตรต่อวินาที",
+    "source": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-087",
-    "category": "ครัวและพืช",
-    "text": "กาแฟที่ทำให้ตาค้าง ส่วนที่เอาไปคั่วอยู่ตรงไหนของผล?",
-    "answer": "เมล็ด",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "หนึ่งโมลมีจำนวนองค์ประกอบมูลฐานเท่าใดตามนิยาม SI?",
+    "answer": "6.02214076 × 10²³ องค์ประกอบ",
+    "source": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-088",
-    "category": "ครัวและพืช",
-    "text": "ชาดำกับชาเขียวสีต่างกัน แต่โดยทั่วไปมาจากต้นชนิดเดียวกันไหม?",
-    "answer": "ชนิดเดียวกัน",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "ค่าคงที่พลังค์มีหน่วย SI เป็นอะไร?",
+    "answer": "จูลวินาที (J·s)",
+    "source": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-089",
-    "category": "ครัวและพืช",
-    "text": "ใบชาค่อย ๆ เข้มจนเป็นชาดำ ผ่านกระบวนการหลักอะไร ไม่ใช่โดนแดดเผา?",
-    "answer": "ออกซิเดชัน",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "อิเล็กตรอนโวลต์ 1 eV มีค่าประมาณกี่จูลเมื่อเขียนถึงสามเลขนัยสำคัญ?",
+    "answer": "1.60 × 10⁻¹⁹ จูล",
+    "source": "https://physics.nist.gov/cgi-bin/cuu/Value?evj",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-090",
-    "category": "ครัวและพืช",
-    "text": "อยู่ในส้มตำก็ไม่ได้เป็นผักเสมอ มะเขือเทศทางพฤกษศาสตร์คือส่วนไหน?",
-    "answer": "ผลไม้",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "ไอน์สไตน์ได้โนเบลฟิสิกส์ปี 1921 จากการอธิบายกฎของปรากฏการณ์ใด?",
+    "answer": "ปรากฏการณ์โฟโตอิเล็กทริก",
+    "source": "https://www.nobelprize.org/prizes/physics/1921/summary/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-091",
-    "category": "ครัวและพืช",
-    "text": "มันฝรั่งที่เราจิ้มซอส ส่วนหัวที่กินเป็นลำต้นหรือรากที่เปลี่ยนรูป?",
-    "answer": "ลำต้นใต้ดิน",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "ความยาวคลื่นเดอบรอยล์ของอนุภาคสัมพันธ์กับโมเมนตัม p ตามสูตรใด?",
+    "answer": "λ = h/p",
+    "source": "https://openstax.org/books/chemistry/pages/6-3-development-of-quantum-theory",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-092",
-    "category": "ครัวและพืช",
-    "text": "แครอตที่ขูดใส่ส้มตำ ส่วนสีส้มที่กินคืออวัยวะไหนของต้น?",
-    "answer": "ราก",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "หลักความไม่แน่นอนของตำแหน่งและโมเมนตัมกำหนดผลคูณส่วนเบี่ยงเบนมาตรฐานต่ำสุดเป็นเท่าใด?",
+    "answer": "ℏ/2 หรือ h/(4π)",
+    "source": "https://openstax.org/books/college-physics/pages/29-7-probability-the-heisenberg-uncertainty-principle",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-093",
-    "category": "ครัวและพืช",
-    "text": "ผ่าหอมแล้วเจอหลายชั้น ชั้นอวบ ๆ นั้นส่วนใหญ่เป็นอะไรที่สะสมอาหาร?",
-    "answer": "ใบที่สะสมอาหาร",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "อนุภาคสปินครึ่งจำนวนเต็มที่เป็นไปตามสถิติเฟอร์มี–ดิแรก เรียกรวมว่าอะไร?",
+    "answer": "เฟอร์มิออน (Fermions)",
+    "source": "https://openstax.org/books/college-physics-ap-courses/pages/33-4-particles-patterns-and-conservation-laws",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-094",
-    "category": "ครัวและพืช",
-    "text": "ขิงแก่ยิ่งเผ็ด ส่วนอวบ ๆ ที่ฝานลงโจ๊ก จริง ๆ เป็นส่วนไหนของพืช?",
-    "answer": "เหง้าหรือลำต้นใต้ดิน",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "หลักใดห้ามเฟอร์มิออนที่เหมือนกันสองตัวอยู่ในสถานะควอนตัมเดียวกันทั้งหมด?",
+    "answer": "หลักการกีดกันของเพาลี",
+    "source": "https://openstax.org/books/college-physics/pages/30-9-the-pauli-exclusion-principle",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-095",
-    "category": "ครัวและพืช",
-    "text": "เม็ดมะม่วงหิมพานต์ไม่ได้ซ่อนมิด มันติดอยู่ตรงไหนของผลปลอม?",
-    "answer": "ด้านนอก",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "การขับสนามแม่เหล็กออกจากภายในตัวนำยวดยิ่งเมื่อเย็นผ่านอุณหภูมิวิกฤตเรียกว่าอะไร?",
+    "answer": "ปรากฏการณ์ไมส์เนอร์ (Meissner effect)",
+    "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir3977.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-096",
-    "category": "ครัวและพืช",
-    "text": "พริกไทยดำกับขาวที่โรยโจ๊ก จริง ๆ เกิดจากพืชชนิดเดียวกันไหม?",
-    "answer": "ชนิดเดียวกัน",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "อุณหภูมิที่วัสดุเฟอร์โรแมกเนติกสูญเสียความเป็นเฟอร์โรแมกเนติกเมื่อให้ความร้อน เรียกว่าอะไร?",
+    "answer": "อุณหภูมิคูรี (Curie temperature)",
+    "source": "https://www.nist.gov/glossary-term/37831",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-097",
-    "category": "ครัวและพืช",
-    "text": "ก่อนจะเป็นช็อกโกแลต เมล็ดโกโก้ซ่อนอยู่ในส่วนไหนของต้น?",
-    "answer": "ในผลหรือฝักโกโก้",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "แรงดันไฟฟ้าขวางแนวกระแสเมื่อวางตัวนำในสนามแม่เหล็กตั้งฉากเป็นผลใด?",
+    "answer": "ปรากฏการณ์ฮอลล์ (Hall effect)",
+    "source": "https://www.nist.gov/pml/nanoscale-device-characterization-division/popular-links/hall-effect/hall-effect",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-098",
-    "category": "ครัวและพืช",
-    "text": "เห็ดที่ใส่ต้มยำไม่ได้อยู่ทีมพืช มันอยู่ในอาณาจักรสิ่งมีชีวิตอะไร?",
-    "answer": "อาณาจักรฟังไจ",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "LIGO ตรวจคลื่นความโน้มถ่วงโดยตรงครั้งแรกจากการรวมตัวของวัตถุประเภทใด?",
+    "answer": "หลุมดำสองดวง",
+    "source": "https://www.ligo.caltech.edu/detection",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-099",
-    "category": "ครัวและพืช",
-    "text": "ราดแพนเค้กแล้วหวานฉ่ำ น้ำเชื่อมเมเปิลทำจากของเหลวส่วนไหนของต้น?",
-    "answer": "น้ำเลี้ยง",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "ตามทฤษฎีบทของเนอเทอร์ สมมาตรต่อการเลื่อนเวลานำไปสู่การอนุรักษ์ปริมาณใด?",
+    "answer": "พลังงาน",
+    "source": "https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2013/7d1d673da716edcc946f986afad93139_NN2txluv1PY.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-100",
-    "category": "ครัวและพืช",
-    "text": "เมล็ดข้าวโพดแตกดังป๊อบ เพราะอะไรข้างในเปลี่ยนเป็นไอ?",
-    "answer": "น้ำ",
-    "source": "https://www.kew.org/read-and-watch",
-    "origin": "original-thai"
+    "category": "ฟิสิกส์และมาตรวิทยา",
+    "text": "รางวัลโนเบลฟิสิกส์ปี 2001 เกี่ยวกับการสร้างสถานะสสารควอนตัมใดในก๊าซอะตอมเจือจาง?",
+    "answer": "คอนเดนเสตโบส–ไอน์สไตน์ (BEC)",
+    "source": "https://www.nobelprize.org/prizes/physics/2001/press-release/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-101",
-    "category": "โลกและหิน",
-    "text": "ทะเลทรายที่ใหญ่สุดไม่ได้ร้อนแบบเมืองไทย ถ้านับแบบหนาวด้วยอยู่ทวีปไหน?",
-    "answer": "แอนตาร์กติกา",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "โมเลกุลคู่ที่เป็นภาพสะท้อนในกระจกแต่ซ้อนทับกันไม่ได้ เรียกไอโซเมอร์ชนิดใด?",
+    "answer": "อิแนนทิโอเมอร์ (Enantiomers)",
+    "source": "https://goldbook.iupac.org/terms/view/E02069",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-102",
-    "category": "โลกและหิน",
-    "text": "ถ้าโลกมีชามใส่น้ำใบใหญ่ที่สุด มหาสมุทรไหนครองพื้นที่มากสุด?",
-    "answer": "มหาสมุทรแปซิฟิก",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "ส่วนผสมที่มีอิแนนทิโอเมอร์สองชนิดในอัตราส่วนโมลเท่ากัน เรียกว่าอะไร?",
+    "answer": "ราเซเมต หรือสารผสมราซีมิก (Racemate)",
+    "source": "https://old.goldbook.iupac.org/html/R/R05025.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-103",
-    "category": "โลกและหิน",
-    "text": "ชื่อว่าเดดซีเหมือนเป็นทะเล แต่จริง ๆ จัดเป็นแหล่งน้ำประเภทไหน?",
-    "answer": "ทะเลสาบ",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "สารที่ให้อิเล็กตรอนทั้งคู่เพื่อสร้างพันธะกับอิเล็กโทรไฟล์ เรียกว่าอะไร?",
+    "answer": "นิวคลีโอไฟล์ (Nucleophile)",
+    "source": "https://goldbook.iupac.org/terms/view/N04249",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-104",
-    "category": "โลกและหิน",
-    "text": "เอาเส้นระดับน้ำทะเลเป็นเกณฑ์ ยอดเขาไหนสูงจนคนอื่นต้องเงย?",
-    "answer": "เอเวอเรสต์",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "กรดตามนิยามของลิวอิสมีหน้าที่อย่างไรต่อคู่อิเล็กตรอนเมื่อสร้างพันธะ?",
+    "answer": "รับคู่อิเล็กตรอน",
+    "source": "https://goldbook.iupac.org/terms/view/L03508",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-105",
-    "category": "โลกและหิน",
-    "text": "แพงได้กับไส้ดินสอก็ได้ เพชรทำจากธาตุอะไรเป็นหลัก?",
-    "answer": "คาร์บอน",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "ปฏิกิริยาแทนที่ SN2 ขั้นตอนหลักมีอันดับปฏิกิริยารวมเท่าใด?",
+    "answer": "อันดับสอง",
+    "source": "https://openstax.org/books/organic-chemistry/pages/11-2-the-sn2-reaction",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-106",
-    "category": "โลกและหิน",
-    "text": "ไส้ดินสอกับเพชรหน้าตาคนละเรื่อง แต่แกรไฟต์มีธาตุหลักอะไรเหมือนเพชร?",
-    "answer": "คาร์บอน",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "ตามสมการแฮนเดอร์สัน–แฮสเซลบัลช์ เมื่อกรดอ่อนกับเบสคู่สมการมีความเข้มข้นเท่ากัน pH เท่ากับค่าใด?",
+    "answer": "pKa",
+    "source": "https://openstax.org/books/organic-chemistry/pages/20-3-biological-acids-and-the-henderson-hasselbalch-equation",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-107",
-    "category": "โลกและหิน",
-    "text": "อำพันกักแมลงไว้เหมือนของดองโบราณ เดิมทีเป็นอะไรที่แข็งตัว?",
-    "answer": "ยางไม้",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "ที่อุณหภูมิและความดันคงที่ กระบวนการเกิดได้เองในเชิงอุณหพลศาสตร์เมื่อ ΔG มีเครื่องหมายใด?",
+    "answer": "เป็นลบ หรือ ΔG < 0",
+    "source": "https://openstax.org/books/chemistry/pages/16-4-free-energy",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-108",
-    "category": "โลกและหิน",
-    "text": "หินออบซิเดียนดำเงาเหมือนแก้ว ธรรมชาติทำมันจากอะไรที่เย็นเร็ว?",
-    "answer": "ลาวาที่เย็นตัวอย่างรวดเร็ว",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "หลักที่ใช้รวมเอนทัลปีของปฏิกิริยาย่อยเพื่อหาเอนทัลปีรวม เรียกกฎของใคร?",
+    "answer": "กฎของเฮสส์ (Hess's law)",
+    "source": "https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-109",
-    "category": "โลกและหิน",
-    "text": "หินอะไรมีรูพรุนจนบางก้อนลอยน้ำได้ ไม่ต้องติดห่วงยาง?",
-    "answer": "หินพัมมิซ",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "ตัวเร่งปฏิกิริยาช่วยเพิ่มอัตราการเกิดปฏิกิริยาโดยเปิดเส้นทางที่มีพลังงานชนิดใดต่ำลง?",
+    "answer": "พลังงานก่อกัมมันต์ (Activation energy)",
+    "source": "https://openstax.org/books/chemistry-atoms-first/pages/17-7-catalysis",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-110",
-    "category": "โลกและหิน",
-    "text": "หินปูนชื่อคุ้นจากงานก่อสร้าง แร่หลักในเนื้อหินชื่ออะไร?",
-    "answer": "แคลไซต์",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "กระบวนการฮาเบอร์–บอชสังเคราะห์สารใดจากไนโตรเจนและไฮโดรเจน?",
+    "answer": "แอมโมเนีย (NH₃)",
+    "source": "https://www.nobelprize.org/prizes/chemistry/1918/haber/biographical/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-111",
-    "category": "โลกและหิน",
-    "text": "เกล็ดหิมะออกแบบสวยเอง โดยทั่วไปมีสมมาตรพื้นฐานกี่แฉก?",
-    "answer": "หกแฉก",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "โลหะหลักในตัวเร่งปฏิกิริยาฮาเบอร์–บอชแบบดั้งเดิมคือธาตุใด?",
+    "answer": "เหล็ก",
+    "source": "https://www.nobelprize.org/prizes/chemistry/1918/haber/biographical/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-112",
-    "category": "โลกและหิน",
-    "text": "ฟ้าโชว์แสงก่อนส่งเสียง เพราะอะไรวิ่งมาถึงเราก่อน?",
-    "answer": "แสงเดินทางเร็วกว่าเสียง",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "โนเบลเคมีปี 1911 ของมารี กูรีเกี่ยวข้องกับการค้นพบธาตุสองชนิดใด?",
+    "answer": "เรเดียมและพอโลเนียม",
+    "source": "https://www.nobelprize.org/prizes/chemistry/1911/summary/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-113",
-    "category": "โลกและหิน",
-    "text": "รุ้งไม่ได้จุ่มน้ำกินจริง แต่เกิดจากแสงไปเจอกับอะไรในอากาศ?",
-    "answer": "หยดน้ำ",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "พันธะโคเวเลนต์ที่เกิดจากการซ้อนทับออร์บิทัลทางด้านข้าง เรียกพันธะชนิดใด?",
+    "answer": "พันธะพาย (π bond)",
+    "source": "https://openstax.org/books/chemistry-atoms-first-2e/pages/5-1-valence-bond-theory",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-114",
-    "category": "โลกและหิน",
-    "text": "เส้นรอบเอวโลกที่ละติจูดศูนย์องศา คนเรียกกันว่าเส้นอะไร?",
-    "answer": "เส้นศูนย์สูตร",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "คาร์บอนที่มีเรขาคณิตสามเหลี่ยมแบนราบโดยทั่วไปมีไฮบริไดเซชันแบบใด?",
+    "answer": "sp²",
+    "source": "https://openstax.org/books/chemistry-2e/pages/8-key-terms",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-115",
-    "category": "โลกและหิน",
-    "text": "อยู่ใต้ดินเรียกอย่าง ออกมาโชว์ตัวเรียกอีกอย่าง หินหนืดมีสองชื่อนั้นว่าอะไร?",
-    "answer": "แมกมากับลาวา",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "ธาตุใดมีค่าอิเล็กโทรเนกาติวิตีสูงสุดบนมาตราพอลิง?",
+    "answer": "ฟลูออรีน",
+    "source": "https://periodic-table.rsc.org/element/9/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-116",
-    "category": "โลกและหิน",
-    "text": "พื้นสะเทือนแล้วเครื่องรู้ก่อนเรา เครื่องบันทึกแผ่นดินไหวเรียกว่าอะไร?",
-    "answer": "เครื่องวัดแผ่นดินไหวหรือซีสโมมิเตอร์",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "พอลิเมอร์ที่มีชื่อย่อ PTFE ประกอบจากมอนอเมอร์ชนิดใด?",
+    "answer": "เตตระฟลูออโรเอทิลีน (Tetrafluoroethylene)",
+    "source": "https://webbook.nist.gov/cgi/cbook.cgi?Name=PTFE",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-117",
-    "category": "โลกและหิน",
-    "text": "จะเทียบว่าแร่ใครแข็งกว่าใคร ใช้มาตราที่ชื่ออะไร?",
-    "answer": "มาตราโมส์",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "โลหะผสมไนทินอลที่แสดงสมบัติจำรูปร่าง ประกอบด้วยธาตุหลักสองชนิดใด?",
+    "answer": "นิกเกิลและไทเทเนียม",
+    "source": "https://ntrs.nasa.gov/api/citations/19690026989/downloads/19690026989.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-118",
-    "category": "โลกและหิน",
-    "text": "ในมาตราโมส์ เบอร์สิบที่แข็งสุดเป็นแร่อะไร?",
-    "answer": "เพชร",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "วัสดุคาร์บอนที่เป็นโครงข่ายหกเหลี่ยมหนาหนึ่งชั้นอะตอม เรียกว่าอะไร?",
+    "answer": "กราฟีน (Graphene)",
+    "source": "https://www.nobelprize.org/prizes/physics/2010/press-release/",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-119",
-    "category": "โลกและหิน",
-    "text": "แกรนิตที่ปูครัว เกิดจากหินหนืดเย็นตัว จัดเป็นหินกลุ่มไหน?",
-    "answer": "หินอัคนี",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "รูปแบบผลึกต่างกันของธาตุชนิดเดียวกัน เช่น เพชรกับแกรไฟต์ เรียกปรากฏการณ์อะไร?",
+    "answer": "แอลโลโทรปี (Allotropy)",
+    "source": "https://openstax.org/books/chemistry-2e/pages/16-1-spontaneity",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-120",
-    "category": "โลกและหิน",
-    "text": "ก่อนจะเป็นหินอ่อนให้แกะรูป หินต้นทางหลักของมันคือหินอะไร?",
-    "answer": "หินปูน",
-    "source": "https://www.usgs.gov/educational-resources",
-    "origin": "original-thai"
+    "category": "เคมีและวัสดุศาสตร์",
+    "text": "หน่วยซีเมนส์ใน SI ใช้วัดสมบัติทางไฟฟ้าใด?",
+    "answer": "ความนำไฟฟ้าเชิงวงจร หรือ Conductance",
+    "source": "https://www.nist.gov/system/files/documents/2017/03/29/si-base-units.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-121",
-    "category": "ของใกล้ตัว",
-    "text": "แท่งยาวเอาไว้เขียน เหลาจนแหลม แต่ไส้ดินสอทำจากอะไรเป็นหลัก?",
-    "answer": "แกรไฟต์",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "สำหรับเมทริกซ์ที่มี n คอลัมน์ ผลรวมของ rank กับ nullity เท่ากับอะไร?",
+    "answer": "n หรือจำนวนคอลัมน์",
+    "source": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-summer-2020/8e58e55c81809d673d9a29ac6422fc8d_MIT18_085Summer20_lec_w1.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-122",
-    "category": "ของใกล้ตัว",
-    "text": "แม่เหล็กไม่ได้ดูดทุกอย่างที่เป็นโลหะ มันดูดโลหะทุกชนิดจริงไหม?",
-    "answer": "ไม่ทุกชนิด",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "เมทริกซ์จัตุรัสที่ดีเทอร์มิแนนต์เป็นศูนย์มีชื่อเรียกประเภทใด?",
+    "answer": "เมทริกซ์เอกฐาน (Singular matrix)",
+    "source": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-summer-2020/8e58e55c81809d673d9a29ac6422fc8d_MIT18_085Summer20_lec_w1.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-123",
-    "category": "ของใกล้ตัว",
-    "text": "ส่องแล้วเจอหน้าเดิมทุกที กระจกเงาราบใช้ปรากฏการณ์อะไรพาภาพกลับมา?",
-    "answer": "การสะท้อนของแสง",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "เมทริกซ์จัตุรัสจริงแบบออร์โทกอนัลมีเมทริกซ์ผกผันเท่ากับเมทริกซ์ใด?",
+    "answer": "เมทริกซ์ทรานสโพสของมัน หรือ Aᵀ",
+    "source": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-summer-2020/8e58e55c81809d673d9a29ac6422fc8d_MIT18_085Summer20_lec_w1.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-124",
-    "category": "ของใกล้ตัว",
-    "text": "ส่องแล้วใหญ่ขึ้นต่อหน้าต่อตา แว่นขยายพื้นฐานใช้เลนส์ชนิดไหน?",
-    "answer": "เลนส์นูน",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ผลรวมค่าลักษณะเฉพาะของเมทริกซ์จัตุรัส เมื่อนับพหุคูณ เท่ากับปริมาณใดของเมทริกซ์?",
+    "answer": "เทรซ หรือผลรวมสมาชิกแนวทแยงหลัก",
+    "source": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-summer-2020/8e58e55c81809d673d9a29ac6422fc8d_MIT18_085Summer20_lec_w1.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-125",
-    "category": "ของใกล้ตัว",
-    "text": "เป็นโลหะแต่เหลวที่อุณหภูมิห้อง เคยซ่อนในเทอร์โมมิเตอร์ ธาตุอะไร?",
-    "answer": "ปรอท",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ผลคูณค่าลักษณะเฉพาะของเมทริกซ์จัตุรัส เมื่อนับพหุคูณ เท่ากับอะไร?",
+    "answer": "ดีเทอร์มิแนนต์",
+    "source": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-summer-2020/8e58e55c81809d673d9a29ac6422fc8d_MIT18_085Summer20_lec_w1.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-126",
-    "category": "ของใกล้ตัว",
-    "text": "แก้วน้ำใสกิ๊ง ส่วนใหญ่เริ่มจากวัตถุดิบที่มีสารอะไรเป็นหลัก?",
-    "answer": "ซิลิกาหรือทรายซิลิกา",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ค่าเอกฐานของเมทริกซ์จริง A เป็นรากที่สองของค่าลักษณะเฉพาะของเมทริกซ์ใด?",
+    "answer": "AᵀA สำหรับเมทริกซ์จริง",
+    "source": "https://ocw.mit.edu/courses/18-642-topics-in-mathematics-with-applications-in-finance-fall-2024/mit18_642_f24_lec02_1.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-127",
-    "category": "ของใกล้ตัว",
-    "text": "ถูแรง ๆ แล้วรอยค่อย ๆ หาย ยางลบดึงสารอะไรจากกระดาษ?",
-    "answer": "แกรไฟต์",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ทฤษฎีบทใดรับรองว่าเมทริกซ์สมมาตรจริงแปลงเป็นเมทริกซ์ทแยงด้วยฐานออร์โทนอร์มัลได้?",
+    "answer": "ทฤษฎีบทสเปกตรัล (Spectral theorem)",
+    "source": "https://ocw.mit.edu/courses/es-1803-differential-equations-spring-2024/mites_1803_s24_symmetric_matrices.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-128",
-    "category": "ของใกล้ตัว",
-    "text": "กระดาษที่ห่อของและเขียนจดหมาย เส้นใยพืชของมันมีสารหลักชื่ออะไร?",
-    "answer": "เซลลูโลส",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ค่าออยเลอร์คาแรกเทอริสติกของผิวทอรัสมาตรฐานหนึ่งรูเท่ากับเท่าใด?",
+    "answer": "0",
+    "source": "https://mathworld.wolfram.com/EulerCharacteristic.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-129",
-    "category": "ของใกล้ตัว",
-    "text": "กางออก หุบเข้า แล้วขาด กรรไกรมีจุดหมุนคั่นระหว่างแรงกดกับอะไร?",
-    "answer": "แรงต้านหรือชิ้นงาน",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "กราฟเชื่อมโยงที่วาดบนระนาบโดยไม่มีเส้นตัดกัน มี V − E + F เท่ากับเท่าใด เมื่อนับหน้าภายนอกด้วย?",
+    "answer": "2",
+    "source": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/mit6_042js15_textbook.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-130",
-    "category": "ของใกล้ตัว",
-    "text": "เข็มทิศไม่ต้องถามทางแม่ค้า มันตามสนามอะไรของโลก?",
-    "answer": "สนามแม่เหล็ก",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ความผิดพลาดจากการปฏิเสธสมมติฐานศูนย์ทั้งที่สมมติฐานนั้นจริง เรียกความผิดพลาดประเภทใด?",
+    "answer": "ความผิดพลาดประเภทที่ 1 (Type I error)",
+    "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-131",
-    "category": "ของใกล้ตัว",
-    "text": "สอดไว้แล้วรอดูเลข เทอร์โมมิเตอร์กำลังวัดค่าอะไร?",
-    "answer": "อุณหภูมิ",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ความน่าจะเป็นที่การทดสอบปฏิเสธ H₀ เมื่อสมมติฐานทางเลือกที่ระบุเป็นจริง เรียกว่าอะไร?",
+    "answer": "กำลังการทดสอบ (Power) หรือ 1 − β",
+    "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-132",
-    "category": "ของใกล้ตัว",
-    "text": "อากาศก็กดเราอยู่ บารอมิเตอร์ใช้วัดแรงกดแบบไหน?",
-    "answer": "ความกดอากาศ",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "การแจกแจงปัวซงที่มีพารามิเตอร์ λ มีความแปรปรวนเท่าใด?",
+    "answer": "λ",
+    "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda366j.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-133",
-    "category": "ของใกล้ตัว",
-    "text": "พลิกแล้วไหลลงทุกที นาฬิกาทรายยอมแพ้แรงอะไร?",
-    "answer": "แรงโน้มถ่วง",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "การแจกแจงเอ็กซ์โพเนนเชียลมีสมบัติที่เวลารอคงเหลือไม่ขึ้นกับเวลาที่รอแล้ว เรียกสมบัติอะไร?",
+    "answer": "สมบัติไร้ความทรงจำ (Memoryless property)",
+    "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3667.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-134",
-    "category": "ของใกล้ตัว",
-    "text": "ถูจนร้อนแล้วติด ไม้ขีดเปลี่ยนแรงถูให้เป็นพลังงานอะไร?",
-    "answer": "ความร้อน",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ภายใต้ตัวอย่างอิสระจากประชากรเดียวกันที่มีความแปรปรวนจำกัด ค่าเฉลี่ยตัวอย่างเข้าใกล้การแจกแจงปกติเพราะทฤษฎีบทใด?",
+    "answer": "ทฤษฎีบทขีดจำกัดส่วนกลาง (Central limit theorem)",
+    "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-135",
-    "category": "ของใกล้ตัว",
-    "text": "ปุ่ม F กับ J นูนให้ลูบคลำ เพราะอยากให้เราวางอะไรได้โดยไม่มอง?",
-    "answer": "วางนิ้วตำแหน่งหลักโดยไม่ต้องมอง",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "การทดสอบ t แบบหนึ่งกลุ่มตัวอย่างขนาด n ใช้องศาอิสระเท่าใด?",
+    "answer": "n − 1",
+    "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-136",
-    "category": "ของใกล้ตัว",
-    "text": "หมุนไปแล้วอ่านไป แผ่นซีดีใช้แสงชนิดไหนอ่านข้อมูล?",
-    "answer": "เลเซอร์",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "การแจกแจงปกติมีข้อมูลอยู่ภายในหนึ่งส่วนเบี่ยงเบนมาตรฐานจากค่าเฉลี่ยประมาณกี่เปอร์เซ็นต์?",
+    "answer": "ประมาณ 68.27 เปอร์เซ็นต์",
+    "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-137",
-    "category": "ของใกล้ตัว",
-    "text": "สแกนจ่ายกันทั้งไทย แต่ QR Code เกิดครั้งแรกในประเทศไหน?",
-    "answer": "ญี่ปุ่น",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "การสุ่มซ้ำแบบใส่คืนจากข้อมูลเดิมเพื่อประมาณความไม่แน่นอน เรียกวิธีอะไร?",
+    "answer": "บูตสแตรป (Bootstrap)",
+    "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/bootplot.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-138",
-    "category": "ของใกล้ตัว",
-    "text": "อ่านด้วยปลายนิ้วแทนตา อักษรเบรลล์หนึ่งเซลล์พื้นฐานมีจุดให้ใช้กี่ตำแหน่ง?",
-    "answer": "หกจุด",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "วิธีถดถอยกำลังสองน้อยที่สุดเลือกพารามิเตอร์โดยทำให้ผลรวมปริมาณใดต่ำสุด?",
+    "answer": "ผลรวมกำลังสองของค่าคลาดเคลื่อน หรือ Residual sum of squares",
+    "source": "https://www.itl.nist.gov/div898/handbook/pmd/section4/pmd431.htm",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-139",
-    "category": "ของใกล้ตัว",
-    "text": "รูดขึ้นรูดลงแล้วเปิดปิด ซิปเรียกชิ้นที่ขบกันว่าอะไรเหมือนในปากเรา?",
-    "answer": "ฟัน",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "ตัวประมาณที่เรียกว่า unbiased มีค่าคาดหมายเท่ากับอะไร?",
+    "answer": "พารามิเตอร์ประชากรที่ต้องการประมาณ",
+    "source": "https://openstax.org/books/introductory-business-statistics-2e/pages/13-4-the-regression-equation",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-140",
-    "category": "ของใกล้ตัว",
-    "text": "เห็น X แล้วอย่าเพิ่งคิดลึก เลขโรมันตัวนี้มีค่าเท่าไร?",
-    "answer": "สิบ",
-    "source": "https://www.si.edu/spotlight/invention",
-    "origin": "original-thai"
+    "category": "คณิตศาสตร์และสถิติ",
+    "text": "การปรับ Bonferroni สำหรับการทดสอบ m ครั้งด้วยระดับรวม α ใช้เกณฑ์ต่อการทดสอบเท่าใด?",
+    "answer": "α/m",
+    "source": "https://www.itl.nist.gov/div898/handbook/toolaids/pff/prc.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-141",
-    "category": "ศิลปะและเกม",
-    "text": "ทั้งขาวทั้งดำเรียงกันให้กด เปียโนมาตรฐานเต็มตัวมีกี่คีย์?",
-    "answer": "88 คีย์",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "ที่อยู่ IPv6 ตาม RFC 8200 มีความยาวกี่บิต?",
+    "answer": "128 บิต",
+    "source": "https://datatracker.ietf.org/doc/html/rfc8200",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-142",
-    "category": "ศิลปะและเกม",
-    "text": "จับคอแล้วสี ไวโอลินมาตรฐานมีสายให้เล่นกี่เส้น?",
-    "answer": "สี่เส้น",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "ส่วนหัวหลักของแพ็กเก็ต IPv6 โดยไม่รวม extension headers มีขนาดกี่ไบต์?",
+    "answer": "40 ไบต์",
+    "source": "https://datatracker.ietf.org/doc/html/rfc8200",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-143",
-    "category": "ศิลปะและเกม",
-    "text": "ตัวเล็กอุ้มแนบอกแล้วดีด อูคูเลเล่มาตรฐานมีกี่สาย?",
-    "answer": "สี่เส้น",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "MTU ขั้นต่ำที่ลิงก์ IPv6 ต้องรองรับตาม RFC 8200 คือกี่ไบต์?",
+    "answer": "1,280 ไบต์",
+    "source": "https://datatracker.ietf.org/doc/html/rfc8200",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-144",
-    "category": "ศิลปะและเกม",
-    "text": "ชามิเซ็นคอยาวจากญี่ปุ่น มีสายให้ดีดทั้งหมดกี่เส้นโดยทั่วไป?",
-    "answer": "สามเส้น",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "UTF-8 ตาม RFC 3629 ใช้จำนวนไบต์ต่อ Unicode scalar value ได้ตั้งแต่กี่ถึงกี่ไบต์?",
+    "answer": "1 ถึง 4 ไบต์",
+    "source": "https://www.rfc-editor.org/rfc/rfc3629.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-145",
-    "category": "ศิลปะและเกม",
-    "text": "แตกแล้วเชื่อมด้วยสีทอง งานซ่อมเครื่องปั้นแบบญี่ปุ่นนี้ชื่ออะไร?",
-    "answer": "คินสึงิ",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "รหัสสถานะ HTTP 304 ตาม RFC 9110 หมายถึงอะไร?",
+    "answer": "Not Modified หรือทรัพยากรไม่เปลี่ยนจากเงื่อนไขแคชที่ส่งมา",
+    "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-146",
-    "category": "ศิลปะและเกม",
-    "text": "พับไปพับมาจนเป็นตัว ศิลปะพับกระดาษญี่ปุ่นชื่ออะไร?",
-    "answer": "โอริกามิ",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "HTTP method ที่เรียกว่า idempotent มีผลที่ตั้งใจบนเซิร์ฟเวอร์อย่างไรเมื่อส่งซ้ำเหมือนเดิม?",
+    "answer": "มีผลที่ตั้งใจเทียบเท่าการส่งเพียงครั้งเดียว",
+    "source": "https://www.rfc-editor.org/rfc/rfc9110.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-147",
-    "category": "ศิลปะและเกม",
-    "text": "เสียบให้ถูกที่แล้วสวย ศิลปะจัดดอกไม้ญี่ปุ่นเรียกว่าอะไร?",
-    "answer": "อิเคบานะ",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "TLS 1.3 ระบุให้ข้อมูลแบบ 0-RTT ไม่มีหลักประกันต่อการโจมตีชนิดใดโดยตัวโปรโตคอลเอง?",
+    "answer": "การส่งซ้ำหรือ Replay attack",
+    "source": "https://www.rfc-editor.org/rfc/rfc8446.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-148",
-    "category": "ศิลปะและเกม",
-    "text": "ยังเปียกก็ลงสีเลย เทคนิควาดภาพบนปูนเปียกชื่ออะไร?",
-    "answer": "เฟรสโก",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "AES ทุกขนาดกุญแจใน FIPS 197 ใช้บล็อกข้อมูลยาวกี่บิต?",
+    "answer": "128 บิต",
+    "source": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-149",
-    "category": "ศิลปะและเกม",
-    "text": "เอาสีแดงคลุกสีเหลือง ในระบบสีวาดภาพพื้นฐานออกมาสีอะไร?",
-    "answer": "สีส้ม",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "AES-256 ใช้รอบการแปลงหลักกี่รอบ โดยไม่นับการบวกกุญแจเริ่มต้น?",
+    "answer": "14 รอบ",
+    "source": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-150",
-    "category": "ศิลปะและเกม",
-    "text": "เดวิดหินอ่อนที่ฟลอเรนซ์ยืนโชว์งานแกะ เป็นฝีมือศิลปินคนไหน?",
-    "answer": "มีเกลันเจโล",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "AES เป็นมาตรฐานที่เลือกมาจากตระกูลอัลกอริทึมชื่ออะไร?",
+    "answer": "ไรน์ดาล (Rijndael)",
+    "source": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-151",
-    "category": "ศิลปะและเกม",
-    "text": "ยิ้มนิดเดียวแต่คนมองทั้งโลก ใครวาดโมนาลิซา?",
-    "answer": "เลโอนาร์โด ดา วินชี",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "ฟังก์ชัน SHA-256 ให้ผลลัพธ์แฮชยาวกี่ไบต์?",
+    "answer": "32 ไบต์ หรือ 256 บิต",
+    "source": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-152",
-    "category": "ศิลปะและเกม",
-    "text": "ชื่ออูคูเลเล่ฟังมุ้งมิ้ง แต่ความหมายที่มักเล่าในภาษาฮาวายคือสัตว์อะไรทำอะไร?",
-    "answer": "หมัดกระโดด",
-    "source": "https://americanhistory.si.edu/explore/stories/5-things-you-probably-didnt-know-about-ukulele",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "ใน CAP theorem เมื่อเกิด network partition ระบบกระจายไม่อาจรับประกันคุณสมบัติใดสองอย่างพร้อมกันได้เต็มที่?",
+    "answer": "Consistency แบบ linearizability และ Availability",
+    "source": "https://groups.csail.mit.edu/tds/papers/Gilbert/Brewer6.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-153",
-    "category": "ศิลปะและเกม",
-    "text": "บิชอปหมากรุกไม่เดินตรง ๆ มันชอบไปตามเส้นแบบไหน?",
-    "answer": "แนวทแยง",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "ตัวอักษร I ใน ACID ของธุรกรรมฐานข้อมูลหมายถึงอะไร?",
+    "answer": "Isolation หรือการแยกธุรกรรม",
+    "source": "https://15445.courses.cs.cmu.edu/spring2025/slides/25-potpourri.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-154",
-    "category": "ศิลปะและเกม",
-    "text": "ม้าในหมากรุกสากลกระโดดสองจังหวะ ลายเดินคล้ายอักษรอะไร?",
-    "answer": "ตัว L",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "ใน 3NF หาก X → A ไม่ใช่การพึ่งพาแบบ trivial และ X ไม่ใช่ superkey แล้ว A ต้องเป็นแอตทริบิวต์ประเภทใด?",
+    "answer": "Prime attribute คือเป็นส่วนหนึ่งของ candidate key อย่างน้อยหนึ่งชุด",
+    "source": "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm2up.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-155",
-    "category": "ศิลปะและเกม",
-    "text": "ช่องดำช่องขาวที่ผลัดกันรุก กระดานหมากรุกสากลมีทั้งหมดกี่ช่อง?",
-    "answer": "64 ช่อง",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "อัลกอริทึม Dijkstra แบบมาตรฐานรับประกันเส้นทางสั้นที่สุดเมื่อค่าน้ำหนักขอบเป็นอย่างไร?",
+    "answer": "ไม่เป็นลบทุกขอบ",
+    "source": "https://xlinux.nist.gov/dads/HTML/dijkstraalgo.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-156",
-    "category": "ศิลปะและเกม",
-    "text": "เข้าป้อมทีเดียวได้ขยับสองตัว ในหมากรุกสากลคือหมากคู่ไหน?",
-    "answer": "คิงกับเรือ",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "อัลกอริทึมเส้นทางสั้นที่สุดใดรองรับขอบน้ำหนักลบและตรวจวงจรลบที่เข้าถึงได้จากต้นทางได้?",
+    "answer": "เบลล์แมน–ฟอร์ด (Bellman–Ford)",
+    "source": "https://xlinux.nist.gov/dads/HTML/bellmanford.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-157",
-    "category": "ศิลปะและเกม",
-    "text": "จับเขย่าแล้วปล่อย ลูกเต๋าลูกบาศก์มาตรฐานมีด้านให้ลุ้นกี่หน้า?",
-    "answer": "หกหน้า",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "การเรียงลำดับแบบ stable รักษาลำดับเดิมของสมาชิกกลุ่มใด?",
+    "answer": "สมาชิกที่มีคีย์เท่ากัน",
+    "source": "https://xlinux.nist.gov/dads/HTML/stable.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-158",
-    "category": "ศิลปะและเกม",
-    "text": "สับแล้วแจกได้หลายมือ ไพ่หนึ่งสำรับไม่รวมโจ๊กเกอร์มีกี่ใบ?",
-    "answer": "52 ใบ",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "การค้นหาแบบทวิภาคบนอาร์เรย์เรียงแล้ว มีความซับซ้อนด้านเวลาสูงสุดระดับใด?",
+    "answer": "O(log n)",
+    "source": "https://xlinux.nist.gov/dads/HTML/binarySearch.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-159",
-    "category": "ศิลปะและเกม",
-    "text": "โดมิโนดับเบิลซิกซ์ มีตัวไว้เรียงให้ล้มทั้งหมดกี่ตัวในชุดมาตรฐาน?",
-    "answer": "28 ตัว",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "ปัญหาตัดสินว่าโปรแกรมทั่วไปจะหยุดทำงานบนอินพุตที่กำหนดหรือไม่ มีชื่อมาตรฐานว่าอะไร?",
+    "answer": "ปัญหาการหยุด หรือ Halting problem",
+    "source": "https://xlinux.nist.gov/dads/HTML/haltingProblem.html",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-160",
-    "category": "ศิลปะและเกม",
-    "text": "กระดานโกะเต็มขนาดที่ใช้แข่ง มีเส้นให้จับจองด้านละกี่เส้น?",
-    "answer": "19 เส้น",
-    "source": "https://www.britannica.com/art",
-    "origin": "original-thai"
+    "category": "คอมพิวเตอร์และสารสนเทศ",
+    "text": "ในเอนโทรปีของแชนนอน หากใช้ลอการิทึมฐาน 2 หน่วยสารสนเทศเรียกว่าอะไร?",
+    "answer": "บิต (Bit)",
+    "source": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+    "origin": "original-thai",
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-161",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "หม้อไหนชื่อเหมือนความลับถูกเปิด แต่ตักแล้วได้ต้มยำทะเลน้ำใส?",
-    "answer": "โป๊ะแตก",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "การประชุมเบรตตันวูดส์ที่วางรากฐาน IMF และธนาคารโลกจัดในปีใด?",
+    "answer": "ค.ศ. 1944",
+    "source": "https://www.imf.org/external/about/timeline/index.htm",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-162",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "เมนูอะไรชื่อเหมือนเทพลงไปอาบน้ำ แต่ในจานมีผักบุ้ง เนื้อ และน้ำราดถั่ว?",
-    "answer": "พระรามลงสรง",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "การประชุมเบรตตันวูดส์ปี 1944 มีประเทศเข้าร่วมกี่ประเทศ?",
+    "answer": "44 ประเทศ",
+    "source": "https://www.imf.org/external/about/timeline/index.htm",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-163",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ขนมใต้ชนิดไหนชื่อเหมือนพาไปใส่ตุ้มหู เป็นแป้งทอดรูปวงมีรูตรงกลาง?",
-    "answer": "ขนมเจาะหู",
-    "source": "https://www.culturalmapthailand.info/CD-6688",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "SDR ที่ IMF สร้างขึ้นในปี 1969 จัดเป็นสินทรัพย์ประเภทใด?",
+    "answer": "สินทรัพย์สำรองระหว่างประเทศ",
+    "source": "https://www.imf.org/en/About/FAQ/special-drawing-right",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-164",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "เรียกว่าขนม แต่กินเป็นมื้อหลักกับน้ำยา เป็นเส้นข้าวสีขาว ชื่ออะไร?",
-    "answer": "ขนมจีน",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ตะกร้า SDR ที่มีผลตั้งแต่สิงหาคม 2022 ประกอบด้วยเงินตราห้าสกุลใด?",
+    "answer": "ดอลลาร์สหรัฐ ยูโร หยวน เยน และปอนด์สเตอร์ลิง",
+    "source": "https://www.imf.org/en/news/articles/2022/07/29/pr22281-press-release-imf-determines-new-currency-amounts-for-the-sdr-valuation-basket",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-165",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ชื่อเหมือนอัญมณี แต่กัดแล้วเจอแห้วหุ้มแป้งสีแดงลอยในกะทิ ของหวานอะไร?",
-    "answer": "ทับทิมกรอบ",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "การเทียบ GDP ด้วยตะกร้าสินค้าเดียวกันระหว่างประเทศ ใช้แนวคิดที่ย่อว่าอะไร?",
+    "answer": "PPP หรือความเสมอภาคของอำนาจซื้อ",
+    "source": "https://www.imf.org/en/publications/fandd/issues/series/back-to-basics/gross-domestic-product-gdp",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-166",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "หยอดลงหลุม ร้อนจนต้องแคะ แล้วจับสองฝาประกบ ขนมไทยอะไร?",
-    "answer": "ขนมครก",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "GDP deflator คำนวณจาก GDP ราคาปัจจุบันหารด้วย GDP ที่ปรับราคาแล้ว คูณเท่าใด?",
+    "answer": "100",
+    "source": "https://www.bea.gov/data/prices-inflation/gdp-price-deflator",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-167",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "เมนูไข่อะไรเรียกลูกเขามาเป็นญาติบ้านเรา เอาไข่ทอดราดซอสมะขาม?",
-    "answer": "ไข่ลูกเขย",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "GDP กับ GNI ต่างกันหลัก ๆ เพราะ GNI เพิ่มรายได้สุทธิประเภทใดจากต่างประเทศ?",
+    "answer": "รายได้ปฐมภูมิสุทธิจากต่างประเทศ",
+    "source": "https://documents1.worldbank.org/curated/en/417501468164641001/pdf/574870PUB0Box353749B01PUBLIC10SNA2008.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-168",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "กล้วยอะไรเหมือนถูกส่งไปถือศีล แต่เสิร์ฟในชามกะทิร้อน ๆ?",
-    "answer": "กล้วยบวชชี",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "สัมประสิทธิ์จีนีบนสเกล 0–1 มีค่าใดเมื่อทุกคนมีรายได้เท่ากันพอดี?",
+    "answer": "0",
+    "source": "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/SI.POV.GINI",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-169",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "สั่งเนื้อย่างอีสานจานไหนแล้วมีสัตว์ป่าร้องไห้อยู่ในชื่อ?",
-    "answer": "เสือร้องไห้",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "เส้นโค้งที่พล็อตส่วนแบ่งรายได้สะสมเทียบกับสัดส่วนประชากรสะสมเรียกว่าอะไร?",
+    "answer": "เส้นโค้งลอเรนซ์ (Lorenz curve)",
+    "source": "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/SI.POV.GINI",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-170",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ปากอยู่บนหม้อ ผ้าขึงอยู่ข้างบน หยอดแป้งบางห่อไส้ ขนมอะไรที่ตลาดเช้า?",
-    "answer": "ข้าวเกรียบปากหม้อ",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ต้นทุนค่าเสียโอกาสหมายถึงมูลค่าของทางเลือกใดที่เสียไปเมื่อเลือกทำสิ่งหนึ่ง?",
+    "answer": "ทางเลือกที่ดีที่สุดรองลงมาซึ่งไม่ได้เลือก",
+    "source": "https://www.stlouisfed.org/-/media/project/frbstl/stlouisfed/education/curriculum/pdf/a_standard_personal_finance_curriculum.pdf?la=en",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-171",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ผักอะไรได้ทั้งลงหม้อและโรยหน้า แถมถูกยืมชื่อไปเหน็บคนทำดีแค่ผิวเผิน?",
-    "answer": "ผักชี",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ความได้เปรียบโดยเปรียบเทียบพิจารณาจากต้นทุนชนิดใด ไม่ใช่แค่ผลิตได้มากกว่า?",
+    "answer": "ต้นทุนค่าเสียโอกาสที่ต่ำกว่า",
+    "source": "https://www.stlouisfed.org/~/media/education/tools/pdf/ea-tools-for-teaching-session-14.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-172",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "น้ำพริกอะไรมีทริปเดินทางอยู่ในชื่อ กินกับผัก ปลาดุกฟู และหมูหวาน?",
-    "answer": "น้ำพริกลงเรือ",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ภาวะสมดุลที่ผู้เล่นแต่ละคนเปลี่ยนกลยุทธ์ฝ่ายเดียวแล้วไม่ทำให้ตนดีขึ้น เรียกว่าอะไร?",
+    "answer": "ดุลยภาพแนช (Nash equilibrium)",
+    "source": "https://www.nobelprize.org/uploads/2017/05/nash-lecture.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-173",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "เป็นแท่งยาว มีเนื้อแน่นอยู่ในปลอก ต้องกรอกก่อนปรุง ชื่ออาหารอะไร?",
-    "answer": "ไส้กรอก",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ตลาดรถมือสองแบบ lemons ของจอร์จ อะเคอร์ลอฟเป็นตัวอย่างปัญหาสารสนเทศชนิดใด?",
+    "answer": "การเลือกที่ไม่พึงประสงค์ (Adverse selection)",
+    "source": "https://www.nobelprize.org/uploads/2018/06/stiglitz-lecture.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-174",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ขนมอะไรมีหลายชั้นให้ลอกทีละชั้น แต่ไม่ต้องขออนุญาตถอดใคร?",
-    "answer": "ขนมชั้น",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "การเปลี่ยนพฤติกรรมรับความเสี่ยงหลังได้รับความคุ้มครองหรือทำสัญญาแล้ว เรียกปัญหาอะไร?",
+    "answer": "Moral hazard หรือภัยทางศีลธรรม",
+    "source": "https://www.nobelprize.org/uploads/2018/06/popular-economicsciences2016-1.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-175",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ขนมมงคลอะไรชื่อเหมือนต้องได้ที่หนึ่ง กดพิมพ์สีเหลืองแล้วแต้มทองคำเปลว?",
-    "answer": "ทองเอก",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "สามเป้าหมายที่ขัดกันใน impossible trinity คืออัตราแลกเปลี่ยนคงที่ การเคลื่อนย้ายทุนเสรี และอะไร?",
+    "answer": "นโยบายการเงินที่เป็นอิสระ",
+    "source": "https://www.imf.org/-/media/Files/Publications/Miscellaneous/English/2022/mcm-technical-assistance-handbook/choice-of-exchange-rate-arrangement.ashx",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-176",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ผลไม้อะไรมีตารอบตัว แต่ต้องโดนปอกตาออกก่อนถึงจะกินอร่อย?",
-    "answer": "สับปะรด",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "องค์การการค้าโลก WTO เริ่มดำเนินงานวันที่ 1 มกราคมของปีใด?",
+    "answer": "ค.ศ. 1995",
+    "source": "https://www.wto.org/english/res_e/booksp_e/sli_e/5MarrakeshAgreementEstablishingtheWTO.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-177",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "คู่ไหนตัวติดกัน ลงกระทะพร้อมกัน แล้วชอบถูกจับจิ้มนมข้นตอนเช้า?",
-    "answer": "ปาท่องโก๋",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ข้อตกลงที่จัดตั้ง WTO ซึ่งลงนามปี 1994 มีชื่อเรียกตามเมืองใด?",
+    "answer": "มาร์ราเกช (Marrakesh)",
+    "source": "https://www.wto.org/english/res_e/booksp_e/sli_e/5MarrakeshAgreementEstablishingtheWTO.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-178",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ดึงเป็นเส้นจนฟู หวานติดปาก แล้วจับห่อแผ่นแป้ง ของกินดังอยุธยาอะไร?",
-    "answer": "โรตีสายไหม",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ศาลยุติธรรมระหว่างประเทศ ICJ มีผู้พิพากษากี่คนตามธรรมนูญศาล?",
+    "answer": "15 คน",
+    "source": "https://api.icj-cij.org/sites/default/files/documents/the-court-at-a-glance-en.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-179",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "ของหวานอะไรชื่อเหมือนมัวอร่อยจนลืมขั้นสุดท้าย ใช้แป้งถั่วเขียวกวนหยอดหน้ากะทิ?",
-    "answer": "ขนมลืมกลืน",
-    "source": "https://food.dusit.ac.th/home/?p=14970",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ผู้พิพากษา ICJ ได้รับเลือกให้ดำรงตำแหน่งวาระละกี่ปี?",
+    "answer": "9 ปี",
+    "source": "https://api.icj-cij.org/sites/default/files/documents/the-court-at-a-glance-en.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-180",
-    "category": "ของกินชื่อชวนคิด",
-    "text": "แกงอะไรชื่อเหมือนไม่มีรส ทั้งที่ซดแล้วกลมกล่อม ใส่วุ้นเส้นกับหมูสับได้?",
-    "answer": "แกงจืด",
-    "source": "",
+    "category": "เศรษฐศาสตร์และสถาบันโลก",
+    "text": "ธรรมนูญกรุงโรมที่ก่อตั้งศาลอาญาระหว่างประเทศ ICC มีผลใช้บังคับในปีใด?",
+    "answer": "ค.ศ. 2002",
+    "source": "https://www.icc-cpi.int/publications/core-legal-texts/rome-statute-international-criminal-court",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-181",
-    "category": "คำไทยมีนัย",
-    "text": "สำนวนไหนเห็นจังหวะดีแล้วต้องรีบตัก ก่อนโอกาสจะลดระดับลง?",
-    "answer": "น้ำขึ้นให้รีบตัก",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "จารึกโรเซตตาใช้ตัวอักษรสามระบบใด?",
+    "answer": "ไฮเออโรกลิฟ เดโมติก และกรีก",
+    "source": "https://www.britishmuseum.org/sites/default/files/2023-11/Room-4-Touch-Tour-Guide.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-182",
-    "category": "คำไทยมีนัย",
-    "text": "เอนตามแรงกดดันเพื่อเอาตัวรอด สำนวนไหนยกต้นไม้มาเปรียบว่าอ่อนตัวเก่ง?",
-    "answer": "ไผ่ลู่ลม",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "แม้มีอักษรสามระบบ จารึกโรเซตตาบันทึกกี่ภาษาเมื่อแยกตามภาษา ไม่ใช่อักษร?",
+    "answer": "2 ภาษา คืออียิปต์กับกรีก",
+    "source": "https://www.britishmuseum.org/sites/default/files/2023-11/Room-4-Touch-Tour-Guide.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-183",
-    "category": "คำไทยมีนัย",
-    "text": "สำนวนไหนเหมือนง่วงทั้งตาทั้งหู แต่หมายถึงมุ่งทำต่อโดยไม่ฟังเหตุผล?",
-    "answer": "หลับหูหลับตา",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "พระราชกฤษฎีกาบนจารึกโรเซตตาจัดทำในรัชสมัยกษัตริย์ปโตเลมีพระองค์ใด?",
+    "answer": "ปโตเลมีที่ 5 (Ptolemy V)",
+    "source": "https://www.britishmuseum.org/sites/default/files/2023-11/Room-4-Touch-Tour-Guide.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-184",
-    "category": "คำไทยมีนัย",
-    "text": "เริ่มทีร้อนแรง ลุกวาบแล้วหมดแรงเร็ว สำนวนอะไรเอาของในนามาเปรียบ?",
-    "answer": "ไฟไหม้ฟาง",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "นักวิชาการฝรั่งเศสผู้ประกาศความก้าวหน้าครั้งสำคัญในการถอดอักษรไฮเออโรกลิฟปี 1822 คือใคร?",
+    "answer": "ฌ็อง-ฟร็องซัว ช็องปอลียง (Jean-François Champollion)",
+    "source": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-185",
-    "category": "คำไทยมีนัย",
-    "text": "กินกันจนหมดบ้านหมดเมือง สำนวนนี้ใช้เรียกการเอาประโยชน์ส่วนรวมแบบไหน?",
-    "answer": "ทุจริตคดโกง หรือกินบ้านกินเมือง",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "ไมเคิล เวนทริสถอดอักษรลิเนียร์บีสำเร็จในปีใด?",
+    "answer": "ค.ศ. 1952",
+    "source": "https://www.classics.cam.ac.uk/research/projects/mycep/decipherment",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-186",
-    "category": "คำไทยมีนัย",
-    "text": "สัตว์สองตัวอยากเป็นใหญ่ แต่มีถ้ำให้แชร์แค่แห่งเดียว สำนวนไทยว่าอย่างไร?",
-    "answer": "เสือสองตัวอยู่ถ้ำเดียวกันไม่ได้",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "อักษรลิเนียร์บีใช้บันทึกภาษาโบราณใด?",
+    "answer": "ภาษากรีกไมซีเนียน (Mycenaean Greek)",
+    "source": "https://www.classics.cam.ac.uk/research/projects/mycep/decipherment",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-187",
-    "category": "คำไทยมีนัย",
-    "text": "หนีตัวมีเขี้ยวบนบก ดันไปเจอตัวมีเขี้ยวในน้ำ สำนวนอะไรยิ่งหนียิ่งซวย?",
-    "answer": "หนีเสือปะจระเข้",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "นักภาษาศาสตร์เคมบริดจ์ผู้ร่วมงานกับเวนทริสในการศึกษาลิเนียร์บีคือใคร?",
+    "answer": "จอห์น แชดวิก (John Chadwick)",
+    "source": "https://www.classics.cam.ac.uk/research/projects/mycep/decipherment",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-188",
-    "category": "คำไทยมีนัย",
-    "text": "สวยแค่ข้างบน ข้างในยังเหมือนเดิม สำนวนไหนยืมผักในครัวมาเหน็บคน?",
-    "answer": "ผักชีโรยหน้า",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "จารึกเบฮิสตุนของดาริอุสที่ 1 ใช้สามภาษาใด?",
+    "answer": "เปอร์เซียโบราณ อีลาไมต์ และบาบิโลเนียนซึ่งเป็นภาษาแอกแคดรูปแบบหนึ่ง",
+    "source": "https://whc.unesco.org/en/list/1222/",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-189",
-    "category": "คำไทยมีนัย",
-    "text": "จะเอาหนวดจากสัตว์มีกระดอง เอาเขาจากสัตว์หูยาว สำนวนอะไรขอของไม่มีจริง?",
-    "answer": "หนวดเต่าเขากระต่าย",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "โมเฮนโจดาโรเป็นเมืองสำคัญของอารยธรรมยุคสำริดใด?",
+    "answer": "อารยธรรมลุ่มแม่น้ำสินธุ หรือฮารัปปา",
+    "source": "https://whc.unesco.org/en/list/138/",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-190",
-    "category": "คำไทยมีนัย",
-    "text": "หว่านล้อมทีเดียวลากมาครบห้าสาย สำนวนอะไรใช้น้ำเยอะกว่าจะเข้าเรื่อง?",
-    "answer": "ชักแม่น้ำทั้งห้า",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "เมืองเปตราเชื่อมโยงกับชนชาติผู้สร้างอาณาจักรการค้าโบราณกลุ่มใด?",
+    "answer": "ชาวนาบาเทียน (Nabataeans)",
+    "source": "https://whc.unesco.org/en/list/326/",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-191",
-    "category": "คำไทยมีนัย",
-    "text": "ยื่นของมีค่าให้ลิงไปถือ สำนวนอะไรเตือนว่าอีกฝ่ายอาจไม่รู้คุณค่าของมัน?",
-    "answer": "ยื่นแก้วให้วานร",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "นครวัดสร้างขึ้นในรัชสมัยกษัตริย์ขอมพระองค์ใดในคริสต์ศตวรรษที่ 12?",
+    "answer": "พระเจ้าสูรยวรมันที่ 2",
+    "source": "https://apsaraauthority.gov.kh/2021/06/14/angkor-wat/",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-192",
-    "category": "คำไทยมีนัย",
-    "text": "บรรเลงตั้งนาน คนฟังเอาแต่เคี้ยวหญ้า สำนวนอะไรเปรียบคนไม่ยอมรับฟัง?",
-    "answer": "สีซอให้ควายฟัง",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "เมื่อแรกสร้าง นครวัดมีความเกี่ยวข้องกับเทพเจ้าองค์ใดในศาสนาฮินดูเป็นหลัก?",
+    "answer": "พระวิษณุ หรือพระนารายณ์",
+    "source": "https://apsaraauthority.gov.kh/2021/06/14/angkor-wat/",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-193",
-    "category": "คำไทยมีนัย",
-    "text": "เก็บทีละนิดใต้ร้านจนรวมเป็นเงิน สำนวนไหนไม่ได้ชวนเปิดฟาร์มหอย?",
-    "answer": "เก็บเบี้ยใต้ถุนร้าน",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "บุโรพุทโธสร้างรุ่งเรืองภายใต้ราชวงศ์ใดในชวา?",
+    "answer": "ราชวงศ์ไศเลนทร์ (Sailendra)",
+    "source": "https://en.unesco.org/silkroad/sites/default/files/knowledge-bank-article/expansion_of_buddhism_into_southeast_asia_0.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-194",
-    "category": "คำไทยมีนัย",
-    "text": "กลิ้งไปกลิ้งมาไม่อยู่กับที่ สำนวนไหนมีใบไม้ลื่น ๆ ไว้เปรียบคนโลเล?",
-    "answer": "น้ำกลิ้งบนใบบอน",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "แผนผังและภาพสลักของบุโรพุทโธสัมพันธ์กับพุทธศาสนานิกายใดเป็นหลัก?",
+    "answer": "มหายาน",
+    "source": "https://en.unesco.org/silkroad/sites/default/files/knowledge-bank-article/expansion_of_buddhism_into_southeast_asia_0.pdf",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-195",
-    "category": "คำไทยมีนัย",
-    "text": "ขยันตักแค่ไหนก็ไหลออกหมด สำนวนไหนเลือกใช้ภาชนะผิดจนทำงานเสียเปล่า?",
-    "answer": "ตักน้ำใส่ตะกร้า",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "ฮัตตูชาเป็นเมืองหลวงของจักรวรรดิโบราณใดในอนาโตเลีย?",
+    "answer": "จักรวรรดิฮิตไทต์ (Hittite Empire)",
+    "source": "https://whc.unesco.org/en/list/377/",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-196",
-    "category": "คำไทยมีนัย",
-    "text": "ของหายแล้วเพิ่งคิดสร้างรั้ว สำนวนอะไรต้องรอวัวจากไปก่อนถึงจะลงมือ?",
-    "answer": "วัวหายล้อมคอก",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "กองทหารดินเผาที่ซีอานสร้างขึ้นเพื่อสุสานจักรพรรดิจีนพระองค์ใด?",
+    "answer": "จิ๋นซีฮ่องเต้ หรือฉินสื่อหวง",
+    "source": "https://whc.unesco.org/en/list/441/",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-197",
-    "category": "คำไทยมีนัย",
-    "text": "พอให้สุกก็ส่ง ๆ ไป สำนวนอะไรยืมการทำกับข้าวมาเปรียบงานที่ทำลวก ๆ?",
-    "answer": "สุกเอาเผากิน",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "เทคนิค buon fresco ลงสีบนพื้นปูนในสภาพใด?",
+    "answer": "ปูนฉาบปูนขาวที่ยังเปียกหรือสด",
+    "source": "https://www.getty.edu/vow/AATFullDisplay?subjectid=300403944",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-198",
-    "category": "คำไทยมีนัย",
-    "text": "พาหนะใหญ่เบ้อเริ่ม แต่เหยื่อตัวนิดเดียว สำนวนอะไรลงทุนแรงเกินผลที่ได้?",
-    "answer": "ขี่ช้างจับตั๊กแตน",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "ตัวประสานดั้งเดิมที่สำคัญในเทคนิค egg tempera คือส่วนใดของไข่?",
+    "answer": "ไข่แดง",
+    "source": "https://www.nationalgallery.org.uk/stories/how-is-egg-tempera-paint-made",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-199",
-    "category": "คำไทยมีนัย",
-    "text": "ของหอมอยู่ตรงหน้าแมว แล้วยังฝากให้เฝ้า สำนวนไทยเตือนว่าอย่างไร?",
-    "answer": "ฝากปลาย่างไว้กับแมว",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "เทคนิค sfumato ที่สัมพันธ์กับเลโอนาร์โด ดา วินชี เน้นทำให้รอยต่อของโทนสีมีลักษณะอย่างไร?",
+    "answer": "นุ่มฟุ้งต่อเนื่องโดยไม่เห็นเส้นขอบชัด",
+    "source": "https://www.nationalgallery.org.uk/exhibitions/past/leonardo-experience-a-masterpiece/leonardo-and-the-virgin-of-the-rocks",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   },
   {
     "id": "sf-200",
-    "category": "คำไทยมีนัย",
-    "text": "เสียงนินทาจุกจิกเหมือนปากสัตว์ตัวเล็ก สำนวนไหนจับหอยกับปูมาอยู่คู่กัน?",
-    "answer": "ปากหอยปากปู",
-    "source": "",
+    "category": "อารยธรรม ภาษา และศิลปะ",
+    "text": "ศัพท์ chiaroscuro ในทัศนศิลป์หมายถึงการใช้ความสัมพันธ์ของสององค์ประกอบใด?",
+    "answer": "แสงและเงา หรือโทนสว่างกับมืด",
+    "source": "https://www.nationalgallery.org.uk/paintings/glossary/chiaroscuro",
     "origin": "original-thai",
-    "kind": "wordplay"
+    "pack": "world-advanced-2026-10-30"
   }
 ]

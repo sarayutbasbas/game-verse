@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-31",
+  "tool": "built-in image_gen",
+  "status": "rejected_by_image_tool",
+  "generatedAssets": [],
+  "prompt": "Use case: illustration-story. Reference image is a sheet of sixteen Marvel game cards. Create ONE new standalone full-bleed portrait illustration of Iron Man, the red-and-gold armored hero shown second from the right in the middle row. Use the attached sheet as costume/character reference only. New dynamic composition: Iron Man in red and gold comic armor, bright circular chest reactor, one open repulsor palm, flying amid cobalt cosmic energy and warm golden sparks. Premium painted comic-book linework. Vertical 2:3 composition, head and chest in upper two thirds, leave lower quarter quieter to accommodate later Thai ability text. Artwork only: no card border, no numbers, no letters, no logos, no text boxes. Show the hero clearly across the canvas.",
+  "reference": "/Users/basukekung/Downloads/pic6956826.webp",
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID b360edff-dd80-4071-ac50-6f81e4c8be26.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "fallback": "Existing user preference: use available reference artwork first. Extracted all 28 unique portraits from the newly supplied complete hero/Thanos sheets. See reference-v2.json; these portraits are not AI redraws.",
+  "successfulNonCharacterAssetsManifest": "docs/games/love-letter/generated-v2.json"
+}

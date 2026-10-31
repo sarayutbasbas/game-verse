@@ -1,0 +1,7 @@
+# Castle Combo interface
+
+A medieval card table, not an app dashboard. Pale castle blue #b7d8e5 and honey village yellow #edc56c distinguish the two markets; deep blue ink #183b4d provides readable Thai, gold #efc457 identifies spendable resources, parchment #fff9dd carries card rules. Use the existing locally served Noto Sans Thai with bold short headings and generous body line height.
+
+The memorable element is the illustrated two-level town market with the messenger beside the active row. Everything else supports touching real-looking cards. On phones: status/resources, two three-card market rows, then one's growing tableau. On the shared display: market above all public tableaus. Cards have familiar price/shield/name/instant effect/final score zones. No sidebar of repeated statistics. Scrolling is permitted. All actions work by taps and keyboard; dragging is unnecessary.
+
+Read a card, choose faceup purchase or facedown compensation, then choose a highlighted valid adjacent position and confirm. Show the price after discounts before spending. The tableau retains relative positions and can grow in either direction, rather than forcing the first card into a fixed final corner. Public opponent tableaus remain available in a phone menu. Effect choices and end-game purse allocation have explicit Thai instructions. Small cards show short copy; full details are always accessible. No animation decides an outcome, no mandatory decorative looping motion.

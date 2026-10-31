@@ -1,0 +1,7 @@
+# Trio interface
+
+A crisp Mexican cut-paper card table, following the supplied visual reference: dark cocoa #241723 / plum #372236, warm gold #edc681, ivory #fff6de, turquoise #24b5ba and vivid magenta #b92b92. The generated paper-lace card backgrounds carry the personality; very large code-rendered numerals carry the information. Existing locally served Noto Sans Thai provides clear controls and body text, with an expressive bold TRIO wordmark.
+
+Shared display: title/status above a three-card reveal stage, then fixed center-card positions beside player rows and their collected trios. Hands remain backs/counts. Phone: reveal stage, two tabs (center table / request from players), then one's private sorted hand. Controls use the words ต่ำสุด and สูงสุด, including one's own endpoints; interior hand cards cannot be played directly. When a turn ends, hold its visible result until the actor/display host presses a clear next-turn button. No durable failed-reveal number history, automatic memory labels or color/position hints on hidden table cards.
+
+Use actual generated cut-paper illustrations, restrained card flip/reveal animation in response to committed server state, accessible native dialogs, obvious selected tabs, focus outlines and reduced-motion support. Keep menus secondary. Do not add stat-card dashboards or decorative auto-looping motion. Vertical scrolling is allowed; avoid horizontal page overflow at 320px. Team swaps are a short private selection with an equally clear ไม่แลก option and no free-text communication.

@@ -1,0 +1,249 @@
+{
+  "generator": "built-in image_gen",
+  "purpose": "Fresh original comic animal rescue squad and equipment; no original card scans in runtime",
+  "assets": [
+    {
+      "id": "console-v2",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Single cartoon board-game bomb status prop only, absolutely NO animals, NO people, NO characters, NO faces. A charming fictional red rounded cylinder bundle behind a large rectangular dark navy timer-screen frame, tiny red warning lamp and a looping yellow cable. Front-facing view, large clean EMPTY dark navy LCD rectangle occupying the central upper 45 percent of the object, so a number will be overlaid later in HTML. Crisp thick black comic ink outlines, gentle dimensional cel shading, red-white-teal-yellow palette matching a cute rescue squad board game. Entire prop centered, isolated on genuine transparent background. No text, numbers, symbols, extra props, table, floor or background. Fill 85 percent of square canvas.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c0bc2377-e462-40f8-97c7-60a40aaf72ad.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-c0bc2377-e462-40f8-97c7-60a40aaf72ad.png",
+      "master": "assets/source/bomb-busters/console-v2.png",
+      "output": "public/art/bomb-busters/console-v2.webp"
+    },
+    {
+      "id": "console",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. One fictional tabletop cartoon bomb prop for a board game, red rounded tube bundle with a chunky black timer frame, a large blank dark teal screen, harmless curvy cables with obvious fantasy connectors, a red warning lamp and yellow dial. Three-quarter frontal view, square canvas, isolated on true transparent background. No numbers, no letters, no realistic electronics or instructions. Keep screen large for HTML status overlay.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3d9f6baa-3a81-447a-a3d7-6fba1c101672.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-3d9f6baa-3a81-447a-a3d7-6fba1c101672.png",
+      "master": "assets/source/bomb-busters/console.png",
+      "output": "public/art/bomb-busters/console.webp"
+    },
+    {
+      "id": "cover",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. A single upright 3D board game box with a slight left spine, portrait 4:5 composition. Truly transparent outside the box, no floor, no external backdrop. On the white-silver box front a grey cat captain, white rabbit and white dog in red jumpsuits cooperate around a fantastical cartoon red bomb prop with a black digital screen and colorful looping wires. Large beautifully legible black title 'BOMB BUSTERS' at the top, teal subtitle 'COOPERATIVE WIRE-CUTTING'. Dynamic yet uncluttered, premium retail box illustration. Only these exact two text strings, no other small print. Fill 92 percent of canvas.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ed28aeb3-e5bf-4cff-a64f-1265415a8218.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ed28aeb3-e5bf-4cff-a64f-1265415a8218.png",
+      "master": "assets/source/bomb-busters/cover.png",
+      "output": "public/art/bomb-busters/cover.webp"
+    },
+    {
+      "id": "crew-cat",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. One grey pointed-eared cat captain with a tiny teal captain badge, full body, red utility jumpsuit, black gloves and boots, carrying a small harmless cartoon tool pouch, standing in a lively approachable three-quarter pose. Isolated on genuine transparent background. No lettering, no badge text, no extra characters or props outside silhouette. Square canvas.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9829865d-b72d-464c-ad71-98269259f39d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9829865d-b72d-464c-ad71-98269259f39d.png",
+      "master": "assets/source/bomb-busters/crew-cat.png",
+      "output": "public/art/bomb-busters/crew-cat.webp"
+    },
+    {
+      "id": "crew-dog",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. One white floppy-eared dog with a charcoal eye patch and an enthusiastic expression, full body, red utility jumpsuit, black gloves and boots, carrying a small harmless cartoon tool pouch, standing in a lively approachable three-quarter pose. Isolated on genuine transparent background. No lettering, no badge text, no extra characters or props outside silhouette. Square canvas.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-042a5573-41f4-4f4d-a82e-e02de3538956.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-042a5573-41f4-4f4d-a82e-e02de3538956.png",
+      "master": "assets/source/bomb-busters/crew-dog.png",
+      "output": "public/art/bomb-busters/crew-dog.webp"
+    },
+    {
+      "id": "crew-fox",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. One orange fox with cream muzzle and alert triangular ears, full body, red utility jumpsuit, black gloves and boots, carrying a small harmless cartoon tool pouch, standing in a lively approachable three-quarter pose. Isolated on genuine transparent background. No lettering, no badge text, no extra characters or props outside silhouette. Square canvas.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-df909107-7a4b-4507-9872-c30bc48160c9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-df909107-7a4b-4507-9872-c30bc48160c9.png",
+      "master": "assets/source/bomb-busters/crew-fox.png",
+      "output": "public/art/bomb-busters/crew-fox.webp"
+    },
+    {
+      "id": "crew-panda",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. One round black-and-white panda with protective goggles perched on the head, full body, red utility jumpsuit, black gloves and boots, carrying a small harmless cartoon tool pouch, standing in a lively approachable three-quarter pose. Isolated on genuine transparent background. No lettering, no badge text, no extra characters or props outside silhouette. Square canvas.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-136e57ac-998e-42a1-b901-8d3971207ff9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-136e57ac-998e-42a1-b901-8d3971207ff9.png",
+      "master": "assets/source/bomb-busters/crew-panda.png",
+      "output": "public/art/bomb-busters/crew-panda.webp"
+    },
+    {
+      "id": "crew-rabbit",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. One white long-eared rabbit with one ear bent and a friendly confident smile, full body, red utility jumpsuit, black gloves and boots, carrying a small harmless cartoon tool pouch, standing in a lively approachable three-quarter pose. Isolated on genuine transparent background. No lettering, no badge text, no extra characters or props outside silhouette. Square canvas.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9eab5869-87d6-4cc4-9546-3980962efe8e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-9eab5869-87d6-4cc4-9546-3980962efe8e.png",
+      "master": "assets/source/bomb-busters/crew-rabbit.png",
+      "output": "public/art/bomb-busters/crew-rabbit.webp"
+    },
+    {
+      "id": "failure",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. A wide 4:3 team vignette of a grey cat captain, white long-eared rabbit and floppy-eared white dog in red utility jumpsuits, emerging sheepishly from a harmless grey cartoon smoke puff, surprised expressions, soot marks only, no injury or fire. Isolated on genuine transparent background. No lettering.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ff9ec78c-da96-45e4-9003-a52fe709ac77.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-ff9ec78c-da96-45e4-9003-a52fe709ac77.png",
+      "master": "assets/source/bomb-busters/failure.png",
+      "output": "public/art/bomb-busters/failure.webp"
+    },
+    {
+      "id": "success",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. A wide 4:3 team vignette of a grey cat captain, white long-eared rabbit and floppy-eared white dog in red utility jumpsuits, smiling and high-fiving after a successful mission, small confetti burst, joyful wholesome expressions. Isolated on genuine transparent background. No lettering.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2807d26c-0a29-42ce-b5bc-e7bebb8be1c7.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2807d26c-0a29-42ce-b5bc-e7bebb8be1c7.png",
+      "master": "assets/source/bomb-busters/success.png",
+      "output": "public/art/bomb-busters/success.webp"
+    },
+    {
+      "id": "table",
+      "transparent_background": false,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. A calm top-down light grey-white bomb-disposal workbench background, wide landscape 16:9. Subtle blueprint circuit doodles and halftone paper texture near margins, small red tool roll and pliers near upper corners, white-grey quiet central 80 percent for live game UI. No characters, no letters, no numbers, no baked interface panels. Soft diffuse daylight, very legible and restrained.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6d0a1c56-d50f-46b0-ae94-6a44beb507f5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6d0a1c56-d50f-46b0-ae94-6a44beb507f5.png",
+      "master": "assets/source/bomb-busters/table.png",
+      "output": "public/art/bomb-busters/table.webp"
+    },
+    {
+      "id": "tile-back",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. A single small vertical rounded rectangular game wire tile, charcoal and silver enamel inset in a dark rubber rim, 1:2 proportions centered upright on square transparent canvas. A simple stylized looping wire motif near the lower third, chunky printed comic outlines and subtle bevel. Leave the upper half blank for a large HTML value. An anonymous reverse, no hint of color or number, subtle small cable-loop pattern. No digits, letters, markings, glow or shadows beyond the tile.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f0436199-f667-4a43-8ca6-bd9b0a5ff9da.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f0436199-f667-4a43-8ca6-bd9b0a5ff9da.png",
+      "master": "assets/source/bomb-busters/tile-back.png",
+      "output": "public/art/bomb-busters/tile-back.webp"
+    },
+    {
+      "id": "tile-blue",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. A single small vertical rounded rectangular game wire tile, deep blue enamel inset in a dark rubber rim, 1:2 proportions centered upright on square transparent canvas. A simple stylized looping wire motif near the lower third, chunky printed comic outlines and subtle bevel. Leave the upper half blank for a large HTML value.  No digits, letters, markings, glow or shadows beyond the tile.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4371f8ba-110f-4927-b4e7-506bca9ec02b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-4371f8ba-110f-4927-b4e7-506bca9ec02b.png",
+      "master": "assets/source/bomb-busters/tile-blue.png",
+      "output": "public/art/bomb-busters/tile-blue.webp"
+    },
+    {
+      "id": "tile-red",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. A single vertical rounded rectangular red enamel game wire tile inset in a dark rubber rim, 1:2 proportions centered upright on square transparent canvas. A simple looping wire motif near lower third, chunky printed outlines and subtle bevel. Upper half blank for HTML value. No digits or letters or glow.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f08a942b-f87e-489d-b44d-ba3b0e38c6a8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f08a942b-f87e-489d-b44d-ba3b0e38c6a8.png",
+      "master": "assets/source/bomb-busters/tile-red.png",
+      "output": "public/art/bomb-busters/tile-red.webp"
+    },
+    {
+      "id": "tile-yellow",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded anthropomorphic animals in bright red padded utility jumpsuits, thick confident black ink outlines, expressive eyes, white and light-grey halftone print texture, selective teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Inspired by the supplied Bomb Busters box's cheerful comic mood, but fresh composition and new character drawings. Crisp production-quality raster art, no watermarks, no realistic violence. A single small vertical rounded rectangular game wire tile, golden yellow enamel inset in a dark rubber rim, 1:2 proportions centered upright on square transparent canvas. A simple stylized looping wire motif near the lower third, chunky printed comic outlines and subtle bevel. Leave the upper half blank for a large HTML value.  No digits, letters, markings, glow or shadows beyond the tile.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cf485673-3b40-492c-90ba-a0d2cbcc0561.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-cf485673-3b40-492c-90ba-a0d2cbcc0561.png",
+      "master": "assets/source/bomb-busters/tile-yellow.png",
+      "output": "public/art/bomb-busters/tile-yellow.webp"
+    },
+    {
+      "id": "tool-1",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a yellow hanging luggage label with a bold black not-equal symbol. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6698ab80-3819-4196-bc15-d5c0a28dd878.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6698ab80-3819-4196-bc15-d5c0a28dd878.png",
+      "master": "assets/source/bomb-busters/tool-1.png",
+      "output": "public/art/bomb-busters/tool-1.webp"
+    },
+    {
+      "id": "tool-10",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a twin-lens blue cartoon ray scanner with two round lenses and soft yellow rays. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a202c970-ed4c-4b3b-a937-d6b01e0f394a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-a202c970-ed4c-4b3b-a937-d6b01e0f394a.png",
+      "master": "assets/source/bomb-busters/tool-10.png",
+      "output": "public/art/bomb-busters/tool-10.webp"
+    },
+    {
+      "id": "tool-11",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a steaming red coffee mug with a friendly paw emblem. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-28fabac8-d547-4924-9b43-571a47c1903d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-28fabac8-d547-4924-9b43-571a47c1903d.png",
+      "master": "assets/source/bomb-busters/tool-11.png",
+      "output": "public/art/bomb-busters/tool-11.webp"
+    },
+    {
+      "id": "tool-12",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: two blue cable loops linked by a bold black equal symbol. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b33d0775-1263-49f6-bf83-25deaa5bd794.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-b33d0775-1263-49f6-bf83-25deaa5bd794.png",
+      "master": "assets/source/bomb-busters/tool-12.png",
+      "output": "public/art/bomb-busters/tool-12.webp"
+    },
+    {
+      "id": "tool-2",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: two turquoise walkie-talkies linked by a curved exchange arrow. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7696f122-22ee-40ec-b209-1cfa0b844fbc.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7696f122-22ee-40ec-b209-1cfa0b844fbc.png",
+      "master": "assets/source/bomb-busters/tool-2.png",
+      "output": "public/art/bomb-busters/tool-2.webp"
+    },
+    {
+      "id": "tool-3",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a chunky three-probe cartoon digital detector with a blank small display. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-05cdaa0b-88c2-4232-be60-749a402bc6ea.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-05cdaa0b-88c2-4232-be60-749a402bc6ea.png",
+      "master": "assets/source/bomb-busters/tool-3.png",
+      "output": "public/art/bomb-busters/tool-3.webp"
+    },
+    {
+      "id": "tool-4",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a yellow sticky note and red pushpin, note completely blank. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-037fdedc-9ee9-4054-964b-1401fc3fe2fa.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-037fdedc-9ee9-4054-964b-1401fc3fe2fa.png",
+      "master": "assets/source/bomb-busters/tool-4.png",
+      "output": "public/art/bomb-busters/tool-4.webp"
+    },
+    {
+      "id": "tool-5",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a turquoise multi-antenna scanner with broad fan-shaped scanning rays. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f699f7c0-6ef7-4e41-9f89-2852e78cf887.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f699f7c0-6ef7-4e41-9f89-2852e78cf887.png",
+      "master": "assets/source/bomb-busters/tool-5.png",
+      "output": "public/art/bomb-busters/tool-5.webp"
+    },
+    {
+      "id": "tool-6",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a silver cartoon crank with a circular rewind arrow and red handle. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f5ae2e19-6abc-43d5-acbe-db720c60b93d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f5ae2e19-6abc-43d5-acbe-db720c60b93d.png",
+      "master": "assets/source/bomb-busters/tool-6.png",
+      "output": "public/art/bomb-busters/tool-6.webp"
+    },
+    {
+      "id": "tool-7",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: two bright blue spare batteries with simple yellow lightning symbols. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-74fe3e16-2fb6-4858-aba2-82abed8f87b2.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-74fe3e16-2fb6-4858-aba2-82abed8f87b2.png",
+      "master": "assets/source/bomb-busters/tool-7.png",
+      "output": "public/art/bomb-busters/tool-7.webp"
+    },
+    {
+      "id": "tool-8",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a teal handheld radar showing only abstract concentric rings. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0682295f-5765-4206-aec4-776364599a66.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0682295f-5765-4206-aec4-776364599a66.png",
+      "master": "assets/source/bomb-busters/tool-8.png",
+      "output": "public/art/bomb-busters/tool-8.webp"
+    },
+    {
+      "id": "tool-9",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Original polished comic board-game illustration for a cooperative animal bomb-disposal squad. Charming rounded cartoon design, thick confident black ink outlines, white/light-grey halftone print texture, selective red, teal and golden-yellow accents, tactile subtle 3D volume with clean cel shading. Fresh illustration in a cheerful comic mood. Crisp raster art, no watermarks, no realistic violence. One isolated equipment icon: a red-and-blue gyroscopic stabilizer inside a silver protective ring. Large centered chunky device, clear and recognizable at small size, square true transparent canvas. No words or numbers, no surrounding card or text box.",
+      "hint": "Generated images are saved to /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7 as /Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7dfb02bf-a153-4b48-a18a-4359750d89d1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-7dfb02bf-a153-4b48-a18a-4359750d89d1.png",
+      "master": "assets/source/bomb-busters/tool-9.png",
+      "output": "public/art/bomb-busters/tool-9.webp"
+    }
+  ]
+}

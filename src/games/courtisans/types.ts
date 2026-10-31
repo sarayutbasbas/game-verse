@@ -1,0 +1,10 @@
+export type Family='butterfly'|'toad'|'stag'|'carp'|'nightingale'|'hare';
+export type Role='courtier'|'noble'|'guard'|'assassin'|'spy';
+export type Zone='queen'|'self'|'opponent';
+export interface Placed{key:string;card:string;side?:'up'|'down'}
+export interface CourtPlayer{id:string;name:string;hand:string[];domain:Placed[];missions:string[]}
+export interface CourtScore{id:string;families:Record<Family,number>;missions:{id:string;met:boolean;points:number}[];total:number}
+export interface CourtState{players:CourtPlayer[];phase:'playing'|'assassin'|'finished';turn:number;starter:number;turnNumber:number;sequence:number;placed:number;deck:string[];removed:string[];unusedMissions:string[];queen:Placed[];discard:Placed[];used:Zone[];pending?:{key:string;area:string};scores:CourtScore[];winners:string[];events:{id:number;text:string}[];matchId?:string}
+export type CourtAction={type:'ct-play';card:string;zone:'queen';side:'up'|'down'}|{type:'ct-play';card:string;zone:'self'}|{type:'ct-play';card:string;zone:'opponent';player:string}|{type:'ct-kill';target:string|null};
+export interface PublicCard{key:string;family:Family|null;role:Role;side?:'up'|'down'}
+export interface CourtView{gameId:'courtisans';code:string;revision:number;phase:CourtState['phase']|'lobby';turn:string;turnNumber:number;sequence:number;deckCount:number;queen:PublicCard[];discard:PublicCard[];used:Zone[];pending?:{key:string;area:string};influence:Record<Family,{up:number;down:number;status:number}>;players:{id:string;name:string;handCount:number;domain:PublicCard[];missions?:string[];ready?:boolean;avatar?:string|null;connected?:boolean}[];scores:CourtScore[];winners:string[];events:CourtState['events'];me?:{id:string;hand:string[];missions:string[];legal:CourtAction[];canManage?:boolean};canControl?:boolean}

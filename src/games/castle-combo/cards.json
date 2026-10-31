@@ -1,0 +1,2215 @@
+[
+  {
+    "id": 1,
+    "name": "Steward",
+    "place": 1,
+    "cost": 0,
+    "shields": [
+      1
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "PutGoldOnCard",
+        "cardsLimit": 2
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 3
+    }
+  },
+  {
+    "id": 2,
+    "name": "HisHoliness",
+    "place": 1,
+    "cost": 7,
+    "shields": [
+      2
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 3,
+        "opponentsGain": 1
+      }
+    ],
+    "points": 6,
+    "condition": {
+      "type": "PerMissingShieldType"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Chaplain",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      2
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerCardWithShieldCount",
+          "count": 1
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerBanner",
+      "banner": 2
+    }
+  },
+  {
+    "id": 4,
+    "name": "Cardinal",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      2
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerBanner",
+          "banner": 1
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 2,
+      "line": true
+    }
+  },
+  {
+    "id": 5,
+    "name": "Templar",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      2,
+      4
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "BestNeighbor",
+          "condition": {
+            "type": "PerShield",
+            "shield": 2
+          }
+        }
+      },
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 4
+        }
+      }
+    ],
+    "points": 1,
+    "condition": {
+      "type": "PerKey"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Gravedigger",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      2,
+      3
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "DiscardFromRiver",
+        "river": 2,
+        "token": 3
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 8
+    }
+  },
+  {
+    "id": 7,
+    "name": "Alchemist",
+    "place": 1,
+    "cost": 6,
+    "shields": [
+      3
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1,
+        "village": 1
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "PerCardWithDiscount"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Astronomer",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      3,
+      3
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1
+      }
+    ],
+    "points": 8,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          true,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "name": "Pilgrim",
+    "place": 1,
+    "cost": 6,
+    "shields": [
+      2
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "Discount",
+        "village": 1
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "PerDifferentShieldType",
+      "line": true
+    }
+  },
+  {
+    "id": 10,
+    "name": "Devout",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      2
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerEmptyPosition"
+        }
+      }
+    ],
+    "points": 10,
+    "condition": {
+      "type": "IfShieldMissing",
+      "shield": 5
+    }
+  },
+  {
+    "id": 11,
+    "name": "Nun",
+    "place": 1,
+    "cost": 3,
+    "shields": [
+      2
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerBanner",
+          "banner": 1
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 2,
+      "column": true
+    }
+  },
+  {
+    "id": 12,
+    "name": "Architect",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      3
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "Discount",
+        "village": 1
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerDifferentShieldType"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Goldsmith",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      3,
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerCardWithShieldCount",
+          "count": 2
+        }
+      }
+    ],
+    "points": 6,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          true,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "name": "Apothecary",
+    "place": 1,
+    "cost": 3,
+    "shields": [
+      3
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 3,
+      "column": true
+    }
+  },
+  {
+    "id": 15,
+    "name": "Professor",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      3
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerDifferentShieldType"
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 3,
+      "line": true
+    }
+  },
+  {
+    "id": 16,
+    "name": "Officer",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      4
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 1
+        }
+      },
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 4
+        }
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "PerShieldsSet",
+      "shields": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "name": "Captain",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      4,
+      4
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "Discount",
+        "village": 1
+      }
+    ],
+    "points": 8,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          false,
+          false,
+          true
+        ],
+        [
+          false,
+          false,
+          true
+        ],
+        [
+          false,
+          false,
+          true
+        ]
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "name": "Judge",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      3
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 2
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerBannersSet",
+      "banners": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "name": "Patron",
+    "place": 1,
+    "cost": 7,
+    "shields": [
+      3
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 0,
+        "opponentsGain": 2
+      }
+    ],
+    "points": 5,
+    "condition": {
+      "type": "PerCardWithCost",
+      "cost": 5,
+      "orGreater": true
+    }
+  },
+  {
+    "id": 20,
+    "name": "Guildmaster",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      5,
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "DiscardFromRiver",
+        "river": 2,
+        "token": 4
+      }
+    ],
+    "points": 5,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true
+        ]
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "name": "General",
+    "place": 1,
+    "cost": 7,
+    "shields": [
+      4
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerDifferentShieldType"
+        }
+      }
+    ],
+    "points": 6,
+    "condition": {
+      "type": "PerIdenticalShieldsSet",
+      "count": 3
+    }
+  },
+  {
+    "id": 22,
+    "name": "Knight",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      4
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerBanner",
+          "banner": 1
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 1,
+      "line": true,
+      "column": true
+    }
+  },
+  {
+    "id": 23,
+    "name": "Lookout",
+    "place": 1,
+    "cost": 6,
+    "shields": [
+      4
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 4
+        }
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "PerDifferentShieldType",
+      "column": true
+    }
+  },
+  {
+    "id": 24,
+    "name": "RoyalGuard",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      1,
+      4
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "opponentsGain": 1
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 1,
+      "column": true
+    }
+  },
+  {
+    "id": 25,
+    "name": "Banker",
+    "place": 1,
+    "cost": 7,
+    "shields": [
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "ChooseBetween",
+        "effect1": {
+          "type": "PutGoldOnCard",
+          "gold": 2
+        },
+        "effect2": {
+          "type": "GainKeys",
+          "gain": 3
+        }
+      }
+    ],
+    "points": 1,
+    "condition": {
+      "type": "PerGoldInAllPurses"
+    }
+  },
+  {
+    "id": 26,
+    "name": "Pawnbroker",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerCardWithCost",
+          "cost": 4
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerCardWithCost",
+      "cost": 4
+    }
+  },
+  {
+    "id": 27,
+    "name": "Chatelaine",
+    "place": 1,
+    "cost": 2,
+    "shields": [
+      1,
+      5
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerDifferentShieldType",
+      "line": true
+    }
+  },
+  {
+    "id": 28,
+    "name": "Glassblower",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 2
+        }
+      },
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 5
+        }
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "PerShieldsSet",
+      "shields": [
+        2,
+        5
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "name": "Princess",
+    "place": 1,
+    "cost": 3,
+    "shields": [
+      1
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 1,
+      "line": true
+    }
+  },
+  {
+    "id": 30,
+    "name": "Prince",
+    "place": 1,
+    "cost": 6,
+    "shields": [
+      1
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 1
+        }
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "PerShield",
+      "shield": 1,
+      "line": true
+    }
+  },
+  {
+    "id": 31,
+    "name": "HisMajesty",
+    "place": 1,
+    "cost": 6,
+    "shields": [
+      1,
+      2
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 0,
+        "opponentsGain": 1
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "PerShield",
+      "shield": 1,
+      "column": true
+    }
+  },
+  {
+    "id": 32,
+    "name": "QueenMother",
+    "place": 1,
+    "cost": 3,
+    "shields": [
+      1,
+      1
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "PutGoldOnCard",
+        "gold": 2
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 5
+    }
+  },
+  {
+    "id": 33,
+    "name": "Jester",
+    "place": 1,
+    "cost": 3,
+    "shields": [
+      1
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 2,
+        "condition": {
+          "type": "PerShield",
+          "shield": 1
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerShield",
+      "shield": 1,
+      "line": true,
+      "column": true
+    }
+  },
+  {
+    "id": 34,
+    "name": "Chancellor",
+    "place": 1,
+    "cost": 6,
+    "shields": [
+      1,
+      3
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 3
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerBanner",
+      "banner": 1
+    }
+  },
+  {
+    "id": 35,
+    "name": "Baron",
+    "place": 1,
+    "cost": 3,
+    "shields": [
+      1
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1,
+        "village": 1
+      }
+    ],
+    "points": 10,
+    "condition": {
+      "type": "IfShieldMissing",
+      "shield": 6
+    }
+  },
+  {
+    "id": 36,
+    "name": "HerMajestyTheQueen",
+    "place": 1,
+    "cost": 7,
+    "shields": [
+      1
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 1
+        }
+      }
+    ],
+    "points": 10,
+    "condition": {
+      "type": "PerShieldsSet",
+      "shields": [
+        1,
+        3,
+        5
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "name": "Duchess",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      1,
+      1
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 2
+      }
+    ],
+    "points": 8,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "name": "Scribe",
+    "place": 1,
+    "cost": 4,
+    "shields": [
+      2
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 2
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 3,
+      "line": true,
+      "column": true
+    }
+  },
+  {
+    "id": 39,
+    "name": "MotherSuperior",
+    "place": 1,
+    "cost": 5,
+    "shields": [
+      2,
+      2
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 4
+      }
+    ],
+    "points": 5,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "id": 100,
+    "name": "Inventor",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      3,
+      3
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 3
+        }
+      }
+    ],
+    "points": 1,
+    "condition": {
+      "type": "PerBanner",
+      "banner": 2
+    }
+  },
+  {
+    "id": 101,
+    "name": "Spy",
+    "place": 2,
+    "cost": 4,
+    "shields": [
+      3,
+      4
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 3
+        }
+      },
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "BestNeighbor",
+          "condition": {
+            "type": "PerShield",
+            "shield": 4
+          }
+        }
+      }
+    ],
+    "points": 6,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          false,
+          true,
+          false
+        ],
+        [
+          false,
+          true,
+          false
+        ],
+        [
+          false,
+          true,
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "id": 102,
+    "name": "Vicar",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      2
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerBanner",
+          "banner": 2
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 5
+    }
+  },
+  {
+    "id": 103,
+    "name": "MiraculouslyCured",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      2,
+      2
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerCardWithPurse"
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 4
+    }
+  },
+  {
+    "id": 104,
+    "name": "Squire",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      4
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1,
+        "village": 1
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerShield",
+      "shield": 5,
+      "line": true,
+      "column": true
+    }
+  },
+  {
+    "id": 105,
+    "name": "Philosopher",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      3
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1
+      }
+    ],
+    "points": 10,
+    "condition": {
+      "type": "IfShieldMissing",
+      "shield": 4
+    }
+  },
+  {
+    "id": 106,
+    "name": "Doctor",
+    "place": 2,
+    "cost": 5,
+    "shields": [
+      3
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 3
+        }
+      },
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 6
+        }
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "PerShieldsSet",
+      "shields": [
+        3,
+        6
+      ]
+    }
+  },
+  {
+    "id": 107,
+    "name": "Executioner",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      4
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "DiscardFromRiver",
+        "river": 1,
+        "token": 3
+      }
+    ],
+    "points": 1,
+    "condition": {
+      "type": "PerBanner",
+      "banner": 1
+    }
+  },
+  {
+    "id": 108,
+    "name": "Barbarian",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      4
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "ChooseBetween",
+        "effect1": {
+          "type": "GainGold",
+          "gain": 1,
+          "condition": {
+            "type": "BestNeighbor",
+            "condition": {
+              "type": "PerShield",
+              "shield": 3
+            }
+          }
+        },
+        "effect2": {
+          "type": "GainKeys",
+          "gain": 2
+        }
+      }
+    ],
+    "points": 10,
+    "condition": {
+      "type": "IfShieldMissing",
+      "shield": 3
+    }
+  },
+  {
+    "id": 109,
+    "name": "Militiaman",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      4
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "ChooseBetween",
+        "effect1": {
+          "type": "GainGold",
+          "gain": 1,
+          "condition": {
+            "type": "BestNeighbor",
+            "condition": {
+              "type": "PerShield",
+              "shield": 6
+            }
+          }
+        },
+        "effect2": {
+          "type": "GainKeys",
+          "gain": 2
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 4,
+      "line": true
+    }
+  },
+  {
+    "id": 110,
+    "name": "Bombardier",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      4
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "ChooseBetween",
+        "effect1": {
+          "type": "GainGold",
+          "gain": 1,
+          "condition": {
+            "type": "BestNeighbor",
+            "condition": {
+              "type": "PerShield",
+              "shield": 5
+            }
+          }
+        },
+        "effect2": {
+          "type": "GainKeys",
+          "gain": 2
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 4,
+      "column": true
+    }
+  },
+  {
+    "id": 111,
+    "name": "Stonemason",
+    "place": 2,
+    "cost": 3,
+    "shields": [
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "Discount",
+        "village": 1
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 5,
+      "column": true
+    }
+  },
+  {
+    "id": 112,
+    "name": "Blacksmith",
+    "place": 2,
+    "cost": 5,
+    "shields": [
+      4,
+      5
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "ChooseBetween",
+        "effect1": {
+          "type": "GainGold",
+          "gain": 1,
+          "condition": {
+            "type": "BestNeighbor",
+            "condition": {
+              "type": "PerShield",
+              "shield": 1
+            }
+          }
+        },
+        "effect2": {
+          "type": "GainKeys",
+          "gain": 2
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerCardWithShieldCount",
+      "count": 2
+    }
+  },
+  {
+    "id": 113,
+    "name": "MasterAtArms",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      4,
+      4
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 4
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 4
+    }
+  },
+  {
+    "id": 114,
+    "name": "Mercenary",
+    "place": 2,
+    "cost": 6,
+    "shields": [
+      4,
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerDifferentShieldType"
+        }
+      }
+    ],
+    "points": 7,
+    "condition": {
+      "type": "PerShieldsSet",
+      "shields": [
+        2,
+        4,
+        6
+      ]
+    }
+  },
+  {
+    "id": 115,
+    "name": "Innkeeper",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      5
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "PutGoldOnCard",
+        "gold": 2
+      },
+      {
+        "type": "GainGold",
+        "gain": 0,
+        "opponentsGain": 2
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 6
+    }
+  },
+  {
+    "id": 116,
+    "name": "Sculptor",
+    "place": 2,
+    "cost": 3,
+    "shields": [
+      2,
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 2
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 7
+    }
+  },
+  {
+    "id": 117,
+    "name": "Clockmaker",
+    "place": 2,
+    "cost": 3,
+    "shields": [
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 5
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 5,
+      "line": true
+    }
+  },
+  {
+    "id": 118,
+    "name": "SpiceMerchant",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      5
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 2,
+        "condition": {
+          "type": "PerShield",
+          "shield": 5
+        }
+      }
+    ],
+    "points": 5,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          false,
+          false,
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "id": 119,
+    "name": "Armorer",
+    "place": 2,
+    "cost": 3,
+    "shields": [
+      5
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1,
+        "village": 1
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 4,
+      "line": true,
+      "column": true
+    }
+  },
+  {
+    "id": 120,
+    "name": "Potter",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      5,
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "PutGoldOnCard",
+        "gold": 2
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 4
+    }
+  },
+  {
+    "id": 121,
+    "name": "Farmer",
+    "place": 2,
+    "cost": 5,
+    "shields": [
+      6,
+      6
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 6
+        }
+      }
+    ],
+    "points": 7,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          true,
+          true
+        ]
+      ]
+    }
+  },
+  {
+    "id": 122,
+    "name": "Locksmith",
+    "place": 2,
+    "cost": 4,
+    "shields": [
+      5,
+      6
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 5
+        }
+      }
+    ],
+    "points": 1,
+    "condition": {
+      "type": "PerKey"
+    }
+  },
+  {
+    "id": 123,
+    "name": "Carpenter",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      5
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerMissingShieldType"
+        }
+      }
+    ],
+    "points": 8,
+    "condition": {
+      "type": "IfCardFlippedDown"
+    }
+  },
+  {
+    "id": 124,
+    "name": "Witch",
+    "place": 2,
+    "cost": 4,
+    "shields": [
+      6
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 6
+        }
+      },
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "BestNeighbor",
+          "condition": {
+            "type": "PerShield",
+            "shield": 2
+          }
+        }
+      }
+    ],
+    "points": 9,
+    "condition": {
+      "type": "IfShieldMissing",
+      "shield": 2
+    }
+  },
+  {
+    "id": 125,
+    "name": "Brigand",
+    "place": 2,
+    "cost": 7,
+    "shields": [
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "BestNeighbor",
+          "condition": {
+            "type": "PerBanner",
+            "banner": 1
+          }
+        }
+      }
+    ],
+    "points": 7,
+    "condition": {
+      "type": "PerBannersSet",
+      "banners": [
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "id": 126,
+    "name": "Woodcutter",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerFullPosition"
+        }
+      }
+    ],
+    "points": 5,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          false,
+          false,
+          true
+        ],
+        [
+          false,
+          false,
+          true
+        ],
+        [
+          false,
+          false,
+          true
+        ]
+      ]
+    }
+  },
+  {
+    "id": 127,
+    "name": "Monk",
+    "place": 2,
+    "cost": 4,
+    "shields": [
+      2,
+      6
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 2
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerShield",
+      "shield": 6,
+      "line": true,
+      "column": true
+    }
+  },
+  {
+    "id": 128,
+    "name": "Beggar",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerFullPosition"
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerShield",
+      "shield": 2,
+      "line": true,
+      "column": true
+    }
+  },
+  {
+    "id": 129,
+    "name": "StableBoy",
+    "place": 2,
+    "cost": 4,
+    "shields": [
+      6,
+      1
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 1
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 6,
+      "column": true
+    }
+  },
+  {
+    "id": 130,
+    "name": "Winemaker",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      3,
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerBanner",
+          "banner": 2
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerDifferentShieldType",
+      "column": true
+    }
+  },
+  {
+    "id": 131,
+    "name": "Shepherd",
+    "place": 2,
+    "cost": 5,
+    "shields": [
+      6
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerEmptyPosition"
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "PerShield",
+      "shield": 6,
+      "line": true
+    }
+  },
+  {
+    "id": 132,
+    "name": "Usurper",
+    "place": 2,
+    "cost": 5,
+    "shields": [
+      6
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerCardWithShieldCount",
+          "count": 1
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerBanner",
+      "banner": 1
+    }
+  },
+  {
+    "id": 133,
+    "name": "Traveler",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 3,
+        "condition": {
+          "type": "PerCardWithCost",
+          "cost": 0
+        }
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerCardWithCost",
+      "cost": 0
+    }
+  },
+  {
+    "id": 134,
+    "name": "Farmhand",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      6
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "Discount",
+        "village": 1
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 5
+    }
+  },
+  {
+    "id": 135,
+    "name": "Revolutionary",
+    "place": 2,
+    "cost": 4,
+    "shields": [
+      6
+    ],
+    "move": true,
+    "effects": [
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerBanner",
+          "banner": 2
+        }
+      }
+    ],
+    "points": 9,
+    "condition": {
+      "type": "IfShieldMissing",
+      "shield": 1
+    }
+  },
+  {
+    "id": 136,
+    "name": "Fisherman",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      6,
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "Discount",
+        "castle": 1
+      }
+    ],
+    "points": 4,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          true,
+          false,
+          true
+        ],
+        [
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ]
+    }
+  },
+  {
+    "id": 137,
+    "name": "Baker",
+    "place": 2,
+    "cost": 0,
+    "shields": [
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "GainGold",
+        "gain": 1,
+        "condition": {
+          "type": "PerShield",
+          "shield": 6
+        }
+      },
+      {
+        "type": "GainKeys",
+        "gain": 1,
+        "condition": {
+          "type": "PerBanner",
+          "banner": 2
+        }
+      }
+    ],
+    "points": 3,
+    "condition": {
+      "type": "IfPosition",
+      "position": [
+        [
+          false,
+          true,
+          false
+        ],
+        [
+          true,
+          false,
+          true
+        ],
+        [
+          false,
+          true,
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "id": 138,
+    "name": "Beekeeper",
+    "place": 2,
+    "cost": 2,
+    "shields": [
+      6
+    ],
+    "move": false,
+    "effects": [
+      {
+        "type": "PutGoldOnCard",
+        "gold": 2
+      }
+    ],
+    "points": 2,
+    "condition": {
+      "type": "PerGoldInPurse",
+      "limit": 9
+    }
+  }
+]

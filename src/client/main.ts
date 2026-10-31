@@ -1,3 +1,9 @@
+import {renderBombBusters,closeBombBusters} from "./bomb-busters.js";
+import {renderCourtisans,closeCourtisans} from "./courtisans.js";
+import {renderTrio,closeTrio} from "./trio.js";
+import {renderCastle,closeCastle} from "./castle-combo.js";
+import {renderPowerPets,closePowerPets} from "./power-hungry-pets.js";
+import {renderLoveLetter,closeLoveLetter} from "./love-letter.js";
 import {renderSoundsFishy,closeSoundsFishy} from "./sounds-fishy.js";
 import {renderPerch,closePerch} from "./perch.js";
 import {renderDraftosaurus,closeDraftosaurus} from "./draftosaurus.js";
@@ -319,6 +325,24 @@ function render() {
   document.documentElement.classList.toggle("sf-document",view?.gameId==="sounds-fishy"&&view.phase!=="lobby");
   document.body.classList.toggle("sf-theme",view?.gameId==="sounds-fishy"&&view.phase!=="lobby");
   if(view?.gameId!=="sounds-fishy")closeSoundsFishy();
+  document.documentElement.classList.toggle("ll-document",view?.gameId==="love-letter"&&view.phase!=="lobby");
+  document.body.classList.toggle("ll-theme",view?.gameId==="love-letter"&&view.phase!=="lobby");
+  if(view?.gameId!=="love-letter")closeLoveLetter();
+  document.documentElement.classList.toggle("bb-document",view?.gameId==="bomb-busters"&&view.phase!=="lobby");
+  document.body.classList.toggle("bb-theme",view?.gameId==="bomb-busters"&&view.phase!=="lobby");
+  if(view?.gameId!=="bomb-busters")closeBombBusters();
+  document.documentElement.classList.toggle("ct-document",view?.gameId==="courtisans"&&view.phase!=="lobby");
+  document.body.classList.toggle("ct-theme",view?.gameId==="courtisans"&&view.phase!=="lobby");
+  if(view?.gameId!=="courtisans")closeCourtisans();
+  document.documentElement.classList.toggle("tr-document",view?.gameId==="trio"&&view.phase!=="lobby");
+  document.body.classList.toggle("tr-theme",view?.gameId==="trio"&&view.phase!=="lobby");
+  if(view?.gameId!=="trio")closeTrio();
+  document.documentElement.classList.toggle("cc-document",view?.gameId==="castle-combo"&&view.phase!=="lobby");
+  document.body.classList.toggle("cc-theme",view?.gameId==="castle-combo"&&view.phase!=="lobby");
+  if(view?.gameId!=="castle-combo")closeCastle();
+  document.documentElement.classList.toggle("pp-document",view?.gameId==="power-hungry-pets"&&view.phase!=="lobby");
+  document.body.classList.toggle("pp-theme",view?.gameId==="power-hungry-pets"&&view.phase!=="lobby");
+  if(view?.gameId!=="power-hungry-pets")closePowerPets();
   document.body.classList.toggle("perch-theme",!platformTheme&&view?.gameId==="perch");
   if(view?.gameId!=="perch")closePerch();
   document.body.classList.toggle("draftosaurus-theme",!platformTheme&&view?.gameId==="draftosaurus");
@@ -405,7 +429,7 @@ function gardenLoading(){return harmoniesSplashMarkup({code:code!,style:harmonie
 function renderContent() {
   if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
   if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
-  if ((view?.gameId === "sounds-fishy" && view.phase!=="lobby" && main.querySelector(".sf-root")) || (view?.gameId === "perch" && view.phase!=="lobby" && main.querySelector(".pc-root")) || (view?.gameId === "draftosaurus" && view.phase!=="lobby" && main.querySelector(".da-root")) || (!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "take-time" && view.phase!=="lobby" && main.querySelector(".tt-root")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
+  if ((view?.gameId === "bomb-busters" && view.phase!=="lobby" && main.querySelector(".bb-root")) || (view?.gameId === "courtisans" && view.phase!=="lobby" && main.querySelector(".ct-root")) || (view?.gameId === "trio" && view.phase!=="lobby" && main.querySelector(".tr-root")) || (view?.gameId === "castle-combo" && view.phase!=="lobby" && main.querySelector(".cc-root")) || (view?.gameId === "power-hungry-pets" && view.phase!=="lobby" && main.querySelector(".pp-root")) || (view?.gameId === "love-letter" && view.phase!=="lobby" && main.querySelector(".ll-root")) || (view?.gameId === "sounds-fishy" && view.phase!=="lobby" && main.querySelector(".sf-root")) || (view?.gameId === "perch" && view.phase!=="lobby" && main.querySelector(".pc-root")) || (view?.gameId === "draftosaurus" && view.phase!=="lobby" && main.querySelector(".da-root")) || (!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "take-time" && view.phase!=="lobby" && main.querySelector(".tt-root")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
     const banner=main.querySelector<HTMLElement>('#notice')!;
     banner.textContent=notice;
     const connection=main.querySelector<HTMLElement>('.connection')!;
@@ -536,6 +560,12 @@ function renderContent() {
     }
     harmoniesModule!.renderHarmonies(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot||harmoniesFirstMount);harmoniesFirstMount=false;return;
   }
+  if(view.gameId==="bomb-busters"){renderBombBusters(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="courtisans"){renderCourtisans(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="trio"){renderTrio(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="castle-combo"){renderCastle(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="power-hungry-pets"){renderPowerPets(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="love-letter"){renderLoveLetter(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
   if(view.gameId==="sounds-fishy"){renderSoundsFishy(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
   if(view.gameId==="perch"){renderPerch(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}
   if(view.gameId==="draftosaurus"){renderDraftosaurus(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command,deliverySnapshot);return;}

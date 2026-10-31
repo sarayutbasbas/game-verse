@@ -1,0 +1,71 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "id": "b-spy",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: adult cloaked female court spy, burgundy hood, holding a secret sealed letter, candlelit palace corridor. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-09dab7b3-3eeb-45e6-979d-3b5ea6de1313.png",
+      "output": "public/art/love-letter/b-spy.webp"
+    },
+    {
+      "id": "b-priest",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: elderly kind court priest, ivory and gold robes, bound prayer book, stained glass light. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-6cefa2ab-b7a0-4bc3-8ae1-70dd3a5fac5b.png",
+      "output": "public/art/love-letter/b-priest.webp"
+    },
+    {
+      "id": "b-guard",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: adult royal palace guard in red and steel armor, holding a halberd, watchful expression, arched palace gate. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-d992d029-eda0-4849-9a46-dfa7eb15c8ee.png",
+      "output": "public/art/love-letter/b-guard.webp"
+    },
+    {
+      "id": "b-baron",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: adult elegant aristocratic baron, navy velvet and gold embroidery, thoughtful look, palace study. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-68f2d239-768e-4302-8faf-889917c1d7e0.png",
+      "output": "public/art/love-letter/b-baron.webp"
+    },
+    {
+      "id": "b-handmaid",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: adult royal handmaid in sage-green renaissance dress, holding a silver tray, sunlit royal garden. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-0707fca8-ef20-4f4b-853e-590dc26795af.png",
+      "output": "public/art/love-letter/b-handmaid.webp"
+    },
+    {
+      "id": "b-prince",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: adult prince age thirty, blue and gold royal coat, small crown, handsome dignified expression, palace balcony. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-bcac1783-b49f-48f4-82f5-a0996ff24e61.png",
+      "output": "public/art/love-letter/b-prince.webp"
+    },
+    {
+      "id": "b-chancellor",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: older royal chancellor with spectacles, ornate gold-brown robes, scroll and signet ring, book-lined council chamber. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-f9451739-fec8-4c2c-bcd4-b224a787d971.png",
+      "output": "public/art/love-letter/b-chancellor.webp"
+    },
+    {
+      "id": "b-king",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: mature regal king with dark beard, crimson and gold ermine robes, jeweled crown, throne room. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2e809442-a0c3-4967-8baf-71e81b22591a.png",
+      "output": "public/art/love-letter/b-king.webp"
+    },
+    {
+      "id": "b-countess",
+      "prompt": "Use case: illustration-story. Original premium royal court card portrait: adult countess in deep crimson velvet gown, dark hair, jeweled comb and folding fan, mysterious court portrait. Elegant painted Renaissance storybook art, detailed expressive adult character, burgundy, ivory and gilt color palette. Vertical portrait 2:3. Centered face and upper body, full bleed, lower quarter quiet for UI lettering later. No text, no logo, no numbers, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-2099a3c5-2030-4762-acd1-d5a5b89922b2.png",
+      "output": "public/art/love-letter/b-countess.webp"
+    },
+    {
+      "id": "b-princess",
+      "prompt": "Use case: illustration-story. Original high-quality painted portrait illustration for a royal court card game. Adult princess age twenty-five, rose and ivory silk gown, delicate gold diadem, holding a wax-sealed love letter, sunlit palace roses. Elegant romantic Renaissance court atmosphere, burgundy and warm gold color palette, finely detailed expressive face. Vertical 2:3 portrait composition, subject centered, full bleed, leave lower quarter relatively quiet for later UI text overlay. No lettering, no logo, no border, no watermark.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-00d61913-6479-47fe-b09d-a270c724fa41.png",
+      "output": "public/art/love-letter/b-princess.webp"
+    },
+    {
+      "id": "cover",
+      "prompt": "Use case: product-mockup. A premium illustrated tabletop card game box named \"LOVE LETTER\". One single upright 3D box, slight view of left spine. Transparent outer background, no floor or surrounding scene. Front design shows two worlds within a gold frame: romantic royal palace roses and sealed envelope on one side, cosmic nebula with six colorful floating gemstones on the other. Elegant burgundy, ivory, gold and deep violet. Exact title \"LOVE LETTER\"; small subtitle \"TWO EDITIONS\". Luxurious hand-painted storybook illustration, no characters, no other logos. Portrait 4:5 composition, box fills 90 percent of canvas.",
+      "source": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1c1d26b7-63bd-47a3-8bb4-5e7578e04f7b.png",
+      "output": "public/art/love-letter/cover.webp"
+    }
+  ]
+}

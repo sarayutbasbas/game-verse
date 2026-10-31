@@ -1,3 +1,15 @@
+import * as bombBusters from "./bomb-busters/engine.js";
+import type {BombState,BombAction} from "./bomb-busters/types.js";
+import * as courtisans from "./courtisans/engine.js";
+import type {CourtState,CourtAction} from "./courtisans/types.js";
+import * as trio from "./trio/engine.js";
+import type {TrioState,TrioAction} from "./trio/types.js";
+import * as castle from "./castle-combo/engine.js";
+import type {CastleState,CastleAction} from "./castle-combo/types.js";
+import * as powerPets from "./power-hungry-pets/engine.js";
+import type {PowerPetsState,PowerPetsAction} from "./power-hungry-pets/types.js";
+import * as loveLetter from "./love-letter/engine.js";
+import type {LoveLetterState,LoveLetterAction} from "./love-letter/types.js";
 import * as soundsFishy from "./sounds-fishy/engine.js";
 import type {SoundsFishyState,SoundsFishyAction} from "./sounds-fishy/types.js";
 import * as perch from "./perch/engine.js";
@@ -30,6 +42,12 @@ import * as dracula from "./dracula-vs-van-helsing/engine.js";
 import * as azul from "./azul/engine.js";
 import type { AzulState, AzulAction } from "./azul/types.js";
 export const games = {
+ "bomb-busters":bombBusters,
+ courtisans,
+ trio,
+ "castle-combo":castle,
+ "power-hungry-pets":powerPets,
+ "love-letter":loveLetter,
  "sounds-fishy":soundsFishy,
  perch,
  draftosaurus,
@@ -76,6 +94,12 @@ function common(id: string) {
   };
 }
 export const gameAdapters = {
+ "bomb-busters":{...common("bomb-busters"),start(seats,random,starter){this.validatePlayers(seats);return bombBusters.createInitialState(seats,random,starter);},apply:(s,id,a)=>bombBusters.applyAction(s,id,a as BombAction),publicView:bombBusters.getDisplayView,privateView:bombBusters.getPlayerView,isFinished:bombBusters.isFinished,summary:s=>({result:s.result,mission:s.mission,attempt:s.attempt,dial:s.dial})} satisfies GameAdapter<BombState,ReturnType<typeof bombBusters.getPlayerView>>,
+ courtisans:{...common("courtisans"),start(seats,random,starter){this.validatePlayers(seats);return courtisans.createInitialState(seats,random,starter);},apply:(s,id,a)=>courtisans.applyAction(s,id,a as CourtAction),publicView:courtisans.getDisplayView,privateView:courtisans.getPlayerView,isFinished:courtisans.isFinished,summary:s=>({winners:s.winners,scores:s.scores})} satisfies GameAdapter<CourtState,ReturnType<typeof courtisans.getPlayerView>>,
+ trio:{...common("trio"),start(seats,random,starter){this.validatePlayers(seats);return trio.createInitialState(seats,random,starter);},apply:(s,id,a)=>trio.applyAction(s,id,a as TrioAction),publicView:trio.getDisplayView,privateView:trio.getPlayerView,isFinished:trio.isFinished,summary:s=>({winners:s.winners,options:s.options,trios:s.players.map(p=>({id:p.id,trios:p.trios,team:p.team}))})} satisfies GameAdapter<TrioState,ReturnType<typeof trio.getPlayerView>>,
+ "castle-combo":{...common("castle-combo"),start(seats,random,starter){this.validatePlayers(seats);return castle.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>castle.applyAction(s,id,a as CastleAction,random),publicView:castle.getDisplayView,privateView:castle.getPlayerView,isFinished:castle.isFinished,summary:s=>({winners:s.winners,scores:s.scores})} satisfies GameAdapter<CastleState,ReturnType<typeof castle.getPlayerView>>,
+ "power-hungry-pets":{...common("power-hungry-pets"),start(seats,random,starter){this.validatePlayers(seats);return powerPets.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>powerPets.applyAction(s,id,a as PowerPetsAction,random),publicView:powerPets.getDisplayView,privateView:powerPets.getPlayerView,isFinished:powerPets.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),rounds:s.history.map(h=>({round:h.round,winners:h.winners,reason:h.reason}))})} satisfies GameAdapter<PowerPetsState,ReturnType<typeof powerPets.getPlayerView>>,
+ "love-letter":{...common("love-letter"),start(seats,random,starter){this.validatePlayers(seats);return loveLetter.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>loveLetter.applyAction(s,id,a as LoveLetterAction,random),publicView:loveLetter.getDisplayView,privateView:loveLetter.getPlayerView,isFinished:loveLetter.isFinished,summary:s=>({mode:s.mode,winners:s.winners,life:s.life,scores:s.players.map(p=>({id:p.id,score:p.favor}))})} satisfies GameAdapter<LoveLetterState,ReturnType<typeof loveLetter.getPlayerView>>,
  "sounds-fishy":{...common("sounds-fishy"),start(seats,random,starter){this.validatePlayers(seats);return soundsFishy.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>soundsFishy.applyAction(s,id,a as SoundsFishyAction,random),publicView:soundsFishy.getDisplayView,privateView:soundsFishy.getPlayerView,isFinished:soundsFishy.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score}))})} satisfies GameAdapter<SoundsFishyState,ReturnType<typeof soundsFishy.getPlayerView>>,
  perch:{...common("perch"),start(seats,random,starter){this.validatePlayers(seats);return perch.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>perch.applyAction(s,id,a as PerchAction,random),publicView:perch.getDisplayView,privateView:perch.getPlayerView,isFinished:perch.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),final:s.final})} satisfies GameAdapter<PerchState,ReturnType<typeof perch.getPlayerView>>,
  draftosaurus:{...common("draftosaurus"),start(seats,random,starter){this.validatePlayers(seats);return draftosaurus.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>draftosaurus.applyAction(s,id,a as DraftosaurusAction,random),publicView:draftosaurus.getDisplayView,privateView:draftosaurus.getPlayerView,isFinished:draftosaurus.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,...draftosaurus.scorePlayer(s,p)}))})} satisfies GameAdapter<DraftosaurusState,ReturnType<typeof draftosaurus.getPlayerView>>,

@@ -1,0 +1,324 @@
+{
+  "method": "User-authorized deterministic portrait extraction and HTML Thai lettering; not newly generated artwork",
+  "sources": [
+    {
+      "role": "hero card sheet",
+      "path": "/Users/basukekung/Downloads/pic6956826.webp"
+    },
+    {
+      "role": "Thanos card sheet",
+      "path": "/Users/basukekung/Downloads/pic6956831.webp"
+    }
+  ],
+  "output": "public/art/love-letter/reference-v2/",
+  "portraits": [
+    {
+      "id": "h-starlord",
+      "source": "hero",
+      "crop": {
+        "left": 182,
+        "top": 30,
+        "width": 124,
+        "height": 154
+      },
+      "file": "public/art/love-letter/reference-v2/h-starlord.webp"
+    },
+    {
+      "id": "h-gamora",
+      "source": "hero",
+      "crop": {
+        "left": 375,
+        "top": 30,
+        "width": 119,
+        "height": 155
+      },
+      "file": "public/art/love-letter/reference-v2/h-gamora.webp"
+    },
+    {
+      "id": "h-hulk",
+      "source": "hero",
+      "crop": {
+        "left": 564,
+        "top": 30,
+        "width": 123,
+        "height": 155
+      },
+      "file": "public/art/love-letter/reference-v2/h-hulk.webp"
+    },
+    {
+      "id": "h-scarletwitch",
+      "source": "hero",
+      "crop": {
+        "left": 742,
+        "top": 30,
+        "width": 126,
+        "height": 155
+      },
+      "file": "public/art/love-letter/reference-v2/h-scarletwitch.webp"
+    },
+    {
+      "id": "h-doctorstrange",
+      "source": "hero",
+      "crop": {
+        "left": 945,
+        "top": 30,
+        "width": 118,
+        "height": 155
+      },
+      "file": "public/art/love-letter/reference-v2/h-doctorstrange.webp"
+    },
+    {
+      "id": "h-thor",
+      "source": "hero",
+      "crop": {
+        "left": 76,
+        "top": 308,
+        "width": 119,
+        "height": 154
+      },
+      "file": "public/art/love-letter/reference-v2/h-thor.webp"
+    },
+    {
+      "id": "h-vision",
+      "source": "hero",
+      "crop": {
+        "left": 263,
+        "top": 308,
+        "width": 126,
+        "height": 154
+      },
+      "file": "public/art/love-letter/reference-v2/h-vision.webp"
+    },
+    {
+      "id": "h-spiderman",
+      "source": "hero",
+      "crop": {
+        "left": 458,
+        "top": 308,
+        "width": 124,
+        "height": 154
+      },
+      "file": "public/art/love-letter/reference-v2/h-spiderman.webp"
+    },
+    {
+      "id": "h-falcon",
+      "source": "hero",
+      "crop": {
+        "left": 654,
+        "top": 308,
+        "width": 123,
+        "height": 154
+      },
+      "file": "public/art/love-letter/reference-v2/h-falcon.webp"
+    },
+    {
+      "id": "h-ironman",
+      "source": "hero",
+      "crop": {
+        "left": 850,
+        "top": 289,
+        "width": 123,
+        "height": 176
+      },
+      "file": "public/art/love-letter/reference-v2/h-ironman.webp"
+    },
+    {
+      "id": "h-nebula",
+      "source": "hero",
+      "crop": {
+        "left": 1022,
+        "top": 350,
+        "width": 148,
+        "height": 113
+      },
+      "file": "public/art/love-letter/reference-v2/h-nebula.webp"
+    },
+    {
+      "id": "h-antman-wasp",
+      "source": "hero",
+      "crop": {
+        "left": 153,
+        "top": 593,
+        "width": 122,
+        "height": 153
+      },
+      "file": "public/art/love-letter/reference-v2/h-antman-wasp.webp"
+    },
+    {
+      "id": "h-captainamerica",
+      "source": "hero",
+      "crop": {
+        "left": 345,
+        "top": 593,
+        "width": 123,
+        "height": 155
+      },
+      "file": "public/art/love-letter/reference-v2/h-captainamerica.webp"
+    },
+    {
+      "id": "h-captainmarvel",
+      "source": "hero",
+      "crop": {
+        "left": 539,
+        "top": 593,
+        "width": 124,
+        "height": 155
+      },
+      "file": "public/art/love-letter/reference-v2/h-captainmarvel.webp"
+    },
+    {
+      "id": "h-blackwidow",
+      "source": "hero",
+      "crop": {
+        "left": 735,
+        "top": 593,
+        "width": 120,
+        "height": 155
+      },
+      "file": "public/art/love-letter/reference-v2/h-blackwidow.webp"
+    },
+    {
+      "id": "h-blackpanther",
+      "source": "hero",
+      "crop": {
+        "left": 925,
+        "top": 593,
+        "width": 128,
+        "height": 155
+      },
+      "file": "public/art/love-letter/reference-v2/h-blackpanther.webp"
+    },
+    {
+      "id": "t-mind",
+      "source": "thanos",
+      "crop": {
+        "left": 187,
+        "top": 31,
+        "width": 116,
+        "height": 130
+      },
+      "file": "public/art/love-letter/reference-v2/t-mind.webp"
+    },
+    {
+      "id": "t-soul",
+      "source": "thanos",
+      "crop": {
+        "left": 385,
+        "top": 31,
+        "width": 115,
+        "height": 130
+      },
+      "file": "public/art/love-letter/reference-v2/t-soul.webp"
+    },
+    {
+      "id": "t-space",
+      "source": "thanos",
+      "crop": {
+        "left": 578,
+        "top": 31,
+        "width": 120,
+        "height": 130
+      },
+      "file": "public/art/love-letter/reference-v2/t-space.webp"
+    },
+    {
+      "id": "t-power",
+      "source": "thanos",
+      "crop": {
+        "left": 785,
+        "top": 31,
+        "width": 111,
+        "height": 130
+      },
+      "file": "public/art/love-letter/reference-v2/t-power.webp"
+    },
+    {
+      "id": "t-proxima",
+      "source": "thanos",
+      "crop": {
+        "left": 75,
+        "top": 312,
+        "width": 120,
+        "height": 169
+      },
+      "file": "public/art/love-letter/reference-v2/t-proxima.webp"
+    },
+    {
+      "id": "t-blackdwarf",
+      "source": "thanos",
+      "crop": {
+        "left": 277,
+        "top": 312,
+        "width": 123,
+        "height": 169
+      },
+      "file": "public/art/love-letter/reference-v2/t-blackdwarf.webp"
+    },
+    {
+      "id": "t-thanos",
+      "source": "thanos",
+      "crop": {
+        "left": 482,
+        "top": 300,
+        "width": 118,
+        "height": 180
+      },
+      "file": "public/art/love-letter/reference-v2/t-thanos.webp"
+    },
+    {
+      "id": "t-corvus",
+      "source": "thanos",
+      "crop": {
+        "left": 678,
+        "top": 312,
+        "width": 124,
+        "height": 169
+      },
+      "file": "public/art/love-letter/reference-v2/t-corvus.webp"
+    },
+    {
+      "id": "t-ebonymaw",
+      "source": "thanos",
+      "crop": {
+        "left": 875,
+        "top": 312,
+        "width": 127,
+        "height": 169
+      },
+      "file": "public/art/love-letter/reference-v2/t-ebonymaw.webp"
+    },
+    {
+      "id": "t-outrider",
+      "source": "thanos",
+      "crop": {
+        "left": 155,
+        "top": 607,
+        "width": 134,
+        "height": 169
+      },
+      "file": "public/art/love-letter/reference-v2/t-outrider.webp"
+    },
+    {
+      "id": "t-reality",
+      "source": "thanos",
+      "crop": {
+        "left": 365,
+        "top": 607,
+        "width": 137,
+        "height": 140
+      },
+      "file": "public/art/love-letter/reference-v2/t-reality.webp"
+    },
+    {
+      "id": "t-time",
+      "source": "thanos",
+      "crop": {
+        "left": 580,
+        "top": 607,
+        "width": 132,
+        "height": 140
+      },
+      "file": "public/art/love-letter/reference-v2/t-time.webp"
+    }
+  ]
+}

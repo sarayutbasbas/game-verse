@@ -1,0 +1,77 @@
+import {definition as def,instances,rank,FAVOR_TARGET,THANOS_LIFE} from './data.js';
+import type {Mode} from './data.js';
+import type {LoveLetterState as State,LoveLetterAction as Action,LoveLetterView as View,Player,Task} from './types.js';
+export const shuffle=<T>(items:T[],random:()=>number)=>{const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const who=(s:State,id:string)=>s.players.find(p=>p.id===id)!;
+const current=(s:State)=>s.players[s.turn];
+const event=(s:State,text:string)=>{s.events.push({id:++s.serial,text});s.events=s.events.slice(-40);};
+const note=(s:State,id:string,text:string,cards:string[])=>{(s.notes[id]??=[]).push({id:++s.serial,text,cards:[...cards]});s.notes[id]=s.notes[id].slice(-16);};
+const task=(s:State,kind:Task['kind'],actor:string,cards:string[]=[],count=0,targets:string[]=[],guess?:number)=>s.queue.push({kind,actor,cards,count,targets,...(guess!==undefined?{guess}:{})});
+const remove=(a:string[],id:string)=>{const i=a.indexOf(id);if(i<0)throw Error('ไม่พบไพ่');a.splice(i,1);};
+const others=(s:State,p:Player)=>s.players.filter(x=>x.id!==p.id&&!x.out&&!x.protected);
+function refill(s:State,r:()=>number){if(s.mode==='marvel'&&!s.deck.length){const cards=s.players.filter(p=>p.id!==s.thanos).flatMap(p=>p.discard.splice(0));s.deck=shuffle(cards,r);if(cards.length)event(s,'สับไพ่ฮีโร่ที่ทิ้งกลับเข้ากอง');}}
+function draw(s:State,p:Player,r:()=>number):string|undefined {const deck=p.id===s.thanos?s.thanosDeck:s.deck;const c=deck.shift();if(c)p.hand.push(c);if(s.mode==='marvel'&&p.id!==s.thanos)refill(s,r);return c;}
+function roundStart(s:State,r:()=>number){s.deck=shuffle(instances('base'),r);s.burn=[s.deck.shift()!];s.aside=s.players.length===2?s.deck.splice(0,3):[];s.queue=[];s.notes={};s.roundWinners=[];for(const p of s.players){p.hand=[s.deck.shift()!];p.discard=[];p.out=false;p.protected=false;}s.phase='draw';event(s,`รอบที่ ${s.round} เริ่มแล้ว`);}
+export function createInitialState(seats:{id:string;name:string}[],random:()=>number,starter?:string,mode:Mode='base'):State {
+ if(!['base','marvel'].includes(mode)||seats.length<2||seats.length>6||seats.some(p=>typeof p.id!=='string'||!p.id||typeof p.name!=='string')||new Set(seats.map(p=>p.id)).size!==seats.length||starter&&!seats.some(p=>p.id===starter))throw Error('ต้องมีผู้เล่น 2–6 คนและเลือกโหมดที่รองรับ');
+ const s:State={mode,players:seats.map(p=>({id:p.id,name:p.name,hand:[],discard:[],favor:0,power:0,out:false,protected:false})),phase:'draw',turn:Math.max(0,seats.findIndex(p=>p.id===starter)),round:1,sequence:0,deck:[],thanosDeck:[],burn:[],aside:[],queue:[],notes:{},events:[],serial:0,thanos:'',life:{hero:6,thanos:THANOS_LIFE[seats.length]},repeat:false,winners:[],roundWinners:[],history:[]};
+ if(mode==='base')roundStart(s,random);else {s.thanos=s.players[s.turn].id;s.deck=shuffle(instances('hero'),random);s.thanosDeck=shuffle(instances('thanos'),random);for(const p of s.players){draw(s,p,random);if(p.id===s.thanos)draw(s,p,random);}event(s,`${current(s).name} รับบทธานอส`);}return s;
+}
+function eliminate(s:State,p:Player){p.out=true;p.protected=false;p.discard.push(...p.hand.splice(0));event(s,`${p.name} ตกรอบ`);}
+function settle(s:State){const alive=s.players.filter(p=>!p.out),high=Math.max(...alive.flatMap(p=>p.hand.map(rank)));const winners=alive.length===1?alive:alive.filter(p=>p.hand.some(c=>rank(c)===high));const spies=alive.filter(p=>p.discard.some(c=>rank(c)===0));const bonus=spies.length===1?[spies[0].id]:[];for(const p of winners)p.favor++;for(const id of bonus)who(s,id).favor++;s.roundWinners=winners.map(p=>p.id);s.history.push({round:s.round,winners:s.roundWinners,bonus,hands:Object.fromEntries(alive.map(p=>[p.id,[...p.hand]]))});s.winners=s.players.filter(p=>p.favor>=FAVOR_TARGET[s.players.length]).map(p=>p.id);s.phase=s.winners.length?'finished':'round-end';s.queue=[];event(s,`ผู้ชนะรอบ: ${winners.map(p=>p.name).join(', ')}${bonus.length?' • '+who(s,bonus[0]).name+' ได้ตราสายลับเพิ่ม 1':''}`);}
+function victory(s:State){if(s.mode==='marvel'&&(s.life.hero<=0||s.life.thanos<=0)){s.winners=s.life.thanos<=0?s.players.filter(p=>p.id!==s.thanos).map(p=>p.id):[s.thanos];s.phase='finished';s.queue=[];event(s,s.life.thanos<=0?'เหล่าฮีโร่ชนะ':'ธานอสชนะ');return true;}return false;}
+function finishEffect(s:State){if(victory(s)||s.phase==='finished')return;if(s.mode==='base'&&s.players.filter(p=>!p.out).length<=1){settle(s);return;}if(s.queue.length){s.phase='effect';return;}if(s.mode==='base'&&!s.deck.length){settle(s);return;}s.phase='end';}
+function defeat(s:State,p:Player,c:string,r:()=>number){remove(p.hand,c);event(s,`${p.name} แพ้ไพ่ ${def(c).name} (${rank(c)})`);if(p.id===s.thanos&&(def(c).stone||rank(c)===7)){s.life.thanos--;if(victory(s)){s.thanosDeck.push(c);return;}draw(s,p,r);s.thanosDeck=shuffle([...s.thanosDeck,c],r);}else{p.discard.push(c);s.life[p.id===s.thanos?'thanos':'hero']--;if(victory(s))return;draw(s,p,r);}}
+const snapReady=(s:State)=>s.mode==='marvel'&&current(s).id===s.thanos&&['draw','play','end'].includes(s.phase)&&new Set([...who(s,s.thanos).hand,...who(s,s.thanos).discard].filter(c=>def(c).stone).map(c=>def(c).id)).size===6;
+const permutations=(a:string[],n=a.length):string[][]=>n===0?[[]]:a.flatMap((c,i)=>permutations(a.filter((_,j)=>j!==i),n-1).map(rest=>[c,...rest]));
+export function getLegalActions(s:State,id:string):Action[]{const p=s.players.find(p=>p.id===id);if(!p||s.phase==='finished')return[];
+ if(s.phase==='round-end')return id===s.roundWinners[0]?[{type:'ll-next'}]:[];
+ if(s.phase==='effect'){const q=s.queue[0];if(q.actor!==id)return[];if(q.kind==='peek')return[{type:'ll-ack'}];if(q.kind==='guess')return q.cards.length?q.cards.map(card=>({type:'ll-resolve',card})):[{type:'ll-resolve'}];if(q.kind==='top')return permutations(q.cards).map(cards=>({type:'ll-choose',cards}));if(q.kind==='bottom')return permutations(p.hand,q.count).map(cards=>({type:'ll-choose',cards}));if(q.kind==='copy'){if(q.count!==-1)return q.cards.map(card=>({type:'ll-copy',card}));const card=q.cards[0],d=def(card);if(d.id==='t-mind')return Array.from({length:6},(_,i)=>({type:'ll-play' as const,card,guess:i+1}));if(d.id==='t-outrider')return q.targets.flatMap(target=>Array.from({length:6},(_,i)=>({type:'ll-play' as const,card,target,guess:i+1})));return q.targets.map(target=>({type:'ll-play' as const,card,target}));}return [{type:'ll-skip'},...q.targets.flatMap(target=>id===s.thanos?p.hand.map(card=>({type:'ll-fight' as const,target,card})):[{type:'ll-fight' as const,target}])];}
+ if(current(s).id!==id)return[];const snap:Action[]=snapReady(s)?[{type:'ll-snap'}]:[];if(s.phase==='draw')return[{type:'ll-draw'},...snap];if(s.phase==='end')return[{type:'ll-end'},...snap];
+ const actions:Action[]=[];for(const card of p.hand){const d=def(card),n=d.rank;if(s.mode==='base'){if(p.hand.some(c=>rank(c)===8)&&p.hand.some(c=>[5,7].includes(rank(c)))&&n!==8)continue;let targets=others(s,p);if(n===5)targets=[p,...targets];if([1,2,3,5,7].includes(n)&&targets.length){for(const t of targets)if(n===1)for(const guess of [0,2,3,4,5,6,7,8,9])actions.push({type:'ll-play',card,target:t.id,guess});else actions.push({type:'ll-play',card,target:t.id});}else actions.push({type:'ll-play',card});}
+ else if(p.id!==s.thanos){if(n===1)for(let guess=1;guess<=7;guess++)actions.push({type:'ll-play',card,guess});else if([2,4,6].includes(n)){let targets=s.players.filter(t=>t.id!==s.thanos&&(n!==2||t.id!==id||s.players.length===2));for(const t of targets)actions.push({type:'ll-play',card,target:t.id});}else actions.push({type:'ll-play',card});}
+ else if(n!==7){const targets=s.players.filter(t=>t.id!==s.thanos);if(d.id==='t-outrider')for(const t of targets)for(let guess=1;guess<=6;guess++)actions.push({type:'ll-play',card,target:t.id,guess});else if(d.id==='t-mind')for(let guess=1;guess<=6;guess++)actions.push({type:'ll-play',card,guess});else if(n===2)for(const t of targets)actions.push({type:'ll-play',card,target:t.id});else actions.push({type:'ll-play',card});}}
+ return actions.length?[...actions,...snap]:[{type:'ll-end'},...snap];
+}
+function baseEffect(s:State,p:Player,card:string,a:Extract<Action,{type:'ll-play'}>,r:()=>number){const n=rank(card),t=a.target?who(s,a.target):undefined;
+ if(n===9){eliminate(s,p);return;}if(n===4){p.protected=true;return;}if(n===6){const count=Math.min(2,s.deck.length);for(let i=0;i<count;i++)draw(s,p,r);if(count)task(s,'bottom',p.id,[],count);return;}if(!t)return;
+ if(n===1&&t.hand.some(c=>rank(c)===a.guess))eliminate(s,t);
+ if(n===2){note(s,p.id,`ไพ่ของ ${t.name}`,t.hand);task(s,'peek',p.id,t.hand);}
+ if(n===3){note(s,p.id,`เทียบไพ่กับ ${t.name}`,[...p.hand,...t.hand]);note(s,t.id,`เทียบไพ่กับ ${p.name}`,[...t.hand,...p.hand]);const x=rank(p.hand[0]),y=rank(t.hand[0]);if(x<y)eliminate(s,p);else if(y<x)eliminate(s,t);else event(s,'เทียบไพ่เสมอ ไม่มีใครตกรอบ');task(s,'peek',p.id,[...p.hand,...t.hand]);}
+ if(n===5){const discarded=t.hand.splice(0);t.discard.push(...discarded);event(s,`${t.name} ทิ้ง ${discarded.map(c=>def(c).name).join(', ')}`);if(discarded.some(c=>rank(c)===9))eliminate(s,t);else if(s.deck.length)draw(s,t,r);else t.hand.push(...s.burn.splice(0));}
+ if(n===7){[p.hand,t.hand]=[t.hand,p.hand];note(s,p.id,`แลกกับ ${t.name}`,p.hand);note(s,t.id,`แลกกับ ${p.name}`,t.hand);}
+}
+function marvelEffect(s:State,p:Player,card:string,a:Partial<Extract<Action,{type:'ll-play'}>>,r:()=>number){const d=def(card),n=d.rank;
+ if(p.id!==s.thanos){if(n===1){const t=who(s,s.thanos);task(s,'guess',t.id,t.hand.filter(c=>rank(c)===a.guess),0,[],a.guess);event(s,`ทายไพ่ธานอสเลข ${a.guess} • รอธานอสตรวจไพ่`);}if(n===2){const t=who(s,s.thanos),c=t.hand.length?t.hand[Math.floor(r()*t.hand.length)]:undefined;if(c){note(s,a.target!,`แอบดูไพ่ธานอส`,[c]);task(s,'peek',a.target!,[c]);}}if(n===3)task(s,'fight',p.id,[],1,[s.thanos]);if(n===4){who(s,a.target!).power++;event(s,`${who(s,a.target!).name} รับพลัง 1`);}if(n===5){const cards:string[]=[];for(let i=0;i<3;i++){const c=s.deck.shift();if(c)cards.push(c);refill(s,r);}if(cards.length)task(s,'top',p.id,cards);}if(n===6)task(s,'fight',a.target!,[],1,[s.thanos]);return;}
+ const heroes=s.players.filter(t=>t.id!==s.thanos);
+ if(d.id==='t-outrider'){const t=who(s,a.target!);if(t.hand.some(c=>rank(c)===a.guess))defeat(s,t,t.hand[0],r);else event(s,'ทายไม่ถูก');}
+ if(d.id==='t-mind'){const targets=Array.from({length:s.players.length-1},(_,i)=>s.players[(s.turn+i+1)%s.players.length]).filter(t=>t.hand.some(c=>rank(c)===a.guess));for(const t of targets){defeat(s,t,t.hand[0],r);if(s.phase==='finished')break;}}
+ if(n===2){const t=who(s,a.target!);if(t.hand.length&&(d.stone?rank(t.hand[0])>=3:rank(t.hand[0])<=3))defeat(s,t,t.hand[0],r);else event(s,'ไพ่ไม่เข้าเงื่อนไข');}
+ if(n===3)task(s,'fight',p.id,[],d.stone?2:1,heroes.map(t=>t.id));
+ if(n===4){p.power+=d.stone?3:1;event(s,`ธานอสรับพลัง ${d.stone?3:1}`);}
+ if(n===5){const count=Math.min(d.stone?2:1,s.thanosDeck.length);for(let i=0;i<count;i++)draw(s,p,r);if(count)task(s,'bottom',p.id,[],count);}
+ if(n===6){const sources=p.discard.filter(c=>c!==card&&rank(c)!==6);if(sources.length)task(s,'copy',p.id,sources);}
+}
+export function applyAction(input:State,id:string,a:Action,random:()=>number):State {
+ const canonical=(x:unknown)=>JSON.stringify(x,Object.keys(x as object).sort());
+ if(!a||!getLegalActions(input,id).some(x=>canonical(x)===canonical(a)))throw Error('การกระทำนี้ใช้ไม่ได้ในตอนนี้');
+ const s=structuredClone(input),p=who(s,id);s.sequence++;
+ if(a.type==='ll-next'){s.round++;const choices=s.roundWinners;const starter=choices[Math.floor(random()*choices.length)];s.turn=s.players.findIndex(p=>p.id===starter);roundStart(s,random);return s;}
+ if(a.type==='ll-snap'){s.winners=[s.thanos];s.phase='finished';event(s,'ธานอสรวบรวมสโตนครบทั้ง 6 และดีดนิ้ว');return s;}
+ if(a.type==='ll-draw'){draw(s,p,random);s.phase='play';return s;}
+ if(a.type==='ll-end'){if(s.mode==='marvel'&&s.players.length===2&&p.id!==s.thanos&&!s.repeat){s.repeat=true;}else{s.repeat=false;do{s.turn=(s.turn+1)%s.players.length;}while(s.players[s.turn].out);}current(s).protected=false;s.phase='draw';return s;}
+ if(a.type==='ll-play'){const copy=s.phase==='effect'&&s.queue[0]?.kind==='copy'&&s.queue[0].count===-1;if(copy)s.queue.shift();else{remove(p.hand,a.card);p.discard.push(a.card);}event(s,`${p.name} ${copy?'ใช้ความสามารถ':'เล่น'} ${def(a.card).name} (${rank(a.card)})${a.target?' → '+who(s,a.target).name:''}${a.guess!==undefined?' ทาย '+a.guess:''}`);if(s.mode==='base')baseEffect(s,p,a.card,a,random);else marvelEffect(s,p,a.card,a,random);finishEffect(s);return s;}
+ const q=s.queue.shift()!;
+ if(a.type==='ll-resolve'){if('card'in a&&a.card)defeat(s,p,a.card,random);else event(s,'ทายไม่ถูก');}
+ if(a.type==='ll-choose'){if(q.kind==='top'){s.deck.unshift(...a.cards);}else{const deck=s.mode==='marvel'?s.thanosDeck:s.deck;for(const c of a.cards)remove(p.hand,c);deck.push(...a.cards);} }
+ if(a.type==='ll-copy'){event(s,`ไทม์สโตนใช้ความสามารถ ${def(a.card).name}`);const d=def(a.card);if([1,2].includes(d.rank)){// Reuse the normal target/guess selector without playing a second card.
+   const targets=s.players.filter(t=>t.id!==s.thanos);const opts=d.id==='t-mind'?[]:targets.map(t=>t.id);
+   task(s,'copy',p.id,[a.card],-1,opts);
+ }else marvelEffect(s,p,a.card,{},random);}
+ if(a.type==='ll-fight'){const t=who(s,a.target),pc=p.id===s.thanos?a.card!:p.hand[0],tc=t.id===s.thanos?t.hand[Math.floor(random()*t.hand.length)]:t.hand[0];if(pc&&tc){const pb=p.power>0?2:0,tb=t.power>0?2:0;if(pb)p.power--;if(tb)t.power--;note(s,p.id,`สู้กับ ${t.name} • พลัง ${rank(pc)+pb} ต่อ ${rank(tc)+tb}`,[pc,tc]);note(s,t.id,`สู้กับ ${p.name} • พลัง ${rank(tc)+tb} ต่อ ${rank(pc)+pb}`,[tc,pc]);if(rank(pc)+pb<rank(tc)+tb)defeat(s,p,pc,random);else if(rank(tc)+tb<rank(pc)+pb)defeat(s,t,tc,random);else event(s,'สู้เสมอ ไม่มีใครเสียพลังชีวิต');if(s.phase!=='finished'){if(q.count>1){q.count--;if(s.players.length>2)q.targets=q.targets.filter(x=>x!==t.id);s.queue.unshift(q);}s.queue.unshift({kind:'peek',actor:p.id,cards:[pc,tc],count:0,targets:[]});}}}
+ finishEffect(s);return s;
+}
+export function getDisplayView(s:State,code='',revision=s.sequence):View{return{gameId:'love-letter',code,revision,mode:s.mode,phase:s.phase,round:s.round,sequence:s.sequence,turn:current(s).id,active:s.phase==='effect'?s.queue[0]?.actor:s.phase==='round-end'?s.roundWinners[0]:current(s).id,thanos:s.thanos,life:{...s.life},deckCount:s.deck.length,thanosDeckCount:s.thanosDeck.length,aside:[...s.aside],events:structuredClone(s.events),winners:[...s.winners],roundWinners:[...s.roundWinners],players:s.players.map(p=>({id:p.id,name:p.name,handCount:p.hand.length,...((s.mode==='base'&&['round-end','finished'].includes(s.phase)&&!p.out||s.mode==='marvel'&&s.phase==='finished'&&p.id===s.thanos&&s.life.hero>0&&s.life.thanos>0)?{hand:[...p.hand]}:{}),discard:[...p.discard],favor:p.favor,power:p.power,out:p.out,protected:p.protected}))};}
+export function getPlayerView(s:State,id:string):NonNullable<View['me']>{const p=who(s,id);if(!p)throw Error('ไม่พบผู้เล่น');const q=s.queue[0],own=q?.actor===id;return{id,hand:[...p.hand],legal:getLegalActions(s,id),notes:structuredClone(s.notes[id]??[]),...(own?{prompt:q.kind,choices:q.kind==='bottom'?[...p.hand]:[...q.cards]}:{})};}
+export function getPhoneView(s:State,id:string,code='',revision=s.sequence):View{return{...getDisplayView(s,code,revision),me:getPlayerView(s,id)};}
+export const isFinished=(s:State)=>s.phase==='finished';

@@ -1,3 +1,10 @@
+import {validateBombState} from "../games/bomb-busters/validation.js";
+import {MISSIONS as BOMB_MISSIONS} from "../games/bomb-busters/data.js";
+import {validateCourtState} from "../games/courtisans/validation.js";
+import {validateTrioState} from "../games/trio/validation.js";
+import {validateCastleState} from "../games/castle-combo/validation.js";
+import {validatePowerPetsState} from "../games/power-hungry-pets/validation.js";
+import {validateLoveLetterState} from "../games/love-letter/validation.js";
 import {validateSoundsFishyState} from "../games/sounds-fishy/validation.js";
 import {validatePerchState} from "../games/perch/validation.js";
 import {validateDraftosaurusState} from "../games/draftosaurus/validation.js";
@@ -44,11 +51,16 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
-  if ([r.soundsFishy,r.perch, r.draftosaurus, r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus, r.takeTime].filter(Boolean).length > 1) return false;
-  const s = r.soundsFishy ?? r.perch ?? r.draftosaurus ?? r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus ?? r.takeTime;
+  if ([r.bombBusters,r.courtisans,r.trio,r.castle,r.powerPets,r.loveLetter,r.soundsFishy,r.perch, r.draftosaurus, r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus, r.takeTime].filter(Boolean).length > 1) return false;
+  const s = r.bombBusters ?? r.courtisans ?? r.trio ?? r.castle ?? r.powerPets ?? r.loveLetter ?? r.soundsFishy ?? r.perch ?? r.draftosaurus ?? r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus ?? r.takeTime;
   if(r.locusMode!==undefined&&!["shared-table","full-mobile"].includes(r.locusMode))return false;
   if(r.harmoniesMode!==undefined&&!["shared-table","full-mobile"].includes(r.harmoniesMode))return false;
   if(r.ckMode!==undefined&&!["shared-table","full-mobile"].includes(r.ckMode))return false;
+  if(r.llMode!==undefined&&(r.gameId!=="love-letter"||!["base","marvel"].includes(r.llMode)))return false;
+  if(r.bombMission!==undefined&&(r.gameId!=="bomb-busters"||!BOMB_MISSIONS.some(m=>m.id===r.bombMission)))return false;
+  if(r.bombBusters&&r.bombMission!==r.bombBusters.mission)return false;
+  if(r.trioOptions!==undefined&&(r.gameId!=="trio"||!r.trioOptions||typeof r.trioOptions!=="object"||Object.keys(r.trioOptions).sort().join(',')!=='mode,teams'||!["simple","spicy"].includes(r.trioOptions.mode)||typeof r.trioOptions.teams!=="boolean"))return false;
+  if(r.trio&&r.trioOptions&&(r.trio.options?.mode!==r.trioOptions.mode||r.trio.options?.teams!==r.trioOptions.teams))return false;
   if (!s) return true;
   if (
     !supportsPlayers(g, r.players.length) ||
@@ -65,6 +77,12 @@ export function validateRoomRecord(r: any): boolean {
   if(r.ck)return r.gameId==="critter-kitchen"&&validateCKState(s);
   if(r.sky)return r.gameId==="sky-team"&&validateSkyState(s);
   if(r.harmonies)return r.gameId==="harmonies"&&validateHarmoniesState(s);
+  if(r.bombBusters)return r.gameId==="bomb-busters"&&validateBombState(s);
+  if(r.courtisans)return r.gameId==="courtisans"&&validateCourtState(s);
+  if(r.trio)return r.gameId==="trio"&&validateTrioState(s);
+  if(r.castle)return r.gameId==="castle-combo"&&validateCastleState(s);
+  if(r.powerPets)return r.gameId==="power-hungry-pets"&&validatePowerPetsState(s);
+  if(r.loveLetter)return r.gameId==="love-letter"&&s.mode===(r.llMode??"base")&&validateLoveLetterState(s);
   if(r.soundsFishy)return r.gameId==="sounds-fishy"&&validateSoundsFishyState(s);
   if(r.perch)return r.gameId==="perch"&&validatePerchState(s);
   if(r.draftosaurus)return r.gameId==="draftosaurus"&&validateDraftosaurusState(s);

@@ -1,0 +1,257 @@
+{
+  "copyright": "Marvel © 2020; Z-Man Games / Asmodee. Official preview and rulebook illustrations, used as requested reference assets. Not newly generated art.",
+  "availablePortraits": [
+    "h-scarletwitch",
+    "h-thor",
+    "h-ironman",
+    "h-spiderman",
+    "t-thanos",
+    "t-outrider",
+    "t-soul",
+    "t-space",
+    "t-power",
+    "h-hulk",
+    "h-blackpanther",
+    "h-vision",
+    "h-gamora",
+    "t-ebonymaw",
+    "t-corvus",
+    "t-proxima",
+    "t-blackdwarf",
+    "t-reality",
+    "h-captainmarvel"
+  ],
+  "missingPortraits": [
+    "h-nebula",
+    "h-starlord",
+    "h-blackwidow",
+    "h-antman-wasp",
+    "h-captainamerica",
+    "h-falcon",
+    "h-doctorstrange",
+    "t-mind",
+    "t-time"
+  ],
+  "records": [
+    {
+      "id": "h-scarletwitch",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-2.webp",
+      "crop": {
+        "left": 160,
+        "top": 245,
+        "width": 160,
+        "height": 235
+      },
+      "output": "public/art/love-letter/h-scarletwitch.webp"
+    },
+    {
+      "id": "h-thor",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-2.webp",
+      "crop": {
+        "left": 426,
+        "top": 294,
+        "width": 110,
+        "height": 235
+      },
+      "output": "public/art/love-letter/h-thor.webp"
+    },
+    {
+      "id": "h-ironman",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-2.webp",
+      "crop": {
+        "left": 630,
+        "top": 207,
+        "width": 160,
+        "height": 260
+      },
+      "output": "public/art/love-letter/h-ironman.webp"
+    },
+    {
+      "id": "h-spiderman",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-2.webp",
+      "crop": {
+        "left": 850,
+        "top": 325,
+        "width": 220,
+        "height": 220
+      },
+      "output": "public/art/love-letter/h-spiderman.webp"
+    },
+    {
+      "id": "t-thanos",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-4.webp",
+      "crop": {
+        "left": 370,
+        "top": 233,
+        "width": 260,
+        "height": 355
+      },
+      "output": "public/art/love-letter/t-thanos.webp"
+    },
+    {
+      "id": "t-outrider",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-4.webp",
+      "crop": {
+        "left": 650,
+        "top": 175,
+        "width": 225,
+        "height": 365
+      },
+      "output": "public/art/love-letter/t-outrider.webp"
+    },
+    {
+      "id": "t-soul",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-5.webp",
+      "crop": {
+        "left": 360,
+        "top": 173,
+        "width": 170,
+        "height": 65
+      },
+      "output": "public/art/love-letter/t-soul.webp"
+    },
+    {
+      "id": "t-space",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-5.webp",
+      "crop": {
+        "left": 810,
+        "top": 170,
+        "width": 80,
+        "height": 180
+      },
+      "output": "public/art/love-letter/t-space.webp"
+    },
+    {
+      "id": "t-power",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-5.webp",
+      "crop": {
+        "left": 540,
+        "top": 330,
+        "width": 190,
+        "height": 220
+      },
+      "output": "public/art/love-letter/t-power.webp"
+    },
+    {
+      "id": "h-hulk",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-6.webp",
+      "crop": {
+        "left": 330,
+        "top": 285,
+        "width": 160,
+        "height": 210
+      },
+      "output": "public/art/love-letter/h-hulk.webp"
+    },
+    {
+      "id": "h-blackpanther",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-6.webp",
+      "crop": {
+        "left": 620,
+        "top": 180,
+        "width": 260,
+        "height": 280
+      },
+      "output": "public/art/love-letter/h-blackpanther.webp"
+    },
+    {
+      "id": "h-vision",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-7.webp",
+      "crop": {
+        "left": 320,
+        "top": 370,
+        "width": 190,
+        "height": 240
+      },
+      "output": "public/art/love-letter/h-vision.webp"
+    },
+    {
+      "id": "h-gamora",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-8.webp",
+      "crop": {
+        "left": 310,
+        "top": 313,
+        "width": 170,
+        "height": 265
+      },
+      "output": "public/art/love-letter/h-gamora.webp"
+    },
+    {
+      "id": "t-ebonymaw",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-9.webp",
+      "crop": {
+        "left": 330,
+        "top": 450,
+        "width": 90,
+        "height": 190
+      },
+      "output": "public/art/love-letter/t-ebonymaw.webp"
+    },
+    {
+      "id": "t-corvus",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-9.webp",
+      "crop": {
+        "left": 525,
+        "top": 440,
+        "width": 145,
+        "height": 220
+      },
+      "output": "public/art/love-letter/t-corvus.webp"
+    },
+    {
+      "id": "t-proxima",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-9.webp",
+      "crop": {
+        "left": 760,
+        "top": 450,
+        "width": 160,
+        "height": 250
+      },
+      "output": "public/art/love-letter/t-proxima.webp"
+    },
+    {
+      "id": "t-blackdwarf",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-9.webp",
+      "crop": {
+        "left": 400,
+        "top": 160,
+        "width": 160,
+        "height": 200
+      },
+      "output": "public/art/love-letter/t-blackdwarf.webp"
+    },
+    {
+      "id": "t-reality",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/image-converter/2024/08/IG_Component-1.webp",
+      "crop": {
+        "left": 480,
+        "top": 190,
+        "width": 150,
+        "height": 230
+      },
+      "output": "public/art/love-letter/t-reality.webp"
+    },
+    {
+      "id": "h-captainmarvel",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/2024/09/Infinity-Gauntlet-Rulebook.pdf",
+      "page": 2,
+      "crop": {
+        "left": 485,
+        "top": 421,
+        "width": 140,
+        "height": 180
+      },
+      "output": "public/art/love-letter/h-captainmarvel.webp"
+    },
+    {
+      "id": "back-hero",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/2024/09/mz01en_prev1_sq.png",
+      "output": "public/art/love-letter/back-hero.webp"
+    },
+    {
+      "id": "back-thanos",
+      "source": "https://cdn.svc.asmodee.net/production-zman/uploads/2024/09/mz01en_prev2_sq.png",
+      "output": "public/art/love-letter/back-thanos.webp"
+    }
+  ]
+}
