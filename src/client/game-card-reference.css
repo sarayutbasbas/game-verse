@@ -1,0 +1,34 @@
+.platform-surface .entry-card-reference { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; margin: 0 0 22px; padding: 10px 16px; background: #28544e; color: #fffef8; border: 2px solid #28544e; border-radius: 10px; font: inherit; font-weight: 700; }
+.game-card-reference { width: min(900px, calc(100vw - 24px)); max-height: 90dvh; margin: auto; padding: 0; border: 1px solid #9dafaa; border-radius: 18px; background: #fffef8; color: #243e39; box-shadow: 0 24px 80px #142f3866; font-family: 'Noto Sans Thai', sans-serif; overscroll-behavior: contain; }
+.game-card-reference::backdrop { background: #102d38b3; }
+.game-card-reference > header { display: flex; gap: 12px; align-items: center; position: sticky; top: 0; z-index: 2; padding: 14px 20px; background: #fffef8; border-bottom: 1px solid #c4d1c6; }
+.game-card-reference h2 { flex: 1; min-width: 0; margin: 0; font-size: clamp(17px, 3vw, 23px); line-height: 1.5; }
+.game-card-reference button { font: inherit; cursor: pointer; min-height: 44px; border: 1px solid #9dafaa; border-radius: 9px; background: #f5f7ef; color: #244b42; padding: 8px 12px; }
+.game-card-reference button:disabled { opacity: .45; cursor: default; }
+.game-card-reference :focus-visible { outline: 3px solid #287b87; outline-offset: 3px; }
+.game-card-reference [hidden] { display: none; }
+.game-card-reference [data-reference-close] { flex: none; font-size: 27px; width: 44px; padding: 0; }
+.reference-content { padding: 20px; }
+.reference-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.reference-controls label { display: grid; gap: 6px; font-weight: 700; }
+.reference-controls input, .reference-controls select { min-width: 0; width: 100%; font: inherit; min-height: 44px; padding: 8px 10px; border: 1px solid #9dafaa; border-radius: 8px; color: #244b42; background: white; }
+.reference-count { color: #526c65; }
+.reference-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.game-card-reference .reference-card { display: flex; flex-direction: column; align-items: stretch; gap: 8px; min-width: 0; padding: 10px; background: #fff; text-align: left; }
+.game-card-reference .reference-card:hover { border-color: #28544e; background: #eef3e8; }
+.reference-card-art { display: grid; place-items: center; position: relative; aspect-ratio: 3/4; background: #eef3e8; overflow: hidden; border-radius: 6px; }
+.reference-card-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.reference-card-art > b { position: absolute; top: 5px; left: 5px; padding: 3px 8px; border-radius: 6px; background: #fffef8; color: #243e39; border: 1px solid #9dafaa; }
+.reference-card-symbol { font-size: 54px; font-weight: 700; }
+.reference-card strong { line-height: 1.5; overflow-wrap: anywhere; }
+.reference-card small { color: #526c65; }
+.reference-shape { display: block; width: 100%; height: 100%; max-height: 320px; color: #28544e; }
+.reference-pages { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px; }
+.reference-detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+.reference-detail-art { display: grid; place-items: center; min-height: 180px; background: #eef3e8; border-radius: 12px; }
+.reference-detail-art img { display: block; width: 100%; max-height: 65dvh; object-fit: contain; }
+.reference-detail h3 { margin: 8px 0 16px; font-size: 25px; line-height: 1.5; }
+.reference-detail-copy p { line-height: 1.85; overflow-wrap: anywhere; }
+.reference-detail-group { color: #526c65; }
+.reference-value { font-weight: 700; }
+@media(max-width:600px) { .reference-controls { grid-template-columns: 1fr; gap: 10px; } .reference-content { padding: 16px; } .reference-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; } .reference-detail { grid-template-columns: 1fr; gap: 16px; } .reference-detail-art img { max-height: 45dvh; } .game-card-reference > header { padding: 10px 12px; gap: 8px; } }

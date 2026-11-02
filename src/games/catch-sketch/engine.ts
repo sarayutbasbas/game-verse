@@ -1,0 +1,37 @@
+import {CARDS,CARD,normalize} from './data.js';import {validDrawing} from './drawing.js';
+import type {CatchState as S,CatchAction as A,CatchView as V,Difficulty} from './types.js';
+export function shuffle<T>(x:T[],r:()=>number){const a=[...x];for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+export const decisionKey=(s:S)=>(s.matchId??'local')+':'+s.epoch;
+export const answer=(s:S)=>CARD[s.pack[s.round-1]][s.difficulty];
+const actor=(s:S)=>s.players[s.turn].id;
+export const artists=(s:S)=>s.players.filter(p=>p.id!==actor(s)).map(p=>p.id);
+export const pointsFor=(n:number,index:number)=>index===0?3:index===1?(n===3?1:2):1;
+export const stopAt=(s:S)=>s.players.length===3?1:2;
+export function available(s:S):(1|2)[]{return ([1,2] as const).filter(t=>!Object.values(s.sketches).some(d=>d.token===t));}
+function prepare(s:S,r:()=>number){s.phase='prepare';s.ready=[];s.claims=[];s.order=[];s.reveal=0;s.tries=0;s.attempts=[];delete s.guess;s.votes={};s.sketches=Object.fromEntries(artists(s).map(id=>[id,{drawing:[],version:0,frozen:false}]));s.epoch=s.round+'-'+Math.floor(r()*0x100000000).toString(36);}
+export function createInitialState(seats:{id:string;name:string}[],r:()=>number,starter?:string,difficulty:Difficulty='easy'):S{
+ if(seats.length<3||seats.length>6||new Set(seats.map(p=>p.id)).size!==seats.length||seats.some(p=>typeof p.id!=='string'||!p.id||typeof p.name!=='string'||!p.name)||!['easy','hard'].includes(difficulty)||starter!==undefined&&!seats.some(p=>p.id===starter))throw Error('Catch Sketch ใช้ผู้เล่น 3–6 คน');
+ const first=Math.max(0,seats.findIndex(p=>p.id===starter));const s:S={schema:1,epoch:'',difficulty,players:seats.map(p=>({id:p.id,name:p.name,score:0})),pack:shuffle(CARDS.map(c=>c.id),r),starter:first,turn:first,round:1,phase:'prepare',ready:[],sketches:{},claims:[],order:[],reveal:0,tries:0,attempts:[],votes:{},history:[],winners:[]};prepare(s,r);return s;
+}
+export function getLegalActions(s:S,id:string):A['type'][] {if(!s.players.some(p=>p.id===id))return[];const isActor=actor(s)===id,d=s.sketches[id];switch(s.phase){case'prepare':return s.ready.includes(id)?[]:['cs-ready'];case'drawing':return d&&!d.frozen?['cs-save','cs-claim']:[];case'freeze':return d&&!d.frozen?['cs-freeze']:[];case'guess':return isActor?['cs-guess','cs-pass']:[];case'judge':return !isActor?['cs-vote']:[];case'result':return isActor?['cs-next']:[];default:return[];}}
+const fields:Record<A['type'],string>={'cs-ready':'epoch,type','cs-pass':'epoch,type','cs-next':'epoch,type','cs-save':'drawing,epoch,type,version','cs-freeze':'drawing,epoch,type,version','cs-claim':'drawing,epoch,token,type,version','cs-guess':'epoch,text,type','cs-vote':'correct,epoch,type'};
+function finish(s:S,artist?:string){const points=artist?pointsFor(s.players.length,s.reveal):0;if(artist){s.players.find(p=>p.id===actor(s))!.score+=points;s.players.find(p=>p.id===artist)!.score+=points;}s.history.push({round:s.round,guesser:actor(s),word:answer(s),...(artist?{artist}:{}),points,order:[...s.order],attempts:s.attempts.map(a=>({...a}))});delete s.guess;s.votes={};if(s.round===s.players.length*3||s.players.some(p=>p.score>=20)){s.phase='finished';const max=Math.max(...s.players.map(p=>p.score));s.winners=s.players.filter(p=>p.score===max).map(p=>p.id);}else s.phase='result';}
+function wrong(s:S,pass=false){s.attempts.push({artist:s.order[s.reveal],text:pass?'':s.guess!,correct:false,pass});delete s.guess;s.votes={};s.tries++;if(pass||s.tries===(s.players.length===3?2:1)){if(s.reveal===s.order.length-1){finish(s);return;}s.reveal++;s.tries=0;}s.phase='guess';}
+function beginGuess(s:S){if(Object.values(s.sketches).every(x=>x.frozen)){s.phase='guess';s.order=artists(s).sort((a,b)=>s.sketches[a].token!-s.sketches[b].token!);}}
+export function applyAction(input:S,id:string,a:A,r:()=>number):S{
+ if(!a||typeof a!=='object'||Array.isArray(a)||Object.keys(a).sort().join(',')!==fields[a.type]||a.epoch!==decisionKey(input)||!getLegalActions(input,id).includes(a.type))throw Error('ทำรายการนี้ไม่ได้ หรือรอบเปลี่ยนไปแล้ว');
+ if('drawing'in a&&(!validDrawing(a.drawing)||!Number.isSafeInteger(a.version)||a.version<=input.sketches[id].version||a.version>1e6)||a.type==='cs-claim'&&!available(input).includes(a.token)||a.type==='cs-guess'&&(typeof a.text!=='string'||a.text.length>80||!normalize(a.text)||/[\p{C}]/u.test(a.text))||a.type==='cs-vote'&&typeof a.correct!=='boolean')throw Error('ตรวจภาพ คำตอบ หรือลำดับที่เลือกอีกครั้ง');
+ const s=structuredClone(input);
+ switch(a.type){case'cs-ready':s.ready.push(id);if(s.ready.length===s.players.length)s.phase='drawing';break;
+ case'cs-save':s.sketches[id].drawing=structuredClone(a.drawing);s.sketches[id].version=a.version;break;
+ case'cs-freeze':s.sketches[id].drawing=structuredClone(a.drawing);s.sketches[id].version=a.version;s.sketches[id].frozen=true;beginGuess(s);break;
+ case'cs-claim':{s.sketches[id]={drawing:structuredClone(a.drawing),version:a.version,frozen:true,token:a.token};s.claims.push(id);if(s.claims.length===stopAt(s)){s.phase='freeze';const rest=shuffle(artists(s).filter(x=>!s.claims.includes(x)),r),tokens=Array.from({length:s.players.length-1},(_,i)=>i+1).filter(t=>!s.claims.some(id=>s.sketches[id].token===t));rest.forEach((id,i)=>s.sketches[id].token=tokens[i]);beginGuess(s);}break;}
+ case'cs-guess':s.guess=a.text.normalize('NFC').trim();if(normalize(s.guess)===normalize(answer(s))){const artist=s.order[s.reveal];s.attempts.push({artist,text:s.guess,correct:true,pass:false});finish(s,artist);}else{s.phase='judge';s.votes={};}break;
+ case'cs-pass':wrong(s,true);break;
+ case'cs-vote':s.votes[id]=a.correct;{const votes=artists(s).map(id=>s.votes[id]);if(votes.every(v=>v===true)){const artist=s.order[s.reveal];s.attempts.push({artist,text:s.guess!,correct:true,pass:false});finish(s,artist);}else if(votes.every(v=>v===false))wrong(s);}break;
+ case'cs-next':s.round++;s.turn=(s.turn+1)%s.players.length;prepare(s,r);break;}
+ return s;
+}
+export function getDisplayView(s:S,code='',revision=0):V{const resolved=s.phase==='result'||s.phase==='finished',show=['guess','judge','result','finished'].includes(s.phase),ids=resolved?artists(s):show?s.order.slice(0,s.reveal+1):[];return {gameId:'catch-sketch',code,revision,phase:s.phase,epoch:decisionKey(s),difficulty:s.difficulty,round:s.round,rounds:s.players.length*3,turn:actor(s),ready:[...s.ready],players:s.players.map(p=>({...p,token:s.sketches[p.id]?.token,frozen:!!s.sketches[p.id]?.frozen})),available:available(s),claimed:s.claims.length,stopAt:stopAt(s),boards:ids.map(id=>({artist:id,token:s.sketches[id].token!,drawing:structuredClone(s.sketches[id].drawing)})),current:show?s.order[s.reveal]:undefined,points:pointsFor(s.players.length,s.reveal),tries:s.players.length===3?2-s.tries:1,guess:s.guess,voted:Object.keys(s.votes),attempts:s.attempts.map(a=>({...a})),result:resolved?structuredClone(s.history.at(-1)!):undefined,history:structuredClone(s.history),winners:[...s.winners]};}
+export function getPlayerView(s:S,id:string,code='',revision=0):V{const v=getDisplayView(s,code,revision);if(!s.players.some(p=>p.id===id))return v;const artist=id!==actor(s);v.me={id,legal:getLegalActions(s,id),...artist&&s.phase!=='prepare'?{word:answer(s)}:{},...artist?{sketch:structuredClone(s.sketches[id])}:{},...id in s.votes?{vote:s.votes[id]}:{}};return v;}
+export const isFinished=(s:S)=>s.phase==='finished';

@@ -1,0 +1,27 @@
+{
+  "mode": "built-in image_gen",
+  "scope": "Original box/card-back/retro card illustrations; game numbers and Thai labels rendered in HTML",
+  "assets": [
+    {
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-7310f0e7-2b13-41aa-b28c-1548a8dd86a9.png",
+      "master": "assets/source/flip-7/cover-master.png",
+      "prompt": "Create an original polished 3D retail card-game box mockup for FLIP 7, isolated on a genuinely transparent background, for a browser board-game gallery. Compact upright rectangular box, front and narrow right side visible in a three-quarter view, centered with padding. Retro 1970s athletic card-game graphic design: warm ivory printed carton, oversized bold dark burgundy title 'FLIP 7', giant spectacular numeral 7 built from stacked arching stripes in mustard yellow, coral red, teal and plum. A small fan of clean numeral cards 3, 5, 9 emerging at the bottom. Small readable 'THAI EDITION' line. Flat geometric print artwork with crisp edges and tasteful paper feel, not glitter or photorealistic casino props. Original graphic arrangement, no publisher logos or copied exact packaging. High contrast, readable thumbnail silhouette. Box only, no table, no background, no extra copy."
+    },
+    {
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-34a5d584-b412-4536-888c-b22166fd1322.png",
+      "master": "assets/source/flip-7/faces-master.png",
+      "prompt": "Generate an original graphic illustration atlas for Flip 7 card faces, exactly 4 columns by 6 rows, 24 equal SQUARE cells, no gutters. Each cell is a self-contained clean retro 1970s playing-card pattern on warm ivory. NO numbers, NO letters, NO words anywhere; game values will be overlaid as accessible HTML. Leave the CENTRAL 60 percent of EVERY cell almost empty ivory for large game values. Around the edges use bold flat geometric arch stripes, concentric semicircles, rounded chevrons, and small dots in distinct balanced palettes of burgundy, coral, mustard, teal, navy and lilac. First 13 cells: each a different geometric border/pattern with a restrained colored edge and empty ivory center, all coherent. Next 5 cells: sunny mustard/orange bonus burst borders, empty centers. Cell19 in reading order: two interlocking teal arches around empty center, multiplier motif. Cell20: icy blue snowflake corners and empty center. Cell21: three coral arrowheads around empty center. Cell22: plum protective heart/shield corner motifs and empty center. Last two cells generic decorative retro rainbow arcs. Perfect alignment, flat print artwork, crisp outlines, no perspective, no photographed cards, no UI mockup, no shadows, no text. This single atlas will be cropped into individual card illustrations."
+    },
+    {
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-c58d0906-5f7f-418f-899d-1efc719f38e4.png",
+      "master": "assets/source/flip-7/back-master.png",
+      "prompt": "Create a single flat front-facing playing card BACK for FLIP 7, portrait 2:3 ratio. Original bold retro 1970s graphic card design on deep burgundy, symmetrical stacked arch stripes in teal, mustard yellow, coral and ivory curving into a gigantic stylized numeral 7 in center. Ivory double-line outer frame, tiny geometric dots in the corners. A small clear 'FLIP 7' title integrated in center. Limited flat colors, crisp print geometry, readable at small size. No perspective, no table, no mockup shadows, no publisher logo or additional words. Full card fills canvas, no transparency needed."
+    }
+  ],
+  "exports": [
+    "public/art/flip-7/cover.webp",
+    "public/art/flip-7/back.webp",
+    "public/art/flip-7/cards/*.webp"
+  ],
+  "conversion": "Sharp resize/WebP only; preserve cover alpha; crop the first22 atlas cells at observed grid dividers (exclude blank bottom margin), then export individual card illustrations."
+}

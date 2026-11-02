@@ -1,3 +1,4 @@
+import './harmonies.css';
 import './harmonies-dialog.css';
 import {SANCTUARY} from '../games/harmonies/sanctuaries.js';
 import {sanctuaryFace,sanctuaryDescription} from './harmonies-sanctuaries.js';

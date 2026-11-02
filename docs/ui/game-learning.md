@@ -13,3 +13,9 @@ Returning-room rows show the game thumbnail/name, room code and phase together. 
 Visual direction follows the existing portal: paper background, teal text, Thai font, quiet illustration panels and numbered real action sequences. Diagrams/labels explain choices rather than using box artwork as the only instructional picture. Phone introductions use full-width images with text below; desktop uses three preview columns. In-game dialogs alternate illustrations and text on wide screens and stack on phones. Native details/dialog/button controls retain keyboard and Escape behavior.
 
 Verification: see `docs/progress.md`, browser cases `tests/browser/game-learning.spec.ts` and screenshots under ignored `data/qa-game-learning/`.
+
+## Pregame card references
+
+Every game detail page (including the local Name It entry) exposes a card reference before room creation, without requiring a room or login. Harmonies opens its existing full card library and scoring inspector, including supported expansions. Other games use `game-card-reference.ts` with public definitions from their existing catalogues/data and shared card effect descriptions. Games without cards label the action “ดูอุปกรณ์และความสามารถ”. Duplicate physical cards are represented by their unique types with counts where defined. Sounds Fishy shows role references, without listing question answers.
+
+The reference supports search, category selection, twelve entries per page, a large individual detail view, returning to the same list position, native dialog Escape and focus restoration. Definitions never take a room view, live draw order, or private hand. Assets and rule copy remain in their existing sources. Tests in `tests/browser/card-reference.spec.ts` cover the catalogue count, favorite ordering/persistence, all catalogue pregame references, individual details, artwork paths, pagination, search and mobile overflow.

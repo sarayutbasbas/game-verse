@@ -28,10 +28,18 @@ export let platform: {
     player: boolean;
   }[];
 } = { profile: null, googleEnabled: false, games: [], recent: [], rooms: [] };
+export let accountStatus: 'loading' | 'ready' | 'error' = 'loading';
 export async function refreshAccount() {
-  const res = await fetch("/api/platform", { cache: "no-store" });
-  if (!res.ok) throw Error("โหลดข้อมูลบัญชีไม่ได้");
-  platform = await res.json();
+  accountStatus = 'loading';
+  try {
+    const res = await fetch("/api/platform", { cache: "no-store" });
+    if (!res.ok) throw Error("โหลดข้อมูลบัญชีไม่ได้");
+    platform = await res.json();
+    accountStatus = 'ready';
+  } catch (error) {
+    accountStatus = 'error';
+    throw error;
+  }
 }
 export async function guest() {
   if (!platform.profile) {

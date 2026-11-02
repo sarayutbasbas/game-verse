@@ -850,3 +850,30 @@ body.platform-theme.hm-lobby-theme::before{background-image:linear-gradient(#eaf
 .hm-lobby .hm-art-picker label:focus-within{outline:none}
 .hm-lobby .room-code{border:0;background:none;padding:0;color:#174e40;box-shadow:none}
 .hm-lobby .room-code strong{color:#174e40}
+
+/* A separate control keeps the cover link and favorite independently accessible. */
+.game-tile { position: relative; min-width: 0; }
+.platform-surface .game-favorite {
+  position: absolute; top: 3.5%; left: 1%; z-index: 3;
+  display: grid; place-items: center; width: 44px; height: 44px;
+  min-height: 44px; margin: 0; padding: 9px;
+  border: 2px solid #b51c60; border-radius: 50%;
+  background: #fff4f8; color: #b51c60;
+  box-shadow: 0 3px 9px #63203d33;
+}
+.game-favorite svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.platform-surface .game-favorite[aria-pressed="true"] { background: #ffe1ee; border-color: #b51c60; color: #b51c60; }
+.game-favorite[aria-pressed="true"] svg { fill: currentColor; }
+.platform-surface .game-favorite:hover:not(:disabled) { background: #fce0ec; color: #97164f; }
+.platform-surface .game-favorite[aria-pressed="true"]:hover:not(:disabled) { background: #ffd0e4; border-color: #97164f; color: #97164f; }
+.recent-games .game-player-count { top: auto; bottom: 5%; }
+.favorite-feedback { color: #775006; }
+.favorite-feedback:empty { display: none; }
+.game-skeleton { min-width: 0; padding: 4% 6%; }
+.skeleton-box, .skeleton-title { background: #c8d1c5; border-radius: 8px; }
+.skeleton-box { aspect-ratio: 4 / 5; }
+.skeleton-title { height: 16px; width: 75%; margin: 14px auto 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .game-skeleton { animation: catalog-pulse 1.4s ease-in-out infinite alternate; }
+  @keyframes catalog-pulse { from { opacity: .45; } to { opacity: .9; } }
+}

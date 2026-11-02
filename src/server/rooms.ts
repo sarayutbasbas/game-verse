@@ -1,3 +1,14 @@
+import * as flip7Rules from '../games/flip-7/engine.js';
+import type {FlipState,FlipAction,FlipView} from '../games/flip-7/types.js';
+import * as catchRules from '../games/catch-sketch/engine.js';
+import type {CatchState,CatchAction,CatchView,Difficulty as CatchDifficulty} from '../games/catch-sketch/types.js';
+import * as muffinRules from '../games/muffin-time/engine.js';
+import type {MuffinState,MuffinAction,MuffinView} from '../games/muffin-time/types.js';
+import * as madnessRules from '../games/mansions-of-madness/engine.js';
+import {SCENARIO_INFO as MADNESS_SCENARIOS} from '../games/mansions-of-madness/catalog.js';
+import type {MadnessState,MadnessAction,MadnessView,ScenarioId} from '../games/mansions-of-madness/types.js';
+import * as justOneRules from '../games/just-one/engine.js';
+import type {JustOneState,JustOneAction,JustOneView} from '../games/just-one/types.js';
 import * as bombRules from "../games/bomb-busters/engine.js";
 import {MISSIONS as BOMB_MISSIONS,config as bombConfig} from "../games/bomb-busters/data.js";
 import type {BombState,BombAction,BombView} from "../games/bomb-busters/types.js";
@@ -97,6 +108,13 @@ interface Room {
   bombBusters?: BombState;
   bombMission?: number;
   courtisans?: CourtState;
+  madness?: MadnessState;
+  madnessOptions?: {scenario:ScenarioId;expansion:boolean};
+  catchSketch?: CatchState;
+  catchDifficulty?: CatchDifficulty;
+  flip7?: FlipState;
+  muffin?: MuffinState;
+  justOne?: JustOneState;
   trio?: TrioState;
   trioOptions?: TrioOptions;
   castle?: CastleState;
@@ -282,7 +300,7 @@ export class RoomService {
           correlationId: randomUUID(),
           gameId: r?.gameId,
           rulesVersion: r?.rulesVersion,
-          phase: r?.game?.phase ?? r?.duel?.phase ?? r?.azul?.phase ?? r?.calico?.phase ?? r?.wonders?.phase ?? r?.jaipur?.phase ?? r?.locus?.phase ?? r?.ck?.phase ?? r?.takeTime?.phase ?? r?.sky?.phase ?? r?.harmonies?.phase ?? r?.pixies?.phase ?? r?.bombBusters?.phase ?? r?.courtisans?.phase ?? r?.trio?.phase ?? r?.castle?.phase ?? r?.powerPets?.phase ?? r?.loveLetter?.phase ?? r?.soundsFishy?.phase ?? r?.perch?.phase ?? r?.draftosaurus?.phase ?? "lobby",
+          phase: r?.game?.phase ?? r?.duel?.phase ?? r?.azul?.phase ?? r?.calico?.phase ?? r?.wonders?.phase ?? r?.jaipur?.phase ?? r?.locus?.phase ?? r?.ck?.phase ?? r?.takeTime?.phase ?? r?.sky?.phase ?? r?.harmonies?.phase ?? r?.pixies?.phase ?? r?.bombBusters?.phase ?? r?.courtisans?.phase ?? r?.madness?.phase ?? r?.flip7?.phase ?? r?.catchSketch?.phase ?? r?.muffin?.phase ?? r?.justOne?.phase ?? r?.trio?.phase ?? r?.castle?.phase ?? r?.powerPets?.phase ?? r?.loveLetter?.phase ?? r?.soundsFishy?.phase ?? r?.perch?.phase ?? r?.draftosaurus?.phase ?? "lobby",
           revision: r?.revision,
         }),
       );
@@ -310,13 +328,13 @@ export class RoomService {
         code: r.code,
         lastVisitedAt: Math.max(0,...r.sessions.filter(s=>s.userId===userId).map(s=>s.lastVisitedAt??0)) || undefined,
         gameId: r.gameId,
-        phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.locus?.phase ?? r.ck?.phase ?? r.takeTime?.phase ?? r.sky?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? r.bombBusters?.phase ?? r.courtisans?.phase ?? r.trio?.phase ?? r.castle?.phase ?? r.powerPets?.phase ?? r.loveLetter?.phase ?? r.soundsFishy?.phase ?? r.perch?.phase ?? r.draftosaurus?.phase ?? "lobby",
+        phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.locus?.phase ?? r.ck?.phase ?? r.takeTime?.phase ?? r.sky?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? r.bombBusters?.phase ?? r.courtisans?.phase ?? r.madness?.phase ?? r.flip7?.phase ?? r.catchSketch?.phase ?? r.muffin?.phase ?? r.justOne?.phase ?? r.trio?.phase ?? r.castle?.phase ?? r.powerPets?.phase ?? r.loveLetter?.phase ?? r.soundsFishy?.phase ?? r.perch?.phase ?? r.draftosaurus?.phase ?? "lobby",
         owner: r.ownerId === userId,
         player: r.players.some((p) => p.userId === userId),
       }));
   }
   private hasStarted(room:Room){
-    return !!(room.bombBusters||room.courtisans||room.trio||room.castle||room.powerPets||room.loveLetter||room.soundsFishy||room.game||room.duel||room.azul||room.calico||room.wonders||room.jaipur||room.perch||room.draftosaurus||room.pixies||room.harmonies||room.sky||room.ck||room.locus||room.takeTime);
+    return !!(room.flip7||room.catchSketch||room.madness||room.muffin||room.justOne||room.bombBusters||room.courtisans||room.trio||room.castle||room.powerPets||room.loveLetter||room.soundsFishy||room.game||room.duel||room.azul||room.calico||room.wonders||room.jaipur||room.perch||room.draftosaurus||room.pixies||room.harmonies||room.sky||room.ck||room.locus||room.takeTime);
   }
   /** Navigation activity only: never removes a seat or changes game revision. */
   visit(userId:string,code:string):void{
@@ -419,7 +437,7 @@ export class RoomService {
     if (!r) throw Error("ไม่พบห้อง");
     if (close && r.ownerId !== userId)
       throw Error("ผู้สร้างห้องเท่านั้นที่ปิดห้องได้");
-    if (!close && (r.bombBusters || r.courtisans || r.trio || r.castle || r.powerPets || r.loveLetter || r.soundsFishy || r.game || r.duel || r.azul || r.calico || r.wonders || r.jaipur || r.perch || r.draftosaurus || r.pixies || r.harmonies || r.sky || r.ck || r.locus || r.takeTime))
+    if (!close && (r.flip7 || r.catchSketch || r.madness || r.muffin || r.justOne || r.bombBusters || r.courtisans || r.trio || r.castle || r.powerPets || r.loveLetter || r.soundsFishy || r.game || r.duel || r.azul || r.calico || r.wonders || r.jaipur || r.perch || r.draftosaurus || r.pixies || r.harmonies || r.sky || r.ck || r.locus || r.takeTime))
       throw Error(
         "เกมเริ่มแล้ว ที่นั่งยังเก็บไว้ให้กลับมาเล่น ออกถาวรได้ในห้องรอ",
       );
@@ -569,6 +587,36 @@ export class RoomService {
       const base:CourtView=room.courtisans?(player?courtRules.getPlayerView(room.courtisans,player,room.code,room.revision):courtRules.getDisplayView(room.courtisans,room.code,room.revision)):{gameId:'courtisans',code:room.code,revision:room.revision,phase:'lobby',turn:'',sequence:0,turnNumber:1,deckCount:90,queen:[],discard:[],used:[],influence:Object.fromEntries(['butterfly','toad','nightingale','stag','hare','carp'].map(f=>[f,{up:0,down:0,status:0}])) as CourtView['influence'],players:room.players.map(p=>({id:p.id,name:p.name,handCount:0,domain:[],ready:!!p.ready})),events:[],winners:[],scores:[]};
       for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
       if(player&&!base.me)base.me={id:player,hand:[],missions:[],legal:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='mansions-of-madness'){
+      const player=session?.role==='player'?session.playerId:undefined,options=room.madnessOptions??{scenario:'rain-house' as const,expansion:false};
+      const base:MadnessView=room.madness?(player?madnessRules.getPlayerView(room.madness,player,room.code,room.revision):madnessRules.getDisplayView(room.madness,room.code,room.revision)):{gameId:'mansions-of-madness',code:room.code,revision:room.revision,phase:'lobby',...options,round:1,limit:MADNESS_SCENARIOS[options.scenario].rounds,turn:'',evidence:0,evidenceNeeded:3,heroes:[],rooms:[],doors:[],monsters:[],log:[],winners:[],players:room.players.map(p=>({id:p.id,name:p.name,ready:!!p.ready}))};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(player&&!base.me)base.me={id:player,heroes:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='flip-7'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:FlipView=room.flip7?(player?flip7Rules.getPlayerView(room.flip7,player,room.code,room.revision):flip7Rules.getDisplayView(room.flip7,room.code,room.revision)):{gameId:'flip-7',code:room.code,revision:room.revision,phase:'lobby',epoch:'',round:1,dealer:'',turn:'',sequence:0,deckCount:94,discardCount:0,history:[],winners:[],events:[],players:room.players.map(p=>({id:p.id,name:p.name,score:0,cards:[],status:'active',roundScore:0,numbers:0,ready:!!p.ready}))};
+      for(const p of base.players){const seat=room.players.find(x=>x.id===p.id)!;p.name=seat.name;p.connected=this.connected(room,p.id);p.avatar=seat.avatar;p.ready=seat.ready;}
+      if(player&&!base.me)base.me={id:player,legal:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='catch-sketch'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:CatchView=room.catchSketch?(player?catchRules.getPlayerView(room.catchSketch,player,room.code,room.revision):catchRules.getDisplayView(room.catchSketch,room.code,room.revision)):{gameId:'catch-sketch',code:room.code,revision:room.revision,phase:'lobby',epoch:'',difficulty:room.catchDifficulty??'easy',round:1,rounds:room.players.length*3,turn:'',ready:[],available:[1,2],claimed:0,stopAt:room.players.length===3?1:2,boards:[],points:3,tries:room.players.length===3?2:1,voted:[],attempts:[],history:[],winners:[],players:room.players.map(p=>({id:p.id,name:p.name,score:0,frozen:false,ready:!!p.ready}))};
+      for(const p of base.players){const seat=room.players.find(x=>x.id===p.id)!;p.name=seat.name;p.connected=this.connected(room,p.id);p.avatar=seat.avatar;p.ready=seat.ready;}
+      if(player&&!base.me)base.me={id:player,legal:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='muffin-time'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:MuffinView=room.muffin?(player?muffinRules.getPlayerView(room.muffin,player,room.code,room.revision):muffinRules.getDisplayView(room.muffin,room.code,room.revision)):{gameId:'muffin-time',code:room.code,revision:room.revision,phase:'lobby',sequence:0,turnNumber:1,direction:1,deckCount:120,discardCount:0,passed:[],stack:[],events:[],winners:[],players:room.players.map(p=>({id:p.id,name:p.name,handCount:0,traps:[],declared:false,skip:0,ready:!!p.ready}))};
+      for(const p of base.players){const seat=room.players.find(x=>x.id===p.id)!;p.connected=this.connected(room,p.id);p.avatar=seat.avatar;p.ready=seat.ready;}
+      if(player&&!base.me)base.me={id:player,hand:[],traps:[],legal:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='just-one'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:JustOneView=room.justOne?(player?justOneRules.getPlayerView(room.justOne,player,room.code,room.revision):justOneRules.getDisplayView(room.justOne,room.code,room.revision)):{gameId:'just-one',code:room.code,revision:room.revision,phase:'lobby',round:1,turn:'',score:0,remaining:13,clueCount:room.players.length===3?2:1,hints:[],history:[],players:room.players.map(p=>({id:p.id,name:p.name,submitted:false,approved:false,voted:false,ready:!!p.ready}))};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(player&&!base.me)base.me={id:player,ownClues:[],legal:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
     }
     if(room.gameId==='trio'){
       const player=session?.role==='player'?session.playerId:undefined,options=room.trioOptions??{mode:'simple' as const,teams:false};
@@ -994,7 +1042,7 @@ export class RoomService {
         const maxPlayers = metadata(room.gameId)!.maxPlayers;
         if (room.players.length >= maxPlayers)
           throw Error(`ห้องเต็ม มีผู้เล่นครบ ${maxPlayers} คนแล้ว`);
-        if (room.bombBusters || room.courtisans || room.trio || room.castle || room.powerPets || room.loveLetter || room.soundsFishy || room.game || room.duel || room.azul || room.calico || room.wonders || room.jaipur || room.perch || room.draftosaurus || room.pixies || room.harmonies || room.sky || room.ck || room.locus || room.takeTime)
+        if (room.flip7 || room.catchSketch || room.madness || room.muffin || room.justOne || room.bombBusters || room.courtisans || room.trio || room.castle || room.powerPets || room.loveLetter || room.soundsFishy || room.game || room.duel || room.azul || room.calico || room.wonders || room.jaipur || room.perch || room.draftosaurus || room.pixies || room.harmonies || room.sky || room.ck || room.locus || room.takeTime)
           throw Error("เกมเริ่มแล้ว เข้าร่วมเกมใหม่เมื่อสร้างห้องใหม่");
         if (
           typeof m.name !== "string" ||
@@ -1095,7 +1143,10 @@ export class RoomService {
         const simultaneousHarmonies=room.gameId==='harmonies'&&room.harmonies?.phase==='playing'&&s.role==='player'&&
           m.action?.type==='harmonies-spirit'&&!!room.harmonies.matchId&&m.action.epoch===room.harmonies.matchId&&
           !!room.harmonies.spiritDrafts?.[s.playerId!]?.length&&m.revision<=room.revision;
-        if (!Number.isSafeInteger(m.revision) || m.revision<0 || m.revision !== room.revision && !simultaneousReveal && !simultaneousSky && !simultaneousCK && !simultaneousLocus && !simultaneousTakeTime && !simultaneousHarmonies && !simultaneousDraft && !simultaneousFishy)
+        // Same-round own drawing snapshots/readiness commute; token claims remain server-ordered.
+        const simultaneousCatch=room.gameId==='catch-sketch'&&!!room.catchSketch&&s.role==='player'&&
+          ['cs-ready','cs-save','cs-claim','cs-freeze'].includes(m.action?.type)&&'epoch'in m.action&&m.action.epoch===catchRules.decisionKey(room.catchSketch)&&m.revision<=room.revision;
+        if (!Number.isSafeInteger(m.revision) || m.revision<0 || m.revision !== room.revision && !simultaneousReveal && !simultaneousSky && !simultaneousCK && !simultaneousLocus && !simultaneousTakeTime && !simultaneousHarmonies && !simultaneousDraft && !simultaneousFishy && !simultaneousCatch)
           throw Error("สถานะเปลี่ยนแล้ว กรุณาดูตาปัจจุบันแล้วเลือกใหม่");
         if (!m.action || typeof m.action !== "object")
           throw Error("เลือกการกระทำก่อน");
@@ -1108,6 +1159,11 @@ export class RoomService {
         }else if(room.gameId==="harmonies"){this.harmoniesCommand(room,s,m.action);
         }else if(room.gameId==="bomb-busters"){this.bombCommand(room,s,m.action);
         }else if(room.gameId==="courtisans"){this.courtCommand(room,s,m.action);
+        }else if(room.gameId==="mansions-of-madness"){this.madnessCommand(room,s,m.action);
+        }else if(room.gameId==="flip-7"){this.flip7Command(room,s,m.action);
+        }else if(room.gameId==="catch-sketch"){this.catchCommand(room,s,m.action);
+        }else if(room.gameId==="muffin-time"){this.muffinCommand(room,s,m.action);
+        }else if(room.gameId==="just-one"){this.justOneCommand(room,s,m.action);
         }else if(room.gameId==="trio"){this.trioCommand(room,s,m.action);
         }else if(room.gameId==="castle-combo"){this.castleCommand(room,s,m.action);
         }else if(room.gameId==="power-hungry-pets"){this.powerPetsCommand(room,s,m.action);
@@ -1249,7 +1305,7 @@ export class RoomService {
   /** Authoritative fresh deal; keep memberships, reconnect sessions and room settings. */
   private restartRoom(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
     if(Object.keys(action).join(',')!=='type'||!this.canManage(room,session))throw Error('เริ่มเกมใหม่ได้เฉพาะหัวห้อง');
-    const state=room.bombBusters??room.courtisans??room.trio??room.castle??room.powerPets??room.loveLetter??room.soundsFishy??room.game??room.duel??room.azul??room.calico??room.wonders??room.jaipur??room.perch??room.draftosaurus??room.pixies??room.harmonies??room.sky??room.ck??room.locus??room.takeTime;
+    const state=room.flip7??room.catchSketch??room.madness??room.muffin??room.justOne??room.bombBusters??room.courtisans??room.trio??room.castle??room.powerPets??room.loveLetter??room.soundsFishy??room.game??room.duel??room.azul??room.calico??room.wonders??room.jaipur??room.perch??room.draftosaurus??room.pixies??room.harmonies??room.sky??room.ck??room.locus??room.takeTime;
     if(!state)throw Error('เริ่มเกมก่อนจึงจะเริ่มใหม่ได้');
     if(room.gameId==='name-it')throw Error('เกมนี้เล่นบนเครื่องเดียว');
     gameAdapters[room.gameId].validatePlayers(room.players);
@@ -1264,6 +1320,11 @@ export class RoomService {
       case 'harmonies':room.harmonies=harmoniesRules.createInitialState(room.players,this.random,undefined,room.harmonies!.side,room.harmonies!.options);room.harmonies.matchId=randomUUID();break;
       case 'bomb-busters':{const previous=room.bombBusters;room.bombBusters=bombRules.createInitialState(room.players,this.random,previous?.players[(previous.captain+1)%previous.players.length].id,room.bombMission??1,(previous?.attempt??0)+1);room.bombMission=room.bombBusters.mission;room.bombBusters.matchId=randomUUID();break;}
       case 'courtisans':room.courtisans=courtRules.createInitialState(room.players,this.random);room.courtisans.matchId=randomUUID();break;
+      case 'mansions-of-madness':{const options=room.madnessOptions??room.madness??{scenario:'rain-house' as const,expansion:false};room.madness=madnessRules.createInitialState(room.players,this.random,undefined,options.scenario,options.expansion);room.madness.matchId=randomUUID();break;}
+      case 'flip-7':room.flip7=flip7Rules.createInitialState(room.players,this.random);room.flip7.matchId=randomUUID();break;
+      case 'catch-sketch':room.catchSketch=catchRules.createInitialState(room.players,this.random,undefined,room.catchDifficulty??'easy');room.catchSketch.matchId=randomUUID();break;
+      case 'muffin-time':room.muffin=muffinRules.createInitialState(room.players,this.random);room.muffin.matchId=randomUUID();break;
+      case 'just-one':room.justOne=justOneRules.createInitialState(room.players,this.random);room.justOne.matchId=randomUUID();break;
       case 'trio':room.trio=trioRules.createInitialState(room.players,this.random,undefined,room.trio?.options??room.trioOptions);room.trio.matchId=randomUUID();break;
       case 'castle-combo':room.castle=castleRules.createInitialState(room.players,this.random);room.castle.matchId=randomUUID();break;
       case 'power-hungry-pets':room.powerPets=phpRules.createInitialState(room.players,this.random,undefined,room.powerPets?.tieRule);room.powerPets.matchId=randomUUID();break;
@@ -1381,6 +1442,69 @@ export class RoomService {
     }
     if(!room.courtisans)throw Error('เริ่มเกมก่อน');const actor=session.role==='player'?session.playerId:undefined;
     if(!actor)throw Error('เลือกการกระทำจากมือถือของคุณ');room.courtisans=courtRules.applyAction(room.courtisans,actor,action as CourtAction);
+  }
+  private madnessCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='mm-options'){
+      if(room.madness||!this.canManage(room,session)||keys!=='expansion,scenario,type'||typeof action.expansion!=='boolean'||!Object.hasOwn(MADNESS_SCENARIOS,action.scenario)||MADNESS_SCENARIOS[action.scenario].expansion&&!action.expansion)throw Error('หัวห้องเลือกด่านและภาคเสริมในห้องรอ');room.madnessOptions={scenario:action.scenario,expansion:action.expansion};return;
+    }
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.madness||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.madness||action.type==='restart'&&room.madness?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length<1||room.players.length>5||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 1–5 คนเชื่อมต่อและกดพร้อม');
+      const options=room.madnessOptions??{scenario:'rain-house' as const,expansion:false};room.madness=madnessRules.createInitialState(room.players,this.random,undefined,options.scenario,options.expansion);room.madness.matchId=randomUUID();return;
+    }
+    if(!room.madness)throw Error('เริ่มเกมก่อน');const actor=session.role==='player'?session.playerId:action.type==='mm-mythos'&&this.canManage(room,session)?room.madness.players[0].id:undefined;
+    if(!actor)throw Error('เลือกการกระทำจากมือถือเจ้าของนักสืบ');room.madness=madnessRules.applyAction(room.madness,actor,action as MadnessAction,this.random);
+  }
+  private flip7Command(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.flip7||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.flip7||action.type==='restart'&&room.flip7?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length<3||room.players.length>9||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 3–9 คนเชื่อมต่อและกดพร้อม');
+      room.flip7=flip7Rules.createInitialState(room.players,this.random,action.startingPlayerId);room.flip7.matchId=randomUUID();return;
+    }
+    if(!room.flip7)throw Error('เริ่มเกมก่อน');const actor=session.role==='player'?session.playerId:action.type==='f7-next'&&this.canManage(room,session)?room.flip7.players[room.flip7.dealer].id:undefined;
+    if(!actor)throw Error('เลือกจากมือถือของคุณ');room.flip7=flip7Rules.applyAction(room.flip7,actor,action as FlipAction,this.random);
+  }
+  private catchCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='cs-options'){if(room.catchSketch||!this.canManage(room,session)||keys!=='difficulty,type'||!['easy','hard'].includes(action.difficulty))throw Error('หัวห้องเลือกระดับคำในห้องรอ');room.catchDifficulty=action.difficulty;return;}
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.catchSketch||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.catchSketch||action.type==='restart'&&room.catchSketch?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length<3||room.players.length>6||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 3–6 คนเชื่อมต่อและกดพร้อม');
+      room.catchSketch=catchRules.createInitialState(room.players,this.random,action.startingPlayerId,room.catchDifficulty??'easy');room.catchSketch.matchId=randomUUID();return;
+    }
+    if(!room.catchSketch)throw Error('เริ่มเกมก่อน');const actor=session.role==='player'?session.playerId:action.type==='cs-next'&&this.canManage(room,session)?room.catchSketch.players[room.catchSketch.turn].id:undefined;
+    if(!actor)throw Error('เล่นจากมือถือของคุณ');room.catchSketch=catchRules.applyAction(room.catchSketch,actor,action as CatchAction,this.random);
+  }
+  private muffinCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.muffin||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.muffin||action.type==='restart'&&room.muffin?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length<2||room.players.length>8||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 2–8 คนเชื่อมต่อและกดพร้อม');
+      room.muffin=muffinRules.createInitialState(room.players,this.random,action.startingPlayerId);room.muffin.matchId=randomUUID();return;
+    }
+    if(!room.muffin)throw Error('เริ่มเกมก่อน');if(session.role!=='player'||!session.playerId)throw Error('เล่นจากมือถือของคุณ');room.muffin=muffinRules.applyAction(room.muffin,session.playerId,action as MuffinAction,this.random);
+  }
+  private justOneCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.justOne||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.justOne||action.type==='restart'&&room.justOne?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length<3||room.players.length>7||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 3–7 คนเชื่อมต่อและกดพร้อม');
+      room.justOne=justOneRules.createInitialState(room.players,this.random,action.startingPlayerId);room.justOne.matchId=randomUUID();return;
+    }
+    if(!room.justOne)throw Error('เริ่มเกมก่อน');const actor=session.role==='player'?session.playerId:action.type==='jo-next'&&this.canManage(room,session)?room.justOne.players[room.justOne.turn].id:undefined;
+    if(!actor)throw Error('เลือกการกระทำจากมือถือของคุณ');room.justOne=justOneRules.applyAction(room.justOne,actor,action as JustOneAction,this.random);
   }
   private trioCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
     const keys=Object.keys(action).sort().join(',');

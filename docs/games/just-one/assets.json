@@ -1,0 +1,19 @@
+{
+  "tool": "built-in image_gen",
+  "generatedOn": "2026-11-01",
+  "exports": [
+    {
+      "path": "public/art/just-one/cover.webp",
+      "master": "assets/source/just-one/cover-master.png",
+      "size": "640x800; transparent alpha preserved",
+      "prompt": "Create one premium board game box product mockup for the party word-guessing game JUST ONE, designed to fit a browser boardgame collection. Portrait 4:5 image. An upright thick cardboard box in three-quarter view, front and slim left spine visible, isolated with a genuinely transparent background. Front cover: lively hand-painted editorial illustration of seven colorful white dry-erase easels and pastel marker pens forming a celebratory circle around one large glowing yellow question mark, playful doodled lightbulbs, speech bubbles, stars, friendly party energy. Clean rich turquoise base with coral, golden yellow, lilac, and pink details. Large impeccably legible title text ONLY 'JUST ONE' on the upper half, white chunky joyful hand-lettering, the O incorporates a small heart. Original cover artwork, not a copy of official packaging. No publisher logos, no other text, no age or player badges, no background scenery outside the box, no floor. Detailed beautifully lit dimensional cardboard, print-quality sharpness, fully contained box with ample transparent margin, no cropped edges."
+    },
+    {
+      "path": "public/art/just-one/scene.webp",
+      "master": "assets/source/just-one/scene-master.png",
+      "size": "1440px wide",
+      "prompt": "Original illustrated boardgame table scene for JUST ONE cooperative word clue party game, landscape 3:2. Seven charming white dry-erase easels on a soft turquoise tabletop in a circle, each with a colorful marker in coral pink, yellow, sky blue, mint, lilac, orange, magenta. Central small stack of white cards, one has a large golden question mark. A few doodled lightbulbs and playful tiny stars. No people, no written words or letters, no logos, no numbers, no UI. Joyful premium tactile paper illustration, clean airy composition, subtle paper grain, soft daylight, crisp easels, great for Thai game tutorial and wide shared display background. Keep central area calm and uncluttered, cohesive turquoise coral yellow palette."
+    }
+  ],
+  "runtime": "Easels, cards, marker colors, statuses and text are semantic HTML/CSS; no answer text is baked into public assets."
+}

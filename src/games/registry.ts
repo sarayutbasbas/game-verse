@@ -1,3 +1,13 @@
+import * as flip7 from './flip-7/engine.js';
+import type {FlipState,FlipAction} from './flip-7/types.js';
+import * as catchSketch from './catch-sketch/engine.js';
+import type {CatchState,CatchAction} from './catch-sketch/types.js';
+import * as muffin from './muffin-time/engine.js';
+import type {MuffinState,MuffinAction} from './muffin-time/types.js';
+import * as madness from './mansions-of-madness/engine.js';
+import type {MadnessState,MadnessAction} from './mansions-of-madness/types.js';
+import * as justOne from './just-one/engine.js';
+import type {JustOneState,JustOneAction} from './just-one/types.js';
 import * as bombBusters from "./bomb-busters/engine.js";
 import type {BombState,BombAction} from "./bomb-busters/types.js";
 import * as courtisans from "./courtisans/engine.js";
@@ -42,6 +52,11 @@ import * as dracula from "./dracula-vs-van-helsing/engine.js";
 import * as azul from "./azul/engine.js";
 import type { AzulState, AzulAction } from "./azul/types.js";
 export const games = {
+ "flip-7":flip7,
+ "catch-sketch":catchSketch,
+ "muffin-time":muffin,
+ "mansions-of-madness":madness,
+ "just-one":justOne,
  "bomb-busters":bombBusters,
  courtisans,
  trio,
@@ -94,8 +109,13 @@ function common(id: string) {
   };
 }
 export const gameAdapters = {
+ "flip-7":{...common("flip-7"),start(seats,random,starter){this.validatePlayers(seats);return flip7.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>flip7.applyAction(s,id,a as FlipAction,random),publicView:flip7.getDisplayView,privateView:flip7.getPlayerView,isFinished:flip7.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),rounds:s.history.length})} satisfies GameAdapter<FlipState,ReturnType<typeof flip7.getPlayerView>>,
+ "catch-sketch":{...common("catch-sketch"),start(seats,random,starter){this.validatePlayers(seats);return catchSketch.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>catchSketch.applyAction(s,id,a as CatchAction,random),publicView:catchSketch.getDisplayView,privateView:catchSketch.getPlayerView,isFinished:catchSketch.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),rounds:s.history.length})} satisfies GameAdapter<CatchState,ReturnType<typeof catchSketch.getPlayerView>>,
+ "muffin-time":{...common("muffin-time"),start(seats,random,starter){this.validatePlayers(seats);return muffin.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>muffin.applyAction(s,id,a as MuffinAction,random),publicView:muffin.getDisplayView,privateView:muffin.getPlayerView,isFinished:muffin.isFinished,summary:s=>({winners:s.winners,turns:s.turnNumber})} satisfies GameAdapter<MuffinState,ReturnType<typeof muffin.getPlayerView>>,
+ "mansions-of-madness":{...common("mansions-of-madness"),start(seats,random,starter){this.validatePlayers(seats);return madness.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>madness.applyAction(s,id,a as MadnessAction,random),publicView:madness.getDisplayView,privateView:madness.getPlayerView,isFinished:madness.isFinished,summary:s=>({scenario:s.scenario,result:s.result,winners:s.winners,round:s.round})} satisfies GameAdapter<MadnessState,ReturnType<typeof madness.getPlayerView>>,
  "bomb-busters":{...common("bomb-busters"),start(seats,random,starter){this.validatePlayers(seats);return bombBusters.createInitialState(seats,random,starter);},apply:(s,id,a)=>bombBusters.applyAction(s,id,a as BombAction),publicView:bombBusters.getDisplayView,privateView:bombBusters.getPlayerView,isFinished:bombBusters.isFinished,summary:s=>({result:s.result,mission:s.mission,attempt:s.attempt,dial:s.dial})} satisfies GameAdapter<BombState,ReturnType<typeof bombBusters.getPlayerView>>,
  courtisans:{...common("courtisans"),start(seats,random,starter){this.validatePlayers(seats);return courtisans.createInitialState(seats,random,starter);},apply:(s,id,a)=>courtisans.applyAction(s,id,a as CourtAction),publicView:courtisans.getDisplayView,privateView:courtisans.getPlayerView,isFinished:courtisans.isFinished,summary:s=>({winners:s.winners,scores:s.scores})} satisfies GameAdapter<CourtState,ReturnType<typeof courtisans.getPlayerView>>,
+ "just-one":{...common("just-one"),start(seats,random,starter){this.validatePlayers(seats);return justOne.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>justOne.applyAction(s,id,a as JustOneAction,random),publicView:justOne.getDisplayView,privateView:justOne.getPlayerView,isFinished:justOne.isFinished,summary:s=>({score:justOne.score(s),rounds:s.history.length})} satisfies GameAdapter<JustOneState,ReturnType<typeof justOne.getPlayerView>>,
  trio:{...common("trio"),start(seats,random,starter){this.validatePlayers(seats);return trio.createInitialState(seats,random,starter);},apply:(s,id,a)=>trio.applyAction(s,id,a as TrioAction),publicView:trio.getDisplayView,privateView:trio.getPlayerView,isFinished:trio.isFinished,summary:s=>({winners:s.winners,options:s.options,trios:s.players.map(p=>({id:p.id,trios:p.trios,team:p.team}))})} satisfies GameAdapter<TrioState,ReturnType<typeof trio.getPlayerView>>,
  "castle-combo":{...common("castle-combo"),start(seats,random,starter){this.validatePlayers(seats);return castle.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>castle.applyAction(s,id,a as CastleAction,random),publicView:castle.getDisplayView,privateView:castle.getPlayerView,isFinished:castle.isFinished,summary:s=>({winners:s.winners,scores:s.scores})} satisfies GameAdapter<CastleState,ReturnType<typeof castle.getPlayerView>>,
  "power-hungry-pets":{...common("power-hungry-pets"),start(seats,random,starter){this.validatePlayers(seats);return powerPets.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>powerPets.applyAction(s,id,a as PowerPetsAction,random),publicView:powerPets.getDisplayView,privateView:powerPets.getPlayerView,isFinished:powerPets.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),rounds:s.history.map(h=>({round:h.round,winners:h.winners,reason:h.reason}))})} satisfies GameAdapter<PowerPetsState,ReturnType<typeof powerPets.getPlayerView>>,

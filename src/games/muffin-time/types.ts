@@ -1,0 +1,10 @@
+export type Kind='action'|'trap'|'counter';
+export type Effect='draw'|'steal'|'swap'|'discard'|'clear'|'rotate'|'allDraw'|'allDiscard'|'refill'|'half'|'skip'|'reverse'|'mix'|'counter'|'duel';
+export type Trigger='draw'|'play'|'claim'|'end';
+export interface Card {id:string;name:string;kind:Kind;effect:Effect;amount:number;target:boolean;art:number;text:string;trigger?:Trigger}
+export interface Player {id:string;name:string;hand:string[];traps:{slot:string;card:string}[];declared:boolean;skip:number}
+export interface Pending {card:string;actor:string;target?:string;cancelled:boolean}
+export type Phase='start'|'main'|'reaction'|'end'|'duel'|'finished';
+export interface MuffinState {schema:1;matchId?:string;players:Player[];deck:string[];discard:string[];turn:number;direction:1|-1;phase:Phase;sequence:number;serial:number;turnNumber:number;trapSet:boolean;passed:string[];stack:Pending[];resume:'start'|'main'|'end';last?:{id:number;kind:Trigger;actor:string};fired:string[];duel?:{actor:string;target:string;choices:Record<string,'rock'|'paper'|'scissors'>};winners:string[];events:{id:number;text:string}[]}
+export type MuffinAction={type:'mt-draw'|'mt-skip-trap'|'mt-pass'|'mt-claim'}|{type:'mt-set';card:string;replace?:string}|{type:'mt-play';card:string;target?:string}|{type:'mt-trigger';slot:string;event:number}|{type:'mt-duel';choice:'rock'|'paper'|'scissors'};
+export interface MuffinView {gameId:'muffin-time';code:string;revision:number;phase:Phase|'lobby';sequence:number;turn?:string;turnNumber:number;direction:number;deckCount:number;discardCount:number;discardTop?:string;players:{id:string;name:string;handCount:number;traps:{slot:string}[];declared:boolean;skip:number;ready?:boolean;connected?:boolean;avatar?:string|null}[];passed:string[];stack:{card:string;actor:string;target?:string;cancelled:boolean}[];events:{id:number;text:string}[];last?:MuffinState['last'];winners:string[];duel?:{actor:string;target:string;submitted:string[]};canControl?:boolean;me?:{id:string;hand:string[];traps:{slot:string;card:string}[];legal:MuffinAction[];duelChoice?:'rock'|'paper'|'scissors';canManage?:boolean}}

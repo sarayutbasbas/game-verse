@@ -22,7 +22,7 @@ test('all online games: atomic ready owner seat, private capabilities, duplicate
   for(const [index,gameId] of gameIds.entries()){
    // Every game uses multiple connections and discovery requests. Keep each batch
    // below the real per-IP quota rather than relaxing production rate limits.
-   if(index===Math.ceil(gameIds.length/2)){await app.close();app=await startServer(0,'127.0.0.1',true,()=>.42,{storePath:path});url=`http://localhost:${(app.server.address() as any).port}`;assert.equal(app.store.quarantined.length,0);}
+   if(index>0&&index%8===0){await app.close();app=await startServer(0,'127.0.0.1',true,()=>.42,{storePath:path});url=`http://localhost:${(app.server.address() as any).port}`;assert.equal(app.store.quarantined.length,0);}
    const phone=await connect(owner.cookie),session=await phone.send({type:'create',gameId,joinAsPlayer:true,name:'Forged',userId:guest.id},'session'),room=app.rooms.rooms.get(session.code)!;
    assert.equal(session.role,'player',gameId);assert.equal(room.players.length,1);assert.equal(room.players[0].id,session.playerId);assert.equal(room.players[0].userId,owner.id);assert.equal(room.players[0].name,'Creator');assert.equal(room.players[0].ready,true);
    const view=(await phone.send({type:'sync'},'state')).view;assert.equal(view.me.canManage,true);assert.equal(view.me.id,session.playerId);assert.equal(view.sessions,undefined);

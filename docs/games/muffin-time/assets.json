@@ -1,0 +1,27 @@
+{
+  "mode": "built-in image_gen",
+  "scope": "Original illustrated Thai web pack, not retail deck reproduction",
+  "assets": [
+    {
+      "master": "assets/source/muffin-time/cover-master.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-c0e39bb1-7f0a-4611-a393-39afb55fa30b.png",
+      "prompt": "Create a polished 3D retail board-game box mockup for MUFFIN TIME for a browser board-game gallery, isolated on a genuinely transparent background. Square cube carton, front and right side visible in a three-quarter view, fills frame with padding. Match the recognizable cheerful cyan-blue, white, black line-art comedy card game visual vocabulary: saturated sky blue box front, huge bold white block title 'MUFFIN TIME' clean and legible at top, a cute very simple black-outline smiling muffin mascot in a white fluted paper cup below, small absurd doodles of a surprised toast, tiny rocket and flying spoon around the edges. Draw fresh original illustrations, no copied publisher marks. Front bottom small dark-blue panel reading 'THAI WEB PACK'. Crisp thick black pen outlines, mostly white characters, flat simple cartoon art, beautiful print sharpness, no extra text. This is a newly illustrated web-adapted card pack cover, whimsical, minimal, high contrast, no photoreal people. Box only, no table or background."
+    },
+    {
+      "master": "assets/source/muffin-time/art-master.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-49e4c1b5-9b9e-41e5-9e25-18126f1d8625.png",
+      "prompt": "Illustration atlas for a Muffin Time style Thai web card game. A precisely aligned 6 columns by 4 rows grid, 24 equal square cells, no gaps, plain pure white backgrounds. Each cell contains one separate original simple absurd cartoon drawn with bold clean black pen outlines, white fill, tiny sparing sky-blue accents, flat comic doodle style. No words, letters, digits, card borders or labels. Subjects in reading order: row1 smiling muffin offering two muffins; muffin in rocket; treasure chest with muffins; muffin wearing a crown; sneaky raccoon reaching for card; octopus grabbing cards. Row2 burglar muffin with sack; two muffins swapping hats; vacuum sucking cards; exploding cupcake harmless comic puff; rotating merry-go-round of muffins; everyone receiving presents from smiling cloud. Row3 scissors cutting card pile in half; yawning sleeping muffin; winding reversing arrow with tiny muffin; giant blender mixing paper cards; startled muffin springing from jack-in-box; fisherman catching muffin with fishing rod. Row4 muffin ringing bell; raccoon watching alarm clock; smiling muffin holding stop sign blank; muffin shield; magician undoing a puff; two muffins playing rock paper scissors with oversized gloved hands. Strong silhouettes with lots of white breathing space inside every cell, flat white square illustration tiles, no cross-cell overlap. All art must be newly drawn, not copied existing character art. Output single coherent high-resolution sprite sheet."
+    },
+    {
+      "master": "assets/source/muffin-time/back-master.png",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-0ae8064a-8b07-4160-b3de-44756b1c19fb.png",
+      "prompt": "Create a single flat front-facing card BACK illustration for a Muffin Time Thai web card pack, portrait 2:3 aspect ratio. Saturated bright cyan blue full-bleed background, chunky white outer frame with black keyline, central huge adorable white muffin in fluted white cupcake paper with simple thick black outlines and tiny black eyes, surprised cheerful smile. A few tiny black and white comic stars around the muffin. Bold stacked white words 'MUFFIN TIME' above it, small 'WEB PACK' below. The card is completely flat with no perspective, no shadows, no photographed scene, no mockup table. Clean vector-like original cartoon illustration, very recognizable at small sizes, same black white blue simple comedy cartoon vocabulary as the board game. Do not add publisher logos. Full card image fills canvas."
+    }
+  ],
+  "exports": [
+    "public/art/muffin-time/cover.webp",
+    "public/art/muffin-time/back.webp",
+    "public/art/muffin-time/cards/*.webp"
+  ],
+  "conversion": "Sharp resize/WebP; illustration atlas cropped at 6 columns x 4 rows, no redrawing."
+}

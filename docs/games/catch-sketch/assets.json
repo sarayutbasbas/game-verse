@@ -1,0 +1,25 @@
+{
+  "mode": "built-in image_gen",
+  "scope": "Original illustrations and Thai word pack",
+  "assets": [
+    {
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-d619d8f0-e8d3-4dfb-9c96-8e750eebbf77.png",
+      "master": "assets/source/catch-sketch/cover-master.png",
+      "export": "public/art/catch-sketch/cover.webp",
+      "prompt": "Create a polished 3D board game box cover for CATCH SKETCH, isolated on a genuinely transparent background for an online board game gallery. Three-quarter view of a square shallow board game box, front and narrow right side visible, fills frame with padding. Inspired by the bright playful family speed-drawing game visual world, original illustration: warm sunflower yellow box, coral-red and teal geometric doodles, two playful white dry-erase boards flying diagonally, one shows a charming very simple line drawing of a cat and a little house, three chunky numbered wooden discs 1, 2, 3, a black dry-erase marker making a lively curved line. Huge bold friendly dark navy title 'CATCH SKETCH', clean readable chunky letters with hand-drawn personality. Small neat line 'THAI WORD PACK' below. Punchy graphic flat illustration printed on the carton, no photorealistic humans. Distinctive clean editorial toy packaging, strong ink outlines, just a few bold elements, no gradients, no publisher logo. Box only, no table, no background. Exact title spelling, no extra text."
+    },
+    {
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-496fccc1-dc78-48d6-9300-efd8be3c4a33.png",
+      "master": "assets/source/catch-sketch/table-master.png",
+      "export": "public/art/catch-sketch/table.webp",
+      "prompt": "Create a landscape illustration for the browser party drawing game CATCH SKETCH. Original clean playful family-game illustration printed flat on a sunflower yellow background. Four friendly dry-erase boards with dark teal hand-drawn sketches of a cat, a bicycle, a rocket and a little house, arranged like a fan around a central black dry-erase pen. Two large wooden circular numbered tokens '1' and '2', and three smaller tokens turned face-down. A few coral-red and turquoise doodle squiggles show quick drawing movement. Graphic illustration with confident ink outlines and limited flat color, plenty of negative space, editorial family board-game style, no people, no phone UI, no gradients. No words, title, logos or typography except the token numbers. This is the new local tutorial / empty-table asset, not a screenshot or copyrighted game artwork."
+    },
+    {
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a194c6-78c7-7a63-97e9-8e4810b391ca/exec-0a4fa864-30cc-496d-a898-76c5d1654b33.png",
+      "master": "assets/source/catch-sketch/back-master.png",
+      "export": "public/art/catch-sketch/back.webp",
+      "prompt": "Create a flat front-facing card back design for CATCH SKETCH Thai vocabulary cards, portrait aspect ratio 2:3. Solid saturated teal background with bold warm yellow rectangular framing, a big playful white dry-erase board in center with a dark navy question mark and a little black dry-erase marker below. Three small original coral and yellow doodles: a star, a lightning bolt and a looping scribble. Clean simple flat graphic family party board-game illustration, strong outlines, no texture, no gradients, no perspective, no shadows, no table. Large clean readable title 'CATCH SKETCH' at top in friendly yellow rounded block letters. Small 'THAI WORD PACK' at bottom. No publisher logos or extra text. Full card fills canvas, squared-off print design, original image."
+    }
+  ],
+  "conversion": "Sharp resize and WebP conversion only; alpha preserved on cover. Player drawings use native canvas vector strokes."
+}

@@ -1,0 +1,70 @@
+body.jo-theme { background: #e8f3ef; color: #234d49; }
+body.jo-theme .game-header .brand { color: #234d49; }
+body.jo-theme .game-header { border-bottom-color: #8fbab0; }
+body.jo-theme::before { background: linear-gradient(#e8f3efee,#e8f3effa),url('/art/just-one/scene.webp') center/cover fixed; }
+.jo-root { --jo-teal: #176e68; max-width: 1200px; margin: auto; padding: 16px 20px 36px; font-family: 'Noto Sans Thai',sans-serif; color: #234d49; }
+.jo-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.jo-heading h1 { font-size: clamp(30px,5vw,54px); letter-spacing: -.04em; margin: 0; color: #176e68; line-height: 1.1; }
+.jo-heading h1 span { display: block; font-size: 14px; font-weight: 400; letter-spacing: 0; margin-top: 10px; }
+.jo-score { display: grid; text-align: right; }
+.jo-score strong { font-size: 44px; line-height: 1.2; color: #bb3668; }
+.jo-score small { font-size: 20px; color: #547b72; }
+.jo-score > span { font-size: 13px; }
+.jo-progress { display: flex; gap: 6px; margin: 24px 0 14px; overflow-x: auto; padding: 3px; }
+.jo-progress span { flex: 1; text-align: center; padding: 7px 10px; background: #d8e9e3; color: #3c655e; border-radius: 8px; font-size: 14px; white-space: nowrap; }
+.jo-progress [aria-current] { color: white; background: #176e68; font-weight: 700; }
+.jo-round { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px; margin: 12px 0; }
+.jo-table { position: relative; padding: 24px; border-radius: 22px; text-align: center; background: #ffffffd9; border: 1px solid #b4d1c7; box-shadow: 0 7px 0 #c3d9cf; }
+.jo-status { margin: 0 0 20px; font-size: clamp(19px,3vw,30px); line-height: 1.6; }
+.jo-wait-easel { display: grid; place-items: center; min-height: 180px; border: 8px solid #edf2ec; border-bottom: 18px solid #dbe4dc; border-radius: 16px; max-width: 470px; margin: auto; padding: 24px; background: white; }
+.jo-wait-easel b { font-size: 80px; line-height: 1.2; color: #cb9d2e; }
+.jo-wait-easel p { max-width: 320px; line-height: 1.8; margin-bottom: 0; }
+.jo-hints { display: grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap: 18px; }
+.jo-hints article { display: flex; flex-direction: column; justify-content: center; background: #fff; padding: 22px 12px; min-height: 160px; border: 3px solid var(--jo-ink); border-bottom-width: 12px; border-radius: 12px; }
+.jo-hints small { color: #55736b; }
+.jo-hints strong { color: var(--jo-ink); font-size: clamp(26px,4vw,44px); line-height: 1.6; overflow-wrap: anywhere; }
+.jo-private { max-width: 650px; background: #fffdf4; border: 2px solid #cfb96f; border-radius: 16px; padding: 24px; margin: 24px auto; }
+.jo-private h2 { margin: 0 0 12px; }
+.jo-private-label { color: #826526; font-size: 13px; }
+.jo-secret { font-size: 38px; color: #a22d5c; overflow-wrap: anywhere; }
+.jo-root p { line-height: 1.8; }
+.jo-root button { font: inherit; min-height: 48px; cursor: pointer; border: 1px solid #699c8d; background: white; color: #21594c; padding: 10px 14px; border-radius: 10px; }
+.jo-root button:disabled { opacity: .5; cursor: default; }
+.jo-root button:not(:disabled):hover { background: #e1f0e7; }
+.jo-root .jo-primary { display: block; width: 100%; background: #176e68; color: white; font-weight: 700; margin-top: 16px; border-color: #176e68; }
+.jo-root .jo-primary:not(:disabled):hover { background: #10544f; }
+.jo-root .jo-text { display: block; background: transparent; border: 0; text-decoration: underline; margin: 12px auto 0; }
+.jo-root input { display: block; width: 100%; min-height: 52px; font: inherit; font-size: 20px; padding: 10px 12px; color: #234d49; background: white; border: 1px solid #83a99a; border-radius: 8px; }
+.jo-root label { display: block; margin: 14px 0 6px; font-weight: 700; }
+.jo-root :focus-visible { outline: 3px solid #a52c60; outline-offset: 3px; }
+.jo-numbers { display: flex; gap: 8px; }
+.jo-numbers button { flex: 1; font-size: 28px; font-weight: 700; padding: 10px 0; }
+.jo-note { font-size: 13px; color: #5a7268; }
+.jo-review-list { display: grid; gap: 10px; }
+.jo-review-clue { display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #c8d6c7; padding: 12px; border-radius: 10px; background: white; }
+.jo-review-clue strong { display: block; font-size: 23px; overflow-wrap: anywhere; }
+.jo-review-clue small { display: block; color: #60716b; }
+.jo-review-clue button { flex: none; font-size: 13px; }
+.jo-cancelled { background: #f3e7e9; }
+.jo-cancelled strong { text-decoration: line-through; text-decoration-thickness: 2px; color: #9c3a57; }
+.jo-players { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0; }
+.jo-players article { display: flex; align-items: center; gap: 10px; flex: 1 1 190px; background: #fff9; padding: 12px; border: 1px solid #b4d1c7; border-radius: 12px; }
+.jo-players .jo-active-player { border: 2px solid #bb3668; }
+.jo-players strong,.jo-players span { display: block; }
+.jo-players article > div > span { font-size: 12px; color: #5d756b; }
+.jo-players .profile-avatar { width: 36px; height: 36px; flex: none; }
+.jo-answer { display: grid; gap: 10px; }
+.jo-answer > strong { font-size: clamp(36px,6vw,70px); color: #a22d5c; line-height: 1.6; }
+.jo-answer p { margin: 0; }
+.jo-own-clues { display: flex; gap: 10px; flex-wrap: wrap; }
+.jo-own-clues span { padding: 10px; border: 1px solid #9cbba8; border-radius: 8px; }
+.jo-verdict { display: grid; gap: 10px; margin: 16px 0; }
+.jo-verdict button[aria-pressed="true"] { background: #176e68; color: white; }
+.jo-history { padding: 16px 0; border-top: 1px solid #aecac0; }
+.jo-history summary { cursor: pointer; min-height: 44px; }
+.jo-history p { display: flex; justify-content: space-between; gap: 14px; border-bottom: 1px solid #c6dad0; padding: 10px; margin: 0; }
+.jo-history p span { font-size: 13px; }
+.jo-finale { text-align: center; padding: 24px; background: #fff3c4; border-radius: 16px; }
+@media(max-width:600px) { .jo-root { padding: 10px 8px 24px; } .jo-progress span { font-size: 11px; padding: 7px 5px; } .jo-table { padding: 18px 14px; } .jo-private { padding: 20px 16px; } .jo-hints { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; } .jo-hints article { min-height: 120px; padding: 16px 8px; } .jo-players article { flex-basis: 140px; } .jo-review-clue { padding: 10px; } }
+
+.jo-change-prompt{padding:16px 20px;border:2px dashed #357d91;border-radius:12px;background:#fff;margin:18px 0;color:#244b61}.jo-change-prompt h3{font-size:16px;margin:0 0 12px}.jo-change-prompt button{font:inherit;min-height:46px;border:2px solid #357d91;border-radius:8px;padding:10px 15px;background:#e1f4f6;color:#244b61;font-weight:700;cursor:pointer}.jo-change-prompt p{font-size:12px;line-height:1.7;margin:12px 0 0}.jo-change-prompt button:disabled{opacity:.5;cursor:wait}.jo-change-prompt button:focus-visible{outline:3px solid #d65e82;outline-offset:3px}

@@ -1,3 +1,8 @@
+import {renderFlip7} from './flip-7.js';
+import {renderCatchSketch} from './catch-sketch.js';
+import {renderMuffin} from './muffin-time.js';
+import {renderMadness} from './mansions-of-madness.js';
+import {renderJustOne} from './just-one.js';
 import {renderBombBusters,closeBombBusters} from "./bomb-busters.js";
 import {renderCourtisans,closeCourtisans} from "./courtisans.js";
 import {renderTrio,closeTrio} from "./trio.js";
@@ -335,6 +340,11 @@ function render() {
   document.body.classList.toggle("ct-theme",view?.gameId==="courtisans"&&view.phase!=="lobby");
   if(view?.gameId!=="courtisans")closeCourtisans();
   document.documentElement.classList.toggle("tr-document",view?.gameId==="trio"&&view.phase!=="lobby");
+  document.body.classList.toggle("f7-theme", view?.gameId === "flip-7" && view.phase !== "lobby");
+  document.body.classList.toggle("cs-theme", view?.gameId === "catch-sketch" && view.phase !== "lobby");
+  document.body.classList.toggle("mt-theme", view?.gameId === "muffin-time" && view.phase !== "lobby");
+  document.body.classList.toggle("mm-theme",view?.gameId==="mansions-of-madness"&&view.phase!=="lobby");
+  document.body.classList.toggle("jo-theme",view?.gameId==="just-one"&&view.phase!=="lobby");
   document.body.classList.toggle("tr-theme",view?.gameId==="trio"&&view.phase!=="lobby");
   if(view?.gameId!=="trio")closeTrio();
   document.documentElement.classList.toggle("cc-document",view?.gameId==="castle-combo"&&view.phase!=="lobby");
@@ -429,7 +439,7 @@ function gardenLoading(){return harmoniesSplashMarkup({code:code!,style:harmonie
 function renderContent() {
   if(view?.gameId==="jaipur")captureJaipurMotion(main,view,deliverySnapshot);
   if(view?.gameId==="seven-wonders-duel")captureWondersMotion(main,view,deliverySnapshot);
-  if ((view?.gameId === "bomb-busters" && view.phase!=="lobby" && main.querySelector(".bb-root")) || (view?.gameId === "courtisans" && view.phase!=="lobby" && main.querySelector(".ct-root")) || (view?.gameId === "trio" && view.phase!=="lobby" && main.querySelector(".tr-root")) || (view?.gameId === "castle-combo" && view.phase!=="lobby" && main.querySelector(".cc-root")) || (view?.gameId === "power-hungry-pets" && view.phase!=="lobby" && main.querySelector(".pp-root")) || (view?.gameId === "love-letter" && view.phase!=="lobby" && main.querySelector(".ll-root")) || (view?.gameId === "sounds-fishy" && view.phase!=="lobby" && main.querySelector(".sf-root")) || (view?.gameId === "perch" && view.phase!=="lobby" && main.querySelector(".pc-root")) || (view?.gameId === "draftosaurus" && view.phase!=="lobby" && main.querySelector(".da-root")) || (!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "take-time" && view.phase!=="lobby" && main.querySelector(".tt-root")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
+  if ((view?.gameId === "flip-7" && view.phase!=="lobby" && main.querySelector(".f7-root")) || (view?.gameId === "catch-sketch" && view.phase!=="lobby" && main.querySelector(".cs-root")) || (view?.gameId === "muffin-time" && view.phase!=="lobby" && main.querySelector(".mt-root")) || (view?.gameId === "mansions-of-madness" && view.phase!=="lobby" && main.querySelector(".mm-root")) || (view?.gameId === "just-one" && view.phase!=="lobby" && main.querySelector(".jo-root")) || (view?.gameId === "bomb-busters" && view.phase!=="lobby" && main.querySelector(".bb-root")) || (view?.gameId === "courtisans" && view.phase!=="lobby" && main.querySelector(".ct-root")) || (view?.gameId === "trio" && view.phase!=="lobby" && main.querySelector(".tr-root")) || (view?.gameId === "castle-combo" && view.phase!=="lobby" && main.querySelector(".cc-root")) || (view?.gameId === "power-hungry-pets" && view.phase!=="lobby" && main.querySelector(".pp-root")) || (view?.gameId === "love-letter" && view.phase!=="lobby" && main.querySelector(".ll-root")) || (view?.gameId === "sounds-fishy" && view.phase!=="lobby" && main.querySelector(".sf-root")) || (view?.gameId === "perch" && view.phase!=="lobby" && main.querySelector(".pc-root")) || (view?.gameId === "draftosaurus" && view.phase!=="lobby" && main.querySelector(".da-root")) || (!view && main.classList.contains("platform-surface") && main.querySelector("#content")) || (view?.gameId === "take-time" && view.phase!=="lobby" && main.querySelector(".tt-root")) || (view?.gameId === "locus" && view.phase!=="lobby" && main.querySelector(".lc-root")) || (view?.gameId === "critter-kitchen" && view.phase!=="lobby" && main.querySelector(".ck-root")) || (view?.gameId === "sky-team" && view.phase!=="lobby" && main.querySelector(".st-root")) || (view?.gameId === "harmonies" && view.phase!=="lobby" && main.querySelector(".hm-root")) || (view?.gameId === "pixies" && view.phase!=="lobby" && main.querySelector(".px-root")) || (view?.gameId === "jaipur" && main.querySelector('.jp-root')) || (view?.gameId === "dracula-vs-van-helsing" && view.phase !== "lobby" && main.querySelector('.duel-game-board'))) {
     const banner=main.querySelector<HTMLElement>('#notice')!;
     banner.textContent=notice;
     const connection=main.querySelector<HTMLElement>('.connection')!;
@@ -437,7 +447,7 @@ function renderContent() {
     connection.setAttribute('aria-label',connected?'เชื่อมต่อแล้ว':'หลุด กำลังเชื่อมต่อใหม่');
     connection.innerHTML='<i aria-hidden="true"></i>'+(connected?'ออนไลน์':'หลุด');
     const account=main.querySelector('.header-account nav');if(!view&&account&&account.innerHTML!==accountNav())account.innerHTML=accountNav();
-  } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse"><img class="platform-masthead" src="/art/platform/gameverse-masthead.png" alt="" width="800" height="168"><span class="brand-wordmark">GameVerse</span></a></div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "locus" && view?.gameId !== "critter-kitchen" && view?.gameId !== "sky-team" && view?.gameId !== "harmonies" && view?.gameId !== "jaipur" && view?.gameId !== "pixies" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
+  } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse"><img class="platform-masthead" src="/art/platform/gameverse-masthead.png" alt="" width="800" height="168"><span class="brand-wordmark">GameVerse</span></a></div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "catch-sketch" && view?.gameId !== "locus" && view?.gameId !== "critter-kitchen" && view?.gameId !== "sky-team" && view?.gameId !== "harmonies" && view?.gameId !== "jaipur" && view?.gameId !== "pixies" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
   main.querySelector<HTMLElement>("#notice")?.classList.toggle("session-toast",stopped&&notice.startsWith("เซสชันนี้เปิด"));
   const content = main.querySelector<HTMLElement>("#content")!;
   turnSound.setCompact(!!view);
@@ -562,6 +572,11 @@ function renderContent() {
   }
   if(view.gameId==="bomb-busters"){renderBombBusters(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
   if(view.gameId==="courtisans"){renderCourtisans(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="flip-7"){renderFlip7(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="catch-sketch"){renderCatchSketch(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="muffin-time"){renderMuffin(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="mansions-of-madness"){renderMadness(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
+  if(view.gameId==="just-one"){renderJustOne(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
   if(view.gameId==="trio"){renderTrio(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
   if(view.gameId==="castle-combo"){renderCastle(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
   if(view.gameId==="power-hungry-pets"){renderPowerPets(content,view,session?.role==="host"||!!view.me?.canManage,!!pending||!connected,command);return;}
