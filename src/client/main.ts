@@ -1,3 +1,4 @@
+import {openRoomSearch} from './room-search.js';
 import {renderHunter} from './dividend-hunter.js';
 import './dividend-hunter.css';
 import {renderCrash} from './stock-market-crash.js';
@@ -468,6 +469,7 @@ function renderContent() {
     connection.innerHTML='<i aria-hidden="true"></i>'+(connected?'ออนไลน์':'หลุด');
     const account=main.querySelector('.header-account nav');if(!view&&account&&account.innerHTML!==accountNav())account.innerHTML=accountNav();
   } else main.innerHTML = `<header class="game-header"><div class="header-brand"><a href="/" class="brand" aria-label="GameVerse"><img class="platform-masthead" src="/art/platform/gameverse-masthead.png" alt="" width="800" height="168"><span class="brand-wordmark">GameVerse</span></a></div><div class="header-account"><nav aria-label="บัญชี">${accountNav()}</nav><p class="connection" role="status" data-online="${connected}" aria-label="${connected ? "เชื่อมต่อแล้ว" : stopped ? "เปิดอยู่บนอีกจอ" : "หลุด กำลังเชื่อมต่อใหม่"}"><i aria-hidden="true"></i>${connected ? "ออนไลน์" : "หลุด"}</p></div></header><p id="notice" class="notice" role="status" aria-live="polite">${escape(notice || (pending && view?.gameId !== "catch-sketch" && view?.gameId !== "locus" && view?.gameId !== "critter-kitchen" && view?.gameId !== "sky-team" && view?.gameId !== "harmonies" && view?.gameId !== "jaipur" && view?.gameId !== "pixies" && view?.gameId !== "dracula-vs-van-helsing" ? "กำลังตรวจรายการ…" : view?.gameId === "camel-up" && !artReady ? "กำลังเตรียมกระดานและตัวหมาก…" : ""))}</p><div id="content"></div>`;
+  const roomSearch=main.querySelector<HTMLButtonElement>('.room-search-button');if(roomSearch)roomSearch.onclick=openRoomSearch;
   main.querySelector<HTMLElement>("#notice")?.classList.toggle("session-toast",stopped&&notice.startsWith("เซสชันนี้เปิด"));
   const content = main.querySelector<HTMLElement>("#content")!;
   turnSound.setCompact(!!view);
