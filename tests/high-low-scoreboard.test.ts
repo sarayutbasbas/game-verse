@@ -21,7 +21,8 @@ test('wagers stay private until both submit, then correct and incorrect stakes u
   assert.equal(E.getDisplayView(one).players[0].stake,undefined);
   assert.deepEqual(E.getPlayerView(one,'a').me,{id:'a',answer,stake:4,allIn:false});
   assert.equal(E.getPlayerView(one,'b').me?.stake,undefined);
-  const done=E.applyAction(one,'b',{type:'hl-bet',answer:!answer,stake:3});
+  let done=E.applyAction(one,'b',{type:'hl-bet',answer:!answer,stake:3});
+  assert.equal(done.phase,'betting');assert.equal(E.getDisplayView(done).answer,undefined);assert.ok(E.validateState(done));done=E.applyAction(done,'b',{type:'hl-end'});
   assert.equal(done.phase,'round-end');
   assert.deepEqual(done.players.map(p=>p.score),[4,-3]);
   assert.equal(E.getDisplayView(done).answer,answer);
@@ -33,12 +34,14 @@ test('final all-in is only available to positive score and is capped at the exis
   const first=QUESTIONS.find(q=>q.id===s.questionId)!.answer;
   s=E.applyAction(s,'a',{type:'hl-bet',answer:first,stake:5});
   s=E.applyAction(s,'b',{type:'hl-bet',answer:!first,stake:1});
+  s=E.applyAction(s,'b',{type:'hl-end'});
   s=E.applyAction(s,'a',{type:'hl-next'});
   const finalAnswer=QUESTIONS.find(q=>q.id===s.questionId)!.answer;
   assert.throws(()=>E.applyAction(s,'b',{type:'hl-bet',answer:finalAnswer,stake:1,allIn:true}));
   assert.throws(()=>E.applyAction(s,'a',{type:'hl-bet',answer:finalAnswer,stake:6,allIn:true}));
   s=E.applyAction(s,'a',{type:'hl-bet',answer:finalAnswer,stake:5,allIn:true});
   s=E.applyAction(s,'b',{type:'hl-bet',answer:!finalAnswer,stake:1});
+  s=E.applyAction(s,'b',{type:'hl-end'});
   assert.equal(s.phase,'finished');
   assert.equal(s.players.find(p=>p.id==='a')!.score,10);
   assert.ok(s.winners.includes('a'));
@@ -53,7 +56,7 @@ test('host selected packs each contain 40 distinct questions and reject unknown 
 
 test('final all-in accepts the full score even when greater than five',()=>{
  let s=E.createInitialState([{id:'a',name:'เอ'},{id:'b',name:'บี'}],()=>.3,{rounds:3});
- for(let round=1;round<=3;round++){const answer=QUESTIONS.find(q=>q.id===s.questionId)!.answer;for(const id of ['a','b'])s=E.applyAction(s,id,{type:'hl-bet',answer,stake:round===3?10:5,...round===3?{allIn:true}:{}});assert.ok(E.validateState(s));if(round<3)s=E.applyAction(s,'a',{type:'hl-next'});}
+ for(let round=1;round<=3;round++){const answer=QUESTIONS.find(q=>q.id===s.questionId)!.answer;for(const id of ['a','b'])s=E.applyAction(s,id,{type:'hl-bet',answer,stake:round===3?10:5,...round===3?{allIn:true}:{}});assert.ok(E.validateState(s));s=E.applyAction(s,'b',{type:'hl-end'});if(round<3)s=E.applyAction(s,'a',{type:'hl-next'});}
  assert.deepEqual(s.players.map(p=>p.score),[20,20]);
 });
 
@@ -61,6 +64,6 @@ test('legacy rooms restore against the old bank; new games only select new IDs',
  const {LEGACY_QUESTIONS}=await import('../src/games/high-low-scoreboard/questions.js');
  const [first,...rest]=LEGACY_QUESTIONS;
  let s:import('../src/games/high-low-scoreboard/types.js').HighLowState={schema:1,phase:'betting',players:[{id:'a',name:'เอ',score:0},{id:'b',name:'บี',score:0}],round:1,rounds:500,questionId:first.id,deck:rest.map(q=>q.id),wagers:[],history:[],winners:[],sequence:0};
- assert.ok(E.validateState(s));s=E.applyAction(s,'a',{type:'hl-bet',answer:first.answer,stake:2});s=E.applyAction(s,'b',{type:'hl-bet',answer:!first.answer,stake:1});assert.ok(E.validateState(s));assert.equal(E.getDisplayView(s).answer,first.answer);
+ assert.ok(E.validateState(s));s=E.applyAction(s,'a',{type:'hl-bet',answer:first.answer,stake:2});s=E.applyAction(s,'b',{type:'hl-bet',answer:!first.answer,stake:1});assert.ok(E.validateState(s));s=E.applyAction(s,'b',{type:'hl-end'});assert.equal(E.getDisplayView(s).answer,first.answer);
  const fresh=E.createInitialState(s.players,()=>.3,{rounds:200});assert.ok([fresh.questionId,...fresh.deck].every(id=>id.startsWith('hl2-')));
 });

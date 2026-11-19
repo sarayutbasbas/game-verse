@@ -1593,3 +1593,5 @@ main>#notice.session-toast{position:fixed;top:max(8px,env(safe-area-inset-top));
 .hm-art-picker b,.hm-art-picker small{display:block}
 .hm-art-picker small{font-size:12px}
 .hm-art-picker label:focus-within{outline:3px solid #247d94;outline-offset:3px}
+
+.manual-round-end{padding:24px 16px;margin:20px auto;text-align:center;border:2px solid currentColor;border-radius:14px;max-width:600px}.manual-round-end h2{margin:0 0 8px}.manual-round-end button{min-height:48px;min-width:150px}.manual-round-end p{margin:8px 0 16px}

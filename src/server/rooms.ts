@@ -1437,6 +1437,10 @@ export class RoomService {
       room.hunter=hunterRules.createInitialState(room.players,{rounds:action.rounds??5,limit:action.limit??120});return;
     }
     if(!room.hunter)throw Error('เริ่มเกมก่อน');
+    if(action.type==='hunter-end'){
+      if(session.role!=='player'&&!this.canManage(room,session))throw Error('ให้ผู้เล่นในห้องกดจบรอบ');
+      room.hunter=hunterRules.applyAction(room.hunter,session.role==='player'?session.playerId!:room.players[0].id,action);return;
+    }
     if(action.type==='hunter-next'){if(!this.canManage(room,session))throw Error('ให้เจ้าของห้องเริ่มรอบถัดไป');room.hunter=hunterRules.applyAction(room.hunter,room.players[0].id,action);return;}
     if(session.role!=='player')throw Error('เลือกเลขจากมือถือผู้เล่น');room.hunter=hunterRules.applyAction(room.hunter,session.playerId!,action as any);
   }
@@ -1450,6 +1454,10 @@ export class RoomService {
       room.highLow=highLowRules.createInitialState(room.players,this.random,{rounds,packId:action.type==='start'?action.packId??'mixed':room.highLow?.packId??'mixed'});return;
     }
     if(!room.highLow)throw Error('เกมยังไม่เริ่ม');
+    if(action.type==='hl-end'){
+      if(session.role!=='player'&&!this.canManage(room,session))throw Error('ให้ผู้เล่นในห้องกดจบรอบ');
+      room.highLow=highLowRules.applyAction(room.highLow,session.role==='player'?session.playerId!:room.players[0].id,action);return;
+    }
     if(action.type==='hl-next'){if(!this.canManage(room,session))throw Error('ผู้สร้างห้องเริ่มข้อถัดไปได้');room.highLow=highLowRules.applyAction(room.highLow,room.players[0].id,action);return;}
     if(session.role!=='player')throw Error('ตอบคำถามจากมือถือผู้เล่นเท่านั้น');room.highLow=highLowRules.applyAction(room.highLow,session.playerId!,action as any);
   }
@@ -1467,6 +1475,10 @@ export class RoomService {
       room.crash=crashRules.createInitialState(room.players,cfg??crashRules.defaults);return;
     }
     if(!room.crash)throw Error('เกมยังไม่เริ่ม');
+    if(action.type==='crash-end'){
+      if(session.role!=='player'&&!this.canManage(room,session))throw Error('ให้ผู้เล่นในห้องกดจบรอบ');
+      room.crash=crashRules.applyAction(room.crash,session.role==='player'?session.playerId!:room.players[0].id,action);return;
+    }
     if(action.type==='crash-next'){if(!this.canManage(room,session))throw Error('ผู้สร้างห้องเริ่มรอบถัดไปได้');room.crash=crashRules.applyAction(room.crash,room.players[0].id,action);return;}
     if(session.role!=='player')throw Error('ส่งเลขจากมือถือผู้เล่นเท่านั้น');room.crash=crashRules.applyAction(room.crash,session.playerId!,action as any);
   }

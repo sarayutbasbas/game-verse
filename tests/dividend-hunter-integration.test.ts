@@ -13,6 +13,7 @@ test('Dividend Hunter: two phones, owner advances, privacy, retry, stale state, 
  const display=(await host.send({type:'sync'},'state')).view;
  assert.ok(display.players.every((p:any)=>p.bid===undefined));assert.equal(display.submitted,1);
  assert.equal((await cmd(players[1],{type:'hunter-bid',amount:10})).ok,true);
+ assert.equal(room.hunter?.phase,'playing');assert.equal(room.hunter?.history.length,0);assert.equal((await cmd(players[1],{type:'hunter-end'})).ok,true,'ordinary player closes round');
  assert.equal(room.hunter?.phase,'round-end');
  assert.equal((await cmd(players[1],{type:'hunter-next'})).ok,false,'ordinary player cannot advance');
  assert.equal((await cmd(players[0],{type:'hunter-next'})).ok,true,'owner advances from player phone');
@@ -23,6 +24,7 @@ test('Dividend Hunter: two phones, owner advances, privacy, retry, stale state, 
  const resumeToken=joined.token;cookiePeer.ws.close();const resumed=await connect(hostCookie);await resumed.send({type:'resume',code:hs.code,token:resumeToken},'state');
  assert.equal((await cmd(resumed,{type:'hunter-bid',amount:120})).ok,true);
  assert.equal((await cmd(players[1],{type:'hunter-bid',amount:1})).ok,true);
+ assert.equal((await cmd(players[1],{type:'hunter-end'})).ok,true);
  assert.equal(room.hunter?.phase,'finished');assert.deepEqual(room.hunter?.players.map(p=>p.score),[120,1]);
  assert.equal((await cmd(resumed,{type:'room-restart'})).ok,true);assert.equal(room.hunter?.round,1);assert.equal(room.hunter?.limit,120);
 

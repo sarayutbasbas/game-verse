@@ -7,6 +7,9 @@ test('Stock Market Crash starts with two ready players using selected round and 
  const room=app.rooms.rooms.get(hs.code)!,result=await host.send({type:'command',id:randomUUID(),revision:room.revision,action:{type:'start',rounds:4,pot:120,limit:100}});assert.equal(result.ok,true,JSON.stringify(result));assert.equal(room.crash?.players.length,2);assert.equal(room.crash?.rounds,4);assert.equal(room.crash?.pot,120);assert.equal(room.crash?.limit,100);
  const cmd=(p:Peer,action:any)=>p.send({type:'command',id:randomUUID(),revision:room.revision,action});
  for(const p of players)assert.equal((await cmd(p,{type:'crash-bid',amount:10})).ok,true);
+ assert.equal(room.crash?.phase,'playing');assert.equal(room.crash?.history.length,0);const closeRevision=room.revision,closes=players.map(()=>({type:'command',id:randomUUID(),revision:closeRevision,action:{type:'crash-end'}}));
+ const replies=await Promise.all(players.map((p,i)=>p.send(closes[i])));assert.equal(replies.filter(r=>r.ok).length,1,'one reveal wins the race');const winner=replies.findIndex(r=>r.ok);const scores=JSON.stringify(room.crash!.players);assert.equal((await players[winner].send(closes[winner])).ok,true,'retry returns same receipt');assert.equal(JSON.stringify(room.crash!.players),scores);assert.equal(room.crash!.history.length,1);
+
  assert.equal(room.crash?.phase,'round-end');
  assert.equal((await cmd(players[1],{type:'crash-next'})).ok,false,'ordinary player cannot advance');
  assert.equal((await cmd(players[0],{type:'crash-next'})).ok,true,'owner advances from player phone');
