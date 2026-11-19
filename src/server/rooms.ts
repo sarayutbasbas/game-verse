@@ -202,6 +202,7 @@ export class RoomService {
   poll() {
     if (!this.store?.distributed || !this.attached.size) return;
     this.coordinate(() => {
+      this.tick();
       for (const [ws, id] of this.connections) {
         const room = this.attached.get(ws), session = room?.sockets.get(ws);
         if (!room || !session) continue;
@@ -226,7 +227,7 @@ export class RoomService {
     private store?: PlatformStore,
     private requireAccount = false,
   ) {
-    if (store) { this.restore(store.loadRooms()); this.sweep(); }
+    if (store) { this.restore(store.loadRooms()); this.sweep(); this.tick(); }
   }
   exportRooms() {
     return [...this.rooms.values()].map((r) => ({
@@ -284,6 +285,7 @@ export class RoomService {
       catch { ws.close(1011,"storage unavailable; reconnect"); }
       return;
     }
+    this.tick();
     const connectionId = this.connections.get(ws), currentRoom = this.attached.get(ws), currentSession = currentRoom?.sockets.get(ws);
     if (this.store?.distributed && currentSession && this.presence.get(currentSession.token) !== connectionId) { ws.close(this.presence.has(currentSession.token)?4001:1012,"session changed; reconnect"); return; }
     if (principal) this.principal.set(ws, principal);
@@ -662,6 +664,7 @@ export class RoomService {
       const player=session?.role==='player'?session.playerId:undefined;
       const base:CrashView=room.crash?(player?crashRules.getPlayerView(room.crash,player,room.code,room.revision):crashRules.getDisplayView(room.crash,room.code,room.revision)):{gameId:'stock-market-crash',code:room.code,revision:room.revision,phase:'lobby',round:1,rounds:5,pot:200,limit:100,liveTotal:0,submitted:0,revealLive:true,history:[],winners:[],players:room.players.map(p=>({id:p.id,name:p.name,score:0,submitted:false,ready:!!p.ready}))};
       for(const p of base.players){const seat=room.players.find(x=>x.id===p.id)!;p.name=seat.name;p.connected=this.connected(room,p.id);p.avatar=seat.avatar;p.ready=seat.ready;}
+      base.serverTime=Date.now();
       if(player&&!base.me)base.me={id:player};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
     }
     if(room.gameId==='flip-7'){
@@ -1389,7 +1392,7 @@ export class RoomService {
     switch(room.gameId){
       case 'dividend-hunter':room.hunter=hunterRules.createInitialState(room.players,room.hunter?{rounds:room.hunter.rounds,limit:room.hunter.limit}:hunterRules.defaults);break;
       case 'high-low-scoreboard':room.highLow=highLowRules.createInitialState(room.players,this.random,{rounds:Math.min(room.highLow?.rounds??10,room.highLow?.packId&&room.highLow.packId!=='mixed'?40:200),packId:room.highLow?.packId??'mixed'});break;
-      case 'stock-market-crash':room.crash=crashRules.createInitialState(room.players,room.crash?{rounds:room.crash.rounds,pot:room.crash.pot,limit:room.crash.limit}:crashRules.defaults);break;
+      case 'stock-market-crash':room.crash=crashRules.createInitialState(room.players,room.crash?{rounds:room.crash.rounds,pot:room.crash.pot,limit:room.crash.limit,roundSeconds:room.crash.roundSeconds??0}:crashRules.defaults,Date.now());break;
       case 'take-time':room.takeTime=takeTimeRules.createInitialState(room.players,this.random);room.takeTime.matchId=randomUUID();break;
       case 'locus':room.locus=locusRules.createInitialState(room.players,this.random);room.locus.matchId=randomUUID();break;
       case 'critter-kitchen':{
@@ -1465,22 +1468,23 @@ export class RoomService {
     const keys=Object.keys(action).sort().join(',');
     if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.crash||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมได้ในห้องรอ');p.ready=action.ready;return;}
     if(action.type==='start'||action.type==='restart'){
-      if(!this.canManage(room,session)||!['limit,pot,rounds,type','type'].includes(keys)||action.type==='start'&&room.crash||action.type==='restart'&&room.crash?.phase!=='finished')throw Error('ผู้สร้างห้องเริ่มหรือเล่นใหม่ได้เมื่อเกมพร้อม');
+      if(!this.canManage(room,session)||!Object.keys(action).every(k=>['type','rounds','pot','limit','roundSeconds'].includes(k))||action.type==='start'&&room.crash||action.type==='restart'&&room.crash?.phase!=='finished')throw Error('ผู้สร้างห้องเริ่มหรือเล่นใหม่ได้เมื่อเกมพร้อม');
       if(room.players.length<2||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 2–20 คนเชื่อมต่อและพร้อมครบ');
       const cfg=action.type==='start'?{
         rounds:(action as any).rounds??crashRules.defaults.rounds,
         pot:(action as any).pot??crashRules.defaults.pot,
         limit:(action as any).limit??crashRules.defaults.limit,
-      }:room.crash?{rounds:room.crash.rounds,pot:room.crash.pot,limit:room.crash.limit}:undefined;
-      room.crash=crashRules.createInitialState(room.players,cfg??crashRules.defaults);return;
+        roundSeconds:action.roundSeconds??30,
+      }:room.crash?{rounds:room.crash.rounds,pot:room.crash.pot,limit:room.crash.limit,roundSeconds:room.crash.roundSeconds??0}:undefined;
+      room.crash=crashRules.createInitialState(room.players,cfg??crashRules.defaults,Date.now());return;
     }
     if(!room.crash)throw Error('เกมยังไม่เริ่ม');
     if(action.type==='crash-end'){
       if(session.role!=='player'&&!this.canManage(room,session))throw Error('ให้ผู้เล่นในห้องกดจบรอบ');
-      room.crash=crashRules.applyAction(room.crash,session.role==='player'?session.playerId!:room.players[0].id,action);return;
+      room.crash=crashRules.applyAction(room.crash,session.role==='player'?session.playerId!:room.players[0].id,action,Date.now());return;
     }
-    if(action.type==='crash-next'){if(!this.canManage(room,session))throw Error('ผู้สร้างห้องเริ่มรอบถัดไปได้');room.crash=crashRules.applyAction(room.crash,room.players[0].id,action);return;}
-    if(session.role!=='player')throw Error('ส่งเลขจากมือถือผู้เล่นเท่านั้น');room.crash=crashRules.applyAction(room.crash,session.playerId!,action as any);
+    if(action.type==='crash-next'){if(!this.canManage(room,session))throw Error('ผู้สร้างห้องเริ่มรอบถัดไปได้');room.crash=crashRules.applyAction(room.crash,room.players[0].id,action,Date.now());return;}
+    if(session.role!=='player')throw Error('ส่งเลขจากมือถือผู้เล่นเท่านั้น');room.crash=crashRules.applyAction(room.crash,session.playerId!,action as any,Date.now());
   }
   private locusCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
     const keys=Object.keys(action).sort().join(",");
@@ -1942,6 +1946,15 @@ export class RoomService {
       action as DuelAction,
       this.random,
     );
+  }
+  /** Settle expired rounds atomically with persisted deadlines; retries cannot score twice. */
+  tick(now=Date.now()):void{
+    if(this.store?.distributed&&!this.store.locked)return this.coordinate(()=>this.tick(now));
+    const due=[...this.rooms.values()].filter(r=>r.crash&&crashRules.isExpired(r.crash,now));if(!due.length)return;
+    const before=structuredClone(this.exportRooms());
+    const write=()=>{for(const room of due){room.crash=crashRules.expireRound(room.crash!,now);room.revision++;room.updated=now;}this.store?.saveRooms(this.exportRooms());};
+    try{if(this.store)this.store.transaction(write);else write();}catch(error){this.restore(before);throw error;}
+    for(const room of due){if(this.store)this.store.afterCommit(()=>this.broadcast(room));else this.broadcast(room);}
   }
   sweep(now = Date.now()): void {
     if (this.store?.distributed && !this.store.locked) return this.coordinate(() => this.sweep(now));

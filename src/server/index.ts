@@ -180,6 +180,8 @@ export async function startServer(
     });
     ws.on("error", () => ws.terminate());
   });
+  const deadlineTick=store.distributed?undefined:setInterval(()=>{try{rooms.tick();}catch{/* Persisted deadline is retried on the next tick. */}},250);
+  deadlineTick?.unref();
   const cleanup = setInterval(() => {
     try { rooms.sweep(); } catch { /* Retry on next interval; do not discard persisted rooms. */ }
     const now = Date.now();
@@ -207,6 +209,7 @@ export async function startServer(
     handlePlatform = platformHandler(authRuntime.auth, store, rooms, baseURL);
   } catch (e) {
     clearInterval(cleanup);
+    clearInterval(deadlineTick);
     clearInterval(delivery);
     await vite?.close();
     server.close();
@@ -222,6 +225,7 @@ export async function startServer(
     close: async () => {
       closing = true;
       clearInterval(cleanup);
+      clearInterval(deadlineTick);
       clearInterval(delivery);
       for (const ws of wss.clients) ws.terminate();
       await vite?.close();

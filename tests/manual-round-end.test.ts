@@ -2,7 +2,7 @@ import {test} from 'node:test';import assert from 'node:assert/strict';
 import * as crash from '../src/games/stock-market-crash/engine.js';import * as quiz from '../src/games/high-low-scoreboard/engine.js';import * as hunter from '../src/games/dividend-hunter/engine.js';
 const seats=[{id:'a',name:'เอ'},{id:'b',name:'บี'}];
 for(const [name,E,start,bid,end,phase] of [
- ['Crash',crash,()=>crash.createInitialState(seats,{rounds:1,pot:200,limit:100}),{type:'crash-bid',amount:10},'crash-end','playing'],
+ ['Crash',crash,()=>crash.createInitialState(seats,{rounds:1,pot:200,limit:100,roundSeconds:0}),{type:'crash-bid',amount:10},'crash-end','playing'],
  ['High-Low',quiz,()=>quiz.createInitialState(seats,()=>.3,{rounds:1}),{type:'hl-bet',answer:true,stake:2},'hl-end','betting'],
  ['Hunter',hunter,()=>hunter.createInitialState(seats,{rounds:1,limit:120}),{type:'hunter-bid',amount:10},'hunter-end','playing'],
 ] as const)test(name+': closing requires all submissions, remains secret and restorable, final reveal only once',()=>{

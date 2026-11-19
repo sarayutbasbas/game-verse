@@ -19,6 +19,7 @@ import { platform, avatar, api, refreshAccount } from "./account.js";
 import QRCode from "qrcode";
 import type { GameId, RoomView, RoomAction } from "../shared/types.js";
 import "./platform.css";
+let crashLobbyDraft:{code:string;rounds:string;pot:string;seconds:string;timing:string}|undefined;
 let quizLobbyDraft:{code:string;packId:string;rounds:string}|undefined;
 let hunterLobbyDraft:{code:string;rounds:string;limit:string}|undefined;
 export const esc = (x: unknown) =>
@@ -157,9 +158,13 @@ export function lobby(
     }
   }
   if(stockCrash){
+    root.querySelector('#starter')?.closest('label')?.remove();
+    if(crashLobbyDraft?.code!==v.code)crashLobbyDraft={code:v.code,rounds:'5',pot:'200',seconds:'30',timing:'timed'};
     const config=document.createElement('fieldset');config.className='crash-lobby-config';
-    config.innerHTML=host?'<legend>ตั้งค่าวิกฤตหุ้นปั่น</legend><label>จำนวนรอบ<select id="cr-rounds">'+Array.from({length:20},(_,i)=>`<option value="${i+1}" ${i===4?'selected':''}>${i+1} รอบ</option>`).join('')+'</select></label><label>คะแนนกองกลาง<input id="cr-pot" type="number" min="20" max="10000" step="10" value="200"></label><small>รอบสุดท้ายจำกัดยอดเดิมพันไว้ไม่เกิน 20 คะแนน</small>':'<legend>กติกาห้อง</legend><p>2–20 คน · เลือกคะแนนพร้อมกัน · ค่าเริ่มต้น 5 รอบ กองกลาง 200 คะแนน</p>';
+    config.innerHTML=host?'<legend>ตั้งค่าวิกฤตหุ้นปั่น</legend><label>จำนวนรอบ<select id="cr-rounds">'+Array.from({length:20},(_,i)=>`<option value="${i+1}">${i+1} รอบ</option>`).join('')+'</select></label><label>คะแนนกองกลาง<input id="cr-pot" type="number" min="20" max="10000" step="10" value="200"></label><label>การจบรอบ<select id="cr-timing"><option value="timed">จับเวลา · หมดเวลาจบรอบอัตโนมัติ</option><option value="manual">ไม่จับเวลา · กดจบรอบเมื่อส่งครบ</option></select></label><label data-cr-seconds>เวลาต่อรอบ (วินาที)<input id="cr-seconds" type="number" min="1" max="600" step="1" value="30"></label><small data-cr-timing-hint>หมดเวลาปิดรอบอัตโนมัติ คนไม่ส่งได้ 0 คะแนน</small>':'<legend>กติกาห้อง</legend><p>2–20 คน · เลือกคะแนนพร้อมกัน · หมดเวลาคนไม่ส่งได้ 0 คะแนน</p>';
     root.querySelector('#start')?.before(config);
+    if(host)for(const [id,key] of [['cr-rounds','rounds'],['cr-pot','pot'],['cr-seconds','seconds'],['cr-timing','timing']] as const){const input=config.querySelector<HTMLInputElement|HTMLSelectElement>('#'+id)!;input.value=crashLobbyDraft![key];input.disabled=blocked;input.oninput=()=>{crashLobbyDraft![key]=input.value;};}
+    if(host){const timing=config.querySelector<HTMLSelectElement>('#cr-timing')!,seconds=config.querySelector<HTMLInputElement>('#cr-seconds')!,label=config.querySelector<HTMLElement>('[data-cr-seconds]')!;const update=()=>{const manual=timing.value==='manual';label.hidden=manual;seconds.disabled=blocked||manual;config.querySelector('[data-cr-timing-hint]')!.textContent=manual?'ไม่จับเวลา · ส่งครบแล้วผู้เล่นคนใดคนหนึ่งกดจบรอบ':'จับเวลา · รอหมดเวลาจึงเปิดผล คนไม่ส่งได้ 0 คะแนน';};timing.onchange=()=>{crashLobbyDraft!.timing=timing.value;update();};update();}
   }
   if(v.gameId==='spirit-island'){
     const panel=document.createElement('section');panel.className='si-lobby-options';
@@ -293,7 +298,7 @@ export function lobby(
         : dividend
         ? {type:"start",rounds:Number(root.querySelector<HTMLInputElement>("#hunter-rounds")?.value??5),limit:Number(root.querySelector<HTMLInputElement>("#hunter-limit")?.value??120)}
         : stockCrash
-        ? {type:"start",rounds:Number(root.querySelector<HTMLSelectElement>("#cr-rounds")?.value??5),pot:Number(root.querySelector<HTMLInputElement>("#cr-pot")?.value??200),limit:100}
+        ? {type:"start",rounds:Number(root.querySelector<HTMLSelectElement>("#cr-rounds")?.value??5),pot:Number(root.querySelector<HTMLInputElement>("#cr-pot")?.value??200),limit:100,roundSeconds:root.querySelector<HTMLSelectElement>("#cr-timing")?.value==='manual'?0:Number(root.querySelector<HTMLInputElement>("#cr-seconds")?.value??30)}
         : duel || sky || ck || tt || v.gameId==="mansions-of-madness"
         ? ck?{type:"start",restaurateurs:root.querySelector<HTMLInputElement>("#ck-restaurateurs")!.checked,tutorial:root.querySelector<HTMLInputElement>("#ck-tutorial")!.checked}:{ type: "start" }
         : {
