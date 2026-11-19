@@ -13,9 +13,9 @@ export interface PlayTime {
 // Published box-game estimates, checked 2026-11-02. Not telemetry or time limits.
 // Keep every catalogue entry covered; see docs/ui/play-times.md for provenance.
 export const GAME_PLAY_TIMES: Record<GameId, PlayTime> = {
-  'dividend-hunter':{min:15,max:15,source:'user-created-rules',sourceName:'ผู้สร้างเกม',note:'ค่าเริ่มต้น 5 รอบ ปรับได้ก่อนเริ่ม'},
-  'high-low-scoreboard':{min:20,max:20,source:'user-created-rules',sourceName:'ผู้สร้างเกม',note:'10 ข้อโดยประมาณ; ปรับจำนวนข้อและเวลาเฉลยได้ตามกลุ่ม'},
-  'stock-market-crash':{min:15,max:15,source:'user-provided-rules',sourceName:'ผู้สร้างเกม',note:'เวลาขึ้นอยู่กับจำนวนรอบและขนาดกลุ่ม'},
+  'dividend-hunter':{min:15,max:15,source:'https://github.com/sarayutbasbas/game-verse/blob/main/docs/games/dividend-hunter/rules.md',sourceName:'ผู้สร้างเกม',note:'ค่าเริ่มต้น 5 รอบ ปรับได้ก่อนเริ่ม'},
+  'high-low-scoreboard':{min:20,max:20,source:'https://github.com/sarayutbasbas/game-verse/blob/main/docs/games/high-low-scoreboard/rules.md',sourceName:'ผู้สร้างเกม',note:'10 ข้อโดยประมาณ; ปรับจำนวนข้อและเวลาเฉลยได้ตามกลุ่ม'},
+  'stock-market-crash':{min:15,max:15,source:'https://github.com/sarayutbasbas/game-verse/blob/main/docs/games/stock-market-crash/rules.md',sourceName:'ผู้สร้างเกม',note:'เวลาขึ้นอยู่กับจำนวนรอบและขนาดกลุ่ม'},
   'spirit-island':{min:100,max:100,source:'https://shop.greaterthangames.com/products/spirit-island',sourceName:'Greater Than Games'},
   'tiny-towns':{min:30,max:30,source:'https://www.alderac.com/tiny-towns/',sourceName:'AEG'},
   friday:{min:30,max:30,source:'https://2f-games.com/2f-spiele/friday/',sourceName:'2F-Spiele'},
