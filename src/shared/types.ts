@@ -54,7 +54,7 @@ export type Action =
   | { type: "partner"; playerId: string }
   | { type: "claim"; ticket: number };
 export type HostAction = {
-  type: "start" | "restart"; rounds?:number; pot?:number; limit?:number;
+  type: "start" | "restart"; rounds?:number; packId?:import("../games/high-low-scoreboard/packs.js").QuestionPackId; pot?:number; limit?:number;
   startingPlayerId?: string;
   boardSide?: import("../games/harmonies/types.js").Side;
   harmoniesOptions?:Partial<import("../games/harmonies/types.js").HarmoniesOptions>;

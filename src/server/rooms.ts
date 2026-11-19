@@ -1388,7 +1388,7 @@ export class RoomService {
     gameAdapters[room.gameId].validatePlayers(room.players);
     switch(room.gameId){
       case 'dividend-hunter':room.hunter=hunterRules.createInitialState(room.players,room.hunter?{rounds:room.hunter.rounds,limit:room.hunter.limit}:hunterRules.defaults);break;
-      case 'high-low-scoreboard':room.highLow=highLowRules.createInitialState(room.players,this.random,{rounds:room.highLow?.rounds??highLowRules.defaults.rounds});break;
+      case 'high-low-scoreboard':room.highLow=highLowRules.createInitialState(room.players,this.random,{rounds:Math.min(room.highLow?.rounds??10,room.highLow?.packId&&room.highLow.packId!=='mixed'?40:200),packId:room.highLow?.packId??'mixed'});break;
       case 'stock-market-crash':room.crash=crashRules.createInitialState(room.players,room.crash?{rounds:room.crash.rounds,pot:room.crash.pot,limit:room.crash.limit}:crashRules.defaults);break;
       case 'take-time':room.takeTime=takeTimeRules.createInitialState(room.players,this.random);room.takeTime.matchId=randomUUID();break;
       case 'locus':room.locus=locusRules.createInitialState(room.players,this.random);room.locus.matchId=randomUUID();break;
@@ -1444,10 +1444,10 @@ export class RoomService {
     const keys=Object.keys(action).sort().join(',');
     if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.highLow||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมได้ในห้องรอเท่านั้น');p.ready=action.ready;return;}
     if(action.type==='start'||action.type==='restart'){
-      if(!this.canManage(room,session)||!['rounds,type','type'].includes(keys)||action.type==='start'&&room.highLow||action.type==='restart'&&room.highLow?.phase!=='finished')throw Error('ผู้สร้างห้องเริ่มเกมหรือเล่นใหม่ได้เมื่อพร้อม');
+      if(!this.canManage(room,session)||!Object.keys(action).every(k=>['type','rounds','packId'].includes(k))||action.type==='start'&&room.highLow||action.type==='restart'&&room.highLow?.phase!=='finished')throw Error('ผู้สร้างห้องเริ่มเกมหรือเล่นใหม่ได้เมื่อพร้อม');
       if(room.players.length<2||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 2–20 คนเชื่อมต่อและพร้อมครบ');
-      const rounds=action.type==='start'?(action as any).rounds??highLowRules.defaults.rounds:room.highLow?.rounds??highLowRules.defaults.rounds;
-      room.highLow=highLowRules.createInitialState(room.players,this.random,{rounds});return;
+      const rounds=action.type==='start'?(action as any).rounds??highLowRules.defaults.rounds:Math.min(room.highLow?.rounds??10,room.highLow?.packId&&room.highLow.packId!=='mixed'?40:200);
+      room.highLow=highLowRules.createInitialState(room.players,this.random,{rounds,packId:action.type==='start'?action.packId??'mixed':room.highLow?.packId??'mixed'});return;
     }
     if(!room.highLow)throw Error('เกมยังไม่เริ่ม');
     if(action.type==='hl-next'){if(!this.canManage(room,session))throw Error('ผู้สร้างห้องเริ่มข้อถัดไปได้');room.highLow=highLowRules.applyAction(room.highLow,room.players[0].id,action);return;}
