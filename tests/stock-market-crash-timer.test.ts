@@ -13,10 +13,11 @@ test('partial safe market awards only actual submissions, including final round 
  assert.throws(()=>E.createInitialState(seats,{rounds:1,pot:200,limit:100,roundSeconds:-1}));assert.throws(()=>E.createInitialState(seats,{rounds:1,pot:200,limit:100,roundSeconds:601}));
 });
 
-test('timed mode cannot close early even when all submit; manual mode keeps close button available',()=>{
+test('timed and manual modes can close once everyone submits; timed expiry remains authoritative',()=>{
  const two=seats.slice(0,2);let timed=E.createInitialState(two,{rounds:1,pot:200,limit:100,roundSeconds:3},1000);
+ assert.throws(()=>E.applyAction(timed,'p0',{type:'crash-end'},1001));
  for(const p of two)timed=E.applyAction(timed,p.id,{type:'crash-bid',amount:10},1001);
- assert.deepEqual(E.getLegalActions(timed,'p0',2000),[]);assert.throws(()=>E.applyAction(timed,'p0',{type:'crash-end'},2000));assert.equal(E.expireRound(timed,3999),timed);assert.equal(E.expireRound(timed,4000).phase,'finished');
+ assert.ok(E.getLegalActions(timed,'p0',2000).includes('crash-end'));const closed=E.applyAction(timed,'p1',{type:'crash-end'},2000);assert.equal(closed.phase,'finished');assert.equal(closed.history[0].timedOut,false);assert.equal(E.expireRound(closed,4000),closed);assert.ok(E.validateState(closed));assert.throws(()=>E.applyAction(timed,'p0',{type:'crash-end'},4000));assert.equal(E.expireRound(timed,3999),timed);assert.equal(E.expireRound(timed,4000).phase,'finished');
  let manual=E.createInitialState(two,{rounds:2,pot:200,limit:100,roundSeconds:0},1000);assert.equal(manual.deadline,undefined);
  for(const p of two)manual=E.applyAction(manual,p.id,{type:'crash-bid',amount:10},999999);assert.equal(E.expireRound(manual,999999),manual);assert.ok(E.getLegalActions(manual,'p1').includes('crash-end'));assert.ok(E.validateState(manual));manual=E.applyAction(manual,'p1',{type:'crash-end'});manual=E.applyAction(manual,'p0',{type:'crash-next'},1000000);assert.equal(manual.deadline,undefined);assert.equal(manual.roundSeconds,0);assert.ok(E.validateState(manual));
 });

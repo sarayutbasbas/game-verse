@@ -12,7 +12,7 @@ export function revealLive(s:CrashState){return s.round<=2||s.round===s.rounds;}
 export const isExpired=(s:CrashState,now:number)=>s.phase==='playing'&&s.deadline!==undefined&&now>=s.deadline;
 export function getLegalActions(s:CrashState,id:string,now=0):CrashAction['type'][] {
  if(!s.players.some(p=>p.id===id)||isExpired(s,now))return[];
- if(s.phase==='playing')return s.bids.length===s.players.length?(s.deadline===undefined?['crash-end']:[]):s.bids.some(b=>b.id===id)?[]:['crash-bid'];
+ if(s.phase==='playing')return s.bids.length===s.players.length?['crash-end']:s.bids.some(b=>b.id===id)?[]:['crash-bid'];
  return s.phase==='round-end'&&s.round<s.rounds?['crash-next']:[];
 }
 function result(s:CrashState,timedOut:boolean):CrashRound{
