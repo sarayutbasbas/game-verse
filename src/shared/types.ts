@@ -1,3 +1,8 @@
+import type {HunterAction,HunterView} from "../games/dividend-hunter/types.js";
+import type {SpiritAction,SpiritView,SpiritOptions} from '../games/spirit-island/types.js';
+import type {TinyAction,TinyView,TinyOptions} from '../games/tiny-towns/types.js';
+import type {FridayAction,FridayView} from '../games/friday/types.js';
+import type {WealthAction,WealthView} from '../games/wealth-of-nations/types.js';
 import type {FlipAction,FlipView} from '../games/flip-7/types.js';
 import type {CatchAction,CatchView,Difficulty as CatchDifficulty} from '../games/catch-sketch/types.js';
 import type {MuffinAction,MuffinView} from '../games/muffin-time/types.js';
@@ -27,6 +32,8 @@ import type {
   DuelView,
 } from "../games/dracula-vs-van-helsing/types.js";
 import type { AzulAction, AzulView } from "../games/azul/types.js";
+import type {CrashAction,CrashView} from "../games/stock-market-crash/types.js";
+import type {HighLowAction,HighLowView} from "../games/high-low-scoreboard/types.js";
 export const COLORS = ["blue", "green", "yellow", "purple", "red"] as const;
 export type Color = (typeof COLORS)[number];
 export type Camel = Color | "black" | "white";
@@ -47,7 +54,7 @@ export type Action =
   | { type: "partner"; playerId: string }
   | { type: "claim"; ticket: number };
 export type HostAction = {
-  type: "start" | "restart";
+  type: "start" | "restart"; rounds?:number; pot?:number; limit?:number;
   startingPlayerId?: string;
   boardSide?: import("../games/harmonies/types.js").Side;
   harmoniesOptions?:Partial<import("../games/harmonies/types.js").HarmoniesOptions>;
@@ -133,9 +140,9 @@ export interface View {
     legal: Action[];
   };
 }
-export type GameId = "flip-7" | "catch-sketch" | "muffin-time" | "mansions-of-madness" | "just-one" | "bomb-busters" | "courtisans" | "trio" | "castle-combo" | "power-hungry-pets" | "love-letter" | "sounds-fishy" | "perch" | "draftosaurus" | "take-time" | "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen";
-export type RoomView = (FlipView | CatchView | MuffinView | MadnessView | JustOneView | BombView | CourtView | TrioView | CastleView | PowerPetsView | LoveLetterView | SoundsFishyView | PerchView | DraftosaurusView | TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView) & {lobbyKickablePlayerIds?:string[]};
-export type RoomAction = FlipAction | CatchAction | {type:"cs-options";difficulty:CatchDifficulty} | MuffinAction | MadnessAction | {type:"mm-options";scenario:ScenarioId;expansion:boolean} | JustOneAction | BombAction | {type:"bb-mission";mission:number} | {type:"bb-next";mission:number} | CourtAction | TrioAction | {type:"tr-options";mode:"simple"|"spicy";teams:boolean} | CastleAction | PowerPetsAction | LoveLetterAction | {type:"ll-mode";mode:"base"|"marvel"} | SoundsFishyAction | PerchAction | DraftosaurusAction | {type:"room-kick";playerId:string} | {type:"room-restart"} | TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction;
+export type GameId = "spirit-island" | "tiny-towns" | "friday" | "wealth-of-nations" | "flip-7" | "catch-sketch" | "muffin-time" | "mansions-of-madness" | "just-one" | "bomb-busters" | "courtisans" | "trio" | "castle-combo" | "power-hungry-pets" | "love-letter" | "sounds-fishy" | "perch" | "draftosaurus" | "take-time" | "locus" | "name-it" | "camel-up" | "dracula-vs-van-helsing" | "azul" | "calico" | "seven-wonders-duel" | "jaipur" | "pixies" | "harmonies" | "sky-team" | "critter-kitchen" | "stock-market-crash" | "high-low-scoreboard" | "dividend-hunter";
+export type RoomView = (SpiritView | TinyView | FridayView | WealthView | FlipView | CatchView | MuffinView | MadnessView | JustOneView | BombView | CourtView | TrioView | CastleView | PowerPetsView | LoveLetterView | SoundsFishyView | PerchView | DraftosaurusView | TakeTimeView | LocusView | View | DuelView | AzulView | CalicoView | WondersView | JaipurView | PixiesView | HarmoniesView | SkyView | CKView | HunterView | CrashView | HighLowView) & {lobbyKickablePlayerIds?:string[]};
+export type RoomAction = SpiritAction | {type:"si-options";options:SpiritOptions} | TinyAction | {type:"tiny-options";options:TinyOptions} | FridayAction | {type:"fr-level";level:1|2|3|4} | WealthAction | FlipAction | CatchAction | {type:"cs-options";difficulty:CatchDifficulty} | MuffinAction | MadnessAction | {type:"mm-options";scenario:ScenarioId;expansion:boolean} | JustOneAction | BombAction | {type:"bb-mission";mission:number} | {type:"bb-next";mission:number} | CourtAction | TrioAction | {type:"tr-options";mode:"simple"|"spicy";teams:boolean} | CastleAction | PowerPetsAction | LoveLetterAction | {type:"ll-mode";mode:"base"|"marvel"} | SoundsFishyAction | PerchAction | DraftosaurusAction | {type:"room-kick";playerId:string} | {type:"room-restart"} | TakeTimeAction | {type:"tt-retry"} | {type:"ck-expansions";expansions:Partial<import("../games/critter-kitchen/expansions.js").CKExpansions>} | {type:"harmonies-display-mode";mode:"full-mobile"|"shared-table"} | LocusAction | {type:"locus-extra"} | Action | HostAction | DuelAction | LobbyAction | AzulAction | CalicoAction | WondersAction | JaipurAction | PixiesAction | HarmoniesAction | SkyAction | CKAction | HunterAction | CrashAction | HighLowAction;
 export type ClientMessage =
   | { type: "create"; gameId?: GameId; displayMode?:DisplayMode; joinAsPlayer?:boolean }
   | { type: "join"; code: string; name: string }

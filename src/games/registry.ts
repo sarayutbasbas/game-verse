@@ -1,3 +1,13 @@
+import * as hunter from "./dividend-hunter/engine.js";
+import type {HunterState,HunterAction} from "./dividend-hunter/types.js";
+import * as si from './spirit-island/engine.js';
+import type {SpiritState,SpiritAction} from './spirit-island/types.js';
+import * as tiny from './tiny-towns/engine.js';
+import type {TinyState,TinyAction} from './tiny-towns/types.js';
+import * as friday from './friday/engine.js';
+import type {FridayState,FridayAction} from './friday/types.js';
+import * as wealth from './wealth-of-nations/engine.js';
+import type {WealthState,WealthAction} from './wealth-of-nations/types.js';
 import * as flip7 from './flip-7/engine.js';
 import type {FlipState,FlipAction} from './flip-7/types.js';
 import * as catchSketch from './catch-sketch/engine.js';
@@ -51,7 +61,18 @@ import * as camelUp from "./camel-up/engine.js";
 import * as dracula from "./dracula-vs-van-helsing/engine.js";
 import * as azul from "./azul/engine.js";
 import type { AzulState, AzulAction } from "./azul/types.js";
+import * as crash from "./stock-market-crash/engine.js";
+import type {CrashState,CrashAction} from "./stock-market-crash/types.js";
+import * as highLow from "./high-low-scoreboard/engine.js";
+import type {HighLowState,HighLowAction} from "./high-low-scoreboard/types.js";
 export const games = {
+ "high-low-scoreboard":highLow,
+ "dividend-hunter":hunter,
+ "stock-market-crash":crash,
+ "spirit-island":si,
+ "tiny-towns":tiny,
+ friday,
+ "wealth-of-nations":wealth,
  "flip-7":flip7,
  "catch-sketch":catchSketch,
  "muffin-time":muffin,
@@ -109,6 +130,13 @@ function common(id: string) {
   };
 }
 export const gameAdapters = {
+ "high-low-scoreboard": { ...common("high-low-scoreboard"), start(seats,random){this.validatePlayers(seats);return highLow.createInitialState(seats,random);}, apply:(s,id,a,random)=>highLow.applyAction(s,id,a as HighLowAction), publicView:highLow.getDisplayView, privateView:highLow.getPlayerView, isFinished:highLow.isFinished, summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),rounds:s.rounds}) } satisfies GameAdapter<HighLowState,ReturnType<typeof highLow.getPlayerView>>,
+ "dividend-hunter": { ...common("dividend-hunter"), start(seats,random){this.validatePlayers(seats);return hunter.createInitialState(seats);}, apply:(s,id,a)=>hunter.applyAction(s,id,a as HunterAction), publicView:hunter.getDisplayView, privateView:hunter.getPlayerView, isFinished:hunter.isFinished, summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score}))}) } satisfies GameAdapter<HunterState,ReturnType<typeof hunter.getPlayerView>>,
+ "stock-market-crash": { ...common("stock-market-crash"), start(seats,random){this.validatePlayers(seats);return crash.createInitialState(seats);}, apply:(s,id,a)=>crash.applyAction(s,id,a as CrashAction), publicView:crash.getDisplayView, privateView:crash.getPlayerView, isFinished:crash.isFinished, summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score}))}) } satisfies GameAdapter<CrashState,ReturnType<typeof crash.getPlayerView>>,
+ "spirit-island":{...common('spirit-island'),start(seats,random,starter){this.validatePlayers(seats);return si.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>si.applyAction(s,id,a as SpiritAction,random),publicView:si.getDisplayView,privateView:si.getPlayerView,isFinished:si.isFinished,summary:s=>({outcome:s.outcome,reason:s.reason,score:si.getDisplayView(s).score})} satisfies GameAdapter<SpiritState,ReturnType<typeof si.getPlayerView>>,
+ "tiny-towns":{...common('tiny-towns'),start(seats,random,starter){this.validatePlayers(seats);return tiny.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>tiny.applyAction(s,id,a as TinyAction,random),publicView:tiny.getDisplayView,privateView:tiny.getPlayerView,isFinished:tiny.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,...tiny.scorePlayer(s,p)}))})} satisfies GameAdapter<TinyState,ReturnType<typeof tiny.getPlayerView>>,
+ friday:{...common('friday'),start(seats,random,starter){this.validatePlayers(seats);return friday.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>friday.applyAction(s,id,a as FridayAction,random),publicView:friday.getDisplayView,privateView:friday.getPlayerView,isFinished:friday.isFinished,summary:s=>({outcome:s.outcome,level:s.level,score:friday.score(s)})} satisfies GameAdapter<FridayState,ReturnType<typeof friday.getPlayerView>>,
+ "wealth-of-nations":{...common("wealth-of-nations"),start(seats,random,starter){this.validatePlayers(seats);return wealth.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>wealth.applyAction(s,id,a as WealthAction,random),publicView:wealth.getDisplayView,privateView:wealth.getPlayerView,isFinished:wealth.isFinished,summary:s=>({winners:s.winners,scores:s.results,rounds:s.round})} satisfies GameAdapter<WealthState,ReturnType<typeof wealth.getPlayerView>>,
  "flip-7":{...common("flip-7"),start(seats,random,starter){this.validatePlayers(seats);return flip7.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>flip7.applyAction(s,id,a as FlipAction,random),publicView:flip7.getDisplayView,privateView:flip7.getPlayerView,isFinished:flip7.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),rounds:s.history.length})} satisfies GameAdapter<FlipState,ReturnType<typeof flip7.getPlayerView>>,
  "catch-sketch":{...common("catch-sketch"),start(seats,random,starter){this.validatePlayers(seats);return catchSketch.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>catchSketch.applyAction(s,id,a as CatchAction,random),publicView:catchSketch.getDisplayView,privateView:catchSketch.getPlayerView,isFinished:catchSketch.isFinished,summary:s=>({winners:s.winners,scores:s.players.map(p=>({id:p.id,score:p.score})),rounds:s.history.length})} satisfies GameAdapter<CatchState,ReturnType<typeof catchSketch.getPlayerView>>,
  "muffin-time":{...common("muffin-time"),start(seats,random,starter){this.validatePlayers(seats);return muffin.createInitialState(seats,random,starter);},apply:(s,id,a,random)=>muffin.applyAction(s,id,a as MuffinAction,random),publicView:muffin.getDisplayView,privateView:muffin.getPlayerView,isFinished:muffin.isFinished,summary:s=>({winners:s.winners,turns:s.turnNumber})} satisfies GameAdapter<MuffinState,ReturnType<typeof muffin.getPlayerView>>,

@@ -1,9 +1,14 @@
 import type { RoomView } from "../shared/types.js";
 /** Text is derived solely from the authorized projection, including non-turn phases. */
 export function turnStatus(v: RoomView) {
+  if(v.gameId==='spirit-island')return {text:v.phase==='finished'?'จบการปกป้องเกาะ':v.phase==='invader'?'ช่วงผู้รุกราน':'วางแผนร่วมกัน',own:!!v.me?.legal.length};
+  if(v.gameId==='tiny-towns')return {text:v.phase==='finished'?'เมืองเสร็จแล้ว':v.phase==='monuments'?'เลือกอนุสาวรีย์':v.phase==='call'?'เลือกทรัพยากร':'วางและสร้างเมือง',own:!!v.me&&(!!v.me.legal.length||!!v.me.builds.length)};
+  if(v.gameId==='friday')return {text:v.phase==='finished'?'จบการผจญภัย':v.phase==='choose'?'เลือกความเสี่ยง':v.phase==='cleanup'?'ปรับสำรับ':v.phase==='pirates'?'เลือกโจรสลัด':'ต่อสู้',own:!!v.me?.legal.length};
+  if(v.gameId==='wealth-of-nations')return {text:v.phase==='lobby'?'รอผู้เล่น':v.phase==='nation'?'เลือกประเทศ':v.phase==='setup'?'เลือกชุดเริ่มต้น':v.phase==='trade'?'ซื้อขาย':v.phase==='develop'?'พัฒนา':v.phase==='produce'?'วางแผนผลิต':'จบเกม',own:!!v.me?.legal.actions.length};
   if(v.gameId==='mansions-of-madness'&&v.phase!=='lobby')return {text:v.phase==='setup'?'เลือกนักสืบ':v.phase==='finished'?'จบคดี':v.phase==='test'?'ทดสอบทักษะ':v.phase==='puzzle'?'ไขรหัส':v.phase==='mythos'?'ช่วงมิธอส':'ช่วงนักสืบ',own:!!v.me?.heroes.some(h=>h.legal.length)};
   if(v.gameId==='catch-sketch')return {text:v.phase==='lobby'?'รอผู้เล่น':v.phase==='prepare'?'เตรียมกระดาน':v.phase==='drawing'?'วาดพร้อมกัน':v.phase==='freeze'?'หยุดวาด · เก็บกระดาน':v.phase==='guess'?'ทายจากภาพ':v.phase==='judge'?'ยืนยันคำตอบ':v.phase==='finished'?'จบเกม':'เฉลยและคะแนน',own:!!v.me?.legal.length};
   if(v.gameId==='flip-7')return {text:v.phase==='lobby'?'รอผู้เล่น':v.phase==='target'?'เลือกผู้รับไพ่พิเศษ':v.phase==='round-end'?'รวมคะแนนรอบ':v.phase==='finished'?'จบเกม':'เปิดต่อหรือหยุดเก็บแต้ม',own:!!v.me?.legal.length};
+  if(v.gameId==='dividend-hunter')return {text:v.phase==='lobby'?'รอผู้เล่น':v.phase==='playing'?'เลือกเลขลับพร้อมกัน':v.phase==='finished'?'จบเกม':'เปิดปันผลรอบนี้',own:v.phase==='playing'&&!!v.me&&v.me.bid===undefined};
   if (v.phase === "lobby") return { text: "รอผู้เล่น", own: false };
   if(v.gameId==='muffin-time')return {text:v.phase==='finished'?'จบเกม':v.phase==='reaction'?'รอการ์ดสวน':v.phase==='end'?'ตรวจมัฟฟินไทม์':v.phase==='duel'?'เป่ายิ้งฉุบ':v.phase==='start'?'วางกับดักก่อนเล่น':'จั่วหรือเล่นแอ็กชัน',own:!!v.me?.legal.length};
   if(v.gameId==='just-one')return {text:v.phase==='finished'?'จบเกม':v.phase==='writing'?'เขียนคำใบ้':v.phase==='review'?'ตรวจคำใบ้':v.phase==='judge'?'ยืนยันคำตอบ':v.phase==='guess'?'ทายคำ':v.phase==='choose'?'เลือกเลขคำศัพท์':'เฉลยรอบนี้',own:!!v.me?.legal.length};

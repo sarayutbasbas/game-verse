@@ -1,0 +1,69 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "cover",
+      "prompt": "Generate a premium original 3D board-game retail BOX mockup for 'WEALTH OF NATIONS', isolated on a genuinely transparent background. Upright substantial board-game box, front and narrow right spine visible, neatly centered with generous transparent padding, matching a high quality tabletop game gallery. Historical economic strategy aesthetic: deep slate-blue printed cloth texture, a sweeping golden globe latitude motif, elegant broad gold title WEALTH OF NATIONS perfectly legible, vintage engraved silhouettes of wheat fields, electricity pylons, an academy, mine headframe, industrial locomotive and a banking hall across the lower half. Six small accents yellow, blue, red, silver, black and purple. Restrained 1900s international trade poster design, beautifully detailed original engraving and screen print art, not modern skyscraper photography. Crisp carton edges, subtly embossed title, realistic three dimensional depth. Only the game box, no tabletop, no loose components, no publisher logo, no extra words, no watermark. New composition; evoke a classic industrial economics board game without copying exact packaging.",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-5b5c7a67-5df3-40c8-8f16-6859a3fa4586.png",
+      "master": "assets/source/wealth-of-nations/cover.png",
+      "output": "public/art/wealth-of-nations/cover.webp",
+      "transparent": true
+    },
+    {
+      "id": "table",
+      "prompt": "Create an original flat top-down board-game TABLE BACKDROP illustration for Wealth of Nations, wide landscape 3:2 composition. Historical industrial economics game, muted slate blue at outer edges, a faded aged ivory paper world map with thin antique gold latitude curves across center, very faint engraved seaport, wheat, pylons, factories only around outer margins. CENTER 80 PERCENT quiet, light and unmarked to hold a code-rendered hex board. Decorative printed paper realism, premium classic tabletop board look, no UI, no grids, no hexagons, no dots, no circles, no text, no numbers, no logos. Not a photograph, no perspective, no components. Subtle enough that game labels remain readable.",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-626c5e7f-1595-4360-81b6-a5488762cfa6.png",
+      "master": "assets/source/wealth-of-nations/table.png",
+      "output": "public/art/wealth-of-nations/table.webp",
+      "transparent": false
+    },
+    {
+      "id": "farm",
+      "prompt": "Original premium board-game industry tile ILLUSTRATION for Wealth of Nations. A single square flat print artwork with full bleed, in mustard yellow monochrome. Vintage industrial engraving / offset screenprint depiction of wheat field and windmill, agriculture. A subtle linen and ink texture, generous low-contrast center area so runtime production dots can be placed above it. Composition readable at a very small size, restrained large silhouettes, fine elegant detail. This is a background illustration only, NOT a complete tile: NO numbers, NO letters, NO logos, NO circles or production dots, NO hex border, NO UI. No perspective, no shadows, no photographed game. Same unified classic economic board-game art family, new original drawing.",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-8ca2e2bb-7935-4de5-af1f-608c2dcfa1b2.png",
+      "master": "assets/source/wealth-of-nations/farm.png",
+      "output": "public/art/wealth-of-nations/farm.webp",
+      "transparent": false
+    },
+    {
+      "id": "generator",
+      "prompt": "Original premium board-game industry tile ILLUSTRATION for Wealth of Nations. A single square flat print artwork with full bleed, in cobalt blue monochrome. Vintage industrial engraving / offset screenprint depiction of electricity pylons and a hydroelectric generator. A subtle linen and ink texture, generous low-contrast center area so runtime production dots can be placed above it. Composition readable at a very small size, restrained large silhouettes, fine elegant detail. This is a background illustration only, NOT a complete tile: NO numbers, NO letters, NO logos, NO circles or production dots, NO hex border, NO UI. No perspective, no shadows, no photographed game. Same unified classic economic board-game art family, new original drawing.",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-068ddc4c-e76a-4fd6-9c21-6930769d5a5b.png",
+      "master": "assets/source/wealth-of-nations/generator.png",
+      "output": "public/art/wealth-of-nations/generator.webp",
+      "transparent": false
+    },
+    {
+      "id": "academy",
+      "prompt": "Original premium board-game industry tile ILLUSTRATION for Wealth of Nations. A single square flat print artwork with full bleed, in vermilion red monochrome. Vintage industrial engraving / offset screenprint depiction of classical technical academy facade and surveyor instruments, labor education. A subtle linen and ink texture, generous low-contrast center area so runtime production dots can be placed above it. Composition readable at a very small size, restrained large silhouettes, fine elegant detail. This is a background illustration only, NOT a complete tile: NO numbers, NO letters, NO logos, NO circles or production dots, NO hex border, NO UI. No perspective, no shadows, no photographed game. Same unified classic economic board-game art family, new original drawing.",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-1de1af0d-a889-4e59-929c-08e1fc72374c.png",
+      "master": "assets/source/wealth-of-nations/academy.png",
+      "output": "public/art/wealth-of-nations/academy.webp",
+      "transparent": false
+    },
+    {
+      "id": "mine",
+      "prompt": "Original premium board-game industry tile ILLUSTRATION for Wealth of Nations. A single square flat print artwork with full bleed, in silver grey monochrome. Vintage industrial engraving / offset screenprint depiction of historic mine headframe and cut ore rock. A subtle linen and ink texture, generous low-contrast center area so runtime production dots can be placed above it. Composition readable at a very small size, restrained large silhouettes, fine elegant detail. This is a background illustration only, NOT a complete tile: NO numbers, NO letters, NO logos, NO circles or production dots, NO hex border, NO UI. No perspective, no shadows, no photographed game. Same unified classic economic board-game art family, new original drawing.",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-83fbe1f9-6d5d-4c0b-bf0f-00a9514df44f.png",
+      "master": "assets/source/wealth-of-nations/mine.png",
+      "output": "public/art/wealth-of-nations/mine.webp",
+      "transparent": false
+    },
+    {
+      "id": "factory",
+      "prompt": "Original premium board-game industry tile ILLUSTRATION for Wealth of Nations. A single square flat print artwork with full bleed, in charcoal black with warm ivory etched highlights monochrome. Vintage industrial engraving / offset screenprint depiction of industrial steam locomotive and machinery. A subtle linen and ink texture, generous low-contrast center area so runtime production dots can be placed above it. Composition readable at a very small size, restrained large silhouettes, fine elegant detail. This is a background illustration only, NOT a complete tile: NO numbers, NO letters, NO logos, NO circles or production dots, NO hex border, NO UI. No perspective, no shadows, no photographed game. Same unified classic economic board-game art family, new original drawing.",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-31c18f36-0a14-45df-9c28-1049113874b0.png",
+      "master": "assets/source/wealth-of-nations/factory.png",
+      "output": "public/art/wealth-of-nations/factory.webp",
+      "transparent": false
+    },
+    {
+      "id": "bank",
+      "prompt": "Original premium board-game industry tile ILLUSTRATION for Wealth of Nations. A single square flat print artwork with full bleed, in royal purple monochrome. Vintage industrial engraving / offset screenprint depiction of neoclassical banking hall with columns, international finance. A subtle linen and ink texture, generous low-contrast center area so runtime production dots can be placed above it. Composition readable at a very small size, restrained large silhouettes, fine elegant detail. This is a background illustration only, NOT a complete tile: NO numbers, NO letters, NO logos, NO circles or production dots, NO hex border, NO UI. No perspective, no shadows, no photographed game. Same unified classic economic board-game art family, new original drawing.",
+      "generatedSource": "/Users/basukekung/.codex/generated_images/01a14cd9-3ce4-70d2-8d2c-9a5818b19ce7/exec-444acf9a-4f80-426b-8305-56b550c23456.png",
+      "master": "assets/source/wealth-of-nations/bank.png",
+      "output": "public/art/wealth-of-nations/bank.webp",
+      "transparent": false
+    }
+  ]
+}

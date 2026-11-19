@@ -1,0 +1,7 @@
+# Design plan
+
+TableStar 2008 industrial production/trade: slate blue #283e50, antique gold #b59247, paper #e5d8b7, ink #222c32; original commodity colors yellow/blue/red/silver/black/purple remain semantic. Existing Thai sans font for controls; broad serif title only. A physical hexagonal map is the primary surface, five market strips retain circular wells and prices, finance is a separate purple panel. Generated engraving backgrounds support exact code-rendered dots, hexes, flags and text. No dashboard replacing the board.
+
+Shared screen: compact phase/turn header, large central map, three market strips on either side, country holdings underneath. Phone: own treasury and commodities first, map with zoom/pan, phase-specific action drawer, market/trade buttons and review/confirm dialogs. Multi-tile setup and moves are local previews until one atomic confirmation. Production shows costs/output preview and partially fed tiles; private cash and unsubmitted plans remain private. Labels explain resource icons and partial-dot matching. Circular rules/settings/score menus reuse platform conventions.
+
+Review: original colors and sector-dot geometry, full price tracks and a physical spatial map distinguish this from a generic money dashboard. Keep generated decoration behind playing information and large readable native numerals. No game simplification disguised as official rules. Scrolling is allowed; mobile controls never require fine pointer placement. Visible focus and reduced motion, no hidden client-side cash in public DTOs.

@@ -1,0 +1,27 @@
+/* Match Harmonies: title and four round tools share a single fixed top rail. */
+body:is(.fr-theme,.tiny-theme){height:100dvh;overflow:hidden;--compact-green:#245b48;--compact-paper:#fff4ce;--compact-gold:#ddc58e}
+body:is(.fr-theme,.tiny-theme) main.in-game{height:100dvh;width:100%;max-width:none;margin:0;padding:4px 8px 8px;display:flex;flex-direction:column;gap:0;overflow:hidden}
+body:is(.fr-theme,.tiny-theme) main.in-game>header.game-header{display:block!important;height:44px;min-height:44px;flex:0 0 44px;margin:0;padding:0!important;border:0;background:none;border-radius:0;box-shadow:none}
+body:is(.fr-theme,.tiny-theme) .game-header :is(.header-brand,.header-account,.shared-turn){display:none!important}
+body:is(.fr-theme,.tiny-theme) main.in-game>#content{flex:1;min-height:0;overflow:hidden}
+body:is(.fr-theme,.tiny-theme) main.in-game>#notice:empty{display:none}
+body:is(.fr-theme,.tiny-theme) main.in-game>#notice:not(:empty){position:fixed;left:10px;right:10px;bottom:4px;z-index:95;margin:0;padding:9px;background:#fff4cf;border:1px solid #c19c5c;border-radius:10px;color:#284c3e}
+body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar){position:fixed;inset:4px 8px auto;z-index:72;height:40px;min-height:40px;display:flex!important;align-items:center;margin:0!important;padding:0!important;border:0;background:none;pointer-events:none}
+body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar)>:first-child{max-width:calc(100vw - 194px);min-width:0;pointer-events:auto;white-space:nowrap}
+body.fr-theme .fr-heading h1,body.tiny-theme .tiny-toolbar .tiny-brand{font:bold 25px/1 Georgia,serif;margin:0;color:#fff4ce;text-shadow:0 2px 3px #1b4c38;white-space:nowrap}
+body.fr-theme .fr-heading p,body.tiny-theme .tiny-toolbar .tiny-brand small{font:10px/1.3 'Noto Sans Thai',sans-serif;display:block;margin:3px 0 0;color:#fff5d4;text-shadow:0 1px 3px #1b4c38;letter-spacing:0}
+body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) nav{display:contents!important}
+body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) nav>button,body:is(.fr-theme,.tiny-theme) .game-header .audio-settings>summary{box-sizing:border-box;position:fixed;top:5px;width:36px!important;min-width:36px!important;height:36px!important;min-height:36px!important;padding:0!important;display:grid!important;place-items:center!important;line-height:1;font-size:0!important;border:1px solid var(--compact-gold)!important;border-radius:50%!important;background:var(--compact-paper)!important;color:var(--compact-green)!important;box-shadow:none!important;pointer-events:auto}
+body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) [data-help],body.fr-theme .fr-heading [data-fr-help]{right:132px}
+body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) [data-card-reference]{right:90px}
+body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) [data-settings],body.fr-theme .fr-heading [data-fr-settings]{right:6px}
+body:is(.fr-theme,.tiny-theme) .game-header .audio-settings{position:fixed!important;top:5px!important;right:48px!important;z-index:80;margin:0}
+body:is(.fr-theme,.tiny-theme) .game-header .audio-settings>summary{position:static!important;list-style:none}
+body:is(.fr-theme,.tiny-theme) .game-header .audio-settings>summary::-webkit-details-marker{display:none}
+body:is(.fr-theme,.tiny-theme) .game-header .audio-panel{position:absolute;top:42px;right:-40px;z-index:90;width:min(290px,calc(100vw - 24px));background:#fff8e0;color:#284e3e;border:1px solid #b9a36c;box-shadow:0 10px 30px #16382e50}
+body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) svg{display:block;width:22px;height:22px;pointer-events:none}
+body:is(.fr-theme,.tiny-theme) dialog>header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+body:is(.fr-theme,.tiny-theme) dialog>header :is(button[aria-label^="ปิด"],[data-close]){box-sizing:border-box;display:grid!important;place-items:center!important;flex:0 0 40px!important;min-width:40px!important;width:40px!important;min-height:40px!important;height:40px!important;padding:0!important;margin:0!important;border:1px solid #d8bc79!important;border-radius:50%!important;background:#fff4ce!important;color:#245b48!important;font:28px/1 sans-serif!important;letter-spacing:0;box-shadow:none}
+body:is(.fr-theme,.tiny-theme) dialog>header :is(button[aria-label^="ปิด"],[data-close]) svg{display:block;width:20px;height:20px;pointer-events:none}
+@media(min-width:900px){body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar){inset:6px 18px auto;height:44px}body:is(.fr-theme,.tiny-theme) main.in-game>header.game-header{height:50px;min-height:50px;flex-basis:50px}body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) nav>button,body:is(.fr-theme,.tiny-theme) .game-header .audio-settings>summary{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;top:6px}body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) [data-help],body.fr-theme .fr-heading [data-fr-help]{right:164px}body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) [data-card-reference]{right:112px}body:is(.fr-theme,.tiny-theme) :is(.fr-heading,.tiny-toolbar) [data-settings],body.fr-theme .fr-heading [data-fr-settings]{right:8px}body:is(.fr-theme,.tiny-theme) .game-header .audio-settings{right:60px!important;top:6px!important}}
+@media(max-width:360px){body.tiny-theme .tiny-toolbar .tiny-brand{font-size:20px}}

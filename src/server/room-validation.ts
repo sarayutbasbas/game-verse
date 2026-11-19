@@ -1,3 +1,12 @@
+import {validateState as validateHunterState} from "../games/dividend-hunter/engine.js";
+import {validateState as validateHighLowState} from "../games/high-low-scoreboard/engine.js";
+import {validateState as validateCrashState} from "../games/stock-market-crash/engine.js";
+import {validateSpiritState} from '../games/spirit-island/validation.js';
+import {validOptions as validSpiritOptions} from '../games/spirit-island/engine.js';
+import {validateTinyState} from '../games/tiny-towns/validation.js';
+import {validOptions as validTinyOptions} from '../games/tiny-towns/engine.js';
+import {validateFridayState} from '../games/friday/validation.js';
+import {validateWealthState} from '../games/wealth-of-nations/validation.js';
 import {validateFlipState} from '../games/flip-7/validation.js';
 import {validateCatchState} from '../games/catch-sketch/validation.js';
 import {validateMuffinState} from '../games/muffin-time/validation.js';
@@ -57,8 +66,8 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
-  if ([r.flip7,r.catchSketch,r.muffin,r.madness,r.justOne,r.bombBusters,r.courtisans,r.trio,r.castle,r.powerPets,r.loveLetter,r.soundsFishy,r.perch, r.draftosaurus, r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus, r.takeTime].filter(Boolean).length > 1) return false;
-  const s = r.flip7 ?? r.catchSketch ?? r.muffin ?? r.madness ?? r.justOne ?? r.bombBusters ?? r.courtisans ?? r.trio ?? r.castle ?? r.powerPets ?? r.loveLetter ?? r.soundsFishy ?? r.perch ?? r.draftosaurus ?? r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus ?? r.takeTime;
+  if ([r.spiritIsland,r.tiny,r.friday,r.wealth,r.flip7,r.catchSketch,r.muffin,r.madness,r.justOne,r.bombBusters,r.courtisans,r.trio,r.castle,r.powerPets,r.loveLetter,r.soundsFishy,r.perch, r.draftosaurus, r.game, r.duel, r.azul, r.calico, r.wonders, r.jaipur, r.pixies, r.harmonies, r.sky, r.ck, r.locus, r.takeTime,r.crash,r.hunter,r.highLow].filter(Boolean).length > 1) return false;
+  const s = r.spiritIsland ?? r.tiny ?? r.friday ?? r.wealth ?? r.flip7 ?? r.catchSketch ?? r.muffin ?? r.madness ?? r.justOne ?? r.bombBusters ?? r.courtisans ?? r.trio ?? r.castle ?? r.powerPets ?? r.loveLetter ?? r.soundsFishy ?? r.perch ?? r.draftosaurus ?? r.game ?? r.duel ?? r.azul ?? r.calico ?? r.wonders ?? r.jaipur ?? r.pixies ?? r.harmonies ?? r.sky ?? r.ck ?? r.locus ?? r.takeTime ?? r.crash ?? r.hunter ?? r.highLow;
   if(r.locusMode!==undefined&&!["shared-table","full-mobile"].includes(r.locusMode))return false;
   if(r.harmoniesMode!==undefined&&!["shared-table","full-mobile"].includes(r.harmoniesMode))return false;
   if(r.ckMode!==undefined&&!["shared-table","full-mobile"].includes(r.ckMode))return false;
@@ -70,6 +79,12 @@ export function validateRoomRecord(r: any): boolean {
   if(r.madnessOptions!==undefined&&(r.gameId!=="mansions-of-madness"||!r.madnessOptions||Object.keys(r.madnessOptions).sort().join(',')!=='expansion,scenario'||typeof r.madnessOptions.expansion!=='boolean'||!Object.hasOwn(MADNESS_SCENARIOS,r.madnessOptions.scenario)||MADNESS_SCENARIOS[r.madnessOptions.scenario as keyof typeof MADNESS_SCENARIOS].expansion&&!r.madnessOptions.expansion))return false;
   if(r.madness&&r.madnessOptions&&(r.madness.scenario!==r.madnessOptions.scenario||r.madness.expansion!==r.madnessOptions.expansion))return false;
   if(r.catchDifficulty!==undefined&&(r.gameId!=="catch-sketch"||!["easy","hard"].includes(r.catchDifficulty)))return false;
+  if(r.spiritOptions!==undefined&&(r.gameId!=='spirit-island'||!validSpiritOptions(r.spiritOptions)))return false;
+  if(r.spiritIsland&&JSON.stringify(r.spiritIsland.options)!==JSON.stringify(r.spiritOptions??{blightCard:false,progression:true}))return false;
+  if(r.tinyOptions!==undefined&&(r.gameId!=='tiny-towns'||!validTinyOptions(r.tinyOptions)))return false;
+  if(r.tiny&&JSON.stringify(r.tiny.options)!==JSON.stringify(r.tinyOptions??{randomBuildings:false,monuments:true,cavern:false,mode:'master'}))return false;
+  if(r.fridayLevel!==undefined&&(r.gameId!=='friday'||![1,2,3,4].includes(r.fridayLevel)))return false;
+  if(r.friday&&r.friday.level!==(r.fridayLevel??1))return false;
   if (!s) return true;
   if (
     !supportsPlayers(g, r.players.length) ||
@@ -81,6 +96,9 @@ export function validateRoomRecord(r: any): boolean {
     )
   )
     return false;
+  if(r.hunter)return r.gameId==="dividend-hunter"&&validateHunterState(s);
+  if(r.highLow)return r.gameId==="high-low-scoreboard"&&validateHighLowState(s);
+  if(r.crash)return r.gameId==="stock-market-crash"&&validateCrashState(s);
   if(r.takeTime)return r.gameId==="take-time"&&validateTakeTimeState(s);
   if(r.locus)return r.gameId==="locus"&&validateLocusState(s);
   if(r.ck)return r.gameId==="critter-kitchen"&&validateCKState(s);
@@ -89,6 +107,10 @@ export function validateRoomRecord(r: any): boolean {
   if(r.bombBusters)return r.gameId==="bomb-busters"&&validateBombState(s);
   if(r.courtisans)return r.gameId==="courtisans"&&validateCourtState(s);
   if(r.madness)return r.gameId==="mansions-of-madness"&&validateMadnessState(s);
+  if(r.spiritIsland)return r.gameId==='spirit-island'&&validateSpiritState(s);
+  if(r.tiny)return r.gameId==='tiny-towns'&&validateTinyState(s);
+  if(r.friday)return r.gameId==='friday'&&validateFridayState(s);
+  if(r.wealth)return r.gameId==="wealth-of-nations"&&validateWealthState(s);
   if(r.flip7)return r.gameId==="flip-7"&&validateFlipState(s);
   if(r.catchSketch)return r.gameId==="catch-sketch"&&r.catchSketch.difficulty===(r.catchDifficulty??'easy')&&validateCatchState(s);
   if(r.muffin)return r.gameId==="muffin-time"&&validateMuffinState(s);

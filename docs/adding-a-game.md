@@ -14,3 +14,7 @@ Home ใช้ shared metadata ไม่ hardcode card รายเกม ไม
 Metadata sources: [Camel Up Second Edition, Asmodee USA](https://store.asmodee.com/products/camel-up) ระบุฉบับ2018/3–8คน/เฉลี่ย30นาที; [Dracula vs Van Helsing, Asmodee Italia](https://www.asmodee.it/product/dracula-vs-van-helsing/) ระบุ2คน/30นาที/strategia-tattica. หมวดหมู่เป็นคำอธิบาย UI จากข้อมูลการเล่น ไม่ใช้ complexity rating ที่เดาขึ้นเอง
 
 Azul ภาคหลักเพิ่ม typed state branch `azul` พร้อม validator ตรวจ tile conservation 100 ชิ้นและ 20 ต่อสี. Metadata 2–4 คน/30–45 นาทีจาก Next Move Games (durationMinutes ใช้ค่าบน 45); UI และ engine ใช้ WALL mapping กลางชุดเดียว.
+
+เวลาเล่น: เพิ่มช่วง min/max และแหล่งอ้างอิงที่ตรวจสอบแล้วใน `src/shared/play-times.ts` ด้วย พร้อม note หากเป็นเวลาต่อภารกิจหรือโหมดเฉพาะ และให้ `durationMinutes` ใน catalog เท่ากับค่าบนของช่วง ดู [แหล่งข้อมูลเวลา](ui/play-times.md)
+
+Spirit Island is another example of simultaneous planning with serialized resolution: see `selectors.ts`, `resolve.ts`, and `invaders.ts` for legal targeting, recipient-controlled choices, action boundaries and ongoing/triggered effects. Rendering consumes projected legal choices and never interprets Power effects locally.

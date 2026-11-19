@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-02",
+  "generator": "Built-in image_gen tool; five independent generation calls, no CLI fallback",
+  "artDirection": "European ink/gouache island adventure; new illustrations, newly typeset Thai rules and numeric card faces",
+  "assets": [
+    {
+      "name": "cover",
+      "source": "exec-537a05e1-7a77-4423-8033-fbfeeeb1ce6c.png",
+      "prompt": "Use case: product-mockup. Create a beautiful premium board game box for \"FRIDAY\", solo island adventure. One upright physically three dimensional game box, front and left spine visible, centered with comfortable margin, genuine transparent background, no scenery outside the box. Front artwork: charming stranded bearded Robinson with messy orange hair, patched cream shirt, red headscarf and wooden spear on a vivid tropical beach, friendly helpful island companion, palms, turquoise sea, tiny pirate ship offshore. Cute expressive hand drawn European cartoon, bold ink outlines, warm watercolor gouache textures, playful adventurous feeling close to classic family island survival board games. Readable large title FRIDAY, small subtitle SOLO ADVENTURE. No publisher logos or extra words. The box itself has rich leafy green sides and ivory border; 4:5 portrait framing.",
+      "output": "public/art/friday/cover.webp",
+      "transparent": true
+    },
+    {
+      "name": "island",
+      "source": "exec-ec623459-383c-415f-b51f-eae5ca843092.png",
+      "prompt": "Use case: illustration-story. Full bleed landscape background artwork for a solo tropical survival card game FRIDAY. Charming hand drawn European cartoon with confident ink outlines, watercolor gouache, warm sandy beach, gently curving turquoise cove, palms to the sides, distant small pirate schooners on horizon, cozy improvised campsite and wrecked wooden boat at bottom left. Top down slightly angled tabletop landscape feeling, very quiet broad pale sandy central area for readable game cards and UI, no text or numbers, no UI, no boxes, no border. Cheerful, cute, polished, vivid teal and jungle green with warm golden sand, visually coherent adventure island.",
+      "output": "public/art/friday/island.webp",
+      "transparent": false
+    },
+    {
+      "name": "hazards",
+      "source": "exec-6011e0dc-0833-46a2-878e-7c9536239375.png",
+      "prompt": "Use case: illustration-story. Asset atlas for a cute European cartoon island survival card game. EXACTLY 6 separate equal rectangular illustrations in a strict 3 column by 2 row grid with clean straight boundaries. Each tile full bleed, no labels, no text, no numbers, no card frames. Row1 left: a stranded orange bearded castaway in a red headscarf and patched cream shirt paddling a raft toward a shipwreck in turquoise water. Row1 middle: same castaway cautiously exploring a sunny tropical island path and a colorful parrot. Row1 right: same castaway exploring a mysterious lush jungle with waterfall and tangled roots. Row2 left: a funny grumpy wild tiger and snake confronting the castaway in jungle, family friendly not frightening. Row2 middle: a comic band of mischievous masked island raiders at a wooden barricade, no ethnic caricature. Row2 right: dramatic pirate schooner approaching the tropical coast with billowing sails, playful skull flag. Cohesive warm hand drawn ink and gouache storybook aesthetic, expressive cute characters, high detail. All six compositions fully contained within own tile.",
+      "output": "public/art/friday/hazards.webp",
+      "transparent": false
+    },
+    {
+      "name": "skills",
+      "source": "exec-21df39e6-e520-4586-bb72-4b781304c2ee.png",
+      "prompt": "Use case: illustration-story. Asset atlas for cute tropical island survival card game FRIDAY. EXACTLY 12 separate equal rectangular illustrations in a strict 4 columns by 3 rows grid, clean straight boundaries, no text numbers or frames. Same charming orange bearded castaway wearing red headscarf and patched cream shirt appears consistently. Row1 left: reading a leaf bound book beside campfire; Row1 second: studying a friendly parrot to copy it; Row1 third: discovering a clever idea holding a bamboo tool; Row1 fourth: hiding supplies in hollow log. Row2 left: arranging useful rope and coconut equipment; Row2 second: planning with a hand drawn map on sand; Row2 third: eating delicious tropical fruits; Row2 fourth: holding handmade wooden spear proudly. Row3 left: practicing spear throwing at coconut target; Row3 second: looking through bamboo telescope; Row3 third: celebrating survival with raised fist; Row3 fourth: exhausted yawning old castaway resting by palm, humorous tired expression. Cohesive polished European hand drawn ink and warm gouache illustration, expressive cute rounded characters, saturated greens and teal, warm sand, complete art within each tile.",
+      "output": "public/art/friday/skills.webp",
+      "transparent": false
+    },
+    {
+      "name": "pirates",
+      "source": "exec-b80fffeb-3e5b-4426-a407-c81ede18a0ab.png",
+      "prompt": "Use case: illustration-story. Asset atlas for FRIDAY solo island survival card game, matching charming European hand drawn ink and warm watercolor gouache cartoon. EXACTLY TEN complete separate pirate ship illustrations arranged in a STRICT 5 column by 2 row grid of equal portrait panels, straight clean boundaries, no text, numbers, card frames, or UI. Each panel shows one different playful pirate schooner at sea near a tropical island, dramatic visible hull and sails, cute friendly pirate crew, no violence. Top row left to right: small scout schooner with pale cream sails; swift narrow ship with coral red sails; sturdy cannon ship with ochre sails; deep sea brig with teal blue sails; majestic captain flagship with dark green sails. Bottom row left to right: toll collector pirate ship with purple sails and comic treasure chests; unusual double mast pirate ship with striped sails; enthusiastic cheerful crew ship with orange pennants; timeworn mossy pirate ship with patched burgundy sails; imposing final raider ship approaching a jungle cove with black sails. Make each ship visually distinct, engaging miniature illustration composition within its own panel, full bleed illustrated backgrounds, consistent polished classic board game cartoon art, turquoise sea and lush green island, gold light, detailed ink lines, no borders or labels.",
+      "output": "public/art/friday/pirates.webp",
+      "transparent": false
+    }
+  ],
+  "preparation": "Sharp WebP quality91. Hazard atlas 3x2 and skill atlas4x3: split on grid, inset4px per edge to remove seams, WebP quality92. Cover alpha preserved. No rule values are extracted from pictures. Pirate atlas5x2 split with3px inset, WebP92.",
+  "derived": [
+    "public/art/friday/hazards-0.webp",
+    "public/art/friday/hazards-1.webp",
+    "public/art/friday/hazards-2.webp",
+    "public/art/friday/hazards-3.webp",
+    "public/art/friday/hazards-4.webp",
+    "public/art/friday/hazards-5.webp",
+    "public/art/friday/skills-0.webp",
+    "public/art/friday/skills-1.webp",
+    "public/art/friday/skills-2.webp",
+    "public/art/friday/skills-3.webp",
+    "public/art/friday/skills-4.webp",
+    "public/art/friday/skills-5.webp",
+    "public/art/friday/skills-6.webp",
+    "public/art/friday/skills-7.webp",
+    "public/art/friday/skills-8.webp",
+    "public/art/friday/skills-9.webp",
+    "public/art/friday/skills-10.webp",
+    "public/art/friday/skills-11.webp",
+    "public/art/friday/pirate-0.webp",
+    "public/art/friday/pirate-1.webp",
+    "public/art/friday/pirate-2.webp",
+    "public/art/friday/pirate-3.webp",
+    "public/art/friday/pirate-4.webp",
+    "public/art/friday/pirate-5.webp",
+    "public/art/friday/pirate-6.webp",
+    "public/art/friday/pirate-7.webp",
+    "public/art/friday/pirate-8.webp",
+    "public/art/friday/pirate-9.webp"
+  ]
+}

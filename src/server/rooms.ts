@@ -1,3 +1,17 @@
+import * as hunterRules from "../games/dividend-hunter/engine.js";
+import type {HunterState,HunterView} from "../games/dividend-hunter/types.js";
+import * as siRules from '../games/spirit-island/engine.js';
+import {DEFAULT_OPTIONS as SI_DEFAULT} from '../games/spirit-island/data.js';
+import type {SpiritState,SpiritAction,SpiritView,SpiritOptions} from '../games/spirit-island/types.js';
+import * as tinyRules from '../games/tiny-towns/engine.js';
+import {DEFAULT_OPTIONS as TINY_DEFAULT} from '../games/tiny-towns/data.js';
+import type {TinyState,TinyAction,TinyView,TinyOptions} from '../games/tiny-towns/types.js';
+import * as fridayRules from '../games/friday/engine.js';
+import type {FridayState,FridayAction,FridayView} from '../games/friday/types.js';
+import * as wealthRules from '../games/wealth-of-nations/engine.js';
+import type {WealthState,WealthAction,WealthView} from '../games/wealth-of-nations/types.js';
+import {cells as wealthCells} from '../games/wealth-of-nations/geometry.js';
+import {stock as wealthStock,TILE_TOTAL as WEALTH_TILES} from '../games/wealth-of-nations/data.js';
 import * as flip7Rules from '../games/flip-7/engine.js';
 import type {FlipState,FlipAction,FlipView} from '../games/flip-7/types.js';
 import * as catchRules from '../games/catch-sketch/engine.js';
@@ -80,6 +94,10 @@ import {
 } from "../games/dracula-vs-van-helsing/types.js";
 import { metadata } from "../shared/catalog.js";
 import type { PlatformStore } from "./store.js";
+import * as crashRules from "../games/stock-market-crash/engine.js";
+import type {CrashState,CrashView} from "../games/stock-market-crash/types.js";
+import * as highLowRules from "../games/high-low-scoreboard/engine.js";
+import type {HighLowState,HighLowView} from "../games/high-low-scoreboard/types.js";
 import type { Principal } from "./auth.js";
 export const ROOM_IDLE_MS = 10 * 60 * 60 * 1000;
 export const HARMONIES_ROOM_IDLE_MS = 30 * 24 * 60 * 60 * 1000;
@@ -94,6 +112,9 @@ interface Session {
   receipts: Map<string, Ack>;
 }
 interface Room {
+  hunter?: HunterState;
+  highLow?: HighLowState;
+  crash?: import("../games/stock-market-crash/types.js").CrashState;
   ownerId?: string;
   legacy?: boolean;
   rulesVersion?: string;
@@ -112,6 +133,13 @@ interface Room {
   madnessOptions?: {scenario:ScenarioId;expansion:boolean};
   catchSketch?: CatchState;
   catchDifficulty?: CatchDifficulty;
+  spiritIsland?:SpiritState;
+  spiritOptions?:SpiritOptions;
+  tiny?:TinyState;
+  tinyOptions?:TinyOptions;
+  friday?: FridayState;
+  fridayLevel?:1|2|3|4;
+  wealth?: WealthState;
   flip7?: FlipState;
   muffin?: MuffinState;
   justOne?: JustOneState;
@@ -300,7 +328,7 @@ export class RoomService {
           correlationId: randomUUID(),
           gameId: r?.gameId,
           rulesVersion: r?.rulesVersion,
-          phase: r?.game?.phase ?? r?.duel?.phase ?? r?.azul?.phase ?? r?.calico?.phase ?? r?.wonders?.phase ?? r?.jaipur?.phase ?? r?.locus?.phase ?? r?.ck?.phase ?? r?.takeTime?.phase ?? r?.sky?.phase ?? r?.harmonies?.phase ?? r?.pixies?.phase ?? r?.bombBusters?.phase ?? r?.courtisans?.phase ?? r?.madness?.phase ?? r?.flip7?.phase ?? r?.catchSketch?.phase ?? r?.muffin?.phase ?? r?.justOne?.phase ?? r?.trio?.phase ?? r?.castle?.phase ?? r?.powerPets?.phase ?? r?.loveLetter?.phase ?? r?.soundsFishy?.phase ?? r?.perch?.phase ?? r?.draftosaurus?.phase ?? "lobby",
+          phase: r?.game?.phase ?? r?.duel?.phase ?? r?.azul?.phase ?? r?.calico?.phase ?? r?.wonders?.phase ?? r?.jaipur?.phase ?? r?.locus?.phase ?? r?.ck?.phase ?? r?.takeTime?.phase ?? r?.sky?.phase ?? r?.harmonies?.phase ?? r?.pixies?.phase ?? r?.bombBusters?.phase ?? r?.courtisans?.phase ?? r?.madness?.phase ?? r?.tiny?.phase ?? r?.friday?.phase ?? r?.wealth?.phase ?? r?.flip7?.phase ?? r?.catchSketch?.phase ?? r?.muffin?.phase ?? r?.justOne?.phase ?? r?.trio?.phase ?? r?.castle?.phase ?? r?.powerPets?.phase ?? r?.loveLetter?.phase ?? r?.soundsFishy?.phase ?? r?.perch?.phase ?? r?.draftosaurus?.phase ?? "lobby",
           revision: r?.revision,
         }),
       );
@@ -328,13 +356,13 @@ export class RoomService {
         code: r.code,
         lastVisitedAt: Math.max(0,...r.sessions.filter(s=>s.userId===userId).map(s=>s.lastVisitedAt??0)) || undefined,
         gameId: r.gameId,
-        phase: r.game?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.locus?.phase ?? r.ck?.phase ?? r.takeTime?.phase ?? r.sky?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? r.bombBusters?.phase ?? r.courtisans?.phase ?? r.madness?.phase ?? r.flip7?.phase ?? r.catchSketch?.phase ?? r.muffin?.phase ?? r.justOne?.phase ?? r.trio?.phase ?? r.castle?.phase ?? r.powerPets?.phase ?? r.loveLetter?.phase ?? r.soundsFishy?.phase ?? r.perch?.phase ?? r.draftosaurus?.phase ?? "lobby",
+        phase: r.game?.phase ?? r.hunter?.phase ?? r.highLow?.phase ?? r.crash?.phase ?? r.duel?.phase ?? r.azul?.phase ?? r.calico?.phase ?? r.wonders?.phase ?? r.jaipur?.phase ?? r.locus?.phase ?? r.ck?.phase ?? r.takeTime?.phase ?? r.sky?.phase ?? r.harmonies?.phase ?? r.pixies?.phase ?? r.bombBusters?.phase ?? r.courtisans?.phase ?? r.madness?.phase ?? r.spiritIsland?.phase ?? r.tiny?.phase ?? r.friday?.phase ?? r.wealth?.phase ?? r.flip7?.phase ?? r.catchSketch?.phase ?? r.muffin?.phase ?? r.justOne?.phase ?? r.trio?.phase ?? r.castle?.phase ?? r.powerPets?.phase ?? r.loveLetter?.phase ?? r.soundsFishy?.phase ?? r.perch?.phase ?? r.draftosaurus?.phase ?? "lobby",
         owner: r.ownerId === userId,
         player: r.players.some((p) => p.userId === userId),
       }));
   }
   private hasStarted(room:Room){
-    return !!(room.flip7||room.catchSketch||room.madness||room.muffin||room.justOne||room.bombBusters||room.courtisans||room.trio||room.castle||room.powerPets||room.loveLetter||room.soundsFishy||room.game||room.duel||room.azul||room.calico||room.wonders||room.jaipur||room.perch||room.draftosaurus||room.pixies||room.harmonies||room.sky||room.ck||room.locus||room.takeTime);
+    return !!(room.spiritIsland||room.tiny||room.friday||room.wealth||room.flip7||room.catchSketch||room.madness||room.muffin||room.justOne||room.bombBusters||room.courtisans||room.trio||room.castle||room.powerPets||room.loveLetter||room.soundsFishy||room.game||room.duel||room.azul||room.calico||room.wonders||room.jaipur||room.perch||room.draftosaurus||room.pixies||room.harmonies||room.sky||room.ck||room.locus||room.takeTime||room.crash||room.hunter||room.highLow);
   }
   /** Navigation activity only: never removes a seat or changes game revision. */
   visit(userId:string,code:string):void{
@@ -437,7 +465,7 @@ export class RoomService {
     if (!r) throw Error("ไม่พบห้อง");
     if (close && r.ownerId !== userId)
       throw Error("ผู้สร้างห้องเท่านั้นที่ปิดห้องได้");
-    if (!close && (r.flip7 || r.catchSketch || r.madness || r.muffin || r.justOne || r.bombBusters || r.courtisans || r.trio || r.castle || r.powerPets || r.loveLetter || r.soundsFishy || r.game || r.duel || r.azul || r.calico || r.wonders || r.jaipur || r.perch || r.draftosaurus || r.pixies || r.harmonies || r.sky || r.ck || r.locus || r.takeTime))
+    if (!close && (r.spiritIsland || r.tiny || r.friday || r.wealth || r.flip7 || r.catchSketch || r.madness || r.muffin || r.justOne || r.bombBusters || r.courtisans || r.trio || r.castle || r.powerPets || r.loveLetter || r.soundsFishy || r.game || r.duel || r.azul || r.calico || r.wonders || r.jaipur || r.perch || r.draftosaurus || r.pixies || r.harmonies || r.sky || r.ck || r.locus || r.takeTime || r.crash || r.hunter || r.highLow))
       throw Error(
         "เกมเริ่มแล้ว ที่นั่งยังเก็บไว้ให้กลับมาเล่น ออกถาวรได้ในห้องรอ",
       );
@@ -593,6 +621,48 @@ export class RoomService {
       const base:MadnessView=room.madness?(player?madnessRules.getPlayerView(room.madness,player,room.code,room.revision):madnessRules.getDisplayView(room.madness,room.code,room.revision)):{gameId:'mansions-of-madness',code:room.code,revision:room.revision,phase:'lobby',...options,round:1,limit:MADNESS_SCENARIOS[options.scenario].rounds,turn:'',evidence:0,evidenceNeeded:3,heroes:[],rooms:[],doors:[],monsters:[],log:[],winners:[],players:room.players.map(p=>({id:p.id,name:p.name,ready:!!p.ready}))};
       for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
       if(player&&!base.me)base.me={id:player,heroes:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='spirit-island'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:SpiritView=room.spiritIsland?(player?siRules.getPlayerView(room.spiritIsland,player,room.code,room.revision):siRules.getDisplayView(room.spiritIsland,room.code,room.revision)):{...siRules.getDisplayView(siRules.createInitialState(room.players.length?room.players:[{id:'lobby',name:''}],()=>0),room.code,room.revision),phase:'lobby',options:room.spiritOptions??{...SI_DEFAULT},players:room.players.map(p=>({id:p.id,name:p.name,board:'',energy:0,top:0,bottom:0,destroyed:0,handCount:0,discard:[],played:[],ready:!!p.ready,income:false,bonusPlays:0,bonusRange:0,elements:{sun:0,moon:0,fire:0,air:0,water:0,earth:0,plant:0,animal:0},drowned:0}))};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(player&&!base.me)base.me={id:player,hand:[],growthLeft:[],progression:[],legal:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='tiny-towns'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:TinyView=room.tiny?(player?tinyRules.getPlayerView(room.tiny,player,room.code,room.revision):tinyRules.getDisplayView(room.tiny,room.code,room.revision)):{gameId:'tiny-towns',code:room.code,revision:room.revision,turn:'',phase:'lobby',round:1,options:room.tinyOptions??{...TINY_DEFAULT},cards:[],offer:[],last:'',winners:[],players:room.players.map(p=>({id:p.id,name:p.name,board:Array(16).fill(null),ready:!!p.ready,placed:false,masterTurns:0,cavern:0,watch:[],pending:0,score:{total:0,empty:16,penalty:-16,fed:[],cottages:0,items:[]}}))};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(player&&!base.me)base.me={id:player,offer:[],legal:[],builds:[],effects:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='friday'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:FridayView=room.friday?(player?fridayRules.getPlayerView(room.friday,player,room.code,room.revision):fridayRules.getDisplayView(room.friday,room.code,room.revision)):{gameId:'friday',code:room.code,revision:room.revision,turn:room.players[0]?.id??'',phase:'lobby',level:room.fridayLevel??1,step:0,life:20,maxLife:22,round:1,deckCount:18,agingCount:10,hazardCount:30,discard:[],hazardDiscard:[],destroyed:[],offer:[],pirates:[],defeated:[],played:[],budget:0,evaluation:{power:0,target:0,free:0,cost:1,tax:0,zeroed:[],counted:[],doubled:[]},last:'',players:room.players.map(p=>({id:p.id,name:p.name,ready:!!p.ready}))};
+      for(const p of base.players){const profile=room.players.find(x=>x.id===p.id)!;p.name=profile.name;p.avatar=profile.avatar;p.connected=connected.has(p.id);}
+      if(player&&!base.me)base.me={id:player,legal:[],peek:[]};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='wealth-of-nations'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:WealthView=room.wealth?(player?wealthRules.getPlayerView(room.wealth,player,room.code,room.revision):wealthRules.getDisplayView(room.wealth,room.code,room.revision)):{gameId:'wealth-of-nations',code:room.code,revision:room.revision,phase:'lobby',epoch:'',round:1,first:'',turn:'',passes:0,draft:0,final:false,available:[],board:wealthCells(),tiles:{...WEALTH_TILES},markets:wealthStock(20,20,20,15,15),supply:wealthStock(),automation:[],blocs:[],prepared:[],results:[],winners:[],last:{id:0,text:''},players:room.players.map(p=>({id:p.id,name:p.name,nation:-1,notes:0,goods:wealthStock(),flags:0,industries:0,ready:!!p.ready}))};
+      for(const p of base.players){const seat=room.players.find(x=>x.id===p.id)!;p.name=seat.name;p.connected=this.connected(room,p.id);p.avatar=seat.avatar;p.ready=seat.ready;}
+      if(player&&!base.me)base.me={id:player,cash:0,legal:{actions:[],packages:[],claims:[],builds:[],automate:[],buy:[],sell:[],loan:20,blocs:[],nations:[]}};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='dividend-hunter'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:HunterView=room.hunter?(player?hunterRules.getPlayerView(room.hunter,player,room.code,room.revision):hunterRules.getDisplayView(room.hunter,room.code,room.revision)):{gameId:'dividend-hunter',code:room.code,revision:room.revision,phase:'lobby',round:1,rounds:5,limit:120,submitted:0,history:[],winners:[],players:room.players.map(p=>({id:p.id,name:p.name,score:0,submitted:false,ready:!!p.ready}))};
+      for(const p of base.players){const seat=room.players.find(x=>x.id===p.id)!;p.name=seat.name;p.connected=this.connected(room,p.id);p.avatar=seat.avatar;p.ready=seat.ready;}
+      if(player&&!base.me)base.me={id:player};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='high-low-scoreboard'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:HighLowView=room.highLow?(player?highLowRules.getPlayerView(room.highLow,player,room.code,room.revision):highLowRules.getDisplayView(room.highLow,room.code,room.revision)):{gameId:'high-low-scoreboard',code:room.code,revision:room.revision,phase:'lobby',round:1,rounds:10,submitted:0,history:[],winners:[],players:room.players.map(p=>({id:p.id,name:p.name,score:0,submitted:false,ready:!!p.ready}))};
+      for(const p of base.players){const seat=room.players.find(x=>x.id===p.id)!;p.name=seat.name;p.connected=this.connected(room,p.id);p.avatar=seat.avatar;p.ready=seat.ready;}
+      if(player&&!base.me)base.me={id:player};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
+    }
+    if(room.gameId==='stock-market-crash'){
+      const player=session?.role==='player'?session.playerId:undefined;
+      const base:CrashView=room.crash?(player?crashRules.getPlayerView(room.crash,player,room.code,room.revision):crashRules.getDisplayView(room.crash,room.code,room.revision)):{gameId:'stock-market-crash',code:room.code,revision:room.revision,phase:'lobby',round:1,rounds:5,pot:200,limit:100,liveTotal:0,submitted:0,revealLive:true,history:[],winners:[],players:room.players.map(p=>({id:p.id,name:p.name,score:0,submitted:false,ready:!!p.ready}))};
+      for(const p of base.players){const seat=room.players.find(x=>x.id===p.id)!;p.name=seat.name;p.connected=this.connected(room,p.id);p.avatar=seat.avatar;p.ready=seat.ready;}
+      if(player&&!base.me)base.me={id:player};if(base.me)base.me.canManage=this.canManage(room,session!);base.canControl=!player&&!!session&&this.canManage(room,session);return base;
     }
     if(room.gameId==='flip-7'){
       const player=session?.role==='player'?session.playerId:undefined;
@@ -1042,7 +1112,7 @@ export class RoomService {
         const maxPlayers = metadata(room.gameId)!.maxPlayers;
         if (room.players.length >= maxPlayers)
           throw Error(`ห้องเต็ม มีผู้เล่นครบ ${maxPlayers} คนแล้ว`);
-        if (room.flip7 || room.catchSketch || room.madness || room.muffin || room.justOne || room.bombBusters || room.courtisans || room.trio || room.castle || room.powerPets || room.loveLetter || room.soundsFishy || room.game || room.duel || room.azul || room.calico || room.wonders || room.jaipur || room.perch || room.draftosaurus || room.pixies || room.harmonies || room.sky || room.ck || room.locus || room.takeTime)
+        if (room.spiritIsland || room.tiny || room.friday || room.wealth || room.flip7 || room.catchSketch || room.madness || room.muffin || room.justOne || room.bombBusters || room.courtisans || room.trio || room.castle || room.powerPets || room.loveLetter || room.soundsFishy || room.game || room.duel || room.azul || room.calico || room.wonders || room.jaipur || room.perch || room.draftosaurus || room.pixies || room.harmonies || room.sky || room.ck || room.locus || room.takeTime || room.crash || room.hunter || room.highLow)
           throw Error("เกมเริ่มแล้ว เข้าร่วมเกมใหม่เมื่อสร้างห้องใหม่");
         if (
           typeof m.name !== "string" ||
@@ -1160,6 +1230,13 @@ export class RoomService {
         }else if(room.gameId==="bomb-busters"){this.bombCommand(room,s,m.action);
         }else if(room.gameId==="courtisans"){this.courtCommand(room,s,m.action);
         }else if(room.gameId==="mansions-of-madness"){this.madnessCommand(room,s,m.action);
+        }else if(room.gameId==="spirit-island"){this.spiritCommand(room,s,m.action);
+        }else if(room.gameId==="tiny-towns"){this.tinyCommand(room,s,m.action);
+        }else if(room.gameId==="friday"){this.fridayCommand(room,s,m.action);
+        }else if(room.gameId==="wealth-of-nations"){this.wealthCommand(room,s,m.action);
+        }else if(room.gameId==="dividend-hunter"){this.hunterCommand(room,s,m.action);
+        }else if(room.gameId==="high-low-scoreboard"){this.highLowCommand(room,s,m.action);
+        }else if(room.gameId==="stock-market-crash"){this.crashCommand(room,s,m.action);
         }else if(room.gameId==="flip-7"){this.flip7Command(room,s,m.action);
         }else if(room.gameId==="catch-sketch"){this.catchCommand(room,s,m.action);
         }else if(room.gameId==="muffin-time"){this.muffinCommand(room,s,m.action);
@@ -1305,11 +1382,14 @@ export class RoomService {
   /** Authoritative fresh deal; keep memberships, reconnect sessions and room settings. */
   private restartRoom(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
     if(Object.keys(action).join(',')!=='type'||!this.canManage(room,session))throw Error('เริ่มเกมใหม่ได้เฉพาะหัวห้อง');
-    const state=room.flip7??room.catchSketch??room.madness??room.muffin??room.justOne??room.bombBusters??room.courtisans??room.trio??room.castle??room.powerPets??room.loveLetter??room.soundsFishy??room.game??room.duel??room.azul??room.calico??room.wonders??room.jaipur??room.perch??room.draftosaurus??room.pixies??room.harmonies??room.sky??room.ck??room.locus??room.takeTime;
+    const state=room.spiritIsland??room.tiny??room.friday??room.wealth??room.flip7??room.catchSketch??room.madness??room.muffin??room.justOne??room.bombBusters??room.courtisans??room.trio??room.castle??room.powerPets??room.loveLetter??room.soundsFishy??room.game??room.duel??room.azul??room.calico??room.wonders??room.jaipur??room.perch??room.draftosaurus??room.pixies??room.harmonies??room.sky??room.ck??room.locus??room.takeTime??room.crash??room.hunter??room.highLow;
     if(!state)throw Error('เริ่มเกมก่อนจึงจะเริ่มใหม่ได้');
     if(room.gameId==='name-it')throw Error('เกมนี้เล่นบนเครื่องเดียว');
     gameAdapters[room.gameId].validatePlayers(room.players);
     switch(room.gameId){
+      case 'dividend-hunter':room.hunter=hunterRules.createInitialState(room.players,room.hunter?{rounds:room.hunter.rounds,limit:room.hunter.limit}:hunterRules.defaults);break;
+      case 'high-low-scoreboard':room.highLow=highLowRules.createInitialState(room.players,this.random,{rounds:room.highLow?.rounds??highLowRules.defaults.rounds});break;
+      case 'stock-market-crash':room.crash=crashRules.createInitialState(room.players,room.crash?{rounds:room.crash.rounds,pot:room.crash.pot,limit:room.crash.limit}:crashRules.defaults);break;
       case 'take-time':room.takeTime=takeTimeRules.createInitialState(room.players,this.random);room.takeTime.matchId=randomUUID();break;
       case 'locus':room.locus=locusRules.createInitialState(room.players,this.random);room.locus.matchId=randomUUID();break;
       case 'critter-kitchen':{
@@ -1321,6 +1401,10 @@ export class RoomService {
       case 'bomb-busters':{const previous=room.bombBusters;room.bombBusters=bombRules.createInitialState(room.players,this.random,previous?.players[(previous.captain+1)%previous.players.length].id,room.bombMission??1,(previous?.attempt??0)+1);room.bombMission=room.bombBusters.mission;room.bombBusters.matchId=randomUUID();break;}
       case 'courtisans':room.courtisans=courtRules.createInitialState(room.players,this.random);room.courtisans.matchId=randomUUID();break;
       case 'mansions-of-madness':{const options=room.madnessOptions??room.madness??{scenario:'rain-house' as const,expansion:false};room.madness=madnessRules.createInitialState(room.players,this.random,undefined,options.scenario,options.expansion);room.madness.matchId=randomUUID();break;}
+      case 'spirit-island':room.spiritIsland=siRules.createInitialState(room.players,this.random,undefined,room.spiritOptions??SI_DEFAULT);room.spiritIsland.matchId=randomUUID();break;
+      case 'tiny-towns':room.tiny=tinyRules.createInitialState(room.players,this.random,undefined,room.tinyOptions??TINY_DEFAULT);room.tiny.matchId=randomUUID();break;
+      case 'friday':room.friday=fridayRules.createInitialState(room.players,this.random,undefined,room.fridayLevel??1);room.friday.matchId=randomUUID();break;
+      case 'wealth-of-nations':room.wealth=wealthRules.createInitialState(room.players,this.random);room.wealth.matchId=randomUUID();break;
       case 'flip-7':room.flip7=flip7Rules.createInitialState(room.players,this.random);room.flip7.matchId=randomUUID();break;
       case 'catch-sketch':room.catchSketch=catchRules.createInitialState(room.players,this.random,undefined,room.catchDifficulty??'easy');room.catchSketch.matchId=randomUUID();break;
       case 'muffin-time':room.muffin=muffinRules.createInitialState(room.players,this.random);room.muffin.matchId=randomUUID();break;
@@ -1340,6 +1424,51 @@ export class RoomService {
       case 'dracula-vs-van-helsing':room.duel=duelEngine.start(room.players,this.random);break;
       case 'camel-up':room.game=engine.start(room.players,this.random,undefined);break;
     }
+  }
+  private hunterCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.hunter||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมได้จากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'){
+      if(!this.canManage(room,session))throw Error('ให้เจ้าของห้องเริ่มเกม');
+      if(!Object.keys(action).every(k=>['type','rounds','limit'].includes(k)))throw Error('ตัวเลือกเริ่มเกมไม่ถูกต้อง');
+      if(room.hunter)throw Error('เกมเริ่มแล้ว');
+      if(room.players.length<2||room.players.length>120)throw Error('รองรับผู้เล่น 2–120 คน');
+      if(room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอทุกคนเชื่อมต่อและกดพร้อม');
+      room.hunter=hunterRules.createInitialState(room.players,{rounds:action.rounds??5,limit:action.limit??120});return;
+    }
+    if(!room.hunter)throw Error('เริ่มเกมก่อน');
+    if(action.type==='hunter-next'){if(!this.canManage(room,session))throw Error('ให้เจ้าของห้องเริ่มรอบถัดไป');room.hunter=hunterRules.applyAction(room.hunter,room.players[0].id,action);return;}
+    if(session.role!=='player')throw Error('เลือกเลขจากมือถือผู้เล่น');room.hunter=hunterRules.applyAction(room.hunter,session.playerId!,action as any);
+  }
+  private highLowCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.highLow||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมได้ในห้องรอเท่านั้น');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!this.canManage(room,session)||!['rounds,type','type'].includes(keys)||action.type==='start'&&room.highLow||action.type==='restart'&&room.highLow?.phase!=='finished')throw Error('ผู้สร้างห้องเริ่มเกมหรือเล่นใหม่ได้เมื่อพร้อม');
+      if(room.players.length<2||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 2–20 คนเชื่อมต่อและพร้อมครบ');
+      const rounds=action.type==='start'?(action as any).rounds??highLowRules.defaults.rounds:room.highLow?.rounds??highLowRules.defaults.rounds;
+      room.highLow=highLowRules.createInitialState(room.players,this.random,{rounds});return;
+    }
+    if(!room.highLow)throw Error('เกมยังไม่เริ่ม');
+    if(action.type==='hl-next'){if(!this.canManage(room,session))throw Error('ผู้สร้างห้องเริ่มข้อถัดไปได้');room.highLow=highLowRules.applyAction(room.highLow,room.players[0].id,action);return;}
+    if(session.role!=='player')throw Error('ตอบคำถามจากมือถือผู้เล่นเท่านั้น');room.highLow=highLowRules.applyAction(room.highLow,session.playerId!,action as any);
+  }
+  private crashCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.crash||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมได้ในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!this.canManage(room,session)||!['limit,pot,rounds,type','type'].includes(keys)||action.type==='start'&&room.crash||action.type==='restart'&&room.crash?.phase!=='finished')throw Error('ผู้สร้างห้องเริ่มหรือเล่นใหม่ได้เมื่อเกมพร้อม');
+      if(room.players.length<2||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 2–20 คนเชื่อมต่อและพร้อมครบ');
+      const cfg=action.type==='start'?{
+        rounds:(action as any).rounds??crashRules.defaults.rounds,
+        pot:(action as any).pot??crashRules.defaults.pot,
+        limit:(action as any).limit??crashRules.defaults.limit,
+      }:room.crash?{rounds:room.crash.rounds,pot:room.crash.pot,limit:room.crash.limit}:undefined;
+      room.crash=crashRules.createInitialState(room.players,cfg??crashRules.defaults);return;
+    }
+    if(!room.crash)throw Error('เกมยังไม่เริ่ม');
+    if(action.type==='crash-next'){if(!this.canManage(room,session))throw Error('ผู้สร้างห้องเริ่มรอบถัดไปได้');room.crash=crashRules.applyAction(room.crash,room.players[0].id,action);return;}
+    if(session.role!=='player')throw Error('ส่งเลขจากมือถือผู้เล่นเท่านั้น');room.crash=crashRules.applyAction(room.crash,session.playerId!,action as any);
   }
   private locusCommand(room:Room,session:Session,action:import("../shared/types.js").RoomAction){
     const keys=Object.keys(action).sort().join(",");
@@ -1457,6 +1586,57 @@ export class RoomService {
     }
     if(!room.madness)throw Error('เริ่มเกมก่อน');const actor=session.role==='player'?session.playerId:action.type==='mm-mythos'&&this.canManage(room,session)?room.madness.players[0].id:undefined;
     if(!actor)throw Error('เลือกการกระทำจากมือถือเจ้าของนักสืบ');room.madness=madnessRules.applyAction(room.madness,actor,action as MadnessAction,this.random);
+  }
+  private spiritCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.spiritIsland||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากหน้าผู้เล่น');p.ready=action.ready;return;}
+    if(action.type==='si-options'){if(keys!=='options,type'||room.spiritIsland||!siRules.validOptions(action.options)||!this.canManage(room,session))throw Error('หัวห้องเลือกกติกาก่อนเริ่มเกม');room.spiritOptions={...action.options};room.players.forEach(p=>p.ready=false);return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.spiritIsland||action.type==='restart'&&room.spiritIsland?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length<1||room.players.length>4||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 1–4 คนเชื่อมต่อและกดพร้อม');
+      room.spiritIsland=siRules.createInitialState(room.players,this.random,action.startingPlayerId,room.spiritOptions??SI_DEFAULT);room.spiritIsland.matchId=randomUUID();return;
+    }
+    if(!room.spiritIsland||session.role!=='player'||!session.playerId)throw Error('เลือกจากหน้าผู้เล่นของคุณ');
+    room.spiritIsland=siRules.applyAction(room.spiritIsland,session.playerId,action as SpiritAction,this.random);
+  }
+  private tinyCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.tiny||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากหน้าผู้เล่น');p.ready=action.ready;return;}
+    if(action.type==='tiny-options'){if(keys!=='options,type'||room.tiny||!tinyRules.validOptions(action.options)||!this.canManage(room,session))throw Error('หัวห้องเลือกกติกาก่อนเริ่มเกม');room.tinyOptions={...action.options};room.players.forEach(p=>p.ready=false);return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.tiny||action.type==='restart'&&room.tiny?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length<1||room.players.length>6||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 1–6 คนเชื่อมต่อและกดพร้อม');
+      room.tiny=tinyRules.createInitialState(room.players,this.random,action.startingPlayerId,room.tinyOptions??TINY_DEFAULT);room.tiny.matchId=randomUUID();return;
+    }
+    if(!room.tiny||session.role!=='player'||!session.playerId)throw Error('เลือกจากหน้าผู้เล่นของคุณ');
+    room.tiny=tinyRules.applyAction(room.tiny,session.playerId,action as TinyAction,this.random);
+  }
+  private fridayCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.friday||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากหน้าผู้เล่น');p.ready=action.ready;return;}
+    if(action.type==='fr-level'){if(keys!=='level,type'||room.friday||![1,2,3,4].includes(action.level)||!this.canManage(room,session))throw Error('หัวห้องเลือกระดับก่อนเริ่มเกม');room.fridayLevel=action.level;room.players.forEach(p=>p.ready=false);return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.friday||action.type==='restart'&&room.friday?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length!==1||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่นหนึ่งคนเชื่อมต่อและกดพร้อม');
+      room.friday=fridayRules.createInitialState(room.players,this.random,undefined,room.fridayLevel??1);room.friday.matchId=randomUUID();return;
+    }
+    if(!room.friday||session.role!=='player'||!session.playerId)throw Error('เลือกจากหน้าผู้เล่นของคุณ');
+    room.friday=fridayRules.applyAction(room.friday,session.playerId,action as FridayAction,this.random);
+  }
+  private wealthCommand(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
+    const keys=Object.keys(action).sort().join(',');
+    if(action.type==='ready'){const p=room.players.find(p=>p.id===session.playerId);if(session.role!=='player'||!p||room.wealth||keys!=='ready,type'||typeof action.ready!=='boolean')throw Error('กดพร้อมจากมือถือในห้องรอ');p.ready=action.ready;return;}
+    if(action.type==='start'||action.type==='restart'){
+      if(!['type','startingPlayerId,type'].includes(keys)||action.startingPlayerId!==undefined&&typeof action.startingPlayerId!=='string'||!this.canManage(room,session))throw Error('ให้หัวห้องเริ่มเกม');
+      if(action.type==='start'&&room.wealth||action.type==='restart'&&room.wealth?.phase!=='finished')throw Error('ยังเริ่มใหม่ไม่ได้');
+      if(room.players.length<3||room.players.length>6||room.players.some(p=>!p.ready||!this.connected(room,p.id)))throw Error('รอผู้เล่น 3–6 คนเชื่อมต่อและกดพร้อม');
+      room.wealth=wealthRules.createInitialState(room.players,this.random,action.startingPlayerId);room.wealth.matchId=randomUUID();return;
+    }
+    if(!room.wealth)throw Error('เริ่มเกมก่อน');const actor=session.role==='player'?session.playerId:undefined;
+    if(!actor)throw Error('เลือกจากมือถือของคุณ');room.wealth=wealthRules.applyAction(room.wealth,actor,action as WealthAction,this.random);
   }
   private flip7Command(room:Room,session:Session,action:import('../shared/types.js').RoomAction){
     const keys=Object.keys(action).sort().join(',');

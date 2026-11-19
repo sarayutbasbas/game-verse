@@ -1,3 +1,4 @@
+import {playTimeMarkup} from './play-time.js';
 import {localPlayHistory} from './local-play-history.js';
 import {relativeTimeMarkup} from './relative-time.js';
 import {gameBoxArt} from './game-box-art.js';
@@ -16,7 +17,7 @@ export function gallery(root:HTMLElement){
   const previous=mounts.get(root);
   if(previous){if(!root.contains(previous.section))root.replaceChildren(previous.section);void previous.update();return;}
   const section=document.createElement('section');section.className='platform-gallery';section.setAttribute('aria-labelledby','catalog-title');
-  section.innerHTML='<h1 id="catalog-title" class="sr-only">เลือกเกม</h1><section class="catalog-section recent-games" aria-labelledby="recent-title"><div class="catalog-section-heading"><h2 id="recent-title">เกมล่าสุด</h2></div><div class="cover-gallery"></div></section><section class="catalog-section all-games" aria-labelledby="all-games-title"><div class="catalog-section-heading"><h2 id="all-games-title">เกมทั้งหมด</h2></div><div class="cover-gallery" id="all-games"></div></section>';
+  section.innerHTML='<h1 id="catalog-title" class="sr-only">เลือกเกม</h1><section class="catalog-section recent-games" aria-labelledby="recent-title"><div class="catalog-section-heading"><h2 id="recent-title">เกมล่าสุด</h2></div><div class="cover-gallery" tabindex="0" role="region" aria-label="เกมล่าสุด เลื่อนซ้ายขวา"></div></section><section class="catalog-section all-games" aria-labelledby="all-games-title"><div class="catalog-section-heading"><h2 id="all-games-title">เกมทั้งหมด</h2></div><div class="cover-gallery" id="all-games"></div></section>';
   const recentSection=section.querySelector<HTMLElement>('.recent-games')!,allSection=section.querySelector<HTMLElement>('.all-games')!;
   const recentGrid=recentSection.querySelector<HTMLElement>('.cover-gallery')!,allGrid=allSection.querySelector<HTMLElement>('.cover-gallery')!;
   const details=document.createElement('details');details.className='quick-filter';
@@ -36,7 +37,7 @@ export function gallery(root:HTMLElement){
     }
     node=document.createElement('div');node.className='game-tile';node.dataset.gameId=g.id;
     const count=`${g.minPlayers===g.maxPlayers?g.minPlayers:g.minPlayers+'–'+g.maxPlayers} คน`;
-    node.innerHTML=`<a class="game-cover" href="/games/${g.id}" aria-label="เลือกเล่น ${esc(g.name)}"><figure><div class="game-box-scene"><img class="game-world" src="${g.cover}" alt="" aria-hidden="true" width="640" height="800" loading="lazy"><img class="game-box" src="${gameBoxArt(g.id)}" alt="กล่องเกม ${esc(g.name)}" width="640" height="800" decoding="async" ${index<2?'fetchpriority="high"':''}><span class="game-player-count" aria-label="ผู้เล่น ${count}">${count}</span></div><figcaption><h3 class="game-title" translate="no">${esc(g.name)}</h3>${g.playMode==='local'?'<span>เล่นบนเครื่องนี้</span>':''}${!['ready','beta'].includes(g.status)?'<span>พักการสร้างห้อง</span>':''}</figcaption></figure></a><button type="button" class="game-favorite" data-favorite="${g.id}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg></button>`;
+    node.innerHTML=`<a class="game-cover" href="/games/${g.id}" aria-label="เลือกเล่น ${esc(g.name)}"><figure><div class="game-box-scene"><img class="game-world" src="${g.cover}" alt="" aria-hidden="true" width="640" height="800" loading="lazy"><img class="game-box" src="${gameBoxArt(g.id)}" alt="กล่องเกม ${esc(g.name)}" width="640" height="800" decoding="async" ${index<2?'fetchpriority="high"':''}><span class="game-player-count" aria-label="ผู้เล่น ${count}">${count}</span></div><figcaption><h3 class="game-title" translate="no">${esc(g.name)}</h3>${playTimeMarkup(g.id)}${g.playMode==='local'?'<span>เล่นบนเครื่องนี้</span>':''}${!['ready','beta'].includes(g.status)?'<span>พักการสร้างห้อง</span>':''}</figcaption></figure></a><button type="button" class="game-favorite" data-favorite="${g.id}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg></button>`;
     syncFavorite(node,g);
     node.querySelectorAll('img').forEach(img=>{img.onerror=()=>{img.style.visibility='hidden';};});pool.set(g.id,node);return node;
   }
@@ -51,8 +52,8 @@ export function gallery(root:HTMLElement){
     const selected=Number.isInteger(count)&&count>=1&&count<=max?count:undefined;
     favorites=readFavorites();
     const matching=games.filter(g=>!selected||supportsPlayers(g,selected)).sort((a,b)=>Number(favorites.has(b.id))-Number(favorites.has(a.id)));
-    const history=[...platform.recent,...localPlayHistory()];
-    const seen=new Set<string>();const recent=[...history].sort((a,b)=>b.startedAt-a.startedAt).flatMap(r=>{const g=games.find(x=>x.id===r.gameId);if(!g||seen.has(g.id))return [];seen.add(g.id);return [g];}).slice(0,4).filter(g=>!selected||supportsPlayers(g,selected));
+    const history=[...platform.recent,...localPlayHistory()].sort((a,b)=>b.startedAt-a.startedAt);
+    const seen=new Set<string>();const recent=history.flatMap(r=>{const g=games.find(x=>x.id===r.gameId);if(!g||seen.has(g.id))return [];seen.add(g.id);return [g];}).slice(0,10).filter(g=>!selected||supportsPlayers(g,selected));
     const recentNodes=recent.map((g,i)=>card(g,pools[0],i)),nodes=matching.map((g,i)=>card(g,pools[1],i+recent.length));
     recentNodes.forEach((node,i)=>{let time=node.querySelector<HTMLElement>('.game-last-played');if(!time){time=document.createElement('span');time.className='game-last-played';node.querySelector('figcaption')!.append(time);}time.innerHTML=relativeTimeMarkup(history.find(r=>r.gameId===recent[i].id)?.startedAt,'เล่นล่าสุด');});
     // Recent artwork resolves independently of the full catalog.

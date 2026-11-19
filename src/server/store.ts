@@ -172,7 +172,7 @@ export class PlatformStore {
   recent(userId: string) {
     return this.db
       .prepare(
-        "SELECT game_id AS gameId,started_at AS startedAt FROM gv_recent WHERE user_id=? ORDER BY started_at DESC LIMIT 3",
+        "SELECT game_id AS gameId,started_at AS startedAt FROM gv_recent WHERE user_id=? ORDER BY started_at DESC,game_id ASC LIMIT 10",
       )
       .all(userId);
   }

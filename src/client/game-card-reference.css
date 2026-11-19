@@ -32,3 +32,6 @@
 .reference-detail-group { color: #526c65; }
 .reference-value { font-weight: 700; }
 @media(max-width:600px) { .reference-controls { grid-template-columns: 1fr; gap: 10px; } .reference-content { padding: 16px; } .reference-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; } .reference-detail { grid-template-columns: 1fr; gap: 16px; } .reference-detail-art img { max-height: 45dvh; } .game-card-reference > header { padding: 10px 12px; gap: 8px; } }
+
+/* Scope centering to the detail-page action, leaving in-game icon toolbars intact. */
+.platform-surface .game-introduction>.entry-card-reference{display:flex;width:fit-content;max-width:100%;justify-content:center;margin:20px auto 0}

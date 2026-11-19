@@ -1,0 +1,39 @@
+{
+  "generatedWith": "image_gen built-in",
+  "date": "2026-11-02",
+  "style": "Original woodland illustrations; not official published artwork",
+  "prompts": [
+    {
+      "id": "box",
+      "prompt": "A premium three-quarter-view upright board game box, transparent background, whole box with generous padding, no floor, no backdrop. Title exactly TINY TOWNS, readable gold ivory serif letters. Beautiful original painterly miniature woodland animal village, mouse architect carrying blueprints, fox carpenter, rabbit gardener, charming teal cottage, red barn, golden chapel, pale stone well, forest canopy, tiny glass and wood cubes. Warm sun, intricate whimsical storybook illustration, polished tabletop retail box, deep evergreen side spine, brass foil accents. No publisher logos, no other text.",
+      "transparent": true
+    },
+    {
+      "id": "village",
+      "prompt": "Landscape background illustration for a premium woodland miniature city-building board game. Original warm storybook painting, small charming timber-framed houses and red barns around edges, forest clearing with calm pale moss green grassy center intentionally empty for board UI overlay, golden late afternoon sun, teal river, woodland flowers, fox and rabbit villagers very small at edge, beautiful hand painted paper grain, immersive subtle isometric depth, no words, no UI, no grid, no letters.",
+      "transparent": false
+    },
+    {
+      "id": "tokens",
+      "prompt": "Production sprite atlas, transparent background, exactly 4 columns by 2 rows, eight isolated miniature building models, one centered per equally sized cell with large margins, no overlap. Same isometric three quarter camera, warm illustrated 3D wooden tabletop miniature style, recognizable silhouettes, soft ambient shadows contained inside each cell. Reading order: 1 turquoise-roof cozy cottage; 2 scarlet-roof farm barn; 3 pale gray stone circular well; 4 amber orange chapel with tall spire; 5 emerald green roof timber tavern; 6 mustard gold roof theater; 7 charcoal black roof brick factory with chimneys; 8 regal violet roof fantasy castle monument with two towers. Each object fully visible, no text, no numbers, no panels, no dividers. Consistent beautiful charming woodland board-game art.",
+      "transparent": true
+    },
+    {
+      "id": "cards-normal",
+      "prompt": "A production illustrated asset atlas with exactly 5 columns and 5 rows, 25 equally sized square cells, no dividers, no words, no numbers, no UI. Each cell is an independent original close-up storybook woodland miniature building scene with readable single focal building and subtle warm forest background. Consistent beautiful premium board game painterly art, tiny mouse and rabbit villagers, rich sunlight, isometric depth. Reading order 25 cells: cozy teal cottage; scarlet farm barn with fields; red granary with sacks; red-trim glass greenhouse; orchard with red-roof shed; circular stone well; gray-roof storage shed; stone fountain; millstone grinding shed; orange spire chapel; isolated orange abbey; orange cloister with garden; orange temple with columns; green-roof tavern; green feast hall; green-roof woodland inn; green timber almshouse; golden-roof theater with masks; golden bakery with bread; golden market stalls; golden tailor shop with cloth; black-roof brick factory; dark slate bank; black-roof trading post with crates; black-roof warehouse with barrels. Preserve exactly 5x5 spacing, one square illustration per cell.",
+      "transparent": false
+    },
+    {
+      "id": "cards-monuments",
+      "prompt": "A production illustrated asset atlas exactly 5 columns by 3 rows, 15 equal square illustrations, no borders, no text, no numbers. Rich original whimsical woodland fantasy architecture, purple accents on every landmark, warm storybook board game art, miniature animal towns, elegant painterly detail and depth. Reading order: 1 whimsical architect guild of stacked timber houses; 2 grand library archive; 3 medieval twin-tower castle; 4 ornate cathedral with stained glass; 5 fortified stone bastion; 6 violet dome mausoleum; 7 university with courtyard; 8 regal palace with violet roofs; 9 tall winding observation watchtower; 10 gold crescent-topped obelisk; 11 ancient huge sacred tree with tiny altar; 12 circular public forum plaza; 13 floating sky baths on tall columns; 14 magical astronomical observatory at twilight; 15 heroic woodland mouse statue shaking hands with a fox. One complete focal landmark per square, coherent original art direction, crisp buildings, not cropped across boundaries. Exactly 5x3 uniform cells.",
+      "transparent": false
+    }
+  ],
+  "outputs": {
+    "cover": "cover.webp",
+    "background": "village.webp",
+    "pieces": "building-0.webp … building-7.webp",
+    "cards": "card-<card-id>.webp (40 atlas crops)"
+  },
+  "processing": "Sharp WebP conversion and equal grid crops; no generated text; rule patterns and Thai copy rendered by UI."
+}

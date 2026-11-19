@@ -1,3 +1,4 @@
+import {closeIcon} from './compact-game-ui.js';
 import type {GameId} from '../shared/types.js';
 import {metadata} from '../shared/catalog.js';
 import {esc} from './platform.js';
@@ -13,7 +14,7 @@ async function open(id:GameId,trigger:HTMLButtonElement){
  if(active?.open)return;
  const dialog=active=document.createElement('dialog');dialog.className='game-card-reference';dialog.setAttribute('aria-labelledby','reference-title');
  const label=components.has(id)?'อุปกรณ์และความสามารถ':'คลังการ์ด';
- dialog.innerHTML=`<header><button type="button" data-reference-back hidden aria-label="กลับไปการ์ดทั้งหมด">← กลับ</button><h2 id="reference-title">${label} · ${esc(metadata(id)?.name)}</h2><button type="button" data-reference-close aria-label="ปิดคลังการ์ด">×</button></header><div class="reference-content"><p role="status">กำลังโหลด${label}…</p></div>`;
+ dialog.innerHTML=`<header><button type="button" data-reference-back hidden aria-label="กลับไปการ์ดทั้งหมด">← กลับ</button><h2 id="reference-title">${label} · ${esc(metadata(id)?.name)}</h2><button type="button" data-reference-close aria-label="ปิดคลังการ์ด">${id==='friday'||id==='tiny-towns'?closeIcon:'×'}</button></header><div class="reference-content"><p role="status">กำลังโหลด${label}…</p></div>`;
  dialog.querySelector<HTMLButtonElement>('[data-reference-close]')!.onclick=()=>dialog.close();
  dialog.onclose=()=>{dialog.remove();if(active===dialog)active=undefined;const target=trigger.isConnected?trigger:document.querySelector<HTMLButtonElement>(`[data-card-reference="${id}"]`);target?.focus({preventScroll:true});};
  document.body.append(dialog);dialog.showModal();
